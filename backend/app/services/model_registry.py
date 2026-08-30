@@ -70,7 +70,7 @@ async def seed_model_registry(db: AsyncSession) -> None:
             ),
             "model_type": artifact.get("model_type", "classification"),
             "version": version,
-            "training_dataset": training_config.get("dataset", "aptos2019"),
+            "training_dataset": training_config.get("dataset") or artifact.get("dataset_version") or "not specified",
             "input_size": str(config.get("input_size", "")),
             "performance_metrics": {"validation": artifact.get("validation_metrics"), "clinical_validation_claim": False},
             "training_config": training_config,

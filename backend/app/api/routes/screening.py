@@ -20,7 +20,7 @@ from app.models.retinaguard_result import RetinaGuardResult
 from app.ml.evidence.service import RetinalEvidenceService
 from app.ml.inference.classifier import ClassifierNotConfiguredError, TorchDRClassificationService
 from app.ml.explainability.service import ExplainabilityService
-from app.ml.trust.guard import RetinaGuardEngine, RetinaGuardInputs, derive_lesion_evidence_strength
+from app.ml.trust.guard import RetinaGuardEngine, RetinaGuardInputs, derive_lesion_evidence_strength, derive_vessel_evidence_status
 from app.services.screening_pipeline import RUN_STAGES, ScreeningPipelineService
 from app.services.container import get_classifier_service
 from app.storage.container import get_storage
@@ -306,6 +306,7 @@ async def trust_screening(
         classifier_logits=prediction.severity_logits,
         model_predictions=additional_predictions,
         lesion_evidence_strength=derive_lesion_evidence_strength(evidence),
+        vessel_evidence_status=derive_vessel_evidence_status(evidence),
         attention_lesion_agreement=agreement,
         explanation_stability=stability,
         quality_feature_vector={key: float(value) for key, value in feature_vector.items() if isinstance(value, (int, float))},

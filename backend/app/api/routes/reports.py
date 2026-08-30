@@ -131,7 +131,9 @@ def _build_payload(session: ScreeningSession, image: FundusImage, patient: Patie
 def _evidence_summary(lesions: dict | None) -> list[dict]:
     values = []
     for name, module in ((lesions or {}).get("modules") or {}).items():
-        values.append({"lesion_type": name, "status": module.get("status"), "count": module.get("count"), "confidence": module.get("confidence"), "supported": module.get("supported")})
+        item = {"module": name, "status": module.get("status"), "implementation": module.get("implementation"), "count": module.get("count"), "confidence": module.get("confidence"), "supported": module.get("supported")}
+        item["structure_type" if module.get("category") == "segmentation" else "lesion_type"] = name
+        values.append(item)
     return values
 
 
@@ -155,7 +157,7 @@ def _pdf_bytes(report: ReportPayload) -> bytes:
         "IMAGE QUALITY", f"Decision: {report.image_quality.get('decision', 'Unavailable')}", f"Score: {report.image_quality.get('score', 'Unavailable')}", "",
         "RETINAGUARD", f"Trust score: {trust.get('trust_score', 'Unavailable')}", f"Trust category: {trust.get('trust_category', 'Unavailable')}",
         "Reasons: " + "; ".join(trust.get("reason_summary", []))[:400], "",
-        "CLINICAL EVIDENCE", "Lesion summary: " + json.dumps(report.clinical_evidence.get("summary", []), default=str)[:600],
+        "CLINICAL EVIDENCE", "Evidence summary: " + json.dumps(report.clinical_evidence.get("summary", []), default=str)[:600],
         "", "CLINICIAN DECISION", json.dumps(report.clinician_decision, default=str) if report.clinician_decision else "Pending human review.",
         "", report.disclaimer,
     ]

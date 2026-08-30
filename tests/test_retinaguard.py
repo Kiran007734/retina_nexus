@@ -6,7 +6,7 @@ sys.path.insert(0, str(ROOT / "backend"))
 
 from app.ml.trust.calibration import TemperatureScaler  # noqa: E402
 from app.ml.trust.disagreement import calculate_model_disagreement  # noqa: E402
-from app.ml.trust.guard import RetinaGuardEngine, RetinaGuardInputs  # noqa: E402
+from app.ml.trust.guard import RetinaGuardEngine, RetinaGuardInputs, derive_vessel_evidence_status  # noqa: E402
 from app.ml.trust.ood import FeatureDistributionMonitor  # noqa: E402
 from app.ml.trust.uncertainty import UncertaintyEstimator  # noqa: E402
 
@@ -89,6 +89,15 @@ def test_retinaguard_unreliable_path_reports_reasons():
     assert "high_model_disagreement" in codes
     assert "distribution_shift" in codes
     assert result.recommended_action.startswith("Recapture")
+
+
+def test_vessel_evidence_provenance_is_explicit_and_not_a_score_factor():
+    assert derive_vessel_evidence_status({"modules": {"vessel_segmentation": {"supported": True, "status": "model_inference"}}}) == "REAL_MODEL_EVIDENCE"
+    assert derive_vessel_evidence_status({"modules": {"vessel_segmentation": {"supported": True, "status": "experimental_heuristic"}}}) == "EXPERIMENTAL_BASELINE"
+    assert derive_vessel_evidence_status({"modules": {"vessel_segmentation": {"supported": False, "status": "unsupported"}}}) == "UNAVAILABLE"
+    result = RetinaGuardEngine().evaluate(RetinaGuardInputs(vessel_evidence_status="REAL_MODEL_EVIDENCE"))
+    assert result.signal_snapshot["vessel_evidence_status"] == "REAL_MODEL_EVIDENCE"
+    assert "vessel_evidence_policy" in result.configuration
 
 
 def test_missing_signals_cannot_be_marked_trusted():

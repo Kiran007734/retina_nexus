@@ -15,6 +15,7 @@ from app.ml.inference.classifier import TorchDRClassificationService
 from app.ml.models.classifier import ReferableDRMapping
 from app.ml.evidence.service import RetinalEvidenceService
 from app.ml.evidence.lesion_model import MODEL_CLASS_TO_MODULE, PretrainedRetinalLesionAdapter
+from app.ml.evidence.vessel_model import PretrainedRetinalVesselAdapter
 from app.ml.explainability.service import ExplainabilityService
 from app.ml.trust.calibration import TemperatureScaler
 from app.ml.trust.guard import RetinaGuardEngine
@@ -72,11 +73,20 @@ def get_evidence_service() -> RetinalEvidenceService:
         threshold=settings.lesion_model_threshold,
         version=settings.lesion_model_version,
     )
-    adapters = {module: lesion_adapter for module in MODEL_CLASS_TO_MODULE.values()} if lesion_adapter.is_configured else {}
+    vessel_adapter = PretrainedRetinalVesselAdapter(
+        model_path=settings.vessel_model_path,
+        device=settings.vessel_model_device,
+        threshold=settings.vessel_model_threshold,
+        version=settings.vessel_model_version,
+    )
+    adapters = {"vessel_segmentation": vessel_adapter}
+    if lesion_adapter.is_configured:
+        adapters.update({module: lesion_adapter for module in MODEL_CLASS_TO_MODULE.values()})
     return RetinalEvidenceService(
         max_dimension=settings.evidence_max_dimension,
         enable_heuristics=settings.evidence_enable_heuristics,
         model_adapters=adapters,
+        enable_vessel_baseline=settings.evidence_enable_vessel_baseline,
     )
 
 

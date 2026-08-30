@@ -50,6 +50,10 @@ ml/weights/**
 !ml/weights/lesion_segmentation/**/
 !ml/weights/lesion_segmentation/**/model_manifest.json
 !ml/weights/lesion_segmentation/README.md
+!ml/weights/vessel_segmentation/
+!ml/weights/vessel_segmentation/**/
+!ml/weights/vessel_segmentation/**/model_manifest.json
+!ml/weights/vessel_segmentation/README.md
 ml/experiments/**
 !ml/experiments/.gitkeep
 ml/ood/**

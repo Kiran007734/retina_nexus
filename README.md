@@ -120,6 +120,20 @@ the source, license, architecture, checksum, supported classes, and the
 explicit Phase 3 vessel-segmentation boundary. The checkpoint is ignored by
 Git and is supporting evidence only; it is not a clinical validation claim.
 
+To install and verify the real pretrained vessel evidence model:
+
+```powershell
+pip install -r backend/requirements-ml.txt
+python scripts/acquire_vessel_model.py
+python scripts/acquire_vessel_model.py --verify-only
+```
+
+See [docs/VESSEL_MODEL_INTEGRATION.md](docs/VESSEL_MODEL_INTEGRATION.md) for
+the R2-V2 source, license, preprocessing contract, checksum, unsupported
+behavior, and DRIVE evaluation boundary. The default pipeline does not enable
+the old classical-CV vessel baseline; set `EVIDENCE_ENABLE_VESSEL_BASELINE=true`
+only for explicitly labelled experimental comparison.
+
 ## Inference
 
 Set `CLASSIFIER_MODEL_PATH` to a trained and registered artifact, then start

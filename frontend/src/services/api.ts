@@ -67,6 +67,8 @@ export type EvidenceModule = {
   confidence?: number | null;
   count?: number | null;
   mask_data_uri?: string | null;
+  probability_map_data_uri?: string | null;
+  overlay_data_uri?: string | null;
   bounding_regions: Array<{ x: number; y: number; width: number; height: number; score?: number; area?: number }>;
   landmarks: Array<Record<string, number | string>>;
   issues: Array<{ type: string; message: string }>;

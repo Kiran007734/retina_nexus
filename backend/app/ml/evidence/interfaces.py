@@ -42,6 +42,8 @@ class EvidenceModuleResult:
     confidence: float | None = None
     count: int | None = None
     mask_data_uri: str | None = None
+    probability_map_data_uri: str | None = None
+    overlay_data_uri: str | None = None
     bounding_regions: list[dict[str, Any]] = field(default_factory=list)
     landmarks: list[dict[str, Any]] = field(default_factory=list)
     issues: list[dict[str, str]] = field(default_factory=list)
@@ -57,6 +59,8 @@ class EvidenceModuleResult:
             "confidence": self.confidence,
             "count": self.count,
             "mask_data_uri": self.mask_data_uri,
+            "probability_map_data_uri": self.probability_map_data_uri,
+            "overlay_data_uri": self.overlay_data_uri,
             "bounding_regions": self.bounding_regions,
             "landmarks": self.landmarks,
             "issues": self.issues,

@@ -14,6 +14,8 @@ class EvidenceModuleResponse(BaseModel):
     confidence: float | None = None
     count: int | None = None
     mask_data_uri: str | None = None
+    probability_map_data_uri: str | None = None
+    overlay_data_uri: str | None = None
     bounding_regions: list[dict] = Field(default_factory=list)
     landmarks: list[dict] = Field(default_factory=list)
     issues: list[dict[str, str]] = Field(default_factory=list)

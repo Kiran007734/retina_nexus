@@ -32,6 +32,19 @@ def derive_lesion_evidence_strength(evidence: Any) -> float | None:
     return _clamp(sum(strengths) / len(strengths)) if strengths else None
 
 
+def derive_vessel_evidence_status(evidence: Any) -> str:
+    """Classify vessel provenance for audit/display without changing trust score."""
+    modules = evidence.modules if hasattr(evidence, "modules") else (evidence or {}).get("modules", {})
+    vessel = modules.get("vessel_segmentation") or {}
+    if not vessel.get("supported"):
+        return "UNAVAILABLE"
+    if vessel.get("status") == "model_inference":
+        return "REAL_MODEL_EVIDENCE"
+    if vessel.get("status") == "experimental_heuristic":
+        return "EXPERIMENTAL_BASELINE"
+    return "UNAVAILABLE"
+
+
 @dataclass
 class RetinaGuardInputs:
     quality_score: float | None = None
@@ -43,6 +56,7 @@ class RetinaGuardInputs:
     mc_error: str | None = None
     model_predictions: list[dict[str, Any]] = field(default_factory=list)
     lesion_evidence_strength: float | None = None
+    vessel_evidence_status: str = "UNAVAILABLE"
     attention_lesion_agreement: dict[str, Any] | None = None
     explanation_stability: dict[str, Any] | None = None
     ood: dict[str, Any] | None = None
@@ -182,8 +196,9 @@ class RetinaGuardEngine:
             "calibrated_confidence": calibrated_confidence, "uncertainty_score": uncertainty.get("score"),
             "lesion_evidence_strength": inputs.lesion_evidence_strength, "attention_lesion_agreement": inputs.attention_lesion_agreement,
             "explanation_stability": inputs.explanation_stability, "ood": ood,
+            "vessel_evidence_status": inputs.vessel_evidence_status or "UNAVAILABLE",
         }
-        configuration = {"version": self.version, "weights": self.weights, "missing_signal_score": self.missing_signal_score, "trusted_threshold": self.trusted_threshold, "unreliable_threshold": self.unreliable_threshold, "calibration_version": self.calibrator.version, "mc_dropout_enabled": self.mc_dropout_enabled, "mc_dropout_samples": self.mc_dropout_samples}
+        configuration = {"version": self.version, "weights": self.weights, "missing_signal_score": self.missing_signal_score, "trusted_threshold": self.trusted_threshold, "unreliable_threshold": self.unreliable_threshold, "calibration_version": self.calibrator.version, "mc_dropout_enabled": self.mc_dropout_enabled, "mc_dropout_samples": self.mc_dropout_samples, "vessel_evidence_policy": "provenance_audit_only; no independent trust-score weight"}
         result = RetinaGuardResult(trust_score, category, contributing, risk_flags, action, calibration, uncertainty, disagreement, ood, signal_snapshot, configuration, reason_summary)
         logger.info("retinaguard.score", extra={"trust_score": result.trust_score, "trust_category": result.trust_category, "configuration_version": self.version, "risk_flags": result.risk_flags})
         return result

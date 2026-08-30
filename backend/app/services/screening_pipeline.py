@@ -23,7 +23,7 @@ from app.ml.evidence.service import RetinalEvidenceAnalysis, RetinalEvidenceServ
 from app.ml.explainability.service import ExplainabilityAnalysis, ExplainabilityService
 from app.ml.inference.classifier import ClassifierNotConfiguredError, DRPrediction, TorchDRClassificationService
 from app.ml.quality.trust_gate import ImageTrustGateError, ImageTrustGateService, TrustGateDecision, TrustGateOutcome
-from app.ml.trust.guard import RetinaGuardEngine, RetinaGuardInputs, RetinaGuardResult, derive_lesion_evidence_strength
+from app.ml.trust.guard import RetinaGuardEngine, RetinaGuardInputs, RetinaGuardResult, derive_lesion_evidence_strength, derive_vessel_evidence_status
 
 logger = logging.getLogger(__name__)
 
@@ -159,7 +159,7 @@ class ScreeningPipelineService:
             inputs = RetinaGuardInputs(
                 quality_score=final_quality.get("quality_score"), raw_confidence=prediction.raw_confidence,
                 probabilities=prediction.probabilities, classifier_logits=prediction.severity_logits,
-                model_predictions=additional, lesion_evidence_strength=derive_lesion_evidence_strength(evidence),
+                model_predictions=additional, lesion_evidence_strength=derive_lesion_evidence_strength(evidence), vessel_evidence_status=derive_vessel_evidence_status(evidence),
                 attention_lesion_agreement=explanation.attention_lesion_agreement,
                 explanation_stability=explanation.explanation_stability,
                 quality_feature_vector={key: float(value) for key, value in final_quality.get("feature_vector", {}).items() if isinstance(value, (int, float))},
@@ -294,8 +294,8 @@ class ScreeningPipelineService:
 
     @staticmethod
     def _lesion_payload(evidence: RetinalEvidenceAnalysis) -> dict[str, Any]:
-        modules = {name: module for name, module in evidence.modules.items() if module.get("category") == "lesion_detection" or name == "exudate_segmentation"}
-        return {"status": evidence.status, "modules": modules, "evidence_map_data_uri": evidence.evidence_map_data_uri, "note": "Lesion modules are supporting evidence and do not replace the DR classifier."}
+        modules = {name: module for name, module in evidence.modules.items() if module.get("category") == "lesion_detection" or name in {"exudate_segmentation", "vessel_segmentation"}}
+        return {"status": evidence.status, "modules": modules, "evidence_map_data_uri": evidence.evidence_map_data_uri, "note": "Vessel and lesion modules are supporting evidence and do not replace the DR classifier."}
 
     @staticmethod
     def _triage_payload(prediction: DRPrediction, guard: RetinaGuardResult) -> dict[str, Any]:

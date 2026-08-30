@@ -21,12 +21,14 @@ classifier-sized whole-image resize.
 
 ## Module status and safety boundary
 
-The development runtime includes transparent classical-CV baselines for
-vessel masks and optic-disc localization, an optic-disc-relative fovea
-approximation, and experimental candidate-region heuristics for
-microaneurysms, hemorrhages, and exudates. These outputs are labelled
-experimental and include clinical_validation_claim=false. They are not
-clinical findings.
+The runtime uses the verified R2-V2 `bv` model for vessel masks when the local
+artifact is present. See [VESSEL_MODEL_INTEGRATION.md](VESSEL_MODEL_INTEGRATION.md).
+If explicitly enabled, the previous classical-CV vessel mask is labelled
+`EXPERIMENTAL BASELINE — NOT MODEL-BACKED`; it is disabled by default and is
+never substituted for a configured model failure. Optic-disc localization,
+the optic-disc-relative fovea approximation, and experimental candidate-region
+heuristics for microaneurysms, hemorrhages, and exudates remain explicitly
+labelled engineering outputs. They are not clinical findings.
 
 Neovascularization is currently an experimental interface only and returns
 unsupported until a validated model and compatible annotations are configured.
@@ -39,8 +41,8 @@ The model interfaces are framework-neutral protocols:
 - LandmarkLocalizer for optic-disc/fovea coordinates
 - EvidenceModelAdapter for injecting a trained module without changing the API
 
-No trained evidence weights are bundled. An adapter must be explicitly
-injected or configured by a future model promotion process.
+Lesion and vessel weights are not bundled. They are acquired through their
+documented scripts and are loaded only after artifact/configuration checks.
 
 ## Dataset annotation support
 
@@ -54,13 +56,14 @@ support requires compatible, present annotations for the requested lesion
 module. A missing label produces unsupported status; the system never creates
 or infers annotations to make a module appear supported.
 
-DRIVE vessel experiments are available through:
+DRIVE quantitative evaluation is available when authorized paired data exists:
 
     python scripts/train_vessel_segmentation.py --raw-dir ml/datasets/raw/drive
     python scripts/evaluate_vessel_segmentation.py --checkpoint <checkpoint>
 
-These scripts write measured mask metrics and artifact provenance, not
-clinical validation claims.
+These scripts target the existing compact DRIVE training checkpoint. The
+pretrained R2-V2 adapter has separate real-inference verification; no DRIVE
+metrics are reported until authorized ground-truth masks are present.
 
 ## API
 

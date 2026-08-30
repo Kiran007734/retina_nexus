@@ -125,6 +125,21 @@ def _evidence_overlay(layers: list[tuple[np.ndarray, tuple[int, int, int], int]]
     return _png_data_uri(canvas)
 
 
+def _mask_from_data_uri(data_uri: str | None, shape: tuple[int, int]) -> np.ndarray | None:
+    """Decode an adapter's transparent mask for the combined evidence map."""
+    if not data_uri or not data_uri.startswith("data:image/"):
+        return None
+    try:
+        encoded = data_uri.split(",", 1)[1]
+        with Image.open(io.BytesIO(base64.b64decode(encoded))) as image:
+            rgba = np.asarray(image.convert("RGBA"))
+        if rgba.shape[:2] != shape:
+            return None
+        return rgba[:, :, 3] > 0
+    except (ValueError, OSError, IndexError):
+        return None
+
+
 def _unsupported(module: str, category: str, reason: str, implementation: str = "none") -> EvidenceModuleResult:
     return EvidenceModuleResult(
         module=module, category=category, status="unsupported", supported=False,
@@ -163,10 +178,11 @@ class RetinalEvidenceAnalysis:
 class RetinalEvidenceService:
     """Run global context, region proposals, patches, and local evidence modules."""
 
-    def __init__(self, max_dimension: int = 768, enable_heuristics: bool = True, model_adapters: dict[str, EvidenceModelAdapter] | None = None):
+    def __init__(self, max_dimension: int = 768, enable_heuristics: bool = True, model_adapters: dict[str, EvidenceModelAdapter] | None = None, enable_vessel_baseline: bool = False):
         self.max_dimension = max_dimension
         self.enable_heuristics = enable_heuristics
         self.model_adapters = model_adapters or {}
+        self.enable_vessel_baseline = enable_vessel_baseline
         self.input_validator = ImageTrustGateService()
 
     async def analyze(self, image_bytes: bytes, image_id: str, screening_session_id: str, eye: str | None = None) -> RetinalEvidenceAnalysis:
@@ -211,21 +227,28 @@ class RetinalEvidenceService:
         modules: dict[str, dict[str, Any]] = {}
         landmarks: list[dict[str, Any]] = []
 
-        vessel_mask = self._vessel_mask(rgb, retina_mask)
-        vessel_baseline = EvidenceModuleResult(
-            module="vessel_segmentation", category="segmentation", status="experimental_heuristic",
-            supported=True, implementation="classical_cv_baseline", confidence=_clamp(0.18 + float(np.mean(vessel_mask)) * 2.0),
-            mask_data_uri=_png_data_uri(vessel_mask, (0, 210, 120), 145),
-            metadata={"pixel_count": int(vessel_mask.sum()), "coverage_ratio": round(float(vessel_mask.mean()), 6), "model_interface": "SegmentationModel", "clinical_validation_claim": False},
-            issues=[{"type": "experimental_baseline", "message": "Classical vessel enhancement baseline; not clinically validated."}],
-        )
-        vessel = self._module_or_adapter(
-            "vessel_segmentation", "segmentation", rgb, context,
-            vessel_baseline if self.enable_heuristics else _unsupported("vessel_segmentation", "segmentation", "Heuristic vessel processing is disabled and no trained segmentation adapter is configured.", "none"),
-        )
+        vessel_baseline = None
+        if self.enable_vessel_baseline and self.enable_heuristics:
+            vessel_mask = self._vessel_mask(rgb, retina_mask)
+            vessel_baseline = EvidenceModuleResult(
+                module="vessel_segmentation", category="segmentation", status="experimental_heuristic",
+                supported=True, implementation="classical_cv_baseline", confidence=_clamp(0.18 + float(np.mean(vessel_mask)) * 2.0),
+                mask_data_uri=_png_data_uri(vessel_mask, (0, 210, 120), 145),
+                metadata={"pixel_count": int(vessel_mask.sum()), "coverage_ratio": round(float(vessel_mask.mean()), 6), "model_interface": "SegmentationModel", "measurement_status": "ENGINEERING_ESTIMATE", "clinical_validation_claim": False},
+                issues=[{"type": "experimental_baseline", "message": "EXPERIMENTAL BASELINE — NOT MODEL-BACKED; classical vessel enhancement is not clinically validated."}],
+            )
+        vessel = self._run_adapter("vessel_segmentation", "segmentation", rgb, context)
+        if vessel is None:
+            vessel = vessel_baseline or _unsupported(
+                "vessel_segmentation", "segmentation",
+                "No verified model-backed vessel segmentor is configured. The classical-CV baseline is disabled by default; run the documented acquisition command or explicitly enable the experimental baseline.",
+                "none",
+            )
         modules[vessel.module] = vessel.to_dict()
-        if vessel.supported and vessel_mask.any():
-            layers.append((vessel_mask, (0, 210, 120), 125))
+        if vessel.supported:
+            vessel_layer = vessel_mask if vessel.status == "experimental_heuristic" else _mask_from_data_uri(vessel.mask_data_uri, (height, width))
+            if vessel_layer is not None and vessel_layer.any():
+                layers.append((vessel_layer, (0, 210, 120), 125))
 
         disc_mask, disc_landmark = self._optic_disc(gray, retina_mask)
         optic_adapter = self._run_adapter("optic_disc_localization", "landmark", rgb, context)
@@ -321,12 +344,12 @@ class RetinalEvidenceService:
                 "global_context": context,
                 "suspicious_region_proposals": proposals,
                 "high_resolution_patch_extraction": {"patch_size": patch_size, "patches": patches},
-                "local_analysis": {"modules": list(modules), "note": "Patch detectors receive the proposed regions; baseline outputs are explicitly experimental."},
+                "local_analysis": {"modules": list(modules), "note": "Configured model-backed modules return real inference; unconfigured baselines and approximations remain explicitly experimental."},
             },
             modules=modules, anatomical_landmarks=landmarks,
             evidence_map_data_uri=_evidence_overlay(layers, (height, width)) if layers else None,
             dataset_support=evidence_dataset_support(),
-            note="Clinical evidence layer is distinct from DR classification. Baseline outputs are engineering/visualization artifacts, not clinical findings; trained modules require authorized annotations and validation.",
+            note="Clinical evidence layer is distinct from DR classification. Model-backed vessel/lesion outputs are supporting engineering evidence; experimental baselines and approximations are explicitly labelled and are not clinical findings.",
         )
 
     def _module_or_adapter(self, module: str, category: str, image_rgb: np.ndarray, context: dict[str, Any], baseline: EvidenceModuleResult) -> EvidenceModuleResult:

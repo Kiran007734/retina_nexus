@@ -12,3 +12,4 @@ kagglehub>=1.0.2,<2.0
 torchseg==0.0.1a1
 safetensors>=0.4.5
 huggingface_hub>=0.25.0
+scikit-image>=0.24.0
