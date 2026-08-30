@@ -107,6 +107,19 @@ weighted sampling, mixed precision, checkpoints, early stopping, seeds, and
 experimental ordinal mode. Official pretrained-weight downloads fail clearly
 when unavailable. No target metric is claimed without measured validation.
 
+To install and verify the optional pretrained retinal-lesion evidence model:
+
+```powershell
+pip install -r backend/requirements-ml.txt
+python scripts/acquire_lesion_model.py
+python scripts/acquire_lesion_model.py --verify-only
+```
+
+See [docs/LESION_MODEL_INTEGRATION.md](docs/LESION_MODEL_INTEGRATION.md) for
+the source, license, architecture, checksum, supported classes, and the
+explicit Phase 3 vessel-segmentation boundary. The checkpoint is ignored by
+Git and is supporting evidence only; it is not a clinical validation claim.
+
 ## Inference
 
 Set `CLASSIFIER_MODEL_PATH` to a trained and registered artifact, then start

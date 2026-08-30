@@ -32,6 +32,10 @@ class Settings(BaseSettings):
     referable_min_grade: int = Field(default=2, ge=1, le=4)
     evidence_enable_heuristics: bool = True
     evidence_max_dimension: int = Field(default=768, ge=256, le=2048)
+    lesion_model_path: str | None = None
+    lesion_model_version: str = "fundus-lesions-unet-seresnext50-all-v1"
+    lesion_model_device: str = "auto"
+    lesion_model_threshold: float = Field(default=0.5, ge=0.05, le=0.95)
     explainability_stability_enabled: bool = False
     explainability_counterfactual_enabled: bool = False
     explainability_max_stability_variants: int = Field(default=3, ge=1, le=5)

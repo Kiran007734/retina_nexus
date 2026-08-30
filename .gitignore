@@ -20,6 +20,8 @@ backend/.pytest_cache/
 .vscode/
 coverage.xml
 htmlcov/
+*.out.log
+*.err.log
 ml/datasets/raw/**
 !ml/datasets/raw/.gitkeep
 !ml/datasets/raw/aptos2019/
@@ -44,6 +46,10 @@ ml/datasets/metadata/*_report.json
 !ml/datasets/metadata/data_leakage_report.json
 ml/weights/**
 !ml/weights/.gitkeep
+!ml/weights/lesion_segmentation/
+!ml/weights/lesion_segmentation/**/
+!ml/weights/lesion_segmentation/**/model_manifest.json
+!ml/weights/lesion_segmentation/README.md
 ml/experiments/**
 !ml/experiments/.gitkeep
 ml/ood/**

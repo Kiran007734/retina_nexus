@@ -14,6 +14,7 @@ from app.ml.quality.trust_gate import ImageTrustGateService
 from app.ml.inference.classifier import TorchDRClassificationService
 from app.ml.models.classifier import ReferableDRMapping
 from app.ml.evidence.service import RetinalEvidenceService
+from app.ml.evidence.lesion_model import MODEL_CLASS_TO_MODULE, PretrainedRetinalLesionAdapter
 from app.ml.explainability.service import ExplainabilityService
 from app.ml.trust.calibration import TemperatureScaler
 from app.ml.trust.guard import RetinaGuardEngine
@@ -65,9 +66,17 @@ def get_classifier_service() -> TorchDRClassificationService:
 @lru_cache
 def get_evidence_service() -> RetinalEvidenceService:
     settings = get_settings()
+    lesion_adapter = PretrainedRetinalLesionAdapter(
+        model_path=settings.lesion_model_path,
+        device=settings.lesion_model_device,
+        threshold=settings.lesion_model_threshold,
+        version=settings.lesion_model_version,
+    )
+    adapters = {module: lesion_adapter for module in MODEL_CLASS_TO_MODULE.values()} if lesion_adapter.is_configured else {}
     return RetinalEvidenceService(
         max_dimension=settings.evidence_max_dimension,
         enable_heuristics=settings.evidence_enable_heuristics,
+        model_adapters=adapters,
     )
 
 

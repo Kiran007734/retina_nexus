@@ -15,10 +15,11 @@ export function EvidenceViewer({ imageId, evidence, loading, error }: EvidenceVi
   const [opacity, setOpacity] = useState(0.72);
   const vessel = evidence?.modules.vessel_segmentation;
   const opticDisc = evidence?.modules.optic_disc_localization;
-  const lesionModules = evidence ? ['microaneurysm_detection', 'hemorrhage_detection', 'exudate_segmentation', 'neovascularization_detection'].map((key) => evidence.modules[key]).filter(Boolean) : [];
+  const lesionModules = evidence ? ['cotton_wool_spot_detection', 'microaneurysm_detection', 'hemorrhage_detection', 'exudate_segmentation', 'neovascularization_detection'].map((key) => evidence.modules[key]).filter(Boolean) : [];
+  const hasPretrainedEvidence = lesionModules.some((module) => module.status === 'model_inference');
   const fovea = evidence?.anatomical_landmarks.find((landmark) => landmark.landmark_type === 'fovea');
 
-  return <div className="card overflow-hidden"><div className="flex flex-col justify-between gap-3 border-b border-line px-5 py-4 sm:flex-row sm:items-center"><div><p className="eyebrow">Clinical evidence</p><h3 className="section-title mt-1 text-base font-extrabold">Evidence viewer</h3></div>{loading ? <StatusBadge tone="teal"><LoaderCircle size={13} className="animate-spin" /> Analyzing structures</StatusBadge> : evidence ? <StatusBadge tone="neutral">Baseline overlays</StatusBadge> : <StatusBadge tone="neutral">Not available</StatusBadge>}</div>
+  return <div className="card overflow-hidden"><div className="flex flex-col justify-between gap-3 border-b border-line px-5 py-4 sm:flex-row sm:items-center"><div><p className="eyebrow">Clinical evidence</p><h3 className="section-title mt-1 text-base font-extrabold">Evidence viewer</h3></div>{loading ? <StatusBadge tone="teal"><LoaderCircle size={13} className="animate-spin" /> Analyzing structures</StatusBadge> : evidence ? <StatusBadge tone={hasPretrainedEvidence ? 'success' : 'neutral'}>{hasPretrainedEvidence ? 'Pretrained lesion model' : 'Experimental overlays'}</StatusBadge> : <StatusBadge tone="neutral">Not available</StatusBadge>}</div>
     {error && <div className="border-b border-amber-100 bg-amber-50 px-5 py-3 text-xs leading-5 text-amber-800">{error}</div>}
     <div className="p-5">
       <div className="relative overflow-hidden rounded-2xl bg-[#132643]"><img src={imageContentUrl(imageId)} alt="Original fundus image" className="block max-h-[470px] min-h-[260px] w-full object-contain" />

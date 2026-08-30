@@ -279,6 +279,7 @@ class RetinalEvidenceService:
         modules[fovea.module] = fovea.to_dict()
 
         lesion_specs = [
+            ("cotton_wool_spot_detection", "lesion_detection", bright_response, (2, max(8, (width * height) // 50000)), (236, 166, 63), "bright cotton-wool-spot candidate regions"),
             ("microaneurysm_detection", "lesion_detection", dark_response, (2, max(8, (width * height) // 60000)), (190, 30, 70), "small dark-red candidate regions"),
             ("hemorrhage_detection", "lesion_detection", dark_response, (max(8, (width * height) // 50000), max(30, (width * height) // 300)), (190, 20, 35), "larger dark candidate regions"),
             ("exudate_segmentation", "segmentation", bright_response, (2, max(8, (width * height) // 50000)), (245, 190, 30), "bright candidate regions"),
@@ -339,7 +340,7 @@ class RetinalEvidenceService:
         if adapter is None:
             return None
         try:
-            result = adapter.analyze(image_rgb, context)
+            result = adapter.analyze(image_rgb, {**context, "requested_module": module})
             result.metadata = {**result.metadata, "adapter_name": adapter.name, "adapter_version": adapter.version}
             return result
         except Exception as exc:

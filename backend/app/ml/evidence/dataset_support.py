@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[4]
 REGISTRY_PATH = ROOT / "ml" / "datasets" / "metadata" / "dataset_registry.json"
 
 LESION_MODULES = (
+    "cotton_wool_spot_detection",
     "microaneurysm_detection",
     "hemorrhage_detection",
     "exudate_segmentation",
@@ -65,6 +66,7 @@ def _idrid_support(module: str) -> dict[str, Any]:
     if not _files_exist(path):
         return {"status": "unsupported", "reason": "IDRiD is not acquired. Place authorized images and compatible lesion annotations under ml/datasets/raw/idrid/."}
     keywords = {
+        "cotton_wool_spot_detection": ("cotton", "cotton_wool", "cotton-wool", "soft_exudate", "soft exudate"),
         "microaneurysm_detection": ("microaneurysm", "micro_aneurysm", "micro-aneurysm"),
         "hemorrhage_detection": ("hemorrhage", "hemorrhages", "haemorrhage"),
         "exudate_segmentation": ("exudate", "exudates", "hardexudate", "soft_exudate", "hard_exudate"),

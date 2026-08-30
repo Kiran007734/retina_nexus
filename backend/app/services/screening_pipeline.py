@@ -123,7 +123,15 @@ class ScreeningPipelineService:
             evidence = await self.evidence_service.analyze(prepared, str(image.id), str(session.id), image.eye.value)
             lesions = self._lesion_payload(evidence)
             run.lesions = lesions
-            run.model_versions = {**(run.model_versions or {}), "retinal_evidence": {name: module.get("implementation") for name, module in evidence.modules.items()}}
+            evidence_versions = {
+                name: {
+                    "implementation": module.get("implementation"),
+                    "model_version": (module.get("metadata") or {}).get("model_version"),
+                    "status": module.get("status"),
+                }
+                for name, module in evidence.modules.items()
+            }
+            run.model_versions = {**(run.model_versions or {}), "retinal_evidence": evidence_versions}
             await self._set_stage(db, run, actor_id, "retinal_structure_analysis", "COMPLETED", {"module_count": len(evidence.modules)})
             await self._set_stage(db, run, actor_id, "lesion_detection", "COMPLETED", {"supported_module_count": sum(1 for module in evidence.modules.values() if module.get("supported"))})
 

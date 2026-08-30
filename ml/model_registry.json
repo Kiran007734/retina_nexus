@@ -1,0 +1,38 @@
+{
+  "registry_version": "1.0.0",
+  "artifacts": [
+    {
+      "artifact_kind": "FINE_TUNED_MODEL",
+      "artifact_status": "MODEL_TRAINED",
+      "availability_status": "MODEL_MISSING",
+      "model_name": "RETINA-NEXUS EfficientNet-B0 DR classifier",
+      "model_type": "classification",
+      "model_version": "efficientnet-b0-aptos2019-20260830-v1",
+      "checkpoint": "ml\\weights\\classifiers\\aptos2019\\efficientnet-b0-aptos2019-20260830-v1\\checkpoint_best.pt",
+      "dataset_version": "aptos2019-inventory-0738551f82b4",
+      "model_config": {"backbone": "efficientnet_b0", "input_size": 224, "num_classes": 5, "ordinal_mode": false},
+      "class_mapping": {"0": "No DR", "1": "Mild", "2": "Moderate", "3": "Severe", "4": "Proliferative DR"},
+      "training_config": {"dataset": "aptos2019", "referable_mapping": {"name": "grade_2_or_worse", "referable_grades": [2, 3, 4]}, "clinical_validation_claim": false},
+      "clinical_validation_claim": false,
+      "note": "The checkpoint is intentionally excluded from Git. Re-run the documented APTOS training workflow to create it locally."
+    },
+    {
+      "artifact_kind": "EXPERIMENTAL",
+      "artifact_status": "MODEL_DOWNLOADED",
+      "availability_status": "MODEL_MISSING",
+      "model_name": "fundus-lesions-toolkit U-Net SE-ResNeXt-50",
+      "model_type": "semantic_segmentation",
+      "model_version": "fundus-lesions-unet-seresnext50-all-v1",
+      "checkpoint": "ml\\weights\\lesion_segmentation\\fundus-lesions-unet-seresnext50-all-v1\\model.safetensors",
+      "checkpoint_sha256": "a7a7cb45b92328f7c9a8e581eec3944fd435d37fae8cbf340b1319c5f987c6d2",
+      "dataset_version": "IDRiD-DDR-FGADR-MESSIDOR-RETLES-author-reported",
+      "model_config": {"architecture": "U-Net with SE-ResNeXt-50 32x4d encoder", "input_size": 1024, "num_classes": 5, "classes": {"0": "background", "1": "cotton_wool_spot", "2": "exudate", "3": "hemorrhage", "4": "microaneurysm"}},
+      "training_config": {"source": "ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d", "trained_on": ["IDRiD", "DDR", "FGADR", "MESSIDOR", "RETLES"], "license": "MIT", "clinical_validation_claim": false},
+      "source": "https://huggingface.co/ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+      "source_revision": "a2cfcb594e483d8baa17f24e1152009641cb9847",
+      "source_code": "https://github.com/ClementPla/fundus-lesions-toolkit",
+      "clinical_validation_claim": false,
+      "note": "Research model used for supporting evidence only. Download with scripts/acquire_lesion_model.py if the local artifact is missing."
+    }
+  ]
+}

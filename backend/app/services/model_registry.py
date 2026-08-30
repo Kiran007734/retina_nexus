@@ -32,7 +32,9 @@ def artifact_registry_path() -> Path:
     """Locate the generated ML registry in both source and container layouts."""
     candidates = (
         _repository_root() / "ml" / "weights" / "model_registry.json",
+        _repository_root() / "ml" / "model_registry.json",
         Path.cwd() / "ml" / "weights" / "model_registry.json",
+        Path.cwd() / "ml" / "model_registry.json",
     )
     return next((candidate for candidate in candidates if candidate.exists()), candidates[0])
 
@@ -62,8 +64,11 @@ async def seed_model_registry(db: AsyncSession) -> None:
         config = artifact.get("model_config") or {}
         training_config = artifact.get("training_config") or {}
         values = {
-            "model_name": "RETINA-NEXUS DR classifier",
-            "model_type": "classification",
+            "model_name": artifact.get(
+                "model_name",
+                "RETINA-NEXUS DR classifier" if artifact.get("model_type", "classification") == "classification" else "RETINA-NEXUS evidence model",
+            ),
+            "model_type": artifact.get("model_type", "classification"),
             "version": version,
             "training_dataset": training_config.get("dataset", "aptos2019"),
             "input_size": str(config.get("input_size", "")),

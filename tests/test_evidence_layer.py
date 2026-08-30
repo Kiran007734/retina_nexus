@@ -27,6 +27,7 @@ def test_evidence_service_emits_standardized_coarse_to_fine_modules():
     assert result.status == "completed"
     assert set(result.modules) == {
         "vessel_segmentation", "optic_disc_localization", "fovea_localization",
+        "cotton_wool_spot_detection",
         "microaneurysm_detection", "hemorrhage_detection", "exudate_segmentation",
         "neovascularization_detection",
     }

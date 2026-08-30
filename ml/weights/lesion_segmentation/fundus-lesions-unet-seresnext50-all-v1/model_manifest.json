@@ -1,0 +1,52 @@
+{
+  "manifest_version": "1.0.0",
+  "model_version": "fundus-lesions-unet-seresnext50-all-v1",
+  "model_name": "fundus-lesions-toolkit U-Net SE-ResNeXt-50",
+  "model_type": "semantic_segmentation",
+  "repository": "ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+  "source_url": "https://huggingface.co/ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+  "source_code_url": "https://github.com/ClementPla/fundus-lesions-toolkit",
+  "revision_requested": "main",
+  "revision": "a2cfcb594e483d8baa17f24e1152009641cb9847",
+  "license": "MIT (declared by the model repository and model card)",
+  "architecture": "U-Net with SE-ResNeXt-50 32x4d encoder",
+  "config": {
+    "arch": "unet",
+    "encoder": "seresnext50_32x4d",
+    "in_chans": 3,
+    "log_dice": false,
+    "lr": 0.003,
+    "n_classes": 5,
+    "optimizer": "adamw",
+    "pretrained": true,
+    "smooth_dice": 0.4,
+    "test_dataset_id": [
+      "IDRID",
+      "FGADR",
+      "MESSIDOR",
+      "DDR",
+      "RETLES"
+    ]
+  },
+  "classes": {
+    "0": "background",
+    "1": "cotton_wool_spot",
+    "2": "exudate",
+    "3": "hemorrhage",
+    "4": "microaneurysm"
+  },
+  "trained_on": [
+    "IDRiD",
+    "DDR",
+    "FGADR",
+    "MESSIDOR",
+    "RETLES"
+  ],
+  "input_resolution": 1024,
+  "checkpoint": "ml\\weights\\lesion_segmentation\\fundus-lesions-unet-seresnext50-all-v1\\model.safetensors",
+  "checkpoint_sha256": "a7a7cb45b92328f7c9a8e581eec3944fd435d37fae8cbf340b1319c5f987c6d2",
+  "artifact_status": "MODEL_DOWNLOADED",
+  "clinical_validation_claim": false,
+  "downloaded_at": "2026-08-30T16:12:53.571323+00:00",
+  "note": "Research checkpoint used as supporting retinal lesion evidence. It is not a clinical diagnosis and has not been validated by RETINA-NEXUS."
+}

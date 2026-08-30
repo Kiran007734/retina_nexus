@@ -17,6 +17,10 @@ not a clinical validation report.
    referable result. No inference occurs for an ungradable image.
 5. **Clinical evidence** independently analyzes vessels, landmarks, and
    supported lesion modules with coarse-to-fine regions and evidence maps.
+   When installed, lesion modules use the real pretrained segmentor described
+   in [LESION_MODEL_INTEGRATION.md](LESION_MODEL_INTEGRATION.md). Classical-CV
+   outputs remain explicitly experimental and are not substituted for a
+   configured model failure.
 6. **Explainability** produces class-specific Grad-CAM and compares attention
    to supported lesion regions. Overlap is an engineering metric, not proof of
    causality.
@@ -47,6 +51,18 @@ Training writes a checkpoint, training configuration, metrics, dataset version,
 and checksum. Runtime records classifier, backbone, preprocessing, evidence,
 explainability, calibration, and RetinaGuard versions per run. Updating an
 artifact does not rewrite historical results.
+
+The lesion segmentor is registered as an `EXPERIMENTAL` semantic-segmentation
+artifact with its source, license, checkpoint SHA-256, architecture, class
+mapping, and stated training datasets. IDRiD/DRIVE annotation availability is
+tracked separately from pretrained-model inference availability.
+
+## Phase 3 boundary
+
+The vessel module interface remains available through `SegmentationModel` and
+the `vessel_segmentation` adapter key. DRIVE acquisition, vessel-specific
+weights, and vessel training/evaluation are deliberately not started in this
+phase.
 
 ## Failure semantics
 
