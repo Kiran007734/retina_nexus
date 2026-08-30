@@ -1,0 +1,10 @@
+{
+  "status": "not_run",
+  "message": "No dataset has been acquired or validated yet. Run python scripts/create_splits.py --dataset <slug> after authorized acquisition or manual placement.",
+  "patient_level_guarantee": false,
+  "limitations": [
+    "The repository contains no dataset files.",
+    "Patient-level separation depends on identifiers exposed by the source metadata.",
+    "Where patient identifiers are unavailable, the split validator can only enforce duplicate-image separation."
+  ]
+}

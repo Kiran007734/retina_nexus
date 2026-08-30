@@ -1,0 +1,35 @@
+import { CheckCircle2, CircleAlert, Info, LoaderCircle, ShieldCheck, TriangleAlert } from 'lucide-react';
+import type { TrustResult } from '../services/api';
+import { StatusBadge } from './StatusBadge';
+
+type RetinaGuardCardProps = {
+  result: TrustResult | null;
+  loading: boolean;
+  error: string;
+};
+
+const FACTORS = [
+  ['quality', 'Image Quality'],
+  ['calibrated_confidence', 'Calibrated Confidence'],
+  ['attention_lesion_agreement', 'Evidence Agreement'],
+  ['model_agreement', 'Model Disagreement'],
+  ['explanation_stability', 'Explanation Stability'],
+  ['ood', 'Distribution Check'],
+] as const;
+
+export function RetinaGuardCard({ result, loading, error }: RetinaGuardCardProps) {
+  if (loading) return <div className="card p-5"><div className="flex items-center gap-3"><LoaderCircle size={19} className="animate-spin text-teal-600" /><div><p className="eyebrow">RetinaGuard self-check</p><h3 className="section-title mt-1 text-base font-extrabold">Fusing screening signals</h3><p className="mt-1 text-xs text-slate-500">Quality, confidence, evidence, stability, and distribution checks.</p></div></div></div>;
+  if (error) return <div className="card border-amber-200 bg-amber-50/50 p-5"><div className="flex items-start gap-2"><CircleAlert size={17} className="mt-0.5 shrink-0 text-amber-600" /><div><p className="eyebrow text-amber-700">RetinaGuard self-check</p><h3 className="section-title mt-1 text-base font-extrabold text-amber-900">Unavailable</h3><p className="mt-2 text-xs leading-5 text-amber-800">{error}</p><p className="mt-1 text-[11px] text-amber-700">A configured classifier artifact is required; no trust category is being invented.</p></div></div></div>;
+  if (!result) return null;
+  const flags = new Set(result.risk_flags.map((flag) => flag.code));
+  const factors = new Map(result.contributing_factors.map((factor) => [factor.factor, factor]));
+  return <div className="card overflow-hidden"><div className="flex flex-col justify-between gap-3 border-b border-line px-5 py-4 sm:flex-row sm:items-center"><div><p className="eyebrow">RetinaGuard self-check</p><h3 className="section-title mt-1 text-base font-extrabold">Transparent trust assessment</h3></div><StatusBadge tone={categoryTone(result.trust_category)}>{result.trust_category}</StatusBadge></div><div className="p-5"><div className="flex items-end justify-between gap-4"><div><p className="text-4xl font-extrabold tracking-tight text-ink">{Math.round(result.trust_score * 100)}<span className="text-lg text-slate-400">/100</span></p><p className="mt-1 text-xs text-slate-500">Engineering self-check score</p></div><ShieldCheck size={28} className={result.trust_category === 'TRUSTED' ? 'text-emerald-500' : result.trust_category === 'UNRELIABLE' ? 'text-rose-500' : 'text-amber-500'} /></div><div className="mt-4"><div className="relative h-2 rounded-full bg-gradient-to-r from-rose-300 via-amber-300 to-emerald-400"><span className="absolute top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white bg-ink shadow" style={{ left: `${Math.max(0, Math.min(100, result.trust_score * 100))}%` }} /></div><div className="mt-2 flex justify-between text-[10px] font-bold uppercase tracking-wider text-slate-400"><span>Low</span><span>Medium</span><span>High</span></div></div><div className="mt-5 grid gap-3 sm:grid-cols-2">{FACTORS.map(([key, label]) => { const factor = factors.get(key); const flagged = key === 'model_agreement' ? flags.has('high_model_disagreement') : key === 'attention_lesion_agreement' ? flags.has('low_attention_evidence_agreement') : key === 'explanation_stability' ? flags.has('low_explanation_stability') || flags.has('explanation_stability_not_run') : key === 'ood' ? flags.has('distribution_shift') || flags.has('ood_not_available') : false; return <Factor key={key} label={label} score={factor?.score} status={factor?.status} flagged={flagged} />; })}</div><div className="mt-5 rounded-xl bg-mist p-3"><p className="text-xs font-bold text-ink">Recommended action</p><p className="mt-1 text-xs leading-5 text-slate-500">{result.recommended_action}</p></div><p className="mt-4 flex items-start gap-2 border-t border-line pt-4 text-[11px] leading-5 text-slate-400"><Info size={14} className="mt-0.5 shrink-0 text-teal-600" />{result.note} Configuration: {result.configuration.version}.</p></div></div>;
+}
+
+function Factor({ label, score, status, flagged }: { label: string; score?: number; status?: string; flagged: boolean }) {
+  return <div className="flex items-center gap-2 rounded-xl border border-line p-3"><div className={flagged ? 'text-amber-500' : score == null ? 'text-slate-300' : 'text-emerald-500'}>{flagged ? <TriangleAlert size={16} /> : score == null ? <CircleAlert size={16} /> : <CheckCircle2 size={16} />}</div><div className="min-w-0 flex-1"><p className="truncate text-xs font-bold text-ink">{label}</p><p className="mt-0.5 text-[10px] capitalize text-slate-400">{status?.replaceAll('_', ' ') ?? 'not available'}</p></div><span className="text-xs font-extrabold text-ink">{score == null ? '—' : `${Math.round(score * 100)}%`}</span></div>;
+}
+
+function categoryTone(category: TrustResult['trust_category']): 'success' | 'warning' | 'danger' {
+  return category === 'TRUSTED' ? 'success' : category === 'UNRELIABLE' ? 'danger' : 'warning';
+}

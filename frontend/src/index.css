@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  color: #10233f;
+  background: #f6f9fc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; min-height: 100vh; }
+button, input, select, textarea { font: inherit; }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid rgba(34,170,165,.3); outline-offset: 2px; }
+::selection { background: #c8f1ed; color: #10233f; }
+
+@layer components {
+  .section-title { font-family: 'Manrope', sans-serif; letter-spacing: -0.025em; }
+  .card { @apply rounded-2xl border border-line bg-white shadow-soft; }
+  .eyebrow { @apply text-[11px] font-bold uppercase tracking-[0.14em] text-slate-400; }
+  .btn-primary { @apply inline-flex items-center justify-center gap-2 rounded-xl bg-ink px-4 py-2.5 text-sm font-bold text-white transition hover:bg-[#17345b] focus:outline-none focus:ring-4 focus:ring-teal-100; }
+  .btn-secondary { @apply inline-flex items-center justify-center gap-2 rounded-xl border border-line bg-white px-4 py-2.5 text-sm font-bold text-ink transition hover:border-teal-400 hover:text-teal-700 focus:outline-none focus:ring-4 focus:ring-teal-100; }
+  .surface { @apply rounded-2xl border border-line bg-white shadow-soft; }
+  .btn-quiet { @apply inline-flex items-center justify-center gap-2 rounded-xl px-3 py-2 text-xs font-bold text-slate-500 transition hover:bg-mist hover:text-ink; }
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: #cfdae3; border-radius: 999px; }

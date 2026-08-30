@@ -1,0 +1,6 @@
+import { AlertTriangle, LoaderCircle } from 'lucide-react';
+
+export function LoadingState({ label = 'Loading workspace data' }: { label?: string }) { return <div className="surface flex min-h-36 items-center justify-center gap-3 p-6 text-sm text-slate-500"><LoaderCircle size={18} className="animate-spin text-teal-600" />{label}</div>; }
+export const DataState = LoadingState;
+export function ErrorState({ message, onRetry }: { message: string; onRetry?: () => void }) { return <div className="rounded-2xl border border-rose-200 bg-rose-50 p-5 text-sm text-rose-800"><div className="flex items-start gap-3"><AlertTriangle size={18} className="mt-0.5 shrink-0" /><div><p className="font-bold">This data could not be loaded</p><p className="mt-1 leading-6">{message}</p>{onRetry && <button onClick={onRetry} className="btn-quiet mt-3 !px-0 !text-rose-800">Try again</button>}</div></div></div>; }
+export function EmptyState({ title, detail, action }: { title: string; detail: string; action?: React.ReactNode }) { return <div className="surface flex min-h-48 flex-col items-center justify-center p-8 text-center"><p className="text-sm font-extrabold text-ink">{title}</p><p className="mt-2 max-w-md text-xs leading-5 text-slate-500">{detail}</p>{action && <div className="mt-4">{action}</div>}</div>; }

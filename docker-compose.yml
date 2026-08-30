@@ -1,0 +1,60 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      ENVIRONMENT: ${ENVIRONMENT:-production}
+      SECRET_KEY: ${SECRET_KEY:?Set SECRET_KEY in the root .env file}
+      DATABASE_URL: ${DATABASE_URL:?Set DATABASE_URL in the root .env file}
+      REDIS_URL: redis://redis:6379/0
+      CORS_ORIGINS: '["http://localhost:5173","http://localhost"]'
+      DEMO_MODE_ENABLED: ${DEMO_MODE_ENABLED:-false}
+      CLASSIFIER_MODEL_PATH: ${CLASSIFIER_MODEL_PATH:-}
+      LOCAL_STORAGE_PATH: /var/lib/retina-nexus/storage
+    ports:
+      - "${BACKEND_PORT:-8000}:8000"
+    volumes:
+      - retina_storage:/var/lib/retina-nexus/storage
+      - ./ml/datasets:/app/ml/datasets:ro
+      - ./ml/weights:/app/ml/weights:ro
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: retina_nexus
+      POSTGRES_USER: ${POSTGRES_USER:-retina}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in the root .env file}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U retina -d retina_nexus"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+volumes:
+  postgres_data:
+  redis_data:
+  retina_storage:
