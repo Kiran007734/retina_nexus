@@ -1,6 +1,10 @@
 """Small, explicit model-artifact lifecycle helpers used by the registry API."""
 
+import json
 from pathlib import Path
+
+from sqlalchemy import select
+from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.models.model_version import ModelVersion
 
@@ -22,6 +26,67 @@ ARTIFACT_STATUSES = {
 
 def _repository_root() -> Path:
     return Path(__file__).resolve().parents[3]
+
+
+def artifact_registry_path() -> Path:
+    """Locate the generated ML registry in both source and container layouts."""
+    candidates = (
+        _repository_root() / "ml" / "weights" / "model_registry.json",
+        Path.cwd() / "ml" / "weights" / "model_registry.json",
+    )
+    return next((candidate for candidate in candidates if candidate.exists()), candidates[0])
+
+
+async def seed_model_registry(db: AsyncSession) -> None:
+    """Synchronize trained artifacts into the API registry without inventing rows.
+
+    The generated JSON registry is the source of truth for ML artifacts. This
+    startup sync makes the same real checkpoint visible through ``/models``;
+    missing or failed artifacts remain explicitly unavailable.
+    """
+    path = artifact_registry_path()
+    if not path.is_file():
+        return
+    try:
+        registry = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return
+
+    changed = False
+    for artifact in registry.get("artifacts", []):
+        version = artifact.get("model_version")
+        checkpoint = artifact.get("checkpoint")
+        if not version or not checkpoint:
+            continue
+        existing = (await db.execute(select(ModelVersion).where(ModelVersion.version == version))).scalar_one_or_none()
+        config = artifact.get("model_config") or {}
+        training_config = artifact.get("training_config") or {}
+        values = {
+            "model_name": "RETINA-NEXUS DR classifier",
+            "model_type": "classification",
+            "version": version,
+            "training_dataset": training_config.get("dataset", "aptos2019"),
+            "input_size": str(config.get("input_size", "")),
+            "performance_metrics": {"validation": artifact.get("validation_metrics"), "clinical_validation_claim": False},
+            "training_config": training_config,
+            "dataset_version": artifact.get("dataset_version"),
+            "file_path": checkpoint,
+            "checksum": artifact.get("checkpoint_sha256"),
+            "artifact_kind": artifact.get("artifact_kind", "FINE_TUNED_MODEL"),
+            "artifact_status": artifact.get("artifact_status", "MODEL_TRAINED"),
+            "availability_status": artifact.get("availability_status", "MODEL_MISSING"),
+            "is_active": artifact.get("availability_status") == "MODEL_AVAILABLE",
+        }
+        if existing is None:
+            db.add(ModelVersion(**values))
+            changed = True
+        else:
+            for key, value in values.items():
+                if getattr(existing, key) != value:
+                    setattr(existing, key, value)
+                    changed = True
+    if changed:
+        await db.commit()
 
 
 def resolve_model_availability(model: ModelVersion) -> str:

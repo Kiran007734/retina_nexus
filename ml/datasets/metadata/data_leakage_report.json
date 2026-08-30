@@ -1,10 +1,10 @@
 {
-  "status": "not_run",
-  "message": "No dataset has been acquired or validated yet. Run python scripts/create_splits.py --dataset <slug> after authorized acquisition or manual placement.",
-  "patient_level_guarantee": false,
+  "cross_split_duplicate_groups": [],
+  "cross_split_patient_groups": [],
+  "dataset": "aptos2019",
   "limitations": [
-    "The repository contains no dataset files.",
-    "Patient-level separation depends on identifiers exposed by the source metadata.",
-    "Where patient identifiers are unavailable, the split validator can only enforce duplicate-image separation."
-  ]
+    "No patient-level identifier was found; only image/duplicate grouping was enforced."
+  ],
+  "patient_level_guarantee": false,
+  "status": "pass"
 }

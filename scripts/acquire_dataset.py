@@ -9,8 +9,6 @@ from __future__ import annotations
 
 import argparse
 import os
-import shutil
-import subprocess
 import sys
 from pathlib import Path
 
@@ -18,9 +16,20 @@ from dataset_common import DatasetError, get_definition, raw_path_for, sha256_fi
 
 
 def kaggle_is_configured() -> tuple[bool, str]:
-    if os.environ.get("KAGGLE_USERNAME") and os.environ.get("KAGGLE_KEY"):
-        return True, "environment credentials"
+    """Return whether KaggleHub-compatible credentials are present.
+
+    Values are never printed. KaggleHub supports the new API token through
+    ``KAGGLE_API_TOKEN`` or ``~/.kaggle/access_token`` and also supports the
+    legacy username/key configuration for compatibility.
+    """
+    if os.environ.get("KAGGLE_API_TOKEN"):
+        return True, "KAGGLE_API_TOKEN"
     config_dir = Path(os.environ.get("KAGGLE_CONFIG_DIR", Path.home() / ".kaggle"))
+    for token_name in ("access_token", "access_token.txt"):
+        if (config_dir / token_name).exists():
+            return True, str(config_dir / token_name)
+    if os.environ.get("KAGGLE_USERNAME") and os.environ.get("KAGGLE_KEY"):
+        return True, "KAGGLE_USERNAME/KAGGLE_KEY"
     config_file = config_dir / "kaggle.json"
     if config_file.exists():
         return True, str(config_file)
@@ -37,6 +46,7 @@ def main() -> int:
     parser.add_argument("--expected-sha256", help="Optional SHA-256 for a source archive")
     parser.add_argument("--archive", help="Archive to verify before manual extraction")
     parser.add_argument("--verify-only", action="store_true", help="Do not download; only verify the local placement")
+    parser.add_argument("--force-download", action="store_true", help="Ask KaggleHub to refresh an existing download")
     args = parser.parse_args()
     try:
         definition = get_definition(args.dataset)
@@ -44,18 +54,38 @@ def main() -> int:
         if args.mode == "kaggle" and not args.verify_only:
             configured, credential_source = kaggle_is_configured()
             if not configured:
-                raise DatasetError("Kaggle access is not configured. Set KAGGLE_USERNAME and KAGGLE_KEY, or place an authorized kaggle.json under ~/.kaggle (or KAGGLE_CONFIG_DIR). If access is unavailable, use --mode manual and follow the registry instructions.")
+                raise DatasetError(
+                    "KaggleHub authentication is not configured. Create an API token in "
+                    "https://www.kaggle.com/settings/api, then either run this command "
+                    "after `kagglehub.login()` in a private Python session, set "
+                    "KAGGLE_API_TOKEN for the current process, or save the token to "
+                    "~/.kaggle/access_token (KAGGLE_CONFIG_DIR/access_token is also supported). "
+                    "Do not place the token in this repository."
+                )
             slug = args.source or definition.get("kaggle_competition")
             if not slug:
                 raise DatasetError(f"No Kaggle identifier is registered for {args.dataset}. Obtain it under the dataset's source terms and pass --source <authorized-slug>.")
-            if shutil.which("kaggle") is None:
-                raise DatasetError("The Kaggle CLI is not installed. Install it in your environment with pip install kaggle after reviewing its terms, then retry.")
+            try:
+                import kagglehub
+            except ImportError as exc:
+                raise DatasetError(
+                    "KaggleHub is not installed. Install it with `python -m pip install --upgrade kagglehub`, "
+                    "then retry."
+                ) from exc
             raw_dir.mkdir(parents=True, exist_ok=True)
-            command = ["kaggle", "competitions", "download", "-c", slug, "-p", str(raw_dir), "--unzip"]
-            result = subprocess.run(command, text=True, capture_output=True)
-            if result.returncode != 0:
-                raise DatasetError(f"Kaggle acquisition failed for '{slug}'. Confirm your authorized access and CLI configuration.\n{result.stderr.strip()}")
-            print(f"Acquisition completed using {credential_source}.")
+            try:
+                downloaded_path = kagglehub.competition_download(
+                    slug,
+                    output_dir=str(raw_dir),
+                    force_download=args.force_download,
+                )
+            except Exception as exc:  # KaggleHub exposes several auth/network exception types.
+                raise DatasetError(
+                    f"KaggleHub acquisition failed for '{slug}' using {credential_source}. "
+                    "Confirm that the Kaggle account has accepted the competition rules and "
+                    f"authorized access. {type(exc).__name__}: {exc}"
+                ) from exc
+            print(f"Acquisition completed using {credential_source}: {downloaded_path}")
         if args.archive and args.expected_sha256:
             if not Path(args.archive).exists():
                 raise DatasetError(f"Archive does not exist: {args.archive}")

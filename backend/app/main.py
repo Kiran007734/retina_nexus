@@ -10,6 +10,7 @@ from app.database.base import Base
 from app.database.session import engine
 from app.database.session import SessionLocal
 from app.services.dataset_registry import seed_registry
+from app.services.model_registry import seed_model_registry
 import app.models  # noqa: F401 - registers all SQLAlchemy models
 
 settings = get_settings()
@@ -24,6 +25,7 @@ async def lifespan(_: FastAPI):
             await connection.run_sync(Base.metadata.create_all)
         async with SessionLocal() as db:
             await seed_registry(db)
+            await seed_model_registry(db)
     logger.info("retina_nexus.startup", extra={"environment": settings.environment})
     yield
     logger.info("retina_nexus.shutdown")

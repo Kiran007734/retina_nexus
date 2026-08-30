@@ -10,13 +10,22 @@ import csv
 import hashlib
 import json
 import math
+import os
 import statistics
+from concurrent.futures import ThreadPoolExecutor
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
 from PIL import Image, ImageOps, UnidentifiedImageError
+
+try:
+    import cv2
+    import numpy as np
+except ImportError:  # Keep manual governance utilities importable before ML dependencies are installed.
+    cv2 = None
+    np = None
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DATA_ROOT = REPO_ROOT / "ml" / "datasets"
@@ -162,9 +171,56 @@ def sha256_file(path: Path, chunk_size: int = 1024 * 1024) -> str:
     return digest.hexdigest()
 
 
+def scan_fingerprint(files: list[Path], raw_path: Path) -> str:
+    """Fingerprint the file inventory so cached scans cannot go stale silently."""
+    digest = hashlib.sha256()
+    for path in files:
+        stat = path.stat()
+        relative = str(path.relative_to(raw_path)).replace("\\", "/")
+        digest.update(f"{relative}\0{stat.st_size}\0{stat.st_mtime_ns}\n".encode("utf-8"))
+    return digest.hexdigest()
+
+
+def load_cached_scan(slug: str, raw_path: Path, files: list[Path]) -> dict[str, Any] | None:
+    """Load a complete scan cached by validate_dataset when the inventory matches."""
+    report_path = DATA_ROOT / "metadata" / "reports" / slug / "dataset_validation_report.json"
+    if not report_path.is_file():
+        return None
+    try:
+        payload = json.loads(report_path.read_text(encoding="utf-8"))
+        report_files = payload.get("files", {})
+        if report_files.get("scan_fingerprint") != scan_fingerprint(files, raw_path):
+            return None
+        if "readable" not in report_files:
+            return None
+        return report_files
+    except (OSError, UnicodeError, json.JSONDecodeError):
+        return None
+
+
 def perceptual_hash(image: Image.Image) -> str:
-    """Return a small average hash suitable for near-duplicate screening."""
+    """Return a low-frequency DCT hash for near-duplicate screening.
+
+    A whole-image average hash is too sensitive to the large dark background
+    common in fundus photographs and can classify unrelated images as close
+    duplicates. The DCT hash compares low-frequency structure instead.
+    """
     grayscale = ImageOps.grayscale(image).resize((32, 32), Image.Resampling.LANCZOS)
+    if cv2 is not None and np is not None:
+        pixels = np.asarray(grayscale, dtype=np.float32) / 255.0
+        coefficients = cv2.dct(pixels)[:8, :8]
+        dct_values = coefficients.flatten()
+        median = float(np.median(dct_values[1:]))
+        dct_bits = "".join("1" if value >= median else "0" for value in dct_values)
+        # Add low-resolution horizontal and vertical gradients. This makes
+        # the candidate hash sensitive to retinal structure instead of only
+        # the low-frequency brightness pattern of the circular field of view.
+        horizontal = cv2.resize(pixels, (9, 8), interpolation=cv2.INTER_AREA)
+        vertical = cv2.resize(pixels, (8, 9), interpolation=cv2.INTER_AREA)
+        horizontal_bits = "".join("1" if value >= 0 else "0" for value in (horizontal[:, 1:] - horizontal[:, :-1]).flatten())
+        vertical_bits = "".join("1" if value >= 0 else "0" for value in (vertical[1:, :] - vertical[:-1, :]).flatten())
+        bits = dct_bits + horizontal_bits + vertical_bits
+        return f"{int(bits, 2):0{len(bits) // 4}x}"
     pixels = list(grayscale.getdata())
     average = sum(pixels) / len(pixels)
     bits = "".join("1" if pixel >= average else "0" for pixel in pixels)
@@ -175,36 +231,108 @@ def hamming_distance(first: str, second: str) -> int:
     return (int(first, 16) ^ int(second, 16)).bit_count()
 
 
+class _PerceptualHashIndex:
+    """BK-tree index for bounded Hamming-distance hash lookup."""
+
+    def __init__(self) -> None:
+        self._values: list[tuple[str, int, dict[int, int]]] = []
+        self._root: int | None = None
+
+    def add(self, path: str, value: str) -> None:
+        numeric = int(value, 16)
+        if self._root is None:
+            self._values.append((path, numeric, {}))
+            self._root = 0
+            return
+        node_index = self._root
+        while True:
+            _, node_value, children = self._values[node_index]
+            distance = (numeric ^ node_value).bit_count()
+            child_index = children.get(distance)
+            if child_index is None:
+                children[distance] = len(self._values)
+                self._values.append((path, numeric, {}))
+                return
+            node_index = child_index
+
+    def query(self, value: str, max_distance: int) -> list[str]:
+        numeric = int(value, 16)
+        if self._root is None:
+            return []
+        matches: list[str] = []
+        pending = [self._root]
+        while pending:
+            node_index = pending.pop()
+            path, node_value, children = self._values[node_index]
+            distance = (numeric ^ node_value).bit_count()
+            if distance <= max_distance:
+                matches.append(path)
+            lower = max(0, distance - max_distance)
+            upper = distance + max_distance
+            pending.extend(child for edge, child in children.items() if lower <= edge <= upper)
+        return matches
+
+
+def _scan_single_image(path: Path, raw_path: Path) -> tuple[dict[str, Any] | None, dict[str, str] | None]:
+    relative = str(path.relative_to(raw_path)).replace("\\", "/")
+    try:
+        exact = sha256_file(path)
+        with Image.open(path) as image:
+            image.load()
+            width, height = image.size
+            phash = perceptual_hash(image)
+        return (
+            {"path": relative, "sha256": exact, "perceptual_hash": phash, "width": width, "height": height},
+            None,
+        )
+    except (OSError, UnidentifiedImageError, ValueError) as exc:
+        return None, {"path": relative, "error": str(exc)}
+
+
 def scan_images(files: list[Path], raw_path: Path) -> dict[str, Any]:
     readable: list[dict[str, Any]] = []
     corrupted: list[dict[str, str]] = []
     exact_groups: dict[str, list[str]] = defaultdict(list)
     perceptual_values: dict[str, str] = {}
     resolutions: list[dict[str, Any]] = []
-    for path in files:
-        relative = str(path.relative_to(raw_path)).replace("\\", "/")
-        try:
-            exact = sha256_file(path)
-            with Image.open(path) as image:
-                image.load()
-                width, height = image.size
-                phash = perceptual_hash(image)
-            readable.append({"path": relative, "sha256": exact, "perceptual_hash": phash, "width": width, "height": height})
-            exact_groups[exact].append(relative)
-            perceptual_values[relative] = phash
-            resolutions.append({"width": width, "height": height, "pixels": width * height})
-        except (OSError, UnidentifiedImageError, ValueError) as exc:
-            corrupted.append({"path": relative, "error": str(exc)})
+    worker_count = min(4, max(1, os.cpu_count() or 1))
+    with ThreadPoolExecutor(max_workers=worker_count) as executor:
+        results = executor.map(lambda item: _scan_single_image(item, raw_path), files)
+        for readable_item, corrupted_item in results:
+            if corrupted_item is not None:
+                corrupted.append(corrupted_item)
+                continue
+            assert readable_item is not None
+            readable.append(readable_item)
+            exact_groups[readable_item["sha256"]].append(readable_item["path"])
+            perceptual_values[readable_item["path"]] = readable_item["perceptual_hash"]
+            resolutions.append({"width": readable_item["width"], "height": readable_item["height"], "pixels": readable_item["width"] * readable_item["height"]})
 
-    perceptual_groups: list[list[str]] = []
-    assigned: set[str] = set()
+    # Use a BK-tree plus union-find so duplicate detection remains complete
+    # for the configured Hamming threshold without comparing every image pair.
+    hash_index = _PerceptualHashIndex()
+    parent = {path: path for path in perceptual_values}
+
+    def find(path: str) -> str:
+        while parent[path] != path:
+            parent[path] = parent[parent[path]]
+            path = parent[path]
+        return path
+
+    def union(first: str, second: str) -> None:
+        first_root, second_root = find(first), find(second)
+        if first_root != second_root:
+            parent[second_root] = first_root
+
     for path, value in perceptual_values.items():
-        if path in assigned:
-            continue
-        group = [other for other, other_value in perceptual_values.items() if hamming_distance(value, other_value) <= 4]
-        if len(group) > 1:
-            perceptual_groups.append(sorted(group))
-            assigned.update(group)
+        for other in hash_index.query(value, max_distance=4):
+            union(path, other)
+        hash_index.add(path, value)
+
+    grouped_paths: dict[str, list[str]] = defaultdict(list)
+    for path in perceptual_values:
+        grouped_paths[find(path)].append(path)
+    perceptual_groups = [sorted(group) for group in grouped_paths.values() if len(group) > 1]
 
     exact_duplicate_groups = [sorted(group) for group in exact_groups.values() if len(group) > 1]
     exact_duplicate_count = sum(len(group) - 1 for group in exact_duplicate_groups)
@@ -279,6 +407,54 @@ def _label_summary(rows: list[dict[str, Any]], image_index: dict[str, Path], raw
     }
 
 
+def duplicate_label_conflicts(
+    scan: dict[str, Any],
+    rows: list[dict[str, Any]],
+    image_index: dict[str, Path],
+    raw_path: Path,
+    definition: dict[str, Any],
+) -> list[dict[str, Any]]:
+    """Find duplicate candidates whose source labels disagree.
+
+    These files are not relabeled automatically. Split generation can exclude
+    them from supervised training while retaining the evidence in the report.
+    """
+    labels_by_path: dict[Path, int] = {}
+    for row in rows:
+        path = resolve_image_ref(row.get("image_ref"), image_index, raw_path, definition)
+        if path is None or row.get("label") in (None, ""):
+            continue
+        try:
+            labels_by_path[path] = int(str(row["label"]).strip())
+        except (KeyError, TypeError, ValueError):
+            continue
+
+    conflicts: list[dict[str, Any]] = []
+    seen: set[tuple[str, ...]] = set()
+    for duplicate_type, groups in (
+        ("exact", scan.get("exact_duplicate_groups", [])),
+        ("perceptual", scan.get("perceptual_duplicate_groups", [])),
+    ):
+        for index, group in enumerate(groups, start=1):
+            labeled = []
+            for relative in group:
+                path = (raw_path / relative).resolve()
+                if path in labels_by_path:
+                    labeled.append({"image": relative, "label": labels_by_path[path]})
+            label_values = sorted({item["label"] for item in labeled})
+            key = tuple(sorted(item["image"] for item in labeled))
+            if len(label_values) > 1 and key not in seen:
+                seen.add(key)
+                conflicts.append({
+                    "type": duplicate_type,
+                    "group_id": f"{duplicate_type}-duplicate-{index:04d}",
+                    "images": labeled,
+                    "labels": label_values,
+                    "action": "Exclude from supervised split generation pending source-label review; do not relabel automatically.",
+                })
+    return conflicts
+
+
 def load_split(slug: str) -> dict[str, Any] | None:
     path = split_directory(slug) / "splits.json"
     return json.loads(path.read_text(encoding="utf-8")) if path.exists() else None
@@ -344,18 +520,33 @@ def validate_dataset(slug: str, raw_override: str | None = None) -> dict[str, An
     files = image_files(raw_path, definition)
     if not files:
         raise DatasetError(f"No image files found under {raw_path}. Nothing was downloaded or the directory layout is not recognized.")
-    scan = scan_images(files, raw_path)
+    scan = load_cached_scan(slug, raw_path, files) or scan_images(files, raw_path)
     rows, annotation_errors = read_annotation_rows(raw_path, definition)
     labels = _label_summary(rows, build_image_index(files, raw_path), raw_path, definition)
+    duplicate_conflicts = duplicate_label_conflicts(scan, rows, build_image_index(files, raw_path), raw_path, definition)
     split_payload = load_split(slug)
-    records = [{"image": item["path"], "group_source": "patient_id" if row.get("group") else "duplicate_or_image"} for row in rows for item in scan["readable"] if Path(item["path"]).stem.lower() == Path(row.get("image_ref") or "").stem.lower()]
+    readable_by_stem = {Path(item["path"]).stem.lower(): item for item in scan["readable"]}
+    records = []
+    for row in rows:
+        image_ref = row.get("image_ref")
+        item = readable_by_stem.get(Path(image_ref).stem.lower()) if image_ref else None
+        if item is not None:
+            records.append({"image": item["path"], "group_source": "patient_id" if row.get("group") else "duplicate_or_image"})
     leakage = leakage_report(slug, records, split_payload)
     score = readiness_score(scan, labels, leakage)
     status = "pass" if scan["corrupted_files"] == 0 and not labels["invalid_labels"] and not labels["missing_image_references"] and leakage["status"] in {"pass", "not_run"} else "blocked"
     return {
         "dataset": {"slug": slug, "name": definition["name"], "purpose": definition["purpose"], "raw_path": str(raw_path), "registry_status": definition["status"]},
         "generated_at": utc_now(), "status": status, "annotation_errors": annotation_errors,
-        "files": {key: value for key, value in scan.items() if key not in {"readable", "phash_by_path"}},
-        "labels": labels, "leakage": leakage, "readiness": score,
+        "files": {
+            key: value for key, value in scan.items() if key not in {"phash_by_path"}
+        } | {"scan_fingerprint": scan_fingerprint(files, raw_path)},
+        "labels": labels, "duplicate_label_conflicts": duplicate_conflicts,
+        "training_eligibility": {
+            "status": "requires_conflict_exclusion" if duplicate_conflicts else "eligible",
+            "excluded_label_conflict_groups": len(duplicate_conflicts),
+            "note": "Conflicting duplicate candidates are retained in the raw dataset and excluded from supervised manifests without relabeling." if duplicate_conflicts else "No conflicting duplicate candidates were found.",
+        },
+        "leakage": leakage, "readiness": score,
         "limitations": definition.get("limitations", []),
     }

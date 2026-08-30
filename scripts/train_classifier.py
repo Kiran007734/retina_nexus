@@ -147,6 +147,9 @@ def make_transforms(input_size: int):
     train_transform = transforms.Compose([
         transforms.Resize((input_size, input_size)),
         transforms.RandomHorizontalFlip(p=0.5),
+        transforms.RandomRotation(degrees=8),
+        transforms.RandomAffine(degrees=0, translate=(0.03, 0.03), scale=(0.95, 1.05)),
+        transforms.ColorJitter(brightness=0.12, contrast=0.12, saturation=0.08, hue=0.02),
         transforms.ToTensor(),
         normalize,
     ])
@@ -236,6 +239,15 @@ def write_artifact_registry(output_dir: Path, model_version: str, dataset_versio
         except json.JSONDecodeError:
             registry = {"artifacts": []}
     items = [item for item in registry.get("artifacts", []) if item.get("model_version") != model_version]
+    manifest_path = output_dir / "model_manifest.json"
+    manifest: dict[str, Any] = {}
+    if manifest_path.is_file():
+        try:
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            # The training artifact remains usable; registry fields simply stay
+            # explicit about what could be recorded.
+            manifest = {}
     def display_path(path: Path) -> str:
         try:
             return str(path.relative_to(ROOT))
@@ -248,6 +260,10 @@ def write_artifact_registry(output_dir: Path, model_version: str, dataset_versio
         "availability_status": "MODEL_AVAILABLE" if checkpoint.is_file() else "MODEL_MISSING",
         "artifact_directory": display_path(output_dir),
         "checkpoint": display_path(checkpoint),
+        "checkpoint_sha256": manifest.get("checkpoint_sha256"),
+        "model_config": manifest.get("model_config"),
+        "training_config": manifest.get("training_config"),
+        "class_mapping": {"0": "No DR", "1": "Mild", "2": "Moderate", "3": "Severe", "4": "Proliferative DR"},
         "validation_metrics": metrics,
         "registered_at": datetime.now(timezone.utc).isoformat(),
         "clinical_validation_claim": False,

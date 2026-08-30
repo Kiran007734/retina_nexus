@@ -4,7 +4,7 @@ import argparse
 import sys
 from pathlib import Path
 
-from dataset_common import DatasetError, get_definition, image_files, raw_path_for, report_directory, scan_images, write_json
+from dataset_common import DatasetError, get_definition, image_files, load_cached_scan, raw_path_for, report_directory, scan_images, write_json
 
 
 def main() -> int:
@@ -20,8 +20,8 @@ def main() -> int:
         files = image_files(raw, definition)
         if not files:
             raise DatasetError(f"No image files found under {raw}.")
-        scan = scan_images(files, raw)
-        output = write_json(report_directory(args.dataset) / "duplicate_report.json", {"dataset": args.dataset, "total_files": scan["total_files"], "readable_files": scan["readable_files"], "corrupted_files": scan["corrupted_files"], "duplicate_exact_count": scan["duplicate_exact_count"], "duplicate_perceptual_count": scan["duplicate_perceptual_count"], "exact_duplicate_groups": scan["exact_duplicate_groups"], "perceptual_duplicate_groups": scan["perceptual_duplicate_groups"], "note": "Perceptual duplicates use an average hash with Hamming distance <= 4; review near matches before exclusion."})
+        scan = load_cached_scan(args.dataset, raw, files) or scan_images(files, raw)
+        output = write_json(report_directory(args.dataset) / "duplicate_report.json", {"dataset": args.dataset, "total_files": scan["total_files"], "readable_files": scan["readable_files"], "corrupted_files": scan["corrupted_files"], "duplicate_exact_count": scan["duplicate_exact_count"], "duplicate_perceptual_count": scan["duplicate_perceptual_count"], "exact_duplicate_groups": scan["exact_duplicate_groups"], "perceptual_duplicate_groups": scan["perceptual_duplicate_groups"], "note": "Perceptual candidates use a DCT-plus-gradient hash with Hamming distance <= 4; review near matches before exclusion."})
         print(f"Exact duplicate images: {scan['duplicate_exact_count']}")
         print(f"Perceptual duplicate images: {scan['duplicate_perceptual_count']}")
         print(f"Duplicate report: {output}")

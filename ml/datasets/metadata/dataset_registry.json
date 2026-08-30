@@ -22,7 +22,7 @@
       "raw_path": "ml/datasets/raw/aptos2019",
       "expected_image_extensions": [".jpg", ".jpeg", ".png"],
       "annotation_globs": ["**/train.csv"],
-      "image_field_candidates": ["id", "image", "image_id", "filename", "file"],
+      "image_field_candidates": ["id_code", "id", "image", "image_id", "filename", "file"],
       "label_field_candidates": ["diagnosis", "label", "grade", "class"],
       "group_field_candidates": ["patient_id", "patient", "subject_id"],
       "label_values": ["0", "1", "2", "3", "4"],

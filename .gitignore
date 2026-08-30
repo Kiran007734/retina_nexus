@@ -1,4 +1,10 @@
 .env
+.kaggle/
+**/.kaggle/
+kaggle.json
+**/kaggle.json
+access_token.txt
+**/access_token.txt
 .venv/
 venv/
 __pycache__/

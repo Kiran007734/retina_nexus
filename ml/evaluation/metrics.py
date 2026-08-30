@@ -26,7 +26,9 @@ def _binary_metrics(actual: np.ndarray, predicted: np.ndarray) -> dict[str, floa
     return {
         "sensitivity": recall, "specificity": specificity, "precision": precision,
         "recall": recall, "f1": _safe_divide(2 * precision * recall, precision + recall),
-        "support": int(len(actual)), "true_positive": true_positive, "true_negative": true_negative,
+        # ``actual`` is one-vs-rest encoded; support is the number of true
+        # positives, not the total evaluation-set size.
+        "support": int(np.sum(actual == 1)), "true_positive": true_positive, "true_negative": true_negative,
         "false_positive": false_positive, "false_negative": false_negative,
     }
 
@@ -50,6 +52,26 @@ def _roc_auc(actual: np.ndarray, probabilities: np.ndarray, num_classes: int) ->
         return None
 
 
+def _quadratic_weighted_kappa(actual: np.ndarray, predicted: np.ndarray) -> float | None:
+    try:
+        from sklearn.metrics import cohen_kappa_score
+        if len(np.unique(actual)) < 2 or len(np.unique(predicted)) < 2:
+            return None
+        return float(cohen_kappa_score(actual, predicted, weights="quadratic"))
+    except (ImportError, ValueError):
+        return None
+
+
+def _binary_roc_auc(actual: np.ndarray, probability: np.ndarray) -> float | None:
+    try:
+        from sklearn.metrics import roc_auc_score
+        if len(np.unique(actual)) < 2:
+            return None
+        return float(roc_auc_score(actual, probability))
+    except (ImportError, ValueError):
+        return None
+
+
 def classification_metrics(actual_labels: list[int] | np.ndarray, probabilities: list[list[float]] | np.ndarray, referable_grades: tuple[int, ...] = (2, 3, 4)) -> dict[str, Any]:
     actual = np.asarray(actual_labels, dtype=int)
     probabilities_array = np.asarray(probabilities, dtype=float)
@@ -67,6 +89,7 @@ def classification_metrics(actual_labels: list[int] | np.ndarray, probabilities:
     referable_probability = probabilities_array[:, list(referable_grades)].sum(axis=1)
     referable_predicted = (referable_probability >= 0.5).astype(int)
     referable = _binary_metrics(referable_actual, referable_predicted)
+    referable["roc_auc"] = _binary_roc_auc(referable_actual, referable_probability)
     return {
         "accuracy": float(np.mean(actual == predicted)) if len(actual) else 0.0,
         "sensitivity": float(np.mean([float(value["sensitivity"]) for value in per_class.values()])),
@@ -75,6 +98,7 @@ def classification_metrics(actual_labels: list[int] | np.ndarray, probabilities:
         "recall": float(np.mean([float(value["recall"]) for value in per_class.values()])),
         "f1": float(np.mean([float(value["f1"]) for value in per_class.values()])),
         "roc_auc_ovr_macro": _roc_auc(actual, probabilities_array, 5),
+        "quadratic_weighted_kappa": _quadratic_weighted_kappa(actual, predicted),
         "confusion_matrix": matrix.tolist(),
         "per_class": per_class,
         "referable_dr": {"referable_grades": list(referable_grades), **referable},

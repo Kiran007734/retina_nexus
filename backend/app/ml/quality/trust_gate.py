@@ -150,23 +150,40 @@ class ImageTrustGateService:
             saturation = np.where(max_channel == 0, 0, (max_channel - min_channel) / np.maximum(max_channel, 1) * 255)
             hsv = np.stack((np.zeros_like(gray), saturation.astype(np.uint8), max_channel.astype(np.uint8)), axis=2)
 
+        # Fundus captures commonly have a circular retinal field surrounded by
+        # a black mask. Compute focus/exposure/contrast on the retinal region;
+        # otherwise an expected capture boundary dominates the measurements.
+        global_percentiles = np.percentile(gray, [1, 5, 50, 95, 99])
+        dark_threshold = max(8, float(global_percentiles[1]) * 0.25)
+        retinal_mask = gray > dark_threshold
+        roi_mask = retinal_mask
+        if cv2 is not None and int(retinal_mask.sum()) > 1000:
+            eroded = cv2.erode(retinal_mask.astype(np.uint8), np.ones((31, 31), np.uint8)).astype(bool)
+            if int(eroded.sum()) > 1000:
+                roi_mask = eroded
+        if int(roi_mask.sum()) < 1000:
+            roi_mask = np.ones_like(gray, dtype=bool)
+
         if cv2 is not None:
-            laplacian_variance = float(cv2.Laplacian(gray, cv2.CV_64F).var())
+            laplacian = cv2.Laplacian(gray, cv2.CV_64F)
         else:
             padded = np.pad(gray.astype(np.float32), 1, mode="edge")
             laplacian = (padded[1:-1, :-2] + padded[1:-1, 2:] + padded[:-2, 1:-1] + padded[2:, 1:-1] - 4 * padded[1:-1, 1:-1])
-            laplacian_variance = float(laplacian.var())
-        focus_score = _log_score(laplacian_variance, 15, 900)
-        percentiles = np.percentile(gray, [1, 5, 50, 95, 99])
-        mean_intensity = float(np.mean(gray))
-        std_intensity = float(np.std(gray))
-        low_clip_ratio = float(np.mean(gray <= 8))
-        high_clip_ratio = float(np.mean(gray >= 247))
+        laplacian_variance = float(laplacian[roi_mask].var())
+        # The focus range is calibrated for decoded fundus captures after
+        # masking the non-retinal field. It remains a heuristic and must be
+        # recalibrated for a new camera population.
+        focus_score = _log_score(laplacian_variance, 5, 300)
+        roi_gray = gray[roi_mask]
+        percentiles = np.percentile(roi_gray, [1, 5, 50, 95, 99])
+        mean_intensity = float(np.mean(roi_gray))
+        std_intensity = float(np.std(roi_gray))
+        low_clip_ratio = float(np.mean(roi_gray <= 8))
+        high_clip_ratio = float(np.mean(roi_gray >= 247))
         illumination_score = _clamp(1 - abs(mean_intensity - 128) / 260 - (low_clip_ratio + high_clip_ratio) * 1.5)
         contrast_spread = float(percentiles[3] - percentiles[1])
         contrast_score = _clamp(0.55 * _clamp(contrast_spread / 125) + 0.45 * _clamp(std_intensity / 65))
 
-        dark_threshold = max(8, float(percentiles[1]) * 0.25)
         retinal_coverage = float(np.mean(gray > dark_threshold))
         if retinal_coverage < 0.30:
             field_score = _clamp(retinal_coverage / 0.30)
@@ -177,7 +194,17 @@ class ImageTrustGateService:
 
         clipped_ratio = low_clip_ratio + high_clip_ratio
         exposure_score = _clamp(1 - clipped_ratio * 8)
-        border_ratio = float(np.mean(np.concatenate([gray[: max(1, gray.shape[0] // 20), :].ravel(), gray[-max(1, gray.shape[0] // 20):, :].ravel(), gray[:, : max(1, gray.shape[1] // 20)].ravel(), gray[:, -max(1, gray.shape[1] // 20):].ravel()]) <= 8))
+        border_pixels = np.concatenate([
+            gray[: max(1, gray.shape[0] // 20), :].ravel(),
+            gray[-max(1, gray.shape[0] // 20):, :].ravel(),
+            gray[:, : max(1, gray.shape[1] // 20)].ravel(),
+            gray[:, -max(1, gray.shape[1] // 20):].ravel(),
+        ])
+        dark_border_ratio = float(np.mean(border_pixels <= 8))
+        bright_border_ratio = float(np.mean(border_pixels >= 247))
+        # A dark circular field boundary is expected. Only treat a bright
+        # boundary as suspicious when no expected dark boundary is present.
+        border_ratio = bright_border_ratio if dark_border_ratio < 0.30 else 0.0
         saturated_ratio = float(np.mean((hsv[:, :, 1] > 245) & (hsv[:, :, 2] > 235)))
         artifact_burden = _clamp(border_ratio * 1.6 + saturated_ratio * 0.7)
         artifact_score = _clamp(1 - artifact_burden)
@@ -214,8 +241,8 @@ class ImageTrustGateService:
 
     def _issues(self, scores: dict[str, float], metrics: dict[str, float]) -> list[QualityIssue]:
         issues: list[QualityIssue] = []
-        if scores["focus"] < 0.45:
-            severity = "severe" if scores["focus"] < 0.22 else "moderate"
+        if scores["focus"] < 0.30:
+            severity = "severe" if scores["focus"] < 0.10 else "moderate"
             issues.append(QualityIssue("severe_blur" if severity == "severe" else "low_focus", severity, "The retinal image has insufficient focus detail.", "Stabilize the camera and refocus before recapturing."))
         if scores["illumination"] < 0.45:
             issue_type = "underexposure" if metrics["mean_intensity"] < 85 else "overexposure" if metrics["mean_intensity"] > 190 else "uneven_illumination"
