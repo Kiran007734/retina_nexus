@@ -145,6 +145,33 @@ python scripts/evaluate_r2_vessel_segmentation.py --raw-dir ml/datasets/raw/driv
 The evaluation writes per-image masks/overlays and measured metrics under
 `ml/evaluation/drive/`; it never fabricates missing test annotations.
 
+For Phase 4 Messidor/Messidor-2 external-validation preparation, use the
+official ADCIS source and the local-only inventory command:
+
+```powershell
+python scripts/acquire_messidor.py --variant auto --verify-only
+python scripts/acquire_messidor.py --variant messidor --verify-only
+python scripts/acquire_messidor.py --variant messidor2 --verify-only
+```
+
+The ADCIS download form requires human completion; the repository does not
+bypass access controls or download Messidor automatically. Official
+Messidor-2 has no DR ground-truth annotations. When a separately authorized,
+documented, schema-compatible label package is available, run the unchanged
+zero-shot evaluation:
+
+```powershell
+python scripts/evaluate_messidor2.py --device cpu --batch-size 32 --torch-threads 8 --bootstrap-iterations 2000
+```
+
+The current verified run uses the `google-brain/messidor2-dr-grades` KaggleHub
+label package and records its provenance and checksums in
+`ml/evaluation/messidor/`. Its results are descriptive external evaluation,
+not clinical validation.
+See [docs/MESSIDOR_EXTERNAL_VALIDATION.md](docs/MESSIDOR_EXTERNAL_VALIDATION.md)
+for the source terms, actual grading compatibility decision, reports, and
+zero-shot readiness rules.
+
 ## Inference
 
 Set `CLASSIFIER_MODEL_PATH` to a trained and registered artifact, then start

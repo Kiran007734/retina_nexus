@@ -1,0 +1,8 @@
+{
+  "clinical_validation_claim": false,
+  "dataset": "Messidor-2",
+  "dataset_version": "messidor2-external-f7abdb1e0276",
+  "ready_for_zero_shot_external_validation": true,
+  "status": "EXTERNAL_VALIDATION_COMPLETED",
+  "zero_shot_external_validation_report": "ml/evaluation/messidor/phase4b_external_validation_report.md"
+}

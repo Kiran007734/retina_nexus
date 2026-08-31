@@ -1,21 +1,12 @@
 {
-  "registry_version": "1.0.0",
   "artifacts": [
     {
+      "architecture": "efficientnet_b0",
       "artifact_kind": "FINE_TUNED_MODEL",
       "artifact_status": "MODEL_TRAINED",
       "availability_status": "MODEL_MISSING",
-      "model_name": "RETINA-NEXUS EfficientNet-B0 DR classifier",
-      "model_type": "classification",
-      "model_version": "efficientnet-b0-aptos2019-20260830-v1",
       "checkpoint": "ml\\weights\\classifiers\\aptos2019\\efficientnet-b0-aptos2019-20260830-v1\\checkpoint_best.pt",
-      "dataset_version": "aptos2019-inventory-0738551f82b4",
-      "model_config": {
-        "backbone": "efficientnet_b0",
-        "input_size": 224,
-        "num_classes": 5,
-        "ordinal_mode": false
-      },
+      "checkpoint_sha256": "ae6bb62ced2a108abc1a862870e64985b368b84e69bd8c8c8aa9912754d1a70b",
       "class_mapping": {
         "0": "No DR",
         "1": "Mild",
@@ -23,7 +14,184 @@
         "3": "Severe",
         "4": "Proliferative DR"
       },
+      "clinical_validation_claim": false,
+      "dataset_version": "aptos2019-inventory-0738551f82b4",
+      "evaluation": {
+        "bootstrap_confidence_intervals": {
+          "confidence_level": 0.95,
+          "intervals": {
+            "accuracy": {
+              "lower": 0.6014908256880734,
+              "successful_resamples": 2000,
+              "upper": 0.6456422018348624
+            },
+            "macro_f1": {
+              "lower": 0.30937502312399445,
+              "successful_resamples": 2000,
+              "upper": 0.3802667683579632
+            },
+            "quadratic_weighted_kappa": {
+              "lower": 0.46314708498889623,
+              "successful_resamples": 2000,
+              "upper": 0.5646140585702821
+            },
+            "referable_roc_auc": {
+              "lower": 0.8053588052680403,
+              "successful_resamples": 2000,
+              "upper": 0.8524726937833578
+            },
+            "referable_sensitivity": {
+              "lower": 0.34734282310609743,
+              "successful_resamples": 2000,
+              "upper": 0.43469849529215654
+            },
+            "referable_specificity": {
+              "lower": 0.9727196550839431,
+              "successful_resamples": 2000,
+              "upper": 0.9876450259783593
+            },
+            "weighted_f1": {
+              "lower": 0.490655884409651,
+              "successful_resamples": 2000,
+              "upper": 0.5458695451838601
+            }
+          },
+          "iterations": 2000,
+          "method": "nonparametric percentile bootstrap",
+          "note": "Intervals quantify sampling variability for this external evaluation population; they are not clinical uncertainty guarantees.",
+          "sample_count": 1744,
+          "seed": 42,
+          "status": "CALCULATED"
+        },
+        "checkpoint_sha256_after": "ae6bb62ced2a108abc1a862870e64985b368b84e69bd8c8c8aa9912754d1a70b",
+        "checkpoint_sha256_before": "ae6bb62ced2a108abc1a862870e64985b368b84e69bd8c8c8aa9912754d1a70b",
+        "checkpoint_unchanged": true,
+        "clinical_validation_claim": false,
+        "dataset": "Messidor-2",
+        "dataset_version": "messidor2-external-f7abdb1e0276",
+        "evaluation_type": "zero_shot_external_validation",
+        "label_source": "google-brain/messidor2-dr-grades",
+        "metrics": {
+          "accuracy": 0.6238532110091743,
+          "averaging": {
+            "macro_f1": "unweighted mean across five classes",
+            "roc_auc_ovr_macro": "one-vs-rest macro average",
+            "weighted_f1": "support-weighted mean across five classes"
+          },
+          "class_distribution": {
+            "0": 1017,
+            "1": 270,
+            "2": 347,
+            "3": 75,
+            "4": 35
+          },
+          "clinical_validation_claim": false,
+          "confusion_matrix": [
+            [
+              999,
+              0,
+              0,
+              0,
+              18
+            ],
+            [
+              266,
+              2,
+              0,
+              0,
+              2
+            ],
+            [
+              282,
+              1,
+              45,
+              3,
+              16
+            ],
+            [
+              7,
+              0,
+              25,
+              12,
+              31
+            ],
+            [
+              2,
+              0,
+              1,
+              2,
+              30
+            ]
+          ],
+          "evaluation_population": "Matched Messidor-2 images with successful inference, adjudicated_gradable=1, and valid adjudicated_dr_grade 0..4; four unmatched label records excluded.",
+          "exclusions": "Unmatched label rows are excluded; ungradable rows and unsuccessful inferences are excluded from grade metrics.",
+          "label_mapping": "Messidor-2 adjudicated five-point ICDR grade 0..4 mapped 1:1 to the existing APTOS output labels defined in the downloaded label readme.",
+          "macro_f1": 0.34438069917298414,
+          "precision_macro": 0.5915322070707528,
+          "prediction_distribution": {
+            "0": 1556,
+            "1": 3,
+            "2": 71,
+            "3": 17,
+            "4": 97
+          },
+          "quadratic_weighted_kappa": 0.5181399386379085,
+          "recall_macro": 0.42730682932483444,
+          "referable_dr_grade_2_or_worse": {
+            "f1": 0.5416036308623298,
+            "false_negative": 278,
+            "false_positive": 25,
+            "precision": 0.8774509803921569,
+            "recall": 0.3916849015317287,
+            "roc_auc": 0.8296804095491184,
+            "rule": "true and predicted referable if grade >= 2",
+            "sensitivity": 0.3916849015317287,
+            "specificity": 0.9805749805749806,
+            "true_negative": 1262,
+            "true_positive": 179
+          },
+          "roc_auc_ovr_macro": 0.7750565082447286,
+          "sample_count": 1744,
+          "status": "CALCULATED",
+          "weighted_f1": 0.5182738878127344
+        },
+        "report": "ml/evaluation/messidor/phase4b_external_validation_report.md",
+        "sample_count": 1744
+      },
+      "evaluation_status": "EXTERNAL_VALIDATION_COMPLETED",
+      "evaluation_type": "zero_shot_external_validation",
+      "input_size": 224,
+      "model_config": {
+        "backbone": "efficientnet_b0",
+        "input_size": 224,
+        "num_classes": 5,
+        "ordinal_mode": false
+      },
+      "model_name": "RETINA-NEXUS EfficientNet-B0 DR classifier",
+      "model_type": "classification",
+      "model_version": "efficientnet-b0-aptos2019-20260830-v1",
+      "note": "The checkpoint is intentionally excluded from Git. Re-run the documented APTOS training workflow to create it locally.",
+      "preprocessing": {
+        "color_conversion": "RGB",
+        "dataset_specific_optimization": false,
+        "normalization_mean": [
+          0.485,
+          0.456,
+          0.406
+        ],
+        "normalization_std": [
+          0.229,
+          0.224,
+          0.225
+        ],
+        "resize": [
+          224,
+          224
+        ],
+        "to_tensor": true
+      },
       "training_config": {
+        "clinical_validation_claim": false,
         "dataset": "aptos2019",
         "referable_mapping": {
           "name": "grade_2_or_worse",
@@ -32,35 +200,39 @@
             3,
             4
           ]
-        },
-        "clinical_validation_claim": false
-      },
-      "clinical_validation_claim": false,
-      "note": "The checkpoint is intentionally excluded from Git. Re-run the documented APTOS training workflow to create it locally."
+        }
+      }
     },
     {
       "artifact_kind": "EXPERIMENTAL",
       "artifact_status": "MODEL_DOWNLOADED",
       "availability_status": "MODEL_MISSING",
-      "model_name": "fundus-lesions-toolkit U-Net SE-ResNeXt-50",
-      "model_type": "semantic_segmentation",
-      "model_version": "fundus-lesions-unet-seresnext50-all-v1",
       "checkpoint": "ml\\weights\\lesion_segmentation\\fundus-lesions-unet-seresnext50-all-v1\\model.safetensors",
       "checkpoint_sha256": "a7a7cb45b92328f7c9a8e581eec3944fd435d37fae8cbf340b1319c5f987c6d2",
+      "clinical_validation_claim": false,
       "dataset_version": "IDRiD-DDR-FGADR-MESSIDOR-RETLES-author-reported",
       "model_config": {
         "architecture": "U-Net with SE-ResNeXt-50 32x4d encoder",
-        "input_size": 1024,
-        "num_classes": 5,
         "classes": {
           "0": "background",
           "1": "cotton_wool_spot",
           "2": "exudate",
           "3": "hemorrhage",
           "4": "microaneurysm"
-        }
+        },
+        "input_size": 1024,
+        "num_classes": 5
       },
+      "model_name": "fundus-lesions-toolkit U-Net SE-ResNeXt-50",
+      "model_type": "semantic_segmentation",
+      "model_version": "fundus-lesions-unet-seresnext50-all-v1",
+      "note": "Research model used for supporting evidence only. Download with scripts/acquire_lesion_model.py if the local artifact is missing.",
+      "source": "https://huggingface.co/ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+      "source_code": "https://github.com/ClementPla/fundus-lesions-toolkit",
+      "source_revision": "a2cfcb594e483d8baa17f24e1152009641cb9847",
       "training_config": {
+        "clinical_validation_claim": false,
+        "license": "MIT",
         "source": "ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
         "trained_on": [
           "IDRiD",
@@ -68,96 +240,90 @@
           "FGADR",
           "MESSIDOR",
           "RETLES"
-        ],
-        "license": "MIT",
-        "clinical_validation_claim": false
-      },
-      "source": "https://huggingface.co/ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
-      "source_revision": "a2cfcb594e483d8baa17f24e1152009641cb9847",
-      "source_code": "https://github.com/ClementPla/fundus-lesions-toolkit",
-      "clinical_validation_claim": false,
-      "note": "Research model used for supporting evidence only. Download with scripts/acquire_lesion_model.py if the local artifact is missing."
+        ]
+      }
     },
     {
       "artifact_kind": "EXPERIMENTAL",
       "artifact_status": "MODEL_DOWNLOADED",
       "availability_status": "MODEL_MISSING",
-      "model_name": "R2-V2 RRWNet bv vessel segmentor",
-      "model_type": "binary_vessel_segmentation",
-      "model_version": "r2-v2-bv-2025",
       "checkpoint": "ml\\weights\\vessel_segmentation\\r2-v2-bv-2025\\bv.safetensors",
       "checkpoint_sha256": "ea219b13b03984b8d454f999343c5bda1a8a7cb8586aeb3639a29814cab2330a",
+      "clinical_validation_claim": false,
       "dataset_version": "Unified_Fundus-author-reported",
+      "evaluation": {
+        "clinical_validation_claim": false,
+        "dataset": "DRIVE",
+        "dataset_version": "drive-inventory-72974de918c7a0e7",
+        "ground_truth_scope": {
+          "field_of_view_masks_applied": true,
+          "limitation": "The discovered test split has no manual vessel ground-truth masks; no test accuracy metrics are reported.",
+          "manual_vessel_masks": 20,
+          "test_images_inferred_without_metrics": 0,
+          "test_images_without_ground_truth": 20,
+          "training_images_evaluated": 20
+        },
+        "metrics": {
+          "mean": {
+            "dice": 0.7175513678704364,
+            "f1": 0.7175513678704364,
+            "iou": 0.5624354384306053,
+            "pixel_accuracy": 0.9404486124434829,
+            "precision": 0.8822421578662646,
+            "recall": 0.609811322821545,
+            "sensitivity": 0.609811322821545,
+            "specificity": 0.9885151276684898
+          },
+          "micro_confusion": {
+            "evaluated_pixels": 4541006,
+            "false_negative": 224742,
+            "false_positive": 45692,
+            "ground_truth_vessel_pixels": 569415,
+            "predicted_vessel_pixels": 390365,
+            "true_negative": 3925899,
+            "true_positive": 344673
+          },
+          "sample_count": 20,
+          "std": {
+            "dice": 0.05819514312984749,
+            "f1": 0.0581951431298475,
+            "iou": 0.06446283258519549,
+            "pixel_accuracy": 0.01339115467219539,
+            "precision": 0.02882117693968193,
+            "recall": 0.07671631005896515,
+            "sensitivity": 0.07671631005896515,
+            "specificity": 0.0029437831634069288
+          }
+        },
+        "report": "ml/evaluation/drive/r2-v2-evaluation.json",
+        "threshold": 0.5
+      },
       "model_config": {
         "architecture": "RRWNet (R2-V2 bv variant)",
-        "input_width": 1408,
-        "input_channels": 6,
-        "output_channels": 3,
-        "vessel_channel": 2,
         "classes": {
           "0": "artery",
           "1": "vein",
           "2": "blood_vessels"
-        }
+        },
+        "input_channels": 6,
+        "input_width": 1408,
+        "output_channels": 3,
+        "vessel_channel": 2
       },
-      "training_config": {
-        "source": "j-morano/R2-V2",
-        "training_dataset_provenance": "Unified_Fundus (as stated in the published bv_config.json)",
-        "license": "CC BY 4.0",
-        "clinical_validation_claim": false
-      },
-      "source": "https://huggingface.co/j-morano/R2-V2",
-      "source_revision": "bb8c6c9346054df749f8bd48a9da41ba974e6a6b",
-      "source_code": "https://github.com/j-morano/R2-V2",
-      "clinical_validation_claim": false,
+      "model_name": "R2-V2 RRWNet bv vessel segmentor",
+      "model_type": "binary_vessel_segmentation",
+      "model_version": "r2-v2-bv-2025",
       "note": "Real model-backed vessel evidence. DRIVE metrics are measured engineering segmentation results only; no clinical validation claim.",
-      "evaluation": {
-        "dataset": "DRIVE",
-        "dataset_version": "drive-inventory-72974de918c7a0e7",
-        "ground_truth_scope": {
-          "training_images_evaluated": 20,
-          "test_images_without_ground_truth": 20,
-          "test_images_inferred_without_metrics": 0,
-          "manual_vessel_masks": 20,
-          "field_of_view_masks_applied": true,
-          "limitation": "The discovered test split has no manual vessel ground-truth masks; no test accuracy metrics are reported."
-        },
-        "threshold": 0.5,
-        "metrics": {
-          "sample_count": 20,
-          "mean": {
-            "dice": 0.7175513678704364,
-            "iou": 0.5624354384306053,
-            "pixel_accuracy": 0.9404486124434829,
-            "sensitivity": 0.609811322821545,
-            "specificity": 0.9885151276684898,
-            "precision": 0.8822421578662646,
-            "recall": 0.609811322821545,
-            "f1": 0.7175513678704364
-          },
-          "std": {
-            "dice": 0.05819514312984749,
-            "iou": 0.06446283258519549,
-            "pixel_accuracy": 0.01339115467219539,
-            "sensitivity": 0.07671631005896515,
-            "specificity": 0.0029437831634069288,
-            "precision": 0.02882117693968193,
-            "recall": 0.07671631005896515,
-            "f1": 0.0581951431298475
-          },
-          "micro_confusion": {
-            "true_positive": 344673,
-            "true_negative": 3925899,
-            "false_positive": 45692,
-            "false_negative": 224742,
-            "evaluated_pixels": 4541006,
-            "ground_truth_vessel_pixels": 569415,
-            "predicted_vessel_pixels": 390365
-          }
-        },
+      "source": "https://huggingface.co/j-morano/R2-V2",
+      "source_code": "https://github.com/j-morano/R2-V2",
+      "source_revision": "bb8c6c9346054df749f8bd48a9da41ba974e6a6b",
+      "training_config": {
         "clinical_validation_claim": false,
-        "report": "ml/evaluation/drive/r2-v2-evaluation.json"
+        "license": "CC BY 4.0",
+        "source": "j-morano/R2-V2",
+        "training_dataset_provenance": "Unified_Fundus (as stated in the published bv_config.json)"
       }
     }
-  ]
+  ],
+  "registry_version": "1.0.0"
 }

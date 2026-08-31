@@ -1,0 +1,135 @@
+{
+  "bootstrap_confidence_intervals": {
+    "confidence_level": 0.95,
+    "intervals": {
+      "accuracy": {
+        "lower": 0.6014908256880734,
+        "successful_resamples": 2000,
+        "upper": 0.6456422018348624
+      },
+      "macro_f1": {
+        "lower": 0.30937502312399445,
+        "successful_resamples": 2000,
+        "upper": 0.3802667683579632
+      },
+      "quadratic_weighted_kappa": {
+        "lower": 0.46314708498889623,
+        "successful_resamples": 2000,
+        "upper": 0.5646140585702821
+      },
+      "referable_roc_auc": {
+        "lower": 0.8053588052680403,
+        "successful_resamples": 2000,
+        "upper": 0.8524726937833578
+      },
+      "referable_sensitivity": {
+        "lower": 0.34734282310609743,
+        "successful_resamples": 2000,
+        "upper": 0.43469849529215654
+      },
+      "referable_specificity": {
+        "lower": 0.9727196550839431,
+        "successful_resamples": 2000,
+        "upper": 0.9876450259783593
+      },
+      "weighted_f1": {
+        "lower": 0.490655884409651,
+        "successful_resamples": 2000,
+        "upper": 0.5458695451838601
+      }
+    },
+    "iterations": 2000,
+    "method": "nonparametric percentile bootstrap",
+    "note": "Intervals quantify sampling variability for this external evaluation population; they are not clinical uncertainty guarantees.",
+    "sample_count": 1744,
+    "seed": 42,
+    "status": "CALCULATED"
+  },
+  "clinical_validation_claim": false,
+  "dataset_version": "messidor2-external-f7abdb1e0276",
+  "evaluation_type": "zero_shot_external_validation",
+  "metrics": {
+    "accuracy": 0.6238532110091743,
+    "averaging": {
+      "macro_f1": "unweighted mean across five classes",
+      "roc_auc_ovr_macro": "one-vs-rest macro average",
+      "weighted_f1": "support-weighted mean across five classes"
+    },
+    "class_distribution": {
+      "0": 1017,
+      "1": 270,
+      "2": 347,
+      "3": 75,
+      "4": 35
+    },
+    "clinical_validation_claim": false,
+    "confusion_matrix": [
+      [
+        999,
+        0,
+        0,
+        0,
+        18
+      ],
+      [
+        266,
+        2,
+        0,
+        0,
+        2
+      ],
+      [
+        282,
+        1,
+        45,
+        3,
+        16
+      ],
+      [
+        7,
+        0,
+        25,
+        12,
+        31
+      ],
+      [
+        2,
+        0,
+        1,
+        2,
+        30
+      ]
+    ],
+    "evaluation_population": "Matched Messidor-2 images with successful inference, adjudicated_gradable=1, and valid adjudicated_dr_grade 0..4; four unmatched label records excluded.",
+    "exclusions": "Unmatched label rows are excluded; ungradable rows and unsuccessful inferences are excluded from grade metrics.",
+    "label_mapping": "Messidor-2 adjudicated five-point ICDR grade 0..4 mapped 1:1 to the existing APTOS output labels defined in the downloaded label readme.",
+    "macro_f1": 0.34438069917298414,
+    "precision_macro": 0.5915322070707528,
+    "prediction_distribution": {
+      "0": 1556,
+      "1": 3,
+      "2": 71,
+      "3": 17,
+      "4": 97
+    },
+    "quadratic_weighted_kappa": 0.5181399386379085,
+    "recall_macro": 0.42730682932483444,
+    "referable_dr_grade_2_or_worse": {
+      "f1": 0.5416036308623298,
+      "false_negative": 278,
+      "false_positive": 25,
+      "precision": 0.8774509803921569,
+      "recall": 0.3916849015317287,
+      "roc_auc": 0.8296804095491184,
+      "rule": "true and predicted referable if grade >= 2",
+      "sensitivity": 0.3916849015317287,
+      "specificity": 0.9805749805749806,
+      "true_negative": 1262,
+      "true_positive": 179
+    },
+    "roc_auc_ovr_macro": 0.7750565082447286,
+    "sample_count": 1744,
+    "status": "CALCULATED",
+    "weighted_f1": 0.5182738878127344
+  }
+}

@@ -74,8 +74,29 @@
       "group_field_candidates": ["patient_id", "patient", "subject_id"],
       "label_values": [],
       "kaggle_competition": null,
-      "manual_setup": "Obtain Messidor or Messidor-2 under its source terms and place images plus authorized labels under ml/datasets/raw/messidor/.",
-      "limitations": ["External-validation labels and licensing vary by release; verify the supplied label mapping before analysis."]
+      "official_sources": {
+        "messidor": "https://www.adcis.net/en/third-party/messidor/",
+        "messidor2": "https://www.adcis.net/en/third-party/messidor2/"
+      },
+      "access_mode": "manual_form_required",
+      "license_summary": "Research and educational use only; copying, redistribution, and unauthorized commercial use are prohibited by the official source terms.",
+      "manual_setup": "Complete the ADCIS download form, obtain an authorized copy, and place the original images, labels or pairing spreadsheet, and source documentation under ml/datasets/raw/messidor/. Run scripts/acquire_messidor.py after placement.",
+      "supported_variants": {
+        "messidor": {
+          "documented_images": 1200,
+          "documented_image_format": "TIFF",
+          "documented_grade_values": [0, 1, 2, 3],
+          "label_status": "official per-subset medical-diagnosis spreadsheets"
+        },
+        "messidor2": {
+          "documented_images": 1748,
+          "documented_image_formats": ["PNG", "JPG"],
+          "documented_grade_values": [],
+          "label_status": "official release includes image pairing metadata but no DR ground-truth annotations"
+        }
+      },
+      "readiness_report": "ml/evaluation/messidor/phase4_readiness_report.json",
+      "limitations": ["Messidor/Messidor-2 access requires the official manual form and source terms.", "Messidor-2 official ground truth is absent; third-party labels require separate provenance, authorization, license, and grading review.", "The Messidor 0-3 scale cannot be treated as a five-class APTOS 0-4 scale because its grade 3 combines severe findings and neovascularization.", "The official documentation states that identifying patient information was discarded, so patient-level grouping is not available."]
     }
   ]
 }

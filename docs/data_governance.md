@@ -19,7 +19,7 @@ Alternatively configure `KAGGLE_CONFIG_DIR` or `~/.kaggle/kaggle.json`. If the a
 python scripts/acquire_dataset.py --dataset aptos2019 --mode manual --verify-only
 ```
 
-IDRiD, DRIVE, and Messidor are registered for manual placement because a public Kaggle identifier is not assumed. The acquisition command fails with setup instructions when credentials, the Kaggle CLI, the source slug, or local files are missing.
+IDRiD, DRIVE, and Messidor are registered for manual placement because a public Kaggle identifier is not assumed. The official Messidor/Messidor-2 source requires a completed ADCIS form and source-term review; `scripts/acquire_messidor.py` performs local inventory and validation only and never bypasses that process. The acquisition command fails with setup instructions when credentials, the Kaggle CLI, the source slug, or local files are missing.
 
 ## Governance commands
 
@@ -49,3 +49,14 @@ The prototype score is a weighted engineering signal, not a clinical validation 
 `25% readable files + 15% duplicate-free + 20% label completeness + 15% class balance + 15% split integrity + 10% metadata completeness`
 
 Dimensions that are not applicable to a dataset, such as class labels for a segmentation-only source, are excluded from the denominator and reported in `excluded_dimensions`. This score must not be used as evidence of model safety, generalization, or clinical performance.
+
+## Messidor/Messidor-2 external-validation boundary
+
+Messidor original documents four retinopathy grades (0–3) and a separate
+macular-edema risk field. The four-grade scheme cannot be expanded into the
+APTOS five-grade output without inventing a severe-versus-proliferative split.
+The Phase 4 compatibility report therefore blocks five-class metrics and only
+conditionally permits a clearly named severity-only binary proxy after actual
+labels are validated. The official Messidor-2 release documents no DR ground
+truth, so it is not ready for labeled evaluation unless an independently
+authorized and documented label source is supplied.

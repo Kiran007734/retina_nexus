@@ -1,0 +1,67 @@
+{
+  "aptos_grading_scheme": {
+    "0": "No DR",
+    "1": "Mild",
+    "2": "Moderate",
+    "3": "Severe",
+    "4": "Proliferative DR"
+  },
+  "clinical_validation_claim": false,
+  "dataset_version": "messidor2-external-f7abdb1e0276",
+  "evaluation_population_policy": "Run inference on all matched images; calculate DR grade metrics only on successful inference rows with adjudicated_gradable=1 and a valid 0..4 label.",
+  "external_dataset": "Messidor-2 adjudicated label package",
+  "external_grading_scheme": {
+    "basis": "The downloaded label package readme explicitly defines adjudicated_dr_grade as a five-point ICDR grade with these semantics; numeric equivalence was not assumed without this documentation.",
+    "name": "five-point ICDR",
+    "values": {
+      "0": "None",
+      "1": "Mild DR",
+      "2": "Moderate DR",
+      "3": "Severe DR",
+      "4": "PDR"
+    }
+  },
+  "invalid_or_unsupported_metrics": [
+    {
+      "metric": "clinical diagnostic accuracy",
+      "reason": "This is an external model evaluation on a released dataset, not prospective clinical validation."
+    },
+    {
+      "metric": "DME sensitivity/specificity",
+      "reason": "The model outputs DR grades and no DME prediction is being evaluated."
+    },
+    {
+      "metric": "metrics including unmatched label records",
+      "reason": "Four label rows have no corresponding image and are explicitly excluded."
+    }
+  ],
+  "label_source": {
+    "dataset_version": "1",
+    "documentation": "C:\\Users\\kiran\\.cache\\kagglehub\\datasets\\google-brain\\messidor2-dr-grades\\versions\\1\\messidor_readme.txt",
+    "documentation_sha256": "73d70083b8bf0355ba4c4b5120ecaffd1cfc1662d45bd5febeb32410a2554415",
+    "handle": "google-brain/messidor2-dr-grades"
+  },
+  "mapping_status": "ONE_TO_ONE_DOCUMENTED_SEMANTIC_MAPPING",
+  "proposed_mapping": {
+    "0": 0,
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4
+  },
+  "status": "SUPPORTED_FOR_DESCRIPTIVE_ZERO_SHOT_EXTERNAL_EVALUATION",
+  "valid_metrics": [
+    "accuracy",
+    "macro_f1",
+    "weighted_f1",
+    "per_class_precision",
+    "per_class_recall",
+    "per_class_f1",
+    "confusion_matrix",
+    "quadratic_weighted_kappa",
+    "multiclass_roc_auc_ovr_macro",
+    "sensitivity",
+    "specificity",
+    "referable_grade_2_or_worse_roc_auc"
+  ]
+}
