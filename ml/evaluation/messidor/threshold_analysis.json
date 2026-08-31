@@ -1,0 +1,1122 @@
+{
+  "bootstrap": {
+    "confidence_level": 0.95,
+    "iterations": 2000,
+    "method": "nonparametric percentile bootstrap",
+    "seed": 42
+  },
+  "configuration": {
+    "batch_size": 32,
+    "bootstrap_iterations": 2000,
+    "bootstrap_seed": 42,
+    "device": "cpu",
+    "torch_threads": 8
+  },
+  "evaluation_population": "Original full-dataset successful inferences with adjudicated_gradable=1 and valid DR grade 0..4.",
+  "interpretation": "Exploratory operating-point analysis only. Threshold changes alter the decision rule and do not improve the underlying trained model or establish clinical performance.",
+  "label_provenance_statement": "The Messidor-2 official release does not provide official DR ground truth. This evaluation uses separately acquired third-party reference labels.",
+  "operating_point_definitions": {
+    "balanced": "maximum Youden J over the tested threshold grid",
+    "current": "threshold=0.50, matching the original referable metric",
+    "high_sensitivity": "target sensitivity >= 0.90; fallback is maximum observed sensitivity if target is unmet",
+    "high_specificity": "target specificity >= 0.99; fallback is maximum observed specificity if target is unmet"
+  },
+  "operating_points": {
+    "balanced": {
+      "bootstrap_confidence_intervals": {
+        "f1": {
+          "lower": 0.609088549858446,
+          "successful_resamples": 2000,
+          "upper": 0.6796643497347722
+        },
+        "precision": {
+          "lower": 0.6057890515389068,
+          "successful_resamples": 2000,
+          "upper": 0.692499761146897
+        },
+        "sensitivity": {
+          "lower": 0.5995464094728801,
+          "successful_resamples": 2000,
+          "upper": 0.6852296350820841
+        },
+        "specificity": {
+          "lower": 0.8574836689877972,
+          "successful_resamples": 2000,
+          "upper": 0.8938836558390633
+        }
+      },
+      "confusion_matrix": [
+        [
+          1128,
+          159
+        ],
+        [
+          163,
+          294
+        ]
+      ],
+      "f1": 0.6461538461538462,
+      "false_negative": 163,
+      "false_positive": 159,
+      "precision": 0.6490066225165563,
+      "recall": 0.6433260393873085,
+      "sample_count": 1744,
+      "selection": "maximum Youden J",
+      "sensitivity": 0.6433260393873085,
+      "specificity": 0.8764568764568764,
+      "threshold": 0.1,
+      "true_negative": 1128,
+      "true_positive": 294,
+      "youden_j": 0.5197829158441849
+    },
+    "current": {
+      "bootstrap_confidence_intervals": {
+        "f1": {
+          "lower": 0.49480165109119156,
+          "successful_resamples": 2000,
+          "upper": 0.5846609016788847
+        },
+        "precision": {
+          "lower": 0.8308438576349024,
+          "successful_resamples": 2000,
+          "upper": 0.9200046948356808
+        },
+        "sensitivity": {
+          "lower": 0.34734282310609743,
+          "successful_resamples": 2000,
+          "upper": 0.43469849529215654
+        },
+        "specificity": {
+          "lower": 0.9727196550839431,
+          "successful_resamples": 2000,
+          "upper": 0.9876450259783593
+        }
+      },
+      "confusion_matrix": [
+        [
+          1262,
+          25
+        ],
+        [
+          278,
+          179
+        ]
+      ],
+      "f1": 0.5416036308623298,
+      "false_negative": 278,
+      "false_positive": 25,
+      "precision": 0.8774509803921569,
+      "recall": 0.3916849015317287,
+      "sample_count": 1744,
+      "selection": "existing grade>=2 probability threshold",
+      "sensitivity": 0.3916849015317287,
+      "specificity": 0.9805749805749806,
+      "threshold": 0.5,
+      "true_negative": 1262,
+      "true_positive": 179,
+      "youden_j": 0.37225988210670935
+    },
+    "high_sensitivity": {
+      "bootstrap_confidence_intervals": {
+        "f1": {
+          "lower": 0.5910330566142229,
+          "successful_resamples": 2000,
+          "upper": 0.6572261546826624
+        },
+        "precision": {
+          "lower": 0.5079113228849191,
+          "successful_resamples": 2000,
+          "upper": 0.5855583673469387
+        },
+        "sensitivity": {
+          "lower": 0.688828691853192,
+          "successful_resamples": 2000,
+          "upper": 0.766670403587444
+        },
+        "specificity": {
+          "lower": 0.7629497159688617,
+          "successful_resamples": 2000,
+          "upper": 0.807932210337684
+        }
+      },
+      "confusion_matrix": [
+        [
+          1011,
+          276
+        ],
+        [
+          124,
+          333
+        ]
+      ],
+      "f1": 0.6247654784240151,
+      "false_negative": 124,
+      "false_positive": 276,
+      "precision": 0.5467980295566502,
+      "recall": 0.7286652078774617,
+      "sample_count": 1744,
+      "selection": "target sensitivity >= 0.90 was not reached; selected the tested threshold with maximum sensitivity",
+      "sensitivity": 0.7286652078774617,
+      "specificity": 0.7855477855477856,
+      "threshold": 0.05,
+      "true_negative": 1011,
+      "true_positive": 333,
+      "youden_j": 0.5142129934252473
+    },
+    "high_specificity": {
+      "bootstrap_confidence_intervals": {
+        "f1": {
+          "lower": 0.4142614601018676,
+          "successful_resamples": 2000,
+          "upper": 0.5093813657407408
+        },
+        "precision": {
+          "lower": 0.8764705882352941,
+          "successful_resamples": 2000,
+          "upper": 0.9615384615384616
+        },
+        "sensitivity": {
+          "lower": 0.26781475897345774,
+          "successful_resamples": 2000,
+          "upper": 0.3495956628009777
+        },
+        "specificity": {
+          "lower": 0.9851779564526355,
+          "successful_resamples": 2000,
+          "upper": 0.9954269163431353
+        }
+      },
+      "confusion_matrix": [
+        [
+          1275,
+          12
+        ],
+        [
+          316,
+          141
+        ]
+      ],
+      "f1": 0.4622950819672131,
+      "false_negative": 316,
+      "false_positive": 12,
+      "precision": 0.9215686274509803,
+      "recall": 0.3085339168490153,
+      "sample_count": 1744,
+      "selection": "highest sensitivity among tested thresholds meeting specificity >= 0.99",
+      "sensitivity": 0.3085339168490153,
+      "specificity": 0.9906759906759907,
+      "threshold": 0.7,
+      "true_negative": 1275,
+      "true_positive": 141,
+      "youden_j": 0.2992099075250061
+    }
+  },
+  "probabilities_unchanged": true,
+  "raw_probability_field": "referable_probability_grade_2_or_worse",
+  "software_versions": {
+    "Pillow": "12.2.0",
+    "numpy": "1.26.4",
+    "python": "3.11.9",
+    "scikit-learn": "1.5.1",
+    "torch": "2.11.0",
+    "torchvision": "0.26.0"
+  },
+  "status": "CALCULATED",
+  "threshold_grid": [
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.25,
+    0.3,
+    0.35,
+    0.4,
+    0.45,
+    0.5,
+    0.55,
+    0.6,
+    0.65,
+    0.7,
+    0.75,
+    0.8,
+    0.85,
+    0.9,
+    0.95
+  ],
+  "thresholds": [
+    {
+      "bootstrap_confidence_intervals": {
+        "f1": {
+          "lower": 0.5910330566142229,
+          "successful_resamples": 2000,
+          "upper": 0.6572261546826624
+        },
+        "precision": {
+          "lower": 0.5079113228849191,
+          "successful_resamples": 2000,
+          "upper": 0.5855583673469387
+        },
+        "sensitivity": {
+          "lower": 0.688828691853192,
+          "successful_resamples": 2000,
+          "upper": 0.766670403587444
+        },
+        "specificity": {
+          "lower": 0.7629497159688617,
+          "successful_resamples": 2000,
+          "upper": 0.807932210337684
+        }
+      },
+      "confusion_matrix": [
+        [
+          1011,
+          276
+        ],
+        [
+          124,
+          333
+        ]
+      ],
+      "f1": 0.6247654784240151,
+      "false_negative": 124,
+      "false_positive": 276,
+      "precision": 0.5467980295566502,
+      "recall": 0.7286652078774617,
+      "sample_count": 1744,
+      "sensitivity": 0.7286652078774617,
+      "specificity": 0.7855477855477856,
+      "threshold": 0.05,
+      "true_negative": 1011,
+      "true_positive": 333,
+      "youden_j": 0.5142129934252473
+    },
+    {
+      "bootstrap_confidence_intervals": {
+        "f1": {
+          "lower": 0.609088549858446,
+          "successful_resamples": 2000,
+          "upper": 0.6796643497347722
+        },
+        "precision": {
+          "lower": 0.6057890515389068,
+          "successful_resamples": 2000,
+          "upper": 0.692499761146897
+        },
+        "sensitivity": {
+          "lower": 0.5995464094728801,
+          "successful_resamples": 2000,
+          "upper": 0.6852296350820841
+        },
+        "specificity": {
+          "lower": 0.8574836689877972,
+          "successful_resamples": 2000,
+          "upper": 0.8938836558390633
+        }
+      },
+      "confusion_matrix": [
+        [
+          1128,
+          159
+        ],
+        [
+          163,
+          294
+        ]
+      ],
+      "f1": 0.6461538461538462,
+      "false_negative": 163,
+      "false_positive": 159,
+      "precision": 0.6490066225165563,
+      "recall": 0.6433260393873085,
+      "sample_count": 1744,
+      "sensitivity": 0.6433260393873085,
+      "specificity": 0.8764568764568764,
+      "threshold": 0.1,
+      "true_negative": 1128,
+      "true_positive": 294,
+      "youden_j": 0.5197829158441849
+    },
+    {
+      "bootstrap_confidence_intervals": {
+        "f1": {
+          "lower": 0.6117921547696828,
+          "successful_resamples": 2000,
+          "upper": 0.6855071824750042
+        },
+        "precision": {
+          "lower": 0.6788464765382214,
+          "successful_resamples": 2000,
+          "upper": 0.7698905414438503
+        },
+        "sensitivity": {
+          "lower": 0.5430587317798821,
+          "successful_resamples": 2000,
+          "upper": 0.6315934384419196
+        },
+        "specificity": {
+          "lower": 0.9058632430315392,
+          "successful_resamples": 2000,
+          "upper": 0.9357313767733163
+        }
+      },
+      "confusion_matrix": [
+        [
+          1186,
+          101
+        ],
+        [
+          189,
+          268
+        ]
+      ],
+      "f1": 0.648910411622276,
+      "false_negative": 189,
+      "false_positive": 101,
+      "precision": 0.7262872628726287,
+      "recall": 0.5864332603938731,
+      "sample_count": 1744,
+      "sensitivity": 0.5864332603938731,
+      "specificity": 0.9215229215229215,
+      "threshold": 0.15,
+      "true_negative": 1186,
+      "true_positive": 268,
+      "youden_j": 0.5079561819167946
+    },
+    {
+      "bootstrap_confidence_intervals": {
+        "f1": {
+          "lower": 0.5971647553737105,
+          "successful_resamples": 2000,
+          "upper": 0.6738875372782922
+        },
+        "precision": {
+          "lower": 0.7174468864468865,
+          "successful_resamples": 2000,
+          "upper": 0.8085808580858086
+        },
+        "sensitivity": {
+          "lower": 0.501034467675619,
+          "successful_resamples": 2000,
+          "upper": 0.590620577579863
+        },
+        "specificity": {
+          "lower": 0.9266024223084455,
+          "successful_resamples": 2000,
+          "upper": 0.9525291828793774
+        }
+      },
+      "confusion_matrix": [
+        [
+          1210,
+          77
+        ],
+        [
+          208,
+          249
+        ]
+      ],
+      "f1": 0.6360153256704981,
+      "false_negative": 208,
+      "false_positive": 77,
+      "precision": 0.7638036809815951,
+      "recall": 0.5448577680525164,
+      "sample_count": 1744,
+      "sensitivity": 0.5448577680525164,
+      "specificity": 0.9401709401709402,
+      "threshold": 0.2,
+      "true_negative": 1210,
+      "true_positive": 249,
+      "youden_j": 0.48502870822345656
+    },
+    {
+      "bootstrap_confidence_intervals": {
+        "f1": {
+          "lower": 0.5876097149393524,
+          "successful_resamples": 2000,
+          "upper": 0.6666666666666666
+        },
+        "precision": {
+          "lower": 0.7517229807914834,
+          "successful_resamples": 2000,
+          "upper": 0.84177623519804
+        },
+        "sensitivity": {
+          "lower": 0.4730849979616796,
+          "successful_resamples": 2000,
+          "upper": 0.5627863925839394
+        },
+        "specificity": {
+          "lower": 0.9415851870935645,
+          "successful_resamples": 2000,
+          "upper": 0.9645881447267128
+        }
+      },
+      "confusion_matrix": [
+        [
+          1227,
+          60
+        ],
+        [
+          221,
+          236
+        ]
+      ],
+      "f1": 0.6268260292164675,
+      "false_negative": 221,
+      "false_positive": 60,
+      "precision": 0.7972972972972973,
+      "recall": 0.5164113785557987,
+      "sample_count": 1744,
+      "sensitivity": 0.5164113785557987,
+      "specificity": 0.9533799533799534,
+      "threshold": 0.25,
+      "true_negative": 1227,
+      "true_positive": 236,
+      "youden_j": 0.46979133193575207
+    },
+    {
+      "bootstrap_confidence_intervals": {
+        "f1": {
+          "lower": 0.5673725812391988,
+          "successful_resamples": 2000,
+          "upper": 0.6501431073801104
+        },
+        "precision": {
+          "lower": 0.762962962962963,
+          "successful_resamples": 2000,
+          "upper": 0.8560613049312311
+        },
+        "sensitivity": {
+          "lower": 0.4426957272446139,
+          "successful_resamples": 2000,
+          "upper": 0.5337698249462954
+        },
+        "specificity": {
+          "lower": 0.9490701324389405,
+          "successful_resamples": 2000,
+          "upper": 0.9699371355152034
+        }
+      },
+      "confusion_matrix": [
+        [
+          1235,
+          52
+        ],
+        [
+          234,
+          223
+        ]
+      ],
+      "f1": 0.6092896174863388,
+      "false_negative": 234,
+      "false_positive": 52,
+      "precision": 0.8109090909090909,
+      "recall": 0.487964989059081,
+      "sample_count": 1744,
+      "sensitivity": 0.487964989059081,
+      "specificity": 0.9595959595959596,
+      "threshold": 0.3,
+      "true_negative": 1235,
+      "true_positive": 223,
+      "youden_j": 0.4475609486550405
+    },
+    {
+      "bootstrap_confidence_intervals": {
+        "f1": {
+          "lower": 0.5550613785322875,
+          "successful_resamples": 2000,
+          "upper": 0.6366303070566187
+        },
+        "precision": {
+          "lower": 0.7984783505762373,
+          "successful_resamples": 2000,
+          "upper": 0.8870983431655579
+        },
+        "sensitivity": {
+          "lower": 0.418390218156228,
+          "successful_resamples": 2000,
+          "upper": 0.5082027737428235
+        },
+        "specificity": {
+          "lower": 0.9601554711933151,
+          "successful_resamples": 2000,
+          "upper": 0.9786271751074109
+        }
+      },
+      "confusion_matrix": [
+        [
+          1248,
+          39
+        ],
+        [
+          246,
+          211
+        ]
+      ],
+      "f1": 0.5968882602545968,
+      "false_negative": 246,
+      "false_positive": 39,
+      "precision": 0.844,
+      "recall": 0.4617067833698031,
+      "sample_count": 1744,
+      "sensitivity": 0.4617067833698031,
+      "specificity": 0.9696969696969697,
+      "threshold": 0.35,
+      "true_negative": 1248,
+      "true_positive": 211,
+      "youden_j": 0.4314037530667729
+    },
+    {
+      "bootstrap_confidence_intervals": {
+        "f1": {
+          "lower": 0.5412428705201329,
+          "successful_resamples": 2000,
+          "upper": 0.6280079956047553
+        },
+        "precision": {
+          "lower": 0.8103393714535138,
+          "successful_resamples": 2000,
+          "upper": 0.8987428870049936
+        },
+        "sensitivity": {
+          "lower": 0.4008601636068017,
+          "successful_resamples": 2000,
+          "upper": 0.4903229702353124
+        },
+        "specificity": {
+          "lower": 0.964757696029905,
+          "successful_resamples": 2000,
+          "upper": 0.9818055898444903
+        }
+      },
+      "confusion_matrix": [
+        [
+          1253,
+          34
+        ],
+        [
+          254,
+          203
+        ]
+      ],
+      "f1": 0.5850144092219021,
+      "false_negative": 254,
+      "false_positive": 34,
+      "precision": 0.8565400843881856,
+      "recall": 0.4442013129102845,
+      "sample_count": 1744,
+      "sensitivity": 0.4442013129102845,
+      "specificity": 0.9735819735819736,
+      "threshold": 0.4,
+      "true_negative": 1253,
+      "true_positive": 203,
+      "youden_j": 0.41778328649225815
+    },
+    {
+      "bootstrap_confidence_intervals": {
+        "f1": {
+          "lower": 0.512334656084656,
+          "successful_resamples": 2000,
+          "upper": 0.5985264857881137
+        },
+        "precision": {
+          "lower": 0.8165115454505163,
+          "successful_resamples": 2000,
+          "upper": 0.9045231841023299
+        },
+        "sensitivity": {
+          "lower": 0.3665144318597004,
+          "successful_resamples": 2000,
+          "upper": 0.4557001013697918
+        },
+        "specificity": {
+          "lower": 0.9683730173859998,
+          "successful_resamples": 2000,
+          "upper": 0.9840434001897276
+        }
+      },
+      "confusion_matrix": [
+        [
+          1257,
+          30
+        ],
+        [
+          269,
+          188
+        ]
+      ],
+      "f1": 0.557037037037037,
+      "false_negative": 269,
+      "false_positive": 30,
+      "precision": 0.8623853211009175,
+      "recall": 0.4113785557986871,
+      "sample_count": 1744,
+      "sensitivity": 0.4113785557986871,
+      "specificity": 0.9766899766899767,
+      "threshold": 0.45,
+      "true_negative": 1257,
+      "true_positive": 188,
+      "youden_j": 0.3880685324886639
+    },
+    {
+      "bootstrap_confidence_intervals": {
+        "f1": {
+          "lower": 0.49480165109119156,
+          "successful_resamples": 2000,
+          "upper": 0.5846609016788847
+        },
+        "precision": {
+          "lower": 0.8308438576349024,
+          "successful_resamples": 2000,
+          "upper": 0.9200046948356808
+        },
+        "sensitivity": {
+          "lower": 0.34734282310609743,
+          "successful_resamples": 2000,
+          "upper": 0.43469849529215654
+        },
+        "specificity": {
+          "lower": 0.9727196550839431,
+          "successful_resamples": 2000,
+          "upper": 0.9876450259783593
+        }
+      },
+      "confusion_matrix": [
+        [
+          1262,
+          25
+        ],
+        [
+          278,
+          179
+        ]
+      ],
+      "f1": 0.5416036308623298,
+      "false_negative": 278,
+      "false_positive": 25,
+      "precision": 0.8774509803921569,
+      "recall": 0.3916849015317287,
+      "sample_count": 1744,
+      "sensitivity": 0.3916849015317287,
+      "specificity": 0.9805749805749806,
+      "threshold": 0.5,
+      "true_negative": 1262,
+      "true_positive": 179,
+      "youden_j": 0.37225988210670935
+    },
+    {
+      "bootstrap_confidence_intervals": {
+        "f1": {
+          "lower": 0.47462493180578286,
+          "successful_resamples": 2000,
+          "upper": 0.5642542935595449
+        },
+        "precision": {
+          "lower": 0.8308457711442786,
+          "successful_resamples": 2000,
+          "upper": 0.9239233254994124
+        },
+        "sensitivity": {
+          "lower": 0.3269209956709957,
+          "successful_resamples": 2000,
+          "upper": 0.4125604276203718
+        },
+        "specificity": {
+          "lower": 0.9745475908647822,
+          "successful_resamples": 2000,
+          "upper": 0.9889071017565112
+        }
+      },
+      "confusion_matrix": [
+        [
+          1264,
+          23
+        ],
+        [
+          288,
+          169
+        ]
+      ],
+      "f1": 0.5208012326656395,
+      "false_negative": 288,
+      "false_positive": 23,
+      "precision": 0.8802083333333334,
+      "recall": 0.36980306345733044,
+      "sample_count": 1744,
+      "sensitivity": 0.36980306345733044,
+      "specificity": 0.9821289821289821,
+      "threshold": 0.55,
+      "true_negative": 1264,
+      "true_positive": 169,
+      "youden_j": 0.35193204558631264
+    },
+    {
+      "bootstrap_confidence_intervals": {
+        "f1": {
+          "lower": 0.46052109440267336,
+          "successful_resamples": 2000,
+          "upper": 0.5504767752654771
+        },
+        "precision": {
+          "lower": 0.84375,
+          "successful_resamples": 2000,
+          "upper": 0.932650447216835
+        },
+        "sensitivity": {
+          "lower": 0.3135553905294426,
+          "successful_resamples": 2000,
+          "upper": 0.39626983430213747
+        },
+        "specificity": {
+          "lower": 0.9773255924217007,
+          "successful_resamples": 2000,
+          "upper": 0.9907480579219795
+        }
+      },
+      "confusion_matrix": [
+        [
+          1267,
+          20
+        ],
+        [
+          295,
+          162
+        ]
+      ],
+      "f1": 0.5070422535211268,
+      "false_negative": 295,
+      "false_positive": 20,
+      "precision": 0.8901098901098901,
+      "recall": 0.3544857768052516,
+      "sample_count": 1744,
+      "sensitivity": 0.3544857768052516,
+      "specificity": 0.9844599844599845,
+      "threshold": 0.6,
+      "true_negative": 1267,
+      "true_positive": 162,
+      "youden_j": 0.338945761265236
+    },
+    {
+      "bootstrap_confidence_intervals": {
+        "f1": {
+          "lower": 0.4462726155907974,
+          "successful_resamples": 2000,
+          "upper": 0.539239783758394
+        },
+        "precision": {
+          "lower": 0.8673945326222335,
+          "successful_resamples": 2000,
+          "upper": 0.9523809523809523
+        },
+        "sensitivity": {
+          "lower": 0.29753154671697646,
+          "successful_resamples": 2000,
+          "upper": 0.38106520853144954
+        },
+        "specificity": {
+          "lower": 0.9821004697768787,
+          "successful_resamples": 2000,
+          "upper": 0.9938081692562237
+        }
+      },
+      "confusion_matrix": [
+        [
+          1272,
+          15
+        ],
+        [
+          302,
+          155
+        ]
+      ],
+      "f1": 0.49441786283891537,
+      "false_negative": 302,
+      "false_positive": 15,
+      "precision": 0.9117647058823529,
+      "recall": 0.33916849015317285,
+      "sample_count": 1744,
+      "sensitivity": 0.33916849015317285,
+      "specificity": 0.9883449883449883,
+      "threshold": 0.65,
+      "true_negative": 1272,
+      "true_positive": 155,
+      "youden_j": 0.32751347849816126
+    },
+    {
+      "bootstrap_confidence_intervals": {
+        "f1": {
+          "lower": 0.4142614601018676,
+          "successful_resamples": 2000,
+          "upper": 0.5093813657407408
+        },
+        "precision": {
+          "lower": 0.8764705882352941,
+          "successful_resamples": 2000,
+          "upper": 0.9615384615384616
+        },
+        "sensitivity": {
+          "lower": 0.26781475897345774,
+          "successful_resamples": 2000,
+          "upper": 0.3495956628009777
+        },
+        "specificity": {
+          "lower": 0.9851779564526355,
+          "successful_resamples": 2000,
+          "upper": 0.9954269163431353
+        }
+      },
+      "confusion_matrix": [
+        [
+          1275,
+          12
+        ],
+        [
+          316,
+          141
+        ]
+      ],
+      "f1": 0.4622950819672131,
+      "false_negative": 316,
+      "false_positive": 12,
+      "precision": 0.9215686274509803,
+      "recall": 0.3085339168490153,
+      "sample_count": 1744,
+      "sensitivity": 0.3085339168490153,
+      "specificity": 0.9906759906759907,
+      "threshold": 0.7,
+      "true_negative": 1275,
+      "true_positive": 141,
+      "youden_j": 0.2992099075250061
+    },
+    {
+      "bootstrap_confidence_intervals": {
+        "f1": {
+          "lower": 0.3806544164880782,
+          "successful_resamples": 2000,
+          "upper": 0.4763605619575183
+        },
+        "precision": {
+          "lower": 0.8796992481203008,
+          "successful_resamples": 2000,
+          "upper": 0.9672157934211936
+        },
+        "sensitivity": {
+          "lower": 0.24025786569089108,
+          "successful_resamples": 2000,
+          "upper": 0.3191237843881636
+        },
+        "specificity": {
+          "lower": 0.9870918754745635,
+          "successful_resamples": 2000,
+          "upper": 0.9968254597636041
+        }
+      },
+      "confusion_matrix": [
+        [
+          1277,
+          10
+        ],
+        [
+          329,
+          128
+        ]
+      ],
+      "f1": 0.43025210084033616,
+      "false_negative": 329,
+      "false_positive": 10,
+      "precision": 0.927536231884058,
+      "recall": 0.2800875273522976,
+      "sample_count": 1744,
+      "sensitivity": 0.2800875273522976,
+      "specificity": 0.9922299922299922,
+      "threshold": 0.75,
+      "true_negative": 1277,
+      "true_positive": 128,
+      "youden_j": 0.2723175195822898
+    },
+    {
+      "bootstrap_confidence_intervals": {
+        "f1": {
+          "lower": 0.36331409679101295,
+          "successful_resamples": 2000,
+          "upper": 0.4600126050420167
+        },
+        "precision": {
+          "lower": 0.9242295839753466,
+          "successful_resamples": 2000,
+          "upper": 0.9916666666666667
+        },
+        "sensitivity": {
+          "lower": 0.2238742993891303,
+          "successful_resamples": 2000,
+          "upper": 0.30218535469107544
+        },
+        "specificity": {
+          "lower": 0.9924068413290775,
+          "successful_resamples": 2000,
+          "upper": 0.9992199839981128
+        }
+      },
+      "confusion_matrix": [
+        [
+          1282,
+          5
+        ],
+        [
+          337,
+          120
+        ]
+      ],
+      "f1": 0.4123711340206185,
+      "false_negative": 337,
+      "false_positive": 5,
+      "precision": 0.96,
+      "recall": 0.26258205689277897,
+      "sample_count": 1744,
+      "sensitivity": 0.26258205689277897,
+      "specificity": 0.9961149961149961,
+      "threshold": 0.8,
+      "true_negative": 1282,
+      "true_positive": 120,
+      "youden_j": 0.258697053007775
+    },
+    {
+      "bootstrap_confidence_intervals": {
+        "f1": {
+          "lower": 0.32674682522688714,
+          "successful_resamples": 2000,
+          "upper": 0.4257479283702081
+        },
+        "precision": {
+          "lower": 0.9385829063809967,
+          "successful_resamples": 2000,
+          "upper": 1.0
+        },
+        "sensitivity": {
+          "lower": 0.19646391263784166,
+          "successful_resamples": 2000,
+          "upper": 0.272138570686497
+        },
+        "specificity": {
+          "lower": 0.9945986611611612,
+          "successful_resamples": 2000,
+          "upper": 1.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          1284,
+          3
+        ],
+        [
+          350,
+          107
+        ]
+      ],
+      "f1": 0.3774250440917108,
+      "false_negative": 350,
+      "false_positive": 3,
+      "precision": 0.9727272727272728,
+      "recall": 0.23413566739606126,
+      "sample_count": 1744,
+      "sensitivity": 0.23413566739606126,
+      "specificity": 0.9976689976689976,
+      "threshold": 0.85,
+      "true_negative": 1284,
+      "true_positive": 107,
+      "youden_j": 0.23180466506505892
+    },
+    {
+      "bootstrap_confidence_intervals": {
+        "f1": {
+          "lower": 0.2815029023657656,
+          "successful_resamples": 2000,
+          "upper": 0.3806110123695087
+        },
+        "precision": {
+          "lower": 0.9642749569707402,
+          "successful_resamples": 2000,
+          "upper": 1.0
+        },
+        "sensitivity": {
+          "lower": 0.16443872549019609,
+          "successful_resamples": 2000,
+          "upper": 0.2352974149300976
+        },
+        "specificity": {
+          "lower": 0.9976228209191759,
+          "successful_resamples": 2000,
+          "upper": 1.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          1286,
+          1
+        ],
+        [
+          366,
+          91
+        ]
+      ],
+      "f1": 0.3315118397085611,
+      "false_negative": 366,
+      "false_positive": 1,
+      "precision": 0.9891304347826086,
+      "recall": 0.19912472647702406,
+      "sample_count": 1744,
+      "sensitivity": 0.19912472647702406,
+      "specificity": 0.9992229992229992,
+      "threshold": 0.9,
+      "true_negative": 1286,
+      "true_positive": 91,
+      "youden_j": 0.19834772570002324
+    },
+    {
+      "bootstrap_confidence_intervals": {
+        "f1": {
+          "lower": 0.1769204322200393,
+          "successful_resamples": 2000,
+          "upper": 0.27006146209286874
+        },
+        "precision": {
+          "lower": 0.9433690130624093,
+          "successful_resamples": 2000,
+          "upper": 1.0
+        },
+        "sensitivity": {
+          "lower": 0.09719156880405033,
+          "successful_resamples": 2000,
+          "upper": 0.1561822125813449
+        },
+        "specificity": {
+          "lower": 0.9976228209191759,
+          "successful_resamples": 2000,
+          "upper": 1.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          1286,
+          1
+        ],
+        [
+          399,
+          58
+        ]
+      ],
+      "f1": 0.22480620155038758,
+      "false_negative": 399,
+      "false_positive": 1,
+      "precision": 0.9830508474576272,
+      "recall": 0.12691466083150985,
+      "sample_count": 1744,
+      "sensitivity": 0.12691466083150985,
+      "specificity": 0.9992229992229992,
+      "threshold": 0.95,
+      "true_negative": 1286,
+      "true_positive": 58,
+      "youden_j": 0.126137660054509
+    }
+  ]
+}

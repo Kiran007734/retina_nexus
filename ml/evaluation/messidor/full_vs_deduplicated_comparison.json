@@ -1,0 +1,205 @@
+{
+  "configuration": {
+    "batch_size": 32,
+    "bootstrap_iterations": 2000,
+    "bootstrap_seed": 42,
+    "device": "cpu",
+    "torch_threads": 8
+  },
+  "deduplicated_dataset": {
+    "accuracy": 0.6242807825086306,
+    "averaging": {
+      "macro_f1": "unweighted mean across five classes",
+      "roc_auc_ovr_macro": "one-vs-rest macro average",
+      "weighted_f1": "support-weighted mean across five classes"
+    },
+    "class_distribution": {
+      "0": 1015,
+      "1": 268,
+      "2": 345,
+      "3": 75,
+      "4": 35
+    },
+    "clinical_validation_claim": false,
+    "confusion_matrix": [
+      [
+        997,
+        0,
+        0,
+        0,
+        18
+      ],
+      [
+        264,
+        2,
+        0,
+        0,
+        2
+      ],
+      [
+        281,
+        1,
+        44,
+        3,
+        16
+      ],
+      [
+        7,
+        0,
+        25,
+        12,
+        31
+      ],
+      [
+        2,
+        0,
+        1,
+        2,
+        30
+      ]
+    ],
+    "evaluation_population": "Perceptual-deduplicated matched images with successful inference, adjudicated_gradable=1, and valid grade 0..4; original full-dataset labels and model probabilities were not changed.",
+    "exclusions": "Unmatched label rows are excluded; ungradable rows and unsuccessful inferences are excluded from grade metrics.",
+    "label_mapping": "Messidor-2 adjudicated five-point ICDR grade 0..4 mapped 1:1 to the existing APTOS output labels defined in the downloaded label readme.",
+    "macro_f1": 0.3438616634534258,
+    "precision_macro": 0.5906419776628672,
+    "prediction_distribution": {
+      "0": 1551,
+      "1": 3,
+      "2": 70,
+      "3": 17,
+      "4": 97
+    },
+    "quadratic_weighted_kappa": 0.518436934453739,
+    "recall_macro": 0.4268815570892592,
+    "referable_dr_grade_2_or_worse": {
+      "f1": 0.541033434650456,
+      "false_negative": 277,
+      "false_positive": 25,
+      "precision": 0.8768472906403941,
+      "recall": 0.3912087912087912,
+      "roc_auc": 0.8296831773059364,
+      "rule": "true and predicted referable if grade >= 2",
+      "sensitivity": 0.3912087912087912,
+      "specificity": 0.9805144193296961,
+      "true_negative": 1258,
+      "true_positive": 178
+    },
+    "roc_auc_ovr_macro": 0.7752987338082273,
+    "sample_count": 1738,
+    "status": "CALCULATED",
+    "weighted_f1": 0.5186006247711814
+  },
+  "deduplicated_sample_count": 1738,
+  "deltas": {
+    "accuracy": 0.0004275714994562696,
+    "macro_f1": -0.0005190357195583584,
+    "quadratic_weighted_kappa": 0.00029699581583042534,
+    "referable_sensitivity": -0.0004761103229374841,
+    "referable_specificity": -6.056124528452944e-05,
+    "roc_auc_ovr_macro": 0.00024222556349873248,
+    "weighted_f1": 0.0003267369584469826
+  },
+  "full_dataset": {
+    "accuracy": 0.6238532110091743,
+    "averaging": {
+      "macro_f1": "unweighted mean across five classes",
+      "roc_auc_ovr_macro": "one-vs-rest macro average",
+      "weighted_f1": "support-weighted mean across five classes"
+    },
+    "class_distribution": {
+      "0": 1017,
+      "1": 270,
+      "2": 347,
+      "3": 75,
+      "4": 35
+    },
+    "clinical_validation_claim": false,
+    "confusion_matrix": [
+      [
+        999,
+        0,
+        0,
+        0,
+        18
+      ],
+      [
+        266,
+        2,
+        0,
+        0,
+        2
+      ],
+      [
+        282,
+        1,
+        45,
+        3,
+        16
+      ],
+      [
+        7,
+        0,
+        25,
+        12,
+        31
+      ],
+      [
+        2,
+        0,
+        1,
+        2,
+        30
+      ]
+    ],
+    "evaluation_population": "Matched Messidor-2 images with successful inference, adjudicated_gradable=1, and valid adjudicated_dr_grade 0..4; four unmatched label records excluded.",
+    "exclusions": "Unmatched label rows are excluded; ungradable rows and unsuccessful inferences are excluded from grade metrics.",
+    "label_mapping": "Messidor-2 adjudicated five-point ICDR grade 0..4 mapped 1:1 to the existing APTOS output labels defined in the downloaded label readme.",
+    "macro_f1": 0.34438069917298414,
+    "precision_macro": 0.5915322070707528,
+    "prediction_distribution": {
+      "0": 1556,
+      "1": 3,
+      "2": 71,
+      "3": 17,
+      "4": 97
+    },
+    "quadratic_weighted_kappa": 0.5181399386379085,
+    "recall_macro": 0.42730682932483444,
+    "referable_dr_grade_2_or_worse": {
+      "f1": 0.5416036308623298,
+      "false_negative": 278,
+      "false_positive": 25,
+      "precision": 0.8774509803921569,
+      "recall": 0.3916849015317287,
+      "roc_auc": 0.8296804095491184,
+      "rule": "true and predicted referable if grade >= 2",
+      "sensitivity": 0.3916849015317287,
+      "specificity": 0.9805749805749806,
+      "true_negative": 1262,
+      "true_positive": 179
+    },
+    "roc_auc_ovr_macro": 0.7750565082447286,
+    "sample_count": 1744,
+    "status": "CALCULATED",
+    "weighted_f1": 0.5182738878127344
+  },
+  "full_sample_count": 1744,
+  "interpretation": "The deduplicated result is a sensitivity analysis. It does not replace the original full-dataset evaluation and does not establish clinical generalization.",
+  "label_provenance_statement": "The Messidor-2 official release does not provide official DR ground truth. This evaluation uses separately acquired third-party reference labels.",
+  "material_conclusion_assessment": {
+    "maximum_absolute_reported_delta": 0.0005190357195583584,
+    "rationale": "Only six of 1,744 evaluated records were excluded and the reported point-estimate deltas remain below 0.001 for the listed metrics. The conflicting-label perceptual group is retained in the full result and makes this a sensitivity analysis, not a corrected benchmark.",
+    "status": "NO_MATERIAL_CHANGE_OBSERVED"
+  },
+  "removed_sample_count": 6,
+  "software_versions": {
+    "Pillow": "12.2.0",
+    "numpy": "1.26.4",
+    "python": "3.11.9",
+    "scikit-learn": "1.5.1",
+    "torch": "2.11.0",
+    "torchvision": "0.26.0"
+  },
+  "status": "CALCULATED"
+}

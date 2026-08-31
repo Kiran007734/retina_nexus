@@ -74,7 +74,12 @@ async def seed_model_registry(db: AsyncSession) -> None:
             "version": version,
             "training_dataset": training_config.get("dataset") or artifact.get("dataset_version") or "not specified",
             "input_size": str(config.get("input_size", "")),
-            "performance_metrics": {"validation": measured_metrics, "evaluation": evaluation or None, "clinical_validation_claim": False},
+            "performance_metrics": {
+                "validation": measured_metrics,
+                "evaluation": evaluation or None,
+                "evaluation_status": artifact.get("evaluation_status"),
+                "clinical_validation_claim": False,
+            },
             "training_config": training_config,
             "dataset_version": artifact.get("dataset_version"),
             "file_path": checkpoint,

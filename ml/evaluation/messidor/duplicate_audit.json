@@ -1,0 +1,479 @@
+{
+  "canonical_representative_count": 6,
+  "configuration": {
+    "batch_size": 32,
+    "bootstrap_iterations": 2000,
+    "bootstrap_seed": 42,
+    "device": "cpu",
+    "torch_threads": 8
+  },
+  "deduplicated_image_count": 1738,
+  "exact_duplicate_group_count": 4,
+  "exact_groups": [
+    {
+      "all_labels_identical": true,
+      "canonical_representative": "messidor-2/preprocess/20051202_54547_0400_PP.png",
+      "group_id": "exact_001",
+      "group_kind": "exact",
+      "image_paths": [
+        "messidor-2/preprocess/20051202_54547_0400_PP.png",
+        "messidor-2/preprocess/20051202_55498_0400_PP.png"
+      ],
+      "label_signatures": [
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      "labels": [
+        {
+          "dme": 0,
+          "dr_grade": 1,
+          "gradable": 1,
+          "image_id": "20051202_54547_0400_PP.png",
+          "image_path": "messidor-2/preprocess/20051202_54547_0400_PP.png"
+        },
+        {
+          "dme": 0,
+          "dr_grade": 1,
+          "gradable": 1,
+          "image_id": "20051202_55498_0400_PP.png",
+          "image_path": "messidor-2/preprocess/20051202_55498_0400_PP.png"
+        }
+      ],
+      "policy": "retain lexicographically first image path; exclude other group members only in the separate sensitivity-analysis evaluation",
+      "predicted_grades_in_original_evaluation": [
+        "0",
+        "0"
+      ],
+      "records_found": 2
+    },
+    {
+      "all_labels_identical": true,
+      "canonical_representative": "messidor-2/preprocess/20051202_54555_0400_PP.png",
+      "group_id": "exact_002",
+      "group_kind": "exact",
+      "image_paths": [
+        "messidor-2/preprocess/20051202_54555_0400_PP.png",
+        "messidor-2/preprocess/20051202_55484_0400_PP.png"
+      ],
+      "label_signatures": [
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      "labels": [
+        {
+          "dme": 0,
+          "dr_grade": 1,
+          "gradable": 1,
+          "image_id": "20051202_54555_0400_PP.png",
+          "image_path": "messidor-2/preprocess/20051202_54555_0400_PP.png"
+        },
+        {
+          "dme": 0,
+          "dr_grade": 1,
+          "gradable": 1,
+          "image_id": "20051202_55484_0400_PP.png",
+          "image_path": "messidor-2/preprocess/20051202_55484_0400_PP.png"
+        }
+      ],
+      "policy": "retain lexicographically first image path; exclude other group members only in the separate sensitivity-analysis evaluation",
+      "predicted_grades_in_original_evaluation": [
+        "0",
+        "0"
+      ],
+      "records_found": 2
+    },
+    {
+      "all_labels_identical": true,
+      "canonical_representative": "messidor-2/preprocess/20051202_54611_0400_PP.png",
+      "group_id": "exact_003",
+      "group_kind": "exact",
+      "image_paths": [
+        "messidor-2/preprocess/20051202_54611_0400_PP.png",
+        "messidor-2/preprocess/20051202_55562_0400_PP.png"
+      ],
+      "label_signatures": [
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          1
+        ]
+      ],
+      "labels": [
+        {
+          "dme": 1,
+          "dr_grade": 2,
+          "gradable": 1,
+          "image_id": "20051202_54611_0400_PP.png",
+          "image_path": "messidor-2/preprocess/20051202_54611_0400_PP.png"
+        },
+        {
+          "dme": 1,
+          "dr_grade": 2,
+          "gradable": 1,
+          "image_id": "20051202_55562_0400_PP.png",
+          "image_path": "messidor-2/preprocess/20051202_55562_0400_PP.png"
+        }
+      ],
+      "policy": "retain lexicographically first image path; exclude other group members only in the separate sensitivity-analysis evaluation",
+      "predicted_grades_in_original_evaluation": [
+        "2",
+        "2"
+      ],
+      "records_found": 2
+    },
+    {
+      "all_labels_identical": true,
+      "canonical_representative": "messidor-2/preprocess/20051202_54744_0400_PP.png",
+      "group_id": "exact_004",
+      "group_kind": "exact",
+      "image_paths": [
+        "messidor-2/preprocess/20051202_54744_0400_PP.png",
+        "messidor-2/preprocess/20051202_55582_0400_PP.png"
+      ],
+      "label_signatures": [
+        [
+          2,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          1
+        ]
+      ],
+      "labels": [
+        {
+          "dme": 0,
+          "dr_grade": 2,
+          "gradable": 1,
+          "image_id": "20051202_54744_0400_PP.png",
+          "image_path": "messidor-2/preprocess/20051202_54744_0400_PP.png"
+        },
+        {
+          "dme": 0,
+          "dr_grade": 2,
+          "gradable": 1,
+          "image_id": "20051202_55582_0400_PP.png",
+          "image_path": "messidor-2/preprocess/20051202_55582_0400_PP.png"
+        }
+      ],
+      "policy": "retain lexicographically first image path; exclude other group members only in the separate sensitivity-analysis evaluation",
+      "predicted_grades_in_original_evaluation": [
+        "0",
+        "0"
+      ],
+      "records_found": 2
+    }
+  ],
+  "exact_groups_with_conflicting_labels": 0,
+  "exact_groups_with_identical_labels": 4,
+  "excluded_image_count": 6,
+  "full_evaluation_image_count": 1744,
+  "label_provenance_statement": "The Messidor-2 official release does not provide official DR ground truth. This evaluation uses separately acquired third-party reference labels.",
+  "patient_level_assessment": {
+    "reason": "Patient identifiers are unavailable in the Messidor-2 image and label records.",
+    "status": "NOT_ASSESSABLE"
+  },
+  "perceptual_duplicate_group_count": 6,
+  "perceptual_groups": [
+    {
+      "all_labels_identical": true,
+      "canonical_representative": "messidor-2/preprocess/20051202_54547_0400_PP.png",
+      "group_id": "perceptual_001",
+      "group_kind": "perceptual",
+      "image_paths": [
+        "messidor-2/preprocess/20051202_54547_0400_PP.png",
+        "messidor-2/preprocess/20051202_55498_0400_PP.png"
+      ],
+      "label_signatures": [
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      "labels": [
+        {
+          "dme": 0,
+          "dr_grade": 1,
+          "gradable": 1,
+          "image_id": "20051202_54547_0400_PP.png",
+          "image_path": "messidor-2/preprocess/20051202_54547_0400_PP.png"
+        },
+        {
+          "dme": 0,
+          "dr_grade": 1,
+          "gradable": 1,
+          "image_id": "20051202_55498_0400_PP.png",
+          "image_path": "messidor-2/preprocess/20051202_55498_0400_PP.png"
+        }
+      ],
+      "policy": "retain lexicographically first image path; exclude other group members only in the separate sensitivity-analysis evaluation",
+      "predicted_grades_in_original_evaluation": [
+        "0",
+        "0"
+      ],
+      "records_found": 2
+    },
+    {
+      "all_labels_identical": true,
+      "canonical_representative": "messidor-2/preprocess/20051202_54555_0400_PP.png",
+      "group_id": "perceptual_002",
+      "group_kind": "perceptual",
+      "image_paths": [
+        "messidor-2/preprocess/20051202_54555_0400_PP.png",
+        "messidor-2/preprocess/20051202_55484_0400_PP.png"
+      ],
+      "label_signatures": [
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      "labels": [
+        {
+          "dme": 0,
+          "dr_grade": 1,
+          "gradable": 1,
+          "image_id": "20051202_54555_0400_PP.png",
+          "image_path": "messidor-2/preprocess/20051202_54555_0400_PP.png"
+        },
+        {
+          "dme": 0,
+          "dr_grade": 1,
+          "gradable": 1,
+          "image_id": "20051202_55484_0400_PP.png",
+          "image_path": "messidor-2/preprocess/20051202_55484_0400_PP.png"
+        }
+      ],
+      "policy": "retain lexicographically first image path; exclude other group members only in the separate sensitivity-analysis evaluation",
+      "predicted_grades_in_original_evaluation": [
+        "0",
+        "0"
+      ],
+      "records_found": 2
+    },
+    {
+      "all_labels_identical": true,
+      "canonical_representative": "messidor-2/preprocess/20051202_54611_0400_PP.png",
+      "group_id": "perceptual_003",
+      "group_kind": "perceptual",
+      "image_paths": [
+        "messidor-2/preprocess/20051202_54611_0400_PP.png",
+        "messidor-2/preprocess/20051202_55562_0400_PP.png"
+      ],
+      "label_signatures": [
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          1
+        ]
+      ],
+      "labels": [
+        {
+          "dme": 1,
+          "dr_grade": 2,
+          "gradable": 1,
+          "image_id": "20051202_54611_0400_PP.png",
+          "image_path": "messidor-2/preprocess/20051202_54611_0400_PP.png"
+        },
+        {
+          "dme": 1,
+          "dr_grade": 2,
+          "gradable": 1,
+          "image_id": "20051202_55562_0400_PP.png",
+          "image_path": "messidor-2/preprocess/20051202_55562_0400_PP.png"
+        }
+      ],
+      "policy": "retain lexicographically first image path; exclude other group members only in the separate sensitivity-analysis evaluation",
+      "predicted_grades_in_original_evaluation": [
+        "2",
+        "2"
+      ],
+      "records_found": 2
+    },
+    {
+      "all_labels_identical": true,
+      "canonical_representative": "messidor-2/preprocess/20051202_54744_0400_PP.png",
+      "group_id": "perceptual_004",
+      "group_kind": "perceptual",
+      "image_paths": [
+        "messidor-2/preprocess/20051202_54744_0400_PP.png",
+        "messidor-2/preprocess/20051202_55582_0400_PP.png"
+      ],
+      "label_signatures": [
+        [
+          2,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          1
+        ]
+      ],
+      "labels": [
+        {
+          "dme": 0,
+          "dr_grade": 2,
+          "gradable": 1,
+          "image_id": "20051202_54744_0400_PP.png",
+          "image_path": "messidor-2/preprocess/20051202_54744_0400_PP.png"
+        },
+        {
+          "dme": 0,
+          "dr_grade": 2,
+          "gradable": 1,
+          "image_id": "20051202_55582_0400_PP.png",
+          "image_path": "messidor-2/preprocess/20051202_55582_0400_PP.png"
+        }
+      ],
+      "policy": "retain lexicographically first image path; exclude other group members only in the separate sensitivity-analysis evaluation",
+      "predicted_grades_in_original_evaluation": [
+        "0",
+        "0"
+      ],
+      "records_found": 2
+    },
+    {
+      "all_labels_identical": true,
+      "canonical_representative": "messidor-2/preprocess/20051205_59858_0400_PP.png",
+      "group_id": "perceptual_005",
+      "group_kind": "perceptual",
+      "image_paths": [
+        "messidor-2/preprocess/20051205_59858_0400_PP.png",
+        "messidor-2/preprocess/20051216_44420_0200_PP.png"
+      ],
+      "label_signatures": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "labels": [
+        {
+          "dme": 0,
+          "dr_grade": 0,
+          "gradable": 1,
+          "image_id": "20051205_59858_0400_PP.png",
+          "image_path": "messidor-2/preprocess/20051205_59858_0400_PP.png"
+        },
+        {
+          "dme": 0,
+          "dr_grade": 0,
+          "gradable": 1,
+          "image_id": "20051216_44420_0200_PP.png",
+          "image_path": "messidor-2/preprocess/20051216_44420_0200_PP.png"
+        }
+      ],
+      "policy": "retain lexicographically first image path; exclude other group members only in the separate sensitivity-analysis evaluation",
+      "predicted_grades_in_original_evaluation": [
+        "0",
+        "0"
+      ],
+      "records_found": 2
+    },
+    {
+      "all_labels_identical": false,
+      "canonical_representative": "messidor-2/preprocess/20060411_60426_0200_PP.png",
+      "group_id": "perceptual_006",
+      "group_kind": "perceptual",
+      "image_paths": [
+        "messidor-2/preprocess/20060411_60426_0200_PP.png",
+        "messidor-2/preprocess/IM004831.JPG"
+      ],
+      "label_signatures": [
+        [
+          2,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "labels": [
+        {
+          "dme": 0,
+          "dr_grade": 2,
+          "gradable": 1,
+          "image_id": "20060411_60426_0200_PP.png",
+          "image_path": "messidor-2/preprocess/20060411_60426_0200_PP.png"
+        },
+        {
+          "dme": 0,
+          "dr_grade": 0,
+          "gradable": 1,
+          "image_id": "IM004831.jpg",
+          "image_path": "messidor-2/preprocess/IM004831.JPG"
+        }
+      ],
+      "policy": "retain lexicographically first image path; exclude other group members only in the separate sensitivity-analysis evaluation",
+      "predicted_grades_in_original_evaluation": [
+        "0",
+        "0"
+      ],
+      "records_found": 2
+    }
+  ],
+  "perceptual_groups_with_conflicting_labels": 1,
+  "perceptual_groups_with_identical_labels": 5,
+  "policy": "Use all perceptual duplicate groups as a conservative sensitivity-analysis boundary. Retain lexicographically first path in each group; exclude other members only from the deduplicated evaluation. Never delete or rewrite source files or original evaluation artifacts.",
+  "software_versions": {
+    "Pillow": "12.2.0",
+    "numpy": "1.26.4",
+    "python": "3.11.9",
+    "scikit-learn": "1.5.1",
+    "torch": "2.11.0",
+    "torchvision": "0.26.0"
+  },
+  "source_validation_report": "ml/evaluation/messidor/validation_report.json",
+  "status": "CALCULATED"
+}

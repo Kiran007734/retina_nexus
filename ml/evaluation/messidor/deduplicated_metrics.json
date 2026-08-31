@@ -1,0 +1,217 @@
+{
+  "bootstrap_confidence_intervals": {
+    "confidence_level": 0.95,
+    "intervals": {
+      "accuracy": {
+        "lower": 0.6006904487917146,
+        "successful_resamples": 2000,
+        "upper": 0.64614499424626
+      },
+      "macro_f1": {
+        "lower": 0.3091455069351208,
+        "successful_resamples": 2000,
+        "upper": 0.3800398751785739
+      },
+      "quadratic_weighted_kappa": {
+        "lower": 0.462823221839143,
+        "successful_resamples": 2000,
+        "upper": 0.5689138195458269
+      },
+      "referable_roc_auc": {
+        "lower": 0.805133891368132,
+        "successful_resamples": 2000,
+        "upper": 0.8521642225580219
+      },
+      "referable_sensitivity": {
+        "lower": 0.34934423042411916,
+        "successful_resamples": 2000,
+        "upper": 0.4381569688173461
+      },
+      "referable_specificity": {
+        "lower": 0.9726131905588784,
+        "successful_resamples": 2000,
+        "upper": 0.9881143398669683
+      },
+      "weighted_f1": {
+        "lower": 0.4902792186405143,
+        "successful_resamples": 2000,
+        "upper": 0.5467153754355899
+      }
+    },
+    "iterations": 2000,
+    "method": "nonparametric percentile bootstrap",
+    "note": "Intervals quantify sampling variability for this external evaluation population; they are not clinical uncertainty guarantees.",
+    "sample_count": 1738,
+    "seed": 42,
+    "status": "CALCULATED"
+  },
+  "clinical_validation_claim": false,
+  "configuration": {
+    "batch_size": 32,
+    "bootstrap_iterations": 2000,
+    "bootstrap_seed": 42,
+    "device": "cpu",
+    "torch_threads": 8
+  },
+  "dataset": "Messidor-2",
+  "deduplication_policy": "Use all perceptual duplicate groups as a conservative sensitivity-analysis boundary. Retain lexicographically first path in each group; exclude other members only from the deduplicated evaluation. Never delete or rewrite source files or original evaluation artifacts.",
+  "evaluation_type": "zero_shot_external_validation_reliability_sensitivity_analysis",
+  "excluded_image_count": 6,
+  "inference_accounting": {
+    "failed_inferences": 0,
+    "input_records": 1738,
+    "successful_inferences": 1738
+  },
+  "label_provenance_statement": "The Messidor-2 official release does not provide official DR ground truth. This evaluation uses separately acquired third-party reference labels.",
+  "metrics": {
+    "accuracy": 0.6242807825086306,
+    "averaging": {
+      "macro_f1": "unweighted mean across five classes",
+      "roc_auc_ovr_macro": "one-vs-rest macro average",
+      "weighted_f1": "support-weighted mean across five classes"
+    },
+    "class_distribution": {
+      "0": 1015,
+      "1": 268,
+      "2": 345,
+      "3": 75,
+      "4": 35
+    },
+    "clinical_validation_claim": false,
+    "confusion_matrix": [
+      [
+        997,
+        0,
+        0,
+        0,
+        18
+      ],
+      [
+        264,
+        2,
+        0,
+        0,
+        2
+      ],
+      [
+        281,
+        1,
+        44,
+        3,
+        16
+      ],
+      [
+        7,
+        0,
+        25,
+        12,
+        31
+      ],
+      [
+        2,
+        0,
+        1,
+        2,
+        30
+      ]
+    ],
+    "evaluation_population": "Perceptual-deduplicated matched images with successful inference, adjudicated_gradable=1, and valid grade 0..4; original full-dataset labels and model probabilities were not changed.",
+    "exclusions": "Unmatched label rows are excluded; ungradable rows and unsuccessful inferences are excluded from grade metrics.",
+    "label_mapping": "Messidor-2 adjudicated five-point ICDR grade 0..4 mapped 1:1 to the existing APTOS output labels defined in the downloaded label readme.",
+    "macro_f1": 0.3438616634534258,
+    "precision_macro": 0.5906419776628672,
+    "prediction_distribution": {
+      "0": 1551,
+      "1": 3,
+      "2": 70,
+      "3": 17,
+      "4": 97
+    },
+    "quadratic_weighted_kappa": 0.518436934453739,
+    "recall_macro": 0.4268815570892592,
+    "referable_dr_grade_2_or_worse": {
+      "f1": 0.541033434650456,
+      "false_negative": 277,
+      "false_positive": 25,
+      "precision": 0.8768472906403941,
+      "recall": 0.3912087912087912,
+      "roc_auc": 0.8296831773059364,
+      "rule": "true and predicted referable if grade >= 2",
+      "sensitivity": 0.3912087912087912,
+      "specificity": 0.9805144193296961,
+      "true_negative": 1258,
+      "true_positive": 178
+    },
+    "roc_auc_ovr_macro": 0.7752987338082273,
+    "sample_count": 1738,
+    "status": "CALCULATED",
+    "weighted_f1": 0.5186006247711814
+  },
+  "model": {
+    "architecture": "efficientnet_b0",
+    "checkpoint_sha256_after": "ae6bb62ced2a108abc1a862870e64985b368b84e69bd8c8c8aa9912754d1a70b",
+    "checkpoint_sha256_before": "ae6bb62ced2a108abc1a862870e64985b368b84e69bd8c8c8aa9912754d1a70b",
+    "checkpoint_unchanged": true,
+    "model_version": "efficientnet-b0-aptos2019-20260830-v1"
+  },
+  "per_class": {
+    "clinical_validation_claim": false,
+    "per_class": {
+      "0": {
+        "f1": 0.7770849571317225,
+        "label": "No DR",
+        "precision": 0.6428110896196002,
+        "recall": 0.9822660098522168,
+        "sensitivity": 0.9822660098522168,
+        "specificity": 0.23374827109266944,
+        "support": 1015
+      },
+      "1": {
+        "f1": 0.014760147601476014,
+        "label": "Mild",
+        "precision": 0.6666666666666666,
+        "recall": 0.007462686567164179,
+        "sensitivity": 0.007462686567164179,
+        "specificity": 0.9993197278911564,
+        "support": 268
+      },
+      "2": {
+        "f1": 0.21204819277108433,
+        "label": "Moderate",
+        "precision": 0.6285714285714286,
+        "recall": 0.12753623188405797,
+        "sensitivity": 0.12753623188405797,
+        "specificity": 0.9813352476669059,
+        "support": 345
+      },
+      "3": {
+        "f1": 0.2608695652173913,
+        "label": "Severe",
+        "precision": 0.7058823529411765,
+        "recall": 0.16,
+        "sensitivity": 0.16,
+        "specificity": 0.9969933854479855,
+        "support": 75
+      },
+      "4": {
+        "f1": 0.45454545454545453,
+        "label": "Proliferative DR",
+        "precision": 0.30927835051546393,
+        "recall": 0.8571428571428571,
+        "sensitivity": 0.8571428571428571,
+        "specificity": 0.9606576629477392,
+        "support": 35
+      }
+    },
+    "sample_count": 1738,
+    "status": "CALCULATED"
+  },
+  "software_versions": {
+    "Pillow": "12.2.0",
+    "numpy": "1.26.4",
+    "python": "3.11.9",
+    "scikit-learn": "1.5.1",
+    "torch": "2.11.0",
+    "torchvision": "0.26.0"
+  }
+}

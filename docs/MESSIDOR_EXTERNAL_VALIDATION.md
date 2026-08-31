@@ -128,3 +128,18 @@ official ground truth.
 
 No model training or fine-tuning is performed by this phase. Repeatable
 zero-shot evaluation is implemented by `scripts/evaluate_messidor2.py`.
+
+## Phase 4B reliability audit
+
+After the original evaluation, run the non-destructive reliability audit:
+
+```powershell
+python scripts/audit_messidor2_reliability.py --device cpu --batch-size 32 --torch-threads 8 --bootstrap-iterations 2000 --bootstrap-seed 42
+```
+
+This preserves the original full-dataset results, audits exact and perceptual
+duplicates, reruns inference on a separate perceptual-deduplicated population,
+analyses fixed referable thresholds, and produces deterministic error samples.
+It does not retrain, fine-tune, alter probabilities, delete images, or replace
+the original benchmark. Audit outputs are written alongside the original
+artifacts under `ml/evaluation/messidor/`.

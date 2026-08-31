@@ -172,6 +172,17 @@ See [docs/MESSIDOR_EXTERNAL_VALIDATION.md](docs/MESSIDOR_EXTERNAL_VALIDATION.md)
 for the source terms, actual grading compatibility decision, reports, and
 zero-shot readiness rules.
 
+Run the non-destructive Phase 4B reliability audit when the original evaluation
+is complete:
+
+```powershell
+python scripts/audit_messidor2_reliability.py --device cpu --batch-size 32 --torch-threads 8 --bootstrap-iterations 2000 --bootstrap-seed 42
+```
+
+The audit keeps the original full-dataset results and writes separate duplicate,
+deduplicated, threshold, comparison, and error-analysis artifacts under
+`ml/evaluation/messidor/`.
+
 ## Inference
 
 Set `CLASSIFIER_MODEL_PATH` to a trained and registered artifact, then start

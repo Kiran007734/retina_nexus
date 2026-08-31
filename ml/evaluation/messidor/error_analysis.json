@@ -1,0 +1,251 @@
+{
+  "confidence_fields": [
+    "raw_confidence",
+    "referable_probability_grade_2_or_worse"
+  ],
+  "configuration": {
+    "batch_size": 32,
+    "bootstrap_iterations": 2000,
+    "bootstrap_seed": 42,
+    "device": "cpu",
+    "torch_threads": 8
+  },
+  "evaluation_population_count": 1744,
+  "false_negative_by_reference_and_prediction": {
+    "reference_2_predicted_0": {
+      "count": 269,
+      "mean_raw_confidence": 0.7956798200713657,
+      "mean_referable_probability": 0.1257866376088707,
+      "median_raw_confidence": 0.874136209487915
+    },
+    "reference_2_predicted_1": {
+      "count": 1,
+      "mean_raw_confidence": 0.32150810956954956,
+      "mean_referable_probability": 0.48957741260528564,
+      "median_raw_confidence": 0.32150810956954956
+    },
+    "reference_3_predicted_0": {
+      "count": 6,
+      "mean_raw_confidence": 0.6862410753965378,
+      "mean_referable_probability": 0.16752273760115108,
+      "median_raw_confidence": 0.6742442846298218
+    },
+    "reference_4_predicted_0": {
+      "count": 2,
+      "mean_raw_confidence": 0.7543228268623352,
+      "mean_referable_probability": 0.1743349243188277,
+      "median_raw_confidence": 0.7543228268623352
+    }
+  },
+  "false_negative_count": 278,
+  "false_positive_by_reference_and_prediction": {
+    "reference_0_predicted_0": {
+      "count": 4,
+      "mean_raw_confidence": 0.41265447437763214,
+      "mean_referable_probability": 0.5338620664551854,
+      "median_raw_confidence": 0.39966364204883575
+    },
+    "reference_0_predicted_4": {
+      "count": 18,
+      "mean_raw_confidence": 0.5128255304363039,
+      "mean_referable_probability": 0.7529027951208668,
+      "median_raw_confidence": 0.5226233005523682
+    },
+    "reference_1_predicted_1": {
+      "count": 1,
+      "mean_raw_confidence": 0.25826209783554077,
+      "mean_referable_probability": 0.5609260201454163,
+      "median_raw_confidence": 0.25826209783554077
+    },
+    "reference_1_predicted_4": {
+      "count": 2,
+      "mean_raw_confidence": 0.5052573978900909,
+      "mean_referable_probability": 0.6476224381476641,
+      "median_raw_confidence": 0.5052573978900909
+    }
+  },
+  "false_positive_count": 25,
+  "interpretation": "Aggregates use every eligible full-dataset record. Representative examples are navigational examples, not a cherry-picked performance estimate.",
+  "label_provenance_statement": "The Messidor-2 official release does not provide official DR ground truth. This evaluation uses separately acquired third-party reference labels.",
+  "misclassified_count": 656,
+  "quality_metadata": {
+    "reason": "The original Phase 4B prediction records do not contain image-quality component metadata; no quality values were fabricated.",
+    "status": "UNAVAILABLE"
+  },
+  "representative_false_negatives": [
+    {
+      "image_id": "20060412_59242_0200_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20060412_59242_0200_PP.png",
+      "predicted_grade": 0,
+      "raw_confidence": 0.9988059997558594,
+      "referable_probability": 0.0005589053762378171,
+      "reference_grade": 2,
+      "selection_reason": "deterministic per-reference/prediction group ranking; no manual cherry-picking"
+    },
+    {
+      "image_id": "20060410_40274_0200_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20060410_40274_0200_PP.png",
+      "predicted_grade": 0,
+      "raw_confidence": 0.9983981251716614,
+      "referable_probability": 0.0007547071581939235,
+      "reference_grade": 2,
+      "selection_reason": "deterministic per-reference/prediction group ranking; no manual cherry-picking"
+    },
+    {
+      "image_id": "20060412_58747_0200_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20060412_58747_0200_PP.png",
+      "predicted_grade": 0,
+      "raw_confidence": 0.997312068939209,
+      "referable_probability": 0.0012163713690824807,
+      "reference_grade": 2,
+      "selection_reason": "deterministic per-reference/prediction group ranking; no manual cherry-picking"
+    },
+    {
+      "image_id": "20051020_65230_0100_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20051020_65230_0100_PP.png",
+      "predicted_grade": 1,
+      "raw_confidence": 0.32150810956954956,
+      "referable_probability": 0.48957741260528564,
+      "reference_grade": 2,
+      "selection_reason": "deterministic per-reference/prediction group ranking; no manual cherry-picking"
+    },
+    {
+      "image_id": "20060412_52668_0200_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20060412_52668_0200_PP.png",
+      "predicted_grade": 0,
+      "raw_confidence": 0.9186472296714783,
+      "referable_probability": 0.04064461309462786,
+      "reference_grade": 3,
+      "selection_reason": "deterministic per-reference/prediction group ranking; no manual cherry-picking"
+    },
+    {
+      "image_id": "20051020_57761_0100_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20051020_57761_0100_PP.png",
+      "predicted_grade": 0,
+      "raw_confidence": 0.8377261161804199,
+      "referable_probability": 0.0498743187636137,
+      "reference_grade": 3,
+      "selection_reason": "deterministic per-reference/prediction group ranking; no manual cherry-picking"
+    },
+    {
+      "image_id": "20051021_51804_0100_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20051021_51804_0100_PP.png",
+      "predicted_grade": 0,
+      "raw_confidence": 0.6158589720726013,
+      "referable_probability": 0.14782008156180382,
+      "reference_grade": 3,
+      "selection_reason": "deterministic per-reference/prediction group ranking; no manual cherry-picking"
+    },
+    {
+      "image_id": "20051020_61998_0100_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20051020_61998_0100_PP.png",
+      "predicted_grade": 0,
+      "raw_confidence": 0.9498026967048645,
+      "referable_probability": 0.025215986417606473,
+      "reference_grade": 4,
+      "selection_reason": "deterministic per-reference/prediction group ranking; no manual cherry-picking"
+    },
+    {
+      "image_id": "20051214_56944_0100_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20051214_56944_0100_PP.png",
+      "predicted_grade": 0,
+      "raw_confidence": 0.5588429570198059,
+      "referable_probability": 0.3234538622200489,
+      "reference_grade": 4,
+      "selection_reason": "deterministic per-reference/prediction group ranking; no manual cherry-picking"
+    }
+  ],
+  "representative_false_positives": [
+    {
+      "image_id": "IM002321.jpg",
+      "image_path": "images/messidor-2/messidor-2/preprocess/IM002321.JPG",
+      "predicted_grade": 0,
+      "raw_confidence": 0.3962663412094116,
+      "referable_probability": 0.5700845643877983,
+      "reference_grade": 0,
+      "selection_reason": "deterministic per-reference/prediction group ranking; no manual cherry-picking"
+    },
+    {
+      "image_id": "IM002216.jpg",
+      "image_path": "images/messidor-2/messidor-2/preprocess/IM002216.JPG",
+      "predicted_grade": 0,
+      "raw_confidence": 0.4019273519515991,
+      "referable_probability": 0.5513555482029915,
+      "reference_grade": 0,
+      "selection_reason": "deterministic per-reference/prediction group ranking; no manual cherry-picking"
+    },
+    {
+      "image_id": "IM001423.jpg",
+      "image_path": "images/messidor-2/messidor-2/preprocess/IM001423.JPG",
+      "predicted_grade": 0,
+      "raw_confidence": 0.45502427220344543,
+      "referable_probability": 0.5087071843445301,
+      "reference_grade": 0,
+      "selection_reason": "deterministic per-reference/prediction group ranking; no manual cherry-picking"
+    },
+    {
+      "image_id": "IM002481.jpg",
+      "image_path": "images/messidor-2/messidor-2/preprocess/IM002481.JPG",
+      "predicted_grade": 4,
+      "raw_confidence": 0.6559009552001953,
+      "referable_probability": 0.9777409005910158,
+      "reference_grade": 0,
+      "selection_reason": "deterministic per-reference/prediction group ranking; no manual cherry-picking"
+    },
+    {
+      "image_id": "IM000531.jpg",
+      "image_path": "images/messidor-2/messidor-2/preprocess/IM000531.JPG",
+      "predicted_grade": 4,
+      "raw_confidence": 0.4439796209335327,
+      "referable_probability": 0.8877878300845623,
+      "reference_grade": 0,
+      "selection_reason": "deterministic per-reference/prediction group ranking; no manual cherry-picking"
+    },
+    {
+      "image_id": "IM002157.jpg",
+      "image_path": "images/messidor-2/messidor-2/preprocess/IM002157.JPG",
+      "predicted_grade": 4,
+      "raw_confidence": 0.492818683385849,
+      "referable_probability": 0.8645532429218292,
+      "reference_grade": 0,
+      "selection_reason": "deterministic per-reference/prediction group ranking; no manual cherry-picking"
+    },
+    {
+      "image_id": "IM003688.jpg",
+      "image_path": "images/messidor-2/messidor-2/preprocess/IM003688.JPG",
+      "predicted_grade": 1,
+      "raw_confidence": 0.25826209783554077,
+      "referable_probability": 0.5609260201454163,
+      "reference_grade": 1,
+      "selection_reason": "deterministic per-reference/prediction group ranking; no manual cherry-picking"
+    },
+    {
+      "image_id": "IM000654.jpg",
+      "image_path": "images/messidor-2/messidor-2/preprocess/IM000654.JPG",
+      "predicted_grade": 4,
+      "raw_confidence": 0.4866499900817871,
+      "referable_probability": 0.6511074304580688,
+      "reference_grade": 1,
+      "selection_reason": "deterministic per-reference/prediction group ranking; no manual cherry-picking"
+    },
+    {
+      "image_id": "IM002529.jpg",
+      "image_path": "images/messidor-2/messidor-2/preprocess/IM002529.JPG",
+      "predicted_grade": 4,
+      "raw_confidence": 0.5238648056983948,
+      "referable_probability": 0.6441374458372593,
+      "reference_grade": 1,
+      "selection_reason": "deterministic per-reference/prediction group ranking; no manual cherry-picking"
+    }
+  ],
+  "representative_selection_method": "For every reference-grade/predicted-grade error group, retain up to three deterministic examples. False negatives are ranked by lowest referable probability; false positives by highest referable probability; ties use normalized image path.",
+  "software_versions": {
+    "Pillow": "12.2.0",
+    "numpy": "1.26.4",
+    "python": "3.11.9",
+    "scikit-learn": "1.5.1",
+    "torch": "2.11.0",
+    "torchvision": "0.26.0"
+  },
+  "status": "CALCULATED"
+}
