@@ -299,10 +299,10 @@ class ScreeningPipelineService:
 
     @staticmethod
     def _triage_payload(prediction: DRPrediction, guard: RetinaGuardResult) -> dict[str, Any]:
-        if guard.trust_category == "UNRELIABLE":
+        if guard.trust_category in {"UNRELIABLE", "INSUFFICIENT_EVIDENCE"}:
             recommendation = "RECAPTURE_OR_SPECIALIST_REVIEW"
             priority = "high"
-        elif guard.trust_category == "UNCERTAIN":
+        elif guard.trust_category in {"REVIEW_RECOMMENDED", "UNCERTAIN"}:
             recommendation = "HUMAN_REVIEW_REQUIRED"
             priority = "high"
         elif prediction.referable_dr:

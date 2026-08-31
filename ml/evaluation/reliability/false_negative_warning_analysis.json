@@ -1,0 +1,659 @@
+{
+  "eligible_sample_count": 1744,
+  "evaluation_type": "retrospective_false_negative_warning_analysis",
+  "examples": [
+    {
+      "ground_truth_grade": 2,
+      "image_id": "20051020_43906_0100_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20051020_43906_0100_PP.png",
+      "predicted_grade": 0,
+      "reliability_state": "INSUFFICIENT_EVIDENCE",
+      "warnings": [
+        {
+          "code": "attention_evidence_not_available",
+          "reason": "Attention-lesion agreement has not been calculated from supported evidence.",
+          "severity": "medium"
+        },
+        {
+          "code": "explanation_stability_not_run",
+          "reason": "Explanation stability testing was not run for this real-time request.",
+          "severity": "medium"
+        },
+        {
+          "code": "ood_not_available",
+          "reason": "No authorized reference distribution is configured for OOD monitoring.",
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "ground_truth_grade": 2,
+      "image_id": "20051020_44598_0100_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20051020_44598_0100_PP.png",
+      "predicted_grade": 0,
+      "reliability_state": "INSUFFICIENT_EVIDENCE",
+      "warnings": [
+        {
+          "code": "attention_evidence_not_available",
+          "reason": "Attention-lesion agreement has not been calculated from supported evidence.",
+          "severity": "medium"
+        },
+        {
+          "code": "explanation_stability_not_run",
+          "reason": "Explanation stability testing was not run for this real-time request.",
+          "severity": "medium"
+        },
+        {
+          "code": "ood_not_available",
+          "reason": "No authorized reference distribution is configured for OOD monitoring.",
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "ground_truth_grade": 2,
+      "image_id": "20051020_44636_0100_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20051020_44636_0100_PP.png",
+      "predicted_grade": 0,
+      "reliability_state": "INSUFFICIENT_EVIDENCE",
+      "warnings": [
+        {
+          "code": "attention_evidence_not_available",
+          "reason": "Attention-lesion agreement has not been calculated from supported evidence.",
+          "severity": "medium"
+        },
+        {
+          "code": "explanation_stability_not_run",
+          "reason": "Explanation stability testing was not run for this real-time request.",
+          "severity": "medium"
+        },
+        {
+          "code": "ood_not_available",
+          "reason": "No authorized reference distribution is configured for OOD monitoring.",
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "ground_truth_grade": 2,
+      "image_id": "20051020_44901_0100_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20051020_44901_0100_PP.png",
+      "predicted_grade": 0,
+      "reliability_state": "INSUFFICIENT_EVIDENCE",
+      "warnings": [
+        {
+          "code": "attention_evidence_not_available",
+          "reason": "Attention-lesion agreement has not been calculated from supported evidence.",
+          "severity": "medium"
+        },
+        {
+          "code": "explanation_stability_not_run",
+          "reason": "Explanation stability testing was not run for this real-time request.",
+          "severity": "medium"
+        },
+        {
+          "code": "ood_not_available",
+          "reason": "No authorized reference distribution is configured for OOD monitoring.",
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "ground_truth_grade": 2,
+      "image_id": "20051020_44923_0100_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20051020_44923_0100_PP.png",
+      "predicted_grade": 0,
+      "reliability_state": "UNRELIABLE",
+      "warnings": [
+        {
+          "code": "attention_evidence_not_available",
+          "reason": "Attention-lesion agreement has not been calculated from supported evidence.",
+          "severity": "medium"
+        },
+        {
+          "code": "explanation_stability_not_run",
+          "reason": "Explanation stability testing was not run for this real-time request.",
+          "severity": "medium"
+        },
+        {
+          "code": "ood_not_available",
+          "reason": "No authorized reference distribution is configured for OOD monitoring.",
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "ground_truth_grade": 3,
+      "image_id": "20051020_57761_0100_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20051020_57761_0100_PP.png",
+      "predicted_grade": 0,
+      "reliability_state": "INSUFFICIENT_EVIDENCE",
+      "warnings": [
+        {
+          "code": "attention_evidence_not_available",
+          "reason": "Attention-lesion agreement has not been calculated from supported evidence.",
+          "severity": "medium"
+        },
+        {
+          "code": "explanation_stability_not_run",
+          "reason": "Explanation stability testing was not run for this real-time request.",
+          "severity": "medium"
+        },
+        {
+          "code": "ood_not_available",
+          "reason": "No authorized reference distribution is configured for OOD monitoring.",
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "ground_truth_grade": 2,
+      "image_id": "20051020_57844_0100_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20051020_57844_0100_PP.png",
+      "predicted_grade": 0,
+      "reliability_state": "UNRELIABLE",
+      "warnings": [
+        {
+          "code": "high_prediction_uncertainty",
+          "reason": "Predictive entropy and probability-margin uncertainty are high.",
+          "severity": "high"
+        },
+        {
+          "code": "attention_evidence_not_available",
+          "reason": "Attention-lesion agreement has not been calculated from supported evidence.",
+          "severity": "medium"
+        },
+        {
+          "code": "explanation_stability_not_run",
+          "reason": "Explanation stability testing was not run for this real-time request.",
+          "severity": "medium"
+        },
+        {
+          "code": "ood_not_available",
+          "reason": "No authorized reference distribution is configured for OOD monitoring.",
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "ground_truth_grade": 2,
+      "image_id": "20051020_58276_0100_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20051020_58276_0100_PP.png",
+      "predicted_grade": 0,
+      "reliability_state": "INSUFFICIENT_EVIDENCE",
+      "warnings": [
+        {
+          "code": "attention_evidence_not_available",
+          "reason": "Attention-lesion agreement has not been calculated from supported evidence.",
+          "severity": "medium"
+        },
+        {
+          "code": "explanation_stability_not_run",
+          "reason": "Explanation stability testing was not run for this real-time request.",
+          "severity": "medium"
+        },
+        {
+          "code": "ood_not_available",
+          "reason": "No authorized reference distribution is configured for OOD monitoring.",
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "ground_truth_grade": 4,
+      "image_id": "20051020_61998_0100_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20051020_61998_0100_PP.png",
+      "predicted_grade": 0,
+      "reliability_state": "INSUFFICIENT_EVIDENCE",
+      "warnings": [
+        {
+          "code": "attention_evidence_not_available",
+          "reason": "Attention-lesion agreement has not been calculated from supported evidence.",
+          "severity": "medium"
+        },
+        {
+          "code": "explanation_stability_not_run",
+          "reason": "Explanation stability testing was not run for this real-time request.",
+          "severity": "medium"
+        },
+        {
+          "code": "ood_not_available",
+          "reason": "No authorized reference distribution is configured for OOD monitoring.",
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "ground_truth_grade": 2,
+      "image_id": "20051020_62014_0100_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20051020_62014_0100_PP.png",
+      "predicted_grade": 0,
+      "reliability_state": "INSUFFICIENT_EVIDENCE",
+      "warnings": [
+        {
+          "code": "attention_evidence_not_available",
+          "reason": "Attention-lesion agreement has not been calculated from supported evidence.",
+          "severity": "medium"
+        },
+        {
+          "code": "explanation_stability_not_run",
+          "reason": "Explanation stability testing was not run for this real-time request.",
+          "severity": "medium"
+        },
+        {
+          "code": "ood_not_available",
+          "reason": "No authorized reference distribution is configured for OOD monitoring.",
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "ground_truth_grade": 2,
+      "image_id": "20051020_62878_0100_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20051020_62878_0100_PP.png",
+      "predicted_grade": 0,
+      "reliability_state": "UNRELIABLE",
+      "warnings": [
+        {
+          "code": "high_prediction_uncertainty",
+          "reason": "Predictive entropy and probability-margin uncertainty are high.",
+          "severity": "high"
+        },
+        {
+          "code": "attention_evidence_not_available",
+          "reason": "Attention-lesion agreement has not been calculated from supported evidence.",
+          "severity": "medium"
+        },
+        {
+          "code": "explanation_stability_not_run",
+          "reason": "Explanation stability testing was not run for this real-time request.",
+          "severity": "medium"
+        },
+        {
+          "code": "ood_not_available",
+          "reason": "No authorized reference distribution is configured for OOD monitoring.",
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "ground_truth_grade": 2,
+      "image_id": "20051020_63711_0100_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20051020_63711_0100_PP.png",
+      "predicted_grade": 0,
+      "reliability_state": "INSUFFICIENT_EVIDENCE",
+      "warnings": [
+        {
+          "code": "attention_evidence_not_available",
+          "reason": "Attention-lesion agreement has not been calculated from supported evidence.",
+          "severity": "medium"
+        },
+        {
+          "code": "explanation_stability_not_run",
+          "reason": "Explanation stability testing was not run for this real-time request.",
+          "severity": "medium"
+        },
+        {
+          "code": "ood_not_available",
+          "reason": "No authorized reference distribution is configured for OOD monitoring.",
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "ground_truth_grade": 2,
+      "image_id": "20051020_64518_0100_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20051020_64518_0100_PP.png",
+      "predicted_grade": 0,
+      "reliability_state": "INSUFFICIENT_EVIDENCE",
+      "warnings": [
+        {
+          "code": "attention_evidence_not_available",
+          "reason": "Attention-lesion agreement has not been calculated from supported evidence.",
+          "severity": "medium"
+        },
+        {
+          "code": "explanation_stability_not_run",
+          "reason": "Explanation stability testing was not run for this real-time request.",
+          "severity": "medium"
+        },
+        {
+          "code": "ood_not_available",
+          "reason": "No authorized reference distribution is configured for OOD monitoring.",
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "ground_truth_grade": 2,
+      "image_id": "20051020_64570_0100_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20051020_64570_0100_PP.png",
+      "predicted_grade": 0,
+      "reliability_state": "UNRELIABLE",
+      "warnings": [
+        {
+          "code": "high_prediction_uncertainty",
+          "reason": "Predictive entropy and probability-margin uncertainty are high.",
+          "severity": "high"
+        },
+        {
+          "code": "attention_evidence_not_available",
+          "reason": "Attention-lesion agreement has not been calculated from supported evidence.",
+          "severity": "medium"
+        },
+        {
+          "code": "explanation_stability_not_run",
+          "reason": "Explanation stability testing was not run for this real-time request.",
+          "severity": "medium"
+        },
+        {
+          "code": "ood_not_available",
+          "reason": "No authorized reference distribution is configured for OOD monitoring.",
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "ground_truth_grade": 2,
+      "image_id": "20051020_65166_0100_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20051020_65166_0100_PP.png",
+      "predicted_grade": 0,
+      "reliability_state": "UNRELIABLE",
+      "warnings": [
+        {
+          "code": "high_prediction_uncertainty",
+          "reason": "Predictive entropy and probability-margin uncertainty are high.",
+          "severity": "high"
+        },
+        {
+          "code": "attention_evidence_not_available",
+          "reason": "Attention-lesion agreement has not been calculated from supported evidence.",
+          "severity": "medium"
+        },
+        {
+          "code": "explanation_stability_not_run",
+          "reason": "Explanation stability testing was not run for this real-time request.",
+          "severity": "medium"
+        },
+        {
+          "code": "ood_not_available",
+          "reason": "No authorized reference distribution is configured for OOD monitoring.",
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "ground_truth_grade": 2,
+      "image_id": "20051020_65230_0100_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20051020_65230_0100_PP.png",
+      "predicted_grade": 1,
+      "reliability_state": "UNRELIABLE",
+      "warnings": [
+        {
+          "code": "low_calibrated_confidence",
+          "reason": "Calibrated model confidence is low.",
+          "severity": "high"
+        },
+        {
+          "code": "high_prediction_uncertainty",
+          "reason": "Predictive entropy and probability-margin uncertainty are high.",
+          "severity": "high"
+        },
+        {
+          "code": "attention_evidence_not_available",
+          "reason": "Attention-lesion agreement has not been calculated from supported evidence.",
+          "severity": "medium"
+        },
+        {
+          "code": "explanation_stability_not_run",
+          "reason": "Explanation stability testing was not run for this real-time request.",
+          "severity": "medium"
+        },
+        {
+          "code": "ood_not_available",
+          "reason": "No authorized reference distribution is configured for OOD monitoring.",
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "ground_truth_grade": 2,
+      "image_id": "20051021_39552_0100_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20051021_39552_0100_PP.png",
+      "predicted_grade": 0,
+      "reliability_state": "UNRELIABLE",
+      "warnings": [
+        {
+          "code": "high_prediction_uncertainty",
+          "reason": "Predictive entropy and probability-margin uncertainty are high.",
+          "severity": "high"
+        },
+        {
+          "code": "attention_evidence_not_available",
+          "reason": "Attention-lesion agreement has not been calculated from supported evidence.",
+          "severity": "medium"
+        },
+        {
+          "code": "explanation_stability_not_run",
+          "reason": "Explanation stability testing was not run for this real-time request.",
+          "severity": "medium"
+        },
+        {
+          "code": "ood_not_available",
+          "reason": "No authorized reference distribution is configured for OOD monitoring.",
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "ground_truth_grade": 2,
+      "image_id": "20051021_39661_0100_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20051021_39661_0100_PP.png",
+      "predicted_grade": 0,
+      "reliability_state": "INSUFFICIENT_EVIDENCE",
+      "warnings": [
+        {
+          "code": "attention_evidence_not_available",
+          "reason": "Attention-lesion agreement has not been calculated from supported evidence.",
+          "severity": "medium"
+        },
+        {
+          "code": "explanation_stability_not_run",
+          "reason": "Explanation stability testing was not run for this real-time request.",
+          "severity": "medium"
+        },
+        {
+          "code": "ood_not_available",
+          "reason": "No authorized reference distribution is configured for OOD monitoring.",
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "ground_truth_grade": 2,
+      "image_id": "20051021_40074_0100_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20051021_40074_0100_PP.png",
+      "predicted_grade": 0,
+      "reliability_state": "INSUFFICIENT_EVIDENCE",
+      "warnings": [
+        {
+          "code": "attention_evidence_not_available",
+          "reason": "Attention-lesion agreement has not been calculated from supported evidence.",
+          "severity": "medium"
+        },
+        {
+          "code": "explanation_stability_not_run",
+          "reason": "Explanation stability testing was not run for this real-time request.",
+          "severity": "medium"
+        },
+        {
+          "code": "ood_not_available",
+          "reason": "No authorized reference distribution is configured for OOD monitoring.",
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "ground_truth_grade": 2,
+      "image_id": "20051021_40180_0100_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20051021_40180_0100_PP.png",
+      "predicted_grade": 0,
+      "reliability_state": "INSUFFICIENT_EVIDENCE",
+      "warnings": [
+        {
+          "code": "attention_evidence_not_available",
+          "reason": "Attention-lesion agreement has not been calculated from supported evidence.",
+          "severity": "medium"
+        },
+        {
+          "code": "explanation_stability_not_run",
+          "reason": "Explanation stability testing was not run for this real-time request.",
+          "severity": "medium"
+        },
+        {
+          "code": "ood_not_available",
+          "reason": "No authorized reference distribution is configured for OOD monitoring.",
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "ground_truth_grade": 2,
+      "image_id": "20051021_40248_0100_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20051021_40248_0100_PP.png",
+      "predicted_grade": 0,
+      "reliability_state": "INSUFFICIENT_EVIDENCE",
+      "warnings": [
+        {
+          "code": "attention_evidence_not_available",
+          "reason": "Attention-lesion agreement has not been calculated from supported evidence.",
+          "severity": "medium"
+        },
+        {
+          "code": "explanation_stability_not_run",
+          "reason": "Explanation stability testing was not run for this real-time request.",
+          "severity": "medium"
+        },
+        {
+          "code": "ood_not_available",
+          "reason": "No authorized reference distribution is configured for OOD monitoring.",
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "ground_truth_grade": 2,
+      "image_id": "20051021_51561_0100_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20051021_51561_0100_PP.png",
+      "predicted_grade": 0,
+      "reliability_state": "INSUFFICIENT_EVIDENCE",
+      "warnings": [
+        {
+          "code": "attention_evidence_not_available",
+          "reason": "Attention-lesion agreement has not been calculated from supported evidence.",
+          "severity": "medium"
+        },
+        {
+          "code": "explanation_stability_not_run",
+          "reason": "Explanation stability testing was not run for this real-time request.",
+          "severity": "medium"
+        },
+        {
+          "code": "ood_not_available",
+          "reason": "No authorized reference distribution is configured for OOD monitoring.",
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "ground_truth_grade": 2,
+      "image_id": "20051021_51625_0100_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20051021_51625_0100_PP.png",
+      "predicted_grade": 0,
+      "reliability_state": "INSUFFICIENT_EVIDENCE",
+      "warnings": [
+        {
+          "code": "attention_evidence_not_available",
+          "reason": "Attention-lesion agreement has not been calculated from supported evidence.",
+          "severity": "medium"
+        },
+        {
+          "code": "explanation_stability_not_run",
+          "reason": "Explanation stability testing was not run for this real-time request.",
+          "severity": "medium"
+        },
+        {
+          "code": "ood_not_available",
+          "reason": "No authorized reference distribution is configured for OOD monitoring.",
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "ground_truth_grade": 3,
+      "image_id": "20051021_51804_0100_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20051021_51804_0100_PP.png",
+      "predicted_grade": 0,
+      "reliability_state": "UNRELIABLE",
+      "warnings": [
+        {
+          "code": "attention_evidence_not_available",
+          "reason": "Attention-lesion agreement has not been calculated from supported evidence.",
+          "severity": "medium"
+        },
+        {
+          "code": "explanation_stability_not_run",
+          "reason": "Explanation stability testing was not run for this real-time request.",
+          "severity": "medium"
+        },
+        {
+          "code": "ood_not_available",
+          "reason": "No authorized reference distribution is configured for OOD monitoring.",
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "ground_truth_grade": 2,
+      "image_id": "20051021_58178_0100_PP.png",
+      "image_path": "images/messidor-2/messidor-2/preprocess/20051021_58178_0100_PP.png",
+      "predicted_grade": 0,
+      "reliability_state": "INSUFFICIENT_EVIDENCE",
+      "warnings": [
+        {
+          "code": "attention_evidence_not_available",
+          "reason": "Attention-lesion agreement has not been calculated from supported evidence.",
+          "severity": "medium"
+        },
+        {
+          "code": "explanation_stability_not_run",
+          "reason": "Explanation stability testing was not run for this real-time request.",
+          "severity": "medium"
+        },
+        {
+          "code": "ood_not_available",
+          "reason": "No authorized reference distribution is configured for OOD monitoring.",
+          "severity": "medium"
+        }
+      ]
+    }
+  ],
+  "false_negative_count": 278,
+  "false_negative_warning_coverage": 1.0,
+  "false_negatives_with_multiple_warnings": 278,
+  "limitations": [
+    "This is a retrospective warning audit, not a prospective false-negative detector.",
+    "Warnings were not tuned on the false-negative labels and must not be interpreted as sensitivity or clinical safety performance.",
+    "Messidor-2 reference labels are separately acquired third-party labels as documented by Phase 4B."
+  ],
+  "rule": "false negative means adjudicated grade >= 2 and original grade>=2 probability < 0.50, matching Phase 4B; no warning threshold was optimized here.",
+  "source": "C:\\Users\\kiran\\Downloads\\retina_nexus\\ml\\evaluation\\messidor\\zero_shot_predictions.csv",
+  "status": "CALCULATED",
+  "warning_counts_among_false_negatives": {
+    "attention_evidence_not_available": 278,
+    "explanation_stability_not_run": 278,
+    "high_prediction_uncertainty": 49,
+    "low_calibrated_confidence": 5,
+    "ood_not_available": 278
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "base_gradcam_count": 3,
+  "completed_variant_count": 24,
+  "evidence_status": "NOT_RUN_IN_ROBUSTNESS_SCOPE",
+  "failed_variant_count": 0,
+  "grad_cam_stability": 0.98136886,
+  "model": {
+    "architecture": "efficientnet_b0",
+    "checkpoint": "C:\\Users\\kiran\\Downloads\\retina_nexus\\ml\\weights\\classifiers\\aptos2019\\efficientnet-b0-aptos2019-20260830-v1\\checkpoint_best.pt",
+    "checkpoint_sha256": "ae6bb62ced2a108abc1a862870e64985b368b84e69bd8c8c8aa9912754d1a70b",
+    "model_version": "efficientnet-b0-aptos2019-20260830-v1"
+  },
+  "note": "Controlled perturbation diagnostic on a small deterministic sample. Real classifier and Grad-CAM outputs were used; this is not a clinical robustness validation.",
+  "perturbations": [
+    "brightness_minus_15pct",
+    "brightness_plus_15pct",
+    "contrast_minus_20pct",
+    "contrast_plus_20pct",
+    "gaussian_blur_mild",
+    "gaussian_blur_moderate",
+    "minor_noise",
+    "rotation_plus_3deg"
+  ],
+  "prediction_stability": 1.0,
+  "requested_variant_count": 24,
+  "sample_selection": {
+    "policy": "one deterministic lexicographically first image per available adjudicated grade, then image_id sort; capped by requested samples",
+    "requested_samples": 3,
+    "selected_samples": 3
+  },
+  "status": "CALCULATED",
+  "variant_gradcam_count": 24
+}

@@ -68,7 +68,7 @@ _SCENARIOS: tuple[dict[str, Any], ...] = (
         },
         "lesions": {"status": "demo-supported", "evidence_strength": 0.42, "summary": [{"lesion_type": "microaneurysm_detection", "count": 3, "confidence": 0.48}]},
         "explainability": {"attention_lesion_agreement": {"status": "MODERATE AGREEMENT", "score": 0.43}, "explanation_stability": {"status": "COMPLETED", "prediction_stability": 0.67, "grad_cam_stability": 0.58}},
-        "retinaguard": {"trust_score": 0.58, "trust_category": "UNCERTAIN", "reason_summary": ["Prediction uncertainty remains elevated after enhancement."], "risk_flags": [{"code": "high_prediction_uncertainty", "severity": "high"}]},
+        "retinaguard": {"trust_score": 0.58, "trust_category": "REVIEW_RECOMMENDED", "reason_summary": ["Prediction uncertainty remains elevated after enhancement."], "risk_flags": [{"code": "high_prediction_uncertainty", "severity": "high"}]},
         "triage": {"recommendation": "HUMAN_REVIEW_REQUIRED", "display_action": "HUMAN REVIEW", "priority": "high"},
         "model_versions": {"dr_classifier": "demo-classifier-v1", "retinaguard": "demo-guard-v1", "preprocessing": "demo-preprocessing-v1"},
     },

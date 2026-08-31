@@ -156,7 +156,9 @@ export type TrustResult = {
   image_id: string;
   screening_session_id: string;
   trust_score: number;
-  trust_category: 'TRUSTED' | 'UNCERTAIN' | 'UNRELIABLE';
+  trust_category: 'TRUSTED' | 'REVIEW_RECOMMENDED' | 'UNRELIABLE' | 'INSUFFICIENT_EVIDENCE' | 'UNCERTAIN';
+  reliability_score?: number | null;
+  reliability_state?: 'TRUSTED' | 'REVIEW_RECOMMENDED' | 'UNRELIABLE' | 'INSUFFICIENT_EVIDENCE' | 'UNCERTAIN' | string | null;
   contributing_factors: Array<{ factor: string; score: number; raw_value?: number | null; weight: number; contribution: number; status: string; explanation: string }>;
   risk_flags: Array<{ code: string; severity: string; reason: string }>;
   recommended_action: string;
@@ -167,6 +169,15 @@ export type TrustResult = {
   signal_snapshot: Record<string, unknown>;
   configuration: { version: string; weights: Record<string, number>; [key: string]: unknown };
   reason_summary: string[];
+  confidence?: { raw?: number | null; calibrated?: number | null; [key: string]: unknown };
+  image_quality_status?: string;
+  ood_status?: string;
+  evidence_status?: string;
+  explanation_status?: string;
+  warnings?: Array<{ code: string; severity: string; reason: string }>;
+  reasons?: string[];
+  recommended_safe_action?: string;
+  provenance?: Record<string, unknown>;
   note: string;
 };
 

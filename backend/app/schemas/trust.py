@@ -27,6 +27,8 @@ class TrustResponse(BaseModel):
     screening_session_id: UUID
     trust_score: float
     trust_category: str
+    reliability_score: float | None = None
+    reliability_state: str | None = None
     contributing_factors: list[dict]
     risk_flags: list[dict[str, str]]
     recommended_action: str
@@ -37,4 +39,13 @@ class TrustResponse(BaseModel):
     signal_snapshot: dict
     configuration: dict
     reason_summary: list[str]
+    confidence: dict = Field(default_factory=dict)
+    image_quality_status: str = "UNAVAILABLE"
+    ood_status: str = "UNAVAILABLE"
+    evidence_status: str = "UNAVAILABLE"
+    explanation_status: str = "UNAVAILABLE"
+    warnings: list[dict[str, str]] = Field(default_factory=list)
+    reasons: list[str] = Field(default_factory=list)
+    recommended_safe_action: str = "PROFESSIONAL_REVIEW_RECOMMENDED"
+    provenance: dict = Field(default_factory=dict)
     note: str

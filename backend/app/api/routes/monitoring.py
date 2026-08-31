@@ -83,7 +83,7 @@ def _stage_bottlenecks(runs: list[ScreeningRun]) -> list[dict[str, Any]]:
 def _needs_review(run: ScreeningRun) -> bool:
     trust = run.retinaguard or {}
     triage = run.triage or {}
-    return trust.get("trust_category") in {"UNCERTAIN", "UNRELIABLE"} or (run.classification or {}).get("referable_dr") is True or triage.get("recommendation") in {"HUMAN_REVIEW_REQUIRED", "SPECIALIST_REVIEW_RECOMMENDED", "RECAPTURE_OR_SPECIALIST_REVIEW"}
+    return trust.get("trust_category") in {"UNCERTAIN", "REVIEW_RECOMMENDED", "INSUFFICIENT_EVIDENCE", "UNRELIABLE"} or (run.classification or {}).get("referable_dr") is True or triage.get("recommendation") in {"HUMAN_REVIEW_REQUIRED", "SPECIALIST_REVIEW_RECOMMENDED", "RECAPTURE_OR_SPECIALIST_REVIEW"}
 
 
 def _input_drift(runs: list[ScreeningRun]) -> dict[str, Any]:

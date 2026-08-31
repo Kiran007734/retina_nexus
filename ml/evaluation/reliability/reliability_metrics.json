@@ -1,0 +1,337 @@
+{
+  "calibrated_confidence": {
+    "count": 1744,
+    "max": 0.999321,
+    "mean": 0.85524811,
+    "min": 0.225295,
+    "std": 0.19642897
+  },
+  "checkpoint": {
+    "expected_sha256": "ae6bb62ced2a108abc1a862870e64985b368b84e69bd8c8c8aa9912754d1a70b",
+    "path": "C:\\Users\\kiran\\Downloads\\retina_nexus\\ml\\weights\\classifiers\\aptos2019\\efficientnet-b0-aptos2019-20260830-v1\\checkpoint_best.pt",
+    "sha256": "ae6bb62ced2a108abc1a862870e64985b368b84e69bd8c8c8aa9912754d1a70b",
+    "unchanged": true
+  },
+  "clinical_validation_claim": false,
+  "configuration": {
+    "clinical_validation_claim": false,
+    "engine_version": "retinaguard-v2-reliability",
+    "missing_signal_score": 0.25,
+    "trusted_threshold": 0.75,
+    "unreliable_threshold": 0.45,
+    "weights": {
+      "attention_lesion_agreement": 0.15,
+      "calibrated_confidence": 0.2,
+      "explanation_stability": 0.05,
+      "lesion_evidence": 0.1,
+      "model_agreement": 0.1,
+      "ood": 0.05,
+      "quality": 0.2,
+      "uncertainty": 0.15
+    }
+  },
+  "duplicates": {
+    "canonical_representative_count": 6,
+    "deduplicated_image_count": 1738,
+    "exact_duplicate_group_count": 4,
+    "note": "Duplicate results are inherited from the separately generated Phase 4B audit; the original predictions were not rewritten.",
+    "perceptual_duplicate_group_count": 6,
+    "source": "C:\\Users\\kiran\\Downloads\\retina_nexus\\ml\\evaluation\\messidor\\duplicate_audit.json",
+    "status": "AVAILABLE"
+  },
+  "evaluation_type": "retrospective_reliability_validation",
+  "generated_at_utc": "2026-08-31T18:33:35.929054+00:00",
+  "generated_by": "scripts/evaluate_reliability.py",
+  "ground_truth_class_distribution": {
+    "0": 1017,
+    "1": 270,
+    "2": 347,
+    "3": 75,
+    "4": 35
+  },
+  "model_disagreement_status_counts": {
+    "UNAVAILABLE": 1744
+  },
+  "note": "Retrospective reliability signals only. Missing evidence is represented explicitly and never replaced with a fabricated positive signal.",
+  "prediction_class_distribution": {
+    "0": 1556,
+    "1": 3,
+    "2": 71,
+    "3": 17,
+    "4": 97
+  },
+  "quality": {
+    "camera_metadata_present_count": 0,
+    "component_scores": {
+      "artifacts": {
+        "count": 1744,
+        "max": 1.0,
+        "mean": 0.99906841,
+        "min": 0.8114,
+        "std": 0.0084862
+      },
+      "contrast": {
+        "count": 1744,
+        "max": 0.7312,
+        "mean": 0.28703847,
+        "min": 0.1091,
+        "std": 0.07150448
+      },
+      "exposure": {
+        "count": 1744,
+        "max": 1.0,
+        "mean": 0.99977047,
+        "min": 0.8223,
+        "std": 0.00444384
+      },
+      "field_of_view": {
+        "count": 1744,
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "focus": {
+        "count": 1744,
+        "max": 1.0,
+        "mean": 0.41932081,
+        "min": 0.0,
+        "std": 0.168805
+      },
+      "illumination": {
+        "count": 1744,
+        "max": 0.9999,
+        "mean": 0.86126118,
+        "min": 0.6711,
+        "std": 0.07607785
+      }
+    },
+    "decision_counts": {
+      "BORDERLINE": 1711,
+      "GRADABLE": 27,
+      "UNGRADABLE": 6
+    },
+    "file_count": 1744,
+    "quality_score": {
+      "count": 1744,
+      "max": 0.9005,
+      "mean": 0.72694794,
+      "min": 0.6095,
+      "std": 0.04872344
+    },
+    "readable_file_count": 1744,
+    "resolution": {
+      "height": {
+        "count": 1744,
+        "max": 512.0,
+        "mean": 512.0,
+        "min": 512.0,
+        "std": 0.0
+      },
+      "pixel_count": {
+        "count": 1744,
+        "max": 262144.0,
+        "mean": 262144.0,
+        "min": 262144.0,
+        "std": 0.0
+      },
+      "width": {
+        "count": 1744,
+        "max": 512.0,
+        "mean": 512.0,
+        "min": 512.0,
+        "std": 0.0
+      }
+    },
+    "unreadable_file_count": 0
+  },
+  "raw_confidence": {
+    "count": 1744,
+    "max": 0.99932158,
+    "mean": 0.85524812,
+    "min": 0.22529514,
+    "std": 0.19642897
+  },
+  "reference_model_metrics": {
+    "bootstrap_confidence_intervals": {
+      "confidence_level": 0.95,
+      "intervals": {
+        "accuracy": {
+          "lower": 0.6014908256880734,
+          "successful_resamples": 2000,
+          "upper": 0.6456422018348624
+        },
+        "macro_f1": {
+          "lower": 0.30937502312399445,
+          "successful_resamples": 2000,
+          "upper": 0.3802667683579632
+        },
+        "quadratic_weighted_kappa": {
+          "lower": 0.46314708498889623,
+          "successful_resamples": 2000,
+          "upper": 0.5646140585702821
+        },
+        "referable_roc_auc": {
+          "lower": 0.8053588052680403,
+          "successful_resamples": 2000,
+          "upper": 0.8524726937833578
+        },
+        "referable_sensitivity": {
+          "lower": 0.34734282310609743,
+          "successful_resamples": 2000,
+          "upper": 0.43469849529215654
+        },
+        "referable_specificity": {
+          "lower": 0.9727196550839431,
+          "successful_resamples": 2000,
+          "upper": 0.9876450259783593
+        },
+        "weighted_f1": {
+          "lower": 0.490655884409651,
+          "successful_resamples": 2000,
+          "upper": 0.5458695451838601
+        }
+      },
+      "iterations": 2000,
+      "method": "nonparametric percentile bootstrap",
+      "note": "Intervals quantify sampling variability for this external evaluation population; they are not clinical uncertainty guarantees.",
+      "sample_count": 1744,
+      "seed": 42,
+      "status": "CALCULATED"
+    },
+    "clinical_validation_claim": false,
+    "dataset_version": "messidor2-external-f7abdb1e0276",
+    "evaluation_type": "zero_shot_external_validation",
+    "metrics": {
+      "accuracy": 0.6238532110091743,
+      "averaging": {
+        "macro_f1": "unweighted mean across five classes",
+        "roc_auc_ovr_macro": "one-vs-rest macro average",
+        "weighted_f1": "support-weighted mean across five classes"
+      },
+      "class_distribution": {
+        "0": 1017,
+        "1": 270,
+        "2": 347,
+        "3": 75,
+        "4": 35
+      },
+      "clinical_validation_claim": false,
+      "confusion_matrix": [
+        [
+          999,
+          0,
+          0,
+          0,
+          18
+        ],
+        [
+          266,
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          282,
+          1,
+          45,
+          3,
+          16
+        ],
+        [
+          7,
+          0,
+          25,
+          12,
+          31
+        ],
+        [
+          2,
+          0,
+          1,
+          2,
+          30
+        ]
+      ],
+      "evaluation_population": "Matched Messidor-2 images with successful inference, adjudicated_gradable=1, and valid adjudicated_dr_grade 0..4; four unmatched label records excluded.",
+      "exclusions": "Unmatched label rows are excluded; ungradable rows and unsuccessful inferences are excluded from grade metrics.",
+      "label_mapping": "Messidor-2 adjudicated five-point ICDR grade 0..4 mapped 1:1 to the existing APTOS output labels defined in the downloaded label readme.",
+      "macro_f1": 0.34438069917298414,
+      "precision_macro": 0.5915322070707528,
+      "prediction_distribution": {
+        "0": 1556,
+        "1": 3,
+        "2": 71,
+        "3": 17,
+        "4": 97
+      },
+      "quadratic_weighted_kappa": 0.5181399386379085,
+      "recall_macro": 0.42730682932483444,
+      "referable_dr_grade_2_or_worse": {
+        "f1": 0.5416036308623298,
+        "false_negative": 278,
+        "false_positive": 25,
+        "precision": 0.8774509803921569,
+        "recall": 0.3916849015317287,
+        "roc_auc": 0.8296804095491184,
+        "rule": "true and predicted referable if grade >= 2",
+        "sensitivity": 0.3916849015317287,
+        "specificity": 0.9805749805749806,
+        "true_negative": 1262,
+        "true_positive": 179
+      },
+      "roc_auc_ovr_macro": 0.7750565082447286,
+      "sample_count": 1744,
+      "status": "CALCULATED",
+      "weighted_f1": 0.5182738878127344
+    }
+  },
+  "reliability_state_counts": {
+    "INSUFFICIENT_EVIDENCE": 1444,
+    "UNRELIABLE": 300
+  },
+  "signal_status_counts": {
+    "evidence": {
+      "UNAVAILABLE": 1744
+    },
+    "explanation": {
+      "UNAVAILABLE": 1744
+    },
+    "image_quality": {
+      "AVAILABLE": 1744
+    },
+    "ood": {
+      "UNAVAILABLE": 1744
+    }
+  },
+  "software": {
+    "Pillow": "12.2.0",
+    "numpy": "1.26.4",
+    "python": "3.11.9",
+    "torch": "2.11.0",
+    "torchvision": "0.26.0"
+  },
+  "source": {
+    "dataset_version": "messidor2-external-f7abdb1e0276",
+    "eligible_row_count": 1744,
+    "predictions": "C:\\Users\\kiran\\Downloads\\retina_nexus\\ml\\evaluation\\messidor\\zero_shot_predictions.csv",
+    "raw_dataset": "C:\\Users\\kiran\\Downloads\\retina_nexus\\ml\\datasets\\raw\\messidor",
+    "row_count": 1744
+  },
+  "status": "CALCULATED",
+  "uncertainty": {
+    "count": 1744,
+    "max": 0.997527,
+    "mean": 0.25190356,
+    "min": 0.002809,
+    "std": 0.28227329
+  },
+  "warning_counts": {
+    "attention_evidence_not_available": 1744,
+    "explanation_stability_not_run": 1744,
+    "high_prediction_uncertainty": 232,
+    "low_calibrated_confidence": 51,
+    "ood_not_available": 1744
+  }
+}

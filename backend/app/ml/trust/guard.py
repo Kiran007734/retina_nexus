@@ -14,6 +14,22 @@ from app.ml.trust.uncertainty import UncertaintyEstimator
 logger = logging.getLogger(__name__)
 
 
+class ReliabilityState:
+    """Operational reliability states, never diagnostic labels."""
+
+    TRUSTED = "TRUSTED"
+    REVIEW_RECOMMENDED = "REVIEW_RECOMMENDED"
+    UNRELIABLE = "UNRELIABLE"
+    INSUFFICIENT_EVIDENCE = "INSUFFICIENT_EVIDENCE"
+
+
+class SafeAction:
+    AUTOMATED_RESULT_AVAILABLE = "AUTOMATED_RESULT_AVAILABLE"
+    PROFESSIONAL_REVIEW_RECOMMENDED = "PROFESSIONAL_REVIEW_RECOMMENDED"
+    AUTOMATED_INTERPRETATION_UNRELIABLE = "AUTOMATED_INTERPRETATION_UNRELIABLE"
+    IMAGE_RECAPTURE_RECOMMENDED = "IMAGE_RECAPTURE_RECOMMENDED"
+
+
 def _clamp(value: float) -> float:
     return round(float(max(0.0, min(1.0, value))), 6)
 
@@ -83,20 +99,44 @@ class RetinaGuardResult:
     reason_summary: list[str]
 
     def to_dict(self) -> dict[str, Any]:
+        evidence_status = self.signal_snapshot.get("evidence_status", "UNAVAILABLE")
+        explanation_status = self.signal_snapshot.get("explanation_status", "UNAVAILABLE")
+        ood_status = self.ood.get("status", "UNAVAILABLE")
+        safe_action = self.configuration.get("safe_action", SafeAction.PROFESSIONAL_REVIEW_RECOMMENDED)
+        provenance = {
+            "engine_version": self.configuration.get("version"),
+            "calibration_version": self.configuration.get("calibration_version"),
+            "uncertainty_method": self.uncertainty.get("method"),
+            "ood_method": self.ood.get("method"),
+            "evidence_status": evidence_status,
+            "explanation_status": explanation_status,
+            "clinical_validation_claim": False,
+            "note": "RetinaGuard is an engineering reliability assessment. TRUSTED means no configured major warning was detected; it does not mean the prediction is correct.",
+        }
         return {
             "trust_score": self.trust_score, "trust_category": self.trust_category,
+            "reliability_score": self.trust_score, "reliability_state": self.trust_category,
             "contributing_factors": self.contributing_factors, "risk_flags": self.risk_flags,
             "recommended_action": self.recommended_action, "calibration": self.calibration,
             "uncertainty": self.uncertainty, "model_disagreement": self.model_disagreement,
             "ood": self.ood, "signal_snapshot": self.signal_snapshot,
             "configuration": self.configuration, "reason_summary": self.reason_summary,
+            "confidence": {"raw": self.signal_snapshot.get("raw_confidence"), "calibrated": self.signal_snapshot.get("calibrated_confidence")},
+            "image_quality_status": self.signal_snapshot.get("image_quality_status", "UNAVAILABLE"),
+            "ood_status": ood_status,
+            "evidence_status": evidence_status,
+            "explanation_status": explanation_status,
+            "warnings": self.risk_flags,
+            "reasons": self.reason_summary,
+            "recommended_safe_action": safe_action,
+            "provenance": provenance,
         }
 
 
 class RetinaGuardEngine:
     """Fuse measurable signals with disclosed weights and explicit safety rules."""
 
-    VERSION = "retinaguard-v1"
+    VERSION = "retinaguard-v2-reliability"
 
     def __init__(
         self,
@@ -177,28 +217,35 @@ class RetinaGuardEngine:
             contributing.append({"factor": name, "score": used, "raw_value": value, "weight": round(weight, 6), "contribution": round(contribution, 6), "status": "available" if available else "missing_or_not_run", "explanation": factor_explanations[name]})
         trust_score = _clamp(weighted_total)
         risk_flags = self._risk_flags(inputs, calibrated_confidence, uncertainty, disagreement, agreement_score, stability_score, ood, factors)
-        required_missing = [name for name in ("quality", "calibrated_confidence", "uncertainty", "attention_lesion_agreement", "ood") if factors.get(name) is None]
+        core_missing = [name for name in ("quality", "calibrated_confidence", "uncertainty") if factors.get(name) is None]
+        evidence_missing = [name for name in ("attention_lesion_agreement", "ood") if factors.get(name) is None]
+        required_missing = [*core_missing, *evidence_missing]
         hard_unreliable = any(flag["severity"] == "high" for flag in risk_flags)
         if hard_unreliable or trust_score < self.unreliable_threshold:
-            category = "UNRELIABLE"
-        elif trust_score >= self.trusted_threshold and not required_missing and not risk_flags:
-            category = "TRUSTED"
+            category = ReliabilityState.UNRELIABLE
+        elif core_missing or evidence_missing:
+            category = ReliabilityState.INSUFFICIENT_EVIDENCE
+        elif trust_score >= self.trusted_threshold and not risk_flags:
+            category = ReliabilityState.TRUSTED
         else:
-            category = "UNCERTAIN"
+            category = ReliabilityState.REVIEW_RECOMMENDED
         reason_summary = [flag["reason"] for flag in risk_flags]
         if required_missing:
             reason_summary.append("Missing or not-run signals prevent a fully trusted decision: " + ", ".join(required_missing) + ".")
         if not reason_summary:
             reason_summary.append("All configured self-check signals are within the trusted operating thresholds.")
-        action = self._recommended_action(category, inputs, risk_flags)
+        action, safe_action = self._recommended_action(category, inputs, risk_flags)
         signal_snapshot = {
             "quality_score": inputs.quality_score, "raw_confidence": inputs.raw_confidence,
             "calibrated_confidence": calibrated_confidence, "uncertainty_score": uncertainty.get("score"),
             "lesion_evidence_strength": inputs.lesion_evidence_strength, "attention_lesion_agreement": inputs.attention_lesion_agreement,
             "explanation_stability": inputs.explanation_stability, "ood": ood,
             "vessel_evidence_status": inputs.vessel_evidence_status or "UNAVAILABLE",
+            "image_quality_status": "AVAILABLE" if inputs.quality_score is not None else "UNAVAILABLE",
+            "evidence_status": "AVAILABLE" if inputs.attention_lesion_agreement and agreement_score is not None else "UNAVAILABLE",
+            "explanation_status": "AVAILABLE" if inputs.explanation_stability and inputs.explanation_stability.get("status") == "COMPLETED" else "LIMITED" if inputs.explanation_stability else "UNAVAILABLE",
         }
-        configuration = {"version": self.version, "weights": self.weights, "missing_signal_score": self.missing_signal_score, "trusted_threshold": self.trusted_threshold, "unreliable_threshold": self.unreliable_threshold, "calibration_version": self.calibrator.version, "mc_dropout_enabled": self.mc_dropout_enabled, "mc_dropout_samples": self.mc_dropout_samples, "vessel_evidence_policy": "provenance_audit_only; no independent trust-score weight"}
+        configuration = {"version": self.version, "weights": self.weights, "missing_signal_score": self.missing_signal_score, "trusted_threshold": self.trusted_threshold, "unreliable_threshold": self.unreliable_threshold, "calibration_version": self.calibrator.version, "mc_dropout_enabled": self.mc_dropout_enabled, "mc_dropout_samples": self.mc_dropout_samples, "vessel_evidence_policy": "provenance_audit_only; no independent trust-score weight", "decision_policy_version": "retinaguard-state-policy-v2", "safe_action": safe_action, "clinical_validation_claim": False}
         result = RetinaGuardResult(trust_score, category, contributing, risk_flags, action, calibration, uncertainty, disagreement, ood, signal_snapshot, configuration, reason_summary)
         logger.info("retinaguard.score", extra={"trust_score": result.trust_score, "trust_category": result.trust_category, "configuration_version": self.version, "risk_flags": result.risk_flags})
         return result
@@ -253,11 +300,13 @@ class RetinaGuardEngine:
         return flags
 
     @staticmethod
-    def _recommended_action(category: str, inputs: RetinaGuardInputs, flags: list[dict[str, str]]) -> str:
-        if category == "TRUSTED":
-            return "AI triage may proceed to the configured workflow with human oversight."
-        if category == "UNRELIABLE":
+    def _recommended_action(category: str, inputs: RetinaGuardInputs, flags: list[dict[str, str]]) -> tuple[str, str]:
+        if category == ReliabilityState.TRUSTED:
+            return "AI triage may proceed to the configured workflow with human oversight.", SafeAction.AUTOMATED_RESULT_AVAILABLE
+        if category == ReliabilityState.UNRELIABLE:
             if any(flag["code"] == "low_image_quality" for flag in flags):
-                return "Recapture the fundus image; if the issue persists, route to specialist review."
-            return "Do not rely on automated triage; require specialist or human review."
-        return "Human review is required before relying on automated triage."
+                return "Recapture the fundus image; if the issue persists, route to specialist review.", SafeAction.IMAGE_RECAPTURE_RECOMMENDED
+            return "Do not rely on automated triage; require specialist or human review.", SafeAction.AUTOMATED_INTERPRETATION_UNRELIABLE
+        if category == ReliabilityState.INSUFFICIENT_EVIDENCE:
+            return "Automated result requires professional review because required reliability evidence is unavailable.", SafeAction.PROFESSIONAL_REVIEW_RECOMMENDED
+        return "Human review is required before relying on automated triage.", SafeAction.PROFESSIONAL_REVIEW_RECOMMENDED

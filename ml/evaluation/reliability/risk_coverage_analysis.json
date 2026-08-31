@@ -1,0 +1,65 @@
+{
+  "eligible_sample_count": 1744,
+  "evaluation_type": "retrospective_descriptive_risk_coverage",
+  "note": "Descriptive retrospective risk-coverage analysis. Operating points are fixed engineering views, not optimized thresholds, and do not establish clinical risk coverage.",
+  "operating_points": {
+    "trust_score": [
+      {
+        "count": 1444,
+        "coverage": 0.82798165,
+        "five_class_accuracy": 0.67313019,
+        "minimum_trust_score": 0.45,
+        "referable_false_negative_rate": 0.9055794
+      },
+      {
+        "count": 359,
+        "coverage": 0.20584862,
+        "five_class_accuracy": 0.72423398,
+        "minimum_trust_score": 0.6,
+        "referable_false_negative_rate": 1.0
+      },
+      {
+        "count": 0,
+        "coverage": 0.0,
+        "five_class_accuracy": null,
+        "minimum_trust_score": 0.75,
+        "referable_false_negative_rate": null
+      }
+    ],
+    "warning_burden": [
+      {
+        "count": 0,
+        "coverage": 0.0,
+        "five_class_accuracy": null,
+        "max_warning_burden": 0,
+        "referable_false_negative_rate": null
+      },
+      {
+        "count": 0,
+        "coverage": 0.0,
+        "five_class_accuracy": null,
+        "max_warning_burden": 1,
+        "referable_false_negative_rate": null
+      },
+      {
+        "count": 0,
+        "coverage": 0.0,
+        "five_class_accuracy": null,
+        "max_warning_burden": 2,
+        "referable_false_negative_rate": null
+      },
+      {
+        "count": 1512,
+        "coverage": 0.86697248,
+        "five_class_accuracy": 0.66203704,
+        "max_warning_burden": 3,
+        "referable_false_negative_rate": 0.84501845
+      }
+    ]
+  },
+  "state_distribution": {
+    "INSUFFICIENT_EVIDENCE": 1444,
+    "UNRELIABLE": 300
+  },
+  "status": "CALCULATED"
+}

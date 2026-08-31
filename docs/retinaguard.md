@@ -75,10 +75,25 @@ settings; there are no hidden weights.
 
 - `TRUSTED`: score meets the configured trusted threshold and no risk flags or
   required signals are missing. AI triage may proceed with human oversight.
-- `UNCERTAIN`: human review is required before relying on automated triage.
-- `UNRELIABLE`: recapture or specialist review is required, especially for
-  low quality, high disagreement, high uncertainty, low agreement, or detected
-  distribution shift.
+- `REVIEW_RECOMMENDED`: configured signals are present but the composite score
+  does not meet the trusted operating threshold; professional review is
+  recommended.
+- `UNRELIABLE`: automated interpretation is blocked or recapture/specialist
+  review is required, especially for low quality, high disagreement, high
+  uncertainty, low agreement, or detected distribution shift.
+- `INSUFFICIENT_EVIDENCE`: required reliability evidence was not available or
+  was not run. It is never silently treated as a positive signal and requires
+  professional review.
+
+`UNCERTAIN` remains accepted when reading legacy stored runs, but new engine
+outputs use `REVIEW_RECOMMENDED` and `INSUFFICIENT_EVIDENCE` explicitly.
+
+Safe actions are returned separately from the human-readable message:
+
+- `AUTOMATED_RESULT_AVAILABLE`
+- `PROFESSIONAL_REVIEW_RECOMMENDED`
+- `AUTOMATED_INTERPRETATION_UNRELIABLE`
+- `IMAGE_RECAPTURE_RECOMMENDED`
 
 These categories are engineering operating decisions. They are not medical
 diagnoses, clinical validation results, or guarantees of model correctness.
@@ -94,4 +109,6 @@ versioned configuration.
 
 Results are stored in `retinaguard_results` and the current screening result
 also records calibrated confidence, uncertainty, and trust score. Non-trusted
-categories move the session to `needs_review`.
+categories move the session to `needs_review`. API responses retain the
+backward-compatible `trust_*` fields and also expose `reliability_*`, signal
+availability, warnings, reasons, safe action, and provenance fields.

@@ -183,6 +183,20 @@ The audit keeps the original full-dataset results and writes separate duplicate,
 deduplicated, threshold, comparison, and error-analysis artifacts under
 `ml/evaluation/messidor/`.
 
+Run the Phase 5 RetinaGuard reliability validation against the existing
+Messidor-2 predictions. This does not retrain or modify the classifier:
+
+```powershell
+python scripts/evaluate_reliability.py --robustness-samples 3
+```
+
+The command writes the versioned reliability, false-negative warning,
+risk-coverage, perturbation, explanation-stability, and configuration reports
+to `ml/evaluation/reliability/`. The perturbation sample uses real
+EfficientNet-B0 inference and Grad-CAM; lesion/vessel evidence is marked
+unavailable when it was not run. All outputs are engineering diagnostics, not
+clinical validation or a correctness guarantee.
+
 ## Inference
 
 Set `CLASSIFIER_MODEL_PATH` to a trained and registered artifact, then start

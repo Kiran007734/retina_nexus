@@ -30,6 +30,14 @@ The Trust Gate returns HTTP 422 for corrupt/unsupported images and the
 individual AI stages return HTTP 422/409 when quality prerequisites are not
 met. These responses never contain fabricated predictions.
 
+`POST /screening/trust` returns backward-compatible `trust_score` and
+`trust_category` fields plus `reliability_score`, `reliability_state`,
+`recommended_safe_action`, signal availability, warnings, reasons, and
+versioned provenance. New reliability states are `TRUSTED`,
+`REVIEW_RECOMMENDED`, `UNRELIABLE`, and `INSUFFICIENT_EVIDENCE`; legacy
+`UNCERTAIN` values may appear in older stored runs. `TRUSTED` is an engineering
+operating state, not a correctness or clinical safety guarantee.
+
 ## Human review and reports
 
 | Method | Endpoint | Purpose |

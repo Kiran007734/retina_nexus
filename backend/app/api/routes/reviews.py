@@ -35,7 +35,7 @@ async def review_queue(db: AsyncSession = Depends(get_db)) -> list[ReviewQueueIt
         trust = run.retinaguard or {}
         classification = run.classification or {}
         triage = run.triage or {}
-        needs_review = trust.get("trust_category") in {"UNCERTAIN", "UNRELIABLE"} or classification.get("referable_dr") is True or triage.get("recommendation") in {"HUMAN_REVIEW_REQUIRED", "SPECIALIST_REVIEW_RECOMMENDED", "RECAPTURE_OR_SPECIALIST_REVIEW"}
+        needs_review = trust.get("trust_category") in {"UNCERTAIN", "REVIEW_RECOMMENDED", "INSUFFICIENT_EVIDENCE", "UNRELIABLE"} or classification.get("referable_dr") is True or triage.get("recommendation") in {"HUMAN_REVIEW_REQUIRED", "SPECIALIST_REVIEW_RECOMMENDED", "RECAPTURE_OR_SPECIALIST_REVIEW"}
         if run.status != "COMPLETED" or not needs_review:
             continue
         review = await _latest_review(db, session.id)

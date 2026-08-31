@@ -64,7 +64,9 @@ def test_retinaguard_trusted_path_exposes_configuration():
 
     assert result.trust_category == "TRUSTED"
     assert result.trust_score >= 0.75
-    assert result.configuration["version"] == "retinaguard-v1"
+    assert result.configuration["version"] == "retinaguard-v2-reliability"
+    assert result.to_dict()["reliability_state"] == "TRUSTED"
+    assert result.to_dict()["recommended_safe_action"] == "AUTOMATED_RESULT_AVAILABLE"
     assert sum(item["weight"] for item in result.contributing_factors) == 1.0
 
 
@@ -112,3 +114,39 @@ def test_missing_signals_cannot_be_marked_trusted():
     assert {flag["code"] for flag in result.risk_flags} >= {
         "quality_not_available", "attention_evidence_not_available", "ood_not_available",
     }
+
+
+def test_retinaguard_review_recommended_is_distinct_from_trusted():
+    result = RetinaGuardEngine().evaluate(RetinaGuardInputs(
+        quality_score=0.82,
+        raw_confidence=0.70,
+        probabilities={"No DR": 0.03, "Mild": 0.05, "Moderate": 0.65, "Severe": 0.20, "Proliferative DR": 0.07},
+        attention_lesion_agreement={"status": "MODERATE AGREEMENT", "score": 0.62},
+        explanation_stability={"status": "COMPLETED", "prediction_stability": 0.82, "grad_cam_stability": 0.76},
+        ood={"status": "IN_DISTRIBUTION", "score": 0.82},
+        predicted_grade=2,
+        predicted_grade_label="Moderate",
+        model_version="efficientnet-v1",
+    ))
+
+    assert result.trust_category == "REVIEW_RECOMMENDED"
+    assert result.configuration["safe_action"] == "PROFESSIONAL_REVIEW_RECOMMENDED"
+    assert result.to_dict()["reliability_state"] == "REVIEW_RECOMMENDED"
+
+
+def test_retinaguard_insufficient_evidence_is_safe_and_explicit():
+    result = RetinaGuardEngine().evaluate(RetinaGuardInputs(
+        quality_score=0.90,
+        raw_confidence=0.90,
+        probabilities={"No DR": 0.01, "Mild": 0.02, "Moderate": 0.90, "Severe": 0.05, "Proliferative DR": 0.02},
+        predicted_grade=2,
+        predicted_grade_label="Moderate",
+        model_version="efficientnet-v1",
+    ))
+
+    assert result.trust_category == "INSUFFICIENT_EVIDENCE"
+    payload = result.to_dict()
+    assert payload["recommended_safe_action"] == "PROFESSIONAL_REVIEW_RECOMMENDED"
+    assert payload["evidence_status"] == "UNAVAILABLE"
+    assert payload["ood_status"] == "UNAVAILABLE"
+    assert payload["provenance"]["clinical_validation_claim"] is False

@@ -38,7 +38,7 @@ async def analytics_overview(db: AsyncSession = Depends(get_db)) -> AnalyticsOve
             severity_distribution[label] += 1
         if classification.get("referable_dr") is True:
             referable += 1
-        if trust.get("trust_category") in {"UNCERTAIN", "UNRELIABLE"} or triage.get("recommendation") in {"HUMAN_REVIEW_REQUIRED", "SPECIALIST_REVIEW_RECOMMENDED", "RECAPTURE_OR_SPECIALIST_REVIEW"}:
+        if trust.get("trust_category") in {"UNCERTAIN", "REVIEW_RECOMMENDED", "INSUFFICIENT_EVIDENCE", "UNRELIABLE"} or triage.get("recommendation") in {"HUMAN_REVIEW_REQUIRED", "SPECIALIST_REVIEW_RECOMMENDED", "RECAPTURE_OR_SPECIALIST_REVIEW"}:
             human_review += 1
         if len(recent_activity) < 8:
             recent_activity.append({"screening_id": str(run.id), "status": run.status, "grade": label, "trust_category": trust.get("trust_category"), "referable_dr": classification.get("referable_dr"), "created_at": run.created_at})

@@ -38,7 +38,7 @@ export function DemoPage() {
 
 function ScenarioCard({ scenario, active, onRun }: { scenario: DemoScenario; active: boolean; onRun: () => void }) {
   const category = scenario.expected_category ?? 'UNGRADABLE';
-  const tone = category === 'TRUSTED' ? 'success' : category === 'UNCERTAIN' ? 'warning' : 'danger';
+  const tone = category === 'TRUSTED' ? 'success' : category === 'UNRELIABLE' || category === 'UNGRADABLE' ? 'danger' : 'warning';
   return <button onClick={onRun} className={`surface w-full text-left transition hover:-translate-y-0.5 hover:shadow-lg ${active ? 'border-teal-400 ring-4 ring-teal-50' : ''}`}><div className="border-b border-line p-5"><div className="flex items-center justify-between gap-3"><span className="eyebrow text-teal-700">{scenario.image_label}</span><StatusBadge tone={tone}>{category}</StatusBadge></div><h2 className="section-title mt-4 text-base font-extrabold">{scenario.title}</h2><p className="mt-2 text-xs leading-5 text-slate-500">{scenario.summary}</p></div><div className="flex items-center justify-between p-5 text-xs font-extrabold text-teal-700"><span>Expected: {scenario.expected_action}</span><ArrowRight size={16} /></div></button>;
 }
 

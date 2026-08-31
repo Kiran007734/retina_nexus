@@ -1,0 +1,26 @@
+{
+  "clinical_validation_claim": false,
+  "engine_version": "retinaguard-v2-reliability",
+  "format": "retinaguard-reliability-configuration-v1",
+  "missing_signal_score": 0.25,
+  "note": "Weights and thresholds are disclosed engineering settings, not clinically validated operating points.",
+  "source": "RetinaGuardEngine runtime configuration",
+  "state_policy": {
+    "INSUFFICIENT_EVIDENCE": "PROFESSIONAL_REVIEW_RECOMMENDED",
+    "REVIEW_RECOMMENDED": "PROFESSIONAL_REVIEW_RECOMMENDED",
+    "TRUSTED": "AUTOMATED_RESULT_AVAILABLE",
+    "UNRELIABLE": "AUTOMATED_INTERPRETATION_UNRELIABLE or IMAGE_RECAPTURE_RECOMMENDED when quality is low"
+  },
+  "trusted_threshold": 0.75,
+  "unreliable_threshold": 0.45,
+  "weights": {
+    "attention_lesion_agreement": 0.15,
+    "calibrated_confidence": 0.2,
+    "explanation_stability": 0.05,
+    "lesion_evidence": 0.1,
+    "model_agreement": 0.1,
+    "ood": 0.05,
+    "quality": 0.2,
+    "uncertainty": 0.15
+  }
+}
