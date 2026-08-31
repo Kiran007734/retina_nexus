@@ -118,7 +118,7 @@ def main() -> int:
         "artifact_status": "MODEL_DOWNLOADED",
         "clinical_validation_claim": False,
         "downloaded_at": datetime.now(timezone.utc).isoformat(),
-        "note": "Research model used for supporting retinal vessel evidence. RETINA-NEXUS has verified real inference but has not evaluated segmentation accuracy without authorized DRIVE ground truth.",
+        "note": "Research model used for supporting retinal vessel evidence. Any DRIVE metrics are stored in the evaluation report and are engineering segmentation measurements, not clinical validation.",
     }
     manifest_path = target / "model_manifest.json"
     manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")

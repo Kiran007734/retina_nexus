@@ -10,9 +10,31 @@
       "model_version": "efficientnet-b0-aptos2019-20260830-v1",
       "checkpoint": "ml\\weights\\classifiers\\aptos2019\\efficientnet-b0-aptos2019-20260830-v1\\checkpoint_best.pt",
       "dataset_version": "aptos2019-inventory-0738551f82b4",
-      "model_config": {"backbone": "efficientnet_b0", "input_size": 224, "num_classes": 5, "ordinal_mode": false},
-      "class_mapping": {"0": "No DR", "1": "Mild", "2": "Moderate", "3": "Severe", "4": "Proliferative DR"},
-      "training_config": {"dataset": "aptos2019", "referable_mapping": {"name": "grade_2_or_worse", "referable_grades": [2, 3, 4]}, "clinical_validation_claim": false},
+      "model_config": {
+        "backbone": "efficientnet_b0",
+        "input_size": 224,
+        "num_classes": 5,
+        "ordinal_mode": false
+      },
+      "class_mapping": {
+        "0": "No DR",
+        "1": "Mild",
+        "2": "Moderate",
+        "3": "Severe",
+        "4": "Proliferative DR"
+      },
+      "training_config": {
+        "dataset": "aptos2019",
+        "referable_mapping": {
+          "name": "grade_2_or_worse",
+          "referable_grades": [
+            2,
+            3,
+            4
+          ]
+        },
+        "clinical_validation_claim": false
+      },
       "clinical_validation_claim": false,
       "note": "The checkpoint is intentionally excluded from Git. Re-run the documented APTOS training workflow to create it locally."
     },
@@ -26,8 +48,30 @@
       "checkpoint": "ml\\weights\\lesion_segmentation\\fundus-lesions-unet-seresnext50-all-v1\\model.safetensors",
       "checkpoint_sha256": "a7a7cb45b92328f7c9a8e581eec3944fd435d37fae8cbf340b1319c5f987c6d2",
       "dataset_version": "IDRiD-DDR-FGADR-MESSIDOR-RETLES-author-reported",
-      "model_config": {"architecture": "U-Net with SE-ResNeXt-50 32x4d encoder", "input_size": 1024, "num_classes": 5, "classes": {"0": "background", "1": "cotton_wool_spot", "2": "exudate", "3": "hemorrhage", "4": "microaneurysm"}},
-      "training_config": {"source": "ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d", "trained_on": ["IDRiD", "DDR", "FGADR", "MESSIDOR", "RETLES"], "license": "MIT", "clinical_validation_claim": false},
+      "model_config": {
+        "architecture": "U-Net with SE-ResNeXt-50 32x4d encoder",
+        "input_size": 1024,
+        "num_classes": 5,
+        "classes": {
+          "0": "background",
+          "1": "cotton_wool_spot",
+          "2": "exudate",
+          "3": "hemorrhage",
+          "4": "microaneurysm"
+        }
+      },
+      "training_config": {
+        "source": "ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+        "trained_on": [
+          "IDRiD",
+          "DDR",
+          "FGADR",
+          "MESSIDOR",
+          "RETLES"
+        ],
+        "license": "MIT",
+        "clinical_validation_claim": false
+      },
       "source": "https://huggingface.co/ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
       "source_revision": "a2cfcb594e483d8baa17f24e1152009641cb9847",
       "source_code": "https://github.com/ClementPla/fundus-lesions-toolkit",
@@ -44,13 +88,76 @@
       "checkpoint": "ml\\weights\\vessel_segmentation\\r2-v2-bv-2025\\bv.safetensors",
       "checkpoint_sha256": "ea219b13b03984b8d454f999343c5bda1a8a7cb8586aeb3639a29814cab2330a",
       "dataset_version": "Unified_Fundus-author-reported",
-      "model_config": {"architecture": "RRWNet (R2-V2 bv variant)", "input_width": 1408, "input_channels": 6, "output_channels": 3, "vessel_channel": 2, "classes": {"0": "artery", "1": "vein", "2": "blood_vessels"}},
-      "training_config": {"source": "j-morano/R2-V2", "training_dataset_provenance": "Unified_Fundus (as stated in the published bv_config.json)", "license": "CC BY 4.0", "clinical_validation_claim": false},
+      "model_config": {
+        "architecture": "RRWNet (R2-V2 bv variant)",
+        "input_width": 1408,
+        "input_channels": 6,
+        "output_channels": 3,
+        "vessel_channel": 2,
+        "classes": {
+          "0": "artery",
+          "1": "vein",
+          "2": "blood_vessels"
+        }
+      },
+      "training_config": {
+        "source": "j-morano/R2-V2",
+        "training_dataset_provenance": "Unified_Fundus (as stated in the published bv_config.json)",
+        "license": "CC BY 4.0",
+        "clinical_validation_claim": false
+      },
       "source": "https://huggingface.co/j-morano/R2-V2",
       "source_revision": "bb8c6c9346054df749f8bd48a9da41ba974e6a6b",
       "source_code": "https://github.com/j-morano/R2-V2",
       "clinical_validation_claim": false,
-      "note": "Real model-backed vessel evidence only. Download with scripts/acquire_vessel_model.py if the local artifact is missing; no classical-CV fallback is used by the primary pipeline."
+      "note": "Real model-backed vessel evidence. DRIVE metrics are measured engineering segmentation results only; no clinical validation claim.",
+      "evaluation": {
+        "dataset": "DRIVE",
+        "dataset_version": "drive-inventory-72974de918c7a0e7",
+        "ground_truth_scope": {
+          "training_images_evaluated": 20,
+          "test_images_without_ground_truth": 20,
+          "test_images_inferred_without_metrics": 0,
+          "manual_vessel_masks": 20,
+          "field_of_view_masks_applied": true,
+          "limitation": "The discovered test split has no manual vessel ground-truth masks; no test accuracy metrics are reported."
+        },
+        "threshold": 0.5,
+        "metrics": {
+          "sample_count": 20,
+          "mean": {
+            "dice": 0.7175513678704364,
+            "iou": 0.5624354384306053,
+            "pixel_accuracy": 0.9404486124434829,
+            "sensitivity": 0.609811322821545,
+            "specificity": 0.9885151276684898,
+            "precision": 0.8822421578662646,
+            "recall": 0.609811322821545,
+            "f1": 0.7175513678704364
+          },
+          "std": {
+            "dice": 0.05819514312984749,
+            "iou": 0.06446283258519549,
+            "pixel_accuracy": 0.01339115467219539,
+            "sensitivity": 0.07671631005896515,
+            "specificity": 0.0029437831634069288,
+            "precision": 0.02882117693968193,
+            "recall": 0.07671631005896515,
+            "f1": 0.0581951431298475
+          },
+          "micro_confusion": {
+            "true_positive": 344673,
+            "true_negative": 3925899,
+            "false_positive": 45692,
+            "false_negative": 224742,
+            "evaluated_pixels": 4541006,
+            "ground_truth_vessel_pixels": 569415,
+            "predicted_vessel_pixels": 390365
+          }
+        },
+        "clinical_validation_claim": false,
+        "report": "ml/evaluation/drive/r2-v2-evaluation.json"
+      }
     }
   ]
 }

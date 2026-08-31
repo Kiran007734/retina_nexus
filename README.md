@@ -134,6 +134,17 @@ behavior, and DRIVE evaluation boundary. The default pipeline does not enable
 the old classical-CV vessel baseline; set `EVIDENCE_ENABLE_VESSEL_BASELINE=true`
 only for explicitly labelled experimental comparison.
 
+When an authorized DRIVE copy is present, validate and evaluate the existing
+R2-V2 artifact with genuine manual vessel masks:
+
+```powershell
+python scripts/validate_drive_dataset.py --raw-dir ml/datasets/raw/drive --output-dir ml/evaluation/drive
+python scripts/evaluate_r2_vessel_segmentation.py --raw-dir ml/datasets/raw/drive --output-dir ml/evaluation/drive --device cpu --workers 2 --torch-threads 8
+```
+
+The evaluation writes per-image masks/overlays and measured metrics under
+`ml/evaluation/drive/`; it never fabricates missing test annotations.
+
 ## Inference
 
 Set `CLASSIFIER_MODEL_PATH` to a trained and registered artifact, then start

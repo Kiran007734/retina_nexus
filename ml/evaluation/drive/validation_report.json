@@ -1,0 +1,840 @@
+{
+  "counts": {
+    "all_supported_images": 40,
+    "corrupt_or_unreadable_files": 0,
+    "field_of_view_masks": 40,
+    "manual_vessel_masks": 20,
+    "test_images": 20,
+    "test_vessel_ground_truth_pairs": 0,
+    "training_images": 20,
+    "training_vessel_ground_truth_pairs": 20,
+    "valid_files": 100
+  },
+  "dataset": "DRIVE",
+  "dataset_version": "drive-inventory-72974de918c7a0e7",
+  "duplicates": {
+    "cross_split_duplicate_groups": [],
+    "exact_duplicate_image_count": 0,
+    "exact_image_duplicate_groups": [],
+    "perceptual_duplicate_image_count": 0,
+    "perceptual_hash_candidates_hamming_le_4": [
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.11368677020072937,
+        "path_a": "DRIVE/test/images/01_test.tif",
+        "path_b": "DRIVE/test/images/05_test.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.12803611159324646,
+        "path_a": "DRIVE/test/images/02_test.tif",
+        "path_b": "DRIVE/training/images/36_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.1639193892478943,
+        "path_a": "DRIVE/test/images/08_test.tif",
+        "path_b": "DRIVE/test/images/10_test.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.11492674052715302,
+        "path_a": "DRIVE/test/images/08_test.tif",
+        "path_b": "DRIVE/test/images/18_test.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.12874142825603485,
+        "path_a": "DRIVE/test/images/08_test.tif",
+        "path_b": "DRIVE/test/images/20_test.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.14752347767353058,
+        "path_a": "DRIVE/test/images/08_test.tif",
+        "path_b": "DRIVE/training/images/22_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.11531995236873627,
+        "path_a": "DRIVE/test/images/08_test.tif",
+        "path_b": "DRIVE/training/images/27_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.14961153268814087,
+        "path_a": "DRIVE/test/images/08_test.tif",
+        "path_b": "DRIVE/training/images/36_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.15198969841003418,
+        "path_a": "DRIVE/test/images/08_test.tif",
+        "path_b": "DRIVE/training/images/40_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.12095318734645844,
+        "path_a": "DRIVE/test/images/10_test.tif",
+        "path_b": "DRIVE/test/images/19_test.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.12172399461269379,
+        "path_a": "DRIVE/test/images/10_test.tif",
+        "path_b": "DRIVE/test/images/20_test.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.11397477984428406,
+        "path_a": "DRIVE/test/images/10_test.tif",
+        "path_b": "DRIVE/training/images/22_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.13662070035934448,
+        "path_a": "DRIVE/test/images/10_test.tif",
+        "path_b": "DRIVE/training/images/25_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.12345238029956818,
+        "path_a": "DRIVE/test/images/10_test.tif",
+        "path_b": "DRIVE/training/images/36_training.tif"
+      },
+      {
+        "hamming_distance": 2,
+        "normalized_thumbnail_mae": 0.11561916023492813,
+        "path_a": "DRIVE/test/images/10_test.tif",
+        "path_b": "DRIVE/training/images/40_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.13703659176826477,
+        "path_a": "DRIVE/test/images/11_test.tif",
+        "path_b": "DRIVE/training/images/35_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.09491525590419769,
+        "path_a": "DRIVE/test/images/16_test.tif",
+        "path_b": "DRIVE/test/images/18_test.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.13079021871089935,
+        "path_a": "DRIVE/test/images/16_test.tif",
+        "path_b": "DRIVE/test/images/19_test.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.1509179174900055,
+        "path_a": "DRIVE/test/images/17_test.tif",
+        "path_b": "DRIVE/test/images/19_test.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.18135467171669006,
+        "path_a": "DRIVE/test/images/17_test.tif",
+        "path_b": "DRIVE/training/images/22_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.11462205648422241,
+        "path_a": "DRIVE/test/images/17_test.tif",
+        "path_b": "DRIVE/training/images/30_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.20672689378261566,
+        "path_a": "DRIVE/test/images/17_test.tif",
+        "path_b": "DRIVE/training/images/40_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.11892806738615036,
+        "path_a": "DRIVE/test/images/18_test.tif",
+        "path_b": "DRIVE/test/images/19_test.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.13103386759757996,
+        "path_a": "DRIVE/test/images/18_test.tif",
+        "path_b": "DRIVE/training/images/22_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.11386578530073166,
+        "path_a": "DRIVE/test/images/19_test.tif",
+        "path_b": "DRIVE/training/images/22_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.14785701036453247,
+        "path_a": "DRIVE/test/images/19_test.tif",
+        "path_b": "DRIVE/training/images/32_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.16959314048290253,
+        "path_a": "DRIVE/test/images/19_test.tif",
+        "path_b": "DRIVE/training/images/37_training.tif"
+      },
+      {
+        "hamming_distance": 2,
+        "normalized_thumbnail_mae": 0.11766265332698822,
+        "path_a": "DRIVE/test/images/19_test.tif",
+        "path_b": "DRIVE/training/images/40_training.tif"
+      },
+      {
+        "hamming_distance": 2,
+        "normalized_thumbnail_mae": 0.10406740754842758,
+        "path_a": "DRIVE/test/images/20_test.tif",
+        "path_b": "DRIVE/training/images/22_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.10741912573575974,
+        "path_a": "DRIVE/test/images/20_test.tif",
+        "path_b": "DRIVE/training/images/25_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.12682181596755981,
+        "path_a": "DRIVE/test/images/20_test.tif",
+        "path_b": "DRIVE/training/images/27_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.1802806705236435,
+        "path_a": "DRIVE/test/images/20_test.tif",
+        "path_b": "DRIVE/training/images/29_training.tif"
+      },
+      {
+        "hamming_distance": 2,
+        "normalized_thumbnail_mae": 0.1623973399400711,
+        "path_a": "DRIVE/test/images/20_test.tif",
+        "path_b": "DRIVE/training/images/30_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.13747575879096985,
+        "path_a": "DRIVE/test/images/20_test.tif",
+        "path_b": "DRIVE/training/images/36_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.179071843624115,
+        "path_a": "DRIVE/test/images/20_test.tif",
+        "path_b": "DRIVE/training/images/37_training.tif"
+      },
+      {
+        "hamming_distance": 2,
+        "normalized_thumbnail_mae": 0.07797400653362274,
+        "path_a": "DRIVE/test/images/20_test.tif",
+        "path_b": "DRIVE/training/images/38_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.10999898612499237,
+        "path_a": "DRIVE/test/images/20_test.tif",
+        "path_b": "DRIVE/training/images/40_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.17569398880004883,
+        "path_a": "DRIVE/training/images/21_training.tif",
+        "path_b": "DRIVE/training/images/35_training.tif"
+      },
+      {
+        "hamming_distance": 2,
+        "normalized_thumbnail_mae": 0.195114403963089,
+        "path_a": "DRIVE/training/images/22_training.tif",
+        "path_b": "DRIVE/training/images/30_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.1691966950893402,
+        "path_a": "DRIVE/training/images/22_training.tif",
+        "path_b": "DRIVE/training/images/37_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.1308165341615677,
+        "path_a": "DRIVE/training/images/22_training.tif",
+        "path_b": "DRIVE/training/images/38_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.11570240557193756,
+        "path_a": "DRIVE/training/images/22_training.tif",
+        "path_b": "DRIVE/training/images/40_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.14185300469398499,
+        "path_a": "DRIVE/training/images/24_training.tif",
+        "path_b": "DRIVE/training/images/30_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.1231091171503067,
+        "path_a": "DRIVE/training/images/25_training.tif",
+        "path_b": "DRIVE/training/images/40_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.17585793137550354,
+        "path_a": "DRIVE/training/images/27_training.tif",
+        "path_b": "DRIVE/training/images/29_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.1345493644475937,
+        "path_a": "DRIVE/training/images/28_training.tif",
+        "path_b": "DRIVE/training/images/38_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.18546436727046967,
+        "path_a": "DRIVE/training/images/30_training.tif",
+        "path_b": "DRIVE/training/images/32_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.22348126769065857,
+        "path_a": "DRIVE/training/images/30_training.tif",
+        "path_b": "DRIVE/training/images/37_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.15182507038116455,
+        "path_a": "DRIVE/training/images/30_training.tif",
+        "path_b": "DRIVE/training/images/38_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.15155170857906342,
+        "path_a": "DRIVE/training/images/32_training.tif",
+        "path_b": "DRIVE/training/images/37_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.14133915305137634,
+        "path_a": "DRIVE/training/images/36_training.tif",
+        "path_b": "DRIVE/training/images/38_training.tif"
+      },
+      {
+        "hamming_distance": 4,
+        "normalized_thumbnail_mae": 0.11725780367851257,
+        "path_a": "DRIVE/training/images/38_training.tif",
+        "path_b": "DRIVE/training/images/40_training.tif"
+      }
+    ],
+    "validated_perceptual_duplicate_pairs_hamming_le_4_and_normalized_mae_le_0_02": []
+  },
+  "file_counts_by_category_and_split": {
+    "fov_mask:test": 20,
+    "fov_mask:training": 20,
+    "image:test": 20,
+    "image:training": 20,
+    "vessel_mask:training": 20
+  },
+  "generated_at": "2026-08-31T14:31:04.325854+00:00",
+  "leakage": {
+    "cross_split_duplicate_groups": [],
+    "image_duplicate_check": "completed",
+    "limitation": "The discovered DRIVE files do not include patient identifiers. Leakage checks are limited to exact and perceptual duplicate image detection and the dataset's declared training/test specimen IDs.",
+    "patient_identifiers_available": false,
+    "patient_level_check": "not_run"
+  },
+  "raw_directory": "ml/datasets/raw/drive",
+  "relationships": [
+    {
+      "field_of_view_mask": "DRIVE/test/mask/01_test_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": false,
+      "image": "DRIVE/test/images/01_test.tif",
+      "specimen_id": "01",
+      "split": "test",
+      "vessel_mask": null
+    },
+    {
+      "field_of_view_mask": "DRIVE/test/mask/02_test_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": false,
+      "image": "DRIVE/test/images/02_test.tif",
+      "specimen_id": "02",
+      "split": "test",
+      "vessel_mask": null
+    },
+    {
+      "field_of_view_mask": "DRIVE/test/mask/03_test_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": false,
+      "image": "DRIVE/test/images/03_test.tif",
+      "specimen_id": "03",
+      "split": "test",
+      "vessel_mask": null
+    },
+    {
+      "field_of_view_mask": "DRIVE/test/mask/04_test_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": false,
+      "image": "DRIVE/test/images/04_test.tif",
+      "specimen_id": "04",
+      "split": "test",
+      "vessel_mask": null
+    },
+    {
+      "field_of_view_mask": "DRIVE/test/mask/05_test_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": false,
+      "image": "DRIVE/test/images/05_test.tif",
+      "specimen_id": "05",
+      "split": "test",
+      "vessel_mask": null
+    },
+    {
+      "field_of_view_mask": "DRIVE/test/mask/06_test_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": false,
+      "image": "DRIVE/test/images/06_test.tif",
+      "specimen_id": "06",
+      "split": "test",
+      "vessel_mask": null
+    },
+    {
+      "field_of_view_mask": "DRIVE/test/mask/07_test_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": false,
+      "image": "DRIVE/test/images/07_test.tif",
+      "specimen_id": "07",
+      "split": "test",
+      "vessel_mask": null
+    },
+    {
+      "field_of_view_mask": "DRIVE/test/mask/08_test_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": false,
+      "image": "DRIVE/test/images/08_test.tif",
+      "specimen_id": "08",
+      "split": "test",
+      "vessel_mask": null
+    },
+    {
+      "field_of_view_mask": "DRIVE/test/mask/09_test_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": false,
+      "image": "DRIVE/test/images/09_test.tif",
+      "specimen_id": "09",
+      "split": "test",
+      "vessel_mask": null
+    },
+    {
+      "field_of_view_mask": "DRIVE/test/mask/10_test_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": false,
+      "image": "DRIVE/test/images/10_test.tif",
+      "specimen_id": "10",
+      "split": "test",
+      "vessel_mask": null
+    },
+    {
+      "field_of_view_mask": "DRIVE/test/mask/11_test_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": false,
+      "image": "DRIVE/test/images/11_test.tif",
+      "specimen_id": "11",
+      "split": "test",
+      "vessel_mask": null
+    },
+    {
+      "field_of_view_mask": "DRIVE/test/mask/12_test_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": false,
+      "image": "DRIVE/test/images/12_test.tif",
+      "specimen_id": "12",
+      "split": "test",
+      "vessel_mask": null
+    },
+    {
+      "field_of_view_mask": "DRIVE/test/mask/13_test_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": false,
+      "image": "DRIVE/test/images/13_test.tif",
+      "specimen_id": "13",
+      "split": "test",
+      "vessel_mask": null
+    },
+    {
+      "field_of_view_mask": "DRIVE/test/mask/14_test_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": false,
+      "image": "DRIVE/test/images/14_test.tif",
+      "specimen_id": "14",
+      "split": "test",
+      "vessel_mask": null
+    },
+    {
+      "field_of_view_mask": "DRIVE/test/mask/15_test_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": false,
+      "image": "DRIVE/test/images/15_test.tif",
+      "specimen_id": "15",
+      "split": "test",
+      "vessel_mask": null
+    },
+    {
+      "field_of_view_mask": "DRIVE/test/mask/16_test_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": false,
+      "image": "DRIVE/test/images/16_test.tif",
+      "specimen_id": "16",
+      "split": "test",
+      "vessel_mask": null
+    },
+    {
+      "field_of_view_mask": "DRIVE/test/mask/17_test_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": false,
+      "image": "DRIVE/test/images/17_test.tif",
+      "specimen_id": "17",
+      "split": "test",
+      "vessel_mask": null
+    },
+    {
+      "field_of_view_mask": "DRIVE/test/mask/18_test_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": false,
+      "image": "DRIVE/test/images/18_test.tif",
+      "specimen_id": "18",
+      "split": "test",
+      "vessel_mask": null
+    },
+    {
+      "field_of_view_mask": "DRIVE/test/mask/19_test_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": false,
+      "image": "DRIVE/test/images/19_test.tif",
+      "specimen_id": "19",
+      "split": "test",
+      "vessel_mask": null
+    },
+    {
+      "field_of_view_mask": "DRIVE/test/mask/20_test_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": false,
+      "image": "DRIVE/test/images/20_test.tif",
+      "specimen_id": "20",
+      "split": "test",
+      "vessel_mask": null
+    },
+    {
+      "field_of_view_mask": "DRIVE/training/mask/21_training_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": true,
+      "image": "DRIVE/training/images/21_training.tif",
+      "specimen_id": "21",
+      "split": "training",
+      "vessel_mask": "DRIVE/training/1st_manual/21_manual1.gif"
+    },
+    {
+      "field_of_view_mask": "DRIVE/training/mask/22_training_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": true,
+      "image": "DRIVE/training/images/22_training.tif",
+      "specimen_id": "22",
+      "split": "training",
+      "vessel_mask": "DRIVE/training/1st_manual/22_manual1.gif"
+    },
+    {
+      "field_of_view_mask": "DRIVE/training/mask/23_training_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": true,
+      "image": "DRIVE/training/images/23_training.tif",
+      "specimen_id": "23",
+      "split": "training",
+      "vessel_mask": "DRIVE/training/1st_manual/23_manual1.gif"
+    },
+    {
+      "field_of_view_mask": "DRIVE/training/mask/24_training_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": true,
+      "image": "DRIVE/training/images/24_training.tif",
+      "specimen_id": "24",
+      "split": "training",
+      "vessel_mask": "DRIVE/training/1st_manual/24_manual1.gif"
+    },
+    {
+      "field_of_view_mask": "DRIVE/training/mask/25_training_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": true,
+      "image": "DRIVE/training/images/25_training.tif",
+      "specimen_id": "25",
+      "split": "training",
+      "vessel_mask": "DRIVE/training/1st_manual/25_manual1.gif"
+    },
+    {
+      "field_of_view_mask": "DRIVE/training/mask/26_training_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": true,
+      "image": "DRIVE/training/images/26_training.tif",
+      "specimen_id": "26",
+      "split": "training",
+      "vessel_mask": "DRIVE/training/1st_manual/26_manual1.gif"
+    },
+    {
+      "field_of_view_mask": "DRIVE/training/mask/27_training_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": true,
+      "image": "DRIVE/training/images/27_training.tif",
+      "specimen_id": "27",
+      "split": "training",
+      "vessel_mask": "DRIVE/training/1st_manual/27_manual1.gif"
+    },
+    {
+      "field_of_view_mask": "DRIVE/training/mask/28_training_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": true,
+      "image": "DRIVE/training/images/28_training.tif",
+      "specimen_id": "28",
+      "split": "training",
+      "vessel_mask": "DRIVE/training/1st_manual/28_manual1.gif"
+    },
+    {
+      "field_of_view_mask": "DRIVE/training/mask/29_training_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": true,
+      "image": "DRIVE/training/images/29_training.tif",
+      "specimen_id": "29",
+      "split": "training",
+      "vessel_mask": "DRIVE/training/1st_manual/29_manual1.gif"
+    },
+    {
+      "field_of_view_mask": "DRIVE/training/mask/30_training_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": true,
+      "image": "DRIVE/training/images/30_training.tif",
+      "specimen_id": "30",
+      "split": "training",
+      "vessel_mask": "DRIVE/training/1st_manual/30_manual1.gif"
+    },
+    {
+      "field_of_view_mask": "DRIVE/training/mask/31_training_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": true,
+      "image": "DRIVE/training/images/31_training.tif",
+      "specimen_id": "31",
+      "split": "training",
+      "vessel_mask": "DRIVE/training/1st_manual/31_manual1.gif"
+    },
+    {
+      "field_of_view_mask": "DRIVE/training/mask/32_training_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": true,
+      "image": "DRIVE/training/images/32_training.tif",
+      "specimen_id": "32",
+      "split": "training",
+      "vessel_mask": "DRIVE/training/1st_manual/32_manual1.gif"
+    },
+    {
+      "field_of_view_mask": "DRIVE/training/mask/33_training_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": true,
+      "image": "DRIVE/training/images/33_training.tif",
+      "specimen_id": "33",
+      "split": "training",
+      "vessel_mask": "DRIVE/training/1st_manual/33_manual1.gif"
+    },
+    {
+      "field_of_view_mask": "DRIVE/training/mask/34_training_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": true,
+      "image": "DRIVE/training/images/34_training.tif",
+      "specimen_id": "34",
+      "split": "training",
+      "vessel_mask": "DRIVE/training/1st_manual/34_manual1.gif"
+    },
+    {
+      "field_of_view_mask": "DRIVE/training/mask/35_training_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": true,
+      "image": "DRIVE/training/images/35_training.tif",
+      "specimen_id": "35",
+      "split": "training",
+      "vessel_mask": "DRIVE/training/1st_manual/35_manual1.gif"
+    },
+    {
+      "field_of_view_mask": "DRIVE/training/mask/36_training_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": true,
+      "image": "DRIVE/training/images/36_training.tif",
+      "specimen_id": "36",
+      "split": "training",
+      "vessel_mask": "DRIVE/training/1st_manual/36_manual1.gif"
+    },
+    {
+      "field_of_view_mask": "DRIVE/training/mask/37_training_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": true,
+      "image": "DRIVE/training/images/37_training.tif",
+      "specimen_id": "37",
+      "split": "training",
+      "vessel_mask": "DRIVE/training/1st_manual/37_manual1.gif"
+    },
+    {
+      "field_of_view_mask": "DRIVE/training/mask/38_training_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": true,
+      "image": "DRIVE/training/images/38_training.tif",
+      "specimen_id": "38",
+      "split": "training",
+      "vessel_mask": "DRIVE/training/1st_manual/38_manual1.gif"
+    },
+    {
+      "field_of_view_mask": "DRIVE/training/mask/39_training_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": true,
+      "image": "DRIVE/training/images/39_training.tif",
+      "specimen_id": "39",
+      "split": "training",
+      "vessel_mask": "DRIVE/training/1st_manual/39_manual1.gif"
+    },
+    {
+      "field_of_view_mask": "DRIVE/training/mask/40_training_mask.gif",
+      "has_field_of_view_mask": true,
+      "has_vessel_ground_truth": true,
+      "image": "DRIVE/training/images/40_training.tif",
+      "specimen_id": "40",
+      "split": "training",
+      "vessel_mask": "DRIVE/training/1st_manual/40_manual1.gif"
+    }
+  ],
+  "report_version": "1.0.0",
+  "source_layout": {
+    "field_of_view_masks": [
+      "DRIVE/test/mask/01_test_mask.gif",
+      "DRIVE/test/mask/02_test_mask.gif",
+      "DRIVE/test/mask/03_test_mask.gif",
+      "DRIVE/test/mask/04_test_mask.gif",
+      "DRIVE/test/mask/05_test_mask.gif",
+      "DRIVE/test/mask/06_test_mask.gif",
+      "DRIVE/test/mask/07_test_mask.gif",
+      "DRIVE/test/mask/08_test_mask.gif",
+      "DRIVE/test/mask/09_test_mask.gif",
+      "DRIVE/test/mask/10_test_mask.gif",
+      "DRIVE/test/mask/11_test_mask.gif",
+      "DRIVE/test/mask/12_test_mask.gif",
+      "DRIVE/test/mask/13_test_mask.gif",
+      "DRIVE/test/mask/14_test_mask.gif",
+      "DRIVE/test/mask/15_test_mask.gif",
+      "DRIVE/test/mask/16_test_mask.gif",
+      "DRIVE/test/mask/17_test_mask.gif",
+      "DRIVE/test/mask/18_test_mask.gif",
+      "DRIVE/test/mask/19_test_mask.gif",
+      "DRIVE/test/mask/20_test_mask.gif",
+      "DRIVE/training/mask/21_training_mask.gif",
+      "DRIVE/training/mask/22_training_mask.gif",
+      "DRIVE/training/mask/23_training_mask.gif",
+      "DRIVE/training/mask/24_training_mask.gif",
+      "DRIVE/training/mask/25_training_mask.gif",
+      "DRIVE/training/mask/26_training_mask.gif",
+      "DRIVE/training/mask/27_training_mask.gif",
+      "DRIVE/training/mask/28_training_mask.gif",
+      "DRIVE/training/mask/29_training_mask.gif",
+      "DRIVE/training/mask/30_training_mask.gif",
+      "DRIVE/training/mask/31_training_mask.gif",
+      "DRIVE/training/mask/32_training_mask.gif",
+      "DRIVE/training/mask/33_training_mask.gif",
+      "DRIVE/training/mask/34_training_mask.gif",
+      "DRIVE/training/mask/35_training_mask.gif",
+      "DRIVE/training/mask/36_training_mask.gif",
+      "DRIVE/training/mask/37_training_mask.gif",
+      "DRIVE/training/mask/38_training_mask.gif",
+      "DRIVE/training/mask/39_training_mask.gif",
+      "DRIVE/training/mask/40_training_mask.gif"
+    ],
+    "manual_vessel_masks": [
+      "DRIVE/training/1st_manual/21_manual1.gif",
+      "DRIVE/training/1st_manual/22_manual1.gif",
+      "DRIVE/training/1st_manual/23_manual1.gif",
+      "DRIVE/training/1st_manual/24_manual1.gif",
+      "DRIVE/training/1st_manual/25_manual1.gif",
+      "DRIVE/training/1st_manual/26_manual1.gif",
+      "DRIVE/training/1st_manual/27_manual1.gif",
+      "DRIVE/training/1st_manual/28_manual1.gif",
+      "DRIVE/training/1st_manual/29_manual1.gif",
+      "DRIVE/training/1st_manual/30_manual1.gif",
+      "DRIVE/training/1st_manual/31_manual1.gif",
+      "DRIVE/training/1st_manual/32_manual1.gif",
+      "DRIVE/training/1st_manual/33_manual1.gif",
+      "DRIVE/training/1st_manual/34_manual1.gif",
+      "DRIVE/training/1st_manual/35_manual1.gif",
+      "DRIVE/training/1st_manual/36_manual1.gif",
+      "DRIVE/training/1st_manual/37_manual1.gif",
+      "DRIVE/training/1st_manual/38_manual1.gif",
+      "DRIVE/training/1st_manual/39_manual1.gif",
+      "DRIVE/training/1st_manual/40_manual1.gif"
+    ],
+    "test_images": [
+      "DRIVE/test/images/01_test.tif",
+      "DRIVE/test/images/02_test.tif",
+      "DRIVE/test/images/03_test.tif",
+      "DRIVE/test/images/04_test.tif",
+      "DRIVE/test/images/05_test.tif",
+      "DRIVE/test/images/06_test.tif",
+      "DRIVE/test/images/07_test.tif",
+      "DRIVE/test/images/08_test.tif",
+      "DRIVE/test/images/09_test.tif",
+      "DRIVE/test/images/10_test.tif",
+      "DRIVE/test/images/11_test.tif",
+      "DRIVE/test/images/12_test.tif",
+      "DRIVE/test/images/13_test.tif",
+      "DRIVE/test/images/14_test.tif",
+      "DRIVE/test/images/15_test.tif",
+      "DRIVE/test/images/16_test.tif",
+      "DRIVE/test/images/17_test.tif",
+      "DRIVE/test/images/18_test.tif",
+      "DRIVE/test/images/19_test.tif",
+      "DRIVE/test/images/20_test.tif"
+    ],
+    "training_images": [
+      "DRIVE/training/images/21_training.tif",
+      "DRIVE/training/images/22_training.tif",
+      "DRIVE/training/images/23_training.tif",
+      "DRIVE/training/images/24_training.tif",
+      "DRIVE/training/images/25_training.tif",
+      "DRIVE/training/images/26_training.tif",
+      "DRIVE/training/images/27_training.tif",
+      "DRIVE/training/images/28_training.tif",
+      "DRIVE/training/images/29_training.tif",
+      "DRIVE/training/images/30_training.tif",
+      "DRIVE/training/images/31_training.tif",
+      "DRIVE/training/images/32_training.tif",
+      "DRIVE/training/images/33_training.tif",
+      "DRIVE/training/images/34_training.tif",
+      "DRIVE/training/images/35_training.tif",
+      "DRIVE/training/images/36_training.tif",
+      "DRIVE/training/images/37_training.tif",
+      "DRIVE/training/images/38_training.tif",
+      "DRIVE/training/images/39_training.tif",
+      "DRIVE/training/images/40_training.tif"
+    ],
+    "unknown_supported_files": [],
+    "unsupported_files": [
+      ".gitkeep"
+    ]
+  },
+  "validation": {
+    "ambiguous_pairs": [],
+    "corrupt_files": [],
+    "dimension_mismatches": [],
+    "invalid_annotations": [],
+    "missing_required_masks": [],
+    "status": "VALID",
+    "test_ground_truth_limitation": "The discovered DRIVE copy contains test field-of-view masks but no manual test vessel masks; test images are not included in accuracy metrics.",
+    "test_manual_vessel_ground_truth_available": false,
+    "unreadable_annotation_files": []
+  }
+}

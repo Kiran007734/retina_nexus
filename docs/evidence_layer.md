@@ -56,14 +56,17 @@ support requires compatible, present annotations for the requested lesion
 module. A missing label produces unsupported status; the system never creates
 or infers annotations to make a module appear supported.
 
-DRIVE quantitative evaluation is available when authorized paired data exists:
+DRIVE quantitative evaluation is available for genuine paired data without
+training the production evidence adapter:
 
-    python scripts/train_vessel_segmentation.py --raw-dir ml/datasets/raw/drive
-    python scripts/evaluate_vessel_segmentation.py --checkpoint <checkpoint>
+    python scripts/validate_drive_dataset.py --raw-dir ml/datasets/raw/drive --output-dir ml/evaluation/drive
+    python scripts/evaluate_r2_vessel_segmentation.py --raw-dir ml/datasets/raw/drive --output-dir ml/evaluation/drive --device cpu --workers 2 --torch-threads 8
 
-These scripts target the existing compact DRIVE training checkpoint. The
-pretrained R2-V2 adapter has separate real-inference verification; no DRIVE
-metrics are reported until authorized ground-truth masks are present.
+The existing compact DRIVE training/evaluation scripts remain available for
+baseline experiments. The R2-V2 evaluator reports only images with genuine
+manual vessel masks and applies the corresponding FOV mask. Missing test
+ground truth is reported rather than inferred; all metrics remain engineering
+segmentation measurements, not clinical validation.
 
 ## API
 

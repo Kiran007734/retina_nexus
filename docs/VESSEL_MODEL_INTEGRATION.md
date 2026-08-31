@@ -94,14 +94,30 @@ RetinaGuard records one of `REAL_MODEL_EVIDENCE`, `EXPERIMENTAL_BASELINE`, or
 not an additional trust-score weight, so the presence of a vessel model does
 not artificially raise reliability.
 
-## Evaluation boundary
+## DRIVE evaluation boundary
 
-The real model is load-tested and run on an authorized local retinal image.
-The repository does not claim vessel Dice, IoU, sensitivity, specificity, or
-clinical accuracy because an authorized DRIVE ground-truth evaluation set is
-not available in the local workspace. When DRIVE images and vessel masks are
-placed under `ml/datasets/raw/drive/`, use the existing pairing and evaluation
-utilities to calculate genuine metrics; until then the status is:
+The downloaded DRIVE copy was inspected without assuming an archive layout.
+It contains 20 training images with manual vessel masks and field-of-view
+masks, plus 20 test images with field-of-view masks but no manual test vessel
+masks. The reproducible validation and evaluation commands are:
 
-> Real inference verified; quantitative segmentation evaluation pending
-> authorized ground-truth dataset.
+```powershell
+python scripts/validate_drive_dataset.py --raw-dir ml/datasets/raw/drive --output-dir ml/evaluation/drive
+python scripts/evaluate_r2_vessel_segmentation.py --raw-dir ml/datasets/raw/drive --model-path ml/weights/vessel_segmentation/r2-v2-bv-2025/bv.safetensors --output-dir ml/evaluation/drive --device cpu --threshold 0.5 --workers 2 --torch-threads 8
+```
+
+Outputs are written to `ml/evaluation/drive/`:
+
+- `dataset_manifest.json` — discovered files, hashes, dimensions, and pairings;
+- `validation_report.json` — readability, annotation, duplicate, and leakage checks;
+- `r2-v2-evaluation.json` — per-image and aggregate metrics;
+- `comparisons/` — original, genuine mask, prediction, and error overlays.
+
+The current report evaluates all 20 training images inside their genuine FOV
+masks. Mean metrics are Dice `0.717551`, IoU `0.562435`, pixel accuracy
+`0.940449`, sensitivity/recall `0.609811`, specificity `0.988515`, precision
+`0.882242`, and F1 `0.717551`; standard deviations are recorded in the JSON
+report. The 20 test images are excluded from accuracy metrics because no
+manual vessel ground truth was discovered. These are pixel-level engineering
+measurements and do not establish clinical validity, deployment safety, or
+generalization performance.

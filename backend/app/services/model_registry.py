@@ -63,6 +63,8 @@ async def seed_model_registry(db: AsyncSession) -> None:
         existing = (await db.execute(select(ModelVersion).where(ModelVersion.version == version))).scalar_one_or_none()
         config = artifact.get("model_config") or {}
         training_config = artifact.get("training_config") or {}
+        evaluation = artifact.get("evaluation") or {}
+        measured_metrics = artifact.get("validation_metrics") or evaluation.get("metrics")
         values = {
             "model_name": artifact.get(
                 "model_name",
@@ -72,7 +74,7 @@ async def seed_model_registry(db: AsyncSession) -> None:
             "version": version,
             "training_dataset": training_config.get("dataset") or artifact.get("dataset_version") or "not specified",
             "input_size": str(config.get("input_size", "")),
-            "performance_metrics": {"validation": artifact.get("validation_metrics"), "clinical_validation_claim": False},
+            "performance_metrics": {"validation": measured_metrics, "evaluation": evaluation or None, "clinical_validation_claim": False},
             "training_config": training_config,
             "dataset_version": artifact.get("dataset_version"),
             "file_path": checkpoint,

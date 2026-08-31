@@ -194,6 +194,10 @@ class PretrainedRetinalVesselAdapter:
                 metadata=self.health(),
             )
 
+    def predict_probability(self, image_rgb: Any) -> np.ndarray:
+        """Return the raw blood-vessel probability map for evaluation tooling."""
+        return self._predict(np.asarray(image_rgb, dtype=np.uint8)).copy()
+
     def _predict(self, image_rgb: np.ndarray) -> np.ndarray:
         if image_rgb.ndim != 3 or image_rgb.shape[2] != 3:
             raise ValueError("Expected an RGB image array with shape HxWx3")
