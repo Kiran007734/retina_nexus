@@ -23,12 +23,19 @@ class Settings(BaseSettings):
     storage_backend: str = "local"
     local_storage_path: str | None = None
     max_upload_size_mb: int = 15
+    max_image_pixels: int = Field(default=50_000_000, ge=1_000_000, le=100_000_000)
     allowed_image_mime_types: list[str] = Field(default=["image/jpeg", "image/png"])
     demo_mode_enabled: bool = False
     classifier_model_path: str | None = None
     classifier_backbone: str = "efficientnet_b0"
     classifier_model_version: str | None = None
     classifier_device: str = "auto"
+    classifier_model_sha256: str | None = None
+    lesion_model_sha256: str | None = None
+    vessel_model_sha256: str | None = None
+    verify_models_on_startup: bool = True
+    max_concurrent_screenings: int = Field(default=1, ge=1, le=8)
+    screening_timeout_seconds: int = Field(default=900, ge=30, le=3600)
     referable_min_grade: int = Field(default=2, ge=1, le=4)
     evidence_enable_heuristics: bool = True
     evidence_enable_vessel_baseline: bool = False

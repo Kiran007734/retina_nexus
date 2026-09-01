@@ -1,0 +1,306 @@
+{
+  "benchmark_version": "deployment-benchmark-v1",
+  "completed_run_count": 3,
+  "configuration": {
+    "classifier_device": "cpu",
+    "clinical_validation_claim": false,
+    "evidence_max_dimension": 768,
+    "runs": 3,
+    "warmup_policy": "Model load timings are recorded separately; stage samples are warm after the first load."
+  },
+  "evidence_module_status": {
+    "cotton_wool_spot_detection": "model_inference",
+    "exudate_segmentation": "model_inference",
+    "fovea_localization": "approximate",
+    "hemorrhage_detection": "model_inference",
+    "microaneurysm_detection": "model_inference",
+    "neovascularization_detection": "unsupported",
+    "optic_disc_localization": "experimental_heuristic",
+    "vessel_segmentation": "model_inference"
+  },
+  "generated_at_utc": "2026-09-01T18:32:34.680058+00:00",
+  "hardware": {
+    "cpu_count": 16,
+    "cuda_available": false,
+    "os": "Windows-10-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+    "python": "3.11.9",
+    "torch": "2.11.0+cpu",
+    "torchvision": "0.26.0+cpu"
+  },
+  "image": {
+    "bytes": 1891993,
+    "name": "0d0b8fc9ab5c.png",
+    "sha256": "62c87a9785ea15935b29ec4514691f81a6972b733e527a64a1ee92a193ca57ee",
+    "source": "authorized local image under ml/datasets/raw"
+  },
+  "limitations": [
+    "Local engineering latency only; no throughput or clinical performance claim.",
+    "P95 is descriptive and based on the configured repetition count.",
+    "Unavailable optional evidence is reported as unavailable and is not replaced by a heuristic model."
+  ],
+  "model_load_timings_ms": {
+    "classifier": 661.8262999691069,
+    "lesion_segmentation": 743.6761999269947,
+    "vessel_segmentation": 2444.8636999586597
+  },
+  "run_statuses": [
+    "COMPLETED",
+    "COMPLETED",
+    "COMPLETED"
+  ],
+  "runs": [
+    {
+      "errors": {},
+      "evidence_status": {
+        "cotton_wool_spot_detection": "model_inference",
+        "exudate_segmentation": "model_inference",
+        "fovea_localization": "approximate",
+        "hemorrhage_detection": "model_inference",
+        "microaneurysm_detection": "model_inference",
+        "neovascularization_detection": "unsupported",
+        "optic_disc_localization": "experimental_heuristic",
+        "vessel_segmentation": "model_inference"
+      },
+      "prediction": {
+        "grade": 0,
+        "model_version": "efficientnet-b0-aptos2019-20260830-v1",
+        "raw_confidence": 0.995171,
+        "referable_dr": false
+      },
+      "quality": {
+        "dimensions": [
+          2048,
+          1536
+        ],
+        "enhancement_applied": false,
+        "final_decision": "GRADABLE",
+        "final_score": 0.8274,
+        "initial_decision": "GRADABLE",
+        "initial_score": 0.8274
+      },
+      "retinaguard": {
+        "trust_category": "UNRELIABLE",
+        "trust_score": 0.608549
+      },
+      "stage_timings_ms": {
+        "classification": 385.91930002439767,
+        "evidence_total": 93667.53820003942,
+        "grad_cam_and_agreement": 4604.201100068167,
+        "image_validation": 146.37889992445707,
+        "lesion_inference_ms": 2115.941,
+        "pdf_generation": 0.17960008699446917,
+        "quality_assessment": 560.1234000641853,
+        "retinaguard": 3.4374999813735485,
+        "structure_analysis_ms": 27.574,
+        "vessel_inference_ms": 91050.829
+      },
+      "status": "COMPLETED"
+    },
+    {
+      "errors": {},
+      "evidence_status": {
+        "cotton_wool_spot_detection": "model_inference",
+        "exudate_segmentation": "model_inference",
+        "fovea_localization": "approximate",
+        "hemorrhage_detection": "model_inference",
+        "microaneurysm_detection": "model_inference",
+        "neovascularization_detection": "unsupported",
+        "optic_disc_localization": "experimental_heuristic",
+        "vessel_segmentation": "model_inference"
+      },
+      "prediction": {
+        "grade": 0,
+        "model_version": "efficientnet-b0-aptos2019-20260830-v1",
+        "raw_confidence": 0.995171,
+        "referable_dr": false
+      },
+      "quality": {
+        "dimensions": [
+          2048,
+          1536
+        ],
+        "enhancement_applied": false,
+        "final_decision": "GRADABLE",
+        "final_score": 0.8274,
+        "initial_decision": "GRADABLE",
+        "initial_score": 0.8274
+      },
+      "retinaguard": {
+        "trust_category": "UNRELIABLE",
+        "trust_score": 0.608549
+      },
+      "stage_timings_ms": {
+        "classification": 112.10599995683879,
+        "evidence_total": 662.5448999693617,
+        "grad_cam_and_agreement": 4582.757399999537,
+        "image_validation": 87.93949999380857,
+        "lesion_inference_ms": 69.634,
+        "pdf_generation": 0.14160003047436476,
+        "quality_assessment": 205.68179991096258,
+        "retinaguard": 0.40559994522482157,
+        "structure_analysis_ms": 27.756,
+        "vessel_inference_ms": 274.706
+      },
+      "status": "COMPLETED"
+    },
+    {
+      "errors": {},
+      "evidence_status": {
+        "cotton_wool_spot_detection": "model_inference",
+        "exudate_segmentation": "model_inference",
+        "fovea_localization": "approximate",
+        "hemorrhage_detection": "model_inference",
+        "microaneurysm_detection": "model_inference",
+        "neovascularization_detection": "unsupported",
+        "optic_disc_localization": "experimental_heuristic",
+        "vessel_segmentation": "model_inference"
+      },
+      "prediction": {
+        "grade": 0,
+        "model_version": "efficientnet-b0-aptos2019-20260830-v1",
+        "raw_confidence": 0.995171,
+        "referable_dr": false
+      },
+      "quality": {
+        "dimensions": [
+          2048,
+          1536
+        ],
+        "enhancement_applied": false,
+        "final_decision": "GRADABLE",
+        "final_score": 0.8274,
+        "initial_decision": "GRADABLE",
+        "initial_score": 0.8274
+      },
+      "retinaguard": {
+        "trust_category": "UNRELIABLE",
+        "trust_score": 0.608549
+      },
+      "stage_timings_ms": {
+        "classification": 90.50050005316734,
+        "evidence_total": 626.0794999543577,
+        "grad_cam_and_agreement": 4316.429099999368,
+        "image_validation": 92.56200003437698,
+        "lesion_inference_ms": 41.508,
+        "pdf_generation": 0.08430005982518196,
+        "quality_assessment": 209.8569000372663,
+        "retinaguard": 0.264100031927228,
+        "structure_analysis_ms": 17.861,
+        "vessel_inference_ms": 272.464
+      },
+      "status": "COMPLETED"
+    }
+  ],
+  "stage_latency": {
+    "classification": {
+      "max_ms": 385.919,
+      "mean_ms": 196.175,
+      "median_ms": 112.106,
+      "min_ms": 90.501,
+      "p95_ms": 358.538,
+      "sample_count": 3,
+      "stddev_ms": 164.678
+    },
+    "classification_only": {
+      "max_ms": 385.919,
+      "mean_ms": 196.175,
+      "median_ms": 112.106,
+      "min_ms": 90.501,
+      "p95_ms": 358.538,
+      "sample_count": 3,
+      "stddev_ms": 164.678
+    },
+    "evidence_total": {
+      "max_ms": 93667.538,
+      "mean_ms": 31652.054,
+      "median_ms": 662.545,
+      "min_ms": 626.079,
+      "p95_ms": 84367.039,
+      "sample_count": 3,
+      "stddev_ms": 53706.988
+    },
+    "full_pipeline": {
+      "max_ms": 99367.778,
+      "mean_ms": 36785.044,
+      "median_ms": 5651.577,
+      "min_ms": 5335.776,
+      "p95_ms": 89996.158,
+      "sample_count": 3,
+      "stddev_ms": 54198.468
+    },
+    "grad_cam_and_agreement": {
+      "max_ms": 4604.201,
+      "mean_ms": 4501.129,
+      "median_ms": 4582.757,
+      "min_ms": 4316.429,
+      "p95_ms": 4602.057,
+      "sample_count": 3,
+      "stddev_ms": 160.314
+    },
+    "image_validation": {
+      "max_ms": 146.379,
+      "mean_ms": 108.96,
+      "median_ms": 92.562,
+      "min_ms": 87.939,
+      "p95_ms": 140.997,
+      "sample_count": 3,
+      "stddev_ms": 32.488
+    },
+    "lesion_inference_ms": {
+      "max_ms": 2115.941,
+      "mean_ms": 742.361,
+      "median_ms": 69.634,
+      "min_ms": 41.508,
+      "p95_ms": 1911.31,
+      "sample_count": 3,
+      "stddev_ms": 1189.638
+    },
+    "pdf_generation": {
+      "max_ms": 0.18,
+      "mean_ms": 0.135,
+      "median_ms": 0.142,
+      "min_ms": 0.084,
+      "p95_ms": 0.176,
+      "sample_count": 3,
+      "stddev_ms": 0.048
+    },
+    "quality_assessment": {
+      "max_ms": 560.123,
+      "mean_ms": 325.221,
+      "median_ms": 209.857,
+      "min_ms": 205.682,
+      "p95_ms": 525.097,
+      "sample_count": 3,
+      "stddev_ms": 203.442
+    },
+    "retinaguard": {
+      "max_ms": 3.437,
+      "mean_ms": 1.369,
+      "median_ms": 0.406,
+      "min_ms": 0.264,
+      "p95_ms": 3.134,
+      "sample_count": 3,
+      "stddev_ms": 1.793
+    },
+    "structure_analysis_ms": {
+      "max_ms": 27.756,
+      "mean_ms": 24.397,
+      "median_ms": 27.574,
+      "min_ms": 17.861,
+      "p95_ms": 27.738,
+      "sample_count": 3,
+      "stddev_ms": 5.661
+    },
+    "vessel_inference_ms": {
+      "max_ms": 91050.829,
+      "mean_ms": 30532.666,
+      "median_ms": 274.706,
+      "min_ms": 272.464,
+      "p95_ms": 81973.217,
+      "sample_count": 3,
+      "stddev_ms": 52410.266
+    }
+  },
+  "status": "COMPLETE"
+}

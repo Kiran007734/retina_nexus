@@ -11,7 +11,9 @@ services:
       CORS_ORIGINS: '["http://localhost:5173","http://localhost"]'
       DEMO_MODE_ENABLED: ${DEMO_MODE_ENABLED:-false}
       CLASSIFIER_MODEL_PATH: ${CLASSIFIER_MODEL_PATH:-}
+      CLASSIFIER_MODEL_SHA256: ${CLASSIFIER_MODEL_SHA256:-}
       LOCAL_STORAGE_PATH: /var/lib/retina-nexus/storage
+      RUN_MIGRATIONS: ${RUN_MIGRATIONS:-true}
     ports:
       - "${BACKEND_PORT:-8000}:8000"
     volumes:
@@ -22,14 +24,25 @@ services:
       db:
         condition: service_healthy
       redis:
-        condition: service_started
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/v1/health', timeout=3)"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
 
   frontend:
     build: ./frontend
     ports:
       - "80:80"
     depends_on:
-      - backend
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1/"]
+      interval: 10s
+      timeout: 3s
+      retries: 6
 
   db:
     image: postgres:16-alpine
@@ -42,7 +55,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U retina -d retina_nexus"]
+      test: ["CMD-SHELL", "pg_isready -U \"$$POSTGRES_USER\" -d \"$$POSTGRES_DB\""]
       interval: 5s
       timeout: 5s
       retries: 10
@@ -53,6 +66,11 @@ services:
       - "6379:6379"
     volumes:
       - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
 
 volumes:
   postgres_data:

@@ -10,9 +10,12 @@ RUN pip install --no-cache-dir -r requirements-ml.txt
 COPY backend/app ./app
 COPY backend/alembic.ini ./alembic.ini
 COPY backend/alembic ./alembic
+COPY backend/docker-entrypoint.sh ./docker-entrypoint.sh
+RUN chmod +x ./docker-entrypoint.sh
 # Include the metadata registry and empty directory layout in the image. Real
 # datasets remain external and are never bundled by this repository.
 COPY ml ./ml
 
 EXPOSE 8000
+ENTRYPOINT ["/app/docker-entrypoint.sh"]
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

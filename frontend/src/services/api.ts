@@ -7,7 +7,8 @@ function authHeaders(): HeadersInit {
 
 async function requestError(response: Response, fallback: string) {
   const detail = await response.json().catch(() => null);
-  return new Error(detail?.detail ?? fallback);
+  const message = typeof detail?.detail === 'string' ? detail.detail : detail?.detail?.message;
+  return new Error(message ?? fallback);
 }
 
 export async function login(email: string, password: string) {
@@ -240,7 +241,7 @@ export async function classifyImage(imageId: string, screeningSessionId?: string
   });
   if (!response.ok) {
     const detail = await response.json().catch(() => null);
-    throw new Error(detail?.detail ?? 'Unable to classify image');
+    throw new Error(typeof detail?.detail === 'string' ? detail.detail : detail?.detail?.message ?? 'Unable to classify image');
   }
   return response.json() as Promise<ClassificationResult>;
 }
@@ -253,7 +254,7 @@ export async function analyzeStructures(imageId: string, screeningSessionId?: st
   });
   if (!response.ok) {
     const detail = await response.json().catch(() => null);
-    throw new Error(detail?.detail ?? 'Unable to analyze retinal structures');
+    throw new Error(typeof detail?.detail === 'string' ? detail.detail : detail?.detail?.message ?? 'Unable to analyze retinal structures');
   }
   return response.json() as Promise<EvidenceAnalysisResult>;
 }
@@ -266,7 +267,7 @@ export async function explainImage(imageId: string, screeningSessionId?: string,
   });
   if (!response.ok) {
     const detail = await response.json().catch(() => null);
-    throw new Error(detail?.detail ?? 'Unable to generate explainability output');
+    throw new Error(typeof detail?.detail === 'string' ? detail.detail : detail?.detail?.message ?? 'Unable to generate explainability output');
   }
   return response.json() as Promise<ExplainabilityResult>;
 }

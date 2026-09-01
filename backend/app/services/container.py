@@ -46,7 +46,8 @@ def get_service_container() -> dict:
 @lru_cache
 def get_image_quality_service() -> ImageTrustGateService:
     """Dependency-injection entry point for the first vision stage."""
-    return ImageTrustGateService()
+    settings = get_settings()
+    return ImageTrustGateService(max_image_pixels=settings.max_image_pixels)
 
 
 @lru_cache
@@ -133,6 +134,7 @@ def get_retinaguard_service() -> RetinaGuardEngine:
 
 @lru_cache
 def get_screening_pipeline_service() -> ScreeningPipelineService:
+    settings = get_settings()
     return ScreeningPipelineService(
         quality_service=get_image_quality_service(),
         classifier=get_classifier_service(),
@@ -140,4 +142,6 @@ def get_screening_pipeline_service() -> ScreeningPipelineService:
         explainability_service=get_explainability_service(),
         retinaguard=get_retinaguard_service(),
         storage=get_storage(),
+        max_concurrent_screenings=settings.max_concurrent_screenings,
+        timeout_seconds=settings.screening_timeout_seconds,
     )

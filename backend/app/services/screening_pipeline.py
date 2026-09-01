@@ -7,6 +7,7 @@ worker without changing the public contract.
 
 from __future__ import annotations
 
+import asyncio
 import logging
 from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
@@ -15,6 +16,7 @@ from uuid import UUID
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.core.safe_errors import safe_error_message
 from app.models.audit_log import AuditLog
 from app.models.fundus_image import FundusImage, QualityDecision
 from app.models.screening import ScreeningSession, ScreeningStatus
@@ -75,15 +77,41 @@ class ScreeningPipelineOutput:
 class ScreeningPipelineService:
     """Run every current AI stage with explicit state and audit boundaries."""
 
-    def __init__(self, quality_service: ImageTrustGateService, classifier: TorchDRClassificationService, evidence_service: RetinalEvidenceService, explainability_service: ExplainabilityService, retinaguard: RetinaGuardEngine, storage: Any):
+    def __init__(self, quality_service: ImageTrustGateService, classifier: TorchDRClassificationService, evidence_service: RetinalEvidenceService, explainability_service: ExplainabilityService, retinaguard: RetinaGuardEngine, storage: Any, max_concurrent_screenings: int = 1, timeout_seconds: int = 900):
         self.quality_service = quality_service
         self.classifier = classifier
         self.evidence_service = evidence_service
         self.explainability_service = explainability_service
         self.retinaguard = retinaguard
         self.storage = storage
+        self._screening_slots = asyncio.Semaphore(max(1, min(8, int(max_concurrent_screenings))))
+        self.timeout_seconds = max(30, int(timeout_seconds))
 
     async def execute(self, db: AsyncSession, run: ScreeningRun, session: ScreeningSession, image: FundusImage, actor_id: UUID | None, run_stability: bool | None = None, run_counterfactual: bool | None = None, model_predictions: list[dict[str, Any]] | None = None) -> ScreeningPipelineOutput:
+        acquired = False
+        try:
+            await asyncio.wait_for(self._screening_slots.acquire(), timeout=min(60, self.timeout_seconds))
+            acquired = True
+            return await asyncio.wait_for(
+                self._execute_inner(db, run, session, image, actor_id, run_stability, run_counterfactual, model_predictions),
+                timeout=self.timeout_seconds,
+            )
+        except asyncio.TimeoutError:
+            run.status = "FAILED"
+            run.error = {"stage": "pipeline", "type": "TimeoutError", "message": "Screening exceeded the configured processing limit; no complete prediction was returned."}
+            run.stage_errors = {**(run.stage_errors or {}), "pipeline": run.error}
+            run.stage_status = {**(run.stage_status or {}), "pipeline": "FAILED"}
+            run.completed_at = datetime.now(timezone.utc)
+            session.status = ScreeningStatus.FAILED
+            session.completed_at = run.completed_at
+            await db.commit()
+            logger.error("screening.pipeline.timeout", extra={"event": "screening.pipeline.timeout", "stage": "pipeline", "screening_id": str(run.id)})
+            return self._output(run)
+        finally:
+            if acquired:
+                self._screening_slots.release()
+
+    async def _execute_inner(self, db: AsyncSession, run: ScreeningRun, session: ScreeningSession, image: FundusImage, actor_id: UUID | None, run_stability: bool | None = None, run_counterfactual: bool | None = None, model_predictions: list[dict[str, Any]] | None = None) -> ScreeningPipelineOutput:
         run.status = "PROCESSING"
         run.started_at = datetime.now(timezone.utc)
         run.model_versions = {"preprocessing": "image-trust-gate-v1"}
@@ -134,6 +162,10 @@ class ScreeningPipelineService:
             run.model_versions = {**(run.model_versions or {}), "retinal_evidence": evidence_versions}
             await self._set_stage(db, run, actor_id, "retinal_structure_analysis", "COMPLETED", {"module_count": len(evidence.modules)})
             await self._set_stage(db, run, actor_id, "lesion_detection", "COMPLETED", {"supported_module_count": sum(1 for module in evidence.modules.values() if module.get("supported"))})
+            for timing_name, duration_ms in (evidence.stage_timings_ms or {}).items():
+                stage_name = {"vessel_inference_ms": "lesion_detection", "structure_analysis_ms": "retinal_structure_analysis", "lesion_inference_ms": "lesion_detection"}.get(timing_name)
+                if stage_name:
+                    run.stage_metrics = {**(run.stage_metrics or {}), stage_name: {**((run.stage_metrics or {}).get(stage_name) or {}), timing_name: duration_ms}}
 
             current_stage = "grad_cam"
             await self._set_stage(db, run, actor_id, current_stage, "PROCESSING")
@@ -194,7 +226,11 @@ class ScreeningPipelineService:
         except Exception as exc:
             logger.exception("screening.run.failed", extra={"screening_id": str(run.id), "stage": current_stage})
             run.status = "FAILED"
-            run.error = {"stage": current_stage, "type": type(exc).__name__, "message": str(exc)}
+            run.error = {
+                "stage": current_stage,
+                "type": type(exc).__name__,
+                "message": safe_error_message(exc, f"The {current_stage.replace('_', ' ')} stage failed; no result was produced."),
+            }
             run.stage_errors = {**(run.stage_errors or {}), current_stage: run.error}
             run.stage_status = {**(run.stage_status or {}), current_stage: "FAILED"}
             self._record_stage_metric(run, current_stage, "FAILED")
@@ -261,6 +297,15 @@ class ScreeningPipelineService:
         self._record_stage_metric(run, stage, status)
         if status == "FAILED":
             run.stage_errors = {**(run.stage_errors or {}), stage: details or {"message": "Stage failed"}}
+        if status in {"COMPLETED", "FAILED", "SKIPPED"}:
+            logger.info("screening.stage", extra={
+                "event": "screening.stage",
+                "screening_id": str(run.id),
+                "stage": stage,
+                "status": status,
+                "status_code": 200 if status != "FAILED" else 500,
+                "duration_ms": (run.stage_metrics or {}).get(stage, {}).get("duration_ms"),
+            })
         await self._audit(db, actor_id, f"screening.stage.{status.lower()}", run.id, {"stage": stage, **(details or {})})
         await db.commit()
 

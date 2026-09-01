@@ -20,6 +20,16 @@ def test_health_endpoint():
     assert response.json()["status"] == "ok"
 
 
+def test_health_request_id_and_readiness_are_safe():
+    with TestClient(app) as client:
+        response = client.get("/api/v1/health", headers={"X-Request-ID": "deployment-check-1"})
+        assert response.status_code == 200
+        assert response.headers["x-request-id"] == "deployment-check-1"
+        readiness = client.get("/api/v1/health/ready")
+        assert readiness.status_code in {200, 503}
+        assert "artifact_path" not in readiness.text
+
+
 def test_dataset_registry_endpoint():
     with TestClient(app) as client:
         response = client.get("/api/v1/datasets")

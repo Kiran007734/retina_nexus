@@ -17,6 +17,7 @@ from typing import Any
 import numpy as np
 from PIL import Image, ImageEnhance, ImageFilter
 
+from app.core.safe_errors import safe_error_message
 from app.ml.evidence.service import RetinalEvidenceAnalysis
 from app.ml.explainability.interfaces import ExplainableClassifier
 
@@ -249,7 +250,7 @@ class ExplainabilityService:
                 same_predictions += int(same)
                 records.append({"name": name, "predicted_grade": explanation.prediction.predicted_grade, "raw_confidence": explanation.prediction.raw_confidence, "prediction_unchanged": same, "grad_cam_mean_absolute_difference": round(difference, 6)})
             except Exception as exc:
-                records.append({"name": name, "status": "failed", "error": str(exc)})
+                records.append({"name": name, "status": "failed", "error": safe_error_message(exc, "The perturbation variant failed; no stability value was produced.")})
         completed = len(cam_differences)
         return {
             "status": "COMPLETED" if completed else "FAILED",
@@ -283,7 +284,7 @@ class ExplainabilityService:
         try:
             prediction = await self.classifier.classify(counterfactual_bytes)
         except Exception as exc:
-            return {"status": "FAILED", "reason": str(exc), "experimental": True}
+            return {"status": "FAILED", "reason": safe_error_message(exc, "The counterfactual inference failed; no result was produced."), "experimental": True}
         original_probability = float(base.prediction.probabilities.get(base.prediction.predicted_grade_label, 0.0))
         changed_probability = float(prediction.probabilities.get(base.prediction.predicted_grade_label, 0.0))
         return {

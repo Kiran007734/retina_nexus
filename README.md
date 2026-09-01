@@ -50,6 +50,11 @@ npm.cmd install
 The backend API uses `http://localhost:8000`; the frontend uses
 `http://localhost:5173` in development.
 
+For the hardened local/SIH startup, use [DEPLOYMENT.md](DEPLOYMENT.md). It
+documents model verification, bounded uploads, readiness, structured request
+tracing, graceful optional-model degradation, Docker reference deployment,
+preflight, failure behavior, and the measured local performance benchmark.
+
 ## Environment setup
 
 Copy the relevant example file for local values. Never commit `.env`,

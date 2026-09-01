@@ -28,9 +28,12 @@ async def upload_image(
     quality_service: ImageTrustGateService = Depends(get_image_quality_service),
 ) -> ImageUploadResponse:
     if await get_patient(db, patient_id) is None:
-        raise HTTPException(status_code=404, detail="Patient not found")
+        raise HTTPException(status_code=404, detail={"code": "PATIENT_NOT_FOUND", "message": "Patient not found"})
+    filename = Path(image.filename or "").name
+    if not filename or Path(filename).suffix.lower() not in {".jpg", ".jpeg", ".png"}:
+        raise HTTPException(status_code=415, detail={"code": "UNSUPPORTED_FILE_EXTENSION", "message": "Use a .jpg, .jpeg, or .png fundus image"})
     if image.content_type not in settings.allowed_image_mime_types:
-        raise HTTPException(status_code=415, detail="Only image/jpeg and image/png uploads are supported")
+        raise HTTPException(status_code=415, detail={"code": "UNSUPPORTED_MEDIA_TYPE", "message": "Only JPEG and PNG uploads are supported"})
     max_bytes = settings.max_upload_size_mb * 1024 * 1024
     content = await image.read(max_bytes + 1)
     if len(content) > max_bytes:
@@ -38,7 +41,7 @@ async def upload_image(
     try:
         metadata = quality_service.validate_input(content)
     except ImageTrustGateError as exc:
-        raise HTTPException(status_code=422, detail=str(exc)) from exc
+        raise HTTPException(status_code=422, detail={"code": "INVALID_IMAGE", "message": str(exc)}) from exc
 
     image_id = uuid4()
     suffix = ".jpg" if metadata.format == "JPEG" else ".png"
@@ -47,7 +50,7 @@ async def upload_image(
     storage_path = await get_storage().save(key, content, mime_type)
     record = FundusImage(
         id=image_id, patient_id=patient_id, eye=Eye(eye.value), storage_path=storage_path,
-        original_filename=image.filename, mime_type=mime_type, file_size_bytes=len(content),
+        original_filename=filename, mime_type=mime_type, file_size_bytes=len(content),
         image_metadata={"width": metadata.width, "height": metadata.height, "channels": metadata.channels, "mode": metadata.mode, "format": metadata.format, "camera_metadata": metadata.camera_metadata},
         quality_decision=QualityDecision.PENDING,
     )

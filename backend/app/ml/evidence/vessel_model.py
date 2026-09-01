@@ -152,6 +152,10 @@ class PretrainedRetinalVesselAdapter:
             "clinical_validation_claim": False,
         }
 
+    def verify_loadable(self) -> None:
+        """Load the optional artifact when deployment preflight requests it."""
+        self._get_model()
+
     def analyze(self, image_rgb: Any, context: dict[str, Any]) -> EvidenceModuleResult:
         try:
             probability = self._predict(np.asarray(image_rgb, dtype=np.uint8))

@@ -69,10 +69,17 @@ labels AI recommendation and clinician decision separately.
 | `GET` | `/models` | Registered model artifacts |
 | `GET` | `/analytics/overview` | Screening and queue overview |
 | `GET` | `/monitoring/summary?days=30` | Latency, distributions, rates, queues, drift flags |
-| `GET` | `/health` | API/database health |
+| `GET` | `/health` | API/database liveness |
+| `GET` | `/health/ready` | Required-model/report readiness and optional capability status |
 
 Monitoring drift states are `STABLE`, `FLAGGED`, or `INSUFFICIENT_DATA`.
 `FLAGGED` opens a validation task; it does not retrain or promote a model.
+
+Every request receives an `X-Request-ID` response header. The backend emits
+structured JSON logs keyed by that identifier, with route/status/duration and
+screening-stage fields but without image bytes or patient-identifying data.
+Errors use safe `error_code` values and do not expose filesystem paths,
+secrets, or stack traces.
 
 ## Controlled demo mode
 

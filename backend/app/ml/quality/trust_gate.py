@@ -17,6 +17,7 @@ except ModuleNotFoundError:  # pragma: no cover - exercised only in minimal loca
     cv2 = None
 import numpy as np
 from PIL import ExifTags, Image, ImageEnhance, ImageFilter, UnidentifiedImageError
+from PIL.Image import DecompressionBombError
 
 
 class ImageTrustGateError(ValueError):
@@ -100,6 +101,9 @@ class ImageTrustGateService:
     min_dimension = 256
     max_dimension = 12000
 
+    def __init__(self, max_image_pixels: int = 50_000_000):
+        self.max_image_pixels = int(max_image_pixels)
+
     async def extract_features(self, image_bytes: bytes) -> dict[str, float]:
         """Return normalized quality features for future OOD calibration."""
         # Reusing the assessed feature vector keeps feature extraction aligned
@@ -116,21 +120,27 @@ class ImageTrustGateService:
                     raise ImageTrustGateError("Only JPEG and PNG fundus images are supported")
                 probe.verify()
             with Image.open(io.BytesIO(image_bytes)) as image:
-                image.load()
                 width, height = image.size
                 channels = len(image.getbands())
                 if width < self.min_dimension or height < self.min_dimension:
                     raise ImageTrustGateError(f"Image dimensions {width}x{height} are below the minimum {self.min_dimension}x{self.min_dimension}")
                 if width > self.max_dimension or height > self.max_dimension:
                     raise ImageTrustGateError(f"Image dimensions {width}x{height} exceed the maximum supported size")
+                if width * height > self.max_image_pixels:
+                    raise ImageTrustGateError("Image contains too many pixels for safe processing")
+                image.load()
                 if image.mode not in {"RGB", "RGBA"} or channels not in {3, 4}:
                     raise ImageTrustGateError(f"Unsupported color channels: mode {image.mode}; RGB or RGBA is required")
                 metadata = _camera_metadata(image)
                 return ImageInputMetadata(width, height, channels, image.mode, image_format, metadata)
         except ImageTrustGateError:
             raise
+        except DecompressionBombError as exc:
+            raise ImageTrustGateError("Image dimensions exceed the safe decoding limit") from exc
         except (UnidentifiedImageError, OSError, ValueError) as exc:
-            raise ImageTrustGateError(f"Image decoding or integrity check failed: {exc}") from exc
+            # Pillow's exception text may contain implementation details or
+            # object representations. Keep the API message stable and safe.
+            raise ImageTrustGateError("Image decoding or integrity check failed") from exc
 
     async def assess(self, image_bytes: bytes, camera_metadata: dict[str, str] | None = None) -> QualityAssessment:
         input_metadata = self.validate_input(image_bytes)

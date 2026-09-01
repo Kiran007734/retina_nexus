@@ -160,6 +160,10 @@ class PretrainedRetinalLesionAdapter:
             "clinical_validation_claim": False,
         }
 
+    def verify_loadable(self) -> None:
+        """Load the optional artifact when deployment preflight requests it."""
+        self._get_model()
+
     def analyze(self, image_rgb: Any, context: dict[str, Any]) -> EvidenceModuleResult:
         module = str(context.get("requested_module", ""))
         class_name = next((name for name, item in MODEL_CLASS_TO_MODULE.items() if item == module), None)

@@ -10,13 +10,15 @@ from __future__ import annotations
 import asyncio
 import base64
 import io
+import time
 from collections import deque
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Any
 
 import numpy as np
 from PIL import Image, ImageFilter
 
+from app.core.safe_errors import safe_error_message
 from app.ml.evidence.dataset_support import evidence_dataset_support
 from app.ml.evidence.interfaces import EvidenceModelAdapter, EvidenceModuleResult
 from app.ml.quality.trust_gate import ImageTrustGateService
@@ -159,6 +161,7 @@ class RetinalEvidenceAnalysis:
     evidence_map_data_uri: str | None
     dataset_support: dict[str, Any]
     note: str
+    stage_timings_ms: dict[str, float] = field(default_factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -172,6 +175,7 @@ class RetinalEvidenceAnalysis:
             "evidence_map_data_uri": self.evidence_map_data_uri,
             "dataset_support": self.dataset_support,
             "note": self.note,
+            "stage_timings_ms": self.stage_timings_ms,
         }
 
 
@@ -226,6 +230,7 @@ class RetinalEvidenceService:
         layers: list[tuple[np.ndarray, tuple[int, int, int], int]] = []
         modules: dict[str, dict[str, Any]] = {}
         landmarks: list[dict[str, Any]] = []
+        stage_timings: dict[str, float] = {}
 
         vessel_baseline = None
         if self.enable_vessel_baseline and self.enable_heuristics:
@@ -237,7 +242,9 @@ class RetinalEvidenceService:
                 metadata={"pixel_count": int(vessel_mask.sum()), "coverage_ratio": round(float(vessel_mask.mean()), 6), "model_interface": "SegmentationModel", "measurement_status": "ENGINEERING_ESTIMATE", "clinical_validation_claim": False},
                 issues=[{"type": "experimental_baseline", "message": "EXPERIMENTAL BASELINE — NOT MODEL-BACKED; classical vessel enhancement is not clinically validated."}],
             )
+        vessel_started = time.perf_counter()
         vessel = self._run_adapter("vessel_segmentation", "segmentation", rgb, context)
+        stage_timings["vessel_inference_ms"] = round((time.perf_counter() - vessel_started) * 1000, 3)
         if vessel is None:
             vessel = vessel_baseline or _unsupported(
                 "vessel_segmentation", "segmentation",
@@ -250,6 +257,7 @@ class RetinalEvidenceService:
             if vessel_layer is not None and vessel_layer.any():
                 layers.append((vessel_layer, (0, 210, 120), 125))
 
+        structure_started = time.perf_counter()
         disc_mask, disc_landmark = self._optic_disc(gray, retina_mask)
         optic_adapter = self._run_adapter("optic_disc_localization", "landmark", rgb, context)
         if optic_adapter is not None:
@@ -300,6 +308,7 @@ class RetinalEvidenceService:
                 issues=[{"type": "approximation_only", "message": "Approximate anatomical position only; not a validated fovea detector."}],
             )
         modules[fovea.module] = fovea.to_dict()
+        stage_timings["structure_analysis_ms"] = round((time.perf_counter() - structure_started) * 1000, 3)
 
         lesion_specs = [
             ("cotton_wool_spot_detection", "lesion_detection", bright_response, (2, max(8, (width * height) // 50000)), (236, 166, 63), "bright cotton-wool-spot candidate regions"),
@@ -307,6 +316,7 @@ class RetinalEvidenceService:
             ("hemorrhage_detection", "lesion_detection", dark_response, (max(8, (width * height) // 50000), max(30, (width * height) // 300)), (190, 20, 35), "larger dark candidate regions"),
             ("exudate_segmentation", "segmentation", bright_response, (2, max(8, (width * height) // 50000)), (245, 190, 30), "bright candidate regions"),
         ]
+        lesion_started = time.perf_counter()
         for module_name, category, response, area_range, colour, description in lesion_specs:
             adapter_result = self._run_adapter(module_name, category, rgb, context)
             if adapter_result is not None:
@@ -330,6 +340,7 @@ class RetinalEvidenceService:
                 if filtered.any():
                     layers.append((filtered, colour, 125))
             modules[result.module] = result.to_dict()
+        stage_timings["lesion_inference_ms"] = round((time.perf_counter() - lesion_started) * 1000, 3)
 
         modules["neovascularization_detection"] = _unsupported(
             "neovascularization_detection", "lesion_detection",
@@ -350,6 +361,7 @@ class RetinalEvidenceService:
             evidence_map_data_uri=_evidence_overlay(layers, (height, width)) if layers else None,
             dataset_support=evidence_dataset_support(),
             note="Clinical evidence layer is distinct from DR classification. Model-backed vessel/lesion outputs are supporting engineering evidence; experimental baselines and approximations are explicitly labelled and are not clinical findings.",
+            stage_timings_ms=stage_timings,
         )
 
     def _module_or_adapter(self, module: str, category: str, image_rgb: np.ndarray, context: dict[str, Any], baseline: EvidenceModuleResult) -> EvidenceModuleResult:
@@ -367,7 +379,12 @@ class RetinalEvidenceService:
             result.metadata = {**result.metadata, "adapter_name": adapter.name, "adapter_version": adapter.version}
             return result
         except Exception as exc:
-            return _unsupported(module, category, f"Configured adapter failed safely: {exc}", "configured_adapter")
+            return _unsupported(
+                module,
+                category,
+                "Configured adapter failed safely: " + safe_error_message(exc, "the adapter returned an internal error"),
+                "configured_adapter",
+            )
 
     @staticmethod
     def _retina_mask(gray: np.ndarray) -> np.ndarray:

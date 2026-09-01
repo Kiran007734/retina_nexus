@@ -130,12 +130,13 @@ def model_response_payload(model: ModelVersion) -> dict:
         "performance_metrics": model.performance_metrics,
         "training_config": model.training_config,
         "dataset_version": model.dataset_version,
-        "file_path": model.file_path,
+        # Artifact locations are operator configuration, not public API data.
+        "file_path": None,
         "checksum": model.checksum,
         "artifact_kind": model.artifact_kind,
         "artifact_status": model.artifact_status,
         "availability_status": resolve_model_availability(model),
-        "load_error": model.load_error,
+        "load_error": "MODEL_LOAD_FAILED" if model.load_error else None,
         "is_active": model.is_active,
         "created_at": model.created_at,
     }

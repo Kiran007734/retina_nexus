@@ -78,11 +78,11 @@ class TorchDRClassificationService:
         if self.model_path is None:
             raise ClassifierNotConfiguredError("No classifier checkpoint is configured. Set CLASSIFIER_MODEL_PATH after training and registering a model artifact.")
         if not self.model_path.is_file():
-            raise ClassifierNotConfiguredError(f"Classifier checkpoint does not exist: {self.model_path}. Train a model or set CLASSIFIER_MODEL_PATH to a valid artifact.")
+            raise ClassifierNotConfiguredError("The configured classifier checkpoint is unavailable. Run scripts/verify_models.py and set CLASSIFIER_MODEL_PATH to a valid registered artifact.")
         try:
             checkpoint = torch.load(self.model_path, map_location="cpu", weights_only=False)
         except Exception as exc:
-            raise ClassifierNotConfiguredError(f"Could not load classifier checkpoint {self.model_path}: {exc}") from exc
+            raise ClassifierNotConfiguredError(f"The configured classifier checkpoint could not be loaded ({type(exc).__name__}). Verify the model manifest and installed ML runtime.") from exc
         model_config = checkpoint.get("model_config", {})
         backbone = model_config.get("backbone", self.configured_backbone)
         ordinal_mode = bool(model_config.get("ordinal_mode", False))
@@ -91,7 +91,7 @@ class TorchDRClassificationService:
             model = build_classifier(backbone=backbone, num_classes=5, pretrained=False, ordinal_mode=ordinal_mode)
             model.load_state_dict(checkpoint["state_dict"])
         except Exception as exc:
-            raise ClassifierNotConfiguredError(f"Classifier artifact is incompatible with its model configuration: {exc}") from exc
+            raise ClassifierNotConfiguredError(f"The classifier artifact is incompatible with its registered model configuration ({type(exc).__name__}).") from exc
         if self.device_name == "cuda" and not torch.cuda.is_available():
             raise ClassifierNotConfiguredError("CLASSIFIER_DEVICE=cuda was requested but CUDA is unavailable. Use CLASSIFIER_DEVICE=cpu or install a CUDA-enabled PyTorch build.")
         if self.device_name == "cuda" or (self.device_name == "auto" and torch.cuda.is_available()):
@@ -120,6 +120,10 @@ class TorchDRClassificationService:
         with self._torch.inference_mode():
             outputs = self._model(tensor)
         return self._prediction_from_outputs(outputs)
+
+    def verify_loadable(self) -> None:
+        """Load the configured artifact for startup/readiness verification."""
+        self._load()
 
     def _prediction_from_outputs(self, outputs: dict[str, Any]) -> DRPrediction:
         probabilities_tensor = severity_probabilities(outputs, self._ordinal_mode)[0].detach().cpu().tolist()
