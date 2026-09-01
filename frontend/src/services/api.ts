@@ -177,6 +177,9 @@ export type TrustResult = {
   warnings?: Array<{ code: string; severity: string; reason: string }>;
   reasons?: string[];
   recommended_safe_action?: string;
+  assessment_status?: string;
+  available_signals?: Record<string, string>;
+  decision_trace?: Record<string, unknown>;
   provenance?: Record<string, unknown>;
   note: string;
 };

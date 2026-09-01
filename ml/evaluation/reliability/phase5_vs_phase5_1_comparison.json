@@ -1,0 +1,19 @@
+{
+  "classifier_predictions_unchanged": true,
+  "phase5_1_engine_version": "retinaguard-v3-graceful-degradation",
+  "phase5_1_state_counts": {
+    "REVIEW_RECOMMENDED": 1444,
+    "UNRELIABLE": 300
+  },
+  "phase5_engine_version": "retinaguard-v2-reliability",
+  "phase5_state_counts": {
+    "INSUFFICIENT_EVIDENCE": 1444,
+    "UNRELIABLE": 300
+  },
+  "prediction_csv_sha256": "d1f1110cc7f5a078056f872b399612ba30592d830193d157c2e9b18bf3adf310",
+  "quality_decisions_unchanged": true,
+  "state_transitions": {
+    "INSUFFICIENT_EVIDENCE -> REVIEW_RECOMMENDED": 1444,
+    "UNRELIABLE -> UNRELIABLE": 300
+  }
+}

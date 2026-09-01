@@ -47,5 +47,8 @@ class TrustResponse(BaseModel):
     warnings: list[dict[str, str]] = Field(default_factory=list)
     reasons: list[str] = Field(default_factory=list)
     recommended_safe_action: str = "PROFESSIONAL_REVIEW_RECOMMENDED"
+    assessment_status: str = "COMPLETED"
+    available_signals: dict[str, str] = Field(default_factory=dict)
+    decision_trace: dict = Field(default_factory=dict)
     provenance: dict = Field(default_factory=dict)
     note: str

@@ -197,6 +197,19 @@ EfficientNet-B0 inference and Grad-CAM; lesion/vessel evidence is marked
 unavailable when it was not run. All outputs are engineering diagnostics, not
 clinical validation or a correctness guarantee.
 
+Run the Phase 5.1 usability audit after the actual APTOS and Messidor-2 files
+and Phase 4B prediction CSV are available:
+
+```powershell
+python scripts/audit_reliability_usability.py --analysis-max-dimension 512 --workers 12
+```
+
+This validates original image bytes, compares actual APTOS/Messidor-2 quality
+distributions, traces every Messidor-2 reliability state, audits optional
+capability gaps versus pipeline failures, and writes the Phase 5.1 artifacts
+under `ml/evaluation/reliability/`. Demo fixtures are reported separately and
+never count as dataset or model measurements.
+
 ## Inference
 
 Set `CLASSIFIER_MODEL_PATH` to a trained and registered artifact, then start

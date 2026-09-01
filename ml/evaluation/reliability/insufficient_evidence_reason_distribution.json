@@ -1,0 +1,17 @@
+{
+  "interpretation": "Phase 5 treated optional attention/evidence and OOD absence as required evidence. Phase 5.1 retains their warnings and review routing but does not classify the complete core assessment as insufficient solely because those optional capabilities are unavailable.",
+  "optional_capability_warning_counts_in_all_rows": {
+    "attention_evidence_not_available": 1744,
+    "explanation_stability_not_run": 1744,
+    "ood_not_available": 1744
+  },
+  "phase5_1_insufficient_evidence_count": 0,
+  "phase5_1_reason_distribution": {},
+  "phase5_insufficient_evidence_count": 1444,
+  "phase5_reason_distribution": {
+    "attention_evidence_not_available": 1444,
+    "explanation_stability_not_run": 1444,
+    "ood_not_available": 1444
+  },
+  "status": "COMPLETE"
+}

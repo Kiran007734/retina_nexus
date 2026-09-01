@@ -64,7 +64,7 @@ def test_retinaguard_trusted_path_exposes_configuration():
 
     assert result.trust_category == "TRUSTED"
     assert result.trust_score >= 0.75
-    assert result.configuration["version"] == "retinaguard-v2-reliability"
+    assert result.configuration["version"] == "retinaguard-v3-graceful-degradation"
     assert result.to_dict()["reliability_state"] == "TRUSTED"
     assert result.to_dict()["recommended_safe_action"] == "AUTOMATED_RESULT_AVAILABLE"
     assert sum(item["weight"] for item in result.contributing_factors) == 1.0
@@ -134,7 +134,7 @@ def test_retinaguard_review_recommended_is_distinct_from_trusted():
     assert result.to_dict()["reliability_state"] == "REVIEW_RECOMMENDED"
 
 
-def test_retinaguard_insufficient_evidence_is_safe_and_explicit():
+def test_retinaguard_optional_evidence_gap_is_review_recommended_and_explicit():
     result = RetinaGuardEngine().evaluate(RetinaGuardInputs(
         quality_score=0.90,
         raw_confidence=0.90,
@@ -144,9 +144,27 @@ def test_retinaguard_insufficient_evidence_is_safe_and_explicit():
         model_version="efficientnet-v1",
     ))
 
-    assert result.trust_category == "INSUFFICIENT_EVIDENCE"
+    assert result.trust_category == "REVIEW_RECOMMENDED"
     payload = result.to_dict()
     assert payload["recommended_safe_action"] == "PROFESSIONAL_REVIEW_RECOMMENDED"
     assert payload["evidence_status"] == "UNAVAILABLE"
     assert payload["ood_status"] == "UNAVAILABLE"
     assert payload["provenance"]["clinical_validation_claim"] is False
+    assert payload["assessment_status"] == "COMPLETED_LIMITED"
+    assert payload["decision_trace"]["critical_signals_missing"] == []
+
+
+def test_retinaguard_pipeline_failure_is_insufficient_evidence():
+    result = RetinaGuardEngine().evaluate(RetinaGuardInputs(
+        quality_score=0.90,
+        raw_confidence=0.90,
+        probabilities={"No DR": 0.01, "Mild": 0.02, "Moderate": 0.90, "Severe": 0.05, "Proliferative DR": 0.02},
+        predicted_grade=2,
+        model_version="efficientnet-v1",
+        pipeline_failure="lesion module failed before returning a result",
+    ))
+
+    payload = result.to_dict()
+    assert result.trust_category == "INSUFFICIENT_EVIDENCE"
+    assert payload["assessment_status"] == "FAILED"
+    assert payload["decision_trace"]["pipeline_failure"]

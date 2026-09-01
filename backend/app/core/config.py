@@ -44,7 +44,7 @@ class Settings(BaseSettings):
     explainability_stability_enabled: bool = False
     explainability_counterfactual_enabled: bool = False
     explainability_max_stability_variants: int = Field(default=3, ge=1, le=5)
-    retinaguard_config_version: str = "retinaguard-v2-reliability"
+    retinaguard_config_version: str = "retinaguard-v3-graceful-degradation"
     retinaguard_temperature: float = Field(default=1.0, gt=0)
     retinaguard_calibration_version: str = "temperature-scaling-unfitted"
     retinaguard_calibration_fitted: bool = False

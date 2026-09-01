@@ -1,0 +1,78 @@
+{
+  "current_runtime_rules": {
+    "borderline": "weighted quality score < 0.75 OR any quality issue",
+    "focus_score": "log_score(laplacian_variance, low=5, high=300)",
+    "quality_weights": {
+      "artifacts": 0.1,
+      "contrast": 0.15,
+      "exposure": 0.15,
+      "field_of_view": 0.2,
+      "focus": 0.25,
+      "illumination": 0.15
+    },
+    "ungradable": "weighted quality score < 0.45 OR any severe issue"
+  },
+  "decision": "Retain the existing quality thresholds for safety. The high Messidor-2 BORDERLINE rate is consistent with the conservative any-issue rule and lower observed focus/contrast distribution; changing it from this audit alone would risk weakening the gate without gradability labels.",
+  "observed_messidor_issue_order": [
+    {
+      "count": 1706,
+      "issue": "low_contrast"
+    },
+    {
+      "count": 463,
+      "issue": "low_focus"
+    },
+    {
+      "count": 6,
+      "issue": "severe_blur"
+    }
+  ],
+  "observed_quality": {
+    "aptos": {
+      "count": 5590,
+      "max": 0.8808,
+      "mean": 0.70607571,
+      "median": 0.7033,
+      "min": 0.3871,
+      "percentiles": {
+        "p1": 0.491268,
+        "p10": 0.6423,
+        "p25": 0.6715,
+        "p5": 0.6166,
+        "p50": 0.7033,
+        "p75": 0.7515,
+        "p90": 0.785,
+        "p95": 0.7978,
+        "p99": 0.8212
+      },
+      "std": 0.06187433
+    },
+    "messidor": {
+      "count": 1744,
+      "max": 0.9005,
+      "mean": 0.72694794,
+      "median": 0.72635,
+      "min": 0.6095,
+      "percentiles": {
+        "p1": 0.629815,
+        "p10": 0.66573,
+        "p25": 0.689275,
+        "p5": 0.651915,
+        "p50": 0.72635,
+        "p75": 0.7592,
+        "p90": 0.78834,
+        "p95": 0.816315,
+        "p99": 0.846957
+      },
+      "std": 0.04872344
+    }
+  },
+  "required_follow_up_before_recalibration": [
+    "Collect authorized gradability labels across the deployed camera population.",
+    "Evaluate component and aggregate thresholds against those labels on a held-out set.",
+    "Version any threshold change separately and re-run leakage, safety, and external validation audits."
+  ],
+  "scientific_finding": "The existing thresholds are documented engineering heuristics, not thresholds derived from a labelled gradability study or camera-specific calibration artifact in this repository.",
+  "status": "AUDITED_NO_THRESHOLD_CHANGE_JUSTIFIED",
+  "threshold_derivation_status": "HEURISTIC_CODE_CONFIGURATION_ONLY"
+}

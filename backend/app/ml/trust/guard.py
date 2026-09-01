@@ -81,6 +81,7 @@ class RetinaGuardInputs:
     predicted_grade_label: str | None = None
     referable_dr: bool | None = None
     model_version: str | None = None
+    pipeline_failure: str | None = None
 
 
 @dataclass
@@ -103,6 +104,20 @@ class RetinaGuardResult:
         explanation_status = self.signal_snapshot.get("explanation_status", "UNAVAILABLE")
         ood_status = self.ood.get("status", "UNAVAILABLE")
         safe_action = self.configuration.get("safe_action", SafeAction.PROFESSIONAL_REVIEW_RECOMMENDED)
+        available_signals = self._available_signals()
+        decision_trace = {
+            "engine_version": self.configuration.get("version"),
+            "decision_policy_version": self.configuration.get("decision_policy_version"),
+            "assessment_status": self.configuration.get("assessment_status", "COMPLETED"),
+            "available_signals": available_signals,
+            "critical_signals_missing": self.configuration.get("critical_signals_missing", []),
+            "optional_signals_unavailable": self.configuration.get("optional_signals_unavailable", []),
+            "pipeline_failure": self.configuration.get("pipeline_failure"),
+            "risk_flags": self.risk_flags,
+            "reasons": self.reason_summary,
+            "reliability_state": self.trust_category,
+            "safe_action": safe_action,
+        }
         provenance = {
             "engine_version": self.configuration.get("version"),
             "calibration_version": self.configuration.get("calibration_version"),
@@ -129,14 +144,33 @@ class RetinaGuardResult:
             "warnings": self.risk_flags,
             "reasons": self.reason_summary,
             "recommended_safe_action": safe_action,
+            "assessment_status": self.configuration.get("assessment_status", "COMPLETED"),
+            "available_signals": available_signals,
+            "decision_trace": decision_trace,
             "provenance": provenance,
+        }
+
+    def _available_signals(self) -> dict[str, str]:
+        """Expose signal provenance so unavailable checks are never mistaken for failures."""
+        signal_snapshot = self.signal_snapshot
+        ood_status = self.ood.get("status", "UNAVAILABLE")
+        disagreement_status = self.model_disagreement.get("status", "UNAVAILABLE")
+        return {
+            "image_quality": signal_snapshot.get("image_quality_status", "UNAVAILABLE"),
+            "confidence": "AVAILABLE" if signal_snapshot.get("calibrated_confidence") is not None else "UNAVAILABLE",
+            "uncertainty": "AVAILABLE" if self.uncertainty.get("score") is not None else "UNAVAILABLE",
+            "lesion_evidence": "AVAILABLE" if signal_snapshot.get("lesion_evidence_strength") is not None else "NOT_AVAILABLE",
+            "attention_lesion_agreement": signal_snapshot.get("evidence_status", "UNAVAILABLE"),
+            "explanation_stability": signal_snapshot.get("explanation_status", "UNAVAILABLE"),
+            "model_agreement": "AVAILABLE" if disagreement_status == "COMPLETED" else "NOT_AVAILABLE",
+            "ood": "AVAILABLE" if ood_status in {"IN_DISTRIBUTION", "SHIFTED"} else "NOT_AVAILABLE",
         }
 
 
 class RetinaGuardEngine:
     """Fuse measurable signals with disclosed weights and explicit safety rules."""
 
-    VERSION = "retinaguard-v2-reliability"
+    VERSION = "retinaguard-v3-graceful-degradation"
 
     def __init__(
         self,
@@ -150,6 +184,7 @@ class RetinaGuardEngine:
         unreliable_threshold: float = 0.45,
         mc_dropout_enabled: bool = False,
         mc_dropout_samples: int = 8,
+        require_optional_capabilities: bool = False,
     ):
         self.version = version
         self.calibrator = calibrator or TemperatureScaler()
@@ -165,6 +200,7 @@ class RetinaGuardEngine:
         self.unreliable_threshold = unreliable_threshold
         self.mc_dropout_enabled = mc_dropout_enabled
         self.mc_dropout_samples = max(2, min(30, int(mc_dropout_samples)))
+        self.require_optional_capabilities = require_optional_capabilities
 
     async def evaluate_async(self, inputs: RetinaGuardInputs, image_bytes: bytes | None = None, mc_dropout_provider: Any = None) -> RetinaGuardResult:
         """Optionally obtain MC-dropout samples before running sync fusion."""
@@ -219,11 +255,17 @@ class RetinaGuardEngine:
         risk_flags = self._risk_flags(inputs, calibrated_confidence, uncertainty, disagreement, agreement_score, stability_score, ood, factors)
         core_missing = [name for name in ("quality", "calibrated_confidence", "uncertainty") if factors.get(name) is None]
         evidence_missing = [name for name in ("attention_lesion_agreement", "ood") if factors.get(name) is None]
-        required_missing = [*core_missing, *evidence_missing]
+        optional_missing = [
+            name for name in ("lesion_evidence", "attention_lesion_agreement", "explanation_stability", "model_agreement", "ood")
+            if factors.get(name) is None
+        ]
+        required_missing = [*core_missing, *(evidence_missing if self.require_optional_capabilities else [])]
         hard_unreliable = any(flag["severity"] == "high" for flag in risk_flags)
-        if hard_unreliable or trust_score < self.unreliable_threshold:
+        if inputs.pipeline_failure:
+            category = ReliabilityState.INSUFFICIENT_EVIDENCE
+        elif hard_unreliable or trust_score < self.unreliable_threshold:
             category = ReliabilityState.UNRELIABLE
-        elif core_missing or evidence_missing:
+        elif required_missing:
             category = ReliabilityState.INSUFFICIENT_EVIDENCE
         elif trust_score >= self.trusted_threshold and not risk_flags:
             category = ReliabilityState.TRUSTED
@@ -232,6 +274,10 @@ class RetinaGuardEngine:
         reason_summary = [flag["reason"] for flag in risk_flags]
         if required_missing:
             reason_summary.append("Missing or not-run signals prevent a fully trusted decision: " + ", ".join(required_missing) + ".")
+        elif optional_missing:
+            reason_summary.append("Optional reliability capabilities are unavailable or were not run: " + ", ".join(optional_missing) + ".")
+        if inputs.pipeline_failure:
+            reason_summary.append("RetinaGuard received a pipeline failure and cannot provide a complete reliability assessment: " + inputs.pipeline_failure)
         if not reason_summary:
             reason_summary.append("All configured self-check signals are within the trusted operating thresholds.")
         action, safe_action = self._recommended_action(category, inputs, risk_flags)
@@ -242,10 +288,12 @@ class RetinaGuardEngine:
             "explanation_stability": inputs.explanation_stability, "ood": ood,
             "vessel_evidence_status": inputs.vessel_evidence_status or "UNAVAILABLE",
             "image_quality_status": "AVAILABLE" if inputs.quality_score is not None else "UNAVAILABLE",
+            "lesion_evidence_status": "AVAILABLE" if inputs.lesion_evidence_strength is not None else "NOT_AVAILABLE",
             "evidence_status": "AVAILABLE" if inputs.attention_lesion_agreement and agreement_score is not None else "UNAVAILABLE",
             "explanation_status": "AVAILABLE" if inputs.explanation_stability and inputs.explanation_stability.get("status") == "COMPLETED" else "LIMITED" if inputs.explanation_stability else "UNAVAILABLE",
         }
-        configuration = {"version": self.version, "weights": self.weights, "missing_signal_score": self.missing_signal_score, "trusted_threshold": self.trusted_threshold, "unreliable_threshold": self.unreliable_threshold, "calibration_version": self.calibrator.version, "mc_dropout_enabled": self.mc_dropout_enabled, "mc_dropout_samples": self.mc_dropout_samples, "vessel_evidence_policy": "provenance_audit_only; no independent trust-score weight", "decision_policy_version": "retinaguard-state-policy-v2", "safe_action": safe_action, "clinical_validation_claim": False}
+        assessment_status = "FAILED" if inputs.pipeline_failure else "COMPLETED_WITH_CRITICAL_SIGNAL_MISSING" if core_missing else "COMPLETED_LIMITED" if optional_missing else "COMPLETED"
+        configuration = {"version": self.version, "weights": self.weights, "missing_signal_score": self.missing_signal_score, "trusted_threshold": self.trusted_threshold, "unreliable_threshold": self.unreliable_threshold, "calibration_version": self.calibrator.version, "mc_dropout_enabled": self.mc_dropout_enabled, "mc_dropout_samples": self.mc_dropout_samples, "vessel_evidence_policy": "provenance_audit_only; no independent trust-score weight", "decision_policy_version": "retinaguard-state-policy-v3-graceful-degradation", "optional_capability_policy": "required" if self.require_optional_capabilities else "graceful_degradation", "safe_action": safe_action, "clinical_validation_claim": False, "assessment_status": assessment_status, "critical_signals_missing": core_missing, "optional_signals_unavailable": optional_missing, "pipeline_failure": inputs.pipeline_failure}
         result = RetinaGuardResult(trust_score, category, contributing, risk_flags, action, calibration, uncertainty, disagreement, ood, signal_snapshot, configuration, reason_summary)
         logger.info("retinaguard.score", extra={"trust_score": result.trust_score, "trust_category": result.trust_category, "configuration_version": self.version, "risk_flags": result.risk_flags})
         return result
@@ -297,6 +345,8 @@ class RetinaGuardEngine:
             add("distribution_shift", "high", "Image quality features differ substantially from the configured reference distribution.")
         elif ood.get("score") is None:
             add("ood_not_available", "medium", "No authorized reference distribution is configured for OOD monitoring.")
+        if inputs.pipeline_failure:
+            add("retinaguard_pipeline_failure", "high", "A required upstream or self-check component reported a pipeline failure.")
         return flags
 
     @staticmethod

@@ -430,7 +430,11 @@ async def _persist_retinaguard(payload: dict, image: FundusImage, session: Scree
     record.model_disagreement = payload.get("model_disagreement")
     record.ood = payload.get("ood")
     record.signal_snapshot = payload.get("signal_snapshot")
-    record.configuration = payload.get("configuration")
+    record.configuration = {
+        **(payload.get("configuration") or {}),
+        "available_signals": payload.get("available_signals"),
+        "decision_trace": payload.get("decision_trace"),
+    }
     record.reason_summary = payload.get("reason_summary")
     screening_result = (await db.execute(select(ScreeningResult).where(ScreeningResult.session_id == session.id))).scalar_one_or_none()
     if screening_result is None:

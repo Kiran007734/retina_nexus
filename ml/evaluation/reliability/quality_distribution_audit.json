@@ -1,0 +1,1121 @@
+{
+  "audit_version": "phase5.1-usability-audit-v1",
+  "datasets": {
+    "aptos2019": {
+      "camera_metadata_present_count": 0,
+      "component_scores": {
+        "artifacts": {
+          "count": 5590,
+          "max": 1.0,
+          "mean": 0.9991278,
+          "median": 1.0,
+          "min": 0.8447,
+          "percentiles": {
+            "p1": 0.985578,
+            "p10": 0.9982,
+            "p25": 1.0,
+            "p5": 0.995,
+            "p50": 1.0,
+            "p75": 1.0,
+            "p90": 1.0,
+            "p95": 1.0,
+            "p99": 1.0
+          },
+          "std": 0.00429548
+        },
+        "contrast": {
+          "count": 5590,
+          "max": 0.9432,
+          "mean": 0.35811258,
+          "median": 0.3282,
+          "min": 0.0935,
+          "percentiles": {
+            "p1": 0.155367,
+            "p10": 0.21339,
+            "p25": 0.2632,
+            "p5": 0.190935,
+            "p50": 0.3282,
+            "p75": 0.4293,
+            "p90": 0.54392,
+            "p95": 0.61686,
+            "p99": 0.77809
+          },
+          "std": 0.13320586
+        },
+        "exposure": {
+          "count": 5590,
+          "max": 1.0,
+          "mean": 0.99838957,
+          "median": 1.0,
+          "min": 0.8508,
+          "percentiles": {
+            "p1": 0.959678,
+            "p10": 0.9998,
+            "p25": 1.0,
+            "p5": 0.990045,
+            "p50": 1.0,
+            "p75": 1.0,
+            "p90": 1.0,
+            "p95": 1.0,
+            "p99": 1.0
+          },
+          "std": 0.00785878
+        },
+        "field_of_view": {
+          "count": 5590,
+          "max": 1.0,
+          "mean": 0.84429973,
+          "median": 1.0,
+          "min": 0.0,
+          "percentiles": {
+            "p1": 0.0,
+            "p10": 0.5292,
+            "p25": 0.5432,
+            "p5": 0.5234,
+            "p50": 1.0,
+            "p75": 1.0,
+            "p90": 1.0,
+            "p95": 1.0,
+            "p99": 1.0
+          },
+          "std": 0.25872119
+        },
+        "focus": {
+          "count": 5590,
+          "max": 0.8588,
+          "mean": 0.42624048,
+          "median": 0.4228,
+          "min": 0.0,
+          "percentiles": {
+            "p1": 0.075857,
+            "p10": 0.232,
+            "p25": 0.3048,
+            "p5": 0.16787,
+            "p50": 0.4228,
+            "p75": 0.55725,
+            "p90": 0.62762,
+            "p95": 0.666165,
+            "p99": 0.72671
+          },
+          "std": 0.15658749
+        },
+        "illumination": {
+          "count": 5590,
+          "max": 0.9989,
+          "mean": 0.84845707,
+          "median": 0.85815,
+          "min": 0.6171,
+          "percentiles": {
+            "p1": 0.666101,
+            "p10": 0.7388,
+            "p25": 0.7985,
+            "p5": 0.708445,
+            "p50": 0.85815,
+            "p75": 0.9045,
+            "p90": 0.93893,
+            "p95": 0.9576,
+            "p99": 0.986722
+          },
+          "std": 0.07516324
+        }
+      },
+      "decision_counts": {
+        "BORDERLINE": 5054,
+        "GRADABLE": 257,
+        "UNGRADABLE": 279
+      },
+      "decision_rates": {
+        "BORDERLINE": 0.90411449,
+        "GRADABLE": 0.04597496,
+        "UNGRADABLE": 0.04991055
+      },
+      "file_count": 5590,
+      "issue_counts": {
+        "insufficient_field_of_view": 205,
+        "low_contrast": 4401,
+        "low_focus": 1237,
+        "severe_blur": 89
+      },
+      "issue_severity_counts": {
+        "moderate": 5642,
+        "severe": 290
+      },
+      "labels": {
+        "duplicate_annotation_ids": 0,
+        "invalid_label_rows": 0,
+        "missing_label_rows": 0,
+        "train_annotation_rows": 3662,
+        "train_class_distribution": {
+          "0": 1805,
+          "1": 370,
+          "2": 999,
+          "3": 193,
+          "4": 295
+        }
+      },
+      "note": "Measured from actual local image bytes with the runtime ImageTrustGateService. Quality decisions are engineering gradability heuristics, not clinical validation.",
+      "path_root": "C:\\Users\\kiran\\Downloads\\retina_nexus\\ml\\datasets\\raw\\aptos2019",
+      "quality_score": {
+        "count": 5590,
+        "max": 0.8808,
+        "mean": 0.70607571,
+        "median": 0.7033,
+        "min": 0.3871,
+        "percentiles": {
+          "p1": 0.491268,
+          "p10": 0.6423,
+          "p25": 0.6715,
+          "p5": 0.6166,
+          "p50": 0.7033,
+          "p75": 0.7515,
+          "p90": 0.785,
+          "p95": 0.7978,
+          "p99": 0.8212
+        },
+        "std": 0.06187433
+      },
+      "quality_score_histogram": {
+        "0.0-0.1": 0,
+        "0.1-0.2": 0,
+        "0.2-0.3": 0,
+        "0.3-0.4": 1,
+        "0.4-0.5": 63,
+        "0.5-0.6": 148,
+        "0.6-0.7": 2451,
+        "0.7-0.8": 2679,
+        "0.8-0.9": 248,
+        "0.9-1.0": 0
+      },
+      "raw_metrics": {
+        "border_artifact_ratio": {
+          "count": 5590,
+          "max": 0.0405,
+          "mean": 3.272e-05,
+          "median": 0.0,
+          "min": 0.0,
+          "percentiles": {
+            "p1": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p5": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          },
+          "std": 0.00082365
+        },
+        "high_clip_ratio": {
+          "count": 5590,
+          "max": 0.0187,
+          "mean": 0.00020116,
+          "median": 0.0,
+          "min": 0.0,
+          "percentiles": {
+            "p1": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p5": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0012,
+            "p99": 0.005011
+          },
+          "std": 0.0009825
+        },
+        "intensity_stddev": {
+          "count": 5590,
+          "max": 56.7888,
+          "mean": 18.52820689,
+          "median": 17.2003,
+          "min": 5.1958,
+          "percentiles": {
+            "p1": 8.079301,
+            "p10": 11.2726,
+            "p25": 13.76205,
+            "p5": 10.00818,
+            "p50": 17.2003,
+            "p75": 22.375675,
+            "p90": 27.52789,
+            "p95": 30.667565,
+            "p99": 37.279385
+          },
+          "std": 6.55868236
+        },
+        "laplacian_variance": {
+          "count": 5590,
+          "max": 172.2009,
+          "mean": 37.12040642,
+          "median": 30.4122,
+          "min": 4.0974,
+          "percentiles": {
+            "p1": 7.075435,
+            "p10": 13.88131,
+            "p25": 18.788925,
+            "p5": 10.57692,
+            "p50": 30.4122,
+            "p75": 52.1743,
+            "p90": 69.04403,
+            "p95": 80.442625,
+            "p99": 102.233653
+          },
+          "std": 22.91648039
+        },
+        "low_clip_ratio": {
+          "count": 5590,
+          "max": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "min": 0.0,
+          "percentiles": {
+            "p1": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p5": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          },
+          "std": 0.0
+        },
+        "mean_intensity": {
+          "count": 5590,
+          "max": 155.3747,
+          "mean": 88.85694472,
+          "median": 91.16155,
+          "min": 28.4573,
+          "percentiles": {
+            "p1": 41.481219,
+            "p10": 60.27594,
+            "p25": 75.740725,
+            "p5": 52.2222,
+            "p50": 91.16155,
+            "p75": 103.2762,
+            "p90": 112.32977,
+            "p95": 117.345735,
+            "p99": 130.358037
+          },
+          "std": 19.89039898
+        },
+        "p1_intensity": {
+          "count": 5590,
+          "max": 143.0,
+          "mean": 58.50175671,
+          "median": 61.0,
+          "min": 9.0,
+          "percentiles": {
+            "p1": 10.0,
+            "p10": 26.0,
+            "p25": 43.0,
+            "p5": 18.0,
+            "p50": 61.0,
+            "p75": 75.0,
+            "p90": 86.0,
+            "p95": 92.0,
+            "p99": 103.0
+          },
+          "std": 22.55334931
+        },
+        "p50_intensity": {
+          "count": 5590,
+          "max": 156.0,
+          "mean": 86.84078712,
+          "median": 89.0,
+          "min": 29.0,
+          "percentiles": {
+            "p1": 40.0,
+            "p10": 58.0,
+            "p25": 73.0,
+            "p5": 49.45,
+            "p50": 89.0,
+            "p75": 101.0,
+            "p90": 110.0,
+            "p95": 116.0,
+            "p99": 129.0
+          },
+          "std": 19.98422307
+        },
+        "p5_intensity": {
+          "count": 5590,
+          "max": 145.0,
+          "mean": 64.38595707,
+          "median": 67.0,
+          "min": 10.0,
+          "percentiles": {
+            "p1": 11.0,
+            "p10": 32.0,
+            "p25": 49.0,
+            "p5": 22.0,
+            "p50": 67.0,
+            "p75": 82.0,
+            "p90": 92.0,
+            "p95": 97.55,
+            "p99": 109.11
+          },
+          "std": 22.99351618
+        },
+        "p95_intensity": {
+          "count": 5590,
+          "max": 214.0,
+          "mean": 116.76107335,
+          "median": 119.0,
+          "min": 37.0,
+          "percentiles": {
+            "p1": 60.0,
+            "p10": 85.0,
+            "p25": 101.0,
+            "p5": 75.0,
+            "p50": 119.0,
+            "p75": 133.0,
+            "p90": 144.0,
+            "p95": 152.0,
+            "p99": 168.11
+          },
+          "std": 23.49625932
+        },
+        "p99_intensity": {
+          "count": 5590,
+          "max": 254.0,
+          "mean": 156.47473166,
+          "median": 158.0,
+          "min": 43.0,
+          "percentiles": {
+            "p1": 78.0,
+            "p10": 113.0,
+            "p25": 135.0,
+            "p5": 101.0,
+            "p50": 158.0,
+            "p75": 177.0,
+            "p90": 197.0,
+            "p95": 210.55,
+            "p99": 235.5728
+          },
+          "std": 32.70577633
+        },
+        "retinal_coverage_ratio": {
+          "count": 5590,
+          "max": 1.0,
+          "mean": 0.82624243,
+          "median": 0.834,
+          "min": 0.4435,
+          "percentiles": {
+            "p1": 0.474989,
+            "p10": 0.4775,
+            "p25": 0.756825,
+            "p5": 0.4765,
+            "p50": 0.834,
+            "p75": 0.9891,
+            "p90": 0.9894,
+            "p95": 0.9895,
+            "p99": 1.0
+          },
+          "std": 0.15196236
+        },
+        "saturated_artifact_ratio": {
+          "count": 5590,
+          "max": 0.2218,
+          "mean": 0.00117218,
+          "median": 0.0,
+          "min": 0.0,
+          "percentiles": {
+            "p1": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p5": 0.0,
+            "p50": 0.0,
+            "p75": 0.0001,
+            "p90": 0.0024,
+            "p95": 0.0069,
+            "p99": 0.018933
+          },
+          "std": 0.00585514
+        }
+      },
+      "readable_file_count": 5590,
+      "resolution": {
+        "analysis_height": {
+          "count": 5590,
+          "max": 512.0,
+          "mean": 400.57853309,
+          "median": 384.0,
+          "min": 340.0,
+          "percentiles": {
+            "p1": 340.0,
+            "p10": 340.0,
+            "p25": 368.0,
+            "p5": 340.0,
+            "p50": 384.0,
+            "p75": 387.0,
+            "p90": 512.0,
+            "p95": 512.0,
+            "p99": 512.0
+          },
+          "std": 55.32491743
+        },
+        "analysis_width": {
+          "count": 5590,
+          "max": 512.0,
+          "mean": 511.98640429,
+          "median": 512.0,
+          "min": 474.0,
+          "percentiles": {
+            "p1": 512.0,
+            "p10": 512.0,
+            "p25": 512.0,
+            "p5": 512.0,
+            "p50": 512.0,
+            "p75": 512.0,
+            "p90": 512.0,
+            "p95": 512.0,
+            "p99": 512.0
+          },
+          "std": 0.71871024
+        },
+        "quality_working_copy_max_dimension": 512,
+        "source_height": {
+          "count": 5590,
+          "max": 2848.0,
+          "mean": 1270.33452594,
+          "median": 1050.0,
+          "min": 358.0,
+          "percentiles": {
+            "p1": 480.0,
+            "p10": 480.0,
+            "p25": 480.0,
+            "p5": 480.0,
+            "p50": 1050.0,
+            "p75": 1736.0,
+            "p90": 2136.0,
+            "p95": 2136.0,
+            "p99": 2588.0
+          },
+          "std": 647.22992254
+        },
+        "source_width": {
+          "count": 5590,
+          "max": 4288.0,
+          "mean": 1680.05617174,
+          "median": 1050.0,
+          "min": 474.0,
+          "percentiles": {
+            "p1": 640.0,
+            "p10": 640.0,
+            "p25": 640.0,
+            "p5": 640.0,
+            "p50": 1050.0,
+            "p75": 2416.0,
+            "p90": 3216.0,
+            "p95": 3216.0,
+            "p99": 3388.0
+          },
+          "std": 956.37149398
+        }
+      },
+      "status": "COMPLETE",
+      "unreadable_file_count": 0
+    },
+    "demo": {
+      "quality_distribution_measured": false,
+      "reason": "The controlled demo contains JSON fixture values and no known-good image bytes. It is not mixed into APTOS/Messidor quality statistics or reliability conclusions.",
+      "source": "backend/app/demo/scenarios.py",
+      "status": "SYNTHETIC_FIXTURES_ONLY",
+      "trust_scores_available_in_fixture": {
+        "count": 2,
+        "summary": {
+          "count": 2,
+          "max": 0.89,
+          "mean": 0.735,
+          "median": 0.735,
+          "min": 0.58,
+          "percentiles": {
+            "p1": 0.5831,
+            "p10": 0.611,
+            "p25": 0.6575,
+            "p5": 0.5955,
+            "p50": 0.735,
+            "p75": 0.8125,
+            "p90": 0.859,
+            "p95": 0.8745,
+            "p99": 0.8869
+          },
+          "std": 0.2192031
+        },
+        "values": [
+          0.89,
+          0.58
+        ]
+      }
+    },
+    "messidor2": {
+      "camera_metadata_present_count": 0,
+      "component_scores": {
+        "artifacts": {
+          "count": 1744,
+          "max": 1.0,
+          "mean": 0.99906841,
+          "median": 1.0,
+          "min": 0.8114,
+          "percentiles": {
+            "p1": 0.976658,
+            "p10": 1.0,
+            "p25": 1.0,
+            "p5": 0.9993,
+            "p50": 1.0,
+            "p75": 1.0,
+            "p90": 1.0,
+            "p95": 1.0,
+            "p99": 1.0
+          },
+          "std": 0.0084862
+        },
+        "contrast": {
+          "count": 1744,
+          "max": 0.7312,
+          "mean": 0.28703847,
+          "median": 0.28225,
+          "min": 0.1091,
+          "percentiles": {
+            "p1": 0.147073,
+            "p10": 0.20103,
+            "p25": 0.2397,
+            "p5": 0.18063,
+            "p50": 0.28225,
+            "p75": 0.327025,
+            "p90": 0.37226,
+            "p95": 0.407155,
+            "p99": 0.49278
+          },
+          "std": 0.07150448
+        },
+        "exposure": {
+          "count": 1744,
+          "max": 1.0,
+          "mean": 0.99977047,
+          "median": 1.0,
+          "min": 0.8223,
+          "percentiles": {
+            "p1": 0.996429,
+            "p10": 1.0,
+            "p25": 1.0,
+            "p5": 1.0,
+            "p50": 1.0,
+            "p75": 1.0,
+            "p90": 1.0,
+            "p95": 1.0,
+            "p99": 1.0
+          },
+          "std": 0.00444384
+        },
+        "field_of_view": {
+          "count": 1744,
+          "max": 1.0,
+          "mean": 1.0,
+          "median": 1.0,
+          "min": 1.0,
+          "percentiles": {
+            "p1": 1.0,
+            "p10": 1.0,
+            "p25": 1.0,
+            "p5": 1.0,
+            "p50": 1.0,
+            "p75": 1.0,
+            "p90": 1.0,
+            "p95": 1.0,
+            "p99": 1.0
+          },
+          "std": 0.0
+        },
+        "focus": {
+          "count": 1744,
+          "max": 1.0,
+          "mean": 0.41932081,
+          "median": 0.39895,
+          "min": 0.0,
+          "percentiles": {
+            "p1": 0.118429,
+            "p10": 0.2194,
+            "p25": 0.289575,
+            "p5": 0.177735,
+            "p50": 0.39895,
+            "p75": 0.53365,
+            "p90": 0.65415,
+            "p95": 0.738285,
+            "p99": 0.849741
+          },
+          "std": 0.168805
+        },
+        "illumination": {
+          "count": 1744,
+          "max": 0.9999,
+          "mean": 0.86126118,
+          "median": 0.84645,
+          "min": 0.6711,
+          "percentiles": {
+            "p1": 0.706962,
+            "p10": 0.76693,
+            "p25": 0.804125,
+            "p5": 0.747745,
+            "p50": 0.84645,
+            "p75": 0.928125,
+            "p90": 0.97157,
+            "p95": 0.98437,
+            "p99": 0.996657
+          },
+          "std": 0.07607785
+        }
+      },
+      "decision_counts": {
+        "BORDERLINE": 1711,
+        "GRADABLE": 27,
+        "UNGRADABLE": 6
+      },
+      "decision_rates": {
+        "BORDERLINE": 0.98107798,
+        "GRADABLE": 0.01548165,
+        "UNGRADABLE": 0.00344037
+      },
+      "file_count": 1744,
+      "issue_counts": {
+        "low_contrast": 1706,
+        "low_focus": 463,
+        "severe_blur": 6
+      },
+      "issue_severity_counts": {
+        "moderate": 2169,
+        "severe": 6
+      },
+      "labels": {
+        "label_provenance": "Phase 4B separately acquired third-party reference labels; not official Messidor-2 ground truth.",
+        "label_rows": 1744,
+        "valid_grade_rows": 1744
+      },
+      "note": "Measured from actual local image bytes with the runtime ImageTrustGateService. Quality decisions are engineering gradability heuristics, not clinical validation.",
+      "path_root": "C:\\Users\\kiran\\Downloads\\retina_nexus\\ml\\datasets\\raw\\messidor",
+      "quality_score": {
+        "count": 1744,
+        "max": 0.9005,
+        "mean": 0.72694794,
+        "median": 0.72635,
+        "min": 0.6095,
+        "percentiles": {
+          "p1": 0.629815,
+          "p10": 0.66573,
+          "p25": 0.689275,
+          "p5": 0.651915,
+          "p50": 0.72635,
+          "p75": 0.7592,
+          "p90": 0.78834,
+          "p95": 0.816315,
+          "p99": 0.846957
+        },
+        "std": 0.04872344
+      },
+      "quality_score_histogram": {
+        "0.0-0.1": 0,
+        "0.1-0.2": 0,
+        "0.2-0.3": 0,
+        "0.3-0.4": 0,
+        "0.4-0.5": 0,
+        "0.5-0.6": 0,
+        "0.6-0.7": 547,
+        "0.7-0.8": 1068,
+        "0.8-0.9": 128,
+        "0.9-1.0": 1
+      },
+      "raw_metrics": {
+        "border_artifact_ratio": {
+          "count": 1744,
+          "max": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "min": 0.0,
+          "percentiles": {
+            "p1": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p5": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          },
+          "std": 0.0
+        },
+        "high_clip_ratio": {
+          "count": 1744,
+          "max": 0.0222,
+          "mean": 2.867e-05,
+          "median": 0.0,
+          "min": 0.0,
+          "percentiles": {
+            "p1": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p5": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.000457
+          },
+          "std": 0.00055531
+        },
+        "intensity_stddev": {
+          "count": 1744,
+          "max": 35.1179,
+          "mean": 14.80042494,
+          "median": 14.59385,
+          "min": 5.5805,
+          "percentiles": {
+            "p1": 7.477209,
+            "p10": 10.50664,
+            "p25": 12.406675,
+            "p5": 9.3731,
+            "p50": 14.59385,
+            "p75": 16.8975,
+            "p90": 19.14981,
+            "p95": 20.696335,
+            "p99": 24.177068
+          },
+          "std": 3.55743968
+        },
+        "laplacian_variance": {
+          "count": 1744,
+          "max": 338.2265,
+          "mean": 38.38887127,
+          "median": 27.61095,
+          "min": 4.9297,
+          "percentiles": {
+            "p1": 8.539641,
+            "p10": 13.1671,
+            "p25": 17.644925,
+            "p5": 11.031,
+            "p50": 27.61095,
+            "p75": 47.48705,
+            "p90": 76.70962,
+            "p95": 107.02814,
+            "p99": 166.14713
+          },
+          "std": 32.56301072
+        },
+        "low_clip_ratio": {
+          "count": 1744,
+          "max": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "min": 0.0,
+          "percentiles": {
+            "p1": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p5": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          },
+          "std": 0.0
+        },
+        "mean_intensity": {
+          "count": 1744,
+          "max": 188.2049,
+          "mean": 93.78993159,
+          "median": 88.45145,
+          "min": 42.4979,
+          "percentiles": {
+            "p1": 51.817673,
+            "p10": 67.43173,
+            "p25": 77.12125,
+            "p5": 62.47326,
+            "p50": 88.45145,
+            "p75": 110.62365,
+            "p90": 126.57956,
+            "p95": 134.901875,
+            "p99": 147.201353
+          },
+          "std": 22.83377921
+        },
+        "p1_intensity": {
+          "count": 1744,
+          "max": 159.0,
+          "mean": 69.88984518,
+          "median": 66.0,
+          "min": 24.0,
+          "percentiles": {
+            "p1": 32.43,
+            "p10": 46.0,
+            "p25": 55.0,
+            "p5": 41.0,
+            "p50": 66.0,
+            "p75": 84.0,
+            "p90": 101.0,
+            "p95": 109.0,
+            "p99": 121.0
+          },
+          "std": 21.078912
+        },
+        "p50_intensity": {
+          "count": 1744,
+          "max": 184.0,
+          "mean": 91.26146789,
+          "median": 86.0,
+          "min": 41.0,
+          "percentiles": {
+            "p1": 50.43,
+            "p10": 65.0,
+            "p25": 74.0,
+            "p5": 60.0,
+            "p50": 86.0,
+            "p75": 108.0,
+            "p90": 124.0,
+            "p95": 132.85,
+            "p99": 145.57
+          },
+          "std": 22.94487858
+        },
+        "p5_intensity": {
+          "count": 1744,
+          "max": 164.0,
+          "mean": 76.02130161,
+          "median": 71.5,
+          "min": 27.0,
+          "percentiles": {
+            "p1": 36.43,
+            "p10": 51.0,
+            "p25": 60.0,
+            "p5": 45.0,
+            "p50": 71.5,
+            "p75": 92.0,
+            "p90": 108.0,
+            "p95": 115.85,
+            "p99": 128.57
+          },
+          "std": 21.99853997
+        },
+        "p95_intensity": {
+          "count": 1744,
+          "max": 228.0,
+          "mean": 117.96961009,
+          "median": 113.0,
+          "min": 58.0,
+          "percentiles": {
+            "p1": 69.0,
+            "p10": 89.0,
+            "p25": 99.0,
+            "p5": 84.0,
+            "p50": 113.0,
+            "p75": 137.0,
+            "p90": 153.0,
+            "p95": 161.0,
+            "p99": 175.57
+          },
+          "std": 25.1286465
+        },
+        "p99_intensity": {
+          "count": 1744,
+          "max": 251.0,
+          "mean": 147.05177179,
+          "median": 146.0,
+          "min": 65.0,
+          "percentiles": {
+            "p1": 84.0,
+            "p10": 111.0,
+            "p25": 126.0,
+            "p5": 103.0,
+            "p50": 146.0,
+            "p75": 169.0,
+            "p90": 184.0,
+            "p95": 193.0,
+            "p99": 210.0
+          },
+          "std": 28.70666458
+        },
+        "retinal_coverage_ratio": {
+          "count": 1744,
+          "max": 0.7761,
+          "mean": 0.74240436,
+          "median": 0.7416,
+          "min": 0.7335,
+          "percentiles": {
+            "p1": 0.7346,
+            "p10": 0.7362,
+            "p25": 0.738,
+            "p5": 0.7356,
+            "p50": 0.7416,
+            "p75": 0.7454,
+            "p90": 0.7498,
+            "p95": 0.7531,
+            "p99": 0.760485
+          },
+          "std": 0.00568068
+        },
+        "saturated_artifact_ratio": {
+          "count": 1744,
+          "max": 0.2694,
+          "mean": 0.00133079,
+          "median": 0.0,
+          "min": 0.0,
+          "percentiles": {
+            "p1": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p5": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.001,
+            "p99": 0.033356
+          },
+          "std": 0.01212259
+        }
+      },
+      "readable_file_count": 1744,
+      "resolution": {
+        "analysis_height": {
+          "count": 1744,
+          "max": 512.0,
+          "mean": 512.0,
+          "median": 512.0,
+          "min": 512.0,
+          "percentiles": {
+            "p1": 512.0,
+            "p10": 512.0,
+            "p25": 512.0,
+            "p5": 512.0,
+            "p50": 512.0,
+            "p75": 512.0,
+            "p90": 512.0,
+            "p95": 512.0,
+            "p99": 512.0
+          },
+          "std": 0.0
+        },
+        "analysis_width": {
+          "count": 1744,
+          "max": 512.0,
+          "mean": 512.0,
+          "median": 512.0,
+          "min": 512.0,
+          "percentiles": {
+            "p1": 512.0,
+            "p10": 512.0,
+            "p25": 512.0,
+            "p5": 512.0,
+            "p50": 512.0,
+            "p75": 512.0,
+            "p90": 512.0,
+            "p95": 512.0,
+            "p99": 512.0
+          },
+          "std": 0.0
+        },
+        "quality_working_copy_max_dimension": 512,
+        "source_height": {
+          "count": 1744,
+          "max": 512.0,
+          "mean": 512.0,
+          "median": 512.0,
+          "min": 512.0,
+          "percentiles": {
+            "p1": 512.0,
+            "p10": 512.0,
+            "p25": 512.0,
+            "p5": 512.0,
+            "p50": 512.0,
+            "p75": 512.0,
+            "p90": 512.0,
+            "p95": 512.0,
+            "p99": 512.0
+          },
+          "std": 0.0
+        },
+        "source_width": {
+          "count": 1744,
+          "max": 512.0,
+          "mean": 512.0,
+          "median": 512.0,
+          "min": 512.0,
+          "percentiles": {
+            "p1": 512.0,
+            "p10": 512.0,
+            "p25": 512.0,
+            "p5": 512.0,
+            "p50": 512.0,
+            "p75": 512.0,
+            "p90": 512.0,
+            "p95": 512.0,
+            "p99": 512.0
+          },
+          "std": 0.0
+        }
+      },
+      "status": "COMPLETE",
+      "unreadable_file_count": 0
+    }
+  },
+  "duplicates": {
+    "aptos2019": {
+      "duplicate_exact_count": 274,
+      "duplicate_perceptual_count": 304,
+      "note": "Inherited from the existing dataset governance scan; raw files were not rewritten.",
+      "source": "C:\\Users\\kiran\\Downloads\\retina_nexus\\ml\\datasets\\metadata\\reports\\aptos2019\\dataset_validation_report.json",
+      "status": "AVAILABLE"
+    },
+    "messidor2": {
+      "canonical_representative_count": 6,
+      "deduplicated_image_count": 1738,
+      "exact_duplicate_group_count": 4,
+      "note": "Inherited from the Phase 4B duplicate audit; predictions were not rewritten.",
+      "perceptual_duplicate_group_count": 6,
+      "source": "C:\\Users\\kiran\\Downloads\\retina_nexus\\ml\\evaluation\\messidor\\duplicate_audit.json",
+      "status": "AVAILABLE"
+    }
+  },
+  "generated_at_utc": "2026-09-01T17:15:54.666680+00:00",
+  "interpretation": "Actual image-byte quality distributions only; synthetic demo values are clearly segregated.",
+  "scope": {
+    "aptos_root": "C:\\Users\\kiran\\Downloads\\retina_nexus\\ml\\datasets\\raw\\aptos2019",
+    "demo": {
+      "quality_distribution_measured": false,
+      "reason": "The controlled demo contains JSON fixture values and no known-good image bytes. It is not mixed into APTOS/Messidor quality statistics or reliability conclusions.",
+      "source": "backend/app/demo/scenarios.py",
+      "status": "SYNTHETIC_FIXTURES_ONLY",
+      "trust_scores_available_in_fixture": {
+        "count": 2,
+        "summary": {
+          "count": 2,
+          "max": 0.89,
+          "mean": 0.735,
+          "median": 0.735,
+          "min": 0.58,
+          "percentiles": {
+            "p1": 0.5831,
+            "p10": 0.611,
+            "p25": 0.6575,
+            "p5": 0.5955,
+            "p50": 0.735,
+            "p75": 0.8125,
+            "p90": 0.859,
+            "p95": 0.8745,
+            "p99": 0.8869
+          },
+          "std": 0.2192031
+        },
+        "values": [
+          0.89,
+          0.58
+        ]
+      }
+    },
+    "messidor_prediction_csv": "C:\\Users\\kiran\\Downloads\\retina_nexus\\ml\\evaluation\\messidor\\zero_shot_predictions.csv",
+    "messidor_root": "C:\\Users\\kiran\\Downloads\\retina_nexus\\ml\\datasets\\raw\\messidor",
+    "prediction_csv_sha256": "d1f1110cc7f5a078056f872b399612ba30592d830193d157c2e9b18bf3adf310"
+  },
+  "status": "COMPLETE"
+}

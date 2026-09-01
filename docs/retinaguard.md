@@ -75,15 +75,15 @@ settings; there are no hidden weights.
 
 - `TRUSTED`: score meets the configured trusted threshold and no risk flags or
   required signals are missing. AI triage may proceed with human oversight.
-- `REVIEW_RECOMMENDED`: configured signals are present but the composite score
-  does not meet the trusted operating threshold; professional review is
-  recommended.
+- `REVIEW_RECOMMENDED`: the core assessment completed, but a review limitation
+  or non-major warning remains. An optional capability being unavailable is
+  disclosed and routes here; it is not silently treated as a positive signal.
 - `UNRELIABLE`: automated interpretation is blocked or recapture/specialist
   review is required, especially for low quality, high disagreement, high
   uncertainty, low agreement, or detected distribution shift.
-- `INSUFFICIENT_EVIDENCE`: required reliability evidence was not available or
-  was not run. It is never silently treated as a positive signal and requires
-  professional review.
+- `INSUFFICIENT_EVIDENCE`: a core signal is missing or a pipeline failure was
+  reported, so a complete reliability assessment could not be made. It is
+  never silently treated as a positive signal and requires professional review.
 
 `UNCERTAIN` remains accepted when reading legacy stored runs, but new engine
 outputs use `REVIEW_RECOMMENDED` and `INSUFFICIENT_EVIDENCE` explicitly.
@@ -111,4 +111,22 @@ Results are stored in `retinaguard_results` and the current screening result
 also records calibrated confidence, uncertainty, and trust score. Non-trusted
 categories move the session to `needs_review`. API responses retain the
 backward-compatible `trust_*` fields and also expose `reliability_*`, signal
-availability, warnings, reasons, safe action, and provenance fields.
+availability, warnings, reasons, safe action, and provenance fields. The
+current policy is `retinaguard-v3-graceful-degradation`: quality, calibrated
+confidence, and uncertainty are core signals; lesion agreement, explanation
+stability, model agreement, and OOD are optional capabilities. Their absence
+produces `COMPLETED_LIMITED` plus explicit `NOT_AVAILABLE`/`UNAVAILABLE`
+statuses. A supplied pipeline failure produces `FAILED` and
+`INSUFFICIENT_EVIDENCE`.
+
+Phase 5.1's audit is reproducible with:
+
+```powershell
+python scripts/audit_reliability_usability.py --analysis-max-dimension 512 --workers 12
+```
+
+It writes the quality distribution, per-result reliability trace, state
+comparison, threshold rationale, false-negative safety comparison, and the
+versioned graceful-degradation configuration under
+`ml/evaluation/reliability/`. The working-copy dimension only controls metric
+performance; original files are decoded and validated first.

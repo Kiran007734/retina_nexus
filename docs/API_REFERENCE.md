@@ -32,11 +32,19 @@ met. These responses never contain fabricated predictions.
 
 `POST /screening/trust` returns backward-compatible `trust_score` and
 `trust_category` fields plus `reliability_score`, `reliability_state`,
-`recommended_safe_action`, signal availability, warnings, reasons, and
-versioned provenance. New reliability states are `TRUSTED`,
+`recommended_safe_action`, `assessment_status`, `available_signals`, a
+machine-readable `decision_trace`, warnings, reasons, and versioned
+provenance. New reliability states are `TRUSTED`,
 `REVIEW_RECOMMENDED`, `UNRELIABLE`, and `INSUFFICIENT_EVIDENCE`; legacy
 `UNCERTAIN` values may appear in older stored runs. `TRUSTED` is an engineering
 operating state, not a correctness or clinical safety guarantee.
+
+Under the current `retinaguard-v3-graceful-degradation` policy, image quality,
+calibrated confidence, and uncertainty are core signals. Optional lesion,
+explanation-stability, model-agreement, and OOD capabilities may be
+`NOT_AVAILABLE`/`UNAVAILABLE`; the response remains explicit and routes to
+`REVIEW_RECOMMENDED`. A core missing signal or reported pipeline failure is
+`INSUFFICIENT_EVIDENCE`.
 
 ## Human review and reports
 

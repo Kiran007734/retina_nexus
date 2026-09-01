@@ -45,6 +45,7 @@ ml/datasets/metadata/*_acquisition.json
 ml/datasets/metadata/*_report.json
 !ml/datasets/metadata/data_leakage_report.json
 ml/weights/**
+ml/evaluation/reliability/_phase5_1_*_quality_records.json
 !ml/weights/.gitkeep
 !ml/weights/lesion_segmentation/
 !ml/weights/lesion_segmentation/**/

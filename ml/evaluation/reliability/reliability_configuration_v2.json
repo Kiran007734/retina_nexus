@@ -1,0 +1,16 @@
+{
+  "clinical_validation_claim": false,
+  "derived_from": "retinaguard-v2-reliability",
+  "format": "retinaguard-reliability-configuration-v2",
+  "optional_capability_policy": "graceful_degradation",
+  "safety_rationale": "The audit found optional-capability absence, not pipeline failure, was the dominant cause of Phase 5 INSUFFICIENT_EVIDENCE states. Optional warnings remain visible and still prevent TRUSTED.",
+  "state_policy": {
+    "INSUFFICIENT_EVIDENCE": "Core signal missing or pipeline failure prevents a complete reliability assessment.",
+    "REVIEW_RECOMMENDED": "Core assessment completed but a review limitation or non-major warning remains, including unavailable optional capabilities.",
+    "TRUSTED": "No configured major warning among available checks; not a correctness guarantee.",
+    "UNRELIABLE": "High-risk warning or score below the unreliable threshold; automated interpretation is not relied upon."
+  },
+  "thresholds_changed": false,
+  "version": "retinaguard-v3-graceful-degradation",
+  "weights_changed": false
+}
