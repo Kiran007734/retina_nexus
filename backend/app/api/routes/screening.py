@@ -15,13 +15,13 @@ from app.models.screening_run import ScreeningRun
 from app.models.anatomical_landmark import AnatomicalLandmark
 from app.models.lesion_result import LesionResult
 from app.models.segmentation_result import SegmentationResult
-from app.models.explainability_result import ExplainabilityResult
 from app.models.retinaguard_result import RetinaGuardResult
+from app.models.explainability_result import ExplainabilityResult
 from app.ml.evidence.service import RetinalEvidenceService
 from app.ml.inference.classifier import ClassifierNotConfiguredError, TorchDRClassificationService
 from app.ml.explainability.service import ExplainabilityService
 from app.ml.trust.guard import RetinaGuardEngine, RetinaGuardInputs, derive_lesion_evidence_strength, derive_vessel_evidence_status
-from app.services.screening_pipeline import RUN_STAGES, ScreeningPipelineService
+from app.services.screening_pipeline import OPTIONAL_EVIDENCE_STAGES, RUN_STAGES, ScreeningPipelineService
 from app.services.container import get_classifier_service
 from app.storage.container import get_storage
 from app.repositories.patients import get_patient
@@ -30,6 +30,7 @@ from app.schemas.evidence import EvidenceAnalysisResponse
 from app.schemas.explainability import ExplainabilityResponse
 from app.schemas.trust import TrustRequest, TrustResponse
 from app.services.container import get_evidence_service, get_explainability_service, get_retinaguard_service, get_screening_pipeline_service
+from app.services.screening_persistence import persist_evidence_analysis, persist_explainability, persist_retinaguard
 
 router = APIRouter(prefix="/screening", tags=["screening"])
 
@@ -98,18 +99,20 @@ async def run_screening(
     db.add(run)
     db.add(AuditLog(actor_id=actor_id, action="screening.run.queued", resource_type="screening_run", resource_id=str(run.id), details={"timestamp": datetime.now(timezone.utc).isoformat(), "image_id": str(image.id), "initiating_user_id": str(actor_id) if actor_id else None}))
     await db.commit()
-    output = await pipeline.execute(
+    output = await pipeline.execute_primary(
         db, run, session, image, actor_id,
         run_stability=payload.run_stability,
         run_counterfactual=payload.run_counterfactual,
         model_predictions=[item.model_dump() for item in payload.model_predictions],
     )
-    if output.evidence_analysis is not None:
-        await _persist_evidence_analysis(output.evidence_analysis.to_dict(), image, session, db)
-    if output.explanation_analysis is not None:
-        await _persist_explainability(output.explanation_analysis.to_dict(), image, session, db)
     if output.retinaguard_result is not None and output.prediction is not None:
-        await _persist_retinaguard(output.retinaguard_result.to_dict(), image, session, db, output.prediction)
+        await persist_retinaguard(output.retinaguard_result.to_dict(), image, session, db, output.prediction)
+    if output.classification is not None:
+        pipeline.start_optional_processing(
+            run.id, image.id, actor_id,
+            run_stability=payload.run_stability,
+            run_counterfactual=payload.run_counterfactual,
+        )
     return _run_response(run, session)
 
 
@@ -124,7 +127,7 @@ async def screening_status(session_id: UUID, db: AsyncSession = Depends(get_db))
     session = await db.get(ScreeningSession, session_id)
     if session is None:
         raise HTTPException(status_code=404, detail="Screening session not found")
-    return ScreeningRunResponse(screening_id=session.id, screening_session_id=session.id, patient_id=session.patient_id, image_id=session.fundus_image_id, status=_public_session_status(session.status), stage_status={}, stage_metrics={}, stage_errors={}, model_versions={}, message="No master screening run has been started for this session")
+    return ScreeningRunResponse(screening_id=session.id, screening_session_id=session.id, patient_id=session.patient_id, image_id=session.fundus_image_id, status=_public_session_status(session.status), primary_status="PENDING", evidence_status="NOT_RUN", stage_status={}, stage_metrics={}, stage_errors={}, model_versions={}, message="No master screening run has been started for this session")
 
 
 @router.get("/{session_id}/result", response_model=ScreeningResultResponse)
@@ -221,7 +224,7 @@ async def analyze_structures(
         raise HTTPException(status_code=404, detail="Stored image is not available") from exc
     except OSError as exc:
         raise HTTPException(status_code=422, detail=f"Evidence analysis could not read the stored image: {exc}") from exc
-    await _persist_evidence_analysis(analysis.to_dict(), image, session, db)
+    await persist_evidence_analysis(analysis.to_dict(), image, session, db)
     return EvidenceAnalysisResponse.model_validate(analysis.to_dict())
 
 
@@ -254,8 +257,8 @@ async def explain_screening(
         raise HTTPException(status_code=404, detail="Stored image is not available") from exc
     except OSError as exc:
         raise HTTPException(status_code=422, detail=f"Explainability analysis could not read the stored image: {exc}") from exc
-    await _persist_evidence_analysis(evidence.to_dict(), image, session, db)
-    await _persist_explainability(explanation.to_dict(), image, session, db)
+    await persist_evidence_analysis(evidence.to_dict(), image, session, db)
+    await persist_explainability(explanation.to_dict(), image, session, db)
     return ExplainabilityResponse.model_validate(explanation.to_dict())
 
 
@@ -316,8 +319,8 @@ async def trust_screening(
         model_version=prediction.model_version,
     )
     result = await retinaguard.evaluate_async(inputs, content, classifier)
-    await _persist_evidence_analysis(evidence.to_dict(), image, session, db)
-    await _persist_retinaguard(result.to_dict(), image, session, db, prediction)
+    await persist_evidence_analysis(evidence.to_dict(), image, session, db)
+    await persist_retinaguard(result.to_dict(), image, session, db, prediction)
     response = {"image_id": image.id, "screening_session_id": session.id, **result.to_dict(), "note": "RetinaGuard is a transparent engineering self-check. Its score and category are not a medical diagnosis or a clinical trust guarantee."}
     return TrustResponse.model_validate(response)
 
@@ -469,16 +472,52 @@ def _public_session_status(value: ScreeningStatus) -> str:
 
 def _run_response(run: ScreeningRun, session: ScreeningSession) -> ScreeningRunResponse:
     message = "Screening run completed"
+    primary_status = _primary_status(run)
+    evidence_status, evidence_message = _evidence_status(run)
     if run.status == "FAILED":
         message = (run.error or {}).get("message", "Screening run failed")
     elif run.status == "COMPLETED" and run.triage and run.triage.get("recommendation") == "RECAPTURE_IMAGE":
         message = "Screening stopped after the Image Trust Gate; recapture is recommended"
+    elif primary_status == "COMPLETED" and evidence_status == "PROCESSING":
+        message = "Primary screening completed; optional evidence is processing"
+    elif primary_status == "COMPLETED" and evidence_status == "TIMED_OUT":
+        message = "Primary screening completed; optional evidence exceeded its runtime budget"
+    elif primary_status == "COMPLETED" and evidence_status == "UNAVAILABLE":
+        message = "Primary screening completed; optional evidence is unavailable"
     elif run.status in {"QUEUED", "PROCESSING"}:
         message = "Screening run is in progress"
     return ScreeningRunResponse(
         screening_id=run.id, screening_session_id=session.id, patient_id=session.patient_id, image_id=run.fundus_image_id,
-        status=run.status, stage_status=run.stage_status or {}, stage_metrics=run.stage_metrics or {}, stage_errors=run.stage_errors or {},
+        status=run.status, primary_status=primary_status, evidence_status=evidence_status, evidence_message=evidence_message,
+        stage_status=run.stage_status or {}, stage_metrics=run.stage_metrics or {}, stage_errors=run.stage_errors or {},
         quality=run.quality, classification=run.classification, lesions=run.lesions,
         explainability=run.explainability, retinaguard=run.retinaguard, triage=run.triage,
         model_versions=run.model_versions or {}, error=run.error, message=message,
     )
+
+
+def _primary_status(run: ScreeningRun) -> str:
+    if run.status == "FAILED":
+        return "FAILED"
+    if run.triage and run.classification:
+        return "COMPLETED"
+    if run.status == "COMPLETED" and run.triage and not run.classification:
+        return "QUALITY_BLOCKED"
+    if run.status in {"QUEUED", "PROCESSING"}:
+        return "PROCESSING"
+    return "PENDING"
+
+
+def _evidence_status(run: ScreeningRun) -> tuple[str, str]:
+    if not run.classification:
+        return "NOT_RUN", "Optional evidence is not run when the Image Trust Gate blocks clinical AI."
+    statuses = [((run.stage_status or {}).get(stage) or "PENDING") for stage in OPTIONAL_EVIDENCE_STAGES]
+    if any(value in {"QUEUED", "PROCESSING", "PENDING"} for value in statuses):
+        return "PROCESSING", "Optional lesion, vessel, and explainability stages are still processing."
+    if any(value == "TIMED_OUT" for value in statuses):
+        return "TIMED_OUT", "Optional evidence did not complete within its runtime budget; it is not negative evidence."
+    if any(value in {"UNAVAILABLE", "FAILED"} for value in statuses):
+        return "UNAVAILABLE", "Optional evidence was unavailable; no evidence result was substituted."
+    if all(value in {"COMPLETED", "SKIPPED"} for value in statuses):
+        return "AVAILABLE", "Optional evidence is available for review."
+    return "NOT_RUN", "Optional evidence has not started."

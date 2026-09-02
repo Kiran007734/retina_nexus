@@ -16,6 +16,15 @@ Responses containing AI values are screening artifacts, not diagnoses.
 | `GET` | `/screening/history` | List screening history |
 | `GET` | `/screening/{session_id}/result` | Read persisted screening result |
 
+The master run returns the primary result as soon as the quality gate,
+classifier, uncertainty/model checks, RetinaGuard, and triage complete.
+`primary_status` reports that mandatory path separately from
+`evidence_status`. Lesion/vessel evidence and Grad-CAM/agreement are optional
+background enrichment with explicit `QUEUED`, `PROCESSING`, `AVAILABLE`,
+`TIMED_OUT`, or `UNAVAILABLE` states. Optional timeout/unavailability is not
+negative evidence and never produces a fabricated mask, heatmap, count, or
+agreement score.
+
 ## Individual AI stages
 
 | Method | Endpoint | Purpose |

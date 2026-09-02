@@ -121,9 +121,11 @@ async def _run_workflow(monkeypatch):
             assert master.status_code == 200
             master_payload = master.json()
             assert master_payload["status"] == "COMPLETED"
+            assert master_payload["primary_status"] == "COMPLETED"
             assert master_payload["classification"]["predicted_grade_label"] == "Moderate"
-            assert master_payload["lesions"]["modules"]
-            assert master_payload["explainability"]["attention_lesion_agreement"]["status"] == "HIGH AGREEMENT"
+            assert master_payload["evidence_status"] == "PROCESSING"
+            assert master_payload["lesions"] is None
+            assert master_payload["explainability"] is None
             assert master_payload["retinaguard"]["trust_category"] == "TRUSTED"
             assert master_payload["triage"]["recommendation"] == "SPECIALIST_REVIEW_RECOMMENDED"
             assert master_payload["stage_metrics"]["dr_classification"]["duration_ms"] is not None

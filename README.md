@@ -54,6 +54,10 @@ For the hardened local/SIH startup, use [DEPLOYMENT.md](DEPLOYMENT.md). It
 documents model verification, bounded uploads, readiness, structured request
 tracing, graceful optional-model degradation, Docker reference deployment,
 preflight, failure behavior, and the measured local performance benchmark.
+The master screening endpoint returns the primary result first; optional
+lesion/vessel and explainability stages are reported separately. See
+[docs/SCREENING_RUNTIME.md](docs/SCREENING_RUNTIME.md) for budgets and honest
+timeout behavior.
 
 ## Environment setup
 

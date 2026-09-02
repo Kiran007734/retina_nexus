@@ -21,7 +21,7 @@ from app.ml.trust.guard import RetinaGuardResult  # noqa: E402
 from app.models.fundus_image import Eye, FundusImage, QualityDecision  # noqa: E402
 from app.models.screening import ScreeningSession, ScreeningStatus  # noqa: E402
 from app.models.screening_run import ScreeningRun  # noqa: E402
-from app.services.screening_pipeline import RUN_STAGES, ScreeningPipelineService  # noqa: E402
+from app.services.screening_pipeline import OPTIONAL_EVIDENCE_STAGES, RUN_STAGES, OptionalStageTimeout, ScreeningPipelineService  # noqa: E402
 
 
 class FakeDB:
@@ -95,6 +95,12 @@ class FakeEvidenceService:
         return self.evidence
 
 
+class SlowEvidenceService:
+    async def analyze(self, *_args):
+        await asyncio.sleep(0.03)
+        return _evidence()
+
+
 class FakeExplainabilityService:
     def __init__(self, explanation: ExplainabilityAnalysis):
         self.explanation = explanation
@@ -152,6 +158,71 @@ def test_stage_failure_is_persisted_without_fake_downstream_results():
     assert output.lesions is None
     assert output.stage_status["dr_classification"] == "FAILED"
     assert session.status == ScreeningStatus.FAILED
+
+
+def test_primary_result_does_not_wait_for_optional_evidence():
+    content = _image_bytes()
+    classifier = FakeClassifier(_prediction())
+    evidence = FakeEvidenceService(_evidence())
+    service = ScreeningPipelineService(
+        FakeQualityService(TrustGateDecision.GRADABLE), classifier, evidence,
+        FakeExplainabilityService(_explanation()), FakeRetinaGuard(_guard_result()), FakeStorage(content),
+    )
+    db, run, session, image = _records()
+
+    output = asyncio.run(service.execute_primary(db, run, session, image, None))
+
+    assert output.status == "COMPLETED"
+    assert output.classification["predicted_grade_label"] == "Moderate"
+    assert output.retinaguard["trust_category"] == "TRUSTED"
+    assert output.triage["recommendation"] == "SPECIALIST_REVIEW_RECOMMENDED"
+    assert output.lesions is None
+    assert output.explainability is None
+    assert all(output.stage_status[stage] == "QUEUED" for stage in OPTIONAL_EVIDENCE_STAGES)
+    assert evidence.called is False
+
+
+def test_optional_timeout_is_explicit_and_does_not_cancel_worker():
+    service = ScreeningPipelineService(
+        FakeQualityService(TrustGateDecision.GRADABLE), FakeClassifier(_prediction()), FakeEvidenceService(_evidence()),
+        FakeExplainabilityService(_explanation()), FakeRetinaGuard(_guard_result()), FakeStorage(_image_bytes()),
+    )
+
+    async def exercise():
+        task = asyncio.create_task(asyncio.sleep(0.05))
+        try:
+            await service._await_optional("test_optional", task, 0.001)
+        except OptionalStageTimeout as timeout:
+            assert timeout.stage == "test_optional"
+            assert timeout.budget_seconds == 0.001
+            assert not task.cancelled()
+            await timeout.task
+        else:
+            raise AssertionError("Expected the optional operation to time out")
+
+    asyncio.run(exercise())
+
+
+def test_optional_evidence_timeout_preserves_primary_state():
+    content = _image_bytes()
+    service = ScreeningPipelineService(
+        FakeQualityService(TrustGateDecision.GRADABLE), FakeClassifier(_prediction()), SlowEvidenceService(),
+        FakeExplainabilityService(_explanation()), FakeRetinaGuard(_guard_result()), FakeStorage(content),
+        optional_evidence_timeout_seconds=30,
+    )
+    service.optional_evidence_timeout_seconds = 0.001  # deterministic test-only budget
+    db, run, session, image = _records()
+    run.status = "COMPLETED"
+    run.classification = service._classification_payload(_prediction())
+
+    asyncio.run(service._execute_optional(db, run, session, image, None, content, None, None))
+
+    assert run.status == "COMPLETED"
+    assert run.stage_status["retinal_structure_analysis"] == "TIMED_OUT"
+    assert run.stage_status["lesion_detection"] == "TIMED_OUT"
+    assert run.lesions["status"] == "TIMED_OUT"
+    assert run.lesions["provenance"]["runtime_budget_seconds"] == 0.001
+    assert run.stage_errors["retinal_evidence"]["evidence_is_not_negative"] is True
 
 
 def _records():

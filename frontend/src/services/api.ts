@@ -365,6 +365,9 @@ export type ScreeningRun = {
   patient_id: string;
   image_id: string;
   status: 'QUEUED' | 'PROCESSING' | 'COMPLETED' | 'FAILED' | string;
+  primary_status?: 'PENDING' | 'PROCESSING' | 'COMPLETED' | 'QUALITY_BLOCKED' | 'FAILED' | string;
+  evidence_status?: 'NOT_RUN' | 'PROCESSING' | 'AVAILABLE' | 'TIMED_OUT' | 'UNAVAILABLE' | string;
+  evidence_message?: string;
   stage_status: Record<string, string>;
   stage_metrics: Record<string, { started_at?: string; completed_at?: string; duration_ms?: number | null }>;
   stage_errors: Record<string, unknown>;

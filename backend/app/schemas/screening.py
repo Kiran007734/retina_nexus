@@ -60,6 +60,9 @@ class ScreeningRunResponse(BaseModel):
     patient_id: UUID
     image_id: UUID
     status: str
+    primary_status: str = "PENDING"
+    evidence_status: str = "NOT_RUN"
+    evidence_message: str = ""
     stage_status: dict = Field(default_factory=dict)
     stage_metrics: dict = Field(default_factory=dict)
     stage_errors: dict = Field(default_factory=dict)

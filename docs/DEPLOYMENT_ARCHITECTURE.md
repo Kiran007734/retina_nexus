@@ -7,7 +7,7 @@ Clinic / PHC
   -> acquisition client
   -> API upload + Image Trust Gate
   -> local object storage and metadata DB
-  -> inline screening worker (current prototype)
+  -> primary screening response + bounded optional evidence worker
   -> clinician review and PDF report
 
 Future edge sync:
@@ -52,8 +52,9 @@ weights are never rewritten by deployment checks.
   alone.
 - File size, dimensions, channels, and total pixels are bounded before costly
   processing.
-- Master screening work is limited by `MAX_CONCURRENT_SCREENINGS` and
-  `SCREENING_TIMEOUT_SECONDS`.
+- Primary screening is limited by `MAX_CONCURRENT_SCREENINGS` and
+  `SCREENING_PRIMARY_TIMEOUT_SECONDS`; optional evidence uses independent
+  budgets documented in [SCREENING_RUNTIME.md](SCREENING_RUNTIME.md).
 - Unhandled failures return a generic safe error and a request ID; internal
   diagnostics stay in structured logs.
 - CORS is configured from `CORS_ORIGINS`; production settings must use an
@@ -66,7 +67,9 @@ Every pipeline stage has durable status, timing, and error fields. A failed
 classifier, Grad-CAM, evidence adapter, or report operation cannot create a
 synthetic downstream result. Quality failures stop clinical AI and return
 recapture guidance. Optional model failures produce `unsupported` evidence and
-are reflected in RetinaGuard's availability trace.
+are reflected in RetinaGuard's availability trace. Slow optional work is
+persisted as `TIMED_OUT` or `UNAVAILABLE` and never changes a valid primary
+result into a pipeline failure.
 
 ## Deployment topology and synchronization plan
 

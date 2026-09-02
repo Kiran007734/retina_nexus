@@ -36,6 +36,17 @@ class Settings(BaseSettings):
     verify_models_on_startup: bool = True
     max_concurrent_screenings: int = Field(default=1, ge=1, le=8)
     screening_timeout_seconds: int = Field(default=900, ge=30, le=3600)
+    # The primary path is measured locally at <5 seconds on warm CPU runs;
+    # this budget leaves room for cold-start and image-quality variation.
+    screening_primary_timeout_seconds: int = Field(default=60, ge=10, le=600)
+    # Optional evidence has measured warm CPU runs from ~1.4s to ~310s, with
+    # one observed run exceeding the legacy 900s whole-pipeline limit. This
+    # budget covers the observed completed range while keeping enrichment
+    # bounded and explicitly non-blocking for the primary result.
+    screening_optional_evidence_timeout_seconds: int = Field(default=240, ge=30, le=1800)
+    # Grad-CAM/agreement measured ~0.9s-8.4s on completed local runs; this
+    # budget is a documented engineering limit, not a clinical target.
+    screening_optional_explainability_timeout_seconds: int = Field(default=30, ge=10, le=900)
     referable_min_grade: int = Field(default=2, ge=1, le=4)
     evidence_enable_heuristics: bool = True
     evidence_enable_vessel_baseline: bool = False

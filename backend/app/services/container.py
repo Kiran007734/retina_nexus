@@ -144,4 +144,7 @@ def get_screening_pipeline_service() -> ScreeningPipelineService:
         storage=get_storage(),
         max_concurrent_screenings=settings.max_concurrent_screenings,
         timeout_seconds=settings.screening_timeout_seconds,
+        primary_timeout_seconds=settings.screening_primary_timeout_seconds,
+        optional_evidence_timeout_seconds=settings.screening_optional_evidence_timeout_seconds,
+        optional_explainability_timeout_seconds=settings.screening_optional_explainability_timeout_seconds,
     )

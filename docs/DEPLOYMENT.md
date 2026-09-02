@@ -60,9 +60,29 @@ backoff, explicit retry states, bounded retention, and server acknowledgement
 only after durable metadata and object storage. Conflict resolution is
 server-authoritative for screening and clinician decisions.
 
-The current HTTP worker is inline but run state is durable and queue-ready.
-Move execution behind Redis/Celery or an equivalent worker without changing
-the master API contract. Until then, do not advertise background processing.
+The current HTTP worker returns the mandatory primary result inline and uses a
+small in-process background task for optional evidence. Run state is durable
+and queue-ready. This prototype mechanism is intentionally not a replacement
+for a supervised worker: a process restart can interrupt optional work, and a
+future Redis/Celery or equivalent worker can replace it without changing the
+master API contract.
+
+## Primary and optional screening runtime
+
+`POST /api/v1/screening/run` completes the primary path after image validation,
+quality assessment, EfficientNet classification, uncertainty/model checks,
+RetinaGuard, and triage. Lesion/vessel evidence and Grad-CAM/agreement are
+optional enrichment and are scheduled after the primary response. The status
+endpoint exposes `primary_status` and `evidence_status`, as well as each
+optional stage status.
+
+The default local budgets are `60` seconds for primary screening, `240` seconds
+for combined retinal evidence, and `30` seconds for explainability. They are
+engineering limits selected from recorded warm-CPU timings, not clinical or
+hard latency targets. A timed-out or unavailable optional stage is persisted as
+`TIMED_OUT`/`UNAVAILABLE` with provenance. It never becomes a successful empty
+result and is never interpreted as negative evidence. The primary result stays
+valid and available for review while the optional status is shown separately.
 
 ## Model and data release controls
 

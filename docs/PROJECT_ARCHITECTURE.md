@@ -50,12 +50,13 @@ S3-compatible adapter is available for a managed deployment.
 
 ## Runtime contracts
 
-`POST /api/v1/screening/run` is the master synchronous contract today. It
-persists status as `QUEUED`, `PROCESSING`, `COMPLETED`, or `FAILED` and records
-durable stage state so the same service can move behind Redis/Celery or an
-equivalent worker later. The current Operations Dashboard explicitly reports
-`inline_queue_ready`; it does not claim that a background worker is already
-running.
+`POST /api/v1/screening/run` returns the mandatory primary result inline and
+persists status as `QUEUED`, `PROCESSING`, `COMPLETED`, or `FAILED`. Optional
+retinal evidence and explainability run in a bounded in-process worker after
+the response; `primary_status`, `evidence_status`, per-stage status, budgets,
+and provenance are exposed by `GET /api/v1/screening/{id}`. This worker is a
+local prototype boundary and can move behind Redis/Celery later without
+changing the master API contract.
 
 Registered model artifacts are loaded only when explicitly configured. Missing
 or invalid artifacts return a setup error instead of a fabricated prediction.
