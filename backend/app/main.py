@@ -128,8 +128,36 @@ async def request_tracing_middleware(request: Request, call_next):
 
 
 @app.exception_handler(RequestValidationError)
-async def request_validation_error(_: Request, __: RequestValidationError) -> JSONResponse:
-    return JSONResponse(status_code=422, content={"detail": "Request validation failed", "error_code": "REQUEST_VALIDATION_ERROR"})
+async def request_validation_error(request: Request, exc: RequestValidationError) -> JSONResponse:
+    # Keep validation diagnostics useful during local development without
+    # returning Pydantic's raw ``input`` values (which may contain filenames,
+    # identifiers, or other request data). Production receives the stable
+    # error contract only; the request ID remains available in the response
+    # header and structured request log.
+    validation_errors = [
+        {
+            "loc": [str(part) for part in error.get("loc", ())],
+            "msg": safe_error_message(error.get("msg"), "Invalid request value"),
+            "type": str(error.get("type", "validation_error")),
+        }
+        for error in exc.errors()
+    ]
+    request_id = getattr(request.state, "request_id", "-")
+    logger.warning(
+        "api.request_validation_failed",
+        extra={
+            "event": "api.request_validation_failed",
+            "request_id": request_id,
+            "error_code": "REQUEST_VALIDATION_FAILURE",
+        },
+    )
+    content = {
+        "detail": "Request validation failed",
+        "error_code": "REQUEST_VALIDATION_FAILURE",
+    }
+    if settings.environment in {"development", "test"}:
+        content["validation_errors"] = validation_errors
+    return JSONResponse(status_code=422, content=content)
 
 
 @app.exception_handler(HTTPException)

@@ -81,6 +81,14 @@ screening-stage fields but without image bytes or patient-identifying data.
 Errors use safe `error_code` values and do not expose filesystem paths,
 secrets, or stack traces.
 
+Request-schema failures return HTTP `422` with
+`error_code: "REQUEST_VALIDATION_FAILURE"`. In development and test they also
+include sanitized `validation_errors` entries containing only `loc`, `msg`, and
+`type`; raw request values are never returned. The frontend maps failures to
+`REQUEST_VALIDATION_FAILURE`, `API_CONNECTION_FAILURE`, `MODEL_UNAVAILABLE`,
+`INFERENCE_FAILURE`, `QUALITY_GATE_REJECTION`, or `INTERNAL_SERVER_ERROR` so a
+pre-inference request rejection is not presented as a model failure.
+
 ## Controlled demo mode
 
 | Method | Endpoint | Purpose |

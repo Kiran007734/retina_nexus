@@ -5,14 +5,90 @@ function authHeaders(): HeadersInit {
   return token ? { Authorization: `Bearer ${token}` } : {};
 }
 
-async function requestError(response: Response, fallback: string) {
-  const detail = await response.json().catch(() => null);
-  const message = typeof detail?.detail === 'string' ? detail.detail : detail?.detail?.message;
-  return new Error(message ?? fallback);
+export type ApiErrorCategory =
+  | 'REQUEST_VALIDATION_FAILURE'
+  | 'API_CONNECTION_FAILURE'
+  | 'MODEL_UNAVAILABLE'
+  | 'INFERENCE_FAILURE'
+  | 'QUALITY_GATE_REJECTION'
+  | 'INTERNAL_SERVER_ERROR';
+
+export type ApiValidationError = { loc: string[]; msg: string; type: string };
+
+export class ApiRequestError extends Error {
+  readonly category: ApiErrorCategory;
+  readonly status: number | null;
+  readonly code: string;
+  readonly validationErrors: ApiValidationError[];
+  readonly requestId: string | null;
+
+  constructor(
+    message: string,
+    category: ApiErrorCategory,
+    options: { status?: number | null; code?: string; validationErrors?: ApiValidationError[]; requestId?: string | null } = {},
+  ) {
+    super(message);
+    this.name = 'ApiRequestError';
+    this.category = category;
+    this.status = options.status ?? null;
+    this.code = options.code ?? category;
+    this.validationErrors = options.validationErrors ?? [];
+    this.requestId = options.requestId ?? null;
+  }
+}
+
+function categoryFor(status: number | null, code: string): ApiErrorCategory {
+  const normalized = code.toUpperCase();
+  if (normalized === 'INVALID_IMAGE' || normalized === 'QUALITY_GATE_REJECTION' || normalized === 'UNSUPPORTED_FILE_EXTENSION' || normalized === 'UNSUPPORTED_MEDIA_TYPE') return 'QUALITY_GATE_REJECTION';
+  if (normalized === 'REQUEST_VALIDATION_ERROR' || normalized === 'REQUEST_VALIDATION_FAILURE' || status === 422) return 'REQUEST_VALIDATION_FAILURE';
+  if (normalized.includes('MODEL') || normalized.includes('ARTIFACT') || normalized === 'LOAD_FAILED' || normalized === 'SERVICE_UNAVAILABLE' || status === 503) return 'MODEL_UNAVAILABLE';
+  if (normalized.includes('INFERENCE')) return 'INFERENCE_FAILURE';
+  if (status !== null && status >= 500) return 'INTERNAL_SERVER_ERROR';
+  return 'INTERNAL_SERVER_ERROR';
+}
+
+async function apiFetch(input: RequestInfo | URL, init?: RequestInit): Promise<Response> {
+  try {
+    return await fetch(input, init);
+  } catch {
+    throw new ApiRequestError(
+      'The RETINA-NEXUS API could not be reached. Confirm the backend is running and retry.',
+      'API_CONNECTION_FAILURE',
+      { code: 'API_CONNECTION_FAILURE' },
+    );
+  }
+}
+
+async function requestError(response: Response, fallback: string): Promise<ApiRequestError> {
+  const payload = await response.json().catch(() => null) as { detail?: unknown; error_code?: unknown; validation_errors?: ApiValidationError[] } | null;
+  const detail = payload?.detail;
+  const message = typeof detail === 'string'
+    ? detail
+    : typeof detail === 'object' && detail !== null && 'message' in detail && typeof detail.message === 'string'
+      ? detail.message
+      : fallback;
+  const code = typeof payload?.error_code === 'string' ? payload.error_code : 'HTTP_ERROR';
+  const error = new ApiRequestError(message, categoryFor(response.status, code), {
+    status: response.status,
+    code,
+    validationErrors: Array.isArray(payload?.validation_errors) ? payload.validation_errors : [],
+    requestId: response.headers.get('x-request-id'),
+  });
+  if (import.meta.env.DEV) {
+    console.error('[RETINA-NEXUS API]', {
+      category: error.category,
+      status: error.status,
+      code: error.code,
+      requestId: error.requestId,
+      validationErrors: error.validationErrors,
+      message: error.message,
+    });
+  }
+  return error;
 }
 
 export async function login(email: string, password: string) {
-  const response = await fetch(`${API_URL}/auth/login`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, password }) });
+  const response = await apiFetch(`${API_URL}/auth/login`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, password }) });
   if (!response.ok) throw await requestError(response, 'Unable to sign in');
   const result = await response.json() as { access_token: string };
   localStorage.setItem('retina_nexus_access_token', result.access_token);
@@ -186,13 +262,13 @@ export type TrustResult = {
 };
 
 export async function getHealth() {
-  const response = await fetch(`${API_URL}/health`, { headers: authHeaders() });
+  const response = await apiFetch(`${API_URL}/health`, { headers: authHeaders() });
   if (!response.ok) throw await requestError(response, 'API unavailable');
   return response.json() as Promise<{ status: string; database: string }>;
 }
 
 export async function createPatient(payload: { anonymized_identifier: string; age_group?: string }) {
-  const response = await fetch(`${API_URL}/patients`, {
+  const response = await apiFetch(`${API_URL}/patients`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload),
@@ -202,19 +278,19 @@ export async function createPatient(payload: { anonymized_identifier: string; ag
 }
 
 export async function getPatients() {
-  const response = await fetch(`${API_URL}/patients`, { headers: authHeaders() });
+  const response = await apiFetch(`${API_URL}/patients`, { headers: authHeaders() });
   if (!response.ok) throw await requestError(response, 'Unable to load patients');
   return response.json() as Promise<Array<{ id: string; anonymized_identifier: string; age_group?: string | null; created_at: string }>>;
 }
 
 export async function getDatasets() {
-  const response = await fetch(`${API_URL}/datasets`, { headers: authHeaders() });
+  const response = await apiFetch(`${API_URL}/datasets`, { headers: authHeaders() });
   if (!response.ok) throw await requestError(response, 'Unable to load dataset registry');
   return response.json() as Promise<import('../types').DatasetRecord[]>;
 }
 
 export async function getDatasetStatistics(datasetId: string) {
-  const response = await fetch(`${API_URL}/datasets/${encodeURIComponent(datasetId)}/statistics`, { headers: authHeaders() });
+  const response = await apiFetch(`${API_URL}/datasets/${encodeURIComponent(datasetId)}/statistics`, { headers: authHeaders() });
   if (!response.ok) throw await requestError(response, 'Unable to load dataset statistics');
   return response.json() as Promise<import('../types').DatasetStatisticsRecord>;
 }
@@ -222,58 +298,55 @@ export async function getDatasetStatistics(datasetId: string) {
 export async function uploadFundusImage(patientId: string, eye: 'left' | 'right', file: File) {
   const body = new FormData();
   body.append('image', file);
-  const response = await fetch(`${API_URL}/images/upload?patient_id=${encodeURIComponent(patientId)}&eye=${eye}`, { method: 'POST', headers: authHeaders(), body });
+  const response = await apiFetch(`${API_URL}/images/upload?patient_id=${encodeURIComponent(patientId)}&eye=${eye}`, { method: 'POST', headers: authHeaders(), body });
   if (!response.ok) throw await requestError(response, 'Unable to upload image');
   return response.json() as Promise<{ image_id: string }>;
 }
 
 export async function assessImageQuality(imageId: string) {
-  const response = await fetch(`${API_URL}/images/${imageId}/quality`, { method: 'POST' });
+  const response = await apiFetch(`${API_URL}/images/${imageId}/quality`, { method: 'POST' });
   if (!response.ok) throw await requestError(response, 'Unable to assess image quality');
   return response.json() as Promise<QualityResult>;
 }
 
 export async function classifyImage(imageId: string, screeningSessionId?: string) {
-  const response = await fetch(`${API_URL}/screening/classify`, {
+  const response = await apiFetch(`${API_URL}/screening/classify`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ image_id: imageId, screening_session_id: screeningSessionId }),
   });
   if (!response.ok) {
-    const detail = await response.json().catch(() => null);
-    throw new Error(typeof detail?.detail === 'string' ? detail.detail : detail?.detail?.message ?? 'Unable to classify image');
+    throw await requestError(response, 'Unable to classify image');
   }
   return response.json() as Promise<ClassificationResult>;
 }
 
 export async function analyzeStructures(imageId: string, screeningSessionId?: string) {
-  const response = await fetch(`${API_URL}/screening/analyze-structures`, {
+  const response = await apiFetch(`${API_URL}/screening/analyze-structures`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ image_id: imageId, screening_session_id: screeningSessionId }),
   });
   if (!response.ok) {
-    const detail = await response.json().catch(() => null);
-    throw new Error(typeof detail?.detail === 'string' ? detail.detail : detail?.detail?.message ?? 'Unable to analyze retinal structures');
+    throw await requestError(response, 'Unable to analyze retinal structures');
   }
   return response.json() as Promise<EvidenceAnalysisResult>;
 }
 
 export async function explainImage(imageId: string, screeningSessionId?: string, runStability?: boolean, runCounterfactual?: boolean) {
-  const response = await fetch(`${API_URL}/screening/explain`, {
+  const response = await apiFetch(`${API_URL}/screening/explain`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ image_id: imageId, screening_session_id: screeningSessionId, run_stability: runStability, run_counterfactual: runCounterfactual }),
   });
   if (!response.ok) {
-    const detail = await response.json().catch(() => null);
-    throw new Error(typeof detail?.detail === 'string' ? detail.detail : detail?.detail?.message ?? 'Unable to generate explainability output');
+    throw await requestError(response, 'Unable to generate explainability output');
   }
   return response.json() as Promise<ExplainabilityResult>;
 }
 
 export async function assessTrust(imageId: string, screeningSessionId?: string, modelPredictions?: Array<{ model_version: string; predicted_grade: number; predicted_grade_label?: string; probabilities?: Record<string, number> }>) {
-  const response = await fetch(`${API_URL}/screening/trust`, {
+  const response = await apiFetch(`${API_URL}/screening/trust`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', ...authHeaders() },
     body: JSON.stringify({ image_id: imageId, screening_session_id: screeningSessionId, model_predictions: modelPredictions ?? [] }),
@@ -307,19 +380,19 @@ export type ScreeningRun = {
 };
 
 export async function runScreening(imageId: string, options?: { screening_session_id?: string; run_stability?: boolean; run_counterfactual?: boolean }) {
-  const response = await fetch(`${API_URL}/screening/run`, { method: 'POST', headers: { 'Content-Type': 'application/json', ...authHeaders() }, body: JSON.stringify({ image_id: imageId, ...options }) });
+  const response = await apiFetch(`${API_URL}/screening/run`, { method: 'POST', headers: { 'Content-Type': 'application/json', ...authHeaders() }, body: JSON.stringify({ image_id: imageId, ...options }) });
   if (!response.ok) throw await requestError(response, 'Unable to run screening pipeline');
   return response.json() as Promise<ScreeningRun>;
 }
 
 export async function getScreeningRun(screeningId: string) {
-  const response = await fetch(`${API_URL}/screening/${screeningId}`, { headers: authHeaders() });
+  const response = await apiFetch(`${API_URL}/screening/${screeningId}`, { headers: authHeaders() });
   if (!response.ok) throw await requestError(response, 'Unable to load screening run');
   return response.json() as Promise<ScreeningRun>;
 }
 
 export async function getScreeningHistory() {
-  const response = await fetch(`${API_URL}/screening/history`, { headers: authHeaders() });
+  const response = await apiFetch(`${API_URL}/screening/history`, { headers: authHeaders() });
   if (!response.ok) throw await requestError(response, 'Unable to load screening history');
   return response.json() as Promise<import('../types').ScreeningHistoryItem[]>;
 }
@@ -327,7 +400,7 @@ export async function getScreeningHistory() {
 export type AnalyticsOverview = { total_screenings: number; today_screenings: number; referable_cases: number; human_review_cases: number; ungradable_images: number; completed_screenings: number; status_distribution: Record<string, number>; severity_distribution: Record<string, number>; recent_activity: Array<Record<string, any>>; system_health: Record<string, string> };
 
 export async function getAnalyticsOverview() {
-  const response = await fetch(`${API_URL}/analytics/overview`, { headers: authHeaders() });
+  const response = await apiFetch(`${API_URL}/analytics/overview`, { headers: authHeaders() });
   if (!response.ok) throw await requestError(response, 'Unable to load analytics');
   return response.json() as Promise<AnalyticsOverview>;
 }
@@ -336,19 +409,19 @@ export type Review = { review_id: string; session_id: string; reviewer_id: strin
 export type ReviewQueueItem = { session_id: string; patient_id: string; image_id: string; eye: string; status: string; trust_category?: string | null; trust_score?: number | null; predicted_grade?: number | null; predicted_grade_label?: string | null; referable_dr?: boolean | null; reason: string; created_at?: string | null; review?: Review | null };
 
 export async function getReviewQueue() {
-  const response = await fetch(`${API_URL}/reviews/queue`, { headers: authHeaders() });
+  const response = await apiFetch(`${API_URL}/reviews/queue`, { headers: authHeaders() });
   if (!response.ok) throw await requestError(response, 'Unable to load clinical review queue');
   return response.json() as Promise<ReviewQueueItem[]>;
 }
 
 export async function getSessionReviews(sessionId: string) {
-  const response = await fetch(`${API_URL}/reviews/${sessionId}`, { headers: authHeaders() });
+  const response = await apiFetch(`${API_URL}/reviews/${sessionId}`, { headers: authHeaders() });
   if (!response.ok) throw await requestError(response, 'Unable to load clinical reviews');
   return response.json() as Promise<Review[]>;
 }
 
 export async function submitReview(sessionId: string, payload: { decision: 'approve' | 'modify' | 'reject' | 'request_recapture'; modified_grade?: number; comments?: string }) {
-  const response = await fetch(`${API_URL}/reviews/${sessionId}`, { method: 'POST', headers: { 'Content-Type': 'application/json', ...authHeaders() }, body: JSON.stringify(payload) });
+  const response = await apiFetch(`${API_URL}/reviews/${sessionId}`, { method: 'POST', headers: { 'Content-Type': 'application/json', ...authHeaders() }, body: JSON.stringify(payload) });
   if (!response.ok) throw await requestError(response, 'Unable to save clinician review');
   return response.json() as Promise<Review>;
 }
@@ -356,13 +429,13 @@ export async function submitReview(sessionId: string, payload: { decision: 'appr
 export type Report = { report_id: string; session_id: string; status: string; download_url?: string | null; created_at?: string | null; report?: Record<string, any> | null };
 
 export async function getReports() {
-  const response = await fetch(`${API_URL}/reports`, { headers: authHeaders() });
+  const response = await apiFetch(`${API_URL}/reports`, { headers: authHeaders() });
   if (!response.ok) throw await requestError(response, 'Unable to load reports');
   return response.json() as Promise<Report[]>;
 }
 
 export async function generateReport(sessionId: string) {
-  const response = await fetch(`${API_URL}/reports/generate`, { method: 'POST', headers: { 'Content-Type': 'application/json', ...authHeaders() }, body: JSON.stringify({ session_id: sessionId }) });
+  const response = await apiFetch(`${API_URL}/reports/generate`, { method: 'POST', headers: { 'Content-Type': 'application/json', ...authHeaders() }, body: JSON.stringify({ session_id: sessionId }) });
   if (!response.ok) throw await requestError(response, 'Unable to generate report');
   return response.json() as Promise<Report>;
 }
@@ -370,13 +443,13 @@ export async function generateReport(sessionId: string) {
 export function reportPdfUrl(reportId: string) { return `${API_URL}/reports/${reportId}/pdf`; }
 
 export async function getModels() {
-  const response = await fetch(`${API_URL}/models`, { headers: authHeaders() });
+  const response = await apiFetch(`${API_URL}/models`, { headers: authHeaders() });
   if (!response.ok) throw await requestError(response, 'Unable to load model registry');
   return response.json() as Promise<Array<Record<string, any>>>;
 }
 
 export async function getMonitoringSummary(days = 30) {
-  const response = await fetch(`${API_URL}/monitoring/summary?days=${days}`, { headers: authHeaders() });
+  const response = await apiFetch(`${API_URL}/monitoring/summary?days=${days}`, { headers: authHeaders() });
   if (!response.ok) throw await requestError(response, 'Unable to load monitoring summary');
   return response.json() as Promise<Record<string, any>>;
 }
@@ -398,13 +471,13 @@ export type DemoScenario = {
 };
 
 export async function getDemoScenarios() {
-  const response = await fetch(`${API_URL}/demo/scenarios`);
+  const response = await apiFetch(`${API_URL}/demo/scenarios`);
   if (!response.ok) throw await requestError(response, 'Demo mode is disabled or unavailable');
   return response.json() as Promise<{ demo_mode: boolean; sample_data: boolean; scenarios: DemoScenario[]; note: string }>;
 }
 
 export async function runDemoScenario(scenarioId: string) {
-  const response = await fetch(`${API_URL}/demo/scenarios/${encodeURIComponent(scenarioId)}/run`, { method: 'POST' });
+  const response = await apiFetch(`${API_URL}/demo/scenarios/${encodeURIComponent(scenarioId)}/run`, { method: 'POST' });
   if (!response.ok) throw await requestError(response, 'Unable to run demo scenario');
   return response.json() as Promise<{ demo_mode: boolean; sample_data: boolean; persisted_to_clinical_records: boolean; demo_run_id: string; scenario: DemoScenario; note: string }>;
 }

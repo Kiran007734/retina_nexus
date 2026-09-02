@@ -76,6 +76,11 @@ async def _run_workflow(monkeypatch):
     try:
         transport = httpx.ASGITransport(app=app)
         async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
+            invalid_patient = await client.post("/api/v1/patients", json={"anonymized_identifier": "x"})
+            assert invalid_patient.status_code == 422
+            assert invalid_patient.json()["error_code"] == "REQUEST_VALIDATION_FAILURE"
+            assert invalid_patient.json()["validation_errors"] == [{"loc": ["body", "anonymized_identifier"], "msg": "String should have at least 3 characters", "type": "string_too_short"}]
+
             patient_response = await client.post("/api/v1/patients", json={"anonymized_identifier": "integration-patient", "age_group": "adult"})
             assert patient_response.status_code == 201
             patient_id = patient_response.json()["id"]
