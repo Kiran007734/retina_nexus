@@ -4,14 +4,14 @@ Status: retrospective engineering validation of reliability signals. This docume
 
 ## Immutable model contract
 
-- Checkpoint: `C:\Users\kiran\Downloads\retina_nexus\ml\weights\classifiers\aptos2019\efficientnet-b0-aptos2019-20260830-v1\checkpoint_best.pt`
+- Checkpoint: `ml/weights/classifiers/aptos2019/efficientnet-b0-aptos2019-20260830-v1/checkpoint_best.pt`
 - Checkpoint SHA-256: `ae6bb62ced2a108abc1a862870e64985b368b84e69bd8c8c8aa9912754d1a70b`
 - Expected SHA-256 unchanged: `True`
 - Classifier training weights were not retrained, fine-tuned, replaced, or modified by this validation.
 
 ## Retrospective population
 
-- Source predictions: `C:\Users\kiran\Downloads\retina_nexus\ml\evaluation\messidor\zero_shot_predictions.csv`
+- Source predictions: `ml/evaluation/messidor/zero_shot_predictions.csv`
 - Dataset version: `messidor2-external-f7abdb1e0276`
 - Prediction rows: **1744**
 - Successful five-class reference rows: **1744**

@@ -14,6 +14,8 @@ class User(Base):
     id: Mapped[UUID] = mapped_column(UUIDType, primary_key=True, default=uuid4)
     email: Mapped[str] = mapped_column(String(255), unique=True, index=True)
     full_name: Mapped[str] = mapped_column(String(160))
+    organization: Mapped[str | None] = mapped_column(String(200), nullable=True)
+    professional_role: Mapped[str | None] = mapped_column(String(48), nullable=True)
     password_hash: Mapped[str] = mapped_column(String(255))
     role: Mapped[UserRole] = mapped_column(Enum(UserRole), default=UserRole.HEALTHCARE_WORKER)
     is_active: Mapped[bool] = mapped_column(Boolean, default=True)

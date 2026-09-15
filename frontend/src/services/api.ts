@@ -1,7 +1,12 @@
 const API_URL = import.meta.env.VITE_API_URL ?? 'http://localhost:8000/api/v1';
+const ACCESS_TOKEN_KEY = 'retina_nexus_access_token';
+
+export function getAccessToken() {
+  return sessionStorage.getItem(ACCESS_TOKEN_KEY) ?? localStorage.getItem(ACCESS_TOKEN_KEY);
+}
 
 function authHeaders(): HeadersInit {
-  const token = localStorage.getItem('retina_nexus_access_token');
+  const token = getAccessToken();
   return token ? { Authorization: `Bearer ${token}` } : {};
 }
 
@@ -49,7 +54,13 @@ function categoryFor(status: number | null, code: string): ApiErrorCategory {
 
 async function apiFetch(input: RequestInfo | URL, init?: RequestInit): Promise<Response> {
   try {
-    return await fetch(input, init);
+    const response = await fetch(input, init);
+    const target = String(input);
+    if (response.status === 401 && getAccessToken() && !target.includes('/auth/login')) {
+      logout();
+      window.dispatchEvent(new Event('retina-nexus:auth-expired'));
+    }
+    return response;
   } catch {
     throw new ApiRequestError(
       'The RETINA-NEXUS API could not be reached. Confirm the backend is running and retry.',
@@ -87,20 +98,55 @@ async function requestError(response: Response, fallback: string): Promise<ApiRe
   return error;
 }
 
-export async function login(email: string, password: string) {
+export async function login(email: string, password: string, remember = false) {
   const response = await apiFetch(`${API_URL}/auth/login`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, password }) });
   if (!response.ok) throw await requestError(response, 'Unable to sign in');
   const result = await response.json() as { access_token: string };
-  localStorage.setItem('retina_nexus_access_token', result.access_token);
+  logout();
+  (remember ? localStorage : sessionStorage).setItem(ACCESS_TOKEN_KEY, result.access_token);
   return result;
 }
 
-export function logout() { localStorage.removeItem('retina_nexus_access_token'); }
+export type ProfessionalRole = 'ophthalmologist' | 'optometrist' | 'clinician' | 'screening_operator' | 'researcher' | 'administrator';
+
+export type SignupPayload = {
+  full_name: string;
+  email: string;
+  organization: string;
+  professional_role: ProfessionalRole;
+  password: string;
+  terms_accepted: boolean;
+};
+
+export async function signup(payload: SignupPayload) {
+  const response = await apiFetch(`${API_URL}/auth/signup`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+  if (!response.ok) throw await requestError(response, 'Unable to create workspace account');
+  return response.json() as Promise<{ user: { id: string; email: string; full_name: string }; message: string }>;
+}
+
+export async function requestPasswordReset(email: string) {
+  const response = await apiFetch(`${API_URL}/auth/forgot-password`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email }) });
+  if (!response.ok) throw await requestError(response, 'Unable to request password reset');
+  return response.json() as Promise<{ message: string }>;
+}
+
+export async function getCurrentUser() {
+  const response = await apiFetch(`${API_URL}/auth/me`, { headers: authHeaders() });
+  if (!response.ok) throw await requestError(response, 'Your session is no longer valid');
+  return response.json() as Promise<{ id: string; email: string; full_name: string; role: string; organization?: string | null; professional_role?: ProfessionalRole | null }>;
+}
+
+export function logout() {
+  localStorage.removeItem(ACCESS_TOKEN_KEY);
+  sessionStorage.removeItem(ACCESS_TOKEN_KEY);
+}
 
 export type QualityIssue = { type: string; severity: string; message: string; recommendation: string };
 export type QualityResult = {
   image_id: string;
   quality_decision: 'GRADABLE' | 'BORDERLINE' | 'UNGRADABLE';
+  quality_band?: 'GREEN' | 'YELLOW' | 'RED';
+  ai_eligible?: boolean;
   quality_score: number;
   final_quality_score: number;
   component_scores: Record<string, number>;
@@ -115,6 +161,11 @@ export type QualityResult = {
   next_action: 'CONTINUE_SCREENING' | 'ENHANCE_AND_REASSESS' | 'RECAPTURE_IMAGE';
   input_metadata: { width: number; height: number; channels: number; format: string; camera_metadata?: Record<string, string> };
   feature_vector: Record<string, number>;
+  recoverable_issues?: string[];
+  non_recoverable_issues?: string[];
+  hard_focus_floor_passed?: boolean;
+  enhanced_image_available?: boolean;
+  enhanced_image_url?: string | null;
 };
 
 export type ClassificationResult = {
@@ -236,7 +287,7 @@ export type TrustResult = {
   trust_category: 'TRUSTED' | 'REVIEW_RECOMMENDED' | 'UNRELIABLE' | 'INSUFFICIENT_EVIDENCE' | 'UNCERTAIN';
   reliability_score?: number | null;
   reliability_state?: 'TRUSTED' | 'REVIEW_RECOMMENDED' | 'UNRELIABLE' | 'INSUFFICIENT_EVIDENCE' | 'UNCERTAIN' | string | null;
-  contributing_factors: Array<{ factor: string; score: number; raw_value?: number | null; weight: number; contribution: number; status: string; explanation: string }>;
+  contributing_factors: Array<{ factor: string; score: number | null; raw_value?: number | null; weight: number; configured_weight?: number; contribution: number; status: string; explanation: string }>;
   risk_flags: Array<{ code: string; severity: string; reason: string }>;
   recommended_action: string;
   calibration: Record<string, unknown>;
@@ -364,8 +415,8 @@ export type ScreeningRun = {
   screening_session_id: string;
   patient_id: string;
   image_id: string;
-  status: 'QUEUED' | 'PROCESSING' | 'COMPLETED' | 'FAILED' | string;
-  primary_status?: 'PENDING' | 'PROCESSING' | 'COMPLETED' | 'QUALITY_BLOCKED' | 'FAILED' | string;
+  status: 'QUEUED' | 'PROCESSING' | 'PRIMARY_RESULT_READY' | 'EVIDENCE_PROCESSING' | 'FINAL_RESULT_READY' | 'QUALITY_BLOCKED' | 'COMPLETED' | 'FAILED' | string;
+  primary_status?: 'PENDING' | 'PROCESSING' | 'PRIMARY_RESULT_READY' | 'COMPLETED' | 'QUALITY_BLOCKED' | 'FAILED' | string;
   evidence_status?: 'NOT_RUN' | 'PROCESSING' | 'AVAILABLE' | 'TIMED_OUT' | 'UNAVAILABLE' | string;
   evidence_message?: string;
   stage_status: Record<string, string>;

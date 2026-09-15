@@ -62,5 +62,8 @@ class TemperatureScaler:
         calibrated = np.exp(scaled)
         calibrated /= max(1e-12, float(calibrated.sum()))
         output = {label: round(float(calibrated[index]), 6) for index, label in enumerate(labels)}
-        note = "Fitted temperature scaling applied to logits." if logits is not None and len(logits) == len(values) else "Temperature scaling applied to log-probability proxy because classifier logits were unavailable."
+        if self.fitted:
+            note = "Fitted temperature scaling applied to logits." if logits is not None and len(logits) == len(values) else "Fitted temperature scaling applied to a log-probability proxy because classifier logits were unavailable."
+        else:
+            note = "Identity temperature configuration; no calibration parameters were fitted. Raw softmax confidence is not clinically calibrated."
         return CalibrationResult(output, round(float(calibrated.max()), 6), "temperature_scaling", round(self.temperature, 6), self.version, self.fitted, note)

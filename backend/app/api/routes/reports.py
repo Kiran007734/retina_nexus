@@ -48,6 +48,19 @@ async def generate_report(
         raise HTTPException(status_code=404, detail="Fundus image not found")
     if run is None:
         raise HTTPException(status_code=409, detail="The session has no master screening run to report")
+    optional_stages = (
+        "retinal_structure_analysis", "lesion_detection", "grad_cam", "attention_lesion_agreement",
+    )
+    optional_statuses = [(run.stage_status or {}).get(stage, "PENDING") for stage in optional_stages]
+    if run.classification and any(value in {"PENDING", "QUEUED", "PROCESSING"} for value in optional_statuses):
+        raise HTTPException(
+            status_code=409,
+            detail={
+                "code": "REPORT_NOT_READY",
+                "message": "The final report is available after supporting evidence and explainability reach a terminal state.",
+                "evidence_status": "PROCESSING",
+            },
+        )
     screening_result = (await db.execute(select(ScreeningResult).where(ScreeningResult.session_id == session.id))).scalar_one_or_none()
     guard = (await db.execute(select(RetinaGuardResult).where(RetinaGuardResult.screening_session_id == session.id))).scalar_one_or_none()
     review = (await db.execute(select(ClinicalReview).where(ClinicalReview.screening_session_id == session.id).order_by(ClinicalReview.created_at.desc()).limit(1))).scalar_one_or_none()

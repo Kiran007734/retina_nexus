@@ -8,7 +8,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.config import get_settings
 from app.database.session import get_db
-from app.ml.quality.trust_gate import ImageTrustGateError, ImageTrustGateService, TrustGateDecision, TrustGateOutcome
+from app.ml.quality.trust_gate import ImageTrustGateError, ImageTrustGateService, TrustGateDecision, TrustGateOutcome, is_enhancement_candidate
 from app.models.fundus_image import Eye, FundusImage, QualityDecision
 from app.repositories.patients import get_patient
 from app.schemas.images import EyeInput, ImageUploadResponse, QualityAssessmentResponse, QualityIssueResponse
@@ -123,7 +123,7 @@ async def _assess_and_persist(record: FundusImage, db: AsyncSession, quality_ser
         content = await get_storage().get(record.storage_path)
         initial = await quality_service.assess(content)
         enhanced_content = None
-        if initial.quality_decision == TrustGateDecision.BORDERLINE:
+        if is_enhancement_candidate(initial):
             enhanced_content = quality_service.enhance(content)
             final = await quality_service.assess(enhanced_content)
             if final.quality_decision == TrustGateDecision.BORDERLINE:
@@ -158,7 +158,13 @@ def _response_from_outcome(image_id: UUID, outcome: TrustGateOutcome) -> Quality
         recheck_decision=outcome.final.quality_decision if outcome.enhancement_applied else None,
         recheck_issues=[QualityIssueResponse(**issue.__dict__) for issue in outcome.final.issues] if outcome.enhancement_applied else [],
         next_action=outcome.final.next_action, input_metadata=outcome.initial.input_metadata,
-        feature_vector=outcome.initial.feature_vector,
+        feature_vector=outcome.initial.feature_vector, quality_band=outcome.final.quality_band,
+        ai_eligible=outcome.final.ai_eligible, recoverable_issues=outcome.final.recoverable_issues,
+        non_recoverable_issues=outcome.final.non_recoverable_issues,
+        hard_focus_floor_passed=outcome.final.hard_focus_floor_passed,
+        enhanced_image_available=outcome.enhancement_applied,
+        enhanced_image_url=f"/api/v1/images/{image_id}/content?variant=enhanced" if outcome.enhancement_applied else None,
+        quality_gate_version=outcome.final.quality_gate_version,
     )
 
 
@@ -174,4 +180,9 @@ def _response_from_payload(image_id: UUID, payload: dict) -> QualityAssessmentRe
         recheck_score=final["quality_score"] if enhanced else None, recheck_decision=final["quality_decision"] if enhanced else None,
         recheck_issues=[QualityIssueResponse(**issue) for issue in final["issues"]] if enhanced else [], next_action=final["next_action"],
         input_metadata=initial["input_metadata"], feature_vector=initial["feature_vector"],
+        quality_band=final.get("quality_band"), ai_eligible=final.get("ai_eligible"),
+        recoverable_issues=final.get("recoverable_issues", []), non_recoverable_issues=final.get("non_recoverable_issues", []),
+        hard_focus_floor_passed=final.get("hard_focus_floor_passed"), enhanced_image_available=enhanced,
+        enhanced_image_url=f"/api/v1/images/{image_id}/content?variant=enhanced" if enhanced else None,
+        quality_gate_version=final.get("quality_gate_version", "image-trust-gate-v2-adaptive"),
     )

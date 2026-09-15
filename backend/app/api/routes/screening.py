@@ -85,7 +85,7 @@ async def run_screening(
             raise HTTPException(status_code=404, detail="Screening session not found for this image")
         existing = await db.get(ScreeningRun, session.id)
         if existing is not None:
-            if existing.status in {"QUEUED", "PROCESSING"}:
+            if existing.status in {"QUEUED", "PROCESSING", "PRIMARY_RESULT_READY", "EVIDENCE_PROCESSING"}:
                 raise HTTPException(status_code=409, detail="A screening run is already in progress for this session")
             raise HTTPException(status_code=409, detail="This screening session already has a terminal master run; create a new session to rerun it")
     else:
@@ -161,10 +161,7 @@ async def classify_screening(
     image = await db.get(FundusImage, payload.image_id)
     if image is None:
         raise HTTPException(status_code=404, detail="Image not found")
-    if image.quality_decision not in {QualityDecision.GRADABLE, QualityDecision.BORDERLINE, QualityDecision.ACCEPT}:
-        if image.quality_decision == QualityDecision.UNGRADABLE:
-            raise HTTPException(status_code=422, detail="Image Trust Gate marked this image UNGRADABLE; recapture before classification")
-        raise HTTPException(status_code=409, detail="Run the Image Trust Gate before classification")
+    _require_ai_eligible_quality(image, "classification")
     if payload.screening_session_id:
         session = await db.get(ScreeningSession, payload.screening_session_id)
         if session is None or session.fundus_image_id != image.id:
@@ -176,7 +173,7 @@ async def classify_screening(
             db.add(session)
             await db.flush()
     try:
-        content = await get_storage().get(image.storage_path)
+        content = await get_storage().get(_prepared_storage_path(image))
         prediction = await classifier.classify(content)
         fusion = await referable_fusion.evaluate(content, prediction)
     except ClassifierNotConfiguredError as exc:
@@ -216,13 +213,10 @@ async def analyze_structures(
     image = await db.get(FundusImage, payload.image_id)
     if image is None:
         raise HTTPException(status_code=404, detail="Image not found")
-    if image.quality_decision not in {QualityDecision.GRADABLE, QualityDecision.BORDERLINE, QualityDecision.ACCEPT}:
-        if image.quality_decision == QualityDecision.UNGRADABLE:
-            raise HTTPException(status_code=422, detail="Image Trust Gate marked this image UNGRADABLE; recapture before evidence analysis")
-        raise HTTPException(status_code=409, detail="Run the Image Trust Gate before evidence analysis")
+    _require_ai_eligible_quality(image, "evidence analysis")
     session = await _session_for_image(image, payload.screening_session_id, db)
     try:
-        content = await get_storage().get(image.storage_path)
+        content = await get_storage().get(_prepared_storage_path(image))
         analysis = await evidence_service.analyze(content, str(image.id), str(session.id), image.eye.value)
     except FileNotFoundError as exc:
         raise HTTPException(status_code=404, detail="Stored image is not available") from exc
@@ -242,13 +236,10 @@ async def explain_screening(
     image = await db.get(FundusImage, payload.image_id)
     if image is None:
         raise HTTPException(status_code=404, detail="Image not found")
-    if image.quality_decision not in {QualityDecision.GRADABLE, QualityDecision.BORDERLINE, QualityDecision.ACCEPT}:
-        if image.quality_decision == QualityDecision.UNGRADABLE:
-            raise HTTPException(status_code=422, detail="Image Trust Gate marked this image UNGRADABLE; recapture before explainability analysis")
-        raise HTTPException(status_code=409, detail="Run the Image Trust Gate before explainability analysis")
+    _require_ai_eligible_quality(image, "explainability analysis")
     session = await _session_for_image(image, payload.screening_session_id, db)
     try:
-        content = await get_storage().get(image.storage_path)
+        content = await get_storage().get(_prepared_storage_path(image))
         evidence = await evidence_service.analyze(content, str(image.id), str(session.id), image.eye.value)
         explanation = await explainability_service.analyze(
             content, str(image.id), str(session.id), evidence,
@@ -278,13 +269,10 @@ async def trust_screening(
     image = await db.get(FundusImage, payload.image_id)
     if image is None:
         raise HTTPException(status_code=404, detail="Image not found")
-    if image.quality_decision not in {QualityDecision.GRADABLE, QualityDecision.BORDERLINE, QualityDecision.ACCEPT}:
-        if image.quality_decision == QualityDecision.UNGRADABLE:
-            raise HTTPException(status_code=422, detail="Image Trust Gate marked this image UNGRADABLE; recapture before RetinaGuard")
-        raise HTTPException(status_code=409, detail="Run the Image Trust Gate before RetinaGuard")
+    _require_ai_eligible_quality(image, "RetinaGuard")
     session = await _session_for_image(image, payload.screening_session_id, db)
     try:
-        content = await get_storage().get(image.storage_path)
+        content = await get_storage().get(_prepared_storage_path(image))
         prediction = await classifier.classify(content)
         fusion = await referable_fusion.evaluate(content, prediction)
         evidence = await evidence_service.analyze(content, str(image.id), str(session.id), image.eye.value)
@@ -330,6 +318,30 @@ async def trust_screening(
     await persist_retinaguard(result.to_dict(), image, session, db, prediction)
     response = {"image_id": image.id, "screening_session_id": session.id, **result.to_dict(), "note": "RetinaGuard is a transparent engineering self-check. Its score and category are not a medical diagnosis or a clinical trust guarantee."}
     return TrustResponse.model_validate(response)
+
+
+def _require_ai_eligible_quality(image: FundusImage, stage: str) -> None:
+    """Prevent direct stage routes from bypassing the adaptive post-check."""
+
+    if image.quality_decision in {QualityDecision.GRADABLE, QualityDecision.ACCEPT}:
+        return
+    if image.quality_decision in {
+        QualityDecision.BORDERLINE,
+        QualityDecision.UNGRADABLE,
+        QualityDecision.ENHANCE,
+        QualityDecision.REJECT,
+    }:
+        raise HTTPException(
+            status_code=422,
+            detail=f"Image Trust Gate did not reach the minimum quality for {stage}; recapture before continuing",
+        )
+    raise HTTPException(status_code=409, detail=f"Run the Image Trust Gate before {stage}")
+
+
+def _prepared_storage_path(image: FundusImage) -> str:
+    """Use the accepted post-enhancement derivative without overwriting source bytes."""
+
+    return image.enhanced_storage_path or image.storage_path
 
 
 async def _session_for_image(image: FundusImage, requested_id: UUID | None, db: AsyncSession) -> ScreeningSession:
@@ -478,24 +490,27 @@ def _public_session_status(value: ScreeningStatus) -> str:
 
 
 def _run_response(run: ScreeningRun, session: ScreeningSession) -> ScreeningRunResponse:
-    message = "Screening run completed"
     primary_status = _primary_status(run)
     evidence_status, evidence_message = _evidence_status(run)
-    if run.status == "FAILED":
+    public_status = _public_run_status(run, primary_status, evidence_status)
+    message = "Final screening result is ready"
+    if public_status == "FAILED":
         message = (run.error or {}).get("message", "Screening run failed")
-    elif run.status == "COMPLETED" and run.triage and run.triage.get("recommendation") == "RECAPTURE_IMAGE":
+    elif public_status == "QUALITY_BLOCKED":
         message = "Screening stopped after the Image Trust Gate; recapture is recommended"
-    elif primary_status == "COMPLETED" and evidence_status == "PROCESSING":
-        message = "Primary screening completed; optional evidence is processing"
-    elif primary_status == "COMPLETED" and evidence_status == "TIMED_OUT":
-        message = "Primary screening completed; optional evidence exceeded its runtime budget"
-    elif primary_status == "COMPLETED" and evidence_status == "UNAVAILABLE":
-        message = "Primary screening completed; optional evidence is unavailable"
+    elif public_status == "PRIMARY_RESULT_READY":
+        message = "Primary screening result is ready; supporting evidence is queued"
+    elif public_status == "EVIDENCE_PROCESSING":
+        message = "Primary screening result is ready; supporting evidence is processing"
+    elif evidence_status == "TIMED_OUT":
+        message = "Final screening result is ready; optional evidence exceeded its runtime budget"
+    elif evidence_status == "UNAVAILABLE":
+        message = "Final screening result is ready; optional evidence is unavailable"
     elif run.status in {"QUEUED", "PROCESSING"}:
         message = "Screening run is in progress"
     return ScreeningRunResponse(
         screening_id=run.id, screening_session_id=session.id, patient_id=session.patient_id, image_id=run.fundus_image_id,
-        status=run.status, primary_status=primary_status, evidence_status=evidence_status, evidence_message=evidence_message,
+        status=public_status, primary_status=primary_status, evidence_status=evidence_status, evidence_message=evidence_message,
         stage_status=run.stage_status or {}, stage_metrics=run.stage_metrics or {}, stage_errors=run.stage_errors or {},
         quality=run.quality, classification=run.classification, lesions=run.lesions,
         explainability=run.explainability, retinaguard=run.retinaguard, triage=run.triage,
@@ -507,12 +522,30 @@ def _primary_status(run: ScreeningRun) -> str:
     if run.status == "FAILED":
         return "FAILED"
     if run.triage and run.classification:
-        return "COMPLETED"
-    if run.status == "COMPLETED" and run.triage and not run.classification:
+        return "PRIMARY_RESULT_READY"
+    if run.status in {"COMPLETED", "QUALITY_BLOCKED"} and run.triage and not run.classification:
         return "QUALITY_BLOCKED"
     if run.status in {"QUEUED", "PROCESSING"}:
         return "PROCESSING"
     return "PENDING"
+
+
+def _public_run_status(run: ScreeningRun, primary_status: str, evidence_status: str) -> str:
+    """Map legacy and current persisted states to the explicit public lifecycle."""
+    if run.status == "FAILED":
+        return "FAILED"
+    if primary_status == "QUALITY_BLOCKED":
+        return "QUALITY_BLOCKED"
+    if primary_status == "PRIMARY_RESULT_READY" and evidence_status == "PROCESSING":
+        # A legacy COMPLETED row may have been written before the explicit
+        # lifecycle existed; the API must still never expose it as terminal.
+        optional_states = [(run.stage_status or {}).get(stage) for stage in OPTIONAL_EVIDENCE_STAGES]
+        return "EVIDENCE_PROCESSING" if "PROCESSING" in optional_states else "PRIMARY_RESULT_READY"
+    if primary_status == "PRIMARY_RESULT_READY" and evidence_status in {"AVAILABLE", "TIMED_OUT", "UNAVAILABLE"}:
+        return "FINAL_RESULT_READY"
+    if run.status in {"PRIMARY_RESULT_READY", "EVIDENCE_PROCESSING"}:
+        return run.status
+    return run.status
 
 
 def _evidence_status(run: ScreeningRun) -> tuple[str, str]:

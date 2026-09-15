@@ -41,3 +41,11 @@ class QualityAssessmentResponse(BaseModel):
     next_action: str
     input_metadata: dict
     feature_vector: dict[str, float]
+    quality_band: str | None = None
+    ai_eligible: bool | None = None
+    recoverable_issues: list[str] = Field(default_factory=list)
+    non_recoverable_issues: list[str] = Field(default_factory=list)
+    hard_focus_floor_passed: bool | None = None
+    enhanced_image_available: bool = False
+    enhanced_image_url: str | None = None
+    quality_gate_version: str = "image-trust-gate-v2-adaptive"

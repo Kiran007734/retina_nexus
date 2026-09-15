@@ -1,9 +1,9 @@
 {
-  "started_at": "2026-09-14T20:19:24.919540+00:00",
+  "started_at": "2026-09-15T04:45:19.180852+00:00",
   "cases": {
     "gradable": {
       "source_image": "ml/datasets/raw/aptos2019/train_images/04efb1a284cc.png",
-      "image_id": "0109bdf0-b794-42fe-973e-5986dbd7f969",
+      "image_id": "ac9c5842-bd27-4243-a0f8-b54f382f7917",
       "quality": {
         "quality_decision": "GRADABLE",
         "quality_score": 0.7783,
@@ -23,9 +23,9 @@
           "camera_metadata": {}
         }
       },
-      "screening_id": "3e6be56c-6fc0-4f72-a56b-cc6ebff2e654",
+      "screening_id": "604c729f-d103-46e4-8e13-993c28aed9fc",
       "initial_run": {
-        "screening_id": "3e6be56c-6fc0-4f72-a56b-cc6ebff2e654",
+        "screening_id": "604c729f-d103-46e4-8e13-993c28aed9fc",
         "status": "COMPLETED",
         "primary_status": "COMPLETED",
         "evidence_status": "PROCESSING",
@@ -44,39 +44,39 @@
         },
         "stage_metrics": {
           "image_validation": {
-            "started_at": "2026-09-14T20:19:29.579826+00:00",
-            "completed_at": "2026-09-14T20:19:29.647586+00:00",
-            "duration_ms": 67.76
+            "started_at": "2026-09-15T04:45:24.933097+00:00",
+            "completed_at": "2026-09-15T04:45:25.033046+00:00",
+            "duration_ms": 99.949
           },
           "quality_assessment": {
-            "started_at": "2026-09-14T20:19:29.661333+00:00",
-            "completed_at": "2026-09-14T20:19:29.827320+00:00",
-            "duration_ms": 165.987
+            "started_at": "2026-09-15T04:45:25.055835+00:00",
+            "completed_at": "2026-09-15T04:45:25.293636+00:00",
+            "duration_ms": 237.801
           },
           "dr_classification": {
-            "started_at": "2026-09-14T20:19:29.835176+00:00",
-            "completed_at": "2026-09-14T20:19:30.080666+00:00",
-            "duration_ms": 245.49
+            "started_at": "2026-09-15T04:45:25.326678+00:00",
+            "completed_at": "2026-09-15T04:45:26.094714+00:00",
+            "duration_ms": 768.036
           },
           "uncertainty": {
-            "started_at": "2026-09-14T20:19:30.084673+00:00",
-            "completed_at": "2026-09-14T20:19:30.098698+00:00",
-            "duration_ms": 14.025
+            "started_at": "2026-09-15T04:45:26.121095+00:00",
+            "completed_at": "2026-09-15T04:45:26.139811+00:00",
+            "duration_ms": 18.716
           },
           "model_disagreement": {
-            "started_at": "2026-09-14T20:19:30.114704+00:00",
-            "completed_at": "2026-09-14T20:19:30.124724+00:00",
-            "duration_ms": 10.02
+            "started_at": "2026-09-15T04:45:26.159622+00:00",
+            "completed_at": "2026-09-15T04:45:26.177853+00:00",
+            "duration_ms": 18.231
           },
           "retinaguard": {
-            "started_at": "2026-09-14T20:19:30.134582+00:00",
-            "completed_at": "2026-09-14T20:19:30.142339+00:00",
-            "duration_ms": 7.757
+            "started_at": "2026-09-15T04:45:26.195690+00:00",
+            "completed_at": "2026-09-15T04:45:26.219647+00:00",
+            "duration_ms": 23.957
           },
           "triage": {
-            "started_at": "2026-09-14T20:19:30.158571+00:00",
-            "completed_at": "2026-09-14T20:19:30.170337+00:00",
-            "duration_ms": 11.766
+            "started_at": "2026-09-15T04:45:26.238321+00:00",
+            "completed_at": "2026-09-15T04:45:26.257134+00:00",
+            "duration_ms": 18.813
           },
           "retinal_structure_analysis": {
             "optional": true,
@@ -96,8 +96,8 @@
           },
           "primary_screening": {
             "status": "COMPLETED",
-            "completed_at": "2026-09-14T20:19:30.229523+00:00",
-            "duration_ms": 662.923
+            "completed_at": "2026-09-15T04:45:26.353700+00:00",
+            "duration_ms": 1453.681
           }
         },
         "stage_errors": {},
@@ -176,7 +176,7 @@
         }
       },
       "final_run": {
-        "screening_id": "3e6be56c-6fc0-4f72-a56b-cc6ebff2e654",
+        "screening_id": "604c729f-d103-46e4-8e13-993c28aed9fc",
         "status": "COMPLETED",
         "primary_status": "COMPLETED",
         "evidence_status": "AVAILABLE",
@@ -195,75 +195,75 @@
         },
         "stage_metrics": {
           "image_validation": {
-            "started_at": "2026-09-14T20:19:29.579826+00:00",
-            "completed_at": "2026-09-14T20:19:29.647586+00:00",
-            "duration_ms": 67.76
+            "started_at": "2026-09-15T04:45:24.933097+00:00",
+            "completed_at": "2026-09-15T04:45:25.033046+00:00",
+            "duration_ms": 99.949
           },
           "quality_assessment": {
-            "started_at": "2026-09-14T20:19:29.661333+00:00",
-            "completed_at": "2026-09-14T20:19:29.827320+00:00",
-            "duration_ms": 165.987
+            "started_at": "2026-09-15T04:45:25.055835+00:00",
+            "completed_at": "2026-09-15T04:45:25.293636+00:00",
+            "duration_ms": 237.801
           },
           "dr_classification": {
-            "started_at": "2026-09-14T20:19:29.835176+00:00",
-            "completed_at": "2026-09-14T20:19:30.080666+00:00",
-            "duration_ms": 245.49
+            "started_at": "2026-09-15T04:45:25.326678+00:00",
+            "completed_at": "2026-09-15T04:45:26.094714+00:00",
+            "duration_ms": 768.036
           },
           "uncertainty": {
-            "started_at": "2026-09-14T20:19:30.084673+00:00",
-            "completed_at": "2026-09-14T20:19:30.098698+00:00",
-            "duration_ms": 14.025
+            "started_at": "2026-09-15T04:45:26.121095+00:00",
+            "completed_at": "2026-09-15T04:45:26.139811+00:00",
+            "duration_ms": 18.716
           },
           "model_disagreement": {
-            "started_at": "2026-09-14T20:19:30.114704+00:00",
-            "completed_at": "2026-09-14T20:19:30.124724+00:00",
-            "duration_ms": 10.02
+            "started_at": "2026-09-15T04:45:26.159622+00:00",
+            "completed_at": "2026-09-15T04:45:26.177853+00:00",
+            "duration_ms": 18.231
           },
           "retinaguard": {
-            "started_at": "2026-09-14T20:19:30.134582+00:00",
-            "completed_at": "2026-09-14T20:19:30.142339+00:00",
-            "duration_ms": 7.757
+            "started_at": "2026-09-15T04:45:26.195690+00:00",
+            "completed_at": "2026-09-15T04:45:26.219647+00:00",
+            "duration_ms": 23.957
           },
           "triage": {
-            "started_at": "2026-09-14T20:19:30.158571+00:00",
-            "completed_at": "2026-09-14T20:19:30.170337+00:00",
-            "duration_ms": 11.766
+            "started_at": "2026-09-15T04:45:26.238321+00:00",
+            "completed_at": "2026-09-15T04:45:26.257134+00:00",
+            "duration_ms": 18.813
           },
           "retinal_structure_analysis": {
             "optional": true,
             "runtime_budget_seconds": 240,
-            "started_at": "2026-09-14T20:19:30.272308+00:00",
-            "vessel_inference_ms": 64074.099,
-            "structure_analysis_ms": 96.87,
-            "completed_at": "2026-09-14T20:20:39.124002+00:00",
-            "duration_ms": 68851.694
+            "started_at": "2026-09-15T04:45:26.548769+00:00",
+            "vessel_inference_ms": 78630.963,
+            "structure_analysis_ms": 41.464,
+            "completed_at": "2026-09-15T04:46:49.305062+00:00",
+            "duration_ms": 82756.293
           },
           "lesion_detection": {
             "optional": true,
             "runtime_budget_seconds": 240,
-            "started_at": "2026-09-14T20:19:30.279256+00:00",
-            "lesion_inference_ms": 3131.817,
-            "completed_at": "2026-09-14T20:20:39.221169+00:00",
-            "duration_ms": 68941.913
+            "started_at": "2026-09-15T04:45:26.569595+00:00",
+            "lesion_inference_ms": 2759.396,
+            "completed_at": "2026-09-15T04:46:49.324317+00:00",
+            "duration_ms": 82754.722
           },
           "grad_cam": {
             "optional": true,
             "runtime_budget_seconds": 30,
-            "started_at": "2026-09-14T20:20:39.327637+00:00",
-            "completed_at": "2026-09-14T20:20:42.395090+00:00",
-            "duration_ms": 3067.453
+            "started_at": "2026-09-15T04:46:49.376099+00:00",
+            "completed_at": "2026-09-15T04:46:52.040648+00:00",
+            "duration_ms": 2664.549
           },
           "attention_lesion_agreement": {
             "optional": true,
             "runtime_budget_seconds": 30,
-            "started_at": "2026-09-14T20:20:39.359938+00:00",
-            "completed_at": "2026-09-14T20:20:42.444397+00:00",
-            "duration_ms": 3084.459
+            "started_at": "2026-09-15T04:46:49.393880+00:00",
+            "completed_at": "2026-09-15T04:46:52.096506+00:00",
+            "duration_ms": 2702.626
           },
           "primary_screening": {
             "status": "COMPLETED",
-            "completed_at": "2026-09-14T20:19:30.229523+00:00",
-            "duration_ms": 662.923
+            "completed_at": "2026-09-15T04:45:26.353700+00:00",
+            "duration_ms": 1453.681
           }
         },
         "stage_errors": {},
@@ -391,11 +391,11 @@
           "normalized_attention_present": true
         }
       },
-      "poll_duration_ms": 79277.2
+      "poll_duration_ms": 92708.7
     },
     "borderline": {
       "source_image": "ml/datasets/raw/aptos2019/train_images/005b95c28852.png",
-      "image_id": "adef5ad9-4b26-42be-a75b-4a4f3fbd8ba1",
+      "image_id": "1c1dc26d-dc29-4f30-8ce0-74a1e156f80f",
       "quality": {
         "quality_decision": "BORDERLINE",
         "quality_score": 0.742,
@@ -420,9 +420,9 @@
           "camera_metadata": {}
         }
       },
-      "screening_id": "08cd0ff4-ff67-4530-875d-f2431a27abef",
+      "screening_id": "320c198a-7f2e-404e-8adf-8d047f272a08",
       "initial_run": {
-        "screening_id": "08cd0ff4-ff67-4530-875d-f2431a27abef",
+        "screening_id": "320c198a-7f2e-404e-8adf-8d047f272a08",
         "status": "COMPLETED",
         "primary_status": "QUALITY_BLOCKED",
         "evidence_status": "NOT_RUN",
@@ -441,49 +441,49 @@
         },
         "stage_metrics": {
           "image_validation": {
-            "started_at": "2026-09-14T20:20:56.676675+00:00",
-            "completed_at": "2026-09-14T20:20:56.756687+00:00",
-            "duration_ms": 80.012
+            "started_at": "2026-09-15T04:47:05.989520+00:00",
+            "completed_at": "2026-09-15T04:47:06.058320+00:00",
+            "duration_ms": 68.8
           },
           "quality_assessment": {
-            "started_at": "2026-09-14T20:20:56.763832+00:00",
-            "completed_at": "2026-09-14T20:21:01.024282+00:00",
-            "duration_ms": 4260.45
+            "started_at": "2026-09-15T04:47:06.072098+00:00",
+            "completed_at": "2026-09-15T04:47:25.461419+00:00",
+            "duration_ms": 19389.321
           },
           "dr_classification": {
-            "completed_at": "2026-09-14T20:21:01.043892+00:00",
+            "completed_at": "2026-09-15T04:47:25.484056+00:00",
             "duration_ms": 0.0
           },
           "retinal_structure_analysis": {
-            "completed_at": "2026-09-14T20:21:01.055839+00:00",
+            "completed_at": "2026-09-15T04:47:25.502868+00:00",
             "duration_ms": 0.0
           },
           "lesion_detection": {
-            "completed_at": "2026-09-14T20:21:01.072176+00:00",
+            "completed_at": "2026-09-15T04:47:25.529099+00:00",
             "duration_ms": 0.0
           },
           "grad_cam": {
-            "completed_at": "2026-09-14T20:21:01.086822+00:00",
+            "completed_at": "2026-09-15T04:47:25.545078+00:00",
             "duration_ms": 0.0
           },
           "attention_lesion_agreement": {
-            "completed_at": "2026-09-14T20:21:01.103617+00:00",
+            "completed_at": "2026-09-15T04:47:25.571543+00:00",
             "duration_ms": 0.0
           },
           "uncertainty": {
-            "completed_at": "2026-09-14T20:21:01.117122+00:00",
+            "completed_at": "2026-09-15T04:47:25.594741+00:00",
             "duration_ms": 0.0
           },
           "model_disagreement": {
-            "completed_at": "2026-09-14T20:21:01.137848+00:00",
+            "completed_at": "2026-09-15T04:47:25.617074+00:00",
             "duration_ms": 0.0
           },
           "retinaguard": {
-            "completed_at": "2026-09-14T20:21:01.152040+00:00",
+            "completed_at": "2026-09-15T04:47:25.639810+00:00",
             "duration_ms": 0.0
           },
           "triage": {
-            "completed_at": "2026-09-14T20:21:01.166192+00:00"
+            "completed_at": "2026-09-15T04:47:25.656425+00:00"
           }
         },
         "stage_errors": {},
@@ -529,7 +529,7 @@
         }
       },
       "final_run": {
-        "screening_id": "08cd0ff4-ff67-4530-875d-f2431a27abef",
+        "screening_id": "320c198a-7f2e-404e-8adf-8d047f272a08",
         "status": "COMPLETED",
         "primary_status": "QUALITY_BLOCKED",
         "evidence_status": "NOT_RUN",
@@ -548,49 +548,49 @@
         },
         "stage_metrics": {
           "image_validation": {
-            "started_at": "2026-09-14T20:20:56.676675+00:00",
-            "completed_at": "2026-09-14T20:20:56.756687+00:00",
-            "duration_ms": 80.012
+            "started_at": "2026-09-15T04:47:05.989520+00:00",
+            "completed_at": "2026-09-15T04:47:06.058320+00:00",
+            "duration_ms": 68.8
           },
           "quality_assessment": {
-            "started_at": "2026-09-14T20:20:56.763832+00:00",
-            "completed_at": "2026-09-14T20:21:01.024282+00:00",
-            "duration_ms": 4260.45
+            "started_at": "2026-09-15T04:47:06.072098+00:00",
+            "completed_at": "2026-09-15T04:47:25.461419+00:00",
+            "duration_ms": 19389.321
           },
           "dr_classification": {
-            "completed_at": "2026-09-14T20:21:01.043892+00:00",
+            "completed_at": "2026-09-15T04:47:25.484056+00:00",
             "duration_ms": 0.0
           },
           "retinal_structure_analysis": {
-            "completed_at": "2026-09-14T20:21:01.055839+00:00",
+            "completed_at": "2026-09-15T04:47:25.502868+00:00",
             "duration_ms": 0.0
           },
           "lesion_detection": {
-            "completed_at": "2026-09-14T20:21:01.072176+00:00",
+            "completed_at": "2026-09-15T04:47:25.529099+00:00",
             "duration_ms": 0.0
           },
           "grad_cam": {
-            "completed_at": "2026-09-14T20:21:01.086822+00:00",
+            "completed_at": "2026-09-15T04:47:25.545078+00:00",
             "duration_ms": 0.0
           },
           "attention_lesion_agreement": {
-            "completed_at": "2026-09-14T20:21:01.103617+00:00",
+            "completed_at": "2026-09-15T04:47:25.571543+00:00",
             "duration_ms": 0.0
           },
           "uncertainty": {
-            "completed_at": "2026-09-14T20:21:01.117122+00:00",
+            "completed_at": "2026-09-15T04:47:25.594741+00:00",
             "duration_ms": 0.0
           },
           "model_disagreement": {
-            "completed_at": "2026-09-14T20:21:01.137848+00:00",
+            "completed_at": "2026-09-15T04:47:25.617074+00:00",
             "duration_ms": 0.0
           },
           "retinaguard": {
-            "completed_at": "2026-09-14T20:21:01.152040+00:00",
+            "completed_at": "2026-09-15T04:47:25.639810+00:00",
             "duration_ms": 0.0
           },
           "triage": {
-            "completed_at": "2026-09-14T20:21:01.166192+00:00"
+            "completed_at": "2026-09-15T04:47:25.656425+00:00"
           }
         },
         "stage_errors": {},
@@ -638,7 +638,7 @@
     },
     "ungradable": {
       "source_image": "ml/datasets/raw/aptos2019/train_images/000c1434d8d7.png",
-      "image_id": "11f8fbec-b210-466a-98f3-cd1b72394525",
+      "image_id": "6d227381-97c2-4f1e-b825-921bb9a6e39a",
       "quality": {
         "quality_decision": "UNGRADABLE",
         "quality_score": 0.6238,
@@ -667,9 +667,9 @@
           "camera_metadata": {}
         }
       },
-      "screening_id": "b37741ea-fb4f-4b75-bb1b-3aaae059a974",
+      "screening_id": "417de26b-06e4-43ef-a897-d494748758a4",
       "initial_run": {
-        "screening_id": "b37741ea-fb4f-4b75-bb1b-3aaae059a974",
+        "screening_id": "417de26b-06e4-43ef-a897-d494748758a4",
         "status": "COMPLETED",
         "primary_status": "QUALITY_BLOCKED",
         "evidence_status": "NOT_RUN",
@@ -688,49 +688,49 @@
         },
         "stage_metrics": {
           "image_validation": {
-            "started_at": "2026-09-14T20:21:02.247149+00:00",
-            "completed_at": "2026-09-14T20:21:02.415325+00:00",
-            "duration_ms": 168.176
+            "started_at": "2026-09-15T04:47:27.345917+00:00",
+            "completed_at": "2026-09-15T04:47:27.601138+00:00",
+            "duration_ms": 255.221
           },
           "quality_assessment": {
-            "started_at": "2026-09-14T20:21:02.427160+00:00",
-            "completed_at": "2026-09-14T20:21:03.087599+00:00",
-            "duration_ms": 660.439
+            "started_at": "2026-09-15T04:47:27.623025+00:00",
+            "completed_at": "2026-09-15T04:47:28.922995+00:00",
+            "duration_ms": 1299.97
           },
           "dr_classification": {
-            "completed_at": "2026-09-14T20:21:03.098118+00:00",
+            "completed_at": "2026-09-15T04:47:28.953286+00:00",
             "duration_ms": 0.0
           },
           "retinal_structure_analysis": {
-            "completed_at": "2026-09-14T20:21:03.108761+00:00",
+            "completed_at": "2026-09-15T04:47:28.965357+00:00",
             "duration_ms": 0.0
           },
           "lesion_detection": {
-            "completed_at": "2026-09-14T20:21:03.125614+00:00",
+            "completed_at": "2026-09-15T04:47:28.972692+00:00",
             "duration_ms": 0.0
           },
           "grad_cam": {
-            "completed_at": "2026-09-14T20:21:03.141753+00:00",
+            "completed_at": "2026-09-15T04:47:28.980276+00:00",
             "duration_ms": 0.0
           },
           "attention_lesion_agreement": {
-            "completed_at": "2026-09-14T20:21:03.159084+00:00",
+            "completed_at": "2026-09-15T04:47:28.996200+00:00",
             "duration_ms": 0.0
           },
           "uncertainty": {
-            "completed_at": "2026-09-14T20:21:03.177575+00:00",
+            "completed_at": "2026-09-15T04:47:29.031391+00:00",
             "duration_ms": 0.0
           },
           "model_disagreement": {
-            "completed_at": "2026-09-14T20:21:03.197421+00:00",
+            "completed_at": "2026-09-15T04:47:29.062663+00:00",
             "duration_ms": 0.0
           },
           "retinaguard": {
-            "completed_at": "2026-09-14T20:21:03.214465+00:00",
+            "completed_at": "2026-09-15T04:47:29.086832+00:00",
             "duration_ms": 0.0
           },
           "triage": {
-            "completed_at": "2026-09-14T20:21:03.231552+00:00"
+            "completed_at": "2026-09-15T04:47:29.094311+00:00"
           }
         },
         "stage_errors": {},
@@ -776,7 +776,7 @@
         }
       },
       "final_run": {
-        "screening_id": "b37741ea-fb4f-4b75-bb1b-3aaae059a974",
+        "screening_id": "417de26b-06e4-43ef-a897-d494748758a4",
         "status": "COMPLETED",
         "primary_status": "QUALITY_BLOCKED",
         "evidence_status": "NOT_RUN",
@@ -795,49 +795,49 @@
         },
         "stage_metrics": {
           "image_validation": {
-            "started_at": "2026-09-14T20:21:02.247149+00:00",
-            "completed_at": "2026-09-14T20:21:02.415325+00:00",
-            "duration_ms": 168.176
+            "started_at": "2026-09-15T04:47:27.345917+00:00",
+            "completed_at": "2026-09-15T04:47:27.601138+00:00",
+            "duration_ms": 255.221
           },
           "quality_assessment": {
-            "started_at": "2026-09-14T20:21:02.427160+00:00",
-            "completed_at": "2026-09-14T20:21:03.087599+00:00",
-            "duration_ms": 660.439
+            "started_at": "2026-09-15T04:47:27.623025+00:00",
+            "completed_at": "2026-09-15T04:47:28.922995+00:00",
+            "duration_ms": 1299.97
           },
           "dr_classification": {
-            "completed_at": "2026-09-14T20:21:03.098118+00:00",
+            "completed_at": "2026-09-15T04:47:28.953286+00:00",
             "duration_ms": 0.0
           },
           "retinal_structure_analysis": {
-            "completed_at": "2026-09-14T20:21:03.108761+00:00",
+            "completed_at": "2026-09-15T04:47:28.965357+00:00",
             "duration_ms": 0.0
           },
           "lesion_detection": {
-            "completed_at": "2026-09-14T20:21:03.125614+00:00",
+            "completed_at": "2026-09-15T04:47:28.972692+00:00",
             "duration_ms": 0.0
           },
           "grad_cam": {
-            "completed_at": "2026-09-14T20:21:03.141753+00:00",
+            "completed_at": "2026-09-15T04:47:28.980276+00:00",
             "duration_ms": 0.0
           },
           "attention_lesion_agreement": {
-            "completed_at": "2026-09-14T20:21:03.159084+00:00",
+            "completed_at": "2026-09-15T04:47:28.996200+00:00",
             "duration_ms": 0.0
           },
           "uncertainty": {
-            "completed_at": "2026-09-14T20:21:03.177575+00:00",
+            "completed_at": "2026-09-15T04:47:29.031391+00:00",
             "duration_ms": 0.0
           },
           "model_disagreement": {
-            "completed_at": "2026-09-14T20:21:03.197421+00:00",
+            "completed_at": "2026-09-15T04:47:29.062663+00:00",
             "duration_ms": 0.0
           },
           "retinaguard": {
-            "completed_at": "2026-09-14T20:21:03.214465+00:00",
+            "completed_at": "2026-09-15T04:47:29.086832+00:00",
             "duration_ms": 0.0
           },
           "triage": {
-            "completed_at": "2026-09-14T20:21:03.231552+00:00"
+            "completed_at": "2026-09-15T04:47:29.094311+00:00"
           }
         },
         "stage_errors": {},
@@ -889,11 +889,11 @@
     "requested_workers": 2,
     "requests": [
       {
-        "image_id": "2928c77f-fbd8-451b-ad47-02ba2b1be8b6",
+        "image_id": "7b4a0c13-75cd-434d-988a-d818bb2c7278",
         "response": {
           "status": 200,
           "content_type": "application/json",
-          "request_id": "c5a5b12b-0987-495f-9e5f-fb9a6c2b28ca",
+          "request_id": "6c3519ce-0ef8-45bf-9da7-5b1ceaeb33dd",
           "keys": [
             "classification",
             "error",
@@ -917,16 +917,16 @@
             "triage"
           ]
         },
-        "duration_ms": 3076.3,
-        "screening_id": "96ca72b0-259a-4367-90f0-e01a58def530",
+        "duration_ms": 3061.4,
+        "screening_id": "929e1e9f-e3b7-4118-b6c5-762f97ac34f5",
         "primary_status": "COMPLETED"
       },
       {
-        "image_id": "24a1d95c-88de-4edb-88e9-802628d9feaf",
+        "image_id": "93fc7d50-4bef-4b35-8572-66587edcb06d",
         "response": {
           "status": 200,
           "content_type": "application/json",
-          "request_id": "86475ee4-c20c-4e19-8ea7-a7a68479aeb5",
+          "request_id": "e33f802d-9812-494e-a664-fc39af8b0f8b",
           "keys": [
             "classification",
             "error",
@@ -950,8 +950,8 @@
             "triage"
           ]
         },
-        "duration_ms": 2620.0,
-        "screening_id": "5362b8b5-3a52-4d73-9974-2cb51ab2a100",
+        "duration_ms": 4129.4,
+        "screening_id": "ccd8d44d-efae-454c-b606-779cdb29e2bb",
         "primary_status": "COMPLETED"
       }
     ],
@@ -960,7 +960,7 @@
   },
   "report_and_artifact": {
     "report_status": 201,
-    "report_id": "03a5048f-a774-4f59-ad07-bc6a27493a38",
+    "report_id": "1a1e7dff-f5ec-4887-a17a-2f4e856b4fa2",
     "report_status_value": "ready",
     "ai_assessment": {
       "predicted_grade": 0,
@@ -991,7 +991,7 @@
       {
         "path": "/@vite/client",
         "status": 200,
-        "bytes": 182631
+        "bytes": 182615
       },
       {
         "path": "/src/main.tsx",
@@ -1002,5 +1002,5 @@
     "browser_automation_available": false,
     "browser_note": "No browser automation tool is installed in this environment; live HTTP/API and production build checks were executed."
   },
-  "finished_at": "2026-09-14T20:21:32.456874+00:00"
+  "finished_at": "2026-09-15T04:48:30.240714+00:00"
 }

@@ -147,8 +147,9 @@ def test_retinaguard_optional_evidence_gap_is_review_recommended_and_explicit():
     assert result.trust_category == "REVIEW_RECOMMENDED"
     payload = result.to_dict()
     assert payload["recommended_safe_action"] == "PROFESSIONAL_REVIEW_RECOMMENDED"
-    assert payload["evidence_status"] == "UNAVAILABLE"
-    assert payload["ood_status"] == "UNAVAILABLE"
+    assert payload["evidence_status"] == "NOT_RUN"
+    assert payload["ood_status"] == "NOT_CONFIGURED"
+    assert all(item["score"] is None and item["contribution"] == 0 for item in payload["contributing_factors"] if item["raw_value"] is None)
     assert payload["provenance"]["clinical_validation_claim"] is False
     assert payload["assessment_status"] == "COMPLETED_LIMITED"
     assert payload["decision_trace"]["critical_signals_missing"] == []

@@ -1,6 +1,6 @@
 # RETINA-NEXUS Localhost Validation Report
 
-Validation window: `2026-09-14T20:19:24.919540+00:00` to `2026-09-14T20:21:32.456874+00:00`
+Validation window: `2026-09-15T04:45:19.180852+00:00` to `2026-09-15T04:48:30.240714+00:00`
 
 This is an engineering integration report. It is not a clinical validation or regulatory approval claim.
 
@@ -31,7 +31,7 @@ The gradable case was processed by the registered EfficientNet-B0 classifier and
 
 ## Reports and artifacts
 
-- Report generation: HTTP `201`, report ID `03a5048f-a774-4f59-ad07-bc6a27493a38`.
+- Report generation: HTTP `201`, report ID `1a1e7dff-f5ec-4887-a17a-2f4e856b4fa2`.
 - PDF: HTTP `200`, `2058 bytes`, header `True`, EOF `True`.
 - Artifact safety: `True`; reports contain summaries rather than image bytes.
 
@@ -51,7 +51,7 @@ The gradable case was processed by the registered EfficientNet-B0 classifier and
 
 ## Regression checks
 
-- Pytest: `103 passed in 70.11s`.
+- Pytest: `103 passed in 63.05s`.
 - Python compileall: `PASS`.
 - Frontend lint/typecheck: `PASS (tsc --noEmit)`.
 - Frontend production build: `PASS (Vite production build)`.

@@ -129,7 +129,7 @@ def test_ungradable_image_blocks_all_clinical_ai_stages():
 
     output = asyncio.run(service.execute(db, run, session, image, None))
 
-    assert output.status == "COMPLETED"
+    assert output.status == "QUALITY_BLOCKED"
     assert output.classification is None
     assert output.triage["recommendation"] == "RECAPTURE_IMAGE"
     assert output.stage_status["dr_classification"] == "SKIPPED"
@@ -172,7 +172,7 @@ def test_primary_result_does_not_wait_for_optional_evidence():
 
     output = asyncio.run(service.execute_primary(db, run, session, image, None))
 
-    assert output.status == "COMPLETED"
+    assert output.status == "PRIMARY_RESULT_READY"
     assert output.classification["predicted_grade_label"] == "Moderate"
     assert output.retinaguard["trust_category"] == "TRUSTED"
     assert output.triage["recommendation"] == "SPECIALIST_REVIEW_RECOMMENDED"
@@ -217,7 +217,7 @@ def test_optional_evidence_timeout_preserves_primary_state():
 
     asyncio.run(service._execute_optional(db, run, session, image, None, content, None, None))
 
-    assert run.status == "COMPLETED"
+    assert run.status == "FINAL_RESULT_READY"
     assert run.stage_status["retinal_structure_analysis"] == "TIMED_OUT"
     assert run.stage_status["lesion_detection"] == "TIMED_OUT"
     assert run.lesions["status"] == "TIMED_OUT"

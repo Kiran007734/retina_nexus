@@ -72,6 +72,7 @@ class RetinaGuardInputs:
     mc_error: str | None = None
     model_predictions: list[dict[str, Any]] = field(default_factory=list)
     lesion_evidence_strength: float | None = None
+    lesion_evidence_status: str = "NOT_RUN"
     vessel_evidence_status: str = "UNAVAILABLE"
     attention_lesion_agreement: dict[str, Any] | None = None
     explanation_stability: dict[str, Any] | None = None
@@ -158,13 +159,13 @@ class RetinaGuardResult:
         disagreement_status = self.model_disagreement.get("status", "UNAVAILABLE")
         return {
             "image_quality": signal_snapshot.get("image_quality_status", "UNAVAILABLE"),
-            "confidence": "AVAILABLE" if signal_snapshot.get("calibrated_confidence") is not None else "UNAVAILABLE",
-            "uncertainty": "AVAILABLE" if self.uncertainty.get("score") is not None else "UNAVAILABLE",
-            "lesion_evidence": "AVAILABLE" if signal_snapshot.get("lesion_evidence_strength") is not None else "NOT_AVAILABLE",
-            "attention_lesion_agreement": signal_snapshot.get("evidence_status", "UNAVAILABLE"),
-            "explanation_stability": signal_snapshot.get("explanation_status", "UNAVAILABLE"),
-            "model_agreement": "AVAILABLE" if disagreement_status == "COMPLETED" else "NOT_AVAILABLE",
-            "ood": "AVAILABLE" if ood_status in {"IN_DISTRIBUTION", "SHIFTED"} else "NOT_AVAILABLE",
+            "confidence": "AVAILABLE" if signal_snapshot.get("calibrated_confidence") is not None else "NOT_AVAILABLE",
+            "uncertainty": "AVAILABLE" if self.uncertainty.get("score") is not None else "NOT_RUN",
+            "lesion_evidence": signal_snapshot.get("lesion_evidence_status", "NOT_AVAILABLE"),
+            "attention_lesion_agreement": signal_snapshot.get("evidence_status", "NOT_RUN"),
+            "explanation_stability": signal_snapshot.get("explanation_status", "NOT_RUN"),
+            "model_agreement": "AVAILABLE" if disagreement_status == "COMPLETED" else "NOT_RUN" if self.model_disagreement.get("model_count", 0) == 1 else "NOT_AVAILABLE",
+            "ood": "AVAILABLE" if ood_status in {"IN_DISTRIBUTION", "SHIFTED"} else ood_status,
         }
 
 
@@ -180,7 +181,7 @@ class RetinaGuardEngine:
         uncertainty_estimator: UncertaintyEstimator | None = None,
         ood_monitor: FeatureDistributionMonitor | None = None,
         weights: dict[str, float] | None = None,
-        missing_signal_score: float = 0.25,
+        missing_signal_score: float | None = None,
         trusted_threshold: float = 0.75,
         unreliable_threshold: float = 0.45,
         mc_dropout_enabled: bool = False,
@@ -196,7 +197,12 @@ class RetinaGuardEngine:
             raise ValueError("RetinaGuard weights must be non-negative and non-zero")
         total = sum(self.weights.values())
         self.weights = {key: value / total for key, value in self.weights.items()}
-        self.missing_signal_score = _clamp(missing_signal_score)
+        # Kept as a backwards-compatible constructor argument for callers
+        # created before the missing-signal policy was formalized. Missing
+        # signals are now excluded and the configured weights are
+        # renormalized across signals that actually ran. They must never be
+        # converted into an invented score.
+        self.missing_signal_score = None
         self.trusted_threshold = trusted_threshold
         self.unreliable_threshold = unreliable_threshold
         self.mc_dropout_enabled = mc_dropout_enabled
@@ -250,14 +256,28 @@ class RetinaGuardEngine:
             "explanation_stability": "Combined prediction and Grad-CAM stability when perturbation tests ran.", "ood": "In-distribution score from the configured reference feature distribution.",
         }
         contributing: list[dict[str, Any]] = []
+        available_weight_total = sum(weight for name, weight in self.weights.items() if factors.get(name) is not None)
         weighted_total = 0.0
         for name, weight in self.weights.items():
             value = factors.get(name)
             available = value is not None
-            used = _clamp(float(value)) if available else self.missing_signal_score
-            contribution = weight * used
+            effective_weight = weight / available_weight_total if available and available_weight_total > 0 else 0.0
+            used = _clamp(float(value)) if available else None
+            contribution = effective_weight * used if used is not None else 0.0
             weighted_total += contribution
-            contributing.append({"factor": name, "score": used, "raw_value": value, "weight": round(weight, 6), "contribution": round(contribution, 6), "status": "available" if available else "missing_or_not_run", "explanation": factor_explanations[name]})
+            contributing.append({
+                "factor": name,
+                "score": used,
+                "raw_value": value,
+                # ``weight`` is the effective weight used for this decision;
+                # configured_weight preserves the disclosed policy. A missing
+                # factor has zero effective weight and zero contribution.
+                "weight": round(effective_weight, 6),
+                "configured_weight": round(weight, 6),
+                "contribution": round(contribution, 6),
+                "status": self._factor_status(name, inputs, calibrated_confidence, disagreement, ood, stability_score, agreement_score),
+                "explanation": factor_explanations[name],
+            })
         trust_score = _clamp(weighted_total)
         risk_flags = self._risk_flags(inputs, calibrated_confidence, uncertainty, disagreement, agreement_score, stability_score, ood, factors)
         core_missing = [name for name in ("quality", "calibrated_confidence", "uncertainty") if factors.get(name) is None]
@@ -296,12 +316,12 @@ class RetinaGuardEngine:
             "referable_fusion": referable_fusion,
             "vessel_evidence_status": inputs.vessel_evidence_status or "UNAVAILABLE",
             "image_quality_status": "AVAILABLE" if inputs.quality_score is not None else "UNAVAILABLE",
-            "lesion_evidence_status": "AVAILABLE" if inputs.lesion_evidence_strength is not None else "NOT_AVAILABLE",
-            "evidence_status": "AVAILABLE" if inputs.attention_lesion_agreement and agreement_score is not None else "UNAVAILABLE",
-            "explanation_status": "AVAILABLE" if inputs.explanation_stability and inputs.explanation_stability.get("status") == "COMPLETED" else "LIMITED" if inputs.explanation_stability else "UNAVAILABLE",
+            "lesion_evidence_status": inputs.lesion_evidence_status if inputs.lesion_evidence_strength is None else "AVAILABLE",
+            "evidence_status": self._evidence_signal_status(inputs.attention_lesion_agreement, agreement_score),
+            "explanation_status": self._explanation_signal_status(inputs.explanation_stability),
         }
         assessment_status = "FAILED" if inputs.pipeline_failure else "COMPLETED_WITH_CRITICAL_SIGNAL_MISSING" if core_missing else "COMPLETED_LIMITED" if optional_missing else "COMPLETED"
-        configuration = {"version": self.version, "weights": self.weights, "missing_signal_score": self.missing_signal_score, "trusted_threshold": self.trusted_threshold, "unreliable_threshold": self.unreliable_threshold, "calibration_version": self.calibrator.version, "mc_dropout_enabled": self.mc_dropout_enabled, "mc_dropout_samples": self.mc_dropout_samples, "vessel_evidence_policy": "provenance_audit_only; no independent trust-score weight", "referable_fusion_policy": "max(primary_probability, verifier_probability) >= 0.40; severity remains primary argmax", "decision_policy_version": "retinaguard-state-policy-v3-graceful-degradation", "optional_capability_policy": "required" if self.require_optional_capabilities else "graceful_degradation", "safe_action": safe_action, "clinical_validation_claim": False, "assessment_status": assessment_status, "critical_signals_missing": core_missing, "optional_signals_unavailable": optional_missing, "pipeline_failure": inputs.pipeline_failure}
+        configuration = {"version": self.version, "weights": self.weights, "missing_signal_score": None, "missing_signal_policy": "excluded_and_weight_renormalized", "effective_weight_total": round(available_weight_total, 6), "trusted_threshold": self.trusted_threshold, "unreliable_threshold": self.unreliable_threshold, "calibration_version": self.calibrator.version, "mc_dropout_enabled": self.mc_dropout_enabled, "mc_dropout_samples": self.mc_dropout_samples, "vessel_evidence_policy": "provenance_audit_only; no independent trust-score weight", "referable_fusion_policy": "max(primary_probability, verifier_probability) >= 0.40; severity remains primary argmax", "decision_policy_version": "retinaguard-state-policy-v3-graceful-degradation", "optional_capability_policy": "required" if self.require_optional_capabilities else "graceful_degradation", "safe_action": safe_action, "clinical_validation_claim": False, "assessment_status": assessment_status, "critical_signals_missing": core_missing, "optional_signals_unavailable": optional_missing, "pipeline_failure": inputs.pipeline_failure}
         result = RetinaGuardResult(trust_score, category, contributing, risk_flags, action, calibration, uncertainty, disagreement, ood, signal_snapshot, configuration, reason_summary)
         logger.info("retinaguard.score", extra={"event": "retinaguard.score", "trust_category": result.trust_category, "configuration_version": self.version, "missing_capabilities": optional_missing})
         return result
@@ -321,6 +341,43 @@ class RetinaGuardEngine:
             return None
         values = [float(stability[key]) for key in ("prediction_stability", "grad_cam_stability") if stability.get(key) is not None]
         return sum(values) / len(values) if values else None
+
+    @staticmethod
+    def _evidence_signal_status(agreement: dict[str, Any] | None, score: float | None) -> str:
+        if score is not None:
+            return "AVAILABLE"
+        if agreement is None:
+            return "NOT_RUN"
+        return str(agreement.get("status") or "NOT_AVAILABLE").upper().replace(" ", "_")
+
+    @staticmethod
+    def _explanation_signal_status(stability: dict[str, Any] | None) -> str:
+        if not stability:
+            return "NOT_RUN"
+        status = str(stability.get("status") or "NOT_AVAILABLE").upper()
+        return "AVAILABLE" if status == "COMPLETED" else "NOT_RUN" if status == "SKIPPED" else status
+
+    @classmethod
+    def _factor_status(cls, name: str, inputs: RetinaGuardInputs, calibrated_confidence: float | None, disagreement: dict[str, Any], ood: dict[str, Any], stability: float | None, agreement: float | None) -> str:
+        if name == "quality":
+            return "AVAILABLE" if inputs.quality_score is not None else "NOT_RUN"
+        if name == "calibrated_confidence":
+            return "AVAILABLE" if calibrated_confidence is not None else "NOT_AVAILABLE"
+        if name == "uncertainty":
+            return "AVAILABLE" if inputs.probabilities else "NOT_RUN"
+        if name == "model_agreement":
+            return "AVAILABLE" if disagreement.get("agreement") is not None else "NOT_RUN" if len(inputs.model_predictions) == 0 else "NOT_AVAILABLE"
+        if name == "lesion_evidence":
+            return "AVAILABLE" if inputs.lesion_evidence_strength is not None else inputs.lesion_evidence_status or "NOT_AVAILABLE"
+        if name == "attention_lesion_agreement":
+            return cls._evidence_signal_status(inputs.attention_lesion_agreement, agreement)
+        if name == "explanation_stability":
+            return cls._explanation_signal_status(inputs.explanation_stability)
+        if name == "ood":
+            if ood.get("score") is not None:
+                return "AVAILABLE"
+            return str(ood.get("status") or "NOT_CONFIGURED").upper()
+        return "NOT_AVAILABLE"
 
     @staticmethod
     def _risk_flags(inputs: RetinaGuardInputs, calibrated: float | None, uncertainty: dict[str, Any], disagreement: dict[str, Any], agreement: float | None, stability: float | None, ood: dict[str, Any], factors: dict[str, float | None]) -> list[dict[str, str]]:

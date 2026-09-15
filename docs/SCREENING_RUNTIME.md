@@ -22,7 +22,7 @@ The default configuration is:
 | Path | Setting | Default |
 | --- | --- | ---: |
 | Primary screening | `SCREENING_PRIMARY_TIMEOUT_SECONDS` | 60 s |
-| Retinal evidence | `SCREENING_OPTIONAL_EVIDENCE_TIMEOUT_SECONDS` | 240 s |
+| Retinal evidence | `SCREENING_OPTIONAL_EVIDENCE_TIMEOUT_SECONDS` | 600 s |
 | Grad-CAM/agreement | `SCREENING_OPTIONAL_EXPLAINABILITY_TIMEOUT_SECONDS` | 30 s |
 
 The values are based on persisted local measurements: classification roughly
@@ -33,13 +33,30 @@ budgets, not promises and not clinical validation.
 
 ## Honest degradation
 
-The run remains `COMPLETED` when primary stages finish. Optional stages are
-reported as `QUEUED`, `PROCESSING`, `COMPLETED`, `TIMED_OUT`, or `UNAVAILABLE`.
+The public run lifecycle is explicit: `PRIMARY_RESULT_READY` means the
+classifier, reliability assessment, and triage are ready while optional work
+is queued; `EVIDENCE_PROCESSING` means optional work is active;
+`FINAL_RESULT_READY` means every optional stage is terminal. Optional stages
+are reported as `QUEUED`, `PROCESSING`, `COMPLETED`, `TIMED_OUT`, or
+`UNAVAILABLE`. A run is never exposed as a terminal completed result while
+evidence is still processing.
 Timeouts include the stage, budget, reason, and `evidence_is_not_negative` in
 the durable audit/status record. No mask, heatmap, lesion count, agreement
 score, or other placeholder is created for work that did not complete.
 
 The frontend polls while evidence is processing and distinguishes primary
-completion from optional evidence availability. A process restart may interrupt
-in-process optional work; a supervised queue worker is the next deployment
-hardening step.
+completion from optional evidence availability. Missing RetinaGuard signals are
+marked `NOT_RUN`, `NOT_AVAILABLE`, or `UNAVAILABLE`; they have no fabricated
+score and no contribution, while available configured weights are
+renormalized. A process restart may interrupt in-process optional work; a
+supervised queue worker is the next deployment hardening step.
+
+## Optional local Qwen secondary verifier
+
+`Qwen/Qwen3-VL-4B-Instruct` is an optional local-only secondary visual
+verification capability. It is never the primary classifier and cannot rewrite
+the primary severity grade or referable result. The adapter reports
+`NOT_CONFIGURED` until all official model shards, tokenizer, processor, and a
+successful real image inference are present. A failed or timed-out verifier
+must leave the primary screening result operational and produces no fabricated
+agreement score.

@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import io
 import math
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, field
 from typing import Any
 
 try:
@@ -28,6 +28,14 @@ class TrustGateDecision:
     GRADABLE = "GRADABLE"
     BORDERLINE = "BORDERLINE"
     UNGRADABLE = "UNGRADABLE"
+
+
+class QualityBand:
+    """Adaptive quality bands used to decide whether enhancement is safe."""
+
+    GREEN = "GREEN"
+    YELLOW = "YELLOW"
+    RED = "RED"
 
 
 @dataclass
@@ -59,6 +67,12 @@ class QualityAssessment:
     next_action: str
     input_metadata: dict[str, Any]
     feature_vector: dict[str, float]
+    quality_band: str | None = None
+    ai_eligible: bool | None = None
+    recoverable_issues: list[str] = field(default_factory=list)
+    non_recoverable_issues: list[str] = field(default_factory=list)
+    hard_focus_floor_passed: bool | None = None
+    quality_gate_version: str = "image-trust-gate-v2-adaptive"
 
     def to_dict(self) -> dict[str, Any]:
         value = asdict(self)
@@ -72,6 +86,27 @@ class TrustGateOutcome:
     final: QualityAssessment
     enhancement_applied: bool = False
     enhancement_passes: int = 0
+
+
+def is_enhancement_candidate(assessment: QualityAssessment) -> bool:
+    """Return whether one controlled enhancement pass is allowed.
+
+    The fallback preserves compatibility with lightweight test/integration
+    services that predate the adaptive fields. Runtime assessments always set
+    ``quality_band`` explicitly.
+    """
+
+    return assessment.quality_band == QualityBand.YELLOW or (
+        assessment.quality_band is None and assessment.quality_decision == TrustGateDecision.BORDERLINE
+    )
+
+
+def is_ai_eligible(assessment: QualityAssessment) -> bool:
+    """Return whether the post-check is allowed to enter clinical AI."""
+
+    return assessment.ai_eligible is True or (
+        assessment.ai_eligible is None and assessment.quality_decision == TrustGateDecision.GRADABLE
+    )
 
 
 def _clamp(value: float, lower: float = 0.0, upper: float = 1.0) -> float:
@@ -98,6 +133,7 @@ def _camera_metadata(image: Image.Image) -> dict[str, str]:
 class ImageTrustGateService:
     """Quality gate using independent focus, exposure, field, and artifact signals."""
 
+    VERSION = "image-trust-gate-v2-adaptive"
     min_dimension = 256
     max_dimension = 12000
 
@@ -232,22 +268,56 @@ class ImageTrustGateService:
             "high_clip_ratio": round(high_clip_ratio, 4), "border_artifact_ratio": round(border_ratio, 4),
             "saturated_artifact_ratio": round(saturated_ratio, 4),
         }
-        weighted_score = sum(component_scores[name] * weight for name, weight in {"focus": .25, "illumination": .15, "contrast": .15, "field_of_view": .20, "exposure": .15, "artifacts": .10}.items())
         issues = self._issues(component_scores, metrics)
-        if weighted_score < 0.45 or any(issue.severity == "severe" for issue in issues):
+        weighted_score = sum(component_scores[name] * weight for name, weight in {"focus": .25, "illumination": .15, "contrast": .15, "field_of_view": .20, "exposure": .15, "artifacts": .10}.items())
+        recoverable_issues, non_recoverable_issues = self._classify_issue_recoverability(issues)
+        # This is the existing conservative acquisition floor. Enhancement is
+        # never allowed to turn a capture below this floor into a clinical AI
+        # input because enhancement can create artificial high-frequency edges.
+        hard_focus_floor_passed = focus_score >= 0.10
+        if not hard_focus_floor_passed and "focus_acquisition_floor" not in non_recoverable_issues:
+            non_recoverable_issues.append("focus_acquisition_floor")
+
+        if non_recoverable_issues:
+            quality_band = QualityBand.RED
             decision = TrustGateDecision.UNGRADABLE
-        elif weighted_score < 0.75 or issues:
-            decision = TrustGateDecision.BORDERLINE
-        else:
+        elif not issues and weighted_score >= 0.75:
+            quality_band = QualityBand.GREEN
             decision = TrustGateDecision.GRADABLE
+        else:
+            # Aggregate score and recoverable component issues are signals for
+            # one controlled enhancement pass, not an automatic rejection.
+            quality_band = QualityBand.YELLOW
+            decision = TrustGateDecision.BORDERLINE
         camera = camera_metadata or input_metadata.camera_metadata
         features = {**component_scores, "mean_intensity": _clamp(mean_intensity / 255), "contrast_spread": _clamp(contrast_spread / 255), "retinal_coverage": _clamp(retinal_coverage)}
         return QualityAssessment(
             quality_decision=decision, quality_score=_clamp(weighted_score), component_scores=component_scores,
             metrics=metrics, issues=issues, recommended_action=self._recommended_action(decision),
             next_action=self._next_action(decision), input_metadata={**asdict(input_metadata), "camera_metadata": camera},
-            feature_vector=features,
+            feature_vector=features, quality_band=quality_band, ai_eligible=quality_band == QualityBand.GREEN,
+            recoverable_issues=recoverable_issues, non_recoverable_issues=non_recoverable_issues,
+            hard_focus_floor_passed=hard_focus_floor_passed, quality_gate_version=self.VERSION,
         )
+
+    @staticmethod
+    def _classify_issue_recoverability(issues: list[QualityIssue]) -> tuple[list[str], list[str]]:
+        """Classify quality issues without allowing enhancement to hide loss.
+
+        Contrast and mild illumination/tonal problems are candidates for the
+        existing controlled enhancer. Loss of field, severe blur, clipping,
+        and visible artifacts are acquisition failures and remain red.
+        """
+
+        recoverable: list[str] = []
+        non_recoverable: list[str] = []
+        always_non_recoverable = {"severe_blur", "insufficient_field_of_view", "image_artifacts", "clipped_exposure"}
+        for issue in issues:
+            if issue.type in always_non_recoverable or issue.severity == "severe":
+                non_recoverable.append(issue.type)
+            else:
+                recoverable.append(issue.type)
+        return recoverable, non_recoverable
 
     def _issues(self, scores: dict[str, float], metrics: dict[str, float]) -> list[QualityIssue]:
         issues: list[QualityIssue] = []
@@ -305,7 +375,7 @@ class ImageTrustGateService:
 
     async def assess_with_controlled_enhancement(self, image_bytes: bytes) -> TrustGateOutcome:
         initial = await self.assess(image_bytes)
-        if initial.quality_decision != TrustGateDecision.BORDERLINE:
+        if not is_enhancement_candidate(initial):
             return TrustGateOutcome(initial, initial)
         enhanced = self.enhance(image_bytes)
         recheck = await self.assess(enhanced)

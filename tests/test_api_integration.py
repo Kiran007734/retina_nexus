@@ -36,6 +36,7 @@ from app.ml.inference.classifier import DRPrediction  # noqa: E402
 from app.ml.quality.trust_gate import ImageInputMetadata, QualityAssessment, QualityIssue, TrustGateDecision  # noqa: E402
 from app.ml.trust.guard import RetinaGuardResult  # noqa: E402
 from app.models.user import User  # noqa: E402
+from app.models.screening_run import ScreeningRun  # noqa: E402
 from app.services.container import get_classifier_service, get_evidence_service, get_explainability_service, get_image_quality_service, get_retinaguard_service, get_screening_pipeline_service  # noqa: E402
 from app.services.screening_pipeline import ScreeningPipelineService  # noqa: E402
 
@@ -126,8 +127,8 @@ async def _run_workflow(monkeypatch):
             master = await client.post("/api/v1/screening/run", json={"image_id": high_id})
             assert master.status_code == 200
             master_payload = master.json()
-            assert master_payload["status"] == "COMPLETED"
-            assert master_payload["primary_status"] == "COMPLETED"
+            assert master_payload["status"] == "PRIMARY_RESULT_READY"
+            assert master_payload["primary_status"] == "PRIMARY_RESULT_READY"
             assert master_payload["classification"]["predicted_grade_label"] == "Moderate"
             assert master_payload["evidence_status"] == "PROCESSING"
             assert master_payload["lesions"] is None
@@ -147,6 +148,8 @@ async def _run_workflow(monkeypatch):
             poor_quality = await client.post(f"/api/v1/images/{poor_upload['image_id']}/quality")
             assert poor_quality.status_code == 200
             assert poor_quality.json()["quality_decision"] == "UNGRADABLE"
+            blocked_direct = await client.post("/api/v1/screening/classify", json={"image_id": poor_upload["image_id"]})
+            assert blocked_direct.status_code == 422
             blocked = await client.post("/api/v1/screening/run", json={"image_id": poor_upload["image_id"]})
             assert blocked.status_code == 200
             blocked_payload = blocked.json()
@@ -167,6 +170,13 @@ async def _run_workflow(monkeypatch):
             )
             assert review.status_code == 201
             assert review.json()["decision"] == "approve"
+            report_not_ready = await client.post("/api/v1/reports/generate", json={"session_id": master_payload["screening_id"]})
+            assert report_not_ready.status_code == 409
+            assert report_not_ready.json()["error_code"] == "REPORT_NOT_READY"
+            async with session_factory() as db:
+                final_run = await db.get(ScreeningRun, UUID(master_payload["screening_id"]))
+                final_run.stage_status = {**(final_run.stage_status or {}), "retinal_structure_analysis": "COMPLETED", "lesion_detection": "COMPLETED", "grad_cam": "COMPLETED", "attention_lesion_agreement": "COMPLETED"}
+                await db.commit()
             report = await client.post("/api/v1/reports/generate", json={"session_id": master_payload["screening_id"]})
             assert report.status_code == 201
             assert report.json()["report"]["ai_assessment"]["predicted_grade_label"] == "Moderate"

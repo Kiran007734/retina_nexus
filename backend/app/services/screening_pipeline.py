@@ -26,9 +26,9 @@ from app.ml.evidence.service import RetinalEvidenceAnalysis, RetinalEvidenceServ
 from app.ml.explainability.service import ExplainabilityAnalysis, ExplainabilityService
 from app.ml.inference.classifier import ClassifierNotConfiguredError, DRPrediction, TorchDRClassificationService
 from app.ml.inference.referable_fusion import ReferableFusionResult, ReferableFusionService
-from app.ml.quality.trust_gate import ImageTrustGateError, ImageTrustGateService, TrustGateDecision, TrustGateOutcome
+from app.ml.quality.trust_gate import ImageTrustGateError, ImageTrustGateService, TrustGateDecision, TrustGateOutcome, is_ai_eligible, is_enhancement_candidate
 from app.ml.trust.guard import RetinaGuardEngine, RetinaGuardInputs, RetinaGuardResult, derive_lesion_evidence_strength, derive_vessel_evidence_status
-from app.services.screening_persistence import persist_evidence_analysis, persist_explainability
+from app.services.screening_persistence import persist_evidence_analysis, persist_explainability, persist_retinaguard
 
 logger = logging.getLogger(__name__)
 
@@ -94,7 +94,7 @@ class ScreeningPipelineOutput:
 class ScreeningPipelineService:
     """Run every current AI stage with explicit state and audit boundaries."""
 
-    def __init__(self, quality_service: ImageTrustGateService, classifier: TorchDRClassificationService, evidence_service: RetinalEvidenceService, explainability_service: ExplainabilityService, retinaguard: RetinaGuardEngine, storage: Any, max_concurrent_screenings: int = 1, timeout_seconds: int = 900, primary_timeout_seconds: int = 60, optional_evidence_timeout_seconds: int = 240, optional_explainability_timeout_seconds: int = 30, referable_fusion: ReferableFusionService | None = None):
+    def __init__(self, quality_service: ImageTrustGateService, classifier: TorchDRClassificationService, evidence_service: RetinalEvidenceService, explainability_service: ExplainabilityService, retinaguard: RetinaGuardEngine, storage: Any, max_concurrent_screenings: int = 1, timeout_seconds: int = 900, primary_timeout_seconds: int = 60, optional_evidence_timeout_seconds: int = 600, optional_explainability_timeout_seconds: int = 30, referable_fusion: ReferableFusionService | None = None):
         self.quality_service = quality_service
         self.classifier = classifier
         self.evidence_service = evidence_service
@@ -109,7 +109,8 @@ class ScreeningPipelineService:
         self.timeout_seconds = max(30, int(timeout_seconds))
         # These defaults are based on observed local CPU timings: classification
         # was ~0.6-3.3s, Grad-CAM/agreement ~0.9-8.4s, while combined vessel and
-        # lesion evidence ranged from ~1.4s to ~310s and once exceeded 900s.
+        # lesion evidence ranged from ~1.4s to ~310s. The evidence budget is
+        # bounded but allows the verified CPU adapters to finish on slower hosts.
         # The budgets bound optional work without changing model behaviour.
         self.primary_timeout_seconds = max(10, int(primary_timeout_seconds))
         self.optional_evidence_timeout_seconds = max(30, int(optional_evidence_timeout_seconds))
@@ -170,19 +171,54 @@ class ScreeningPipelineService:
                     if not run or not image or not session or not run.classification:
                         logger.warning("screening.optional.not_started", extra={"event": "screening.optional.not_started", "screening_id": str(run_id)})
                         return
+                    run.status = "EVIDENCE_PROCESSING"
+                    session.status = ScreeningStatus.PROCESSING
+                    await db.commit()
                     content_path = image.enhanced_storage_path or image.storage_path
                     prepared = await self.storage.get(content_path)
                     await self._execute_optional(db, run, session, image, actor_id, prepared, run_stability, run_counterfactual)
+                    if run.status == "FINAL_RESULT_READY" and session.status == ScreeningStatus.PROCESSING:
+                        session.status = ScreeningStatus.NEEDS_REVIEW
+                        session.completed_at = run.completed_at or datetime.now(timezone.utc)
+                        await db.commit()
         except asyncio.CancelledError:
             logger.warning("screening.optional.cancelled", extra={"event": "screening.optional.cancelled", "screening_id": str(run_id)})
             raise
-        except Exception:
+        except Exception as exc:
             logger.exception("screening.optional.worker_failed", extra={"event": "screening.optional.worker_failed", "screening_id": str(run_id)})
+            await self._mark_unhandled_optional_failure(run_id, actor_id, exc)
+
+    async def _mark_unhandled_optional_failure(self, run_id: UUID, actor_id: UUID | None, exc: Exception) -> None:
+        """Close an unexpected worker failure without hiding a primary result."""
+        try:
+            async with SessionLocal() as db:
+                run = await db.get(ScreeningRun, run_id)
+                session = await db.get(ScreeningSession, run_id)
+                if run is None or session is None:
+                    return
+                message = safe_error_message(exc, "Optional evidence failed safely; no evidence output was substituted.")
+                details = {"status": "UNAVAILABLE", "type": type(exc).__name__, "message": message, "evidence_is_not_negative": True}
+                stage_status = dict(run.stage_status or {})
+                for stage in OPTIONAL_EVIDENCE_STAGES:
+                    if stage_status.get(stage) in {"PENDING", "QUEUED", "PROCESSING"}:
+                        stage_status[stage] = "UNAVAILABLE"
+                run.stage_status = stage_status
+                run.stage_errors = {**(run.stage_errors or {}), "optional_worker": details}
+                run.lesions = run.lesions or {"status": "UNAVAILABLE", "modules": {}, "evidence_map_data_uri": None, "note": message, "provenance": details}
+                run.explainability = run.explainability or self._optional_failure_payload("UNAVAILABLE", "optional_worker", exc)
+                run.status = "FINAL_RESULT_READY" if run.classification else "FAILED"
+                run.completed_at = datetime.now(timezone.utc)
+                session.status = ScreeningStatus.NEEDS_REVIEW if run.classification else ScreeningStatus.FAILED
+                session.completed_at = run.completed_at
+                await self._audit(db, actor_id, "screening.optional.worker_failed", run.id, details)
+                await db.commit()
+        except Exception:
+            logger.exception("screening.optional.worker_failure_persist_failed", extra={"event": "screening.optional.worker_failure_persist_failed", "screening_id": str(run_id)})
 
     async def _execute_inner(self, db: AsyncSession, run: ScreeningRun, session: ScreeningSession, image: FundusImage, actor_id: UUID | None, run_stability: bool | None = None, run_counterfactual: bool | None = None, model_predictions: list[dict[str, Any]] | None = None, defer_optional: bool = False) -> ScreeningPipelineOutput:
         run.status = "PROCESSING"
         run.started_at = datetime.now(timezone.utc)
-        run.model_versions = {"preprocessing": "image-trust-gate-v1"}
+        run.model_versions = {"preprocessing": ImageTrustGateService.VERSION}
         session.status = ScreeningStatus.PROCESSING
         await self._audit(db, actor_id, "screening.run.processing", run.id, {"stage_count": len(RUN_STAGES)})
         await db.commit()
@@ -200,7 +236,7 @@ class ScreeningPipelineService:
             run.quality = {"initial": outcome.initial.to_dict(), "final": outcome.final.to_dict(), "enhancement_applied": outcome.enhancement_applied, "enhancement_passes": outcome.enhancement_passes}
             await self._set_stage(db, run, actor_id, current_stage, "COMPLETED", {"decision": outcome.final.quality_decision, "enhancement_passes": outcome.enhancement_passes})
 
-            if outcome.final.quality_decision != TrustGateDecision.GRADABLE:
+            if not is_ai_eligible(outcome.final):
                 return await self._finish_quality_block(db, run, session, image, actor_id, outcome)
 
             current_stage = "dr_classification"
@@ -209,7 +245,7 @@ class ScreeningPipelineService:
             fusion = await self.referable_fusion.evaluate(prepared, prediction)
             classification = self._classification_payload(prediction, fusion)
             run.classification = classification
-            run.model_versions = {"preprocessing": "image-trust-gate-v1", "dr_classifier": prediction.model_version, "dr_backbone": prediction.backbone, "referable_fusion": fusion.to_dict()}
+            run.model_versions = {"preprocessing": ImageTrustGateService.VERSION, "dr_classifier": prediction.model_version, "dr_backbone": prediction.backbone, "referable_fusion": fusion.to_dict()}
             await self._set_stage(db, run, actor_id, current_stage, "COMPLETED", {"model_version": prediction.model_version})
 
             if defer_optional:
@@ -283,7 +319,7 @@ class ScreeningPipelineService:
             triage = self._triage_payload(prediction, guard, fusion)
             run.triage = triage
             await self._set_stage(db, run, actor_id, current_stage, "COMPLETED", {"recommendation": triage["recommendation"], "priority": triage["priority"]})
-            run.status = "COMPLETED"
+            run.status = "FINAL_RESULT_READY"
             run.completed_at = datetime.now(timezone.utc)
             session.status = ScreeningStatus.COMPLETE if guard.trust_category == "TRUSTED" else ScreeningStatus.NEEDS_REVIEW
             session.completed_at = session.completed_at or run.completed_at
@@ -408,10 +444,10 @@ class ScreeningPipelineService:
                     "reason": "Primary screening completed; optional explainability runs in the background.",
                 })
 
-            run.status = "COMPLETED"
+            run.status = "PRIMARY_RESULT_READY"
             run.completed_at = datetime.now(timezone.utc)
-            session.status = ScreeningStatus.COMPLETE if guard.trust_category == "TRUSTED" else ScreeningStatus.NEEDS_REVIEW
-            session.completed_at = session.completed_at or run.completed_at
+            session.status = ScreeningStatus.PROCESSING
+            session.completed_at = None
             run.stage_metrics = {
                 **(run.stage_metrics or {}),
                 "primary_screening": {
@@ -480,7 +516,7 @@ class ScreeningPipelineService:
             )
         except OptionalStageTimeout as timeout:
             await self._mark_optional_timeout(db, run, actor_id, ("retinal_structure_analysis", "lesion_detection"), timeout)
-            await self._drain_optional_task(timeout.task, run.id, timeout.stage)
+            self._schedule_optional_drain(timeout.task, run.id, timeout.stage)
             return
         except Exception as exc:
             await self._mark_optional_failure(db, run, actor_id, ("retinal_structure_analysis", "lesion_detection"), exc)
@@ -536,7 +572,7 @@ class ScreeningPipelineService:
             run.explainability = self._optional_unavailable_payload("TIMED_OUT", timeout)
             run.model_versions = {**(run.model_versions or {}), "explainability": {"status": "TIMED_OUT", "runtime_budget_seconds": timeout.budget_seconds}}
             await self._mark_optional_timeout(db, run, actor_id, ("grad_cam", "attention_lesion_agreement"), timeout)
-            await self._drain_optional_task(timeout.task, run.id, timeout.stage)
+            self._schedule_optional_drain(timeout.task, run.id, timeout.stage)
             return
         except Exception as exc:
             run.explainability = self._optional_failure_payload("UNAVAILABLE", "explainability", exc)
@@ -555,12 +591,80 @@ class ScreeningPipelineService:
             "score": explanation.attention_lesion_agreement.get("score"),
         })
         await persist_explainability(run.explainability, image, session, db, update_session_status=False)
+        await self._refresh_final_reliability(db, run, session, image, actor_id, prepared, evidence, explanation)
+        run.status = "FINAL_RESULT_READY"
+        run.completed_at = datetime.now(timezone.utc)
         await self._audit(db, actor_id, "screening.optional.completed", run.id, {
             "evidence_status": "AVAILABLE",
             "explainability_status": "AVAILABLE",
             "model_versions": run.model_versions,
         })
         await db.commit()
+
+    def _schedule_optional_drain(self, task: asyncio.Task[Any], screening_id: UUID, stage: str) -> None:
+        """Drain a timed-out worker in the background without stranding status."""
+        drain = asyncio.create_task(self._drain_optional_task(task, screening_id, stage))
+        self._background_tasks.add(drain)
+        drain.add_done_callback(self._background_tasks.discard)
+
+    async def _refresh_final_reliability(
+        self,
+        db: AsyncSession,
+        run: ScreeningRun,
+        session: ScreeningSession,
+        image: FundusImage,
+        actor_id: UUID | None,
+        prepared: bytes,
+        evidence: RetinalEvidenceAnalysis,
+        explanation: ExplainabilityAnalysis,
+    ) -> None:
+        """Re-evaluate reliability after optional evidence is genuinely available.
+
+        The primary classifier output is immutable here. Only RetinaGuard and
+        the workflow recommendation are refreshed with the newly completed
+        supporting signals.
+        """
+        classification = run.classification or {}
+        prediction = self._prediction_from_payload(classification)
+        final_quality = (run.quality or {}).get("final") or {}
+        evidence_strength = derive_lesion_evidence_strength(evidence)
+        inputs = RetinaGuardInputs(
+            quality_score=final_quality.get("quality_score"),
+            raw_confidence=prediction.raw_confidence,
+            probabilities=prediction.probabilities,
+            classifier_logits=prediction.severity_logits,
+            model_predictions=[],
+            lesion_evidence_strength=evidence_strength,
+            lesion_evidence_status="AVAILABLE" if evidence_strength is not None else "NOT_AVAILABLE",
+            vessel_evidence_status=derive_vessel_evidence_status(evidence),
+            attention_lesion_agreement=explanation.attention_lesion_agreement,
+            explanation_stability=explanation.explanation_stability,
+            quality_feature_vector={
+                key: float(value) for key, value in final_quality.get("feature_vector", {}).items()
+                if isinstance(value, (int, float))
+            },
+            predicted_grade=prediction.predicted_grade,
+            predicted_grade_label=prediction.predicted_grade_label,
+            referable_dr=prediction.referable_dr,
+            referable_fusion=classification.get("referable_fusion"),
+            model_version=prediction.model_version,
+        )
+        guard = await self.retinaguard.evaluate_async(inputs, prepared, self.classifier)
+        run.retinaguard = guard.to_dict()
+        run.triage = self._triage_payload(prediction, guard)
+        run.model_versions = {
+            **(run.model_versions or {}),
+            "retinaguard": guard.configuration.get("version"),
+            "confidence_calibration": guard.configuration.get("calibration_version"),
+        }
+        session.status = ScreeningStatus.COMPLETE if guard.trust_category == "TRUSTED" else ScreeningStatus.NEEDS_REVIEW
+        await persist_retinaguard(run.retinaguard, image, session, db, prediction, update_session_status=False)
+        await self._audit(db, actor_id, "screening.final.reliability_refreshed", run.id, {
+            "trust_category": guard.trust_category,
+            "trust_score": guard.trust_score,
+            "evidence_status": "AVAILABLE",
+            "severity_grade_unchanged": prediction.predicted_grade,
+        })
 
     async def _await_optional(self, stage: str, task: asyncio.Task[Any], budget_seconds: int) -> Any:
         try:
@@ -579,6 +683,25 @@ class ScreeningPipelineService:
         except Exception:
             logger.exception("screening.optional.task_failed_after_timeout", extra={"event": "screening.optional.task_failed_after_timeout", "screening_id": str(screening_id), "stage": stage})
 
+    @staticmethod
+    def _prediction_from_payload(payload: dict[str, Any]) -> DRPrediction:
+        """Rehydrate the immutable primary prediction for final reliability persistence."""
+        return DRPrediction(
+            predicted_grade=int(payload["predicted_grade"]),
+            predicted_grade_label=str(payload.get("predicted_grade_label") or ""),
+            probabilities={str(key): float(value) for key, value in (payload.get("probabilities") or {}).items()},
+            referable_dr=bool(payload.get("referable_dr")),
+            referable_probability=float(payload.get("referable_probability", 0.0)),
+            raw_confidence=float(payload.get("raw_confidence", 0.0)),
+            model_name=str(payload.get("model_name") or "registered_classifier"),
+            model_version=str(payload.get("model_version") or "unknown"),
+            backbone=str(payload.get("backbone") or "unknown"),
+            referable_mapping=payload.get("referable_mapping") or {},
+            hierarchical_probabilities=payload.get("hierarchical_probabilities") or {},
+            ordinal_mode=bool(payload.get("ordinal_mode", False)),
+            severity_logits=None,
+        )
+
     async def _mark_optional_timeout(self, db: AsyncSession, run: ScreeningRun, actor_id: UUID | None, stages: tuple[str, ...], timeout: OptionalStageTimeout) -> None:
         message = f"Optional stage exceeded the configured {timeout.budget_seconds}-second runtime budget; no evidence output was returned."
         details = {
@@ -595,6 +718,16 @@ class ScreeningPipelineService:
         if timeout.stage == "retinal_evidence":
             run.lesions = self._optional_unavailable_payload("TIMED_OUT", timeout)
             run.model_versions = {**(run.model_versions or {}), "retinal_evidence": {"status": "TIMED_OUT", "runtime_budget_seconds": timeout.budget_seconds}}
+            for stage in ("grad_cam", "attention_lesion_agreement"):
+                await self._set_stage(db, run, actor_id, stage, "UNAVAILABLE", {
+                    "status": "UNAVAILABLE",
+                    "message": "Explainability was not run because retinal evidence timed out.",
+                    "evidence_is_not_negative": True,
+                })
+            run.explainability = self._optional_unavailable_payload("UNAVAILABLE", timeout)
+            run.model_versions = {**(run.model_versions or {}), "explainability": {"status": "UNAVAILABLE", "reason": "retinal evidence timed out"}}
+        run.status = "FINAL_RESULT_READY"
+        run.completed_at = datetime.now(timezone.utc)
         await self._audit(db, actor_id, "screening.optional.timed_out", run.id, details)
         await db.commit()
 
@@ -607,6 +740,16 @@ class ScreeningPipelineService:
         if any(stage in {"retinal_structure_analysis", "lesion_detection"} for stage in stages):
             run.lesions = {"status": "UNAVAILABLE", "modules": {}, "evidence_map_data_uri": None, "note": message, "provenance": details}
             run.model_versions = {**(run.model_versions or {}), "retinal_evidence": {"status": "UNAVAILABLE"}}
+            for stage in ("grad_cam", "attention_lesion_agreement"):
+                await self._set_stage(db, run, actor_id, stage, "UNAVAILABLE", {
+                    "status": "UNAVAILABLE",
+                    "message": "Explainability was not run because retinal evidence was unavailable.",
+                    "evidence_is_not_negative": True,
+                })
+            run.explainability = self._optional_failure_payload("UNAVAILABLE", "retinal_evidence", exc)
+            run.model_versions = {**(run.model_versions or {}), "explainability": {"status": "UNAVAILABLE", "reason": "retinal evidence unavailable"}}
+        run.status = "FINAL_RESULT_READY"
+        run.completed_at = datetime.now(timezone.utc)
         await self._audit(db, actor_id, "screening.optional.unavailable", run.id, details)
         await db.commit()
 
@@ -640,7 +783,7 @@ class ScreeningPipelineService:
         prepared = content
         enhanced = False
         passes = 0
-        if initial.quality_decision == TrustGateDecision.BORDERLINE:
+        if is_enhancement_candidate(initial):
             prepared = self.quality_service.enhance(content)
             final = await self.quality_service.assess(prepared)
             enhanced = True
@@ -661,11 +804,11 @@ class ScreeningPipelineService:
 
     async def _finish_quality_block(self, db: AsyncSession, run: ScreeningRun, session: ScreeningSession, image: FundusImage, actor_id: UUID | None, outcome: TrustGateOutcome) -> ScreeningPipelineOutput:
         run.triage = {"status": "blocked_before_clinical_ai", "recommendation": "RECAPTURE_IMAGE", "priority": "high", "reasons": [issue.message for issue in outcome.final.issues] or [outcome.final.recommended_action], "recommended_action": outcome.final.recommended_action, "clinical_ai_started": False, "note": "The Image Trust Gate blocked downstream clinical AI for this run."}
-        run.model_versions = {"preprocessing": "image-trust-gate-v1"}
+        run.model_versions = {"preprocessing": ImageTrustGateService.VERSION}
         for stage in RUN_STAGES[2:-1]:
             await self._set_stage(db, run, actor_id, stage, "SKIPPED", {"reason": "Image Trust Gate did not mark the image GRADABLE."})
         await self._set_stage(db, run, actor_id, "triage", "COMPLETED", {"recommendation": "RECAPTURE_IMAGE", "priority": "high"})
-        run.status = "COMPLETED"
+        run.status = "QUALITY_BLOCKED"
         run.completed_at = datetime.now(timezone.utc)
         session.status = ScreeningStatus.NEEDS_REVIEW
         session.completed_at = run.completed_at

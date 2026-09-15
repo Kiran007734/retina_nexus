@@ -7,7 +7,7 @@ SimEvents: 26.1
 OS: PCWIN64
 
 ## Model
-Model: `C:\Users\kiran\Downloads\retina_nexus\simulink\RETINA_NEXUS_SYSTEM.slx`
+Model: `simulink/RETINA_NEXUS_SYSTEM.slx`
 Compilation: PASS
 Execution: PASS
 

@@ -46,11 +46,11 @@ class Settings(BaseSettings):
     # The primary path is measured locally at <5 seconds on warm CPU runs;
     # this budget leaves room for cold-start and image-quality variation.
     screening_primary_timeout_seconds: int = Field(default=60, ge=10, le=600)
-    # Optional evidence has measured warm CPU runs from ~1.4s to ~310s, with
-    # one observed run exceeding the legacy 900s whole-pipeline limit. This
-    # budget covers the observed completed range while keeping enrichment
-    # bounded and explicitly non-blocking for the primary result.
-    screening_optional_evidence_timeout_seconds: int = Field(default=240, ge=30, le=1800)
+    # Optional evidence has measured warm CPU runs from ~1.4s to ~310s. The
+    # larger bounded budget prevents a genuine CPU inference from being
+    # mislabeled as unavailable while keeping enrichment non-blocking for the
+    # primary result. It does not alter model inputs or outputs.
+    screening_optional_evidence_timeout_seconds: int = Field(default=600, ge=30, le=1800)
     # Grad-CAM/agreement measured ~0.9s-8.4s on completed local runs; this
     # budget is a documented engineering limit, not a clinical target.
     screening_optional_explainability_timeout_seconds: int = Field(default=30, ge=10, le=900)
@@ -98,7 +98,10 @@ class Settings(BaseSettings):
     retinaguard_calibration_fitted: bool = False
     retinaguard_ood_reference_path: str | None = None
     retinaguard_ood_threshold: float = Field(default=3.0, gt=0)
-    retinaguard_missing_signal_score: float = Field(default=0.25, ge=0, le=1)
+    # Missing signals are excluded and the remaining configured weights are
+    # renormalized. There is deliberately no fallback score for unavailable
+    # evidence, so configuration cannot reintroduce an invented 25% signal.
+    retinaguard_missing_signal_score: float | None = None
     retinaguard_trusted_threshold: float = Field(default=0.75, ge=0, le=1)
     retinaguard_unreliable_threshold: float = Field(default=0.45, ge=0, le=1)
     retinaguard_weight_quality: float = Field(default=0.20, ge=0)

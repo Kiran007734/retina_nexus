@@ -287,3 +287,104 @@ AI values are screening recommendations. Quality, confidence, trust,
 explainability overlap, readiness, and drift values are engineering signals;
 they are not clinical guarantees. Final clinical responsibility remains with
 an authorized reviewer.
+
+## SIH problem and solution
+
+The SIH problem is to support diabetic-retinopathy screening where image
+quality, limited specialist capacity, intermittent connectivity, and weak
+explainability can make automated systems unsafe to operate. RETINA-NEXUS
+addresses the operational problem with a staged, self-checking workflow rather
+than a single opaque prediction endpoint.
+
+Key innovations are the Image Trust Gate, controlled borderline enhancement,
+coarse-to-fine clinical evidence, evidence-linked Grad-CAM, measurable
+attention/lesion agreement, transparent RetinaGuard review states, human-in-
+the-loop review, offline-first deployment planning, and a Simulink operational
+digital twin. These are prototype engineering contributions and are not claims
+of clinical causality or regulatory approval.
+
+## Complete ML and evidence pipeline
+
+The primary classifier grades five severity levels: No DR, Mild, Moderate,
+Severe, and Proliferative DR. Referable DR is a separate configurable output;
+the current default mapping is grades 2–4 with threshold 0.5. Severity remains
+the primary classifier argmax. `REFERABLE_FUSION_ENABLED=false` is the default
+production setting; experimental fusion is opt-in and does not arbitrarily
+rewrite severity.
+
+Supporting modules include:
+
+- Image quality: dimensions, decoding, channels, focus, illumination,
+  contrast, field of view, exposure, and artifact heuristics.
+- Lesion analysis: microaneurysm, hemorrhage, hard/soft exudate evidence where
+  the configured model and annotations support it.
+- Vessel analysis: the R2-V2 RRWNet `bv` model, evaluated with genuine DRIVE
+  masks where available.
+- Anatomy: IDRiD optic-disc/fovea research localization, explicitly separate
+  from the primary DR grade.
+- XAI/reliability: class-specific Grad-CAM, uncertainty, explanation
+  stability, agreement, distribution monitoring, and RetinaGuard.
+- Operations: FastAPI orchestration, audit trail, clinician review, reports,
+  PDF export, monitoring preparation, and Simulink capacity scenarios.
+
+## Validated results and boundaries
+
+The repository contains descriptive research and localhost measurements only.
+The selected IDRiD fusion result is the **406-image development evaluation**:
+sensitivity 100%, specificity 98.03%, accuracy approximately 99.26%, FN 0,
+and FP 3. It is not clinical validation, and the report records overlap and
+external-label limitations.
+
+The current R2-V2 development evaluation uses genuine manual masks for the
+available 20 DRIVE training images; its reported mean Dice/F1 is 0.7176 and
+IoU is 0.5624. Official DRIVE test masks were not available for a test metric.
+The APTOS, Messidor, and RetinaGuard reports similarly distinguish engineering
+evaluation from clinical validation.
+
+The localhost validation report records real gradable, borderline, and
+ungradable image flows, report/PDF generation, negative upload probes, and
+controlled concurrency. It does not establish accuracy or clinical safety.
+
+## Simulink digital twin
+
+`simulink/RETINA_NEXUS_SYSTEM.slx` models patient arrival, acquisition,
+quality/recapture loops, AI processing, specialist review, referrals, queues,
+throughput, latency, bottlenecks, bandwidth, and staff utilization. Scenario
+outputs are operational modeling results and require real-world site
+calibration; they are not clinical or financial claims.
+
+## Project structure
+
+```text
+backend/       FastAPI API, persistence, orchestration, adapters, reports
+frontend/      React/Vite screening, review, dashboard, and report UI
+ml/            registries, preprocessing, governance, research and evaluation
+scripts/       acquisition, validation, preflight, benchmark, and audit tools
+simulink/      .slx model, MATLAB scripts, plots, and scenario results
+docs/          architecture, setup, model, dataset, deployment, and safety docs
+tests/         backend, ML, API, integration, research, and regression tests
+```
+
+## Fresh-clone and licensing note
+
+Raw datasets and all model binaries remain external/ignored. A fresh clone
+needs the authorized APTOS classifier checkpoint to run real primary inference;
+optional lesion and vessel evidence artifacts are installed separately. See
+[docs/MODEL_SETUP.md](docs/MODEL_SETUP.md),
+[docs/DATASETS.md](docs/DATASETS.md), and
+[docs/THIRD_PARTY_PROVENANCE.md](docs/THIRD_PARTY_PROVENANCE.md). No project
+license file is currently present, and no third-party redistribution permission
+is inferred.
+
+## SIH demonstration sequence
+
+1. Start the local backend and frontend.
+2. Upload a real JPEG/PNG through New Screening.
+3. Show the Image Trust Gate and recapture behavior.
+4. Show the primary DR grade separately from referable status.
+5. Toggle Grad-CAM, lesion, vessel, and landmark evidence.
+6. Show RetinaGuard factors and the human-review state.
+7. Record a clinician decision and export the screening report/PDF.
+
+Use [docs/DEMO.md](docs/DEMO.md) for the controlled local workflow and safety
+boundaries.
