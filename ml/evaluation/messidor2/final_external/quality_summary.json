@@ -1,0 +1,16 @@
+{
+  "decision_counts": {
+    "BORDERLINE": 1711,
+    "GRADABLE": 27,
+    "UNGRADABLE": 6
+  },
+  "note": "These quality records are reused from the prior Phase 5.1 measurement cache; optional evidence stages were not inferred from them.",
+  "quality_score": {
+    "max": 0.9005,
+    "mean": 0.7269479357798165,
+    "min": 0.6095
+  },
+  "readable_count": 1744,
+  "record_count": 1744,
+  "status": "CACHED_MEASUREMENTS"
+}

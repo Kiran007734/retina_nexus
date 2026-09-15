@@ -1,0 +1,20 @@
+{
+  "attention_lesion_agreement": {
+    "clinical_causality_claim": false,
+    "executed_in_benchmark": true,
+    "status": "engineering explainability metric only"
+  },
+  "generated_at_utc": "2026-09-14T06:01:04.975179+00:00",
+  "grad_cam": {
+    "benchmark_cases": 47,
+    "executed_in_benchmark": true,
+    "full_messidor_population_executed": false,
+    "interpretation": "Grad-CAM is an attention visualization and is not proof of lesion causality."
+  },
+  "limitations": [
+    "Bounded runtime smoke/benchmark coverage only; no full external-population XAI validation claim."
+  ],
+  "schema_version": "retina-nexus-master-xai-validation-v1",
+  "stability": "Existing configurable explanation-stability path remains available; no unbounded population perturbation run was added.",
+  "status": "BOUNDED_RUNTIME_VERIFICATION"
+}

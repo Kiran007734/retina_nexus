@@ -120,7 +120,7 @@ def _build_payload(session: ScreeningSession, image: FundusImage, patient: Patie
         eye=image.eye.value, generated_at=datetime.now(timezone.utc),
         image_quality={"decision": (quality.get("final") or {}).get("quality_decision", image.quality_decision.value), "score": (quality.get("final") or {}).get("quality_score", image.quality_score), "assessment": quality},
         ai_assessment={"predicted_grade": classification.get("predicted_grade", screening_result.dr_grade if screening_result else None), "predicted_grade_label": classification.get("predicted_grade_label"), "referable_dr": classification.get("referable_dr", screening_result.referable_dr if screening_result else None), "confidence": classification.get("raw_confidence", screening_result.confidence if screening_result else None), "model_version": classification.get("model_version")},
-        clinical_evidence={"summary": _evidence_summary(run.lesions), "visualization": (run.lesions or {}).get("evidence_map_data_uri")},
+        clinical_evidence={"summary": _evidence_summary(run.lesions), "visualization": (run.lesions or {}).get("evidence_map_data_uri"), "vessel_analysis": _vessel_evidence(run.lesions)},
         explainability={"summary": "Class-specific Grad-CAM and attention/evidence comparison.", "agreement": (run.explainability or {}).get("attention_lesion_agreement"), "visualization": (run.explainability or {}).get("grad_cam", {}).get("overlay_data_uri")},
         retinaguard=run.retinaguard or (guard.to_dict() if guard else {}),
         recommended_action=triage.get("recommendation"), clinician_decision=clinician,
@@ -135,6 +135,27 @@ def _evidence_summary(lesions: dict | None) -> list[dict]:
         item["structure_type" if module.get("category") == "segmentation" else "lesion_type"] = name
         values.append(item)
     return values
+
+
+def _vessel_evidence(lesions: dict | None) -> dict:
+    """Expose vessel evidence as a supporting report section, never a diagnosis."""
+    module = ((lesions or {}).get("modules") or {}).get("vessel_segmentation")
+    if not module:
+        return {"status": "UNAVAILABLE", "supported": False, "reliability": "UNAVAILABLE", "note": "No vessel evidence was returned by the evidence service."}
+    metadata = module.get("metadata") or {}
+    provenance_keys = ("model_version", "model_name", "model_repository", "model_source", "source_code", "source_revision", "checkpoint_sha256", "architecture", "threshold", "measurement_status", "clinical_validation_claim")
+    return {
+        "status": "AVAILABLE" if module.get("supported") and module.get("status") == "model_inference" else "UNAVAILABLE",
+        "supported": bool(module.get("supported")),
+        "segmentation_status": module.get("status"),
+        "reliability": "ENGINEERING_ESTIMATE" if module.get("supported") else "UNAVAILABLE",
+        "confidence": module.get("confidence"),
+        "count": module.get("count"),
+        "overlay_data_uri": module.get("overlay_data_uri") or module.get("mask_data_uri"),
+        "probability_map_data_uri": module.get("probability_map_data_uri"),
+        "provenance": {key: metadata.get(key) for key in provenance_keys if key in metadata},
+        "note": "Vessel segmentation is supporting evidence only and is not a clinical diagnosis or proof of causality.",
+    }
 
 
 def _actor_id(claims: dict | None) -> UUID | None:
@@ -159,6 +180,8 @@ def _pdf_bytes(report: ReportPayload) -> bytes:
         f"Safe action: {trust.get('recommended_safe_action', 'Unavailable')}", f"Evidence status: {trust.get('evidence_status', 'Unavailable')}", f"Explanation status: {trust.get('explanation_status', 'Unavailable')}", f"OOD status: {trust.get('ood_status', 'Unavailable')}",
         "Warnings: " + "; ".join(flag.get("reason", "") for flag in trust.get("risk_flags", []))[:400], "",
         "CLINICAL EVIDENCE", "Evidence summary: " + json.dumps(report.clinical_evidence.get("summary", []), default=str)[:600],
+        f"Vessel analysis: {report.clinical_evidence.get('vessel_analysis', {}).get('status', 'Unavailable')}",
+        f"Vessel evidence reliability: {report.clinical_evidence.get('vessel_analysis', {}).get('reliability', 'Unavailable')}",
         "", "CLINICIAN DECISION", json.dumps(report.clinician_decision, default=str) if report.clinician_decision else "Pending human review.",
         "", report.disclaimer,
     ]

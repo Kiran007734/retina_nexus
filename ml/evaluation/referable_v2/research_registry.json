@@ -1,0 +1,48 @@
+{
+  "development_data": {
+    "duplicate_conflict_exclusions_preserved": true,
+    "folds": 5,
+    "oof_artifact": "ml/evaluation/referable_v2/oof_predictions.jsonl",
+    "patient_ids_available": false,
+    "records": 406
+  },
+  "experiments": [
+    "baseline weighted binary head analysis",
+    "controlled development OOF threshold sweep",
+    "existing domain-generalization candidate comparison",
+    "independent verifier zero-shot evaluation",
+    "safety disagreement analysis"
+  ],
+  "generated_at_utc": "2026-09-14T09:27:53.557151+00:00",
+  "messidor_used_for_selection": false,
+  "not_run": [
+    "uncontrolled training sweep",
+    "Messidor threshold tuning",
+    "learned fusion training",
+    "production promotion"
+  ],
+  "official_idrid_test_images_opened": 0,
+  "primary_candidate": {
+    "checkpoint": "ml/weights/classifiers/idrid/research/v3/20260912/v3_b_domain_robust/checkpoint_best.pt",
+    "checkpoint_sha256": "97bd6a9933ca3d09c1e41bb16ba7452b5988eb1818fc7f1c87054471c4c33049",
+    "frozen_development_threshold": 0.1,
+    "name": "IDRiD V3 shared EfficientNet-B0 stage2 referable head",
+    "negative_definition": "IDRiD grade 0/1",
+    "positive_definition": "IDRiD grade 2/3/4",
+    "role": "RESEARCH_ONLY_PRIMARY_BINARY_CANDIDATE",
+    "threshold_source": "5-fold development OOF; specificity constrained >= 0.85",
+    "training_status": "EXISTING_FROZEN_HEAD_ANALYZED; NO_NEW_PRODUCTION_CHECKPOINT"
+  },
+  "production_behavior_changed": false,
+  "production_promoted": false,
+  "schema_version": "retina-nexus-referable-v2-registry-v1",
+  "scope": "research-only binary referable DR and independent verification",
+  "verifier": {
+    "checkpoint_sha256": "f0e19fa86d5a27a05731550d1d6708c01f6f363f45a1fa57849de988f91e775b",
+    "fixed_threshold": 0.204983,
+    "name": "RETGUARD DR v1.0.0",
+    "role": "INDEPENDENT_VERIFIER",
+    "source": "https://github.com/anchor-neuro/retguard/releases/tag/v1.0.0",
+    "weights_license": "CC BY-NC 4.0 research use; commercial licensing requires separate agreement"
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "method": "deterministic duplicate-aware five-fold development split",
+  "official_test_records": [
+    {
+      "image_id": "01",
+      "split": "official_test_reserved"
+    },
+    {
+      "image_id": "02",
+      "split": "official_test_reserved"
+    },
+    {
+      "image_id": "03",
+      "split": "official_test_reserved"
+    },
+    {
+      "image_id": "04",
+      "split": "official_test_reserved"
+    },
+    {
+      "image_id": "05",
+      "split": "official_test_reserved"
+    },
+    {
+      "image_id": "06",
+      "split": "official_test_reserved"
+    },
+    {
+      "image_id": "07",
+      "split": "official_test_reserved"
+    },
+    {
+      "image_id": "08",
+      "split": "official_test_reserved"
+    },
+    {
+      "image_id": "09",
+      "split": "official_test_reserved"
+    },
+    {
+      "image_id": "10",
+      "split": "official_test_reserved"
+    },
+    {
+      "image_id": "11",
+      "split": "official_test_reserved"
+    },
+    {
+      "image_id": "12",
+      "split": "official_test_reserved"
+    },
+    {
+      "image_id": "13",
+      "split": "official_test_reserved"
+    },
+    {
+      "image_id": "14",
+      "split": "official_test_reserved"
+    },
+    {
+      "image_id": "15",
+      "split": "official_test_reserved"
+    },
+    {
+      "image_id": "16",
+      "split": "official_test_reserved"
+    },
+    {
+      "image_id": "17",
+      "split": "official_test_reserved"
+    },
+    {
+      "image_id": "18",
+      "split": "official_test_reserved"
+    },
+    {
+      "image_id": "19",
+      "split": "official_test_reserved"
+    },
+    {
+      "image_id": "20",
+      "split": "official_test_reserved"
+    }
+  ],
+  "official_test_reserved": true,
+  "official_test_used": false,
+  "patient_ids_available": false,
+  "records": [
+    {
+      "fold": 3,
+      "image_id": "21",
+      "split": "development"
+    },
+    {
+      "fold": 1,
+      "image_id": "22",
+      "split": "development"
+    },
+    {
+      "fold": 3,
+      "image_id": "23",
+      "split": "development"
+    },
+    {
+      "fold": 5,
+      "image_id": "24",
+      "split": "development"
+    },
+    {
+      "fold": 2,
+      "image_id": "25",
+      "split": "development"
+    },
+    {
+      "fold": 4,
+      "image_id": "26",
+      "split": "development"
+    },
+    {
+      "fold": 4,
+      "image_id": "27",
+      "split": "development"
+    },
+    {
+      "fold": 3,
+      "image_id": "28",
+      "split": "development"
+    },
+    {
+      "fold": 4,
+      "image_id": "29",
+      "split": "development"
+    },
+    {
+      "fold": 4,
+      "image_id": "30",
+      "split": "development"
+    },
+    {
+      "fold": 3,
+      "image_id": "31",
+      "split": "development"
+    },
+    {
+      "fold": 2,
+      "image_id": "32",
+      "split": "development"
+    },
+    {
+      "fold": 1,
+      "image_id": "33",
+      "split": "development"
+    },
+    {
+      "fold": 2,
+      "image_id": "34",
+      "split": "development"
+    },
+    {
+      "fold": 1,
+      "image_id": "35",
+      "split": "development"
+    },
+    {
+      "fold": 5,
+      "image_id": "36",
+      "split": "development"
+    },
+    {
+      "fold": 2,
+      "image_id": "37",
+      "split": "development"
+    },
+    {
+      "fold": 1,
+      "image_id": "38",
+      "split": "development"
+    },
+    {
+      "fold": 5,
+      "image_id": "39",
+      "split": "development"
+    },
+    {
+      "fold": 5,
+      "image_id": "40",
+      "split": "development"
+    }
+  ],
+  "schema_version": "drive-split-1",
+  "seed": 20260913
+}

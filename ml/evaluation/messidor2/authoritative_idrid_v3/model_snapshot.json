@@ -1,0 +1,22 @@
+{
+  "architecture": "EfficientNet-B0 multi-head",
+  "checkpoint": "ml/weights/classifiers/idrid/research/final/checkpoint_best.pt",
+  "checkpoint_sha256_after": "97bd6a9933ca3d09c1e41bb16ba7452b5988eb1818fc7f1c87054471c4c33049",
+  "checkpoint_sha256_before": "97bd6a9933ca3d09c1e41bb16ba7452b5988eb1818fc7f1c87054471c4c33049",
+  "checkpoint_unchanged": true,
+  "model_version": "v3_b",
+  "preprocessing": {
+    "color_space": "RGB",
+    "input_size": 224,
+    "normalization_mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "normalization_std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  }
+}

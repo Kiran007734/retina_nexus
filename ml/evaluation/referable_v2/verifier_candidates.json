@@ -1,0 +1,77 @@
+{
+  "candidates": [
+    {
+      "architecture": "EfficientNetV2-M tf_efficientnetv2_m.in21k_ft_in1k",
+      "checkpoint_source": "https://github.com/anchor-neuro/retguard/releases/tag/v1.0.0",
+      "classes": 2,
+      "input_resolution": [
+        480,
+        480
+      ],
+      "license": "weights CC BY-NC 4.0; code PolyForm Noncommercial 1.0.0",
+      "limitations": [
+        "Research-only; no regulatory clearance",
+        "No gradability pathway",
+        "Released DR ONNX export failed the documented logit-parity tolerance",
+        "Target hardware/population prospective validation absent",
+        "Commercial rights require separate review"
+      ],
+      "name": "RETGUARD DR v1.0.0",
+      "preprocessing": "circle crop, Lanczos resize, Ben Graham enhancement, LAB CLAHE, circular mask, ImageNet normalization; published 8-view D4 TTA",
+      "publication": "RETGUARD retrospective multi-dataset research artifact, v1 submitted to medRxiv",
+      "requirements": "onnxruntime CPU; official package preprocessing; OOD gate artifact",
+      "sha256": "f0e19fa86d5a27a05731550d1d6708c01f6f363f45a1fa57849de988f91e775b",
+      "source": "https://github.com/anchor-neuro/retguard",
+      "status": "SELECTED_RESEARCH_VERIFIER",
+      "task": "binary referable DR; grades 2/3/4 positive",
+      "training_dataset": [
+        "EyePACS",
+        "DDR",
+        "APTOS",
+        "IDRiD",
+        "DeepDRiD"
+      ]
+    },
+    {
+      "architecture": "retinal foundation model / ViT-Large family",
+      "checkpoint_source": "official repository instructions",
+      "classes": "head-dependent",
+      "input_resolution": "implementation-dependent",
+      "license": "requires source/weight rights review",
+      "limitations": [
+        "No compatible frozen binary referable head installed",
+        "No checkpoint adopted or evaluated in this cycle"
+      ],
+      "name": "RETFound",
+      "preprocessing": "repository-specific",
+      "publication": "A foundation model for generalizable disease detection from retinal images, Nature 2023",
+      "sha256": null,
+      "source": "https://github.com/rmaphoh/RETFound",
+      "status": "CANDIDATE_NOT_INTEGRATED",
+      "task": "foundation features / fine-tuned retinal disease tasks",
+      "training_dataset": "Retinal foundation pretraining; exact task head not compatible without project-specific fine-tuning"
+    },
+    {
+      "architecture": "ResNet fundus/time-to-progression system",
+      "checkpoint_source": "project training instructions",
+      "classes": "task-dependent",
+      "input_resolution": "input edge >448 documented",
+      "license": "not established for learned weights in this audit",
+      "limitations": [
+        "Task mismatch for independent binary referable verification",
+        "No checkpoint adopted or evaluated"
+      ],
+      "name": "DeepDR Plus",
+      "preprocessing": "repository-specific",
+      "publication": "Official project repository",
+      "sha256": null,
+      "source": "https://github.com/drpredict/DeepDR_Plus",
+      "status": "CANDIDATE_NOT_INTEGRATED",
+      "task": "personalized time to DR progression, not a standalone referable classifier",
+      "training_dataset": "project-specific longitudinal fundus/meta datasets"
+    }
+  ],
+  "schema_version": "retina-nexus-referable-v2-verifier-candidates-v1",
+  "selected_verifier": "RETGUARD DR v1.0.0",
+  "selection_basis": "Documented binary referable task, official release weights, reproducible ONNX inference, published checksum and model card; research-only role."
+}

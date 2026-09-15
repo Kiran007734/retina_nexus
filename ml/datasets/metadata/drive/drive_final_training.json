@@ -1,0 +1,119 @@
+{
+  "checkpoint": "ml/weights/vessels/drive/checkpoint_best.pt",
+  "checkpoint_sha256": "f199543db550f7cd84548cb0e2ab2cf7efbad99ffb41af8649b249d4433a3133",
+  "fit_metrics": {
+    "max": {
+      "dice": 0.5261905507373431,
+      "f1": 0.5261905507373431,
+      "false_negative_rate": 0.4281585303084293,
+      "false_positive_rate": 0.8923429444338362,
+      "iou": 0.3570275322909585,
+      "pixel_accuracy": 0.8332576780850734,
+      "precision": 0.42794074074074073,
+      "sensitivity": 0.9910426044650571,
+      "specificity": 0.8757489365262217
+    },
+    "mean": {
+      "dice": 0.3356667070910874,
+      "f1": 0.3356667070910874,
+      "false_negative_rate": 0.10357676566054416,
+      "false_positive_rate": 0.5492061465713237,
+      "iou": 0.20561113008352846,
+      "pixel_accuracy": 0.5058692753743868,
+      "precision": 0.21775635150517245,
+      "sensitivity": 0.8964232343394558,
+      "specificity": 0.4507938534286763
+    },
+    "micro_confusion": {
+      "evaluated_pixels": 3607834,
+      "false_negative": 48143,
+      "false_positive": 1733526,
+      "ground_truth_vessel_pixels": 452436,
+      "predicted_vessel_pixels": 2137819,
+      "true_negative": 1421872,
+      "true_positive": 404293
+    },
+    "min": {
+      "dice": 0.21471714393571698,
+      "f1": 0.214717143935717,
+      "false_negative_rate": 0.008957395534942937,
+      "false_positive_rate": 0.12425106347377837,
+      "iou": 0.1202706580676343,
+      "pixel_accuracy": 0.21182399689862377,
+      "precision": 0.12146588872363956,
+      "sensitivity": 0.5718414696915707,
+      "specificity": 0.10765705556616384
+    },
+    "sample_count": 20,
+    "std": {
+      "dice": 0.09297628301900072,
+      "f1": 0.09297628301900074,
+      "false_negative_rate": 0.09612677433568736,
+      "false_positive_rate": 0.23433556248067886,
+      "iou": 0.07044079953408872,
+      "pixel_accuracy": 0.19451421235193372,
+      "precision": 0.08973137812374295,
+      "sensitivity": 0.09612677433568739,
+      "specificity": 0.2343355624806789
+    }
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "learning_rate": 0.00046650635094610973,
+      "train": {
+        "dice_loss": 0.796738451719284,
+        "loss": 0.842332524061203,
+        "pixel_loss": 0.04559406563639641
+      }
+    },
+    {
+      "epoch": 2,
+      "learning_rate": 0.00037500000000000006,
+      "train": {
+        "dice_loss": 0.7406804919242859,
+        "loss": 0.7741027295589447,
+        "pixel_loss": 0.03342224694788456
+      }
+    },
+    {
+      "epoch": 3,
+      "learning_rate": 0.00025,
+      "train": {
+        "dice_loss": 0.7037637650966644,
+        "loss": 0.7326469361782074,
+        "pixel_loss": 0.028883174620568754
+      }
+    },
+    {
+      "epoch": 4,
+      "learning_rate": 0.00012500000000000006,
+      "train": {
+        "dice_loss": 0.6814411580562592,
+        "loss": 0.7075195848941803,
+        "pixel_loss": 0.026078419014811515
+      }
+    },
+    {
+      "epoch": 5,
+      "learning_rate": 3.3493649053890325e-05,
+      "train": {
+        "dice_loss": 0.6678227066993714,
+        "loss": 0.6927447319030762,
+        "pixel_loss": 0.02492201067507267
+      }
+    },
+    {
+      "epoch": 6,
+      "learning_rate": 0.0,
+      "train": {
+        "dice_loss": 0.6638953864574433,
+        "loss": 0.6885650634765625,
+        "pixel_loss": 0.024669684655964374
+      }
+    }
+  ],
+  "model_version": "drive-vessel-scratch-green-focal-dice-512-20260913-v1",
+  "official_test_images_opened": 0,
+  "production_promoted": false
+}

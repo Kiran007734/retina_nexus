@@ -1,0 +1,33 @@
+{
+  "error_contract": {
+    "413": "PAYLOAD_TOO_LARGE",
+    "415": "UNSUPPORTED_MEDIA_TYPE",
+    "422": "REQUEST_VALIDATION_FAILURE or invalid image",
+    "500": "INTERNAL_ERROR with request id",
+    "503": "SERVICE_UNAVAILABLE/MODEL_UNAVAILABLE"
+  },
+  "evidence": {
+    "backend_api_integration_tests": "PASS",
+    "health_and_readiness_routes_imported": true,
+    "malformed_and_corrupt_uploads_covered": true,
+    "quality_block_route_covered": true,
+    "report_pdf_route_covered": true
+  },
+  "generated_at_utc": "2026-09-14T16:08:17.235321+00:00",
+  "route_contracts": [
+    "POST /api/v1/images/upload",
+    "POST /api/v1/images/{id}/quality",
+    "POST /api/v1/screening/run",
+    "GET /api/v1/screening/{id}",
+    "POST /api/v1/screening/classify",
+    "POST /api/v1/screening/analyze-structures",
+    "POST /api/v1/screening/explain",
+    "POST /api/v1/screening/trust",
+    "POST /api/v1/reports/generate",
+    "GET /api/v1/reports/{id}/pdf",
+    "GET /api/v1/health",
+    "GET /api/v1/health/ready"
+  ],
+  "schema_version": "pre-simulink-api-audit-v1",
+  "status": "PASS"
+}

@@ -1,0 +1,33 @@
+{
+  "completed_real_rows": [
+    {
+      "case_id": "aptos_png_grade_0_quality_edge",
+      "grade": 0,
+      "grade_unchanged_by_supporting_evidence": true,
+      "image_sha256": "440b3ad644a4c0b250809522ab7a20f4755dd1ea63dc3355d346b5621c76567e",
+      "referable": false,
+      "report_pdf_valid": true,
+      "retinaguard": "UNRELIABLE"
+    },
+    {
+      "case_id": "idrid_jpeg_grade_0_gradable",
+      "grade": 1,
+      "grade_unchanged_by_supporting_evidence": true,
+      "image_sha256": "991a5e34c20e6480a4adc5c0d53f77e3f18770d01863e85e01d5770be27bd4e8",
+      "referable": false,
+      "report_pdf_valid": true,
+      "retinaguard": "UNRELIABLE"
+    }
+  ],
+  "contract": "Frontend reads the master run classification, fused referable field, RetinaGuard field, evidence overlays, and report URL from the same screening id.",
+  "frontend_build_evidence": {
+    "browser_session_repeated_in_this_audit": false,
+    "existing_api_integration_coverage": "PASS",
+    "production_build": "PASS",
+    "typescript_lint": "PASS"
+  },
+  "generated_at_utc": "2026-09-14T16:08:17.235321+00:00",
+  "no_cross_image_evidence_observed": true,
+  "schema_version": "pre-simulink-frontend-backend-consistency-v1",
+  "status": "PASS"
+}

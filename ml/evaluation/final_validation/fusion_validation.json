@@ -1,0 +1,50 @@
+{
+  "clinical_validation_claim": false,
+  "cv_operating_point_matches": true,
+  "development_records": 406,
+  "exact_result_reproduced": true,
+  "expected_locked_result": {
+    "fn": 0,
+    "fp": 3,
+    "sensitivity": 1.0,
+    "specificity": 0.9802631578947368,
+    "support": 254,
+    "threshold": 0.4
+  },
+  "messidor_used_for_selection": false,
+  "observed_locked_fields": {
+    "fn": 0,
+    "fp": 3,
+    "sensitivity": 1.0,
+    "specificity": 0.9802631578947368,
+    "support": 254,
+    "threshold": 0.4
+  },
+  "production_promoted": false,
+  "retuning_performed": false,
+  "source_artifact": "ml/evaluation/fusion_final/fusion_baselines.json",
+  "status": "PASS",
+  "stored_operating_point": {
+    "confusion_matrix": {
+      "fn": 0,
+      "fp": 3,
+      "tn": 149,
+      "tp": 254
+    },
+    "f1": 0.9941291585127202,
+    "fnr": 0.0,
+    "fpr": 0.019736842105263164,
+    "negative_support": 152,
+    "pr_auc": 0.9999231642165123,
+    "precision": 0.9883268482490273,
+    "recall": 1.0,
+    "roc_auc": 0.9998704931620389,
+    "score_semantics": "experimental uncalibrated composite score",
+    "sensitivity": 1.0,
+    "specificity": 0.9802631578947368,
+    "support": 254,
+    "threshold": 0.4
+  },
+  "strategy": "maximum_probability",
+  "verifier_dataset_overlap_risk": true
+}

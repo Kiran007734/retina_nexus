@@ -1,0 +1,12 @@
+{
+  "calibration": {
+    "calibration_subset": null,
+    "ece_10_bins_diagnostic": 0.0768582131489214,
+    "multiclass_brier_diagnostic": 0.4765593837544467,
+    "statement": "Raw softmax confidence is not clinically calibrated; calibration could not be reliably fitted with the available non-test data.",
+    "status": "UNCALIBRATED",
+    "temperature_scaling_fitted": false
+  },
+  "decision": "No calibration fit; non-test calibration sample is not defensible for this small fixed development set.",
+  "selected_candidate": "a"
+}

@@ -1,0 +1,1425 @@
+{
+  "checkpoint": "ml/weights/vessels/drive/checkpoint_best.pt",
+  "interpretation": "A fixed engineering robustness probe on five labeled development images; not a clinical robustness or external validation result.",
+  "model_version": "drive-vessel-scratch-green-focal-dice-512-20260913-v1",
+  "official_test_images_opened": 0,
+  "per_image": [
+    {
+      "image_id": "21",
+      "max_probability": 0.8601257801055908,
+      "mean_probability_in_fov": 0.38501882553100586,
+      "metrics": {
+        "dice": 0.25564639615006013,
+        "evaluated_pixels": 179226,
+        "f1": 0.2556463961500602,
+        "false_negative": 827,
+        "false_negative_rate": 0.04235378469732664,
+        "false_positive": 108063,
+        "false_positive_rate": 0.676662492172824,
+        "ground_truth_vessel_pixels": 19526,
+        "iou": 0.14655652133020872,
+        "pixel_accuracy": 0.3924430607166371,
+        "precision": 0.1475126615231694,
+        "predicted_vessel_pixels": 126762,
+        "sensitivity": 0.9576462153026734,
+        "specificity": 0.32333750782717596,
+        "true_negative": 51637,
+        "true_positive": 18699,
+        "vessel_prevalence": 0.10894624663832256
+      },
+      "perturbation": "clean"
+    },
+    {
+      "image_id": "21",
+      "max_probability": 0.8695105314254761,
+      "mean_probability_in_fov": 0.3276841342449188,
+      "metrics": {
+        "dice": 0.37046153846153845,
+        "evaluated_pixels": 179226,
+        "f1": 0.3704615384615385,
+        "false_negative": 2971,
+        "false_negative_rate": 0.1521560995595616,
+        "false_positive": 53294,
+        "false_positive_rate": 0.33371321227301187,
+        "ground_truth_vessel_pixels": 19526,
+        "iou": 0.22734138972809667,
+        "pixel_accuracy": 0.6860667537076094,
+        "precision": 0.23701126716202092,
+        "predicted_vessel_pixels": 69849,
+        "sensitivity": 0.8478439004404383,
+        "specificity": 0.6662867877269881,
+        "true_negative": 106406,
+        "true_positive": 16555,
+        "vessel_prevalence": 0.10894624663832256
+      },
+      "perturbation": "brightness_minus_10"
+    },
+    {
+      "image_id": "21",
+      "max_probability": 0.8517975807189941,
+      "mean_probability_in_fov": 0.4406186640262604,
+      "metrics": {
+        "dice": 0.2085136695772307,
+        "evaluated_pixels": 179226,
+        "f1": 0.2085136695772307,
+        "false_negative": 207,
+        "false_negative_rate": 0.010601249615896754,
+        "false_positive": 146457,
+        "false_positive_rate": 0.9170757670632436,
+        "ground_truth_vessel_pixels": 19526,
+        "iou": 0.1163914376773525,
+        "pixel_accuracy": 0.1816812292859295,
+        "precision": 0.11653677251230576,
+        "predicted_vessel_pixels": 165776,
+        "sensitivity": 0.9893987503841033,
+        "specificity": 0.08292423293675642,
+        "true_negative": 13243,
+        "true_positive": 19319,
+        "vessel_prevalence": 0.10894624663832256
+      },
+      "perturbation": "brightness_plus_10"
+    },
+    {
+      "image_id": "21",
+      "max_probability": 0.8546251058578491,
+      "mean_probability_in_fov": 0.3677155077457428,
+      "metrics": {
+        "dice": 0.27783902976846747,
+        "evaluated_pixels": 179226,
+        "f1": 0.2778390297684674,
+        "false_negative": 1256,
+        "false_negative_rate": 0.06432449042302571,
+        "false_positive": 93719,
+        "false_positive_rate": 0.5868440826549781,
+        "ground_truth_vessel_pixels": 19526,
+        "iou": 0.1613316261203585,
+        "pixel_accuracy": 0.47008246571367995,
+        "precision": 0.16314102277902293,
+        "predicted_vessel_pixels": 111989,
+        "sensitivity": 0.9356755095769743,
+        "specificity": 0.41315591734502194,
+        "true_negative": 65981,
+        "true_positive": 18270,
+        "vessel_prevalence": 0.10894624663832256
+      },
+      "perturbation": "contrast_minus_10"
+    },
+    {
+      "image_id": "21",
+      "max_probability": 0.8638239502906799,
+      "mean_probability_in_fov": 0.39724552631378174,
+      "metrics": {
+        "dice": 0.24491248043261704,
+        "evaluated_pixels": 179226,
+        "f1": 0.244912480432617,
+        "false_negative": 595,
+        "false_negative_rate": 0.03047219092492062,
+        "false_positive": 116137,
+        "false_positive_rate": 0.727219787100814,
+        "ground_truth_vessel_pixels": 19526,
+        "iou": 0.13954431200843265,
+        "pixel_accuracy": 0.3486882483568232,
+        "precision": 0.14015903100660407,
+        "predicted_vessel_pixels": 135068,
+        "sensitivity": 0.9695278090750794,
+        "specificity": 0.27278021289918597,
+        "true_negative": 43563,
+        "true_positive": 18931,
+        "vessel_prevalence": 0.10894624663832256
+      },
+      "perturbation": "contrast_plus_10"
+    },
+    {
+      "image_id": "21",
+      "max_probability": 0.8544140458106995,
+      "mean_probability_in_fov": 0.3806363046169281,
+      "metrics": {
+        "dice": 0.25864110673038077,
+        "evaluated_pixels": 179226,
+        "f1": 0.2586411067303807,
+        "false_negative": 961,
+        "false_negative_rate": 0.04921642937621633,
+        "false_positive": 105467,
+        "false_positive_rate": 0.6604070131496556,
+        "ground_truth_vessel_pixels": 19526,
+        "iou": 0.1485283175857848,
+        "pixel_accuracy": 0.4061799069331459,
+        "precision": 0.14967911506707945,
+        "predicted_vessel_pixels": 124032,
+        "sensitivity": 0.9507835706237837,
+        "specificity": 0.3395929868503444,
+        "true_negative": 54233,
+        "true_positive": 18565,
+        "vessel_prevalence": 0.10894624663832256
+      },
+      "perturbation": "mild_blur"
+    },
+    {
+      "image_id": "21",
+      "max_probability": 0.8307743668556213,
+      "mean_probability_in_fov": 0.37546631693840027,
+      "metrics": {
+        "dice": 0.2653896789687649,
+        "evaluated_pixels": 179226,
+        "f1": 0.2653896789687649,
+        "false_negative": 1182,
+        "false_negative_rate": 0.06053467171975827,
+        "false_positive": 100372,
+        "false_positive_rate": 0.6285034439574202,
+        "ground_truth_vessel_pixels": 19526,
+        "iou": 0.15299671387345912,
+        "pixel_accuracy": 0.4333746219856494,
+        "precision": 0.154520030998349,
+        "predicted_vessel_pixels": 118716,
+        "sensitivity": 0.9394653282802418,
+        "specificity": 0.37149655604257986,
+        "true_negative": 59328,
+        "true_positive": 18344,
+        "vessel_prevalence": 0.10894624663832256
+      },
+      "perturbation": "jpeg_quality_70"
+    },
+    {
+      "image_id": "21",
+      "max_probability": 0.8600395321846008,
+      "mean_probability_in_fov": 0.3749496042728424,
+      "metrics": {
+        "dice": 0.20694739454456537,
+        "evaluated_pixels": 179226,
+        "f1": 0.20694739454456537,
+        "false_negative": 5350,
+        "false_negative_rate": 0.2739936494929837,
+        "false_positive": 103299,
+        "false_positive_rate": 0.6468315591734503,
+        "ground_truth_vessel_pixels": 19526,
+        "iou": 0.11541624262161612,
+        "pixel_accuracy": 0.3937877316907145,
+        "precision": 0.12067248350712918,
+        "predicted_vessel_pixels": 117475,
+        "sensitivity": 0.7260063505070163,
+        "specificity": 0.3531684408265498,
+        "true_negative": 56401,
+        "true_positive": 14176,
+        "vessel_prevalence": 0.10894624663832256
+      },
+      "perturbation": "rotation_plus_3"
+    },
+    {
+      "image_id": "21",
+      "max_probability": 0.8629806041717529,
+      "mean_probability_in_fov": 0.4115341901779175,
+      "metrics": {
+        "dice": 0.22643166577651178,
+        "evaluated_pixels": 179226,
+        "f1": 0.2264316657765118,
+        "false_negative": 448,
+        "false_negative_rate": 0.022943767284646113,
+        "false_positive": 129906,
+        "false_positive_rate": 0.8134376956793988,
+        "ground_truth_vessel_pixels": 19526,
+        "iou": 0.12767011081963703,
+        "pixel_accuracy": 0.27268365080959234,
+        "precision": 0.1280540192235408,
+        "predicted_vessel_pixels": 148984,
+        "sensitivity": 0.9770562327153539,
+        "specificity": 0.1865623043206011,
+        "true_negative": 29794,
+        "true_positive": 19078,
+        "vessel_prevalence": 0.10894624663832256
+      },
+      "perturbation": "gaussian_noise"
+    },
+    {
+      "image_id": "25",
+      "max_probability": 0.8390558958053589,
+      "mean_probability_in_fov": 0.29136839509010315,
+      "metrics": {
+        "dice": 0.4895351398986561,
+        "evaluated_pixels": 180644,
+        "f1": 0.4895351398986561,
+        "false_negative": 10814,
+        "false_negative_rate": 0.4281585303084293,
+        "false_positive": 19307,
+        "false_positive_rate": 0.12425106347377837,
+        "ground_truth_vessel_pixels": 25257,
+        "iou": 0.324095682613769,
+        "pixel_accuracy": 0.8332576780850734,
+        "precision": 0.42794074074074073,
+        "predicted_vessel_pixels": 33750,
+        "sensitivity": 0.5718414696915707,
+        "specificity": 0.8757489365262217,
+        "true_negative": 136080,
+        "true_positive": 14443,
+        "vessel_prevalence": 0.13981643453422202
+      },
+      "perturbation": "clean"
+    },
+    {
+      "image_id": "25",
+      "max_probability": 0.848282516002655,
+      "mean_probability_in_fov": 0.2993093430995941,
+      "metrics": {
+        "dice": 0.46048938295881636,
+        "evaluated_pixels": 180644,
+        "f1": 0.4604893829588163,
+        "false_negative": 10738,
+        "false_negative_rate": 0.4251494635150651,
+        "false_positive": 23283,
+        "false_positive_rate": 0.1498387896027338,
+        "ground_truth_vessel_pixels": 25257,
+        "iou": 0.2991141326740832,
+        "pixel_accuracy": 0.8116682535816302,
+        "precision": 0.38408020739643406,
+        "predicted_vessel_pixels": 37802,
+        "sensitivity": 0.5748505364849349,
+        "specificity": 0.8501612103972662,
+        "true_negative": 132104,
+        "true_positive": 14519,
+        "vessel_prevalence": 0.13981643453422202
+      },
+      "perturbation": "brightness_minus_10"
+    },
+    {
+      "image_id": "25",
+      "max_probability": 0.8276675939559937,
+      "mean_probability_in_fov": 0.2975972890853882,
+      "metrics": {
+        "dice": 0.5194224244176315,
+        "evaluated_pixels": 180644,
+        "f1": 0.5194224244176315,
+        "false_negative": 8188,
+        "false_negative_rate": 0.32418735400087106,
+        "false_positive": 23397,
+        "false_positive_rate": 0.15057244171005296,
+        "ground_truth_vessel_pixels": 25257,
+        "iou": 0.3508241871171949,
+        "pixel_accuracy": 0.8251533402714731,
+        "precision": 0.42181090298027973,
+        "predicted_vessel_pixels": 40466,
+        "sensitivity": 0.6758126459991289,
+        "specificity": 0.849427558289947,
+        "true_negative": 131990,
+        "true_positive": 17069,
+        "vessel_prevalence": 0.13981643453422202
+      },
+      "perturbation": "brightness_plus_10"
+    },
+    {
+      "image_id": "25",
+      "max_probability": 0.8370336294174194,
+      "mean_probability_in_fov": 0.28909018635749817,
+      "metrics": {
+        "dice": 0.4624237708329563,
+        "evaluated_pixels": 180644,
+        "f1": 0.4624237708329564,
+        "false_negative": 12480,
+        "false_negative_rate": 0.4941204418577028,
+        "false_positive": 17227,
+        "false_positive_rate": 0.1108651302876045,
+        "ground_truth_vessel_pixels": 25257,
+        "iou": 0.30074851708878636,
+        "pixel_accuracy": 0.8355494785323619,
+        "precision": 0.4258432209038795,
+        "predicted_vessel_pixels": 30004,
+        "sensitivity": 0.5058795581422972,
+        "specificity": 0.8891348697123955,
+        "true_negative": 138160,
+        "true_positive": 12777,
+        "vessel_prevalence": 0.13981643453422202
+      },
+      "perturbation": "contrast_minus_10"
+    },
+    {
+      "image_id": "25",
+      "max_probability": 0.8484711050987244,
+      "mean_probability_in_fov": 0.2955913245677948,
+      "metrics": {
+        "dice": 0.5073425742574258,
+        "evaluated_pixels": 180644,
+        "f1": 0.5073425742574257,
+        "false_negative": 9244,
+        "false_negative_rate": 0.36599754523498434,
+        "false_positive": 21855,
+        "false_positive_rate": 0.14064883162684136,
+        "ground_truth_vessel_pixels": 25257,
+        "iou": 0.3398921718458142,
+        "pixel_accuracy": 0.8278437147095946,
+        "precision": 0.4228636315622689,
+        "predicted_vessel_pixels": 37868,
+        "sensitivity": 0.6340024547650156,
+        "specificity": 0.8593511683731586,
+        "true_negative": 133532,
+        "true_positive": 16013,
+        "vessel_prevalence": 0.13981643453422202
+      },
+      "perturbation": "contrast_plus_10"
+    },
+    {
+      "image_id": "25",
+      "max_probability": 0.8257814049720764,
+      "mean_probability_in_fov": 0.28874707221984863,
+      "metrics": {
+        "dice": 0.47535092843361126,
+        "evaluated_pixels": 180644,
+        "f1": 0.47535092843361126,
+        "false_negative": 11830,
+        "false_negative_rate": 0.46838500217761414,
+        "false_positive": 17809,
+        "false_positive_rate": 0.11461061736181276,
+        "ground_truth_vessel_pixels": 25257,
+        "iou": 0.31177727209399525,
+        "pixel_accuracy": 0.835925909523704,
+        "precision": 0.42985657574593417,
+        "predicted_vessel_pixels": 31236,
+        "sensitivity": 0.5316149978223859,
+        "specificity": 0.8853893826381872,
+        "true_negative": 137578,
+        "true_positive": 13427,
+        "vessel_prevalence": 0.13981643453422202
+      },
+      "perturbation": "mild_blur"
+    },
+    {
+      "image_id": "25",
+      "max_probability": 0.8461464643478394,
+      "mean_probability_in_fov": 0.28762754797935486,
+      "metrics": {
+        "dice": 0.4535740072202166,
+        "evaluated_pixels": 180644,
+        "f1": 0.4535740072202166,
+        "false_negative": 12693,
+        "false_negative_rate": 0.5025537474759473,
+        "false_positive": 17579,
+        "false_positive_rate": 0.11313044205757239,
+        "ground_truth_vessel_pixels": 25257,
+        "iou": 0.29330469698384537,
+        "pixel_accuracy": 0.8324217798542991,
+        "precision": 0.416813190458813,
+        "predicted_vessel_pixels": 30143,
+        "sensitivity": 0.4974462525240527,
+        "specificity": 0.8868695579424276,
+        "true_negative": 137808,
+        "true_positive": 12564,
+        "vessel_prevalence": 0.13981643453422202
+      },
+      "perturbation": "jpeg_quality_70"
+    },
+    {
+      "image_id": "25",
+      "max_probability": 0.8336816430091858,
+      "mean_probability_in_fov": 0.2883594036102295,
+      "metrics": {
+        "dice": 0.29801607053971413,
+        "evaluated_pixels": 180644,
+        "f1": 0.29801607053971413,
+        "false_negative": 16875,
+        "false_negative_rate": 0.6681316070792256,
+        "false_positive": 22613,
+        "false_positive_rate": 0.1455269745860336,
+        "ground_truth_vessel_pixels": 25257,
+        "iou": 0.1750992270733236,
+        "pixel_accuracy": 0.7814043090277009,
+        "precision": 0.2704307146313922,
+        "predicted_vessel_pixels": 30995,
+        "sensitivity": 0.3318683929207744,
+        "specificity": 0.8544730254139664,
+        "true_negative": 132774,
+        "true_positive": 8382,
+        "vessel_prevalence": 0.13981643453422202
+      },
+      "perturbation": "rotation_plus_3"
+    },
+    {
+      "image_id": "25",
+      "max_probability": 0.8354544043540955,
+      "mean_probability_in_fov": 0.3005787134170532,
+      "metrics": {
+        "dice": 0.5091147384725366,
+        "evaluated_pixels": 180644,
+        "f1": 0.5091147384725367,
+        "false_negative": 8165,
+        "false_negative_rate": 0.32327671536603714,
+        "false_positive": 24795,
+        "false_positive_rate": 0.15956933334191406,
+        "ground_truth_vessel_pixels": 25257,
+        "iou": 0.34148485575001997,
+        "pixel_accuracy": 0.8175416841965413,
+        "precision": 0.4080502303817414,
+        "predicted_vessel_pixels": 41887,
+        "sensitivity": 0.6767232846339628,
+        "specificity": 0.840430666658086,
+        "true_negative": 130592,
+        "true_positive": 17092,
+        "vessel_prevalence": 0.13981643453422202
+      },
+      "perturbation": "gaussian_noise"
+    },
+    {
+      "image_id": "29",
+      "max_probability": 0.9005846977233887,
+      "mean_probability_in_fov": 0.34667977690696716,
+      "metrics": {
+        "dice": 0.31178922088012995,
+        "evaluated_pixels": 180600,
+        "f1": 0.31178922088012995,
+        "false_negative": 2127,
+        "false_negative_rate": 0.09672578444747612,
+        "false_positive": 85560,
+        "false_positive_rate": 0.5394363533194628,
+        "ground_truth_vessel_pixels": 21990,
+        "iou": 0.18468619246861925,
+        "pixel_accuracy": 0.514468438538206,
+        "precision": 0.1884123957770126,
+        "predicted_vessel_pixels": 105423,
+        "sensitivity": 0.9032742155525239,
+        "specificity": 0.4605636466805372,
+        "true_negative": 73050,
+        "true_positive": 19863,
+        "vessel_prevalence": 0.1217607973421927
+      },
+      "perturbation": "clean"
+    },
+    {
+      "image_id": "29",
+      "max_probability": 0.9003258943557739,
+      "mean_probability_in_fov": 0.36627456545829773,
+      "metrics": {
+        "dice": 0.26271949286846275,
+        "evaluated_pixels": 180600,
+        "f1": 0.2627194928684628,
+        "false_negative": 1268,
+        "false_negative_rate": 0.05766257389722601,
+        "false_positive": 115038,
+        "false_positive_rate": 0.7252884433516171,
+        "ground_truth_vessel_pixels": 21990,
+        "iou": 0.1512245672417316,
+        "pixel_accuracy": 0.3560022148394241,
+        "precision": 0.1526370064820271,
+        "predicted_vessel_pixels": 135760,
+        "sensitivity": 0.9423374261027739,
+        "specificity": 0.2747115566483828,
+        "true_negative": 43572,
+        "true_positive": 20722,
+        "vessel_prevalence": 0.1217607973421927
+      },
+      "perturbation": "brightness_minus_10"
+    },
+    {
+      "image_id": "29",
+      "max_probability": 0.8893105983734131,
+      "mean_probability_in_fov": 0.3341846466064453,
+      "metrics": {
+        "dice": 0.3641892144755062,
+        "evaluated_pixels": 180600,
+        "f1": 0.3641892144755061,
+        "false_negative": 2527,
+        "false_negative_rate": 0.11491587085038654,
+        "false_positive": 65431,
+        "false_positive_rate": 0.4125275833806191,
+        "ground_truth_vessel_pixels": 21990,
+        "iou": 0.22263529357934592,
+        "pixel_accuracy": 0.6237098560354374,
+        "precision": 0.22926237425495324,
+        "predicted_vessel_pixels": 84894,
+        "sensitivity": 0.8850841291496134,
+        "specificity": 0.5874724166193809,
+        "true_negative": 93179,
+        "true_positive": 19463,
+        "vessel_prevalence": 0.1217607973421927
+      },
+      "perturbation": "brightness_plus_10"
+    },
+    {
+      "image_id": "29",
+      "max_probability": 0.8939744234085083,
+      "mean_probability_in_fov": 0.3415484130382538,
+      "metrics": {
+        "dice": 0.3107462592135649,
+        "evaluated_pixels": 180600,
+        "f1": 0.31074625921356486,
+        "false_negative": 2344,
+        "false_negative_rate": 0.10659390632105503,
+        "false_positive": 84808,
+        "false_positive_rate": 0.5346951642393292,
+        "ground_truth_vessel_pixels": 21990,
+        "iou": 0.1839547557070357,
+        "pixel_accuracy": 0.5174307862679955,
+        "precision": 0.18808279242537385,
+        "predicted_vessel_pixels": 104454,
+        "sensitivity": 0.893406093678945,
+        "specificity": 0.46530483576067083,
+        "true_negative": 73802,
+        "true_positive": 19646,
+        "vessel_prevalence": 0.1217607973421927
+      },
+      "perturbation": "contrast_minus_10"
+    },
+    {
+      "image_id": "29",
+      "max_probability": 0.9082143306732178,
+      "mean_probability_in_fov": 0.3556712865829468,
+      "metrics": {
+        "dice": 0.3046641509433962,
+        "evaluated_pixels": 180600,
+        "f1": 0.3046641509433962,
+        "false_negative": 1806,
+        "false_negative_rate": 0.08212824010914052,
+        "false_positive": 90326,
+        "false_positive_rate": 0.5694849000693525,
+        "ground_truth_vessel_pixels": 21990,
+        "iou": 0.17970725453185654,
+        "pixel_accuracy": 0.4898560354374308,
+        "precision": 0.182644104605918,
+        "predicted_vessel_pixels": 110510,
+        "sensitivity": 0.9178717598908595,
+        "specificity": 0.4305150999306475,
+        "true_negative": 68284,
+        "true_positive": 20184,
+        "vessel_prevalence": 0.1217607973421927
+      },
+      "perturbation": "contrast_plus_10"
+    },
+    {
+      "image_id": "29",
+      "max_probability": 0.8973716497421265,
+      "mean_probability_in_fov": 0.34320440888404846,
+      "metrics": {
+        "dice": 0.3130348939964493,
+        "evaluated_pixels": 180600,
+        "f1": 0.3130348939964493,
+        "false_negative": 2330,
+        "false_negative_rate": 0.10595725329695316,
+        "false_positive": 83959,
+        "false_positive_rate": 0.52934241220604,
+        "ground_truth_vessel_pixels": 21990,
+        "iou": 0.1855609774514153,
+        "pixel_accuracy": 0.5222093023255814,
+        "precision": 0.1897335430760768,
+        "predicted_vessel_pixels": 103619,
+        "sensitivity": 0.8940427467030468,
+        "specificity": 0.47065758779396005,
+        "true_negative": 74651,
+        "true_positive": 19660,
+        "vessel_prevalence": 0.1217607973421927
+      },
+      "perturbation": "mild_blur"
+    },
+    {
+      "image_id": "29",
+      "max_probability": 0.8980273604393005,
+      "mean_probability_in_fov": 0.3397207260131836,
+      "metrics": {
+        "dice": 0.31577833835137115,
+        "evaluated_pixels": 180600,
+        "f1": 0.31577833835137115,
+        "false_negative": 2587,
+        "false_negative_rate": 0.11764438381082311,
+        "false_positive": 81497,
+        "false_positive_rate": 0.5138200617867726,
+        "ground_truth_vessel_pixels": 21990,
+        "iou": 0.18749214877230957,
+        "pixel_accuracy": 0.5344186046511628,
+        "precision": 0.19229930624380576,
+        "predicted_vessel_pixels": 100900,
+        "sensitivity": 0.8823556161891769,
+        "specificity": 0.4861799382132274,
+        "true_negative": 77113,
+        "true_positive": 19403,
+        "vessel_prevalence": 0.1217607973421927
+      },
+      "perturbation": "jpeg_quality_70"
+    },
+    {
+      "image_id": "29",
+      "max_probability": 0.8997777104377747,
+      "mean_probability_in_fov": 0.3436447083950043,
+      "metrics": {
+        "dice": 0.24558163031723854,
+        "evaluated_pixels": 180600,
+        "f1": 0.24558163031723856,
+        "false_negative": 6434,
+        "false_negative_rate": 0.29258753979081403,
+        "false_positive": 89141,
+        "false_positive_rate": 0.5620137444045142,
+        "ground_truth_vessel_pixels": 21990,
+        "iou": 0.13997894376906533,
+        "pixel_accuracy": 0.47079180509413066,
+        "precision": 0.14858114368128983,
+        "predicted_vessel_pixels": 104697,
+        "sensitivity": 0.707412460209186,
+        "specificity": 0.43798625559548576,
+        "true_negative": 69469,
+        "true_positive": 15556,
+        "vessel_prevalence": 0.1217607973421927
+      },
+      "perturbation": "rotation_plus_3"
+    },
+    {
+      "image_id": "29",
+      "max_probability": 0.8974503874778748,
+      "mean_probability_in_fov": 0.36239004135131836,
+      "metrics": {
+        "dice": 0.29189382046524903,
+        "evaluated_pixels": 180600,
+        "f1": 0.2918938204652491,
+        "false_negative": 1537,
+        "false_negative_rate": 0.06989540700318327,
+        "false_positive": 97697,
+        "false_positive_rate": 0.6159573797364605,
+        "ground_truth_vessel_pixels": 21990,
+        "iou": 0.17088739796302022,
+        "pixel_accuracy": 0.450531561461794,
+        "precision": 0.17311045281421922,
+        "predicted_vessel_pixels": 118150,
+        "sensitivity": 0.9301045929968167,
+        "specificity": 0.3840426202635395,
+        "true_negative": 60913,
+        "true_positive": 20453,
+        "vessel_prevalence": 0.1217607973421927
+      },
+      "perturbation": "gaussian_noise"
+    },
+    {
+      "image_id": "33",
+      "max_probability": 0.8216791749000549,
+      "mean_probability_in_fov": 0.40089449286460876,
+      "metrics": {
+        "dice": 0.24764979354456476,
+        "evaluated_pixels": 180922,
+        "f1": 0.24764979354456476,
+        "false_negative": 678,
+        "false_negative_rate": 0.03204158790170132,
+        "false_positive": 123769,
+        "false_positive_rate": 0.7747086290857651,
+        "ground_truth_vessel_pixels": 21160,
+        "iou": 0.1413243726238365,
+        "pixel_accuracy": 0.3121510927360962,
+        "precision": 0.14198861706331325,
+        "predicted_vessel_pixels": 144251,
+        "sensitivity": 0.9679584120982987,
+        "specificity": 0.22529137091423493,
+        "true_negative": 35993,
+        "true_positive": 20482,
+        "vessel_prevalence": 0.11695647848243995
+      },
+      "perturbation": "clean"
+    },
+    {
+      "image_id": "33",
+      "max_probability": 0.8175196647644043,
+      "mean_probability_in_fov": 0.33299916982650757,
+      "metrics": {
+        "dice": 0.36283124747280493,
+        "evaluated_pixels": 180922,
+        "f1": 0.3628312474728049,
+        "false_negative": 2765,
+        "false_negative_rate": 0.1306710775047259,
+        "false_positive": 61842,
+        "false_positive_rate": 0.38708829383708265,
+        "ground_truth_vessel_pixels": 21160,
+        "iou": 0.22162116575504204,
+        "pixel_accuracy": 0.6429013608074198,
+        "precision": 0.229258322220422,
+        "predicted_vessel_pixels": 80237,
+        "sensitivity": 0.869328922495274,
+        "specificity": 0.6129117061629173,
+        "true_negative": 97920,
+        "true_positive": 18395,
+        "vessel_prevalence": 0.11695647848243995
+      },
+      "perturbation": "brightness_minus_10"
+    },
+    {
+      "image_id": "33",
+      "max_probability": 0.8178842663764954,
+      "mean_probability_in_fov": 0.4504243731498718,
+      "metrics": {
+        "dice": 0.21853204223334602,
+        "evaluated_pixels": 180922,
+        "f1": 0.218532042233346,
+        "false_negative": 183,
+        "false_negative_rate": 0.008648393194706994,
+        "false_positive": 149844,
+        "false_positive_rate": 0.9379201562323957,
+        "ground_truth_vessel_pixels": 21160,
+        "iou": 0.12266964515449931,
+        "pixel_accuracy": 0.1707641967256608,
+        "precision": 0.12280106075950849,
+        "predicted_vessel_pixels": 170821,
+        "sensitivity": 0.991351606805293,
+        "specificity": 0.06207984376760431,
+        "true_negative": 9918,
+        "true_positive": 20977,
+        "vessel_prevalence": 0.11695647848243995
+      },
+      "perturbation": "brightness_plus_10"
+    },
+    {
+      "image_id": "33",
+      "max_probability": 0.8045068979263306,
+      "mean_probability_in_fov": 0.3828759789466858,
+      "metrics": {
+        "dice": 0.2610066550365058,
+        "evaluated_pixels": 180922,
+        "f1": 0.2610066550365058,
+        "false_negative": 962,
+        "false_negative_rate": 0.04546313799621928,
+        "false_positive": 113412,
+        "false_positive_rate": 0.7098809479100161,
+        "ground_truth_vessel_pixels": 21160,
+        "iou": 0.1500906577891389,
+        "pixel_accuracy": 0.3678270193785167,
+        "precision": 0.15117131951201257,
+        "predicted_vessel_pixels": 133610,
+        "sensitivity": 0.9545368620037807,
+        "specificity": 0.29011905208998384,
+        "true_negative": 46350,
+        "true_positive": 20198,
+        "vessel_prevalence": 0.11695647848243995
+      },
+      "perturbation": "contrast_minus_10"
+    },
+    {
+      "image_id": "33",
+      "max_probability": 0.8389270901679993,
+      "mean_probability_in_fov": 0.4132096767425537,
+      "metrics": {
+        "dice": 0.24151792515850787,
+        "evaluated_pixels": 180922,
+        "f1": 0.24151792515850787,
+        "false_negative": 552,
+        "false_negative_rate": 0.02608695652173913,
+        "false_positive": 128886,
+        "false_positive_rate": 0.8067375220640703,
+        "ground_truth_vessel_pixels": 21160,
+        "iou": 0.13734454767204723,
+        "pixel_accuracy": 0.2845646190070859,
+        "precision": 0.13785168635530523,
+        "predicted_vessel_pixels": 149494,
+        "sensitivity": 0.9739130434782609,
+        "specificity": 0.19326247793592968,
+        "true_negative": 30876,
+        "true_positive": 20608,
+        "vessel_prevalence": 0.11695647848243995
+      },
+      "perturbation": "contrast_plus_10"
+    },
+    {
+      "image_id": "33",
+      "max_probability": 0.8037346005439758,
+      "mean_probability_in_fov": 0.39650270342826843,
+      "metrics": {
+        "dice": 0.25012408164265715,
+        "evaluated_pixels": 180922,
+        "f1": 0.25012408164265715,
+        "false_negative": 750,
+        "false_negative_rate": 0.03544423440453686,
+        "false_positive": 121629,
+        "false_positive_rate": 0.7613137041349006,
+        "ground_truth_vessel_pixels": 21160,
+        "iou": 0.1429381815125815,
+        "pixel_accuracy": 0.3235814328826787,
+        "precision": 0.14369292940671224,
+        "predicted_vessel_pixels": 142039,
+        "sensitivity": 0.9645557655954632,
+        "specificity": 0.23868629586509935,
+        "true_negative": 38133,
+        "true_positive": 20410,
+        "vessel_prevalence": 0.11695647848243995
+      },
+      "perturbation": "mild_blur"
+    },
+    {
+      "image_id": "33",
+      "max_probability": 0.8205978870391846,
+      "mean_probability_in_fov": 0.390482097864151,
+      "metrics": {
+        "dice": 0.2529262564584312,
+        "evaluated_pixels": 180922,
+        "f1": 0.25292625645843114,
+        "false_negative": 967,
+        "false_negative_rate": 0.04569943289224953,
+        "false_positive": 118322,
+        "false_positive_rate": 0.7406141635683079,
+        "ground_truth_vessel_pixels": 21160,
+        "iou": 0.14477136834860413,
+        "pixel_accuracy": 0.3406606161771371,
+        "precision": 0.14578204526585567,
+        "predicted_vessel_pixels": 138515,
+        "sensitivity": 0.9543005671077505,
+        "specificity": 0.25938583643169216,
+        "true_negative": 41440,
+        "true_positive": 20193,
+        "vessel_prevalence": 0.11695647848243995
+      },
+      "perturbation": "jpeg_quality_70"
+    },
+    {
+      "image_id": "33",
+      "max_probability": 0.8119406700134277,
+      "mean_probability_in_fov": 0.38918593525886536,
+      "metrics": {
+        "dice": 0.2089005863455336,
+        "evaluated_pixels": 180922,
+        "f1": 0.2089005863455336,
+        "false_negative": 4611,
+        "false_negative_rate": 0.21791115311909262,
+        "false_positive": 120730,
+        "false_positive_rate": 0.7556865837933927,
+        "ground_truth_vessel_pixels": 21160,
+        "iou": 0.11663260272041723,
+        "pixel_accuracy": 0.30720973679265096,
+        "precision": 0.120550120557405,
+        "predicted_vessel_pixels": 137279,
+        "sensitivity": 0.7820888468809074,
+        "specificity": 0.24431341620660732,
+        "true_negative": 39032,
+        "true_positive": 16549,
+        "vessel_prevalence": 0.11695647848243995
+      },
+      "perturbation": "rotation_plus_3"
+    },
+    {
+      "image_id": "33",
+      "max_probability": 0.8249487280845642,
+      "mean_probability_in_fov": 0.4259374439716339,
+      "metrics": {
+        "dice": 0.23205240613638775,
+        "evaluated_pixels": 180922,
+        "f1": 0.2320524061363878,
+        "false_negative": 384,
+        "false_negative_rate": 0.018147448015122872,
+        "false_positive": 137127,
+        "false_positive_rate": 0.8583205017463477,
+        "ground_truth_vessel_pixels": 21160,
+        "iou": 0.13125525153676548,
+        "pixel_accuracy": 0.23994317993389416,
+        "precision": 0.13157444760390874,
+        "predicted_vessel_pixels": 157903,
+        "sensitivity": 0.9818525519848771,
+        "specificity": 0.1416794982536523,
+        "true_negative": 22635,
+        "true_positive": 20776,
+        "vessel_prevalence": 0.11695647848243995
+      },
+      "perturbation": "gaussian_noise"
+    },
+    {
+      "image_id": "37",
+      "max_probability": 0.894189178943634,
+      "mean_probability_in_fov": 0.3464937210083008,
+      "metrics": {
+        "dice": 0.3984010393244391,
+        "evaluated_pixels": 180523,
+        "f1": 0.3984010393244391,
+        "false_negative": 2957,
+        "false_negative_rate": 0.1291830493665356,
+        "false_positive": 57242,
+        "false_positive_rate": 0.3631346228264386,
+        "ground_truth_vessel_pixels": 22890,
+        "iou": 0.2487520591024809,
+        "pixel_accuracy": 0.6665300266448042,
+        "precision": 0.2582831227729187,
+        "predicted_vessel_pixels": 77175,
+        "sensitivity": 0.8708169506334644,
+        "specificity": 0.6368653771735614,
+        "true_negative": 100391,
+        "true_positive": 19933,
+        "vessel_prevalence": 0.1267982473147466
+      },
+      "perturbation": "clean"
+    },
+    {
+      "image_id": "37",
+      "max_probability": 0.8990707397460938,
+      "mean_probability_in_fov": 0.3323686718940735,
+      "metrics": {
+        "dice": 0.4146083713220058,
+        "evaluated_pixels": 180523,
+        "f1": 0.41460837132200573,
+        "false_negative": 2881,
+        "false_negative_rate": 0.1258628221930974,
+        "false_positive": 53621,
+        "false_positive_rate": 0.34016354443549257,
+        "ground_truth_vessel_pixels": 22890,
+        "iou": 0.26151795166708053,
+        "pixel_accuracy": 0.6870094115431274,
+        "precision": 0.27175064511747926,
+        "predicted_vessel_pixels": 73630,
+        "sensitivity": 0.8741371778069026,
+        "specificity": 0.6598364555645074,
+        "true_negative": 104012,
+        "true_positive": 20009,
+        "vessel_prevalence": 0.1267982473147466
+      },
+      "perturbation": "brightness_minus_10"
+    },
+    {
+      "image_id": "37",
+      "max_probability": 0.8890479803085327,
+      "mean_probability_in_fov": 0.36943283677101135,
+      "metrics": {
+        "dice": 0.348448162007484,
+        "evaluated_pixels": 180523,
+        "f1": 0.348448162007484,
+        "false_negative": 2311,
+        "false_negative_rate": 0.10096111839231105,
+        "false_positive": 74649,
+        "false_positive_rate": 0.47356200795518705,
+        "ground_truth_vessel_pixels": 22890,
+        "iou": 0.2109822737571638,
+        "pixel_accuracy": 0.5736831317893011,
+        "precision": 0.21610240685512663,
+        "predicted_vessel_pixels": 95228,
+        "sensitivity": 0.899038881607689,
+        "specificity": 0.5264379920448129,
+        "true_negative": 82984,
+        "true_positive": 20579,
+        "vessel_prevalence": 0.1267982473147466
+      },
+      "perturbation": "brightness_plus_10"
+    },
+    {
+      "image_id": "37",
+      "max_probability": 0.8836104273796082,
+      "mean_probability_in_fov": 0.33369961380958557,
+      "metrics": {
+        "dice": 0.4320250894035626,
+        "evaluated_pixels": 180523,
+        "f1": 0.43202508940356266,
+        "false_negative": 3742,
+        "false_negative_rate": 0.16347750109217998,
+        "false_positive": 46605,
+        "false_positive_rate": 0.2956550976001218,
+        "ground_truth_vessel_pixels": 22890,
+        "iou": 0.2755306137132168,
+        "pixel_accuracy": 0.721104789971361,
+        "precision": 0.2912110474046812,
+        "predicted_vessel_pixels": 65753,
+        "sensitivity": 0.83652249890782,
+        "specificity": 0.7043449023998782,
+        "true_negative": 111028,
+        "true_positive": 19148,
+        "vessel_prevalence": 0.1267982473147466
+      },
+      "perturbation": "contrast_minus_10"
+    },
+    {
+      "image_id": "37",
+      "max_probability": 0.900754988193512,
+      "mean_probability_in_fov": 0.358591765165329,
+      "metrics": {
+        "dice": 0.37473899207630096,
+        "evaluated_pixels": 180523,
+        "f1": 0.37473899207630096,
+        "false_negative": 2341,
+        "false_negative_rate": 0.10227173438182613,
+        "false_positive": 66232,
+        "false_positive_rate": 0.4201658282212481,
+        "ground_truth_vessel_pixels": 22890,
+        "iou": 0.2305715760418303,
+        "pixel_accuracy": 0.6201425857093003,
+        "precision": 0.23679146356921446,
+        "predicted_vessel_pixels": 86781,
+        "sensitivity": 0.8977282656181739,
+        "specificity": 0.579834171778752,
+        "true_negative": 91401,
+        "true_positive": 20549,
+        "vessel_prevalence": 0.1267982473147466
+      },
+      "perturbation": "contrast_plus_10"
+    },
+    {
+      "image_id": "37",
+      "max_probability": 0.884136438369751,
+      "mean_probability_in_fov": 0.338194876909256,
+      "metrics": {
+        "dice": 0.4098334621451939,
+        "evaluated_pixels": 180523,
+        "f1": 0.40983346214519395,
+        "false_negative": 3535,
+        "false_negative_rate": 0.154434250764526,
+        "false_positive": 52208,
+        "false_positive_rate": 0.33119968534507366,
+        "ground_truth_vessel_pixels": 22890,
+        "iou": 0.2577298995978588,
+        "pixel_accuracy": 0.6912138619455692,
+        "precision": 0.2704609924122801,
+        "predicted_vessel_pixels": 71563,
+        "sensitivity": 0.845565749235474,
+        "specificity": 0.6688003146549263,
+        "true_negative": 105425,
+        "true_positive": 19355,
+        "vessel_prevalence": 0.1267982473147466
+      },
+      "perturbation": "mild_blur"
+    },
+    {
+      "image_id": "37",
+      "max_probability": 0.8994921445846558,
+      "mean_probability_in_fov": 0.33769872784614563,
+      "metrics": {
+        "dice": 0.40787184768572377,
+        "evaluated_pixels": 180523,
+        "f1": 0.4078718476857237,
+        "false_negative": 3781,
+        "false_negative_rate": 0.1651813018785496,
+        "false_positive": 51702,
+        "false_positive_rate": 0.3279896975887029,
+        "ground_truth_vessel_pixels": 22890,
+        "iou": 0.2561802874302874,
+        "pixel_accuracy": 0.6926541216354702,
+        "precision": 0.2698592026662524,
+        "predicted_vessel_pixels": 70811,
+        "sensitivity": 0.8348186981214504,
+        "specificity": 0.6720103024112971,
+        "true_negative": 105931,
+        "true_positive": 19109,
+        "vessel_prevalence": 0.1267982473147466
+      },
+      "perturbation": "jpeg_quality_70"
+    },
+    {
+      "image_id": "37",
+      "max_probability": 0.8925837874412537,
+      "mean_probability_in_fov": 0.3381662368774414,
+      "metrics": {
+        "dice": 0.27995074682798865,
+        "evaluated_pixels": 180523,
+        "f1": 0.27995074682798865,
+        "false_negative": 9817,
+        "false_negative_rate": 0.4288772389689821,
+        "false_positive": 57432,
+        "false_positive_rate": 0.3643399541974079,
+        "ground_truth_vessel_pixels": 22890,
+        "iou": 0.162757401459127,
+        "pixel_accuracy": 0.6274768312071038,
+        "precision": 0.18541947379618468,
+        "predicted_vessel_pixels": 70505,
+        "sensitivity": 0.5711227610310179,
+        "specificity": 0.635660045802592,
+        "true_negative": 100201,
+        "true_positive": 13073,
+        "vessel_prevalence": 0.1267982473147466
+      },
+      "perturbation": "rotation_plus_3"
+    },
+    {
+      "image_id": "37",
+      "max_probability": 0.8965182900428772,
+      "mean_probability_in_fov": 0.3602014482021332,
+      "metrics": {
+        "dice": 0.36486923392839976,
+        "evaluated_pixels": 180523,
+        "f1": 0.3648692339283998,
+        "false_negative": 2012,
+        "false_negative_rate": 0.08789864569681083,
+        "false_positive": 70673,
+        "false_positive_rate": 0.4483388630553247,
+        "ground_truth_vessel_pixels": 22890,
+        "iou": 0.22314376409478107,
+        "pixel_accuracy": 0.5973643247674811,
+        "precision": 0.22804775480333367,
+        "predicted_vessel_pixels": 91551,
+        "sensitivity": 0.9121013543031892,
+        "specificity": 0.5516611369446753,
+        "true_negative": 86960,
+        "true_positive": 20878,
+        "vessel_prevalence": 0.1267982473147466
+      },
+      "perturbation": "gaussian_noise"
+    }
+  ],
+  "perturbations": [
+    "clean",
+    "brightness_minus_10",
+    "brightness_plus_10",
+    "contrast_minus_10",
+    "contrast_plus_10",
+    "mild_blur",
+    "jpeg_quality_70",
+    "rotation_plus_3",
+    "gaussian_noise"
+  ],
+  "sample_image_ids": [
+    "21",
+    "25",
+    "29",
+    "33",
+    "37"
+  ],
+  "status": "COMPLETED_DEVELOPMENT_SAMPLE",
+  "summary": {
+    "brightness_minus_10": {
+      "dice": {
+        "mean": 0.3742220066167256,
+        "std": 0.06580246159811708
+      },
+      "f1": {
+        "mean": 0.3742220066167256,
+        "std": 0.06580246159811702
+      },
+      "iou": {
+        "mean": 0.23216384141320678,
+        "std": 0.04905012832278111
+      },
+      "pixel_accuracy": {
+        "mean": 0.6367295988958421,
+        "std": 0.15126909936420763
+      },
+      "precision": {
+        "mean": 0.25494748967567665,
+        "std": 0.07537463922656178
+      },
+      "sensitivity": {
+        "mean": 0.8216995926660647,
+        "std": 0.12742819281320847
+      },
+      "specificity": {
+        "mean": 0.6127815433000123,
+        "std": 0.187465951637953
+      }
+    },
+    "brightness_plus_10": {
+      "dice": {
+        "mean": 0.3318211025422397,
+        "std": 0.1136288202491533
+      },
+      "f1": {
+        "mean": 0.3318211025422397,
+        "std": 0.1136288202491533
+      },
+      "iou": {
+        "mean": 0.20470056745711127,
+        "std": 0.0851361275534187
+      },
+      "pixel_accuracy": {
+        "mean": 0.4749983508215604,
+        "std": 0.258091328300155
+      },
+      "precision": {
+        "mean": 0.22130270347243478,
+        "std": 0.11042862982111055
+      },
+      "sensitivity": {
+        "mean": 0.8881372027891656,
+        "std": 0.11499304282740107
+      },
+      "specificity": {
+        "mean": 0.42166840873170025,
+        "std": 0.30512196818254483
+      }
+    },
+    "clean": {
+      "dice": {
+        "mean": 0.34060431795956997,
+        "std": 0.09187987008163238
+      },
+      "f1": {
+        "mean": 0.34060431795957,
+        "std": 0.09187987008163238
+      },
+      "iou": {
+        "mean": 0.2090829656277829,
+        "std": 0.06913399706158273
+      },
+      "pixel_accuracy": {
+        "mean": 0.5437700593441633,
+        "std": 0.18776521624837614
+      },
+      "precision": {
+        "mean": 0.23282750757543097,
+        "std": 0.10603790948878868
+      },
+      "sensitivity": {
+        "mean": 0.8543074526557064,
+        "std": 0.145638442295703
+      },
+      "specificity": {
+        "mean": 0.5043613678243462,
+        "std": 0.23154005274292508
+      }
+    },
+    "contrast_minus_10": {
+      "dice": {
+        "mean": 0.3488081608510114,
+        "std": 0.0824960536940458
+      },
+      "f1": {
+        "mean": 0.3488081608510114,
+        "std": 0.08249605369404586
+      },
+      "iou": {
+        "mean": 0.21433123408370727,
+        "std": 0.06176058839504701
+      },
+      "pixel_accuracy": {
+        "mean": 0.582398907972783,
+        "std": 0.170997934777087
+      },
+      "precision": {
+        "mean": 0.243889880604994,
+        "std": 0.10351603892696587
+      },
+      "sensitivity": {
+        "mean": 0.8252041044619635,
+        "std": 0.1647292789941735
+      },
+      "specificity": {
+        "mean": 0.5524119154615901,
+        "std": 0.21551955965086791
+      }
+    },
+    "contrast_plus_10": {
+      "dice": {
+        "mean": 0.3346352245736496,
+        "std": 0.09905090441163804
+      },
+      "f1": {
+        "mean": 0.3346352245736495,
+        "std": 0.099050904411638
+      },
+      "iou": {
+        "mean": 0.20541197241999617,
+        "std": 0.07529991396228178
+      },
+      "pixel_accuracy": {
+        "mean": 0.514219040644047,
+        "std": 0.19509760950726815
+      },
+      "precision": {
+        "mean": 0.22406198341986214,
+        "std": 0.10570855821368223
+      },
+      "sensitivity": {
+        "mean": 0.8786086665654779,
+        "std": 0.1257684882235619
+      },
+      "specificity": {
+        "mean": 0.4671486261835348,
+        "std": 0.2369200640791746
+      }
+    },
+    "gaussian_noise": {
+      "dice": {
+        "mean": 0.32487237295581695,
+        "std": 0.10482242330107756
+      },
+      "f1": {
+        "mean": 0.32487237295581706,
+        "std": 0.10482242330107759
+      },
+      "iou": {
+        "mean": 0.19888827603284476,
+        "std": 0.07918638201062557
+      },
+      "pixel_accuracy": {
+        "mean": 0.47561288023386067,
+        "std": 0.21405058914701539
+      },
+      "precision": {
+        "mean": 0.21376738096534878,
+        "std": 0.1036389879694235
+      },
+      "sensitivity": {
+        "mean": 0.89556760332684,
+        "std": 0.11264501186071248
+      },
+      "specificity": {
+        "mean": 0.42087524528811093,
+        "std": 0.25586760748110093
+      }
+    },
+    "jpeg_quality_70": {
+      "dice": {
+        "mean": 0.3391080257369015,
+        "std": 0.07904035734439624
+      },
+      "f1": {
+        "mean": 0.3391080257369015,
+        "std": 0.07904035734439625
+      },
+      "iou": {
+        "mean": 0.20694904308170115,
+        "std": 0.05837208610175466
+      },
+      "pixel_accuracy": {
+        "mean": 0.5667059488607438,
+        "std": 0.17685251076324116
+      },
+      "precision": {
+        "mean": 0.23585475512661516,
+        "std": 0.10052637992926823
+      },
+      "sensitivity": {
+        "mean": 0.8216772924445344,
+        "std": 0.16759670470028382
+      },
+      "specificity": {
+        "mean": 0.5351884382082448,
+        "std": 0.22255955293219942
+      }
+    },
+    "mild_blur": {
+      "dice": {
+        "mean": 0.3413968945896585,
+        "std": 0.08787593168435538
+      },
+      "f1": {
+        "mean": 0.3413968945896585,
+        "std": 0.08787593168435541
+      },
+      "iou": {
+        "mean": 0.20930692964832714,
+        "std": 0.06558608962083166
+      },
+      "pixel_accuracy": {
+        "mean": 0.5558220827221358,
+        "std": 0.186680157964832
+      },
+      "precision": {
+        "mean": 0.23668463114161656,
+        "std": 0.10665651771212854
+      },
+      "sensitivity": {
+        "mean": 0.8373125659960307,
+        "std": 0.15862151957376233
+      },
+      "specificity": {
+        "mean": 0.5206253135605035,
+        "std": 0.23227903205879996
+      }
+    },
+    "rotation_plus_3": {
+      "dice": {
+        "mean": 0.24787928571500806,
+        "std": 0.036721420860669415
+      },
+      "f1": {
+        "mean": 0.24787928571500806,
+        "std": 0.036721420860669415
+      },
+      "iou": {
+        "mean": 0.14197688352870985,
+        "std": 0.02400296459070064
+      },
+      "pixel_accuracy": {
+        "mean": 0.5161340827624602,
+        "std": 0.16937498910857793
+      },
+      "precision": {
+        "mean": 0.16913078723468017,
+        "std": 0.055959937143655825
+      },
+      "sensitivity": {
+        "mean": 0.6236997623097805,
+        "std": 0.1615496487847405
+      },
+      "specificity": {
+        "mean": 0.5051202367690403,
+        "std": 0.21665850089334004
+      }
+    }
+  },
+  "threshold": 0.3
+}

@@ -1,0 +1,3541 @@
+{
+  "error_count": 171,
+  "high_confidence_incorrect": [
+    {
+      "actual": 1,
+      "confidence": 0.9955723285675049,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_291.jpg",
+      "image_id": "IDRiD_291",
+      "logits": [
+        5.675790309906006,
+        -0.17512187361717224,
+        -1.7601656913757324,
+        -2.1836137771606445,
+        -1.7522351741790771
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.9955723285675049,
+        0.0028645340353250504,
+        0.0005870541208423674,
+        0.00038439437048509717,
+        0.0005917284288443625
+      ],
+      "referable": false,
+      "referable_probability": 0.001563176920171827,
+      "uncertainty": {
+        "entropy_nats": 0.03297943258058643,
+        "normalized_entropy": 0.0204912735842718,
+        "probability_margin": 0.9927077945321798
+      }
+    },
+    {
+      "actual": 1,
+      "confidence": 0.9944047927856445,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_290.jpg",
+      "image_id": "IDRiD_290",
+      "logits": [
+        5.593657493591309,
+        0.02183292806148529,
+        -1.7099764347076416,
+        -1.8784102201461792,
+        -1.8564512729644775
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.9944047927856445,
+        0.0037822527810931206,
+        0.0006693224422633648,
+        0.000565568741876632,
+        0.0005781255895271897
+      ],
+      "referable": false,
+      "referable_probability": 0.0018130167736671865,
+      "uncertainty": {
+        "entropy_nats": 0.04010652059855789,
+        "normalized_entropy": 0.024919582351518692,
+        "probability_margin": 0.9906225400045514
+      }
+    },
+    {
+      "actual": 1,
+      "confidence": 0.9911755323410034,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_302.jpg",
+      "image_id": "IDRiD_302",
+      "logits": [
+        5.914764404296875,
+        1.0759700536727905,
+        -1.3999100923538208,
+        -3.1503188610076904,
+        -2.5768368244171143
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.9911755323410034,
+        0.00784673448652029,
+        0.000659823592286557,
+        0.00011461325630079955,
+        0.00020337384194135666
+      ],
+      "referable": false,
+      "referable_probability": 0.0009778106905287132,
+      "uncertainty": {
+        "entropy_nats": 0.05442471078834609,
+        "normalized_entropy": 0.03381597411610282,
+        "probability_margin": 0.9833287978544831
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.9895848631858826,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_248.jpg",
+      "image_id": "IDRiD_248",
+      "logits": [
+        4.793881893157959,
+        -0.44918933510780334,
+        -1.2314414978027344,
+        -2.03254771232605,
+        -1.5603679418563843
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.9895848631858826,
+        0.005228970665484667,
+        0.0023915988858789206,
+        0.0010734267998486757,
+        0.0017212238162755966
+      ],
+      "referable": false,
+      "referable_probability": 0.005186249502003193,
+      "uncertainty": {
+        "entropy_nats": 0.07056053498926323,
+        "normalized_entropy": 0.04384172539004507,
+        "probability_margin": 0.9843558925203979
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.9894327521324158,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_201.jpg",
+      "image_id": "IDRiD_201",
+      "logits": [
+        5.032135009765625,
+        0.08129788190126419,
+        -1.663189172744751,
+        -1.7999300956726074,
+        -1.6230024099349976
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.9894327521324158,
+        0.007002692203968763,
+        0.0012236129259690642,
+        0.0010672302450984716,
+        0.0012737868819385767
+      ],
+      "referable": false,
+      "referable_probability": 0.0035646300530061126,
+      "uncertainty": {
+        "entropy_nats": 0.06925376528796763,
+        "normalized_entropy": 0.04302978372320609,
+        "probability_margin": 0.982430059928447
+      }
+    },
+    {
+      "actual": 1,
+      "confidence": 0.9887141585350037,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_256.jpg",
+      "image_id": "IDRiD_256",
+      "logits": [
+        4.983646392822266,
+        0.009585395455360413,
+        -1.2253426313400269,
+        -1.8453618288040161,
+        -1.5830509662628174
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.9887141585350037,
+        0.006836967542767525,
+        0.001988570671528578,
+        0.001069720252417028,
+        0.0013905622763559222
+      ],
+      "referable": false,
+      "referable_probability": 0.004448853200301528,
+      "uncertainty": {
+        "entropy_nats": 0.07414104628329671,
+        "normalized_entropy": 0.046066422140613315,
+        "probability_margin": 0.9818771909922361
+      }
+    },
+    {
+      "actual": 1,
+      "confidence": 0.9857280850410461,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_198.jpg",
+      "image_id": "IDRiD_198",
+      "logits": [
+        4.895118236541748,
+        0.3116956055164337,
+        -1.8053481578826904,
+        -1.9803712368011475,
+        -1.3217014074325562
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.9857280850410461,
+        0.010073999874293804,
+        0.0012127789668738842,
+        0.0010180523386225104,
+        0.001967100892215967
+      ],
+      "referable": false,
+      "referable_probability": 0.004197932197712362,
+      "uncertainty": {
+        "entropy_nats": 0.08790304212317851,
+        "normalized_entropy": 0.05461723092519592,
+        "probability_margin": 0.9756540851667523
+      }
+    },
+    {
+      "actual": 1,
+      "confidence": 0.9784683585166931,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_194.jpg",
+      "image_id": "IDRiD_194",
+      "logits": [
+        4.493393421173096,
+        0.21886888146400452,
+        -1.1050267219543457,
+        -2.0970144271850586,
+        -1.3125815391540527
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.9784683585166931,
+        0.013618971221148968,
+        0.0036239633336663246,
+        0.0013439063914120197,
+        0.0029447192791849375
+      ],
+      "referable": false,
+      "referable_probability": 0.007912589004263282,
+      "uncertainty": {
+        "entropy_nats": 0.12622378340099139,
+        "normalized_entropy": 0.0784272461993216,
+        "probability_margin": 0.9648493872955441
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.9667078256607056,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_216.jpg",
+      "image_id": "IDRiD_216",
+      "logits": [
+        3.9975311756134033,
+        0.008664458990097046,
+        -0.9868373870849609,
+        -2.0093328952789307,
+        -1.021314263343811
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.9667078256607056,
+        0.017904097214341164,
+        0.006616245023906231,
+        0.002379837678745389,
+        0.006392022594809532
+      ],
+      "referable": false,
+      "referable_probability": 0.015388105297461152,
+      "uncertainty": {
+        "entropy_nats": 0.18462977045937098,
+        "normalized_entropy": 0.11471692634612943,
+        "probability_margin": 0.9488037284463644
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.9564996361732483,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_215.jpg",
+      "image_id": "IDRiD_215",
+      "logits": [
+        4.051532745361328,
+        0.6871651411056519,
+        -1.2876447439193726,
+        -2.155858278274536,
+        -1.4500280618667603
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.9564996361732483,
+        0.03307947516441345,
+        0.004591022618114948,
+        0.0019268558826297522,
+        0.0039028991013765335
+      ],
+      "referable": false,
+      "referable_probability": 0.010420777602121234,
+      "uncertainty": {
+        "entropy_nats": 0.2137114428169269,
+        "normalized_entropy": 0.1327863853372955,
+        "probability_margin": 0.9234201610088348
+      }
+    },
+    {
+      "actual": 1,
+      "confidence": 0.9543367028236389,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_379.jpg",
+      "image_id": "IDRiD_379",
+      "logits": [
+        3.969636917114258,
+        0.6453021764755249,
+        -1.3392138481140137,
+        -1.8320064544677734,
+        -1.5818676948547363
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.9543367028236389,
+        0.03435274586081505,
+        0.004721685312688351,
+        0.0028845623601228,
+        0.0037043653428554535
+      ],
+      "referable": false,
+      "referable_probability": 0.011310613015666604,
+      "uncertainty": {
+        "entropy_nats": 0.2233054820955297,
+        "normalized_entropy": 0.13874749710462853,
+        "probability_margin": 0.9199839569628239
+      }
+    },
+    {
+      "actual": 1,
+      "confidence": 0.9421645402908325,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_105.jpg",
+      "image_id": "IDRiD_105",
+      "logits": [
+        4.030788898468018,
+        1.060450553894043,
+        -1.4983983039855957,
+        -1.8249585628509521,
+        -1.6930265426635742
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.9421645402908325,
+        0.04831980913877487,
+        0.0037396526895463467,
+        0.002697789343073964,
+        0.0030782599933445454
+      ],
+      "referable": false,
+      "referable_probability": 0.009515702025964856,
+      "uncertainty": {
+        "entropy_nats": 0.2571957368585576,
+        "normalized_entropy": 0.15980469633002306,
+        "probability_margin": 0.8938447311520576
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.9272633790969849,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_208.jpg",
+      "image_id": "IDRiD_208",
+      "logits": [
+        4.053670406341553,
+        1.379165768623352,
+        -1.4696681499481201,
+        -2.037999153137207,
+        -1.6763237714767456
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.9272633790969849,
+        0.06392642855644226,
+        0.00370209664106369,
+        0.0020971265621483326,
+        0.0030109130311757326
+      ],
+      "referable": false,
+      "referable_probability": 0.008810136234387755,
+      "uncertainty": {
+        "entropy_nats": 0.2969646169343773,
+        "normalized_entropy": 0.18451449082944152,
+        "probability_margin": 0.8633369505405426
+      }
+    },
+    {
+      "actual": 1,
+      "confidence": 0.9239872097969055,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_265.jpg",
+      "image_id": "IDRiD_265",
+      "logits": [
+        3.4964098930358887,
+        0.6483627557754517,
+        -1.1151893138885498,
+        -2.004408121109009,
+        -1.080238938331604
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.9239872097969055,
+        0.05355188250541687,
+        0.009180661290884018,
+        0.003773036180064082,
+        0.009507200680673122
+      ],
+      "referable": false,
+      "referable_probability": 0.022460898151621222,
+      "uncertainty": {
+        "entropy_nats": 0.33817877470064034,
+        "normalized_entropy": 0.21012228684807208,
+        "probability_margin": 0.8704353272914886
+      }
+    },
+    {
+      "actual": 1,
+      "confidence": 0.9176855683326721,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_301.jpg",
+      "image_id": "IDRiD_301",
+      "logits": [
+        3.710076332092285,
+        1.0789989233016968,
+        -0.8596644401550293,
+        -2.4276957511901855,
+        -1.5535240173339844
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.9176855683326721,
+        0.06607414782047272,
+        0.009507814422249794,
+        0.0019819531589746475,
+        0.00475052185356617
+      ],
+      "referable": false,
+      "referable_probability": 0.01624028943479061,
+      "uncertainty": {
+        "entropy_nats": 0.34036452522851796,
+        "normalized_entropy": 0.21148037000927455,
+        "probability_margin": 0.8516114205121994
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.888130247592926,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_252.jpg",
+      "image_id": "IDRiD_252",
+      "logits": [
+        3.103264093399048,
+        -0.26926738023757935,
+        0.3444424271583557,
+        -1.2868883609771729,
+        -1.0386141538619995
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.888130247592926,
+        0.03046525828540325,
+        0.05627760663628578,
+        0.011011783964931965,
+        0.01411503180861473
+      ],
+      "referable": false,
+      "referable_probability": 0.08140442240983248,
+      "uncertainty": {
+        "entropy_nats": 0.48344793836591915,
+        "normalized_entropy": 0.3003830931475676,
+        "probability_margin": 0.8318526409566402
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.8880330324172974,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_247.jpg",
+      "image_id": "IDRiD_247",
+      "logits": [
+        3.1157591342926025,
+        0.1375647932291031,
+        0.21033886075019836,
+        -1.5588724613189697,
+        -1.3810145854949951
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.8880330324172974,
+        0.04518723487854004,
+        0.04859830439090729,
+        0.008284426294267178,
+        0.009897034615278244
+      ],
+      "referable": false,
+      "referable_probability": 0.06677976530045271,
+      "uncertainty": {
+        "entropy_nats": 0.47775257373461727,
+        "normalized_entropy": 0.29684436413708454,
+        "probability_margin": 0.8394347280263901
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.8780725598335266,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_270.jpg",
+      "image_id": "IDRiD_270",
+      "logits": [
+        3.056828022003174,
+        0.620297908782959,
+        -0.5433555841445923,
+        -1.7174216508865356,
+        -1.101667881011963
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.8780725598335266,
+        0.07679957896471024,
+        0.02398780919611454,
+        0.007414812687784433,
+        0.01372519787400961
+      ],
+      "referable": false,
+      "referable_probability": 0.04512781975790858,
+      "uncertainty": {
+        "entropy_nats": 0.49598738347079446,
+        "normalized_entropy": 0.3081742884512192,
+        "probability_margin": 0.8012729808688164
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.8752385377883911,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_260.jpg",
+      "image_id": "IDRiD_260",
+      "logits": [
+        3.143810272216797,
+        0.7853836417198181,
+        -0.4590921401977539,
+        -2.1981353759765625,
+        -0.9947590827941895
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.8752385377883911,
+        0.08277035504579544,
+        0.02384546399116516,
+        0.0041893720626831055,
+        0.01395624503493309
+      ],
+      "referable": false,
+      "referable_probability": 0.04199108108878136,
+      "uncertainty": {
+        "entropy_nats": 0.49451777703485517,
+        "normalized_entropy": 0.30726117063251646,
+        "probability_margin": 0.7924681827425957
+      }
+    },
+    {
+      "actual": 1,
+      "confidence": 0.8663682341575623,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_266.jpg",
+      "image_id": "IDRiD_266",
+      "logits": [
+        2.967071533203125,
+        0.762911319732666,
+        -1.028950572013855,
+        -1.7283568382263184,
+        -1.1449329853057861
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.8663682341575623,
+        0.09559780359268188,
+        0.01593133434653282,
+        0.007915965281426907,
+        0.014186711981892586
+      ],
+      "referable": false,
+      "referable_probability": 0.038034011609852314,
+      "uncertainty": {
+        "entropy_nats": 0.5133247611598782,
+        "normalized_entropy": 0.31894660688310134,
+        "probability_margin": 0.7707704305648804
+      }
+    },
+    {
+      "actual": 1,
+      "confidence": 0.8661472797393799,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_402.jpg",
+      "image_id": "IDRiD_402",
+      "logits": [
+        3.0507097244262695,
+        0.8105106353759766,
+        -0.7964208126068115,
+        -1.6811208724975586,
+        -0.9694816470146179
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.8661472797393799,
+        0.09219038486480713,
+        0.01848435029387474,
+        0.007631042040884495,
+        0.015546939335763454
+      ],
+      "referable": false,
+      "referable_probability": 0.04166233167052269,
+      "uncertainty": {
+        "entropy_nats": 0.5199473090351253,
+        "normalized_entropy": 0.3230614272337859,
+        "probability_margin": 0.7739568948745728
+      }
+    },
+    {
+      "actual": 1,
+      "confidence": 0.8621699213981628,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_403.jpg",
+      "image_id": "IDRiD_403",
+      "logits": [
+        2.7803001403808594,
+        0.30889520049095154,
+        -0.724881649017334,
+        -1.1966040134429932,
+        -0.8460531830787659
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.8621699213981628,
+        0.07282412797212601,
+        0.025900714099407196,
+        0.0161601472645998,
+        0.02294497936964035
+      ],
+      "referable": false,
+      "referable_probability": 0.06500584073364735,
+      "uncertainty": {
+        "entropy_nats": 0.5665414745690843,
+        "normalized_entropy": 0.352012010026688,
+        "probability_margin": 0.7893457934260368
+      }
+    }
+  ],
+  "important_error_count": 62,
+  "important_errors": [
+    {
+      "actual": 4,
+      "confidence": 0.7670648097991943,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_046.jpg",
+      "image_id": "IDRiD_046",
+      "logits": [
+        2.2753078937530518,
+        0.28328555822372437,
+        0.06266386806964874,
+        -1.8346569538116455,
+        -0.9083892107009888
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.7670648097991943,
+        0.10464242100715637,
+        0.08392530679702759,
+        0.012586269527673721,
+        0.03178117424249649
+      ],
+      "referable": false,
+      "referable_probability": 0.1282927505671978,
+      "uncertainty": {
+        "entropy_nats": 0.8122416060207411,
+        "normalized_entropy": 0.5046740851234912,
+        "probability_margin": 0.662422388792038
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.38048121333122253,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_106.jpg",
+      "image_id": "IDRiD_106",
+      "logits": [
+        -0.88337242603302,
+        0.6423464417457581,
+        0.19054950773715973,
+        -0.649523138999939,
+        -0.051709696650505066
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.08274121582508087,
+        0.38048121333122253,
+        0.24216999113559723,
+        0.10453972965478897,
+        0.19006776809692383
+      ],
+      "referable": true,
+      "referable_probability": 0.53677748888731,
+      "uncertainty": {
+        "entropy_nats": 1.4689392824152634,
+        "normalized_entropy": 0.9127032929115309,
+        "probability_margin": 0.1383112221956253
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.5290029644966125,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_124.jpg",
+      "image_id": "IDRiD_124",
+      "logits": [
+        0.19947582483291626,
+        1.3643712997436523,
+        0.35214367508888245,
+        -1.2938618659973145,
+        -0.5672518014907837
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.1650252491235733,
+        0.5290029644966125,
+        0.19224418699741364,
+        0.03706825524568558,
+        0.07665929943323135
+      ],
+      "referable": false,
+      "referable_probability": 0.30597174167633057,
+      "uncertainty": {
+        "entropy_nats": 1.2702062145256359,
+        "normalized_entropy": 0.7892234951794983,
+        "probability_margin": 0.3367587774991989
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.5266125202178955,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_129.jpg",
+      "image_id": "IDRiD_129",
+      "logits": [
+        1.3420255184173584,
+        1.7201606035232544,
+        -0.3154608905315399,
+        -1.9274688959121704,
+        -1.1421012878417969
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.36080220341682434,
+        0.5266125202178955,
+        0.0687752291560173,
+        0.013719738461077213,
+        0.03009031154215336
+      ],
+      "referable": false,
+      "referable_probability": 0.11258527915924788,
+      "uncertainty": {
+        "entropy_nats": 1.0538934434673348,
+        "normalized_entropy": 0.6548208137295805,
+        "probability_margin": 0.16581031680107117
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.4967968761920929,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_136.jpg",
+      "image_id": "IDRiD_136",
+      "logits": [
+        1.4536728858947754,
+        0.9211597442626953,
+        0.13887277245521545,
+        -2.241741180419922,
+        -0.5682366490364075
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.4967968761920929,
+        0.2916831374168396,
+        0.13340386748313904,
+        0.012339026667177677,
+        0.06577710062265396
+      ],
+      "referable": false,
+      "referable_probability": 0.21151999477297068,
+      "uncertainty": {
+        "entropy_nats": 1.2088917330422353,
+        "normalized_entropy": 0.751126665839453,
+        "probability_margin": 0.2051137387752533
+      }
+    },
+    {
+      "actual": 3,
+      "confidence": 0.6447209715843201,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_180.jpg",
+      "image_id": "IDRiD_180",
+      "logits": [
+        1.5106358528137207,
+        -0.8113692998886108,
+        -0.4175098240375519,
+        -0.5371781587600708,
+        -0.21226339042186737
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.6447209715843201,
+        0.06323211640119553,
+        0.09375377744436264,
+        0.08317973464727402,
+        0.11511348187923431
+      ],
+      "referable": false,
+      "referable_probability": 0.29204699397087097,
+      "uncertainty": {
+        "entropy_nats": 1.1351994799067764,
+        "normalized_entropy": 0.7053390945599823,
+        "probability_margin": 0.5296074897050858
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.5148864388465881,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_183.jpg",
+      "image_id": "IDRiD_183",
+      "logits": [
+        1.8167939186096191,
+        1.5010852813720703,
+        -0.3632414638996124,
+        -2.2363734245300293,
+        -0.6781732439994812
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.5148864388465881,
+        0.3754922151565552,
+        0.058201491832733154,
+        0.008942176587879658,
+        0.042477697134017944
+      ],
+      "referable": false,
+      "referable_probability": 0.10962136555463076,
+      "uncertainty": {
+        "entropy_nats": 1.0514609664823398,
+        "normalized_entropy": 0.6533094308012908,
+        "probability_margin": 0.13939422369003296
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.9895848631858826,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_248.jpg",
+      "image_id": "IDRiD_248",
+      "logits": [
+        4.793881893157959,
+        -0.44918933510780334,
+        -1.2314414978027344,
+        -2.03254771232605,
+        -1.5603679418563843
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.9895848631858826,
+        0.005228970665484667,
+        0.0023915988858789206,
+        0.0010734267998486757,
+        0.0017212238162755966
+      ],
+      "referable": false,
+      "referable_probability": 0.005186249502003193,
+      "uncertainty": {
+        "entropy_nats": 0.07056053498926323,
+        "normalized_entropy": 0.04384172539004507,
+        "probability_margin": 0.9843558925203979
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.49405795335769653,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_284.jpg",
+      "image_id": "IDRiD_284",
+      "logits": [
+        -0.9273426532745361,
+        1.7100214958190918,
+        1.5536422729492188,
+        -1.8133952617645264,
+        -0.9815980792045593
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.03534965589642525,
+        0.49405795335769653,
+        0.42253556847572327,
+        0.014573954977095127,
+        0.03348284214735031
+      ],
+      "referable": true,
+      "referable_probability": 0.4705923656001687,
+      "uncertainty": {
+        "entropy_nats": 1.005881319614165,
+        "normalized_entropy": 0.6249892038972031,
+        "probability_margin": 0.07152238488197327
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.7422271966934204,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_303.jpg",
+      "image_id": "IDRiD_303",
+      "logits": [
+        2.112776517868042,
+        0.3699237108230591,
+        -0.4385371506214142,
+        -1.0479764938354492,
+        -0.8456031680107117
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.7422271966934204,
+        0.12990489602088928,
+        0.05787825584411621,
+        0.031465835869312286,
+        0.03852377459406853
+      ],
+      "referable": false,
+      "referable_probability": 0.12786786630749702,
+      "uncertainty": {
+        "entropy_nats": 0.8855942597131756,
+        "normalized_entropy": 0.5502506514052539,
+        "probability_margin": 0.6123223006725311
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.5298110842704773,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_338.jpg",
+      "image_id": "IDRiD_338",
+      "logits": [
+        -0.7423027753829956,
+        1.6863633394241333,
+        1.2998641729354858,
+        -2.1589393615722656,
+        -0.631338894367218
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.04670514911413193,
+        0.5298110842704773,
+        0.35997024178504944,
+        0.011327325366437435,
+        0.052186205983161926
+      ],
+      "referable": true,
+      "referable_probability": 0.4234837731346488,
+      "uncertainty": {
+        "entropy_nats": 1.0523032642179755,
+        "normalized_entropy": 0.6538327798097417,
+        "probability_margin": 0.16984084248542786
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.6159328818321228,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_411.jpg",
+      "image_id": "IDRiD_411",
+      "logits": [
+        -1.0757356882095337,
+        1.615325927734375,
+        0.694842517375946,
+        -1.3862204551696777,
+        -0.6130045652389526
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.04176574572920799,
+        0.6159328818321228,
+        0.24534235894680023,
+        0.030618108808994293,
+        0.06634095311164856
+      ],
+      "referable": false,
+      "referable_probability": 0.3423014208674431,
+      "uncertainty": {
+        "entropy_nats": 1.062576305606439,
+        "normalized_entropy": 0.6602157793085709,
+        "probability_margin": 0.37059052288532257
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.5818278789520264,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_003.jpg",
+      "image_id": "IDRiD_003",
+      "logits": [
+        -0.7524759769439697,
+        1.3760607242584229,
+        0.38430750370025635,
+        -1.0988060235977173,
+        -0.5576529502868652
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.06924410164356232,
+        0.5818278789520264,
+        0.2158149778842926,
+        0.0489748977124691,
+        0.08413822948932648
+      ],
+      "referable": false,
+      "referable_probability": 0.3489281050860882,
+      "uncertainty": {
+        "entropy_nats": 1.18691005854755,
+        "normalized_entropy": 0.7374686835557871,
+        "probability_margin": 0.36601290106773376
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.393381267786026,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_107.jpg",
+      "image_id": "IDRiD_107",
+      "logits": [
+        -0.23279479146003723,
+        0.819831132888794,
+        0.34875941276550293,
+        -0.8148866891860962,
+        -0.1644633710384369
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.13729795813560486,
+        0.393381267786026,
+        0.24560081958770752,
+        0.07671225070953369,
+        0.14700767397880554
+      ],
+      "referable": true,
+      "referable_probability": 0.46932074427604675,
+      "uncertainty": {
+        "entropy_nats": 1.463296683255125,
+        "normalized_entropy": 0.9091973489316202,
+        "probability_margin": 0.14778044819831848
+      }
+    },
+    {
+      "actual": 4,
+      "confidence": 0.4752058982849121,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_111.jpg",
+      "image_id": "IDRiD_111",
+      "logits": [
+        -0.3462825417518616,
+        1.1818420886993408,
+        0.4380292594432831,
+        -0.9548665285110474,
+        -0.04210272803902626
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.10309218615293503,
+        0.4752058982849121,
+        0.22586451470851898,
+        0.05609459429979324,
+        0.13974277675151825
+      ],
+      "referable": true,
+      "referable_probability": 0.4217018857598305,
+      "uncertainty": {
+        "entropy_nats": 1.3604409577323424,
+        "normalized_entropy": 0.8452894934448406,
+        "probability_margin": 0.24934138357639313
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.3697151839733124,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_120.jpg",
+      "image_id": "IDRiD_120",
+      "logits": [
+        -0.8134950399398804,
+        0.605420708656311,
+        0.36537545919418335,
+        -0.6674798727035522,
+        -0.3204200267791748
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.0894622877240181,
+        0.3697151839733124,
+        0.2908150851726532,
+        0.10352698713541031,
+        0.1464804857969284
+      ],
+      "referable": true,
+      "referable_probability": 0.5408225581049919,
+      "uncertainty": {
+        "entropy_nats": 1.4591677859581236,
+        "normalized_entropy": 0.9066319207997844,
+        "probability_margin": 0.07890009880065918
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.5681295394897461,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_134.jpg",
+      "image_id": "IDRiD_134",
+      "logits": [
+        0.7549223899841309,
+        1.5962079763412476,
+        0.002026621252298355,
+        -1.819311499595642,
+        -0.7781750559806824
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.24495239555835724,
+        0.5681295394897461,
+        0.11537274718284607,
+        0.01866835728287697,
+        0.052876897156238556
+      ],
+      "referable": false,
+      "referable_probability": 0.1869180016219616,
+      "uncertainty": {
+        "entropy_nats": 1.1447179183912106,
+        "normalized_entropy": 0.711253232912818,
+        "probability_margin": 0.32317714393138885
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.3625349998474121,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_137.jpg",
+      "image_id": "IDRiD_137",
+      "logits": [
+        -0.38487428426742554,
+        0.6649381518363953,
+        0.4963810443878174,
+        -0.945699155330658,
+        -0.34646621346473694
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.1268884837627411,
+        0.3625349998474121,
+        0.3062996566295624,
+        0.07242008298635483,
+        0.13185682892799377
+      ],
+      "referable": true,
+      "referable_probability": 0.510576568543911,
+      "uncertainty": {
+        "entropy_nats": 1.449475463166531,
+        "normalized_entropy": 0.9006097420523396,
+        "probability_margin": 0.05623534321784973
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.5703436136245728,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_188.jpg",
+      "image_id": "IDRiD_188",
+      "logits": [
+        1.744413137435913,
+        1.0996193885803223,
+        -0.5172258019447327,
+        -1.1649653911590576,
+        -0.9167194962501526
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.5703436136245728,
+        0.2992996275424957,
+        0.059418171644210815,
+        0.03108919970691204,
+        0.03984936326742172
+      ],
+      "referable": false,
+      "referable_probability": 0.13035673461854458,
+      "uncertainty": {
+        "entropy_nats": 1.0853799493927152,
+        "normalized_entropy": 0.6743844798282376,
+        "probability_margin": 0.271043986082077
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.888130247592926,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_252.jpg",
+      "image_id": "IDRiD_252",
+      "logits": [
+        3.103264093399048,
+        -0.26926738023757935,
+        0.3444424271583557,
+        -1.2868883609771729,
+        -1.0386141538619995
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.888130247592926,
+        0.03046525828540325,
+        0.05627760663628578,
+        0.011011783964931965,
+        0.01411503180861473
+      ],
+      "referable": false,
+      "referable_probability": 0.08140442240983248,
+      "uncertainty": {
+        "entropy_nats": 0.48344793836591915,
+        "normalized_entropy": 0.3003830931475676,
+        "probability_margin": 0.8318526409566402
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.8752385377883911,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_260.jpg",
+      "image_id": "IDRiD_260",
+      "logits": [
+        3.143810272216797,
+        0.7853836417198181,
+        -0.4590921401977539,
+        -2.1981353759765625,
+        -0.9947590827941895
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.8752385377883911,
+        0.08277035504579544,
+        0.02384546399116516,
+        0.0041893720626831055,
+        0.01395624503493309
+      ],
+      "referable": false,
+      "referable_probability": 0.04199108108878136,
+      "uncertainty": {
+        "entropy_nats": 0.49451777703485517,
+        "normalized_entropy": 0.30726117063251646,
+        "probability_margin": 0.7924681827425957
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.4548438489437103,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_262.jpg",
+      "image_id": "IDRiD_262",
+      "logits": [
+        0.988752543926239,
+        1.3292814493179321,
+        0.11960692703723907,
+        -1.3651618957519531,
+        -0.7803044319152832
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.32357317209243774,
+        0.4548438489437103,
+        0.13567735254764557,
+        0.03073834627866745,
+        0.05516719073057175
+      ],
+      "referable": false,
+      "referable_probability": 0.22158288955688477,
+      "uncertainty": {
+        "entropy_nats": 1.2613151364680906,
+        "normalized_entropy": 0.7836991577764489,
+        "probability_margin": 0.13127067685127258
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.3455822169780731,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_300.jpg",
+      "image_id": "IDRiD_300",
+      "logits": [
+        0.6075603365898132,
+        0.8415811061859131,
+        0.5560566186904907,
+        -1.4970930814743042,
+        -0.5278687477111816
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.27347487211227417,
+        0.3455822169780731,
+        0.2597464919090271,
+        0.03333328664302826,
+        0.08786316961050034
+      ],
+      "referable": false,
+      "referable_probability": 0.3809429481625557,
+      "uncertainty": {
+        "entropy_nats": 1.3989674323806485,
+        "normalized_entropy": 0.8692273380492584,
+        "probability_margin": 0.07210734486579895
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.6683534383773804,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_311.jpg",
+      "image_id": "IDRiD_311",
+      "logits": [
+        1.8699893951416016,
+        0.3647810220718384,
+        0.15535010397434235,
+        -1.3473824262619019,
+        -1.045924425125122
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.6683534383773804,
+        0.14835511147975922,
+        0.12032276391983032,
+        0.026774372905492783,
+        0.03619436174631119
+      ],
+      "referable": false,
+      "referable_probability": 0.1832914985716343,
+      "uncertainty": {
+        "entropy_nats": 1.0242364093854897,
+        "normalized_entropy": 0.636393862399105,
+        "probability_margin": 0.5199983268976212
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.4365069568157196,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_398.jpg",
+      "image_id": "IDRiD_398",
+      "logits": [
+        -0.6315315365791321,
+        0.9343532919883728,
+        0.4714803993701935,
+        -1.3037570714950562,
+        -0.12731394171714783
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.09118764847517014,
+        0.4365069568157196,
+        0.2747691869735718,
+        0.046557772904634476,
+        0.1509784609079361
+      ],
+      "referable": true,
+      "referable_probability": 0.47230542078614235,
+      "uncertainty": {
+        "entropy_nats": 1.3634138550447772,
+        "normalized_entropy": 0.8471366584019148,
+        "probability_margin": 0.16173776984214783
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.564942479133606,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_405.jpg",
+      "image_id": "IDRiD_405",
+      "logits": [
+        1.9304181337356567,
+        1.4416221380233765,
+        -0.5608688592910767,
+        -1.5143195390701294,
+        -1.2394133806228638
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.564942479133606,
+        0.34651562571525574,
+        0.04677911847829819,
+        0.01802908442914486,
+        0.02373361587524414
+      ],
+      "referable": false,
+      "referable_probability": 0.08854181878268719,
+      "uncertainty": {
+        "entropy_nats": 0.9942840088509249,
+        "normalized_entropy": 0.617783389573058,
+        "probability_margin": 0.21842685341835022
+      }
+    },
+    {
+      "actual": 3,
+      "confidence": 0.355788916349411,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_025.jpg",
+      "image_id": "IDRiD_025",
+      "logits": [
+        -0.2404036670923233,
+        0.725945234298706,
+        0.34775829315185547,
+        -1.650722622871399,
+        0.2985776662826538
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.13536688685417175,
+        0.355788916349411,
+        0.24375183880329132,
+        0.03303837403655052,
+        0.2320539802312851
+      ],
+      "referable": true,
+      "referable_probability": 0.5088441930711269,
+      "uncertainty": {
+        "entropy_nats": 1.4341066530586806,
+        "normalized_entropy": 0.8910605634297193,
+        "probability_margin": 0.11203707754611969
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.671757161617279,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_051.jpg",
+      "image_id": "IDRiD_051",
+      "logits": [
+        -0.41933315992355347,
+        1.9471344947814941,
+        0.7901527881622314,
+        -1.8981047868728638,
+        -0.8829713463783264
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.0630185529589653,
+        0.671757161617279,
+        0.21122317016124725,
+        0.014363033697009087,
+        0.03963811323046684
+      ],
+      "referable": false,
+      "referable_probability": 0.2652243170887232,
+      "uncertainty": {
+        "entropy_nats": 0.9587804412774182,
+        "normalized_entropy": 0.5957237827381404,
+        "probability_margin": 0.4605339914560318
+      }
+    },
+    {
+      "actual": 3,
+      "confidence": 0.3034662902355194,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_065.jpg",
+      "image_id": "IDRiD_065",
+      "logits": [
+        -1.2305341958999634,
+        0.31686991453170776,
+        0.12283244729042053,
+        -0.7669321298599243,
+        0.23405882716178894
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.06457752734422684,
+        0.3034662902355194,
+        0.24994304776191711,
+        0.10266472399234772,
+        0.27934831380844116
+      ],
+      "referable": true,
+      "referable_probability": 0.631956085562706,
+      "uncertainty": {
+        "entropy_nats": 1.4753118379736634,
+        "normalized_entropy": 0.9166627843023868,
+        "probability_margin": 0.024117976427078247
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.44316160678863525,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_091.jpg",
+      "image_id": "IDRiD_091",
+      "logits": [
+        1.1652307510375977,
+        1.3609535694122314,
+        0.2013341635465622,
+        -1.7746936082839966,
+        -1.2004539966583252
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.3643852472305298,
+        0.44316160678863525,
+        0.13897791504859924,
+        0.0192649457603693,
+        0.03421030566096306
+      ],
+      "referable": false,
+      "referable_probability": 0.1924531664699316,
+      "uncertainty": {
+        "entropy_nats": 1.1943354090569502,
+        "normalized_entropy": 0.7420823132286274,
+        "probability_margin": 0.07877635955810547
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.5007727146148682,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_131.jpg",
+      "image_id": "IDRiD_131",
+      "logits": [
+        -0.43582668900489807,
+        1.1948734521865845,
+        0.5720672011375427,
+        -0.9887549877166748,
+        -0.68865567445755
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.09804751724004745,
+        0.5007727146148682,
+        0.26863300800323486,
+        0.056403081864118576,
+        0.0761437639594078
+      ],
+      "referable": true,
+      "referable_probability": 0.40117985382676125,
+      "uncertainty": {
+        "entropy_nats": 1.28537777271064,
+        "normalized_entropy": 0.7986501142915451,
+        "probability_margin": 0.2321397066116333
+      }
+    },
+    {
+      "actual": 3,
+      "confidence": 0.3634374737739563,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_207.jpg",
+      "image_id": "IDRiD_207",
+      "logits": [
+        0.6776877045631409,
+        0.7944914698600769,
+        -0.019253380596637726,
+        -0.821183979511261,
+        -0.7205758690834045
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.3233720362186432,
+        0.3634374737739563,
+        0.16107375919818878,
+        0.07223550975322723,
+        0.07988115400075912
+      ],
+      "referable": false,
+      "referable_probability": 0.31319042295217514,
+      "uncertainty": {
+        "entropy_nats": 1.4187264387044993,
+        "normalized_entropy": 0.8815042989504512,
+        "probability_margin": 0.04006543755531311
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.9564996361732483,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_215.jpg",
+      "image_id": "IDRiD_215",
+      "logits": [
+        4.051532745361328,
+        0.6871651411056519,
+        -1.2876447439193726,
+        -2.155858278274536,
+        -1.4500280618667603
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.9564996361732483,
+        0.03307947516441345,
+        0.004591022618114948,
+        0.0019268558826297522,
+        0.0039028991013765335
+      ],
+      "referable": false,
+      "referable_probability": 0.010420777602121234,
+      "uncertainty": {
+        "entropy_nats": 0.2137114428169269,
+        "normalized_entropy": 0.1327863853372955,
+        "probability_margin": 0.9234201610088348
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.8880330324172974,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_247.jpg",
+      "image_id": "IDRiD_247",
+      "logits": [
+        3.1157591342926025,
+        0.1375647932291031,
+        0.21033886075019836,
+        -1.5588724613189697,
+        -1.3810145854949951
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.8880330324172974,
+        0.04518723487854004,
+        0.04859830439090729,
+        0.008284426294267178,
+        0.009897034615278244
+      ],
+      "referable": false,
+      "referable_probability": 0.06677976530045271,
+      "uncertainty": {
+        "entropy_nats": 0.47775257373461727,
+        "normalized_entropy": 0.29684436413708454,
+        "probability_margin": 0.8394347280263901
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.6784863471984863,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_263.jpg",
+      "image_id": "IDRiD_263",
+      "logits": [
+        0.9221951365470886,
+        2.1076130867004395,
+        -0.04159459471702576,
+        -2.0113754272460938,
+        -1.2330615520477295
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.20735794305801392,
+        0.6784863471984863,
+        0.07909556478261948,
+        0.011032834649085999,
+        0.024027274921536446
+      ],
+      "referable": false,
+      "referable_probability": 0.11415567435324192,
+      "uncertainty": {
+        "entropy_nats": 0.9294009330378941,
+        "normalized_entropy": 0.5774692679087421,
+        "probability_margin": 0.4711284041404724
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.8780725598335266,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_270.jpg",
+      "image_id": "IDRiD_270",
+      "logits": [
+        3.056828022003174,
+        0.620297908782959,
+        -0.5433555841445923,
+        -1.7174216508865356,
+        -1.101667881011963
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.8780725598335266,
+        0.07679957896471024,
+        0.02398780919611454,
+        0.007414812687784433,
+        0.01372519787400961
+      ],
+      "referable": false,
+      "referable_probability": 0.04512781975790858,
+      "uncertainty": {
+        "entropy_nats": 0.49598738347079446,
+        "normalized_entropy": 0.3081742884512192,
+        "probability_margin": 0.8012729808688164
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.36281171441078186,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_281.jpg",
+      "image_id": "IDRiD_281",
+      "logits": [
+        -0.007982488721609116,
+        0.7956085801124573,
+        0.6958154439926147,
+        -1.4616611003875732,
+        -0.4121309816837311
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.16243743896484375,
+        0.36281171441078186,
+        0.32835355401039124,
+        0.03796308860182762,
+        0.1084342896938324
+      ],
+      "referable": true,
+      "referable_probability": 0.47475093230605125,
+      "uncertainty": {
+        "entropy_nats": 1.3938253626377415,
+        "normalized_entropy": 0.8660323904820484,
+        "probability_margin": 0.034458160400390625
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.49569806456565857,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_374.jpg",
+      "image_id": "IDRiD_374",
+      "logits": [
+        1.446932077407837,
+        -0.586135983467102,
+        1.1636059284210205,
+        -1.479427456855774,
+        -1.084334135055542
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.49569806456565857,
+        0.06490332633256912,
+        0.37339651584625244,
+        0.026565339416265488,
+        0.03943685442209244
+      ],
+      "referable": true,
+      "referable_probability": 0.43939870968461037,
+      "uncertainty": {
+        "entropy_nats": 1.1170991272504436,
+        "normalized_entropy": 0.6940927131267539,
+        "probability_margin": 0.12230154871940613
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.4249058663845062,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_410.jpg",
+      "image_id": "IDRiD_410",
+      "logits": [
+        1.0096256732940674,
+        0.7729229927062988,
+        -0.3261098861694336,
+        -1.0014734268188477,
+        -0.7775616645812988
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.4249058663845062,
+        0.3353467285633087,
+        0.11173523217439651,
+        0.05687003210186958,
+        0.07114217430353165
+      ],
+      "referable": false,
+      "referable_probability": 0.23974743857979774,
+      "uncertainty": {
+        "entropy_nats": 1.3260295013677361,
+        "normalized_entropy": 0.823908453456437,
+        "probability_margin": 0.08955913782119751
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.3208768665790558,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_043.jpg",
+      "image_id": "IDRiD_043",
+      "logits": [
+        -1.684526801109314,
+        0.7173033356666565,
+        0.6014822721481323,
+        -1.244436502456665,
+        0.7119492292404175
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.029056066647171974,
+        0.3208768665790558,
+        0.2857840359210968,
+        0.045119643211364746,
+        0.31916344165802
+      ],
+      "referable": true,
+      "referable_probability": 0.6500671207904816,
+      "uncertainty": {
+        "entropy_nats": 1.3298072683145232,
+        "normalized_entropy": 0.8262557120351005,
+        "probability_margin": 0.0017134249210357666
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.38228079676628113,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_052.jpg",
+      "image_id": "IDRiD_052",
+      "logits": [
+        0.438524454832077,
+        0.9280829429626465,
+        0.523004949092865,
+        -1.5142074823379517,
+        -0.4618382453918457
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.2342987209558487,
+        0.38228079676628113,
+        0.2549525201320648,
+        0.03324369341135025,
+        0.09522420912981033
+      ],
+      "referable": false,
+      "referable_probability": 0.3834204226732254,
+      "uncertainty": {
+        "entropy_nats": 1.3931233231905757,
+        "normalized_entropy": 0.8655961888480853,
+        "probability_margin": 0.1273282766342163
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.43354910612106323,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_126.jpg",
+      "image_id": "IDRiD_126",
+      "logits": [
+        -1.385179042816162,
+        1.0969725847244263,
+        0.9385903477668762,
+        -1.3281948566436768,
+        -0.17245009541511536
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.03622877225279808,
+        0.43354910612106323,
+        0.3700443506240845,
+        0.03835318237543106,
+        0.12182462215423584
+      ],
+      "referable": true,
+      "referable_probability": 0.5302221551537514,
+      "uncertainty": {
+        "entropy_nats": 1.2319437980897554,
+        "normalized_entropy": 0.7654497191672178,
+        "probability_margin": 0.06350475549697876
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.3471963703632355,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_130.jpg",
+      "image_id": "IDRiD_130",
+      "logits": [
+        0.6485899686813354,
+        0.44005072116851807,
+        0.13355806469917297,
+        -0.9462961554527283,
+        -0.6680588722229004
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.3471963703632355,
+        0.28184330463409424,
+        0.20744340121746063,
+        0.07045713067054749,
+        0.09305974096059799
+      ],
+      "referable": false,
+      "referable_probability": 0.3709602728486061,
+      "uncertainty": {
+        "entropy_nats": 1.4583781793144814,
+        "normalized_entropy": 0.9061413106075292,
+        "probability_margin": 0.06535306572914124
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.7658249139785767,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_133.jpg",
+      "image_id": "IDRiD_133",
+      "logits": [
+        0.5083181858062744,
+        2.3454196453094482,
+        0.04840585216879845,
+        -1.7504949569702148,
+        -1.1846165657043457
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.12197939306497574,
+        0.7658249139785767,
+        0.07701034843921661,
+        0.012743721716105938,
+        0.022441621869802475
+      ],
+      "referable": false,
+      "referable_probability": 0.11219569202512503,
+      "uncertainty": {
+        "entropy_nats": 0.7992009940330441,
+        "normalized_entropy": 0.4965714973274982,
+        "probability_margin": 0.6438455209136009
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.9894327521324158,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_201.jpg",
+      "image_id": "IDRiD_201",
+      "logits": [
+        5.032135009765625,
+        0.08129788190126419,
+        -1.663189172744751,
+        -1.7999300956726074,
+        -1.6230024099349976
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.9894327521324158,
+        0.007002692203968763,
+        0.0012236129259690642,
+        0.0010672302450984716,
+        0.0012737868819385767
+      ],
+      "referable": false,
+      "referable_probability": 0.0035646300530061126,
+      "uncertainty": {
+        "entropy_nats": 0.06925376528796763,
+        "normalized_entropy": 0.04302978372320609,
+        "probability_margin": 0.982430059928447
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.9272633790969849,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_208.jpg",
+      "image_id": "IDRiD_208",
+      "logits": [
+        4.053670406341553,
+        1.379165768623352,
+        -1.4696681499481201,
+        -2.037999153137207,
+        -1.6763237714767456
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.9272633790969849,
+        0.06392642855644226,
+        0.00370209664106369,
+        0.0020971265621483326,
+        0.0030109130311757326
+      ],
+      "referable": false,
+      "referable_probability": 0.008810136234387755,
+      "uncertainty": {
+        "entropy_nats": 0.2969646169343773,
+        "normalized_entropy": 0.18451449082944152,
+        "probability_margin": 0.8633369505405426
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.37309902906417847,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_261.jpg",
+      "image_id": "IDRiD_261",
+      "logits": [
+        0.05070110037922859,
+        0.7498219609260559,
+        0.5235902070999146,
+        -1.5877306461334229,
+        -0.49104034900665283
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.18543845415115356,
+        0.37309902906417847,
+        0.29755890369415283,
+        0.03602781519293785,
+        0.10787589848041534
+      ],
+      "referable": true,
+      "referable_probability": 0.441462617367506,
+      "uncertainty": {
+        "entropy_nats": 1.40094869591713,
+        "normalized_entropy": 0.8704583662990435,
+        "probability_margin": 0.07554012537002563
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.6693941354751587,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_282.jpg",
+      "image_id": "IDRiD_282",
+      "logits": [
+        0.7089245319366455,
+        1.9519435167312622,
+        0.045575499534606934,
+        -2.040846109390259,
+        -1.3101298809051514
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.19312816858291626,
+        0.6693941354751587,
+        0.09948481619358063,
+        0.012349100783467293,
+        0.025643739849328995
+      ],
+      "referable": false,
+      "referable_probability": 0.13747765682637691,
+      "uncertainty": {
+        "entropy_nats": 0.9640580117662225,
+        "normalized_entropy": 0.5990029216524354,
+        "probability_margin": 0.47626596689224243
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.5178534984588623,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_340.jpg",
+      "image_id": "IDRiD_340",
+      "logits": [
+        1.2306846380233765,
+        0.030906233936548233,
+        -0.27282339334487915,
+        -0.4057494103908539,
+        -0.3168799877166748
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.5178534984588623,
+        0.1560090333223343,
+        0.11514408886432648,
+        0.10081209242343903,
+        0.11018136888742447
+      ],
+      "referable": false,
+      "referable_probability": 0.32613755017518997,
+      "uncertainty": {
+        "entropy_nats": 1.3538444251465682,
+        "normalized_entropy": 0.8411908373023382,
+        "probability_margin": 0.361844465136528
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.6099987030029297,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_412.jpg",
+      "image_id": "IDRiD_412",
+      "logits": [
+        2.4262073040008545,
+        1.862701654434204,
+        -0.7954152822494507,
+        -2.3077914714813232,
+        -1.4155324697494507
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.6099987030029297,
+        0.3472174406051636,
+        0.02433302253484726,
+        0.005362648982554674,
+        0.013088279403746128
+      ],
+      "referable": false,
+      "referable_probability": 0.04278395092114806,
+      "uncertainty": {
+        "entropy_nats": 0.8440178209509183,
+        "normalized_entropy": 0.5244177575476849,
+        "probability_margin": 0.2627812623977661
+      }
+    },
+    {
+      "actual": 4,
+      "confidence": 0.367436021566391,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_006.jpg",
+      "image_id": "IDRiD_006",
+      "logits": [
+        -1.1281510591506958,
+        0.7324239611625671,
+        0.5801710486412048,
+        -0.9948599338531494,
+        0.09649109840393066
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.05716685205698013,
+        0.367436021566391,
+        0.31554344296455383,
+        0.06531784683465958,
+        0.19453582167625427
+      ],
+      "referable": true,
+      "referable_probability": 0.5753971114754677,
+      "uncertainty": {
+        "entropy_nats": 1.3921458472415233,
+        "normalized_entropy": 0.8649888488932473,
+        "probability_margin": 0.05189257860183716
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.4243292510509491,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_038.jpg",
+      "image_id": "IDRiD_038",
+      "logits": [
+        -0.6340554356575012,
+        1.0077250003814697,
+        0.8242193460464478,
+        -1.4264403581619263,
+        -0.4069376587867737
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.08216498792171478,
+        0.4243292510509491,
+        0.35318922996520996,
+        0.03720131888985634,
+        0.10311522334814072
+      ],
+      "referable": true,
+      "referable_probability": 0.493505772203207,
+      "uncertainty": {
+        "entropy_nats": 1.2933821304749145,
+        "normalized_entropy": 0.8036235013992024,
+        "probability_margin": 0.07114002108573914
+      }
+    },
+    {
+      "actual": 3,
+      "confidence": 0.3829413056373596,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_108.jpg",
+      "image_id": "IDRiD_108",
+      "logits": [
+        -0.26867616176605225,
+        0.7299861907958984,
+        0.38644999265670776,
+        -1.2942907810211182,
+        -0.18219491839408875
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.14106479287147522,
+        0.3829413056373596,
+        0.27160412073135376,
+        0.05058245360851288,
+        0.15380731225013733
+      ],
+      "referable": true,
+      "referable_probability": 0.47599388659000397,
+      "uncertainty": {
+        "entropy_nats": 1.4367485045691544,
+        "normalized_entropy": 0.8927020380650957,
+        "probability_margin": 0.11133718490600586
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.5434204339981079,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_187.jpg",
+      "image_id": "IDRiD_187",
+      "logits": [
+        1.6291265487670898,
+        1.1118624210357666,
+        -0.6918721199035645,
+        -1.3976020812988281,
+        -0.6998322010040283
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.5434204339981079,
+        0.32395973801612854,
+        0.05335057154297829,
+        0.026341736316680908,
+        0.05292757973074913
+      ],
+      "referable": false,
+      "referable_probability": 0.13261988759040833,
+      "uncertainty": {
+        "entropy_nats": 1.1042667844547212,
+        "normalized_entropy": 0.6861195302555272,
+        "probability_margin": 0.21946069598197937
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.9667078256607056,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_216.jpg",
+      "image_id": "IDRiD_216",
+      "logits": [
+        3.9975311756134033,
+        0.008664458990097046,
+        -0.9868373870849609,
+        -2.0093328952789307,
+        -1.021314263343811
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.9667078256607056,
+        0.017904097214341164,
+        0.006616245023906231,
+        0.002379837678745389,
+        0.006392022594809532
+      ],
+      "referable": false,
+      "referable_probability": 0.015388105297461152,
+      "uncertainty": {
+        "entropy_nats": 0.18462977045937098,
+        "normalized_entropy": 0.11471692634612943,
+        "probability_margin": 0.9488037284463644
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.6536111235618591,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_283.jpg",
+      "image_id": "IDRiD_283",
+      "logits": [
+        0.6068050861358643,
+        1.931553602218628,
+        0.26166024804115295,
+        -1.6772639751434326,
+        -1.0896832942962646
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.17377547919750214,
+        0.6536111235618591,
+        0.12305349856615067,
+        0.01770230568945408,
+        0.03185759112238884
+      ],
+      "referable": false,
+      "referable_probability": 0.17261339537799358,
+      "uncertainty": {
+        "entropy_nats": 1.0210714536314713,
+        "normalized_entropy": 0.6344273648227979,
+        "probability_margin": 0.479835644364357
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.5630340576171875,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_293.jpg",
+      "image_id": "IDRiD_293",
+      "logits": [
+        1.5683164596557617,
+        0.35799163579940796,
+        0.45318156480789185,
+        -2.129624366760254,
+        -0.5083654522895813
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.5630340576171875,
+        0.16784070432186127,
+        0.1846025586128235,
+        0.013948880136013031,
+        0.07057375460863113
+      ],
+      "referable": false,
+      "referable_probability": 0.26912519335746765,
+      "uncertainty": {
+        "entropy_nats": 1.181555025163173,
+        "normalized_entropy": 0.7341414142383407,
+        "probability_margin": 0.378431499004364
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.5493375658988953,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_319.jpg",
+      "image_id": "IDRiD_319",
+      "logits": [
+        0.06196056306362152,
+        1.5841144323349,
+        0.8950850963592529,
+        -1.7505974769592285,
+        -1.1578289270401
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.11988815665245056,
+        0.5493375658988953,
+        0.2758021652698517,
+        0.019570063799619675,
+        0.035402052104473114
+      ],
+      "referable": false,
+      "referable_probability": 0.3307742811739445,
+      "uncertainty": {
+        "entropy_nats": 1.1338970983046448,
+        "normalized_entropy": 0.7045298793724503,
+        "probability_margin": 0.2735354006290436
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.4737595319747925,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_404.jpg",
+      "image_id": "IDRiD_404",
+      "logits": [
+        1.111365556716919,
+        0.021911635994911194,
+        0.20570430159568787,
+        -0.7551559805870056,
+        -0.42370685935020447
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.4737595319747925,
+        0.15937277674674988,
+        0.19152888655662537,
+        0.0732719823718071,
+        0.10206679254770279
+      ],
+      "referable": false,
+      "referable_probability": 0.36686766147613525,
+      "uncertainty": {
+        "entropy_nats": 1.3875886201006273,
+        "normalized_entropy": 0.8621572844658854,
+        "probability_margin": 0.2822306454181671
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.5510935187339783,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_413.jpg",
+      "image_id": "IDRiD_413",
+      "logits": [
+        1.3797602653503418,
+        0.3413633108139038,
+        0.09324809163808823,
+        -1.2094095945358276,
+        -0.8344727754592896
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.5510935187339783,
+        0.1950990855693817,
+        0.15222997963428497,
+        0.041377387940883636,
+        0.060199953615665436
+      ],
+      "referable": false,
+      "referable_probability": 0.25380732119083405,
+      "uncertainty": {
+        "entropy_nats": 1.234716535933866,
+        "normalized_entropy": 0.7671725180541393,
+        "probability_margin": 0.35599443316459656
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.5200256705284119,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_037.jpg",
+      "image_id": "IDRiD_037",
+      "logits": [
+        0.08220788836479187,
+        1.1797029972076416,
+        0.20537438988685608,
+        -1.395314335823059,
+        -0.8177686333656311
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.17353565990924835,
+        0.5200256705284119,
+        0.19628143310546875,
+        0.03960125148296356,
+        0.07055599242448807
+      ],
+      "referable": false,
+      "referable_probability": 0.3064386770129204,
+      "uncertainty": {
+        "entropy_nats": 1.278481766467787,
+        "normalized_entropy": 0.7943653847039194,
+        "probability_margin": 0.3237442374229431
+      }
+    },
+    {
+      "actual": 3,
+      "confidence": 0.36202776432037354,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_040.jpg",
+      "image_id": "IDRiD_040",
+      "logits": [
+        -0.5702921748161316,
+        0.6863090991973877,
+        0.5167810916900635,
+        -1.3002712726593018,
+        -0.014118999242782593
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.10304024070501328,
+        0.36202776432037354,
+        0.3055742681026459,
+        0.04965705797076225,
+        0.17970071732997894
+      ],
+      "referable": true,
+      "referable_probability": 0.5349320434033871,
+      "uncertainty": {
+        "entropy_nats": 1.4218335066225096,
+        "normalized_entropy": 0.8834348287919604,
+        "probability_margin": 0.05645349621772766
+      }
+    }
+  ],
+  "official_test_images_opened": 0,
+  "referable_false_negatives": [
+    {
+      "actual": 4,
+      "confidence": 0.7670648097991943,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_046.jpg",
+      "image_id": "IDRiD_046",
+      "logits": [
+        2.2753078937530518,
+        0.28328555822372437,
+        0.06266386806964874,
+        -1.8346569538116455,
+        -0.9083892107009888
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.7670648097991943,
+        0.10464242100715637,
+        0.08392530679702759,
+        0.012586269527673721,
+        0.03178117424249649
+      ],
+      "referable": false,
+      "referable_probability": 0.1282927505671978,
+      "uncertainty": {
+        "entropy_nats": 0.8122416060207411,
+        "normalized_entropy": 0.5046740851234912,
+        "probability_margin": 0.662422388792038
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.5290029644966125,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_124.jpg",
+      "image_id": "IDRiD_124",
+      "logits": [
+        0.19947582483291626,
+        1.3643712997436523,
+        0.35214367508888245,
+        -1.2938618659973145,
+        -0.5672518014907837
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.1650252491235733,
+        0.5290029644966125,
+        0.19224418699741364,
+        0.03706825524568558,
+        0.07665929943323135
+      ],
+      "referable": false,
+      "referable_probability": 0.30597174167633057,
+      "uncertainty": {
+        "entropy_nats": 1.2702062145256359,
+        "normalized_entropy": 0.7892234951794983,
+        "probability_margin": 0.3367587774991989
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.5266125202178955,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_129.jpg",
+      "image_id": "IDRiD_129",
+      "logits": [
+        1.3420255184173584,
+        1.7201606035232544,
+        -0.3154608905315399,
+        -1.9274688959121704,
+        -1.1421012878417969
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.36080220341682434,
+        0.5266125202178955,
+        0.0687752291560173,
+        0.013719738461077213,
+        0.03009031154215336
+      ],
+      "referable": false,
+      "referable_probability": 0.11258527915924788,
+      "uncertainty": {
+        "entropy_nats": 1.0538934434673348,
+        "normalized_entropy": 0.6548208137295805,
+        "probability_margin": 0.16581031680107117
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.4967968761920929,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_136.jpg",
+      "image_id": "IDRiD_136",
+      "logits": [
+        1.4536728858947754,
+        0.9211597442626953,
+        0.13887277245521545,
+        -2.241741180419922,
+        -0.5682366490364075
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.4967968761920929,
+        0.2916831374168396,
+        0.13340386748313904,
+        0.012339026667177677,
+        0.06577710062265396
+      ],
+      "referable": false,
+      "referable_probability": 0.21151999477297068,
+      "uncertainty": {
+        "entropy_nats": 1.2088917330422353,
+        "normalized_entropy": 0.751126665839453,
+        "probability_margin": 0.2051137387752533
+      }
+    },
+    {
+      "actual": 3,
+      "confidence": 0.6447209715843201,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_180.jpg",
+      "image_id": "IDRiD_180",
+      "logits": [
+        1.5106358528137207,
+        -0.8113692998886108,
+        -0.4175098240375519,
+        -0.5371781587600708,
+        -0.21226339042186737
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.6447209715843201,
+        0.06323211640119553,
+        0.09375377744436264,
+        0.08317973464727402,
+        0.11511348187923431
+      ],
+      "referable": false,
+      "referable_probability": 0.29204699397087097,
+      "uncertainty": {
+        "entropy_nats": 1.1351994799067764,
+        "normalized_entropy": 0.7053390945599823,
+        "probability_margin": 0.5296074897050858
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.5148864388465881,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_183.jpg",
+      "image_id": "IDRiD_183",
+      "logits": [
+        1.8167939186096191,
+        1.5010852813720703,
+        -0.3632414638996124,
+        -2.2363734245300293,
+        -0.6781732439994812
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.5148864388465881,
+        0.3754922151565552,
+        0.058201491832733154,
+        0.008942176587879658,
+        0.042477697134017944
+      ],
+      "referable": false,
+      "referable_probability": 0.10962136555463076,
+      "uncertainty": {
+        "entropy_nats": 1.0514609664823398,
+        "normalized_entropy": 0.6533094308012908,
+        "probability_margin": 0.13939422369003296
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.9895848631858826,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_248.jpg",
+      "image_id": "IDRiD_248",
+      "logits": [
+        4.793881893157959,
+        -0.44918933510780334,
+        -1.2314414978027344,
+        -2.03254771232605,
+        -1.5603679418563843
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.9895848631858826,
+        0.005228970665484667,
+        0.0023915988858789206,
+        0.0010734267998486757,
+        0.0017212238162755966
+      ],
+      "referable": false,
+      "referable_probability": 0.005186249502003193,
+      "uncertainty": {
+        "entropy_nats": 0.07056053498926323,
+        "normalized_entropy": 0.04384172539004507,
+        "probability_margin": 0.9843558925203979
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.7422271966934204,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_303.jpg",
+      "image_id": "IDRiD_303",
+      "logits": [
+        2.112776517868042,
+        0.3699237108230591,
+        -0.4385371506214142,
+        -1.0479764938354492,
+        -0.8456031680107117
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.7422271966934204,
+        0.12990489602088928,
+        0.05787825584411621,
+        0.031465835869312286,
+        0.03852377459406853
+      ],
+      "referable": false,
+      "referable_probability": 0.12786786630749702,
+      "uncertainty": {
+        "entropy_nats": 0.8855942597131756,
+        "normalized_entropy": 0.5502506514052539,
+        "probability_margin": 0.6123223006725311
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.6159328818321228,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_411.jpg",
+      "image_id": "IDRiD_411",
+      "logits": [
+        -1.0757356882095337,
+        1.615325927734375,
+        0.694842517375946,
+        -1.3862204551696777,
+        -0.6130045652389526
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.04176574572920799,
+        0.6159328818321228,
+        0.24534235894680023,
+        0.030618108808994293,
+        0.06634095311164856
+      ],
+      "referable": false,
+      "referable_probability": 0.3423014208674431,
+      "uncertainty": {
+        "entropy_nats": 1.062576305606439,
+        "normalized_entropy": 0.6602157793085709,
+        "probability_margin": 0.37059052288532257
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.5818278789520264,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_003.jpg",
+      "image_id": "IDRiD_003",
+      "logits": [
+        -0.7524759769439697,
+        1.3760607242584229,
+        0.38430750370025635,
+        -1.0988060235977173,
+        -0.5576529502868652
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.06924410164356232,
+        0.5818278789520264,
+        0.2158149778842926,
+        0.0489748977124691,
+        0.08413822948932648
+      ],
+      "referable": false,
+      "referable_probability": 0.3489281050860882,
+      "uncertainty": {
+        "entropy_nats": 1.18691005854755,
+        "normalized_entropy": 0.7374686835557871,
+        "probability_margin": 0.36601290106773376
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.5681295394897461,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_134.jpg",
+      "image_id": "IDRiD_134",
+      "logits": [
+        0.7549223899841309,
+        1.5962079763412476,
+        0.002026621252298355,
+        -1.819311499595642,
+        -0.7781750559806824
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.24495239555835724,
+        0.5681295394897461,
+        0.11537274718284607,
+        0.01866835728287697,
+        0.052876897156238556
+      ],
+      "referable": false,
+      "referable_probability": 0.1869180016219616,
+      "uncertainty": {
+        "entropy_nats": 1.1447179183912106,
+        "normalized_entropy": 0.711253232912818,
+        "probability_margin": 0.32317714393138885
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.5703436136245728,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_188.jpg",
+      "image_id": "IDRiD_188",
+      "logits": [
+        1.744413137435913,
+        1.0996193885803223,
+        -0.5172258019447327,
+        -1.1649653911590576,
+        -0.9167194962501526
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.5703436136245728,
+        0.2992996275424957,
+        0.059418171644210815,
+        0.03108919970691204,
+        0.03984936326742172
+      ],
+      "referable": false,
+      "referable_probability": 0.13035673461854458,
+      "uncertainty": {
+        "entropy_nats": 1.0853799493927152,
+        "normalized_entropy": 0.6743844798282376,
+        "probability_margin": 0.271043986082077
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.888130247592926,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_252.jpg",
+      "image_id": "IDRiD_252",
+      "logits": [
+        3.103264093399048,
+        -0.26926738023757935,
+        0.3444424271583557,
+        -1.2868883609771729,
+        -1.0386141538619995
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.888130247592926,
+        0.03046525828540325,
+        0.05627760663628578,
+        0.011011783964931965,
+        0.01411503180861473
+      ],
+      "referable": false,
+      "referable_probability": 0.08140442240983248,
+      "uncertainty": {
+        "entropy_nats": 0.48344793836591915,
+        "normalized_entropy": 0.3003830931475676,
+        "probability_margin": 0.8318526409566402
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.8752385377883911,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_260.jpg",
+      "image_id": "IDRiD_260",
+      "logits": [
+        3.143810272216797,
+        0.7853836417198181,
+        -0.4590921401977539,
+        -2.1981353759765625,
+        -0.9947590827941895
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.8752385377883911,
+        0.08277035504579544,
+        0.02384546399116516,
+        0.0041893720626831055,
+        0.01395624503493309
+      ],
+      "referable": false,
+      "referable_probability": 0.04199108108878136,
+      "uncertainty": {
+        "entropy_nats": 0.49451777703485517,
+        "normalized_entropy": 0.30726117063251646,
+        "probability_margin": 0.7924681827425957
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.4548438489437103,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_262.jpg",
+      "image_id": "IDRiD_262",
+      "logits": [
+        0.988752543926239,
+        1.3292814493179321,
+        0.11960692703723907,
+        -1.3651618957519531,
+        -0.7803044319152832
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.32357317209243774,
+        0.4548438489437103,
+        0.13567735254764557,
+        0.03073834627866745,
+        0.05516719073057175
+      ],
+      "referable": false,
+      "referable_probability": 0.22158288955688477,
+      "uncertainty": {
+        "entropy_nats": 1.2613151364680906,
+        "normalized_entropy": 0.7836991577764489,
+        "probability_margin": 0.13127067685127258
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.3455822169780731,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_300.jpg",
+      "image_id": "IDRiD_300",
+      "logits": [
+        0.6075603365898132,
+        0.8415811061859131,
+        0.5560566186904907,
+        -1.4970930814743042,
+        -0.5278687477111816
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.27347487211227417,
+        0.3455822169780731,
+        0.2597464919090271,
+        0.03333328664302826,
+        0.08786316961050034
+      ],
+      "referable": false,
+      "referable_probability": 0.3809429481625557,
+      "uncertainty": {
+        "entropy_nats": 1.3989674323806485,
+        "normalized_entropy": 0.8692273380492584,
+        "probability_margin": 0.07210734486579895
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.6683534383773804,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_311.jpg",
+      "image_id": "IDRiD_311",
+      "logits": [
+        1.8699893951416016,
+        0.3647810220718384,
+        0.15535010397434235,
+        -1.3473824262619019,
+        -1.045924425125122
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.6683534383773804,
+        0.14835511147975922,
+        0.12032276391983032,
+        0.026774372905492783,
+        0.03619436174631119
+      ],
+      "referable": false,
+      "referable_probability": 0.1832914985716343,
+      "uncertainty": {
+        "entropy_nats": 1.0242364093854897,
+        "normalized_entropy": 0.636393862399105,
+        "probability_margin": 0.5199983268976212
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.564942479133606,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_405.jpg",
+      "image_id": "IDRiD_405",
+      "logits": [
+        1.9304181337356567,
+        1.4416221380233765,
+        -0.5608688592910767,
+        -1.5143195390701294,
+        -1.2394133806228638
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.564942479133606,
+        0.34651562571525574,
+        0.04677911847829819,
+        0.01802908442914486,
+        0.02373361587524414
+      ],
+      "referable": false,
+      "referable_probability": 0.08854181878268719,
+      "uncertainty": {
+        "entropy_nats": 0.9942840088509249,
+        "normalized_entropy": 0.617783389573058,
+        "probability_margin": 0.21842685341835022
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.671757161617279,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_051.jpg",
+      "image_id": "IDRiD_051",
+      "logits": [
+        -0.41933315992355347,
+        1.9471344947814941,
+        0.7901527881622314,
+        -1.8981047868728638,
+        -0.8829713463783264
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.0630185529589653,
+        0.671757161617279,
+        0.21122317016124725,
+        0.014363033697009087,
+        0.03963811323046684
+      ],
+      "referable": false,
+      "referable_probability": 0.2652243170887232,
+      "uncertainty": {
+        "entropy_nats": 0.9587804412774182,
+        "normalized_entropy": 0.5957237827381404,
+        "probability_margin": 0.4605339914560318
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.44316160678863525,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_091.jpg",
+      "image_id": "IDRiD_091",
+      "logits": [
+        1.1652307510375977,
+        1.3609535694122314,
+        0.2013341635465622,
+        -1.7746936082839966,
+        -1.2004539966583252
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.3643852472305298,
+        0.44316160678863525,
+        0.13897791504859924,
+        0.0192649457603693,
+        0.03421030566096306
+      ],
+      "referable": false,
+      "referable_probability": 0.1924531664699316,
+      "uncertainty": {
+        "entropy_nats": 1.1943354090569502,
+        "normalized_entropy": 0.7420823132286274,
+        "probability_margin": 0.07877635955810547
+      }
+    },
+    {
+      "actual": 3,
+      "confidence": 0.3634374737739563,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_207.jpg",
+      "image_id": "IDRiD_207",
+      "logits": [
+        0.6776877045631409,
+        0.7944914698600769,
+        -0.019253380596637726,
+        -0.821183979511261,
+        -0.7205758690834045
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.3233720362186432,
+        0.3634374737739563,
+        0.16107375919818878,
+        0.07223550975322723,
+        0.07988115400075912
+      ],
+      "referable": false,
+      "referable_probability": 0.31319042295217514,
+      "uncertainty": {
+        "entropy_nats": 1.4187264387044993,
+        "normalized_entropy": 0.8815042989504512,
+        "probability_margin": 0.04006543755531311
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.9564996361732483,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_215.jpg",
+      "image_id": "IDRiD_215",
+      "logits": [
+        4.051532745361328,
+        0.6871651411056519,
+        -1.2876447439193726,
+        -2.155858278274536,
+        -1.4500280618667603
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.9564996361732483,
+        0.03307947516441345,
+        0.004591022618114948,
+        0.0019268558826297522,
+        0.0039028991013765335
+      ],
+      "referable": false,
+      "referable_probability": 0.010420777602121234,
+      "uncertainty": {
+        "entropy_nats": 0.2137114428169269,
+        "normalized_entropy": 0.1327863853372955,
+        "probability_margin": 0.9234201610088348
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.8880330324172974,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_247.jpg",
+      "image_id": "IDRiD_247",
+      "logits": [
+        3.1157591342926025,
+        0.1375647932291031,
+        0.21033886075019836,
+        -1.5588724613189697,
+        -1.3810145854949951
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.8880330324172974,
+        0.04518723487854004,
+        0.04859830439090729,
+        0.008284426294267178,
+        0.009897034615278244
+      ],
+      "referable": false,
+      "referable_probability": 0.06677976530045271,
+      "uncertainty": {
+        "entropy_nats": 0.47775257373461727,
+        "normalized_entropy": 0.29684436413708454,
+        "probability_margin": 0.8394347280263901
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.6784863471984863,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_263.jpg",
+      "image_id": "IDRiD_263",
+      "logits": [
+        0.9221951365470886,
+        2.1076130867004395,
+        -0.04159459471702576,
+        -2.0113754272460938,
+        -1.2330615520477295
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.20735794305801392,
+        0.6784863471984863,
+        0.07909556478261948,
+        0.011032834649085999,
+        0.024027274921536446
+      ],
+      "referable": false,
+      "referable_probability": 0.11415567435324192,
+      "uncertainty": {
+        "entropy_nats": 0.9294009330378941,
+        "normalized_entropy": 0.5774692679087421,
+        "probability_margin": 0.4711284041404724
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.8780725598335266,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_270.jpg",
+      "image_id": "IDRiD_270",
+      "logits": [
+        3.056828022003174,
+        0.620297908782959,
+        -0.5433555841445923,
+        -1.7174216508865356,
+        -1.101667881011963
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.8780725598335266,
+        0.07679957896471024,
+        0.02398780919611454,
+        0.007414812687784433,
+        0.01372519787400961
+      ],
+      "referable": false,
+      "referable_probability": 0.04512781975790858,
+      "uncertainty": {
+        "entropy_nats": 0.49598738347079446,
+        "normalized_entropy": 0.3081742884512192,
+        "probability_margin": 0.8012729808688164
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.4249058663845062,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_410.jpg",
+      "image_id": "IDRiD_410",
+      "logits": [
+        1.0096256732940674,
+        0.7729229927062988,
+        -0.3261098861694336,
+        -1.0014734268188477,
+        -0.7775616645812988
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.4249058663845062,
+        0.3353467285633087,
+        0.11173523217439651,
+        0.05687003210186958,
+        0.07114217430353165
+      ],
+      "referable": false,
+      "referable_probability": 0.23974743857979774,
+      "uncertainty": {
+        "entropy_nats": 1.3260295013677361,
+        "normalized_entropy": 0.823908453456437,
+        "probability_margin": 0.08955913782119751
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.38228079676628113,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_052.jpg",
+      "image_id": "IDRiD_052",
+      "logits": [
+        0.438524454832077,
+        0.9280829429626465,
+        0.523004949092865,
+        -1.5142074823379517,
+        -0.4618382453918457
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.2342987209558487,
+        0.38228079676628113,
+        0.2549525201320648,
+        0.03324369341135025,
+        0.09522420912981033
+      ],
+      "referable": false,
+      "referable_probability": 0.3834204226732254,
+      "uncertainty": {
+        "entropy_nats": 1.3931233231905757,
+        "normalized_entropy": 0.8655961888480853,
+        "probability_margin": 0.1273282766342163
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.3471963703632355,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_130.jpg",
+      "image_id": "IDRiD_130",
+      "logits": [
+        0.6485899686813354,
+        0.44005072116851807,
+        0.13355806469917297,
+        -0.9462961554527283,
+        -0.6680588722229004
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.3471963703632355,
+        0.28184330463409424,
+        0.20744340121746063,
+        0.07045713067054749,
+        0.09305974096059799
+      ],
+      "referable": false,
+      "referable_probability": 0.3709602728486061,
+      "uncertainty": {
+        "entropy_nats": 1.4583781793144814,
+        "normalized_entropy": 0.9061413106075292,
+        "probability_margin": 0.06535306572914124
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.7658249139785767,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_133.jpg",
+      "image_id": "IDRiD_133",
+      "logits": [
+        0.5083181858062744,
+        2.3454196453094482,
+        0.04840585216879845,
+        -1.7504949569702148,
+        -1.1846165657043457
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.12197939306497574,
+        0.7658249139785767,
+        0.07701034843921661,
+        0.012743721716105938,
+        0.022441621869802475
+      ],
+      "referable": false,
+      "referable_probability": 0.11219569202512503,
+      "uncertainty": {
+        "entropy_nats": 0.7992009940330441,
+        "normalized_entropy": 0.4965714973274982,
+        "probability_margin": 0.6438455209136009
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.9894327521324158,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_201.jpg",
+      "image_id": "IDRiD_201",
+      "logits": [
+        5.032135009765625,
+        0.08129788190126419,
+        -1.663189172744751,
+        -1.7999300956726074,
+        -1.6230024099349976
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.9894327521324158,
+        0.007002692203968763,
+        0.0012236129259690642,
+        0.0010672302450984716,
+        0.0012737868819385767
+      ],
+      "referable": false,
+      "referable_probability": 0.0035646300530061126,
+      "uncertainty": {
+        "entropy_nats": 0.06925376528796763,
+        "normalized_entropy": 0.04302978372320609,
+        "probability_margin": 0.982430059928447
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.9272633790969849,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_208.jpg",
+      "image_id": "IDRiD_208",
+      "logits": [
+        4.053670406341553,
+        1.379165768623352,
+        -1.4696681499481201,
+        -2.037999153137207,
+        -1.6763237714767456
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.9272633790969849,
+        0.06392642855644226,
+        0.00370209664106369,
+        0.0020971265621483326,
+        0.0030109130311757326
+      ],
+      "referable": false,
+      "referable_probability": 0.008810136234387755,
+      "uncertainty": {
+        "entropy_nats": 0.2969646169343773,
+        "normalized_entropy": 0.18451449082944152,
+        "probability_margin": 0.8633369505405426
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.6693941354751587,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_282.jpg",
+      "image_id": "IDRiD_282",
+      "logits": [
+        0.7089245319366455,
+        1.9519435167312622,
+        0.045575499534606934,
+        -2.040846109390259,
+        -1.3101298809051514
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.19312816858291626,
+        0.6693941354751587,
+        0.09948481619358063,
+        0.012349100783467293,
+        0.025643739849328995
+      ],
+      "referable": false,
+      "referable_probability": 0.13747765682637691,
+      "uncertainty": {
+        "entropy_nats": 0.9640580117662225,
+        "normalized_entropy": 0.5990029216524354,
+        "probability_margin": 0.47626596689224243
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.5178534984588623,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_340.jpg",
+      "image_id": "IDRiD_340",
+      "logits": [
+        1.2306846380233765,
+        0.030906233936548233,
+        -0.27282339334487915,
+        -0.4057494103908539,
+        -0.3168799877166748
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.5178534984588623,
+        0.1560090333223343,
+        0.11514408886432648,
+        0.10081209242343903,
+        0.11018136888742447
+      ],
+      "referable": false,
+      "referable_probability": 0.32613755017518997,
+      "uncertainty": {
+        "entropy_nats": 1.3538444251465682,
+        "normalized_entropy": 0.8411908373023382,
+        "probability_margin": 0.361844465136528
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.6099987030029297,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_412.jpg",
+      "image_id": "IDRiD_412",
+      "logits": [
+        2.4262073040008545,
+        1.862701654434204,
+        -0.7954152822494507,
+        -2.3077914714813232,
+        -1.4155324697494507
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.6099987030029297,
+        0.3472174406051636,
+        0.02433302253484726,
+        0.005362648982554674,
+        0.013088279403746128
+      ],
+      "referable": false,
+      "referable_probability": 0.04278395092114806,
+      "uncertainty": {
+        "entropy_nats": 0.8440178209509183,
+        "normalized_entropy": 0.5244177575476849,
+        "probability_margin": 0.2627812623977661
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.5434204339981079,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_187.jpg",
+      "image_id": "IDRiD_187",
+      "logits": [
+        1.6291265487670898,
+        1.1118624210357666,
+        -0.6918721199035645,
+        -1.3976020812988281,
+        -0.6998322010040283
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.5434204339981079,
+        0.32395973801612854,
+        0.05335057154297829,
+        0.026341736316680908,
+        0.05292757973074913
+      ],
+      "referable": false,
+      "referable_probability": 0.13261988759040833,
+      "uncertainty": {
+        "entropy_nats": 1.1042667844547212,
+        "normalized_entropy": 0.6861195302555272,
+        "probability_margin": 0.21946069598197937
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.9667078256607056,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_216.jpg",
+      "image_id": "IDRiD_216",
+      "logits": [
+        3.9975311756134033,
+        0.008664458990097046,
+        -0.9868373870849609,
+        -2.0093328952789307,
+        -1.021314263343811
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.9667078256607056,
+        0.017904097214341164,
+        0.006616245023906231,
+        0.002379837678745389,
+        0.006392022594809532
+      ],
+      "referable": false,
+      "referable_probability": 0.015388105297461152,
+      "uncertainty": {
+        "entropy_nats": 0.18462977045937098,
+        "normalized_entropy": 0.11471692634612943,
+        "probability_margin": 0.9488037284463644
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.6536111235618591,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_283.jpg",
+      "image_id": "IDRiD_283",
+      "logits": [
+        0.6068050861358643,
+        1.931553602218628,
+        0.26166024804115295,
+        -1.6772639751434326,
+        -1.0896832942962646
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.17377547919750214,
+        0.6536111235618591,
+        0.12305349856615067,
+        0.01770230568945408,
+        0.03185759112238884
+      ],
+      "referable": false,
+      "referable_probability": 0.17261339537799358,
+      "uncertainty": {
+        "entropy_nats": 1.0210714536314713,
+        "normalized_entropy": 0.6344273648227979,
+        "probability_margin": 0.479835644364357
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.5630340576171875,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_293.jpg",
+      "image_id": "IDRiD_293",
+      "logits": [
+        1.5683164596557617,
+        0.35799163579940796,
+        0.45318156480789185,
+        -2.129624366760254,
+        -0.5083654522895813
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.5630340576171875,
+        0.16784070432186127,
+        0.1846025586128235,
+        0.013948880136013031,
+        0.07057375460863113
+      ],
+      "referable": false,
+      "referable_probability": 0.26912519335746765,
+      "uncertainty": {
+        "entropy_nats": 1.181555025163173,
+        "normalized_entropy": 0.7341414142383407,
+        "probability_margin": 0.378431499004364
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.5493375658988953,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_319.jpg",
+      "image_id": "IDRiD_319",
+      "logits": [
+        0.06196056306362152,
+        1.5841144323349,
+        0.8950850963592529,
+        -1.7505974769592285,
+        -1.1578289270401
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.11988815665245056,
+        0.5493375658988953,
+        0.2758021652698517,
+        0.019570063799619675,
+        0.035402052104473114
+      ],
+      "referable": false,
+      "referable_probability": 0.3307742811739445,
+      "uncertainty": {
+        "entropy_nats": 1.1338970983046448,
+        "normalized_entropy": 0.7045298793724503,
+        "probability_margin": 0.2735354006290436
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.4737595319747925,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_404.jpg",
+      "image_id": "IDRiD_404",
+      "logits": [
+        1.111365556716919,
+        0.021911635994911194,
+        0.20570430159568787,
+        -0.7551559805870056,
+        -0.42370685935020447
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.4737595319747925,
+        0.15937277674674988,
+        0.19152888655662537,
+        0.0732719823718071,
+        0.10206679254770279
+      ],
+      "referable": false,
+      "referable_probability": 0.36686766147613525,
+      "uncertainty": {
+        "entropy_nats": 1.3875886201006273,
+        "normalized_entropy": 0.8621572844658854,
+        "probability_margin": 0.2822306454181671
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.5510935187339783,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_413.jpg",
+      "image_id": "IDRiD_413",
+      "logits": [
+        1.3797602653503418,
+        0.3413633108139038,
+        0.09324809163808823,
+        -1.2094095945358276,
+        -0.8344727754592896
+      ],
+      "predicted": 0,
+      "probabilities": [
+        0.5510935187339783,
+        0.1950990855693817,
+        0.15222997963428497,
+        0.041377387940883636,
+        0.060199953615665436
+      ],
+      "referable": false,
+      "referable_probability": 0.25380732119083405,
+      "uncertainty": {
+        "entropy_nats": 1.234716535933866,
+        "normalized_entropy": 0.7671725180541393,
+        "probability_margin": 0.35599443316459656
+      }
+    },
+    {
+      "actual": 2,
+      "confidence": 0.5200256705284119,
+      "image": "B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_037.jpg",
+      "image_id": "IDRiD_037",
+      "logits": [
+        0.08220788836479187,
+        1.1797029972076416,
+        0.20537438988685608,
+        -1.395314335823059,
+        -0.8177686333656311
+      ],
+      "predicted": 1,
+      "probabilities": [
+        0.17353565990924835,
+        0.5200256705284119,
+        0.19628143310546875,
+        0.03960125148296356,
+        0.07055599242448807
+      ],
+      "referable": false,
+      "referable_probability": 0.3064386770129204,
+      "uncertainty": {
+        "entropy_nats": 1.278481766467787,
+        "normalized_entropy": 0.7943653847039194,
+        "probability_margin": 0.3237442374229431
+      }
+    }
+  ],
+  "severe_grade_error_count": 9,
+  "source": "development-only out-of-fold predictions"
+}

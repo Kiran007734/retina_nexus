@@ -1,0 +1,288 @@
+{
+  "aptos_efficientnet_b0": {
+    "checkpoint_sha256": "ae6bb62ced2a108abc1a862870e64985b368b84e69bd8c8c8aa9912754d1a70b",
+    "referable_threshold_0.20": {
+      "f1": 0.5659301496792587,
+      "false_negative": 60,
+      "false_positive": 549,
+      "pr_auc": 0.6750497124694614,
+      "precision": 0.41966173361522197,
+      "recall": 0.8687089715536105,
+      "roc_auc": 0.8185252627265757,
+      "rule": "referable_probability = P(2)+P(3)+P(4); referable = referable_probability >= threshold; severity grade = argmax(P0..P4).",
+      "sample_count": 1744,
+      "sensitivity": 0.8687089715536105,
+      "specificity": 0.5734265734265734,
+      "threshold": 0.2,
+      "true_negative": 738,
+      "true_positive": 397
+    },
+    "referable_threshold_0.50": {
+      "f1": 0.5981735159817351,
+      "false_negative": 195,
+      "false_positive": 157,
+      "pr_auc": 0.6750497124694614,
+      "precision": 0.6252983293556086,
+      "recall": 0.5733041575492341,
+      "roc_auc": 0.8185252627265757,
+      "rule": "referable_probability = P(2)+P(3)+P(4); referable = referable_probability >= threshold; severity grade = argmax(P0..P4).",
+      "sample_count": 1744,
+      "sensitivity": 0.5733041575492341,
+      "specificity": 0.878010878010878,
+      "threshold": 0.5,
+      "true_negative": 1130,
+      "true_positive": 262
+    },
+    "severity": {
+      "accuracy": 0.6032110091743119,
+      "averaging": {
+        "macro_f1": "unweighted mean across five classes",
+        "roc_auc_ovr_macro": "one-vs-rest macro average",
+        "weighted_f1": "support-weighted mean across five classes"
+      },
+      "class_distribution": {
+        "0": 1017,
+        "1": 270,
+        "2": 347,
+        "3": 75,
+        "4": 35
+      },
+      "clinical_validation_claim": false,
+      "confusion_matrix": [
+        [
+          932,
+          1,
+          52,
+          19,
+          13
+        ],
+        [
+          247,
+          2,
+          15,
+          4,
+          2
+        ],
+        [
+          217,
+          4,
+          80,
+          33,
+          13
+        ],
+        [
+          5,
+          0,
+          34,
+          28,
+          8
+        ],
+        [
+          2,
+          0,
+          9,
+          14,
+          10
+        ]
+      ],
+      "evaluation_population": "Successful inference on readable, label-matched, gradable authoritative original images",
+      "exclusions": "Unmatched label rows are excluded; ungradable rows and unsuccessful inferences are excluded from grade metrics.",
+      "label_mapping": "Messidor-2 adjudicated five-point ICDR grade 0..4 mapped 1:1 to the existing APTOS output labels defined in the downloaded label readme.",
+      "macro_f1": 0.3306505904354619,
+      "precision_macro": 0.3748326625544617,
+      "prediction_distribution": {
+        "0": 1403,
+        "1": 7,
+        "2": 190,
+        "3": 98,
+        "4": 46
+      },
+      "quadratic_weighted_kappa": 0.4923817586206797,
+      "recall_macro": 0.3626846845023377,
+      "referable_dr_grade_2_or_worse": {
+        "f1": 0.5981735159817351,
+        "false_negative": 195,
+        "false_positive": 157,
+        "precision": 0.6252983293556086,
+        "recall": 0.5733041575492341,
+        "roc_auc": 0.8185252627265757,
+        "rule": "true and predicted referable if grade >= 2",
+        "sensitivity": 0.5733041575492341,
+        "specificity": 0.878010878010878,
+        "true_negative": 1130,
+        "true_positive": 262
+      },
+      "roc_auc_ovr_macro": 0.7689673671300099,
+      "sample_count": 1744,
+      "status": "CALCULATED",
+      "weighted_f1": 0.5295583124650238
+    },
+    "status": "COMPLETED_DESCRIPTIVE_EXTERNAL_EVALUATION"
+  },
+  "clinical_validation_claim": false,
+  "dataset": {
+    "authoritative_original_count": 1748,
+    "label_matched_count": 1744,
+    "label_status": "local/adjudicated; not independently proven official clinical ground truth",
+    "manifest": "ml/evaluation/messidor2/authoritative_external_manifest.json",
+    "unlabeled_originals_excluded": [
+      "20060411_58550_0200_PP.png",
+      "IM002385.JPG",
+      "IM003718.JPG",
+      "IM004176.JPG"
+    ]
+  },
+  "external_threshold_tuning": false,
+  "generated_at_utc": "2026-09-14T06:01:04.975179+00:00",
+  "idrid_v3": {
+    "checkpoint_sha256": "97bd6a9933ca3d09c1e41bb16ba7452b5988eb1818fc7f1c87054471c4c33049",
+    "official_idrid_test_images_opened": 0,
+    "referable_threshold_0.20": {
+      "f1": 0.5710382513661202,
+      "fn": 248,
+      "fp": 66,
+      "pr_auc": 0.7129784661414245,
+      "precision": 0.76,
+      "recall": 0.4573304157549234,
+      "roc_auc": 0.8390843292375022,
+      "sensitivity": 0.4573304157549234,
+      "specificity": 0.9487179487179487,
+      "support": 457,
+      "threshold": 0.2,
+      "tn": 1221,
+      "tp": 209
+    },
+    "referable_threshold_0.50": {
+      "f1": 0.4183673469387755,
+      "fn": 334,
+      "fp": 8,
+      "pr_auc": 0.7129784661414245,
+      "precision": 0.9389312977099237,
+      "recall": 0.26914660831509846,
+      "roc_auc": 0.8390843292375022,
+      "sensitivity": 0.26914660831509846,
+      "specificity": 0.9937839937839937,
+      "support": 457,
+      "threshold": 0.5,
+      "tn": 1279,
+      "tp": 123
+    },
+    "severity": {
+      "accuracy": 0.6146788990825688,
+      "class_distribution": {
+        "0": 1017,
+        "1": 270,
+        "2": 347,
+        "3": 75,
+        "4": 35
+      },
+      "confusion_matrix": [
+        [
+          1015,
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          270,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          324,
+          0,
+          11,
+          10,
+          2
+        ],
+        [
+          23,
+          0,
+          9,
+          42,
+          1
+        ],
+        [
+          14,
+          0,
+          1,
+          16,
+          4
+        ]
+      ],
+      "f1": 0.3199292794636392,
+      "per_class": {
+        "Mild": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "support": 270
+        },
+        "Moderate": {
+          "f1": 0.05945945945945946,
+          "precision": 0.4782608695652174,
+          "recall": 0.03170028818443804,
+          "sensitivity": 0.03170028818443804,
+          "specificity": 0.9914101646385111,
+          "support": 347
+        },
+        "No DR": {
+          "f1": 0.7622981599699586,
+          "precision": 0.6166464155528554,
+          "recall": 0.9980334316617503,
+          "sensitivity": 0.9980334316617503,
+          "specificity": 0.13204951856946354,
+          "support": 1017
+        },
+        "Proliferative DR": {
+          "f1": 0.19047619047619044,
+          "precision": 0.5714285714285714,
+          "recall": 0.11428571428571428,
+          "sensitivity": 0.11428571428571428,
+          "specificity": 0.9982445874780573,
+          "support": 35
+        },
+        "Severe": {
+          "f1": 0.5874125874125875,
+          "precision": 0.6176470588235294,
+          "recall": 0.56,
+          "sensitivity": 0.56,
+          "specificity": 0.9844218094667465,
+          "support": 75
+        }
+      },
+      "precision": 0.4567965830740347,
+      "quadratic_weighted_kappa": 0.375096080475121,
+      "recall": 0.3408038868263805,
+      "referable_dr": {
+        "f1": 0.4183673469387755,
+        "false_negative": 334,
+        "false_positive": 8,
+        "precision": 0.9389312977099237,
+        "recall": 0.26914660831509846,
+        "referable_grades": [
+          2,
+          3,
+          4
+        ],
+        "roc_auc": 0.8390843292375022,
+        "sensitivity": 0.26914660831509846,
+        "specificity": 0.9937839937839937,
+        "support": 457,
+        "true_negative": 1279,
+        "true_positive": 123
+      },
+      "roc_auc_ovr_macro": 0.7857131015005796,
+      "sample_count": 1744,
+      "sensitivity": 0.3408038868263805,
+      "specificity": 0.8212252160305556
+    },
+    "status": "DESCRIPTIVE_RESEARCH_ONLY"
+  },
+  "schema_version": "retina-nexus-master-messidor-results-v1"
+}

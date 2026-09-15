@@ -1,0 +1,111 @@
+{
+  "architecture": "RRWNet (R2-V2 bv variant)",
+  "checkpoint": "ml/weights/vessel_segmentation/r2-v2-bv-2025/bv.safetensors",
+  "checkpoint_sha256": "ea219b13b03984b8d454f999343c5bda1a8a7cb8586aeb3639a29814cab2330a",
+  "clinical_validation_claim": false,
+  "deterministic_verification": {
+    "binary_masks_identical": true,
+    "checkpoint_sha256": "ea219b13b03984b8d454f999343c5bda1a8a7cb8586aeb3639a29814cab2330a",
+    "confidence_first": 0.8212462067604065,
+    "confidence_second": 0.8212462067604065,
+    "maximum_abs_probability_difference": 0.0,
+    "official_test_accessed_this_cycle": false,
+    "probability_maps_identical": true,
+    "specimen_id": "21",
+    "status": "PASS",
+    "vessel_density_first": 0.062037822766395925,
+    "vessel_density_second": 0.062037822766395925
+  },
+  "development_metrics": {
+    "full_reference_mean": {
+      "dice": 0.7175513678704364,
+      "f1": 0.7175513678704364,
+      "iou": 0.5624354384306053,
+      "pixel_accuracy": 0.9404486124434829,
+      "precision": 0.8822421578662646,
+      "sensitivity": 0.609811322821545,
+      "specificity": 0.9885151276684898
+    },
+    "live_verification_sample_mean": {
+      "dice": 0.776666513740423,
+      "f1": 0.776666513740423,
+      "iou": 0.634877179823739,
+      "pixel_accuracy": 0.9568439716312057,
+      "precision": 0.8936338682432432,
+      "sensitivity": 0.6867748478701825,
+      "specificity": 0.9899726300074645
+    }
+  },
+  "frontend_integration": {
+    "backend_service_result": {
+      "frontend_visibility": "user-facing status only",
+      "implementation_internal": "R2-V2 RRWNet bv vessel segmentor",
+      "status": "completed",
+      "supported": true,
+      "vessel_module_status": "model_inference"
+    },
+    "component": "frontend/src/components/EvidenceViewer.tsx",
+    "internal_terms_exposed_by_vessel_card": [],
+    "note": "Backend retains provenance; the vessel UI does not display model names, research checkpoint IDs, folds, or SHA values.",
+    "overlay_supported": true,
+    "status": "PASS",
+    "user_facing_labels": [
+      "Retinal vessel analysis",
+      "AVAILABLE",
+      "UNAVAILABLE",
+      "Segmentation",
+      "Analysis reliability",
+      "HIGH",
+      "REVIEW RECOMMENDED"
+    ]
+  },
+  "model_version": "r2-v2-bv-2025",
+  "official_test_accessed_this_cycle": false,
+  "official_test_used_for_tuning": false,
+  "production_default": true,
+  "provenance": {
+    "checkpoint": "ml/weights/vessel_segmentation/r2-v2-bv-2025/bv.safetensors",
+    "checkpoint_sha256": "ea219b13b03984b8d454f999343c5bda1a8a7cb8586aeb3639a29814cab2330a",
+    "drive_evaluation_verified": true,
+    "drive_training_or_finetuning_verified": false,
+    "interpretation": "The repository proves this is the published j-morano/R2-V2 RRWNet bv artifact and records Unified_Fundus as stated in its configuration. It does not prove that R2-V2 was trained or fine-tuned on DRIVE. The prior DRIVE result is an evaluation of this exact checkpoint SHA, not evidence that the checkpoint was trained on DRIVE.",
+    "license": "CC BY 4.0 (declared by the model repository and model card)",
+    "model_version": "r2-v2-bv-2025",
+    "previous_reference_protocol": {
+      "channel": 2,
+      "count": 20,
+      "field_of_view_applied": true,
+      "metrics_scope": "pixel-level engineering measurements; no clinical validation claim",
+      "split": "DRIVE training images with genuine manual vessel masks",
+      "threshold": 0.5
+    },
+    "previous_reference_report": "ml/evaluation/drive/r2-v2-evaluation.json",
+    "repository": "j-morano/R2-V2",
+    "required_statement": "Training provenance not fully verified.",
+    "source_code_url": "https://github.com/j-morano/R2-V2",
+    "source_revision": "bb8c6c9346054df749f8bd48a9da41ba974e6a6b",
+    "source_url": "https://huggingface.co/j-morano/R2-V2",
+    "training_dataset_provenance": "Unified_Fundus (as stated in the published bv_config.json; constituent datasets are not asserted here)",
+    "training_provenance_fully_verified": false
+  },
+  "research_unet": {
+    "default_adapter": false,
+    "path": "ml/weights/vessels/drive/checkpoint_best.pt",
+    "production_promoted": false
+  },
+  "retinaguard_boundary": "Vessel evidence remains supporting evidence and does not alter DR grade or referable status.",
+  "status": "R2-V2 VERIFIED \u2014 PRIMARY VESSEL MODEL WORKING",
+  "tests_to_run": [
+    "checkpoint SHA",
+    "R2-V2 load",
+    "real inference",
+    "FOV metrics",
+    "determinism",
+    "adapter",
+    "RetinaGuard",
+    "screening/report/PDF",
+    "backend regression",
+    "Python compilation",
+    "frontend lint/build"
+  ]
+}

@@ -1,0 +1,524 @@
+{
+  "candidate": "idrid-unet-seresnext50-768-focaldice-v2",
+  "generated_at_utc": "2026-09-13T09:35:28.327424+00:00",
+  "official_test_images_opened": 0,
+  "schema_version": "idrid-lesion-threshold-1",
+  "selected": {
+    "macro_dice": 0.3147591301836838,
+    "macro_iou": 0.19756119235344943,
+    "per_class": {
+      "haemorrhages": {
+        "dice": 0.4741285091487979,
+        "iou": 0.31072636981002044,
+        "lesion_positive_detection_rate": 0.9245283018867925,
+        "precision": 0.38382307734750015,
+        "recall": 0.6200017825198465,
+        "specificity": 0.9898956295879567,
+        "status": "MEASURED"
+      },
+      "hard_exudates": {
+        "dice": 0.4477088798093215,
+        "iou": 0.2884181156394983,
+        "lesion_positive_detection_rate": 0.9444444444444444,
+        "precision": 0.31663062423342586,
+        "recall": 0.7639802343375817,
+        "specificity": 0.9865972274777552,
+        "status": "MEASURED"
+      },
+      "microaneurysms": {
+        "dice": 0.06523775100687632,
+        "iou": 0.03371874298293081,
+        "lesion_positive_detection_rate": 0.9814814814814815,
+        "precision": 0.03710665327154292,
+        "recall": 0.26970526749698204,
+        "specificity": 0.9925291671471559,
+        "status": "MEASURED"
+      },
+      "soft_exudates": {
+        "dice": 0.27196138076973947,
+        "iou": 0.1573815409813481,
+        "lesion_positive_detection_rate": 1.0,
+        "precision": 0.1698502050542888,
+        "recall": 0.6819214379280041,
+        "specificity": 0.9868410155995552,
+        "status": "MEASURED"
+      }
+    },
+    "threshold": 0.7
+  },
+  "thresholds": [
+    {
+      "macro_dice": 0.31117374851293456,
+      "macro_iou": 0.1951130605829938,
+      "per_class": {
+        "haemorrhages": {
+          "dice": 0.472640890825373,
+          "iou": 0.309449747597855,
+          "lesion_positive_detection_rate": 0.9622641509433962,
+          "precision": 0.3795071976301051,
+          "recall": 0.6263520094728198,
+          "specificity": 0.9896037388384021,
+          "status": "MEASURED"
+        },
+        "hard_exudates": {
+          "dice": 0.44608618459888516,
+          "iou": 0.287072667851747,
+          "lesion_positive_detection_rate": 0.9444444444444444,
+          "precision": 0.31383794048507846,
+          "recall": 0.7709620768742529,
+          "specificity": 0.9862986235193125,
+          "status": "MEASURED"
+        },
+        "microaneurysms": {
+          "dice": 0.06287609710276808,
+          "iou": 0.03245847981573524,
+          "lesion_positive_detection_rate": 0.9814814814814815,
+          "precision": 0.03535431338028169,
+          "recall": 0.2838088508082325,
+          "specificity": 0.9917338259325741,
+          "status": "MEASURED"
+        },
+        "soft_exudates": {
+          "dice": 0.2630918215247121,
+          "iou": 0.15147134706663787,
+          "lesion_positive_detection_rate": 1.0,
+          "precision": 0.16273876084204236,
+          "recall": 0.6862988940290835,
+          "specificity": 0.9860594175559398,
+          "status": "MEASURED"
+        }
+      },
+      "threshold": 0.2
+    },
+    {
+      "macro_dice": 0.311644787865546,
+      "macro_iou": 0.19543962379274973,
+      "per_class": {
+        "haemorrhages": {
+          "dice": 0.4728872506619541,
+          "iou": 0.30966099318268114,
+          "lesion_positive_detection_rate": 0.9622641509433962,
+          "precision": 0.3800970432556098,
+          "recall": 0.6256135369650053,
+          "specificity": 0.9896419660892295,
+          "status": "MEASURED"
+        },
+        "hard_exudates": {
+          "dice": 0.4463464394202689,
+          "iou": 0.2872882673108405,
+          "lesion_positive_detection_rate": 0.9444444444444444,
+          "precision": 0.3142335099579755,
+          "recall": 0.7701326666900303,
+          "specificity": 0.9863384732525836,
+          "status": "MEASURED"
+        },
+        "microaneurysms": {
+          "dice": 0.06314016283793826,
+          "iou": 0.032599242147770956,
+          "lesion_positive_detection_rate": 0.9814814814814815,
+          "precision": 0.03555909402065538,
+          "recall": 0.2814239024821129,
+          "specificity": 0.9918522234965073,
+          "status": "MEASURED"
+        },
+        "soft_exudates": {
+          "dice": 0.2642052985420226,
+          "iou": 0.15220999252970638,
+          "lesion_positive_detection_rate": 1.0,
+          "precision": 0.16361809522302567,
+          "recall": 0.6858346183819993,
+          "specificity": 0.9861582711488588,
+          "status": "MEASURED"
+        }
+      },
+      "threshold": 0.25
+    },
+    {
+      "macro_dice": 0.3120557620874285,
+      "macro_iou": 0.1957193410366714,
+      "per_class": {
+        "haemorrhages": {
+          "dice": 0.4731025241838697,
+          "iou": 0.3098456390668897,
+          "lesion_positive_detection_rate": 0.9622641509433962,
+          "precision": 0.3806487890950691,
+          "recall": 0.6248750644571909,
+          "specificity": 0.9896783837660531,
+          "status": "MEASURED"
+        },
+        "hard_exudates": {
+          "dice": 0.4465175352065727,
+          "iou": 0.2874300452859942,
+          "lesion_positive_detection_rate": 0.9444444444444444,
+          "precision": 0.31452986554851936,
+          "recall": 0.7693733475072914,
+          "specificity": 0.9863706948796448,
+          "status": "MEASURED"
+        },
+        "microaneurysms": {
+          "dice": 0.06346661322109765,
+          "iou": 0.03277331217442302,
+          "lesion_positive_detection_rate": 0.9814814814814815,
+          "precision": 0.03579408229624689,
+          "recall": 0.27971616170538527,
+          "specificity": 0.9919567917723782,
+          "status": "MEASURED"
+        },
+        "soft_exudates": {
+          "dice": 0.265136375738174,
+          "iou": 0.15282836761937868,
+          "lesion_positive_detection_rate": 1.0,
+          "precision": 0.1643652561247216,
+          "recall": 0.6852708550962543,
+          "specificity": 0.9862448171421295,
+          "status": "MEASURED"
+        }
+      },
+      "threshold": 0.3
+    },
+    {
+      "macro_dice": 0.3124074912958823,
+      "macro_iou": 0.1959629122142708,
+      "per_class": {
+        "haemorrhages": {
+          "dice": 0.4732679073707379,
+          "iou": 0.30998752803820306,
+          "lesion_positive_detection_rate": 0.9433962264150944,
+          "precision": 0.3811093339759523,
+          "recall": 0.6242129856570814,
+          "specificity": 0.9897094373485088,
+          "status": "MEASURED"
+        },
+        "hard_exudates": {
+          "dice": 0.44670018600062456,
+          "iou": 0.28758143275024184,
+          "lesion_positive_detection_rate": 0.9444444444444444,
+          "precision": 0.31482205023769694,
+          "recall": 0.7687113769377242,
+          "specificity": 0.9864008591336617,
+          "status": "MEASURED"
+        },
+        "microaneurysms": {
+          "dice": 0.06364142257297516,
+          "iou": 0.032866548228655035,
+          "lesion_positive_detection_rate": 0.9814814814814815,
+          "precision": 0.03593710720570423,
+          "recall": 0.2778023142831905,
+          "specificity": 0.9920447963327745,
+          "status": "MEASURED"
+        },
+        "soft_exudates": {
+          "dice": 0.2660204492391917,
+          "iou": 0.15341613983998337,
+          "lesion_positive_detection_rate": 1.0,
+          "precision": 0.16506938005563193,
+          "recall": 0.6848563232685005,
+          "specificity": 0.9863233108228645,
+          "status": "MEASURED"
+        }
+      },
+      "threshold": 0.35
+    },
+    {
+      "macro_dice": 0.3127597929461674,
+      "macro_iou": 0.19620521920260228,
+      "per_class": {
+        "haemorrhages": {
+          "dice": 0.47345993951995324,
+          "iou": 0.3101523188137399,
+          "lesion_positive_detection_rate": 0.9433962264150944,
+          "precision": 0.38154879086513654,
+          "recall": 0.6237036942723818,
+          "specificity": 0.9897369687244216,
+          "status": "MEASURED"
+        },
+        "hard_exudates": {
+          "dice": 0.4468562314650983,
+          "iou": 0.287710796977039,
+          "lesion_positive_detection_rate": 0.9444444444444444,
+          "precision": 0.315089019704945,
+          "recall": 0.7680455124236301,
+          "specificity": 0.9864294407930293,
+          "status": "MEASURED"
+        },
+        "microaneurysms": {
+          "dice": 0.0638770490966796,
+          "iou": 0.03299224827993338,
+          "lesion_positive_detection_rate": 0.9814814814814815,
+          "precision": 0.03611042737146549,
+          "recall": 0.27644789918440654,
+          "specificity": 0.9921229946707267,
+          "status": "MEASURED"
+        },
+        "soft_exudates": {
+          "dice": 0.2668459517029385,
+          "iou": 0.1539655127396969,
+          "lesion_positive_detection_rate": 1.0,
+          "precision": 0.1657298408466764,
+          "recall": 0.6844417914407468,
+          "specificity": 0.9863968290909757,
+          "status": "MEASURED"
+        }
+      },
+      "threshold": 0.4
+    },
+    {
+      "macro_dice": 0.3130991704510302,
+      "macro_iou": 0.19643600323923904,
+      "per_class": {
+        "haemorrhages": {
+          "dice": 0.4735906824942328,
+          "iou": 0.3102645385237197,
+          "lesion_positive_detection_rate": 0.9433962264150944,
+          "precision": 0.3819515041063655,
+          "recall": 0.6230829953972791,
+          "specificity": 0.9897646616694419,
+          "status": "MEASURED"
+        },
+        "hard_exudates": {
+          "dice": 0.4470008142380524,
+          "iou": 0.28783068164890274,
+          "lesion_positive_detection_rate": 0.9444444444444444,
+          "precision": 0.31533591361238533,
+          "recall": 0.767434163132912,
+          "specificity": 0.9864557435161018,
+          "status": "MEASURED"
+        },
+        "microaneurysms": {
+          "dice": 0.0641023442457085,
+          "iou": 0.03311246545248388,
+          "lesion_positive_detection_rate": 0.9814814814814815,
+          "precision": 0.03627689226015326,
+          "recall": 0.2751523716986132,
+          "specificity": 0.9921972328034611,
+          "status": "MEASURED"
+        },
+        "soft_exudates": {
+          "dice": 0.26770284082612716,
+          "iou": 0.15453632733184983,
+          "lesion_positive_detection_rate": 1.0,
+          "precision": 0.1664178863625361,
+          "recall": 0.6839940970667728,
+          "specificity": 0.9864730969292211,
+          "status": "MEASURED"
+        }
+      },
+      "threshold": 0.45
+    },
+    {
+      "macro_dice": 0.3134190854549297,
+      "macro_iou": 0.19665059002541946,
+      "per_class": {
+        "haemorrhages": {
+          "dice": 0.4736722906566516,
+          "iou": 0.3103345944367565,
+          "lesion_positive_detection_rate": 0.9433962264150944,
+          "precision": 0.38229262580469847,
+          "recall": 0.6224591134510221,
+          "specificity": 0.9897896725672782,
+          "status": "MEASURED"
+        },
+        "hard_exudates": {
+          "dice": 0.4471580438921872,
+          "iou": 0.28796107815954797,
+          "lesion_positive_detection_rate": 0.9444444444444444,
+          "precision": 0.3156024617751707,
+          "recall": 0.7667838743969253,
+          "specificity": 0.9864839137008605,
+          "status": "MEASURED"
+        },
+        "microaneurysms": {
+          "dice": 0.06437367831819878,
+          "iou": 0.033257286076925546,
+          "lesion_positive_detection_rate": 0.9814814814814815,
+          "precision": 0.03646634643616334,
+          "recall": 0.2742690575037541,
+          "specificity": 0.9922642105599626,
+          "status": "MEASURED"
+        },
+        "soft_exudates": {
+          "dice": 0.26847232895268114,
+          "iou": 0.15504940142844786,
+          "lesion_positive_detection_rate": 1.0,
+          "precision": 0.16703876433859133,
+          "recall": 0.6835629839659089,
+          "specificity": 0.986541901648531,
+          "status": "MEASURED"
+        }
+      },
+      "threshold": 0.5
+    },
+    {
+      "macro_dice": 0.31375245944845676,
+      "macro_iou": 0.1968800315371093,
+      "per_class": {
+        "haemorrhages": {
+          "dice": 0.4738136289894294,
+          "iou": 0.3104559429892509,
+          "lesion_positive_detection_rate": 0.9433962264150944,
+          "precision": 0.3826765639077128,
+          "recall": 0.6219307236393963,
+          "specificity": 0.9898149096618649,
+          "status": "MEASURED"
+        },
+        "hard_exudates": {
+          "dice": 0.44733258306903567,
+          "iou": 0.28810586104346986,
+          "lesion_positive_detection_rate": 0.9444444444444444,
+          "precision": 0.31588216689865317,
+          "recall": 0.7661608432726268,
+          "specificity": 0.9865123687526561,
+          "status": "MEASURED"
+        },
+        "microaneurysms": {
+          "dice": 0.06457969238481838,
+          "iou": 0.03336727021552918,
+          "lesion_positive_detection_rate": 0.9814814814814815,
+          "precision": 0.03661969606639319,
+          "recall": 0.27309130524394193,
+          "specificity": 0.992330905444663,
+          "status": "MEASURED"
+        },
+        "soft_exudates": {
+          "dice": 0.26928393335054357,
+          "iou": 0.1555910519001873,
+          "lesion_positive_detection_rate": 1.0,
+          "precision": 0.16768955272475683,
+          "recall": 0.6831981959574857,
+          "specificity": 0.9866117538231299,
+          "status": "MEASURED"
+        }
+      },
+      "threshold": 0.55
+    },
+    {
+      "macro_dice": 0.31405680148378606,
+      "macro_iou": 0.19708677145633674,
+      "per_class": {
+        "haemorrhages": {
+          "dice": 0.47389946306981307,
+          "iou": 0.3105296483435364,
+          "lesion_positive_detection_rate": 0.9245283018867925,
+          "precision": 0.3830276984664292,
+          "recall": 0.6213004755508305,
+          "specificity": 0.9898403406393806,
+          "status": "MEASURED"
+        },
+        "hard_exudates": {
+          "dice": 0.4474796252015856,
+          "iou": 0.28822785997877043,
+          "lesion_positive_detection_rate": 0.9444444444444444,
+          "precision": 0.3161389402589049,
+          "recall": 0.7655144484811669,
+          "specificity": 0.9865397476400902,
+          "status": "MEASURED"
+        },
+        "microaneurysms": {
+          "dice": 0.06477656119578865,
+          "iou": 0.03347239388326888,
+          "lesion_positive_detection_rate": 0.9814814814814815,
+          "precision": 0.03676777971979249,
+          "recall": 0.2719135529841298,
+          "specificity": 0.9923959030985557,
+          "status": "MEASURED"
+        },
+        "soft_exudates": {
+          "dice": 0.270071556467957,
+          "iou": 0.15611718361977123,
+          "lesion_positive_detection_rate": 1.0,
+          "precision": 0.1683270311701584,
+          "recall": 0.6827670828566217,
+          "specificity": 0.9866810822700843,
+          "status": "MEASURED"
+        }
+      },
+      "threshold": 0.6
+    },
+    {
+      "macro_dice": 0.31438787690934605,
+      "macro_iou": 0.19731070115704655,
+      "per_class": {
+        "haemorrhages": {
+          "dice": 0.4739837180979977,
+          "iou": 0.31060200583655106,
+          "lesion_positive_detection_rate": 0.9245283018867925,
+          "precision": 0.3833839305376412,
+          "recall": 0.6206543121064928,
+          "specificity": 0.9898661916965757,
+          "status": "MEASURED"
+        },
+        "hard_exudates": {
+          "dice": 0.4475902021914711,
+          "iou": 0.28831961948662993,
+          "lesion_positive_detection_rate": 0.9444444444444444,
+          "precision": 0.31637710925858803,
+          "recall": 0.7647668111320086,
+          "specificity": 0.9865676962615981,
+          "status": "MEASURED"
+        },
+        "microaneurysms": {
+          "dice": 0.0649522274988693,
+          "iou": 0.033566213931202224,
+          "lesion_positive_detection_rate": 0.9814814814814815,
+          "precision": 0.036904977012186556,
+          "recall": 0.2706180254983364,
+          "specificity": 0.9924613407752504,
+          "status": "MEASURED"
+        },
+        "soft_exudates": {
+          "dice": 0.2710253598490462,
+          "iou": 0.15675496537380293,
+          "lesion_positive_detection_rate": 1.0,
+          "precision": 0.16909516765285995,
+          "recall": 0.6823359697557578,
+          "specificity": 0.9867621945890424,
+          "status": "MEASURED"
+        }
+      },
+      "threshold": 0.65
+    },
+    {
+      "macro_dice": 0.3147591301836838,
+      "macro_iou": 0.19756119235344943,
+      "per_class": {
+        "haemorrhages": {
+          "dice": 0.4741285091487979,
+          "iou": 0.31072636981002044,
+          "lesion_positive_detection_rate": 0.9245283018867925,
+          "precision": 0.38382307734750015,
+          "recall": 0.6200017825198465,
+          "specificity": 0.9898956295879567,
+          "status": "MEASURED"
+        },
+        "hard_exudates": {
+          "dice": 0.4477088798093215,
+          "iou": 0.2884181156394983,
+          "lesion_positive_detection_rate": 0.9444444444444444,
+          "precision": 0.31663062423342586,
+          "recall": 0.7639802343375817,
+          "specificity": 0.9865972274777552,
+          "status": "MEASURED"
+        },
+        "microaneurysms": {
+          "dice": 0.06523775100687632,
+          "iou": 0.03371874298293081,
+          "lesion_positive_detection_rate": 0.9814814814814815,
+          "precision": 0.03710665327154292,
+          "recall": 0.26970526749698204,
+          "specificity": 0.9925291671471559,
+          "status": "MEASURED"
+        },
+        "soft_exudates": {
+          "dice": 0.27196138076973947,
+          "iou": 0.1573815409813481,
+          "lesion_positive_detection_rate": 1.0,
+          "precision": 0.1698502050542888,
+          "recall": 0.6819214379280041,
+          "specificity": 0.9868410155995552,
+          "status": "MEASURED"
+        }
+      },
+      "threshold": 0.7
+    }
+  ]
+}

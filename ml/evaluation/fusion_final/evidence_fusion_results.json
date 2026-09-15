@@ -1,0 +1,51 @@
+{
+  "clinical_validation_claim": false,
+  "disease_severity_controller": "primary IDRiD severity classifier; evidence does not rewrite grade",
+  "fusion_rule": "supporting, contradictory, consistent, or unavailable evidence modifies review priority only; no lesion/vessel/localization signal is converted into a disease probability",
+  "production_promoted": false,
+  "referable_fusion_controller": "research-only classifier/verifier analysis; no production rule changed",
+  "signals": {
+    "drive_unet_research": {
+      "aligned_to_idrid_406": false,
+      "dataset": "DRIVE",
+      "status": "SUPPORTING_ONLY"
+    },
+    "grad_cam": {
+      "disease_probability": false,
+      "status": "EXPLANATION_ONLY"
+    },
+    "idrid_lesion_model": {
+      "artifact": "ml/datasets/metadata/idrid/idrid_lesion_final_report.json",
+      "complete_406_oof_alignment": false,
+      "reason": "Lesion annotations and model coverage do not provide a complete leak-safe 406-image disease-fusion table.",
+      "status": "AVAILABLE_AS_RESEARCH_EVIDENCE"
+    },
+    "image_quality": {
+      "disease_probability": false,
+      "status": "RELIABILITY_SIGNAL_ONLY"
+    },
+    "localization": {
+      "artifact": "ml/datasets/metadata/idrid/idrid_localization_final_report.json",
+      "disease_probability": false,
+      "status": "PARTIAL_RESEARCH_EVIDENCE"
+    },
+    "primary_lesion_model": {
+      "artifact": "ml/datasets/metadata/idrid/idrid_lesion_final_report.json",
+      "clinical_validation_claim": false,
+      "official_test_images_opened_for_development": 0,
+      "status": "AVAILABLE_AS_RESEARCH_EVIDENCE",
+      "training_images": 54
+    },
+    "r2_v2_vessel": {
+      "aligned_to_idrid_406": false,
+      "artifact": "ml/evaluation/drive/r2-v2-evaluation.json",
+      "dataset": "DRIVE",
+      "status": "SUPPORTING_ONLY"
+    },
+    "uncertainty": {
+      "disease_probability": false,
+      "status": "RELIABILITY_SIGNAL_ONLY"
+    }
+  },
+  "status": "SUPPORTING_EVIDENCE_NOT_DISEASE_PROBABILITY"
+}

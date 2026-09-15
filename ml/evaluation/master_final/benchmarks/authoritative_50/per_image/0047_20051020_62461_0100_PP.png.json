@@ -1,0 +1,26 @@
+{
+  "completed_at_utc": "2026-09-14T05:47:42.408329+00:00",
+  "elapsed_wall_ms": 4413.269599957857,
+  "errors": {},
+  "image_id": "20051020_62461_0100_PP.png",
+  "image_path": "ml/datasets/raw/messidor/messidor-2-original/IMAGES/20051020_62461_0100_PP.png",
+  "image_sha256": "2a8e056ca4d77d09101629773e947d6e91e3e6b0fe45c90095e9174d5c288603",
+  "quality": {
+    "dimensions": [
+      2240,
+      1488
+    ],
+    "enhancement_applied": true,
+    "final_decision": "BORDERLINE",
+    "final_score": 0.8064,
+    "initial_decision": "BORDERLINE",
+    "initial_score": 0.7554
+  },
+  "source_manifest": "ml/evaluation/messidor2/authoritative_external_manifest.json",
+  "stage_timings_ms": {
+    "image_validation": 42.421999969519675,
+    "quality_assessment": 198.00540001597255,
+    "quality_enhancement": 4172.5790000054985
+  },
+  "status": "QUALITY_BLOCKED"
+}

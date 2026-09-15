@@ -1,0 +1,6 @@
+{
+  "production_primary_preserved": true,
+  "reason": "No leak-safe OOF lesion-evidence table exists for all 406 development images. IDRiD lesion annotations are incomplete; no fusion score was fabricated and the primary lesion model was not replaced.",
+  "selection_or_external_labels_used": false,
+  "status": "NOT_RUN"
+}

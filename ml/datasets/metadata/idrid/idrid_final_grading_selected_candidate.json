@@ -1,0 +1,1651 @@
+{
+  "final_freeze": {
+    "architecture": "EfficientNet-B0 shared backbone with severity, hierarchical, lesion-presence, and optic-disc heads; severity head is authoritative",
+    "backbone": "efficientnet_b0",
+    "batch_size": 32,
+    "best_epoch": 1,
+    "calibration_status": "UNCALIBRATED; raw softmax confidence is not clinically calibrated",
+    "checkpoint": "ml/weights/classifiers/idrid/research/final/checkpoint_best.pt",
+    "checkpoint_sha256": "97bd6a9933ca3d09c1e41bb16ba7452b5988eb1818fc7f1c87054471c4c33049",
+    "class_mapping": {
+      "0": "No DR",
+      "1": "Mild",
+      "2": "Moderate",
+      "3": "Severe",
+      "4": "Proliferative DR"
+    },
+    "clinical_validation_claim": false,
+    "color_space": "RGB",
+    "excluded_records": [
+      {
+        "dme_grade": 0,
+        "dr_grade": 1,
+        "duplicate_group_id": "idrid_disease_duplicate_244",
+        "group_records": [
+          {
+            "dme_grade": 0,
+            "dr_grade": 1,
+            "image_id": "IDRiD_021",
+            "original_filename": "IDRiD_021.jpg",
+            "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_021.jpg",
+            "split": "train"
+          },
+          {
+            "dme_grade": 0,
+            "dr_grade": 2,
+            "image_id": "IDRiD_391",
+            "original_filename": "IDRiD_391.jpg",
+            "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_391.jpg",
+            "split": "train"
+          }
+        ],
+        "image_id": "IDRiD_021",
+        "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_021.jpg",
+        "reason": "CONFLICTING_LABELS_IN_EXACT_TRAINING_DUPLICATE_GROUP"
+      },
+      {
+        "dme_grade": 2,
+        "dr_grade": 4,
+        "duplicate_group_id": "idrid_disease_duplicate_106",
+        "group_records": [
+          {
+            "dme_grade": 2,
+            "dr_grade": 4,
+            "image_id": "IDRiD_028",
+            "original_filename": "IDRiD_028.jpg",
+            "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_028.jpg",
+            "split": "train"
+          },
+          {
+            "dme_grade": 2,
+            "dr_grade": 3,
+            "image_id": "IDRiD_327",
+            "original_filename": "IDRiD_327.jpg",
+            "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_327.jpg",
+            "split": "train"
+          }
+        ],
+        "image_id": "IDRiD_028",
+        "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_028.jpg",
+        "reason": "CONFLICTING_LABELS_IN_EXACT_TRAINING_DUPLICATE_GROUP"
+      },
+      {
+        "dme_grade": 0,
+        "dr_grade": 2,
+        "duplicate_group_id": "idrid_disease_duplicate_508",
+        "group_records": [
+          {
+            "dme_grade": 0,
+            "dr_grade": 2,
+            "image_id": "IDRiD_045",
+            "original_filename": "IDRiD_045.jpg",
+            "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_045.jpg",
+            "split": "train"
+          },
+          {
+            "dme_grade": 1,
+            "dr_grade": 2,
+            "image_id": "IDRiD_333",
+            "original_filename": "IDRiD_333.jpg",
+            "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_333.jpg",
+            "split": "train"
+          }
+        ],
+        "image_id": "IDRiD_045",
+        "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_045.jpg",
+        "reason": "CONFLICTING_LABELS_IN_EXACT_TRAINING_DUPLICATE_GROUP"
+      },
+      {
+        "dme_grade": 0,
+        "dr_grade": 0,
+        "duplicate_group_id": "idrid_disease_duplicate_168",
+        "image_id": "IDRiD_118",
+        "paired_official_test_ids": [
+          "IDRiD_064"
+        ],
+        "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_118.jpg",
+        "reason": "TRAINING_COPY_OF_CROSS_SPLIT_EXACT_DUPLICATE"
+      },
+      {
+        "dme_grade": 2,
+        "dr_grade": 3,
+        "duplicate_group_id": "idrid_disease_duplicate_106",
+        "group_records": [
+          {
+            "dme_grade": 2,
+            "dr_grade": 4,
+            "image_id": "IDRiD_028",
+            "original_filename": "IDRiD_028.jpg",
+            "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_028.jpg",
+            "split": "train"
+          },
+          {
+            "dme_grade": 2,
+            "dr_grade": 3,
+            "image_id": "IDRiD_327",
+            "original_filename": "IDRiD_327.jpg",
+            "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_327.jpg",
+            "split": "train"
+          }
+        ],
+        "image_id": "IDRiD_327",
+        "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_327.jpg",
+        "reason": "CONFLICTING_LABELS_IN_EXACT_TRAINING_DUPLICATE_GROUP"
+      },
+      {
+        "dme_grade": 1,
+        "dr_grade": 2,
+        "duplicate_group_id": "idrid_disease_duplicate_508",
+        "group_records": [
+          {
+            "dme_grade": 0,
+            "dr_grade": 2,
+            "image_id": "IDRiD_045",
+            "original_filename": "IDRiD_045.jpg",
+            "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_045.jpg",
+            "split": "train"
+          },
+          {
+            "dme_grade": 1,
+            "dr_grade": 2,
+            "image_id": "IDRiD_333",
+            "original_filename": "IDRiD_333.jpg",
+            "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_333.jpg",
+            "split": "train"
+          }
+        ],
+        "image_id": "IDRiD_333",
+        "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_333.jpg",
+        "reason": "CONFLICTING_LABELS_IN_EXACT_TRAINING_DUPLICATE_GROUP"
+      },
+      {
+        "dme_grade": 0,
+        "dr_grade": 2,
+        "duplicate_group_id": "idrid_disease_duplicate_244",
+        "group_records": [
+          {
+            "dme_grade": 0,
+            "dr_grade": 1,
+            "image_id": "IDRiD_021",
+            "original_filename": "IDRiD_021.jpg",
+            "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_021.jpg",
+            "split": "train"
+          },
+          {
+            "dme_grade": 0,
+            "dr_grade": 2,
+            "image_id": "IDRiD_391",
+            "original_filename": "IDRiD_391.jpg",
+            "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_391.jpg",
+            "split": "train"
+          }
+        ],
+        "image_id": "IDRiD_391",
+        "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_391.jpg",
+        "reason": "CONFLICTING_LABELS_IN_EXACT_TRAINING_DUPLICATE_GROUP"
+      }
+    ],
+    "freeze_status": "FROZEN_BEFORE_OFFICIAL_TEST",
+    "frozen_at": "2026-09-12T13:06:12.618737+00:00",
+    "input_channels": 3,
+    "input_size": 224,
+    "known_limitations": [
+      "Patient identifiers are unavailable; leakage control is image/duplicate based.",
+      "Development validation has only 83 images and four Grade 1 examples.",
+      "No calibration subset was fitted without materially weakening model selection.",
+      "This is a research candidate and is not production promoted or clinically validated."
+    ],
+    "learning_rate": 1e-05,
+    "loss": "V3 domain-robust hierarchical training loss; severity head is authoritative",
+    "model_version": "idrid-final-development-candidate-a-v3-control-20260912",
+    "official_test_images_opened": 0,
+    "optimizer": "AdamW",
+    "preprocessing": {
+      "inference_transform": "Resize -> ToTensor -> ImageNet normalization",
+      "normalization_mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "normalization_std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "resize": [
+        224,
+        224
+      ]
+    },
+    "production_promoted": false,
+    "referable_definition": "Referable DR = grades 2, 3, or 4",
+    "referable_probability": "P(2)+P(3)+P(4)",
+    "referable_threshold": 0.4,
+    "reproducibility_artifact": "ml/datasets/metadata/idrid/idrid_final_grading_reproducibility.json",
+    "robustness_artifact": "ml/datasets/metadata/idrid/idrid_final_grading_robustness.json",
+    "seed": 20260912,
+    "severity_decoder": "argmax(P0..P4), independent of referable decision",
+    "training_split": {
+      "dataset": "IDRiD",
+      "official_test_count": 103,
+      "official_test_status": "FROZEN_AND_NOT_EVALUATED_AT_FREEZE",
+      "train_count": 323,
+      "validation_count": 83
+    },
+    "validation_metrics": {
+      "accuracy": 0.6506024096385542,
+      "class_distribution": {
+        "0": 27,
+        "1": 4,
+        "2": 27,
+        "3": 15,
+        "4": 10
+      },
+      "confusion_matrix": [
+        [
+          26,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          4,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          18,
+          4,
+          1
+        ],
+        [
+          0,
+          0,
+          8,
+          4,
+          3
+        ],
+        [
+          0,
+          0,
+          3,
+          1,
+          6
+        ]
+      ],
+      "f1": 0.4892536425810289,
+      "per_class": {
+        "Mild": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "sensitivity": 0.0,
+          "specificity": 0.9746835443037974,
+          "support": 4
+        },
+        "Moderate": {
+          "f1": 0.631578947368421,
+          "precision": 0.6,
+          "recall": 0.6666666666666666,
+          "sensitivity": 0.6666666666666666,
+          "specificity": 0.7857142857142857,
+          "support": 27
+        },
+        "No DR": {
+          "f1": 0.8813559322033898,
+          "precision": 0.8125,
+          "recall": 0.9629629629629629,
+          "sensitivity": 0.9629629629629629,
+          "specificity": 0.8928571428571429,
+          "support": 27
+        },
+        "Proliferative DR": {
+          "f1": 0.6,
+          "precision": 0.6,
+          "recall": 0.6,
+          "sensitivity": 0.6,
+          "specificity": 0.9452054794520548,
+          "support": 10
+        },
+        "Severe": {
+          "f1": 0.33333333333333337,
+          "precision": 0.4444444444444444,
+          "recall": 0.26666666666666666,
+          "sensitivity": 0.26666666666666666,
+          "specificity": 0.9264705882352942,
+          "support": 15
+        }
+      },
+      "precision": 0.4913888888888889,
+      "quadratic_weighted_kappa": 0.8463873260290198,
+      "recall": 0.4992592592592592,
+      "referable_dr": {
+        "f1": 0.970873786407767,
+        "false_negative": 2,
+        "false_negative_rate": 0.038461538461538436,
+        "false_positive": 1,
+        "precision": 0.9803921568627451,
+        "recall": 0.9230769230769231,
+        "referable_grades": [
+          2,
+          3,
+          4
+        ],
+        "roc_auc": 0.9869727047146402,
+        "sensitivity": 0.9615384615384616,
+        "specificity": 0.967741935483871,
+        "support": 52,
+        "threshold": 0.4,
+        "true_negative": 30,
+        "true_positive": 50
+      },
+      "roc_auc_ovr_macro": 0.8596750618248187,
+      "sample_count": 83,
+      "sensitivity": 0.4992592592592592,
+      "specificity": 0.9049862081125151
+    }
+  },
+  "official_test_status": "FROZEN_NOT_YET_EVALUATED",
+  "production_promoted": false,
+  "selected_candidate": {
+    "best_epoch": 1,
+    "calibration": {
+      "calibration_subset": null,
+      "ece_10_bins_diagnostic": 0.0768582131489214,
+      "multiclass_brier_diagnostic": 0.4765593837544467,
+      "statement": "Raw softmax confidence is not clinically calibrated; calibration could not be reliably fitted with the available non-test data.",
+      "status": "UNCALIBRATED",
+      "temperature_scaling_fitted": false
+    },
+    "candidate": "a",
+    "checkpoint_path": "ml/weights/classifiers/idrid/research/v3/20260912/v3_b_domain_robust/checkpoint_best.pt",
+    "checkpoint_sha256": "97bd6a9933ca3d09c1e41bb16ba7452b5988eb1818fc7f1c87054471c4c33049",
+    "clinical_validation_claim": false,
+    "epochs_completed": 0,
+    "error_analysis": {
+      "grade_0_to_2_3_4": [
+        {
+          "actual_grade": 0,
+          "confidence": 0.24310797452926636,
+          "image_id": "IDRiD_153",
+          "predicted_grade": 2,
+          "probabilities": [
+            0.2219894528388977,
+            0.18479803204536438,
+            0.24310797452926636,
+            0.1106996014714241,
+            0.23940499126911163
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.5932125672698021,
+          "uncertainty": {
+            "entropy_nats": 1.5758629571712162,
+            "normalized_entropy": 0.979138707368894,
+            "probability_margin": 0.003702983260154724
+          }
+        }
+      ],
+      "grade_1_to_2_3_4": [],
+      "grade_2_3_4_to_0_1": [
+        {
+          "actual_grade": 2,
+          "confidence": 0.44066405296325684,
+          "image_id": "IDRiD_003",
+          "predicted_grade": 1,
+          "probabilities": [
+            0.11020084470510483,
+            0.44066405296325684,
+            0.3757684826850891,
+            0.03670136258006096,
+            0.036665190011262894
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.44913503527641296,
+          "uncertainty": {
+            "entropy_nats": 1.2144583578154182,
+            "normalized_entropy": 0.7545854042786165,
+            "probability_margin": 0.06489557027816772
+          }
+        },
+        {
+          "actual_grade": 2,
+          "confidence": 0.40504780411720276,
+          "image_id": "IDRiD_037",
+          "predicted_grade": 1,
+          "probabilities": [
+            0.3442550003528595,
+            0.40504780411720276,
+            0.165067657828331,
+            0.04829087853431702,
+            0.03733863681554794
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.25069717317819595,
+          "uncertainty": {
+            "entropy_nats": 1.299624332009901,
+            "normalized_entropy": 0.807501999281451,
+            "probability_margin": 0.06079280376434326
+          }
+        },
+        {
+          "actual_grade": 2,
+          "confidence": 0.34965232014656067,
+          "image_id": "IDRiD_060",
+          "predicted_grade": 0,
+          "probabilities": [
+            0.34965232014656067,
+            0.22431840002536774,
+            0.2563140094280243,
+            0.13367892801761627,
+            0.03603646159172058
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.42602939903736115,
+          "uncertainty": {
+            "entropy_nats": 1.4404013053724263,
+            "normalized_entropy": 0.894971650813156,
+            "probability_margin": 0.09333831071853638
+          }
+        },
+        {
+          "actual_grade": 2,
+          "confidence": 0.8723313808441162,
+          "image_id": "IDRiD_061",
+          "predicted_grade": 0,
+          "probabilities": [
+            0.8723313808441162,
+            0.05893527716398239,
+            0.04955708608031273,
+            0.009872250258922577,
+            0.00930401124060154
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.06873334757983685,
+          "uncertainty": {
+            "entropy_nats": 0.5240213024941479,
+            "normalized_entropy": 0.325592741693044,
+            "probability_margin": 0.8133961036801338
+          }
+        }
+      ],
+      "grade_3_to_4_or_4_to_3": [
+        {
+          "actual_grade": 3,
+          "confidence": 0.4412781298160553,
+          "image_id": "IDRiD_004",
+          "predicted_grade": 4,
+          "probabilities": [
+            0.0023904116824269295,
+            0.01607932709157467,
+            0.2314128577709198,
+            0.30883926153182983,
+            0.4412781298160553
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.9815302491188049,
+          "uncertainty": {
+            "entropy_nats": 1.1433917454290725,
+            "normalized_entropy": 0.7104292353221732,
+            "probability_margin": 0.13243886828422546
+          }
+        },
+        {
+          "actual_grade": 4,
+          "confidence": 0.6340225338935852,
+          "image_id": "IDRiD_014",
+          "predicted_grade": 3,
+          "probabilities": [
+            0.0011472515761852264,
+            0.002107013715431094,
+            0.012775851413607597,
+            0.6340225338935852,
+            0.34994736313819885
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.9967457484453917,
+          "uncertainty": {
+            "entropy_nats": 0.732797683288241,
+            "normalized_entropy": 0.4553128005913344,
+            "probability_margin": 0.28407517075538635
+          }
+        },
+        {
+          "actual_grade": 3,
+          "confidence": 0.3602556586265564,
+          "image_id": "IDRiD_026",
+          "predicted_grade": 4,
+          "probabilities": [
+            0.014061423018574715,
+            0.04609829559922218,
+            0.26720520853996277,
+            0.3123794496059418,
+            0.3602556586265564
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.9398403167724609,
+          "uncertainty": {
+            "entropy_nats": 1.2857117015816735,
+            "normalized_entropy": 0.7988575959647762,
+            "probability_margin": 0.047876209020614624
+          }
+        },
+        {
+          "actual_grade": 3,
+          "confidence": 0.3618910014629364,
+          "image_id": "IDRiD_039",
+          "predicted_grade": 4,
+          "probabilities": [
+            0.04428212717175484,
+            0.09110863506793976,
+            0.31971004605293274,
+            0.18300816416740417,
+            0.3618910014629364
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.8646092116832733,
+          "uncertainty": {
+            "entropy_nats": 1.3995020979251056,
+            "normalized_entropy": 0.869559544430335,
+            "probability_margin": 0.04218095541000366
+          }
+        }
+      ],
+      "high_confidence_incorrect": [
+        {
+          "actual_grade": 1,
+          "confidence": 0.9409504532814026,
+          "image_id": "IDRiD_194",
+          "predicted_grade": 0,
+          "probabilities": [
+            0.9409504532814026,
+            0.05309085547924042,
+            0.003755402285605669,
+            0.0011039937380701303,
+            0.0010992969619110227
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.005958692985586822,
+          "uncertainty": {
+            "entropy_nats": 0.2491110328955187,
+            "normalized_entropy": 0.15478138732221441,
+            "probability_margin": 0.8878595978021622
+          }
+        },
+        {
+          "actual_grade": 2,
+          "confidence": 0.8723313808441162,
+          "image_id": "IDRiD_061",
+          "predicted_grade": 0,
+          "probabilities": [
+            0.8723313808441162,
+            0.05893527716398239,
+            0.04955708608031273,
+            0.009872250258922577,
+            0.00930401124060154
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.06873334757983685,
+          "uncertainty": {
+            "entropy_nats": 0.5240213024941479,
+            "normalized_entropy": 0.325592741693044,
+            "probability_margin": 0.8133961036801338
+          }
+        },
+        {
+          "actual_grade": 1,
+          "confidence": 0.7771008014678955,
+          "image_id": "IDRiD_105",
+          "predicted_grade": 0,
+          "probabilities": [
+            0.7771008014678955,
+            0.13116084039211273,
+            0.03639259189367294,
+            0.022125044837594032,
+            0.033220771700143814
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.09173840843141079,
+          "uncertainty": {
+            "entropy_nats": 0.7804095634049631,
+            "normalized_entropy": 0.48489572500791805,
+            "probability_margin": 0.6459399610757828
+          }
+        },
+        {
+          "actual_grade": 4,
+          "confidence": 0.6340225338935852,
+          "image_id": "IDRiD_014",
+          "predicted_grade": 3,
+          "probabilities": [
+            0.0011472515761852264,
+            0.002107013715431094,
+            0.012775851413607597,
+            0.6340225338935852,
+            0.34994736313819885
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.9967457484453917,
+          "uncertainty": {
+            "entropy_nats": 0.732797683288241,
+            "normalized_entropy": 0.4553128005913344,
+            "probability_margin": 0.28407517075538635
+          }
+        },
+        {
+          "actual_grade": 4,
+          "confidence": 0.6157131195068359,
+          "image_id": "IDRiD_024",
+          "predicted_grade": 2,
+          "probabilities": [
+            0.005860410630702972,
+            0.03935622051358223,
+            0.6157131195068359,
+            0.14276297390460968,
+            0.19630730152130127
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.9547833949327469,
+          "uncertainty": {
+            "entropy_nats": 1.0535469546438123,
+            "normalized_entropy": 0.6546055281190915,
+            "probability_margin": 0.41940581798553467
+          }
+        },
+        {
+          "actual_grade": 3,
+          "confidence": 0.5629557371139526,
+          "image_id": "IDRiD_009",
+          "predicted_grade": 2,
+          "probabilities": [
+            0.06237972155213356,
+            0.097785085439682,
+            0.5629557371139526,
+            0.12259269505739212,
+            0.154286727309227
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.8398351594805717,
+          "uncertainty": {
+            "entropy_nats": 1.2695321273438196,
+            "normalized_entropy": 0.788804661264497,
+            "probability_margin": 0.40866900980472565
+          }
+        },
+        {
+          "actual_grade": 2,
+          "confidence": 0.5523707270622253,
+          "image_id": "IDRiD_029",
+          "predicted_grade": 3,
+          "probabilities": [
+            0.0039072115905582905,
+            0.017277369275689125,
+            0.26151588559150696,
+            0.5523707270622253,
+            0.1649288386106491
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.9788154512643814,
+          "uncertainty": {
+            "entropy_nats": 1.0676372018287195,
+            "normalized_entropy": 0.6633602909316545,
+            "probability_margin": 0.2908548414707184
+          }
+        },
+        {
+          "actual_grade": 3,
+          "confidence": 0.5490928292274475,
+          "image_id": "IDRiD_002",
+          "predicted_grade": 2,
+          "probabilities": [
+            0.0184258334338665,
+            0.04036109521985054,
+            0.5490928292274475,
+            0.21355736255645752,
+            0.1785629540681839
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.9412131458520889,
+          "uncertainty": {
+            "entropy_nats": 1.1696531339746947,
+            "normalized_entropy": 0.7267463534556119,
+            "probability_margin": 0.33553546667099
+          }
+        },
+        {
+          "actual_grade": 2,
+          "confidence": 0.5143099427223206,
+          "image_id": "IDRiD_068",
+          "predicted_grade": 4,
+          "probabilities": [
+            0.014234991744160652,
+            0.018420973792672157,
+            0.22501230239868164,
+            0.22802181541919708,
+            0.5143099427223206
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.9673440605401993,
+          "uncertainty": {
+            "entropy_nats": 1.1488021119818932,
+            "normalized_entropy": 0.7137908850702135,
+            "probability_margin": 0.2862881273031235
+          }
+        },
+        {
+          "actual_grade": 1,
+          "confidence": 0.49829572439193726,
+          "image_id": "IDRiD_079",
+          "predicted_grade": 0,
+          "probabilities": [
+            0.49829572439193726,
+            0.4300275444984436,
+            0.04497064650058746,
+            0.00877353921532631,
+            0.017932606860995293
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.07167679257690907,
+          "uncertainty": {
+            "entropy_nats": 0.9631450066782774,
+            "normalized_entropy": 0.5984356396958644,
+            "probability_margin": 0.06826817989349365
+          }
+        },
+        {
+          "actual_grade": 1,
+          "confidence": 0.49829572439193726,
+          "image_id": "IDRiD_279",
+          "predicted_grade": 0,
+          "probabilities": [
+            0.49829572439193726,
+            0.4300275444984436,
+            0.04497064650058746,
+            0.00877353921532631,
+            0.017932606860995293
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.07167679257690907,
+          "uncertainty": {
+            "entropy_nats": 0.9631450066782774,
+            "normalized_entropy": 0.5984356396958644,
+            "probability_margin": 0.06826817989349365
+          }
+        },
+        {
+          "actual_grade": 3,
+          "confidence": 0.48907849192619324,
+          "image_id": "IDRiD_023",
+          "predicted_grade": 2,
+          "probabilities": [
+            0.03226937726140022,
+            0.37456923723220825,
+            0.48907849192619324,
+            0.03756365925073624,
+            0.06651919335126877
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.5931613445281982,
+          "uncertainty": {
+            "entropy_nats": 1.1319829921382283,
+            "normalized_entropy": 0.7033405783427997,
+            "probability_margin": 0.11450925469398499
+          }
+        },
+        {
+          "actual_grade": 4,
+          "confidence": 0.46864238381385803,
+          "image_id": "IDRiD_017",
+          "predicted_grade": 2,
+          "probabilities": [
+            0.005125467199832201,
+            0.030599653720855713,
+            0.46864238381385803,
+            0.2801244556903839,
+            0.21550802886486053
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.9642748683691025,
+          "uncertainty": {
+            "entropy_nats": 1.176131224845997,
+            "normalized_entropy": 0.7307714176232036,
+            "probability_margin": 0.18851792812347412
+          }
+        },
+        {
+          "actual_grade": 3,
+          "confidence": 0.4412781298160553,
+          "image_id": "IDRiD_004",
+          "predicted_grade": 4,
+          "probabilities": [
+            0.0023904116824269295,
+            0.01607932709157467,
+            0.2314128577709198,
+            0.30883926153182983,
+            0.4412781298160553
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.9815302491188049,
+          "uncertainty": {
+            "entropy_nats": 1.1433917454290725,
+            "normalized_entropy": 0.7104292353221732,
+            "probability_margin": 0.13243886828422546
+          }
+        },
+        {
+          "actual_grade": 2,
+          "confidence": 0.44066405296325684,
+          "image_id": "IDRiD_003",
+          "predicted_grade": 1,
+          "probabilities": [
+            0.11020084470510483,
+            0.44066405296325684,
+            0.3757684826850891,
+            0.03670136258006096,
+            0.036665190011262894
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.44913503527641296,
+          "uncertainty": {
+            "entropy_nats": 1.2144583578154182,
+            "normalized_entropy": 0.7545854042786165,
+            "probability_margin": 0.06489557027816772
+          }
+        },
+        {
+          "actual_grade": 3,
+          "confidence": 0.4287821054458618,
+          "image_id": "IDRiD_034",
+          "predicted_grade": 2,
+          "probabilities": [
+            0.007795989513397217,
+            0.046103835105895996,
+            0.4287821054458618,
+            0.25541985034942627,
+            0.2618982195854187
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.9461001753807068,
+          "uncertainty": {
+            "entropy_nats": 1.2422932847805515,
+            "normalized_entropy": 0.7718802168029691,
+            "probability_margin": 0.16688388586044312
+          }
+        },
+        {
+          "actual_grade": 3,
+          "confidence": 0.41026178002357483,
+          "image_id": "IDRiD_013",
+          "predicted_grade": 2,
+          "probabilities": [
+            0.13302700221538544,
+            0.10767238587141037,
+            0.41026178002357483,
+            0.15382571518421173,
+            0.19521307945251465
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.7593005746603012,
+          "uncertainty": {
+            "entropy_nats": 1.4806988722319658,
+            "normalized_entropy": 0.9200099368807395,
+            "probability_margin": 0.21504870057106018
+          }
+        },
+        {
+          "actual_grade": 2,
+          "confidence": 0.4083908498287201,
+          "image_id": "IDRiD_047",
+          "predicted_grade": 3,
+          "probabilities": [
+            0.004424776881933212,
+            0.014360921457409859,
+            0.36562374234199524,
+            0.4083908498287201,
+            0.20719966292381287
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.9812142550945282,
+          "uncertainty": {
+            "entropy_nats": 1.144667844627195,
+            "normalized_entropy": 0.7112221203339301,
+            "probability_margin": 0.042767107486724854
+          }
+        },
+        {
+          "actual_grade": 2,
+          "confidence": 0.40504780411720276,
+          "image_id": "IDRiD_037",
+          "predicted_grade": 1,
+          "probabilities": [
+            0.3442550003528595,
+            0.40504780411720276,
+            0.165067657828331,
+            0.04829087853431702,
+            0.03733863681554794
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.25069717317819595,
+          "uncertainty": {
+            "entropy_nats": 1.299624332009901,
+            "normalized_entropy": 0.807501999281451,
+            "probability_margin": 0.06079280376434326
+          }
+        },
+        {
+          "actual_grade": 3,
+          "confidence": 0.4013640284538269,
+          "image_id": "IDRiD_025",
+          "predicted_grade": 2,
+          "probabilities": [
+            0.12262769043445587,
+            0.2070569396018982,
+            0.4013640284538269,
+            0.1158759668469429,
+            0.15307535231113434
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.6703153476119041,
+          "uncertainty": {
+            "entropy_nats": 1.4868474171093753,
+            "normalized_entropy": 0.9238302426097816,
+            "probability_margin": 0.1943070888519287
+          }
+        },
+        {
+          "actual_grade": 2,
+          "confidence": 0.3862746059894562,
+          "image_id": "IDRiD_050",
+          "predicted_grade": 3,
+          "probabilities": [
+            0.005180482752621174,
+            0.011094901710748672,
+            0.3133438527584076,
+            0.3862746059894562,
+            0.28410619497299194
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.9837246537208557,
+          "uncertainty": {
+            "entropy_nats": 1.1657747374455765,
+            "normalized_entropy": 0.7243365702019959,
+            "probability_margin": 0.07293075323104858
+          }
+        },
+        {
+          "actual_grade": 2,
+          "confidence": 0.3816539943218231,
+          "image_id": "IDRiD_016",
+          "predicted_grade": 3,
+          "probabilities": [
+            0.002245127223432064,
+            0.007740250788629055,
+            0.28253111243247986,
+            0.3816539943218231,
+            0.32582950592041016
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.9900146126747131,
+          "uncertainty": {
+            "entropy_nats": 1.141434494954241,
+            "normalized_entropy": 0.7092131272264769,
+            "probability_margin": 0.055824488401412964
+          }
+        },
+        {
+          "actual_grade": 4,
+          "confidence": 0.364520400762558,
+          "image_id": "IDRiD_006",
+          "predicted_grade": 2,
+          "probabilities": [
+            0.2160700112581253,
+            0.26537519693374634,
+            0.364520400762558,
+            0.034291528165340424,
+            0.11974290758371353
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.5185548365116119,
+          "uncertainty": {
+            "entropy_nats": 1.4207696413248074,
+            "normalized_entropy": 0.8827738121168324,
+            "probability_margin": 0.09914520382881165
+          }
+        },
+        {
+          "actual_grade": 3,
+          "confidence": 0.3618910014629364,
+          "image_id": "IDRiD_039",
+          "predicted_grade": 4,
+          "probabilities": [
+            0.04428212717175484,
+            0.09110863506793976,
+            0.31971004605293274,
+            0.18300816416740417,
+            0.3618910014629364
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.8646092116832733,
+          "uncertainty": {
+            "entropy_nats": 1.3995020979251056,
+            "normalized_entropy": 0.869559544430335,
+            "probability_margin": 0.04218095541000366
+          }
+        },
+        {
+          "actual_grade": 3,
+          "confidence": 0.3602556586265564,
+          "image_id": "IDRiD_026",
+          "predicted_grade": 4,
+          "probabilities": [
+            0.014061423018574715,
+            0.04609829559922218,
+            0.26720520853996277,
+            0.3123794496059418,
+            0.3602556586265564
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.9398403167724609,
+          "uncertainty": {
+            "entropy_nats": 1.2857117015816735,
+            "normalized_entropy": 0.7988575959647762,
+            "probability_margin": 0.047876209020614624
+          }
+        },
+        {
+          "actual_grade": 3,
+          "confidence": 0.3568075895309448,
+          "image_id": "IDRiD_012",
+          "predicted_grade": 2,
+          "probabilities": [
+            0.01807432621717453,
+            0.060090627521276474,
+            0.3568075895309448,
+            0.27634522318840027,
+            0.28868213295936584
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.9218349456787109,
+          "uncertainty": {
+            "entropy_nats": 1.3232929540642602,
+            "normalized_entropy": 0.8222081410167126,
+            "probability_margin": 0.06812545657157898
+          }
+        },
+        {
+          "actual_grade": 2,
+          "confidence": 0.34965232014656067,
+          "image_id": "IDRiD_060",
+          "predicted_grade": 0,
+          "probabilities": [
+            0.34965232014656067,
+            0.22431840002536774,
+            0.2563140094280243,
+            0.13367892801761627,
+            0.03603646159172058
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.42602939903736115,
+          "uncertainty": {
+            "entropy_nats": 1.4404013053724263,
+            "normalized_entropy": 0.894971650813156,
+            "probability_margin": 0.09333831071853638
+          }
+        },
+        {
+          "actual_grade": 3,
+          "confidence": 0.28113555908203125,
+          "image_id": "IDRiD_040",
+          "predicted_grade": 2,
+          "probabilities": [
+            0.19349204003810883,
+            0.22982238233089447,
+            0.28113555908203125,
+            0.10154662281274796,
+            0.1940033733844757
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.5766855552792549,
+          "uncertainty": {
+            "entropy_nats": 1.562897791588275,
+            "normalized_entropy": 0.9710829970598627,
+            "probability_margin": 0.05131317675113678
+          }
+        },
+        {
+          "actual_grade": 0,
+          "confidence": 0.24310797452926636,
+          "image_id": "IDRiD_153",
+          "predicted_grade": 2,
+          "probabilities": [
+            0.2219894528388977,
+            0.18479803204536438,
+            0.24310797452926636,
+            0.1106996014714241,
+            0.23940499126911163
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.5932125672698021,
+          "uncertainty": {
+            "entropy_nats": 1.5758629571712162,
+            "normalized_entropy": 0.979138707368894,
+            "probability_margin": 0.003702983260154724
+          }
+        }
+      ],
+      "referable_false_negatives": [
+        {
+          "actual_grade": 2,
+          "confidence": 0.40504780411720276,
+          "image_id": "IDRiD_037",
+          "predicted_grade": 1,
+          "probabilities": [
+            0.3442550003528595,
+            0.40504780411720276,
+            0.165067657828331,
+            0.04829087853431702,
+            0.03733863681554794
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.25069717317819595,
+          "uncertainty": {
+            "entropy_nats": 1.299624332009901,
+            "normalized_entropy": 0.807501999281451,
+            "probability_margin": 0.06079280376434326
+          }
+        },
+        {
+          "actual_grade": 2,
+          "confidence": 0.8723313808441162,
+          "image_id": "IDRiD_061",
+          "predicted_grade": 0,
+          "probabilities": [
+            0.8723313808441162,
+            0.05893527716398239,
+            0.04955708608031273,
+            0.009872250258922577,
+            0.00930401124060154
+          ],
+          "quality_status": "NOT_REASSESSED_IN_RESEARCH_RUN",
+          "referable_probability": 0.06873334757983685,
+          "uncertainty": {
+            "entropy_nats": 0.5240213024941479,
+            "normalized_entropy": 0.325592741693044,
+            "probability_margin": 0.8133961036801338
+          }
+        }
+      ]
+    },
+    "experiment_id": "final_candidate_a_v3_control",
+    "metrics": {
+      "accuracy": 0.6506024096385542,
+      "class_distribution": {
+        "0": 27,
+        "1": 4,
+        "2": 27,
+        "3": 15,
+        "4": 10
+      },
+      "confusion_matrix": [
+        [
+          26,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          4,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          18,
+          4,
+          1
+        ],
+        [
+          0,
+          0,
+          8,
+          4,
+          3
+        ],
+        [
+          0,
+          0,
+          3,
+          1,
+          6
+        ]
+      ],
+      "f1": 0.4892536425810289,
+      "per_class": {
+        "Mild": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "sensitivity": 0.0,
+          "specificity": 0.9746835443037974,
+          "support": 4
+        },
+        "Moderate": {
+          "f1": 0.631578947368421,
+          "precision": 0.6,
+          "recall": 0.6666666666666666,
+          "sensitivity": 0.6666666666666666,
+          "specificity": 0.7857142857142857,
+          "support": 27
+        },
+        "No DR": {
+          "f1": 0.8813559322033898,
+          "precision": 0.8125,
+          "recall": 0.9629629629629629,
+          "sensitivity": 0.9629629629629629,
+          "specificity": 0.8928571428571429,
+          "support": 27
+        },
+        "Proliferative DR": {
+          "f1": 0.6,
+          "precision": 0.6,
+          "recall": 0.6,
+          "sensitivity": 0.6,
+          "specificity": 0.9452054794520548,
+          "support": 10
+        },
+        "Severe": {
+          "f1": 0.33333333333333337,
+          "precision": 0.4444444444444444,
+          "recall": 0.26666666666666666,
+          "sensitivity": 0.26666666666666666,
+          "specificity": 0.9264705882352942,
+          "support": 15
+        }
+      },
+      "precision": 0.4913888888888889,
+      "quadratic_weighted_kappa": 0.8463873260290198,
+      "recall": 0.4992592592592592,
+      "referable_dr": {
+        "f1": 0.970873786407767,
+        "false_negative": 2,
+        "false_negative_rate": 0.038461538461538436,
+        "false_positive": 1,
+        "precision": 0.9803921568627451,
+        "recall": 0.9230769230769231,
+        "referable_grades": [
+          2,
+          3,
+          4
+        ],
+        "roc_auc": 0.9869727047146402,
+        "sensitivity": 0.9615384615384616,
+        "specificity": 0.967741935483871,
+        "support": 52,
+        "threshold": 0.4,
+        "true_negative": 30,
+        "true_positive": 50
+      },
+      "roc_auc_ovr_macro": 0.8596750618248187,
+      "sample_count": 83,
+      "sensitivity": 0.4992592592592592,
+      "specificity": 0.9049862081125151
+    },
+    "metrics_at_0_5": {
+      "accuracy": 0.6506024096385542,
+      "class_distribution": {
+        "0": 27,
+        "1": 4,
+        "2": 27,
+        "3": 15,
+        "4": 10
+      },
+      "confusion_matrix": [
+        [
+          26,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          4,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          18,
+          4,
+          1
+        ],
+        [
+          0,
+          0,
+          8,
+          4,
+          3
+        ],
+        [
+          0,
+          0,
+          3,
+          1,
+          6
+        ]
+      ],
+      "f1": 0.4892536425810289,
+      "per_class": {
+        "Mild": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "sensitivity": 0.0,
+          "specificity": 0.9746835443037974,
+          "support": 4
+        },
+        "Moderate": {
+          "f1": 0.631578947368421,
+          "precision": 0.6,
+          "recall": 0.6666666666666666,
+          "sensitivity": 0.6666666666666666,
+          "specificity": 0.7857142857142857,
+          "support": 27
+        },
+        "No DR": {
+          "f1": 0.8813559322033898,
+          "precision": 0.8125,
+          "recall": 0.9629629629629629,
+          "sensitivity": 0.9629629629629629,
+          "specificity": 0.8928571428571429,
+          "support": 27
+        },
+        "Proliferative DR": {
+          "f1": 0.6,
+          "precision": 0.6,
+          "recall": 0.6,
+          "sensitivity": 0.6,
+          "specificity": 0.9452054794520548,
+          "support": 10
+        },
+        "Severe": {
+          "f1": 0.33333333333333337,
+          "precision": 0.4444444444444444,
+          "recall": 0.26666666666666666,
+          "sensitivity": 0.26666666666666666,
+          "specificity": 0.9264705882352942,
+          "support": 15
+        }
+      },
+      "precision": 0.4913888888888889,
+      "quadratic_weighted_kappa": 0.8463873260290198,
+      "recall": 0.4992592592592592,
+      "referable_dr": {
+        "f1": 0.9504950495049506,
+        "false_negative": 4,
+        "false_positive": 1,
+        "precision": 0.9795918367346939,
+        "recall": 0.9230769230769231,
+        "referable_grades": [
+          2,
+          3,
+          4
+        ],
+        "roc_auc": 0.9869727047146402,
+        "sensitivity": 0.9230769230769231,
+        "specificity": 0.967741935483871,
+        "support": 52,
+        "true_negative": 30,
+        "true_positive": 48
+      },
+      "roc_auc_ovr_macro": 0.8596750618248187,
+      "sample_count": 83,
+      "sensitivity": 0.4992592592592592,
+      "specificity": 0.9049862081125151
+    },
+    "official_test_images_opened": 0,
+    "production_promoted": false,
+    "status": "REUSED_FROZEN_CONTROL",
+    "threshold_analysis": {
+      "candidate_thresholds": [
+        0.3,
+        0.35,
+        0.4,
+        0.45,
+        0.5,
+        0.55,
+        0.6
+      ],
+      "entries": [
+        {
+          "f1": 0.9523809523809524,
+          "false_negative": 2,
+          "false_negative_rate": 0.038461538461538436,
+          "false_positive": 3,
+          "precision": 0.9433962264150944,
+          "sensitivity": 0.9615384615384616,
+          "specificity": 0.9032258064516129,
+          "threshold": 0.3,
+          "true_negative": 28,
+          "true_positive": 50
+        },
+        {
+          "f1": 0.9615384615384616,
+          "false_negative": 2,
+          "false_negative_rate": 0.038461538461538436,
+          "false_positive": 2,
+          "precision": 0.9615384615384616,
+          "sensitivity": 0.9615384615384616,
+          "specificity": 0.9354838709677419,
+          "threshold": 0.35,
+          "true_negative": 29,
+          "true_positive": 50
+        },
+        {
+          "f1": 0.970873786407767,
+          "false_negative": 2,
+          "false_negative_rate": 0.038461538461538436,
+          "false_positive": 1,
+          "precision": 0.9803921568627451,
+          "sensitivity": 0.9615384615384616,
+          "specificity": 0.967741935483871,
+          "threshold": 0.4,
+          "true_negative": 30,
+          "true_positive": 50
+        },
+        {
+          "f1": 0.9504950495049506,
+          "false_negative": 4,
+          "false_negative_rate": 0.07692307692307687,
+          "false_positive": 1,
+          "precision": 0.9795918367346939,
+          "sensitivity": 0.9230769230769231,
+          "specificity": 0.967741935483871,
+          "threshold": 0.45,
+          "true_negative": 30,
+          "true_positive": 48
+        },
+        {
+          "f1": 0.9504950495049506,
+          "false_negative": 4,
+          "false_negative_rate": 0.07692307692307687,
+          "false_positive": 1,
+          "precision": 0.9795918367346939,
+          "sensitivity": 0.9230769230769231,
+          "specificity": 0.967741935483871,
+          "threshold": 0.5,
+          "true_negative": 30,
+          "true_positive": 48
+        },
+        {
+          "f1": 0.9400000000000001,
+          "false_negative": 5,
+          "false_negative_rate": 0.09615384615384615,
+          "false_positive": 1,
+          "precision": 0.9791666666666666,
+          "sensitivity": 0.9038461538461539,
+          "specificity": 0.967741935483871,
+          "threshold": 0.55,
+          "true_negative": 30,
+          "true_positive": 47
+        },
+        {
+          "f1": 0.9052631578947368,
+          "false_negative": 9,
+          "false_negative_rate": 0.17307692307692313,
+          "false_positive": 0,
+          "precision": 1.0,
+          "sensitivity": 0.8269230769230769,
+          "specificity": 1.0,
+          "threshold": 0.6,
+          "true_negative": 31,
+          "true_positive": 43
+        }
+      ],
+      "selected": {
+        "f1": 0.970873786407767,
+        "false_negative": 2,
+        "false_negative_rate": 0.038461538461538436,
+        "false_positive": 1,
+        "precision": 0.9803921568627451,
+        "sensitivity": 0.9615384615384616,
+        "specificity": 0.967741935483871,
+        "threshold": 0.4,
+        "true_negative": 30,
+        "true_positive": 50
+      },
+      "selection_rule": "highest development sensitivity among thresholds with specificity >= 0.85; ties specificity, F1, fewer false positives, then higher threshold"
+    },
+    "training_config": {
+      "augmentation": "V3 robust augmentation recorded in prior manifest",
+      "preprocessing": "RGB -> Resize(224,224) -> ToTensor -> ImageNet mean/std",
+      "production_promoted": false,
+      "source": "V3 domain-robust control; no retraining in final cycle"
+    },
+    "training_seconds": 0.0,
+    "validation_predictions": "ml/weights/classifiers/idrid/research/v3/20260912/v3_b_domain_robust/validation_predictions.json"
+  },
+  "selection": {
+    "candidate_rows": [
+      {
+        "accuracy": 0.6506024096385542,
+        "candidate": "a",
+        "checkpoint_path": "ml/weights/classifiers/idrid/research/v3/20260912/v3_b_domain_robust/checkpoint_best.pt",
+        "checkpoint_sha256": "97bd6a9933ca3d09c1e41bb16ba7452b5988eb1818fc7f1c87054471c4c33049",
+        "ece": 0.0768582131489214,
+        "experiment_id": "final_candidate_a_v3_control",
+        "grade_2_sensitivity": 0.6666666666666666,
+        "grade_3_sensitivity": 0.26666666666666666,
+        "grade_4_sensitivity": 0.6,
+        "macro_f1": 0.4892536425810289,
+        "macro_precision": 0.4913888888888889,
+        "macro_recall": 0.4992592592592592,
+        "official_test": "NOT_EVALUATED",
+        "qwk": 0.8463873260290198,
+        "referable_f1": 0.970873786407767,
+        "referable_fn": 2,
+        "referable_fp": 1,
+        "referable_precision": 0.9803921568627451,
+        "referable_sensitivity": 0.9615384615384616,
+        "referable_specificity": 0.967741935483871,
+        "roc_auc_ovr": 0.8596750618248187
+      },
+      {
+        "accuracy": 0.5542168674698795,
+        "candidate": "b",
+        "checkpoint_path": "ml/weights/classifiers/idrid/research/final/20260912/candidate_b_aptos_finetune/checkpoint_best.pt",
+        "checkpoint_sha256": "be9aa2d2937d00351fc5e71e454fab7d3542f3fa048e59771f5f01c90c1a119d",
+        "ece": 0.13713491465671954,
+        "experiment_id": "final_candidate_b",
+        "grade_2_sensitivity": 0.7407407407407407,
+        "grade_3_sensitivity": 0.13333333333333333,
+        "grade_4_sensitivity": 0.4,
+        "macro_f1": 0.4205128205128205,
+        "macro_precision": 0.4822222222222223,
+        "macro_recall": 0.4029629629629629,
+        "official_test": "NOT_EVALUATED",
+        "qwk": 0.718280265071925,
+        "referable_f1": 0.9433962264150944,
+        "referable_fn": 2,
+        "referable_fp": 4,
+        "referable_precision": 0.9259259259259259,
+        "referable_sensitivity": 0.9615384615384616,
+        "referable_specificity": 0.8709677419354839,
+        "roc_auc_ovr": 0.8175077761679012
+      },
+      {
+        "accuracy": 0.5542168674698795,
+        "candidate": "c",
+        "checkpoint_path": "ml/weights/classifiers/idrid/research/final/20260912/candidate_c_domain_balanced/checkpoint_best.pt",
+        "checkpoint_sha256": "f79db21bb16c43a33c79af79c115b7a26f4667e7295127a5645141d4349c6f67",
+        "ece": 0.1743719653192773,
+        "experiment_id": "final_candidate_c",
+        "grade_2_sensitivity": 0.7777777777777778,
+        "grade_3_sensitivity": 0.26666666666666666,
+        "grade_4_sensitivity": 0.4,
+        "macro_f1": 0.4689834303627407,
+        "macro_precision": 0.5199656636848288,
+        "macro_recall": 0.5,
+        "official_test": "NOT_EVALUATED",
+        "qwk": 0.6153717697156932,
+        "referable_f1": 0.9423076923076923,
+        "referable_fn": 3,
+        "referable_fp": 3,
+        "referable_precision": 0.9423076923076923,
+        "referable_sensitivity": 0.9423076923076923,
+        "referable_specificity": 0.9032258064516129,
+        "roc_auc_ovr": 0.8263632267927499
+      },
+      {
+        "accuracy": 0.6265060240963856,
+        "candidate": "d",
+        "checkpoint_path": "ml/weights/classifiers/idrid/research/final/20260912/candidate_d_combined_finetune/checkpoint_best.pt",
+        "checkpoint_sha256": "571bdee0798ed5c3c55d47cea55348593d3ae30fed26a1c1da436fb259b8dcf3",
+        "ece": 0.10453505221619663,
+        "experiment_id": "final_candidate_d",
+        "grade_2_sensitivity": 0.7777777777777778,
+        "grade_3_sensitivity": 0.2,
+        "grade_4_sensitivity": 0.4,
+        "macro_f1": 0.457459165154265,
+        "macro_precision": 0.5043727598566308,
+        "macro_recall": 0.4533333333333333,
+        "official_test": "NOT_EVALUATED",
+        "qwk": 0.7492447129909365,
+        "referable_f1": 0.9523809523809524,
+        "referable_fn": 2,
+        "referable_fp": 3,
+        "referable_precision": 0.9433962264150944,
+        "referable_sensitivity": 0.9615384615384616,
+        "referable_specificity": 0.9032258064516129,
+        "roc_auc_ovr": 0.8113001563841535
+      }
+    ],
+    "official_test_images_opened": 0,
+    "production_promoted": false,
+    "selected_candidate": "a",
+    "selected_checkpoint_path": "ml/weights/classifiers/idrid/research/v3/20260912/v3_b_domain_robust/checkpoint_best.pt",
+    "selected_experiment_id": "final_candidate_a_v3_control",
+    "selection_priority": [
+      "no leakage",
+      "referable sensitivity",
+      "specificity >= 0.85",
+      "false negatives",
+      "QWK",
+      "macro F1",
+      "Grade 2/3/4 sensitivity",
+      "calibration/reliability",
+      "reproducibility"
+    ],
+    "selection_reason": "Development-only ranking; no official test or external dataset was accessed."
+  }
+}

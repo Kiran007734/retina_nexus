@@ -1,0 +1,19 @@
+{
+  "executed_in_master_run": false,
+  "generated_at_utc": "2026-09-14T06:01:04.975179+00:00",
+  "implementation": [
+    "simulink/retina_nexus_digital_twin.m",
+    "simulink/run_digital_twin_scenarios.m",
+    "docs/DEPLOYMENT.md"
+  ],
+  "scenarios": [
+    "NORMAL LOAD",
+    "HIGH LOAD",
+    "LOW BANDWIDTH",
+    "HIGH UNGRADABLE RATE",
+    "LIMITED SPECIALIST CAPACITY"
+  ],
+  "schema_version": "retina-nexus-master-simulink-results-v1",
+  "scope": "Operational throughput/queue simulation plan; not a patient outcome model and not a clinical validation result.",
+  "status": "DOCUMENTED_PROTOTYPE"
+}

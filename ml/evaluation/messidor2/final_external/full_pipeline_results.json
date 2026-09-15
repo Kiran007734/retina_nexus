@@ -1,0 +1,16 @@
+{
+  "schema_version": "messidor2-full-pipeline-results-v1",
+  "status": "BENCHMARK_INTERRUPTED",
+  "evaluation_scope": "BENCHMARK_SUBSET",
+  "source_total_jobs": 1744,
+  "limited_run": true,
+  "total_jobs": 1,
+  "result_count": 0,
+  "status_counts": {},
+  "results": [],
+  "run_manifest": "parallel_run_manifest.json",
+  "official_test_images_opened": 0,
+  "production_promoted": false,
+  "clinical_validation_claim": false,
+  "note": "The bounded one-worker full-pipeline benchmark timed out before a result returned. No prediction was substituted."
+}

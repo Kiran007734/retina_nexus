@@ -1,0 +1,32 @@
+{
+  "class_distribution": {
+    "0": 1017,
+    "1": 270,
+    "2": 347,
+    "3": 75,
+    "4": 35
+  },
+  "dataset": "Messidor-2",
+  "dataset_version": "messidor2-local-audited-1744",
+  "dme_distribution": {
+    "0": 1593,
+    "1": 151
+  },
+  "generated_at_utc": "2026-09-13T20:09:47.385798+00:00",
+  "gradable_distribution": {
+    "0": 0,
+    "1": 1744
+  },
+  "image_count": 1744,
+  "image_root": "ml/datasets/raw/messidor/images/messidor-2",
+  "invalid_rows": [],
+  "label_provenance_limitation": "The local diagnosis CSV is an authorized released label file. It is not called official clinical ground truth, and this report is not clinical validation.",
+  "label_row_count": 1744,
+  "label_source": "ml/datasets/raw/messidor/images/messidor_data.csv",
+  "label_source_policy": "messidor_data.csv is the diagnosis source; messidor-2.csv is pairing-only and is not used for labels.",
+  "labels_without_images": [],
+  "matched_pair_count": 1744,
+  "missing_images_for_labels": [],
+  "patient_ids_available": false,
+  "patient_level_separation_claim": false
+}

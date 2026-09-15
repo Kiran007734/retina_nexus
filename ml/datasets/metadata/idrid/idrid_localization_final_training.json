@@ -1,0 +1,69 @@
+{
+  "checkpoint": "ml/weights/localization/idrid/checkpoint_best.pt",
+  "checkpoint_sha256": "91d49e43c5ea87fdc4adf36f9687ba7f07eeac546f89f09e1203ab56b083d569",
+  "development_images": 412,
+  "history": [
+    {
+      "coordinate_smooth_l1": 0.009782504864507218,
+      "epoch": 1,
+      "heatmap_mse": 0.07234703818137206,
+      "learning_rate": 0.00015000000000000001,
+      "train_loss": 0.07479266457042648
+    },
+    {
+      "coordinate_smooth_l1": 0.009578503320192538,
+      "epoch": 2,
+      "heatmap_mse": 0.027115722467164392,
+      "learning_rate": 5.000000000000003e-05,
+      "train_loss": 0.029510348311905722
+    },
+    {
+      "coordinate_smooth_l1": 0.009529947506679782,
+      "epoch": 3,
+      "heatmap_mse": 0.018344723013708892,
+      "learning_rate": 0.0,
+      "train_loss": 0.020727209891509085
+    }
+  ],
+  "model_version": "idrid-localization-shared-heatmap-512x352-20260913-v1",
+  "official_test_images_opened": 0,
+  "production_promoted": false,
+  "train_fit_metrics": {
+    "fovea": {
+      "failures": 0,
+      "max_euclidean_error_px": 1115.388937723769,
+      "mean_euclidean_error_px": 386.6217664273685,
+      "mean_normalized_error": 0.07510681741129711,
+      "median_euclidean_error_px": 372.202893363522,
+      "median_normalized_error": 0.07230574473375442,
+      "p90_euclidean_error_px": 638.0656958627324,
+      "p90_normalized_error": 0.12395340324062534,
+      "status": "MEASURED",
+      "support": 412,
+      "within_10pct_diagonal": 0.7135922330097088,
+      "within_1pct_diagonal": 0.01699029126213592,
+      "within_2pct_diagonal": 0.07766990291262135,
+      "within_5pct_diagonal": 0.2961165048543689,
+      "x_coordinate_mae_px": 330.33721834941974,
+      "y_coordinate_mae_px": 147.70667926084647
+    },
+    "optic_disc": {
+      "failures": 0,
+      "max_euclidean_error_px": 2398.5965517109903,
+      "mean_euclidean_error_px": 591.0832428251764,
+      "mean_normalized_error": 0.11482638860191523,
+      "median_euclidean_error_px": 593.8860485327073,
+      "median_normalized_error": 0.11537087376750768,
+      "p90_euclidean_error_px": 1167.6738820911207,
+      "p90_normalized_error": 0.22683738132119322,
+      "status": "MEASURED",
+      "support": 412,
+      "within_10pct_diagonal": 0.46601941747572817,
+      "within_1pct_diagonal": 0.03398058252427184,
+      "within_2pct_diagonal": 0.20631067961165048,
+      "within_5pct_diagonal": 0.3883495145631068,
+      "x_coordinate_mae_px": 573.0314602157445,
+      "y_coordinate_mae_px": 98.48288376817426
+    }
+  }
+}

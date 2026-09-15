@@ -1,0 +1,109 @@
+{
+  "candidates": {
+    "v3_a_v2_reproduction_control": null,
+    "v3_b": {
+      "perturbations": {
+        "brightness_minus": {
+          "grade_prediction_stability": 0.8313253012048193,
+          "mean_probability_l1_shift": 0.03335143464294571,
+          "referable_decision_stability_at_0_5": 0.9759036144578314
+        },
+        "brightness_plus": {
+          "grade_prediction_stability": 0.8313253012048193,
+          "mean_probability_l1_shift": 0.02714663044140493,
+          "referable_decision_stability_at_0_5": 0.9879518072289156
+        },
+        "contrast_minus": {
+          "grade_prediction_stability": 0.8554216867469879,
+          "mean_probability_l1_shift": 0.04042279042316887,
+          "referable_decision_stability_at_0_5": 0.9759036144578314
+        },
+        "contrast_plus": {
+          "grade_prediction_stability": 0.7831325301204819,
+          "mean_probability_l1_shift": 0.04321955887434046,
+          "referable_decision_stability_at_0_5": 0.963855421686747
+        },
+        "fov_crop": {
+          "grade_prediction_stability": 0.7108433734939759,
+          "mean_probability_l1_shift": 0.05844982912070898,
+          "referable_decision_stability_at_0_5": 0.9518072289156626
+        },
+        "mild_blur": {
+          "grade_prediction_stability": 0.9759036144578314,
+          "mean_probability_l1_shift": 0.005184149611720265,
+          "referable_decision_stability_at_0_5": 1.0
+        }
+      }
+    },
+    "v3_c": {
+      "perturbations": {
+        "brightness_minus": {
+          "grade_prediction_stability": 0.8674698795180723,
+          "mean_probability_l1_shift": 0.03446628773734951,
+          "referable_decision_stability_at_0_5": 0.9759036144578314
+        },
+        "brightness_plus": {
+          "grade_prediction_stability": 0.7710843373493976,
+          "mean_probability_l1_shift": 0.03024731860430357,
+          "referable_decision_stability_at_0_5": 0.9759036144578314
+        },
+        "contrast_minus": {
+          "grade_prediction_stability": 0.8433734939759037,
+          "mean_probability_l1_shift": 0.041490244352918315,
+          "referable_decision_stability_at_0_5": 0.9759036144578314
+        },
+        "contrast_plus": {
+          "grade_prediction_stability": 0.7469879518072289,
+          "mean_probability_l1_shift": 0.037608736604464406,
+          "referable_decision_stability_at_0_5": 0.9759036144578314
+        },
+        "fov_crop": {
+          "grade_prediction_stability": 0.7228915662650602,
+          "mean_probability_l1_shift": 0.062441774339620955,
+          "referable_decision_stability_at_0_5": 0.963855421686747
+        },
+        "mild_blur": {
+          "grade_prediction_stability": 0.963855421686747,
+          "mean_probability_l1_shift": 0.005301029960655906,
+          "referable_decision_stability_at_0_5": 0.9879518072289156
+        }
+      }
+    },
+    "v3_d": {
+      "perturbations": {
+        "brightness_minus": {
+          "grade_prediction_stability": 0.8192771084337349,
+          "mean_probability_l1_shift": 0.03534088206722216,
+          "referable_decision_stability_at_0_5": 0.9759036144578314
+        },
+        "brightness_plus": {
+          "grade_prediction_stability": 0.9036144578313253,
+          "mean_probability_l1_shift": 0.027128355426353355,
+          "referable_decision_stability_at_0_5": 0.9879518072289156
+        },
+        "contrast_minus": {
+          "grade_prediction_stability": 0.8554216867469879,
+          "mean_probability_l1_shift": 0.0434935083063158,
+          "referable_decision_stability_at_0_5": 0.9759036144578314
+        },
+        "contrast_plus": {
+          "grade_prediction_stability": 0.8554216867469879,
+          "mean_probability_l1_shift": 0.04427541236874243,
+          "referable_decision_stability_at_0_5": 0.963855421686747
+        },
+        "fov_crop": {
+          "grade_prediction_stability": 0.7349397590361446,
+          "mean_probability_l1_shift": 0.08248187065221291,
+          "referable_decision_stability_at_0_5": 0.8192771084337349
+        },
+        "mild_blur": {
+          "grade_prediction_stability": 0.963855421686747,
+          "mean_probability_l1_shift": 0.006295127803789373,
+          "referable_decision_stability_at_0_5": 1.0
+        }
+      }
+    }
+  },
+  "method": "fixed development validation perturbations; no external images or labels",
+  "schema_version": "idrid-v3-robustness-1"
+}

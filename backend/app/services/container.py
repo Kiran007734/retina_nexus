@@ -12,16 +12,21 @@ from app.services.placeholders import (
 from app.services.orchestrator import ScreeningOrchestrator
 from app.ml.quality.trust_gate import ImageTrustGateService
 from app.ml.inference.classifier import TorchDRClassificationService
+from app.ml.inference.referable_fusion import RetguardVerifier, ReferableFusionService
 from app.ml.models.classifier import ReferableDRMapping
 from app.ml.evidence.service import RetinalEvidenceService
 from app.ml.evidence.lesion_model import MODEL_CLASS_TO_MODULE, PretrainedRetinalLesionAdapter
+from app.ml.evidence.idrid_lesion_model import IDRID_CLASS_TO_MODULE, IDRiDLesionAdapter
+from app.ml.evidence.idrid_localization_model import IDRiDLocalizationAdapter, MODULES as IDRID_LOCALIZATION_MODULES
 from app.ml.evidence.vessel_model import PretrainedRetinalVesselAdapter
+from app.ml.evidence.drive_research_model import DriveResearchVesselAdapter
 from app.ml.explainability.service import ExplainabilityService
 from app.ml.trust.calibration import TemperatureScaler
 from app.ml.trust.guard import RetinaGuardEngine
 from app.ml.trust.ood import FeatureDistributionMonitor
 from app.ml.trust.uncertainty import UncertaintyEstimator
 from app.services.screening_pipeline import ScreeningPipelineService
+from app.services.runtime import resolve_path
 from app.storage.container import get_storage
 from app.core.config import get_settings
 
@@ -66,6 +71,25 @@ def get_classifier_service() -> TorchDRClassificationService:
 
 
 @lru_cache
+def get_referable_fusion_service() -> ReferableFusionService:
+    settings = get_settings()
+    verifier_path = resolve_path(
+        settings.referable_fusion_verifier_model_path
+        or "./ml/weights/backup_verifier/retguard/v1.0.0/retguard_dr_v1.0.0.onnx"
+    )
+    verifier = RetguardVerifier(
+        model_path=verifier_path,
+        expected_sha256=settings.referable_fusion_verifier_model_sha256,
+        model_version=settings.referable_fusion_verifier_model_version,
+    )
+    return ReferableFusionService(
+        enabled=settings.referable_fusion_enabled,
+        verifier=verifier,
+        fusion_threshold=settings.referable_fusion_threshold,
+    )
+
+
+@lru_cache
 def get_evidence_service() -> RetinalEvidenceService:
     settings = get_settings()
     lesion_adapter = PretrainedRetinalLesionAdapter(
@@ -81,8 +105,41 @@ def get_evidence_service() -> RetinalEvidenceService:
         version=settings.vessel_model_version,
     )
     adapters = {"vessel_segmentation": vessel_adapter}
+    if settings.drive_vessel_model_enabled:
+        drive_adapter = DriveResearchVesselAdapter(
+            model_path=settings.drive_vessel_model_path,
+            device=settings.drive_vessel_model_device,
+            threshold=settings.drive_vessel_model_threshold,
+            version=settings.drive_vessel_model_version,
+            expected_sha256=settings.drive_vessel_model_sha256,
+        )
+        if drive_adapter.is_configured:
+            # Explicit opt-in only; the default R2-V2 adapter above is kept
+            # intact when this setting is false or the artifact is absent.
+            adapters["vessel_segmentation"] = drive_adapter
     if lesion_adapter.is_configured:
         adapters.update({module: lesion_adapter for module in MODEL_CLASS_TO_MODULE.values()})
+    # Research model is explicitly opt-in so existing production/default
+    # behavior remains backed by the preserved external model.
+    if settings.idrid_lesion_model_enabled:
+        idrid_adapter = IDRiDLesionAdapter(
+            model_path=settings.idrid_lesion_model_path,
+            device=settings.idrid_lesion_model_device,
+            threshold=settings.idrid_lesion_model_threshold,
+            version=settings.idrid_lesion_model_version,
+            expected_sha256=settings.idrid_lesion_model_sha256,
+        )
+        if idrid_adapter.is_configured:
+            adapters.update({module: idrid_adapter for module in IDRID_CLASS_TO_MODULE.values()})
+    if settings.idrid_localization_model_enabled:
+        localization_adapter = IDRiDLocalizationAdapter(
+            model_path=settings.idrid_localization_model_path,
+            device=settings.idrid_localization_model_device,
+            version=settings.idrid_localization_model_version,
+            expected_sha256=settings.idrid_localization_model_sha256,
+        )
+        if localization_adapter.is_configured:
+            adapters.update({module: localization_adapter for module in IDRID_LOCALIZATION_MODULES.values()})
     return RetinalEvidenceService(
         max_dimension=settings.evidence_max_dimension,
         enable_heuristics=settings.evidence_enable_heuristics,
@@ -141,6 +198,7 @@ def get_screening_pipeline_service() -> ScreeningPipelineService:
         evidence_service=get_evidence_service(),
         explainability_service=get_explainability_service(),
         retinaguard=get_retinaguard_service(),
+        referable_fusion=get_referable_fusion_service(),
         storage=get_storage(),
         max_concurrent_screenings=settings.max_concurrent_screenings,
         timeout_seconds=settings.screening_timeout_seconds,

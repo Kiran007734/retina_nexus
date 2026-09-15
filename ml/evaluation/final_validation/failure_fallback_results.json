@@ -1,0 +1,215 @@
+{
+  "fusion_cases": {
+    "both_high": {
+      "clinical_validation_claim": false,
+      "disagreement": false,
+      "error": null,
+      "fused_probability": 0.6,
+      "fused_referable": true,
+      "fusion_rule": "fused_referable = max(primary_referable_probability, verifier_referable_probability) >= 0.4; severity_grade = argmax(primary P0..P4)",
+      "fusion_threshold": 0.4,
+      "primary_probability": 0.6,
+      "primary_referable": true,
+      "review_recommended": false,
+      "status": "COMPLETED",
+      "verifier_model_sha256": "validation-stub-not-a-model-checksum",
+      "verifier_model_version": "phase8-stub-verifier",
+      "verifier_ood": {
+        "score": 1.0,
+        "status": "IN_DISTRIBUTION"
+      },
+      "verifier_probability": 0.5,
+      "verifier_referable": true,
+      "verifier_threshold": 0.204983
+    },
+    "both_unavailable_abstain": {
+      "clinical_validation_claim": false,
+      "disagreement": null,
+      "error": "intentional Phase 8 verifier-unavailable simulation",
+      "fused_probability": null,
+      "fused_referable": null,
+      "fusion_rule": "fused_referable = max(primary_referable_probability, verifier_referable_probability) >= 0.4; severity_grade = argmax(primary P0..P4)",
+      "fusion_threshold": 0.4,
+      "primary_probability": null,
+      "primary_referable": null,
+      "review_recommended": true,
+      "status": "INSUFFICIENT_EVIDENCE",
+      "verifier_model_sha256": null,
+      "verifier_model_version": null,
+      "verifier_ood": null,
+      "verifier_probability": null,
+      "verifier_referable": null,
+      "verifier_threshold": 0.204983
+    },
+    "low_low_nonreferable": {
+      "clinical_validation_claim": false,
+      "disagreement": false,
+      "error": null,
+      "fused_probability": 0.2,
+      "fused_referable": false,
+      "fusion_rule": "fused_referable = max(primary_referable_probability, verifier_referable_probability) >= 0.4; severity_grade = argmax(primary P0..P4)",
+      "fusion_threshold": 0.4,
+      "primary_probability": 0.2,
+      "primary_referable": false,
+      "review_recommended": false,
+      "status": "COMPLETED",
+      "verifier_model_sha256": "validation-stub-not-a-model-checksum",
+      "verifier_model_version": "phase8-stub-verifier",
+      "verifier_ood": {
+        "score": 1.0,
+        "status": "IN_DISTRIBUTION"
+      },
+      "verifier_probability": 0.1,
+      "verifier_referable": false,
+      "verifier_threshold": 0.204983
+    },
+    "primary_high_verifier_low": {
+      "clinical_validation_claim": false,
+      "disagreement": true,
+      "error": null,
+      "fused_probability": 0.6,
+      "fused_referable": true,
+      "fusion_rule": "fused_referable = max(primary_referable_probability, verifier_referable_probability) >= 0.4; severity_grade = argmax(primary P0..P4)",
+      "fusion_threshold": 0.4,
+      "primary_probability": 0.6,
+      "primary_referable": true,
+      "review_recommended": true,
+      "status": "COMPLETED",
+      "verifier_model_sha256": "validation-stub-not-a-model-checksum",
+      "verifier_model_version": "phase8-stub-verifier",
+      "verifier_ood": {
+        "score": 1.0,
+        "status": "IN_DISTRIBUTION"
+      },
+      "verifier_probability": 0.1,
+      "verifier_referable": false,
+      "verifier_threshold": 0.204983
+    },
+    "primary_low_verifier_high": {
+      "clinical_validation_claim": false,
+      "disagreement": true,
+      "error": null,
+      "fused_probability": 0.5,
+      "fused_referable": true,
+      "fusion_rule": "fused_referable = max(primary_referable_probability, verifier_referable_probability) >= 0.4; severity_grade = argmax(primary P0..P4)",
+      "fusion_threshold": 0.4,
+      "primary_probability": 0.1,
+      "primary_referable": false,
+      "review_recommended": true,
+      "status": "COMPLETED",
+      "verifier_model_sha256": "validation-stub-not-a-model-checksum",
+      "verifier_model_version": "phase8-stub-verifier",
+      "verifier_ood": {
+        "score": 1.0,
+        "status": "IN_DISTRIBUTION"
+      },
+      "verifier_probability": 0.5,
+      "verifier_referable": true,
+      "verifier_threshold": 0.204983
+    },
+    "primary_unavailable_verifier_only": {
+      "clinical_validation_claim": false,
+      "disagreement": null,
+      "error": null,
+      "fused_probability": 0.5,
+      "fused_referable": true,
+      "fusion_rule": "fused_referable = max(primary_referable_probability, verifier_referable_probability) >= 0.4; severity_grade = argmax(primary P0..P4)",
+      "fusion_threshold": 0.4,
+      "primary_probability": null,
+      "primary_referable": null,
+      "review_recommended": true,
+      "status": "VERIFIER_ONLY_FALLBACK",
+      "verifier_model_sha256": "validation-stub-not-a-model-checksum",
+      "verifier_model_version": "phase8-stub-verifier",
+      "verifier_ood": {
+        "score": 1.0,
+        "status": "IN_DISTRIBUTION"
+      },
+      "verifier_probability": 0.5,
+      "verifier_referable": true,
+      "verifier_threshold": 0.204983
+    },
+    "verifier_unavailable_primary_retained": {
+      "clinical_validation_claim": false,
+      "disagreement": null,
+      "error": "intentional Phase 8 verifier-unavailable simulation",
+      "fused_probability": 0.6,
+      "fused_referable": true,
+      "fusion_rule": "fused_referable = max(primary_referable_probability, verifier_referable_probability) >= 0.4; severity_grade = argmax(primary P0..P4)",
+      "fusion_threshold": 0.4,
+      "primary_probability": 0.6,
+      "primary_referable": true,
+      "review_recommended": true,
+      "status": "VERIFIER_UNAVAILABLE",
+      "verifier_model_sha256": null,
+      "verifier_model_version": null,
+      "verifier_ood": null,
+      "verifier_probability": null,
+      "verifier_referable": null,
+      "verifier_threshold": 0.204983
+    }
+  },
+  "grad_cam_unavailable": {
+    "error_type": "RuntimeError",
+    "prediction_substituted": false,
+    "status": "UNAVAILABLE"
+  },
+  "localization_unavailable": {
+    "fovea_localization": {
+      "status": "unsupported",
+      "supported": false
+    },
+    "optic_disc_localization": {
+      "status": "unsupported",
+      "supported": false
+    }
+  },
+  "no_fake_predictions": true,
+  "optional_evidence_unavailable": {
+    "modules": {
+      "cotton_wool_spot_detection": {
+        "status": "unsupported",
+        "supported": false
+      },
+      "exudate_segmentation": {
+        "status": "unsupported",
+        "supported": false
+      },
+      "fovea_localization": {
+        "status": "unsupported",
+        "supported": false
+      },
+      "hemorrhage_detection": {
+        "status": "unsupported",
+        "supported": false
+      },
+      "microaneurysm_detection": {
+        "status": "unsupported",
+        "supported": false
+      },
+      "neovascularization_detection": {
+        "status": "unsupported",
+        "supported": false
+      },
+      "optic_disc_localization": {
+        "status": "unsupported",
+        "supported": false
+      },
+      "vessel_segmentation": {
+        "status": "unsupported",
+        "supported": false
+      }
+    },
+    "screening_result_destroyed": false,
+    "status": "completed"
+  },
+  "retinaguard_states": {
+    "both_classifiers_unavailable": "INSUFFICIENT_EVIDENCE",
+    "optional_evidence_unavailable": "REVIEW_RECOMMENDED",
+    "poor_quality_unreliable": "UNRELIABLE",
+    "primary_failure_verifier_available": "INSUFFICIENT_EVIDENCE",
+    "referable_disagreement_review": "REVIEW_RECOMMENDED",
+    "trusted_consistent": "TRUSTED"
+  },
+  "status": "PASS"
+}

@@ -1,0 +1,39 @@
+{
+  "candidates": {
+    "v3_b": {
+      "checkpoint_sha256": "97bd6a9933ca3d09c1e41bb16ba7452b5988eb1818fc7f1c87054471c4c33049",
+      "checkpoint_unchanged": true,
+      "official_test_images_opened": 0,
+      "predictions_identical": true,
+      "preprocessing": "same validation transform and ImageNet normalization",
+      "probabilities_identical_within_1e-6": true,
+      "probabilities_max_abs_delta": 0.0,
+      "rows_first": 83,
+      "rows_second": 83
+    },
+    "v3_c": {
+      "checkpoint_sha256": "60904683597f5a09bc8315495435a7b34be6b1d367f995e9a25bc31160b9dbaa",
+      "checkpoint_unchanged": true,
+      "official_test_images_opened": 0,
+      "predictions_identical": true,
+      "preprocessing": "same validation transform and ImageNet normalization",
+      "probabilities_identical_within_1e-6": true,
+      "probabilities_max_abs_delta": 0.0,
+      "rows_first": 83,
+      "rows_second": 83
+    },
+    "v3_d": {
+      "checkpoint_sha256": "c2716b11660bee6db7f162075542a7280ad6b7995f66925038731b50044003f9",
+      "checkpoint_unchanged": true,
+      "official_test_images_opened": 0,
+      "predictions_identical": true,
+      "preprocessing": "same validation transform and ImageNet normalization",
+      "probabilities_identical_within_1e-6": true,
+      "probabilities_max_abs_delta": 0.0,
+      "rows_first": 83,
+      "rows_second": 83
+    }
+  },
+  "official_test_images_opened": 0,
+  "schema_version": "idrid-v3-reproducibility-1"
+}

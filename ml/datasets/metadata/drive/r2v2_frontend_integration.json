@@ -1,0 +1,23 @@
+{
+  "backend_service_result": {
+    "frontend_visibility": "user-facing status only",
+    "implementation_internal": "R2-V2 RRWNet bv vessel segmentor",
+    "status": "completed",
+    "supported": true,
+    "vessel_module_status": "model_inference"
+  },
+  "component": "frontend/src/components/EvidenceViewer.tsx",
+  "internal_terms_exposed_by_vessel_card": [],
+  "note": "Backend retains provenance; the vessel UI does not display model names, research checkpoint IDs, folds, or SHA values.",
+  "overlay_supported": true,
+  "status": "PASS",
+  "user_facing_labels": [
+    "Retinal vessel analysis",
+    "AVAILABLE",
+    "UNAVAILABLE",
+    "Segmentation",
+    "Analysis reliability",
+    "HIGH",
+    "REVIEW RECOMMENDED"
+  ]
+}

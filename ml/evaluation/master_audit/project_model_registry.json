@@ -1,0 +1,132 @@
+{
+  "backup_model_reason": "No independently validated compatible backup checkpoint is installed. RETFound is recorded as a research candidate only; no external checkpoint was downloaded.",
+  "backup_model_status": "NO_BACKUP_PROMOTED",
+  "backup_models": [],
+  "clinical_validation_claim": false,
+  "generated_at_utc": "2026-09-14T04:46:58.110253+00:00",
+  "model_weights_changed": false,
+  "models": [
+    {
+      "architecture": "EfficientNet-B0",
+      "checkpoint": "ml/weights/classifiers/aptos2019/efficientnet-b0-aptos2019-20260830-v1/checkpoint_best.pt",
+      "dataset": "APTOS 2019",
+      "license": null,
+      "limitations": [
+        "Messidor external transportability is descriptive only.",
+        "Raw confidence is not clinically calibrated."
+      ],
+      "name": "APTOS EfficientNet-B0",
+      "production_status": "LEGACY_PRODUCTION_PATH",
+      "role": "PRIMARY",
+      "sha256": "ae6bb62ced2a108abc1a862870e64985b368b84e69bd8c8c8aa9912754d1a70b",
+      "source": "RETINA-NEXUS trained checkpoint",
+      "task": "five-class DR severity",
+      "training_status": "CHECKPOINT_PRESENT",
+      "validation": {}
+    },
+    {
+      "architecture": "EfficientNet-B0 multi-head; severity head authoritative",
+      "checkpoint": "ml/weights/classifiers/idrid/research/final/checkpoint_best.pt",
+      "dataset": "IDRiD development",
+      "license": null,
+      "limitations": [],
+      "name": "IDRiD V3 severity candidate",
+      "production_status": "RESEARCH_ONLY_NOT_PROMOTED",
+      "role": "PRIMARY",
+      "sha256": "97bd6a9933ca3d09c1e41bb16ba7452b5988eb1818fc7f1c87054471c4c33049",
+      "source": "RETINA-NEXUS research checkpoint",
+      "task": "five-class DR severity and referable research",
+      "training_status": "CHECKPOINT_PRESENT",
+      "validation": {
+        "official_test_images_opened": 0,
+        "referable_threshold": 0.2,
+        "research_status": "RESEARCH CANDIDATE IMPROVED — EXTERNAL VALIDATION PENDING"
+      }
+    },
+    {
+      "architecture": "U-Net with SE-ResNeXt-50 32x4d encoder",
+      "checkpoint": "ml/weights/lesion_segmentation/fundus-lesions-unet-seresnext50-all-v1/model.safetensors",
+      "dataset": "IDRiD, DDR, FGADR, MESSIDOR, RETLES",
+      "license": "MIT declared by model repository",
+      "limitations": [
+        "Not clinically validated by RETINA-NEXUS."
+      ],
+      "name": "Fundus lesions primary",
+      "production_status": "SUPPORTING_EVIDENCE",
+      "role": "PRIMARY",
+      "sha256": "a7a7cb45b92328f7c9a8e581eec3944fd435d37fae8cbf340b1319c5f987c6d2",
+      "source": "ClementP/fundus-lesions-toolkit",
+      "task": "lesion supporting evidence",
+      "training_status": "CHECKPOINT_PRESENT",
+      "validation": {}
+    },
+    {
+      "architecture": "RRWNet R2-V2 bv variant",
+      "checkpoint": "ml/weights/vessel_segmentation/r2-v2-bv-2025/bv.safetensors",
+      "dataset": "Unified_Fundus per model config",
+      "license": "CC BY 4.0 declared by model repository",
+      "limitations": [
+        "CPU inference is currently a runtime bottleneck."
+      ],
+      "name": "R2-V2 vessel primary",
+      "production_status": "SUPPORTING_EVIDENCE",
+      "role": "PRIMARY",
+      "sha256": "ea219b13b03984b8d454f999343c5bda1a8a7cb8586aeb3639a29814cab2330a",
+      "source": "j-morano/R2-V2",
+      "task": "retinal vessel supporting evidence",
+      "training_status": "CHECKPOINT_PRESENT",
+      "validation": {}
+    },
+    {
+      "architecture": "U-Net SE-ResNeXt-50",
+      "checkpoint": "ml/weights/lesions/idrid/checkpoint_best.pt",
+      "dataset": "IDRiD",
+      "license": null,
+      "limitations": [
+        "Not allowed to replace the primary lesion model."
+      ],
+      "name": "IDRiD lesion verifier",
+      "production_status": "RESEARCH_ONLY",
+      "role": "VERIFIER",
+      "sha256": "8f3c64a7aae23318f08bb34199aee079b16ff155db92912e97543aa670246a2c",
+      "source": "RETINA-NEXUS research checkpoint",
+      "task": "lesion segmentation research verification",
+      "training_status": "CHECKPOINT_PRESENT",
+      "validation": {}
+    },
+    {
+      "architecture": "IDRiD localization model",
+      "checkpoint": "ml/weights/localization/idrid/checkpoint_best.pt",
+      "dataset": "IDRiD",
+      "license": null,
+      "limitations": [],
+      "name": "IDRiD localization research",
+      "production_status": "RESEARCH_ONLY",
+      "role": "RESEARCH_ONLY",
+      "sha256": "91d49e43c5ea87fdc4adf36f9687ba7f07eeac546f89f09e1203ab56b083d569",
+      "source": "RETINA-NEXUS research checkpoint",
+      "task": "optic-disc/fovea localization research",
+      "training_status": "CHECKPOINT_PRESENT",
+      "validation": {}
+    },
+    {
+      "architecture": "DRIVE vessel model",
+      "checkpoint": "ml/weights/vessels/drive/checkpoint_best.pt",
+      "dataset": "DRIVE",
+      "license": null,
+      "limitations": [
+        "Must not replace R2-V2 primary."
+      ],
+      "name": "DRIVE vessel research",
+      "production_status": "RESEARCH_ONLY",
+      "role": "RESEARCH_ONLY",
+      "sha256": "f199543db550f7cd84548cb0e2ab2cf7efbad99ffb41af8649b249d4433a3133",
+      "source": "RETINA-NEXUS research checkpoint",
+      "task": "vessel segmentation research",
+      "training_status": "CHECKPOINT_PRESENT",
+      "validation": {}
+    }
+  ],
+  "production_behavior_changed": false,
+  "schema_version": "retina-nexus-master-project-model-registry-v1"
+}

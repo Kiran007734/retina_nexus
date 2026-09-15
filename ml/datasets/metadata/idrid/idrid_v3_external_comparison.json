@@ -1,0 +1,75 @@
+{
+  "comparison": {
+    "messidor2_labels_used_for_v3_selection": false,
+    "protocol": "Same discovered Messidor-2 image tree and adjudicated label package; successful gradable matched images; each model uses only its threshold frozen from non-Messidor development data.",
+    "v1": {
+      "accuracy": 0.6238532110091743,
+      "macro_f1": 0.34438069917298414,
+      "qwk": 0.5181399386379085,
+      "referable": {
+        "f1": 0.5416036308623298,
+        "false_negative": 278,
+        "false_positive": 25,
+        "precision": 0.8774509803921569,
+        "recall": 0.3916849015317287,
+        "roc_auc": 0.8296804095491184,
+        "rule": "true and predicted referable if grade >= 2",
+        "sensitivity": 0.3916849015317287,
+        "specificity": 0.9805749805749806,
+        "true_negative": 1262,
+        "true_positive": 179
+      },
+      "threshold_source": "existing APTOS production rule/report"
+    },
+    "v2": {
+      "accuracy": 0.6106651376146789,
+      "macro_f1": 0.3188393552635117,
+      "qwk": 0.40164925948975694,
+      "referable": {
+        "f1": 0.4246575342465754,
+        "fn": 333,
+        "fp": 3,
+        "precision": 0.9763779527559056,
+        "recall": 0.2713347921225383,
+        "roc_auc": 0.8513514202792103,
+        "sensitivity": 0.2713347921225383,
+        "specificity": 0.9976689976689976,
+        "support": 457,
+        "threshold": 0.45,
+        "tn": 1284,
+        "tp": 124
+      },
+      "threshold_source": {
+        "external_label_tuning": false,
+        "external_tuning": false,
+        "source": "IDRiD development validation only",
+        "threshold": 0.45
+      }
+    },
+    "v3": {
+      "accuracy": 0.6100917431192661,
+      "macro_f1": 0.3169301766170854,
+      "qwk": 0.36708651390081404,
+      "referable": {
+        "f1": 0.42195540308747853,
+        "fn": 334,
+        "fp": 3,
+        "precision": 0.9761904761904762,
+        "recall": 0.26914660831509846,
+        "roc_auc": 0.8547246577881151,
+        "sensitivity": 0.26914660831509846,
+        "specificity": 0.9976689976689976,
+        "support": 457,
+        "threshold": 0.4,
+        "tn": 1284,
+        "tp": 123
+      },
+      "threshold_source": "IDRiD development validation frozen threshold 0.40"
+    }
+  },
+  "messidor2_used_for_selection": false,
+  "official_idrid_test_images_opened": 0,
+  "production_promoted": false,
+  "report": "ml/evaluation/messidor/idrid_v3_domain_robust_zero_shot/idrid_v3_messidor2_zero_shot.json",
+  "schema_version": "idrid-v3-external-comparison-1"
+}

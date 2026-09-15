@@ -1,0 +1,13 @@
+{
+  "checkpoint_sha256": "97bd6a9933ca3d09c1e41bb16ba7452b5988eb1818fc7f1c87054471c4c33049",
+  "max_probability_abs_delta": 0.0,
+  "official_test_images_opened": 0,
+  "official_test_images_opened_in_current_cycle": 0,
+  "predictions_identical": true,
+  "preprocessing": "RGB -> Resize(224,224) -> ToTensor -> ImageNet mean/std",
+  "probabilities_identical_within_1e-6": true,
+  "source": "ml/datasets/metadata/idrid/idrid_final_grading_reproducibility.json",
+  "source_reproducibility_artifact": "ml/datasets/metadata/idrid/idrid_v3_reproducibility.json",
+  "status": "PASS",
+  "validation_count": 83
+}

@@ -1,0 +1,8 @@
+{
+  "calibration_fit": false,
+  "ece_from_out_of_fold_predictions": 0.1059666855141447,
+  "official_test_images_opened": 0,
+  "reason": "No independent calibration subset was fitted; carving one from 406 development images would weaken the already small model-selection sample.",
+  "statement": "Raw softmax confidence is not clinically calibrated; calibration could not be reliably fitted with the available non-test data.",
+  "status": "UNCALIBRATED"
+}

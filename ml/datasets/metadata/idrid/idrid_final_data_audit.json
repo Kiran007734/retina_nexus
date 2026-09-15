@@ -1,0 +1,315 @@
+{
+  "aptos_development_reference": {
+    "class_distribution": {
+      "0": 1531,
+      "1": 306,
+      "2": 829,
+      "3": 146,
+      "4": 234
+    },
+    "cross_dataset_exact_matches": [],
+    "duplicate_group_count": 92,
+    "perceptual_duplicate_group_count": 320,
+    "readable_count": 3046,
+    "record_count": 3046,
+    "source_artifact": "ml/datasets/metadata/idrid/idrid_final_grading_data_audit.json"
+  },
+  "generated_at": "2026-09-12T13:54:06.001334+00:00",
+  "idrid_development": {
+    "class_distribution": {
+      "0": 133,
+      "1": 19,
+      "2": 133,
+      "3": 73,
+      "4": 48
+    },
+    "duplicate_conflicting_label_groups": [],
+    "exact_duplicate_groups": [
+      [
+        "IDRiD_073",
+        "IDRiD_375"
+      ],
+      [
+        "IDRiD_079",
+        "IDRiD_279"
+      ]
+    ],
+    "feature_summary": {
+      "aspect_ratio": {
+        "max": 1.5056179775280898,
+        "mean": 1.50561797752809,
+        "min": 1.5056179775280898,
+        "std": 2.220446049250313e-16
+      },
+      "black_border_ratio": {
+        "max": 0.8212050078247262,
+        "mean": 0.734314893190561,
+        "min": 0.598982785602504,
+        "std": 0.032519482178906295
+      },
+      "brightness": {
+        "max": 0.3622066080570221,
+        "mean": 0.23830854382567804,
+        "min": 0.0958900898694992,
+        "std": 0.04927800185400171
+      },
+      "contrast": {
+        "max": 0.25693801045417786,
+        "mean": 0.16578823216075966,
+        "min": 0.07096511870622635,
+        "std": 0.03224946209690895
+      },
+      "focus_laplacian_proxy": {
+        "max": 0.0007895384915173054,
+        "mean": 0.0002613597069356563,
+        "min": 6.266919081099331e-05,
+        "std": 0.00012141067125540417
+      }
+    },
+    "missing_files": 0,
+    "missing_labels": 0,
+    "perceptual_duplicate_group_count": 56,
+    "readable_count": 406,
+    "record_count": 406,
+    "train_validation_duplicate_group_overlap": [],
+    "unreadable": []
+  },
+  "implementation_audit": {
+    "exact_changes": [
+      "V1: standard EfficientNet-B0 hierarchical severity model, APTOS initialization, conventional retinal augmentation, 323/83 IDRiD development split.",
+      "V2: added lesion-presence and optic-disc auxiliary heads with masked auxiliary losses; severity decoder remained the 5-class severity head.",
+      "V3: continued V2 architecture with stronger domain-robust augmentation; candidate A/V3 control was selected on development data only.",
+      "No implementation path changes the severity grade from the referable boolean; referable status is probability aggregation and thresholding.",
+      "Aspect ratio handling remains direct square resize to 224x224; no retinal-preserving crop was introduced in the frozen candidates."
+    ],
+    "official_test_used_for_this_audit": false,
+    "scope": "read-only forensic comparison of frozen V1/V2/V3 artifacts",
+    "v1": {
+      "architecture": "EfficientNet-B0 with RETINA-NEXUS hierarchical heads; severity head used for 5-class output",
+      "augmentation": [
+        "Resize(224,224)",
+        "RandomHorizontalFlip(p=0.5)",
+        "RandomRotation(8 degrees)",
+        "RandomAffine(translate=0.03, scale=0.95..1.05)",
+        "ColorJitter(brightness=0.12, contrast=0.12, saturation=0.08, hue=0.02)"
+      ],
+      "calibration": "UNCALIBRATED; no fitted temperature scaling",
+      "class_weights": [
+        0.6094339489936829,
+        4.306666851043701,
+        0.6094339489936829,
+        1.113793134689331,
+        1.7000000476837158
+      ],
+      "decoder": "severity=argmax(P0..P4); referable=P2+P3+P4 >= frozen threshold",
+      "early_stopping": {
+        "metric": "validation_macro_f1",
+        "patience": 2
+      },
+      "initialization": {
+        "checkpoint": "ml/weights/classifiers/aptos2019/efficientnet-b0-aptos2019-20260830-v1/checkpoint_best.pt",
+        "checkpoint_sha256": "ae6bb62ced2a108abc1a862870e64985b368b84e69bd8c8c8aa9912754d1a70b",
+        "dataset": null,
+        "dataset_version": "aptos2019-inventory-0738551f82b4",
+        "model_version": "efficientnet-b0-aptos2019-20260830-v1",
+        "source": "local APTOS EfficientNet-B0 checkpoint used as initialization only",
+        "state_dict_loaded": true
+      },
+      "learning_rate": 1e-05,
+      "loss": "hierarchical weighted cross-entropy; severity weight=1.0, stage1 weight=0.25, stage2 weight=0.25",
+      "manifest": "ml/weights/classifiers/idrid/efficientnet-b0-idrid-20260912-v1/model_manifest.json",
+      "optimizer": "AdamW",
+      "preprocessing": {
+        "color_space": "RGB",
+        "input_channels": 3,
+        "input_size": 224,
+        "normalization": {
+          "mean": [
+            0.485,
+            0.456,
+            0.406
+          ],
+          "std": [
+            0.229,
+            0.224,
+            0.225
+          ]
+        },
+        "validation_transform": [
+          "Resize(224,224)",
+          "ToTensor",
+          "ImageNet normalization"
+        ]
+      },
+      "sampling": null,
+      "scheduler": "ReduceLROnPlateau(mode=max, factor=0.5, patience=2, min_lr=1e-7)",
+      "seed": 20260912
+    },
+    "v2": {
+      "architecture": "EfficientNet-B0 shared feature extractor; grade/stage heads; lesion presence head (MA/HE/EX/CWS); optic-disc coordinate head",
+      "augmentation": null,
+      "calibration": "UNCALIBRATED; no fitted temperature scaling",
+      "class_weights": [
+        0.6094339489936829,
+        4.306666851043701,
+        0.6094339489936829,
+        1.113793134689331,
+        1.7000000476837158
+      ],
+      "decoder": "severity=argmax(P0..P4); referable=P2+P3+P4 >= frozen threshold",
+      "early_stopping": {
+        "metric": "validation macro F1",
+        "patience": 2
+      },
+      "initialization": {
+        "matching_layers_loaded": "feature extractor, pool, dropout, stage1, stage2, severity",
+        "new_heads": [
+          "lesion_head",
+          "structure_head"
+        ],
+        "source_checkpoint": "ml/weights/classifiers/idrid/efficientnet-b0-idrid-20260912-v1/checkpoint_best.pt",
+        "source_sha256": "d6b8f92bb86a54f98a0295fe8a8b9fadc8938515d03bb5213e6c354344e0b6de"
+      },
+      "learning_rate": 1e-05,
+      "loss": {
+        "class_weights": [
+          0.6094339489936829,
+          4.306666851043701,
+          0.6094339489936829,
+          1.113793134689331,
+          1.7000000476837158
+        ],
+        "lesion": "masked BCE; unavailable masks excluded, not treated as negative",
+        "severity": "class-weighted cross entropy",
+        "stage1": "cross entropy",
+        "stage2": "cross entropy",
+        "structure": "masked SmoothL1 on normalized optic-disc x/y",
+        "weights": {
+          "lesion": 0.25,
+          "severity": 1.0,
+          "stage1": 0.25,
+          "stage2": 0.25,
+          "structure": 0.1
+        }
+      },
+      "manifest": "ml/weights/classifiers/idrid/research/v2/20260912/v2_c_lesion_aware_efficientnet_b0/model_manifest.json",
+      "optimizer": "AdamW",
+      "preprocessing": {
+        "preprocessing": {
+          "augmentation": [
+            "RandomHorizontalFlip(p=0.5)",
+            "RandomRotation(8 degrees)",
+            "RandomAffine(translate=0.03, scale=0.95..1.05)",
+            "ColorJitter(brightness=0.12, contrast=0.12, saturation=0.08, hue=0.02)"
+          ],
+          "color_space": "RGB",
+          "normalization_mean": [
+            0.485,
+            0.456,
+            0.406
+          ],
+          "normalization_std": [
+            0.229,
+            0.224,
+            0.225
+          ],
+          "resize": [
+            224,
+            224
+          ],
+          "validation": "resize + tensor + ImageNet normalization"
+        }
+      },
+      "sampling": null,
+      "scheduler": null,
+      "seed": 20260912
+    },
+    "v3": {
+      "architecture": "EfficientNet-B0 shared backbone with separate severity, hierarchical, lesion-presence and optic-disc heads",
+      "augmentation": [
+        "Resize(224,224)",
+        "RandomHorizontalFlip(0.5)",
+        "RandomRotation(10)",
+        "RandomAffine(translate=0.05, scale=0.90..1.10)",
+        "ColorJitter(0.25,0.25,0.18,0.04)",
+        "RandomAutocontrast(0.25)",
+        "GaussianBlur(0.20)"
+      ],
+      "calibration": "UNCALIBRATED; no fitted temperature scaling",
+      "class_weights": [
+        0.6094339489936829,
+        4.306666851043701,
+        0.6094339489936829,
+        1.113793134689331,
+        1.7000000476837158
+      ],
+      "decoder": "severity=argmax(P0..P4); referable=P2+P3+P4 >= frozen threshold",
+      "early_stopping": null,
+      "initialization": {
+        "checkpoint": "ml/weights/classifiers/idrid/research/v2/20260912/v2_c_lesion_aware_efficientnet_b0/checkpoint_best.pt",
+        "checkpoint_sha256": "2c5bebd6be18184c56443d8d6a8f590d8b31c8904caea6a0c8b31667f9ac9967",
+        "matching_layers_loaded": 368,
+        "new_heads": [],
+        "source": "V2 lesion-aware checkpoint; controlled continuation"
+      },
+      "learning_rate": 1e-05,
+      "loss": {
+        "class_weights": [
+          0.6094339489936829,
+          4.306666851043701,
+          0.6094339489936829,
+          1.113793134689331,
+          1.7000000476837158
+        ],
+        "lesion": "masked BCE; unavailable masks excluded",
+        "severity": "class-weighted cross entropy",
+        "stage1": "cross entropy",
+        "stage2": "cross entropy",
+        "structure": "masked SmoothL1",
+        "weights": {
+          "lesion": 0.25,
+          "severity": 1.0,
+          "stage1": 0.25,
+          "stage2": 0.25,
+          "structure": 0.1
+        }
+      },
+      "manifest": "ml/weights/classifiers/idrid/research/v3/20260912/v3_b_domain_robust/model_manifest.json",
+      "optimizer": "AdamW",
+      "preprocessing": {
+        "preprocessing": {
+          "color_space": "RGB",
+          "input_size": 224,
+          "normalization_mean": [
+            0.485,
+            0.456,
+            0.406
+          ],
+          "normalization_std": [
+            0.229,
+            0.224,
+            0.225
+          ],
+          "train": "domain-robust augmentation",
+          "validation": "direct resize to square + tensor + ImageNet normalization"
+        }
+      },
+      "sampling": null,
+      "scheduler": null,
+      "seed": 20260912
+    }
+  },
+  "leakage": {
+    "cross_dataset_exact_matches": [],
+    "cross_split_duplicate_groups": [],
+    "duplicate_conflicting_label_groups": [],
+    "patient_level_guarantee": false,
+    "status": "PASS"
+  },
+  "no_external_datasets_used": true,
+  "no_labels_modified": true,
+  "official_test_images_opened": 0,
+  "patient_ids_available": false,
+  "patient_level_limitation": "Patient identifiers are not supplied; duplicate/image grouping is the available control.",
+  "scope": "APTOS labeled development audit plus all 406 IDRiD development images; official test not opened in this cycle"
+}

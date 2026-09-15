@@ -95,6 +95,12 @@ async def _run_workflow(monkeypatch):
                 files={"image": ("corrupt.jpg", b"not-an-image", "image/jpeg")},
             )
             assert corrupt_image.status_code == 422
+            mismatched_mime = await client.post(
+                f"/api/v1/images/upload?patient_id={patient_id}&eye=right",
+                files={"image": ("mislabeled.png", _image_bytes((80, 100, 120)), "image/jpeg")},
+            )
+            assert mismatched_mime.status_code == 415
+            assert mismatched_mime.json()["error_code"] == "UNSUPPORTED_MEDIA_TYPE"
 
             high_upload = await _upload(client, patient_id, "high-quality.png", _image_bytes((210, 150, 100)))
             high_id = high_upload["image_id"]
@@ -164,6 +170,15 @@ async def _run_workflow(monkeypatch):
             report = await client.post("/api/v1/reports/generate", json={"session_id": master_payload["screening_id"]})
             assert report.status_code == 201
             assert report.json()["report"]["ai_assessment"]["predicted_grade_label"] == "Moderate"
+            # The master endpoint deliberately returns after the mandatory
+            # stages and queues optional evidence in the background. This
+            # in-memory integration fixture cannot run the worker's separate
+            # SessionLocal transaction, so the report must be honest about
+            # evidence that is not persisted yet rather than claiming it is
+            # available.
+            vessel_analysis = report.json()["report"]["clinical_evidence"]["vessel_analysis"]
+            assert vessel_analysis["status"] == "UNAVAILABLE"
+            assert vessel_analysis["reliability"] == "UNAVAILABLE"
             report_pdf = await client.get(f"/api/v1/reports/{report.json()['report_id']}/pdf")
             assert report_pdf.status_code == 200
             assert report_pdf.content.startswith(b"%PDF")
@@ -281,9 +296,10 @@ def _prediction() -> DRPrediction:
 
 def _evidence(image_id: str = "image", screening_session_id: str = "session") -> RetinalEvidenceAnalysis:
     module = {"module": "microaneurysm_detection", "category": "lesion_detection", "status": "experimental_test_adapter", "supported": True, "implementation": "integration-test", "confidence": 0.88, "count": 4, "mask_data_uri": None, "bounding_regions": [{"x": 10, "y": 10, "width": 12, "height": 12}], "landmarks": [], "issues": [], "metadata": {}}
+    vessel = {"module": "vessel_segmentation", "category": "segmentation", "status": "model_inference", "supported": True, "implementation": "integration-test-vessel", "confidence": 0.82, "count": 12, "mask_data_uri": "data:image/png;base64,vessel", "probability_map_data_uri": "data:image/png;base64,probability", "overlay_data_uri": "data:image/png;base64,overlay", "bounding_regions": [], "landmarks": [], "issues": [], "metadata": {"model_version": "integration-vessel-v1", "checkpoint_sha256": "integration-checksum", "measurement_status": "ENGINEERING_ESTIMATE", "clinical_validation_claim": False}}
     return RetinalEvidenceAnalysis(
         image_id=image_id, screening_session_id=screening_session_id, status="completed", image_metadata={"width": 512, "height": 512}, coarse_to_fine={},
-        modules={"microaneurysm_detection": module}, anatomical_landmarks=[], evidence_map_data_uri=None, dataset_support={}, note="test adapter",
+        modules={"microaneurysm_detection": module, "vessel_segmentation": vessel}, anatomical_landmarks=[], evidence_map_data_uri=None, dataset_support={}, note="test adapter",
     )
 
 

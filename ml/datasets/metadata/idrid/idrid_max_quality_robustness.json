@@ -1,0 +1,48 @@
+{
+  "brightness_perturbation": {
+    "factor": 1.05,
+    "grade_stability": 0.8,
+    "jpeg_quality": 95,
+    "rows": [
+      {
+        "image_id": "IDRiD_138",
+        "original_grade": 0,
+        "perturbed_grade": 0,
+        "same_grade": true
+      },
+      {
+        "image_id": "IDRiD_079",
+        "original_grade": 0,
+        "perturbed_grade": 1,
+        "same_grade": false
+      },
+      {
+        "image_id": "IDRiD_003",
+        "original_grade": 1,
+        "perturbed_grade": 1,
+        "same_grade": true
+      },
+      {
+        "image_id": "IDRiD_001",
+        "original_grade": 2,
+        "perturbed_grade": 2,
+        "same_grade": true
+      },
+      {
+        "image_id": "IDRiD_005",
+        "original_grade": 2,
+        "perturbed_grade": 2,
+        "same_grade": true
+      }
+    ]
+  },
+  "clinical_validation_claim": false,
+  "deterministic_repeat_pass": true,
+  "development_images_used": 5,
+  "generated_at": "2026-09-12T16:25:22.157084+00:00",
+  "grad_cam_finite_pass": true,
+  "official_test_images_opened": 0,
+  "schema_version": "idrid-max-quality-robustness-1",
+  "source": "idrid_max_quality_integration.json",
+  "status": "PASS"
+}

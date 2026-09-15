@@ -1,0 +1,91 @@
+{
+  "blocker": "Full primary evidence pipeline cannot be completed in this CPU-only environment within bounded execution: current production R2-V2 vessel inference is approximately one minute per image on this host before primary lesion and Grad-CAM work; running it for all 1,744 images would require many hours and was not silently substituted or parallelized into an unbounded job. The real smoke run measured 71.623s for its combined evidence stage; this is an engineering observation, not a population runtime measurement.",
+  "calibration_fitted": false,
+  "checkpoint_sha256_after": "ae6bb62ced2a108abc1a862870e64985b368b84e69bd8c8c8aa9912754d1a70b",
+  "checkpoint_sha256_before": "ae6bb62ced2a108abc1a862870e64985b368b84e69bd8c8c8aa9912754d1a70b",
+  "checkpoint_unchanged": true,
+  "classifier_latency_ms": {
+    "count": 1744,
+    "max_ms": 19.259,
+    "mean_ms": 16.202,
+    "median_ms": 16.173,
+    "min_ms": 14.499,
+    "p95_ms": 18.016,
+    "stddev_ms": 1.01
+  },
+  "clinical_validation_claim": false,
+  "dataset": "ml/datasets/metadata/messidor2/messidor2_audit_manifest.json",
+  "evaluation_scope": {
+    "fresh_classifier_and_retinaguard_population_pass": true,
+    "full_optional_pipeline_population_pass": false,
+    "matched_images": 1744
+  },
+  "generated_at_utc": "2026-09-13T20:11:42.987394+00:00",
+  "label_provenance_limitation": "The local diagnosis CSV is an authorized released label file. It is not called official clinical ground truth, and this report is not clinical validation.",
+  "model_manifest": "model_manifest.json",
+  "official_test_images_opened": 0,
+  "production_promoted": false,
+  "quality_summary": {
+    "decision_counts": {
+      "BORDERLINE": 1711,
+      "GRADABLE": 27,
+      "UNGRADABLE": 6
+    },
+    "note": "These quality records are reused from the prior Phase 5.1 measurement cache; optional evidence stages were not inferred from them.",
+    "quality_score": {
+      "max": 0.9005,
+      "mean": 0.7269479357798165,
+      "min": 0.6095
+    },
+    "readable_count": 1744,
+    "record_count": 1744,
+    "status": "CACHED_MEASUREMENTS"
+  },
+  "retinaguard_category_counts": {
+    "REVIEW_RECOMMENDED": 1444,
+    "UNRELIABLE": 300
+  },
+  "retinaguard_population_count": 1744,
+  "schema_version": "messidor2-final-external-evaluation-v1",
+  "smoke_test": {
+    "errors": {},
+    "evidence_module_status": {
+      "cotton_wool_spot_detection": "model_inference",
+      "exudate_segmentation": "model_inference",
+      "fovea_localization": "approximate",
+      "hemorrhage_detection": "model_inference",
+      "microaneurysm_detection": "model_inference",
+      "neovascularization_detection": "unsupported",
+      "optic_disc_localization": "experimental_heuristic",
+      "vessel_segmentation": "model_inference"
+    },
+    "image_id": "20051020_43882_0100_PP.png",
+    "pdf_generation_attempted": true,
+    "prediction": {
+      "grade": 0,
+      "model_version": "efficientnet-b0-aptos2019-20260830-v1",
+      "raw_confidence": 0.958417,
+      "referable_dr": false
+    },
+    "retinaguard": {
+      "trust_category": "UNRELIABLE",
+      "trust_score": 0.566341
+    },
+    "scope_note": "This one-image run does not establish population-level evidence metrics.",
+    "stage_timings_ms": {
+      "classification": 198.66029999684542,
+      "evidence_total": 71623.13809999614,
+      "grad_cam_and_agreement": 705.8046000020113,
+      "image_validation": 13.958399998955429,
+      "lesion_inference_ms": 2686.618,
+      "pdf_generation": 0.14290001126937568,
+      "quality_assessment": 24.18450001277961,
+      "retinaguard": 0.26190001517534256,
+      "structure_analysis_ms": 12.712,
+      "vessel_inference_ms": 67637.217
+    },
+    "status": "COMPLETED_SMOKE_ONLY"
+  },
+  "status": "MESSIDOR-2 EXTERNAL EVALUATION BLOCKED",
+  "threshold_tuning_performed": false
+}

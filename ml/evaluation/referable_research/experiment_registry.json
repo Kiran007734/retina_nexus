@@ -1,0 +1,45 @@
+{
+  "data": {
+    "development_records": 406,
+    "duplicate_group_overlap": false,
+    "folds": 5,
+    "messidor_labels_used": false,
+    "official_test_images_opened": 0,
+    "oof_rows": 406,
+    "patient_ids_available": false
+  },
+  "experiments": [
+    {
+      "artifact": "threshold_sweep.json",
+      "id": "derived_probability_threshold_sweep",
+      "status": "COMPLETED"
+    },
+    {
+      "artifact": "binary_referable_results.json",
+      "id": "existing_hierarchical_stage2_head_analysis",
+      "status": "COMPLETED_FROM_EXISTING_OOF_FOLD_HEADS"
+    },
+    {
+      "artifact": "domain_generalization_results.json",
+      "id": "existing_domain_generalization_candidates",
+      "status": "EXISTING_DEVELOPMENT_CANDIDATES"
+    },
+    {
+      "artifact": "lesion_fusion_results.json",
+      "id": "lesion_fusion",
+      "status": "NOT_RUN"
+    }
+  ],
+  "frozen_reference": {
+    "checkpoint": "ml/weights/classifiers/idrid/research/final/checkpoint_best.pt",
+    "expected_sha256": "97bd6a9933ca3d09c1e41bb16ba7452b5988eb1818fc7f1c87054471c4c33049",
+    "production_promoted": false,
+    "sha256": "97bd6a9933ca3d09c1e41bb16ba7452b5988eb1818fc7f1c87054471c4c33049",
+    "unchanged": true
+  },
+  "generated_at_utc": "2026-09-13T20:35:28.837078+00:00",
+  "no_production_changes": true,
+  "schema_version": "referable-research-registry-v1",
+  "scope": "IDRiD development-only referable sensitivity research",
+  "selection_criterion": "highest OOF referable sensitivity subject to specificity >= 0.90; ties specificity, F1, then lower threshold"
+}

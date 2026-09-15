@@ -1,0 +1,29 @@
+{
+  "checkpoint_sha256": "8f3c64a7aae23318f08bb34199aee079b16ff155db92912e97543aa670246a2c",
+  "clinical_validation_claim": false,
+  "cold_start_ms": 2751.884,
+  "development_image_ids": [
+    "IDRiD_01",
+    "IDRiD_02",
+    "IDRiD_03",
+    "IDRiD_04",
+    "IDRiD_05"
+  ],
+  "device": "cpu",
+  "generated_at_utc": "2026-09-13T10:47:27.340889+00:00",
+  "model_version": "idrid-lesion-unet-seresnext50-768-focaldice-20260913-v2",
+  "note": "Engineering latency sample on CPU development images; not a clinical service-level guarantee.",
+  "official_test_images_opened": 0,
+  "production_promoted": false,
+  "schema_version": "idrid-lesion-inference-benchmark-1",
+  "warm_inference_ms": [
+    2042.653,
+    1955.932,
+    1881.226,
+    1769.895,
+    1833.455
+  ],
+  "warm_mean_ms": 1896.632,
+  "warm_median_ms": 1881.226,
+  "warm_p95_ms": 2025.309
+}

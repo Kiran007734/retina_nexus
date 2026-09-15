@@ -1,0 +1,7 @@
+{
+  "calibration_fit": false,
+  "official_test_used": false,
+  "reason": "No defensible independent calibration subset was available without weakening the small development protocol.",
+  "statement": "Raw softmax probabilities are not clinically calibrated.",
+  "status": "UNCALIBRATED"
+}

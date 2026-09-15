@@ -1,0 +1,23 @@
+{
+  "schema_version": "retina-nexus-simulink-manifest-v1",
+  "generated_at_utc": "14-Sep-2026 19:32:54",
+  "matlab": "26.1.0.3346908 (R2026a) Update 5",
+  "simulink": "26.1",
+  "simevents": "26.1",
+  "os": "PCWIN64",
+  "model": "C:\\Users\\kiran\\Downloads\\retina_nexus\\simulink\\RETINA_NEXUS_SYSTEM.slx",
+  "model_bytes": 53812,
+  "random_seed": 2.0260914E+7,
+  "simulation_days": 14,
+  "timing_mode": "MEAN",
+  "scenario_count": 7,
+  "plot_count": 17,
+  "measured_runtime_source": "ml/evaluation/final_validation/runtime_validation.json",
+  "clinical_predictions_generated": false,
+  "ml_checkpoints_changed": false,
+  "ml_thresholds_changed": false,
+  "backend_ml_flow_changed": false,
+  "frontend_ml_flow_changed": false,
+  "datasets_acquired": false,
+  "models_trained": false
+}

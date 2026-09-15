@@ -1,0 +1,22 @@
+{
+  "cases_reaching_guard": 47,
+  "full_messidor_population_executed": false,
+  "generated_at_utc": "2026-09-14T06:01:04.975179+00:00",
+  "grade_override": false,
+  "inputs": [
+    "quality",
+    "raw/calibrated confidence where available",
+    "uncertainty",
+    "disagreement availability",
+    "evidence",
+    "attention agreement",
+    "stability",
+    "OOD"
+  ],
+  "limitations": [
+    "No clinical trust guarantee; no full-population trust validation claim."
+  ],
+  "safety_behavior": "RetinaGuard changes triage/review reliability state, not the five-class classifier grade.",
+  "schema_version": "retina-nexus-master-retinaguard-validation-v1",
+  "status": "BOUNDED_RUNTIME_VERIFICATION"
+}

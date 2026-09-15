@@ -1,0 +1,194 @@
+{
+  "brightness_grade_stability": 0.8,
+  "checkpoint": "ml/weights/classifiers/idrid/research/max_quality/final/checkpoint_best.pt",
+  "checkpoint_sha256": "075d7e41714cac28cfd0b60eba39fc50b81f7a8788d743004cd9dda702e1cbab",
+  "deterministic_inference_pass": true,
+  "generated_at": "2026-09-12T19:37:44.926017+00:00",
+  "grad_cam": {
+    "finite": true,
+    "image_id": "IDRiD_003",
+    "shape": [
+      2848,
+      4288
+    ],
+    "status": "PASS",
+    "target_class": 1
+  },
+  "limitations": [
+    "This is an engineering integration check on five development images, not a clinical validation.",
+    "Lesion/vessel evidence services remain separate supporting modules and do not alter the severity grade.",
+    "Raw softmax confidence is not clinically calibrated."
+  ],
+  "model_version": "idrid-max-quality-20260912-v1",
+  "official_test_images_opened": 0,
+  "production_promoted": false,
+  "rows": [
+    {
+      "actual_grade": 0,
+      "brightness_perturbation": {
+        "grade": 0,
+        "probabilities": {
+          "Mild": 0.207428,
+          "Moderate": 0.027893,
+          "No DR": 0.737797,
+          "Proliferative DR": 0.015349,
+          "Severe": 0.011534
+        },
+        "same_grade": true
+      },
+      "deterministic_repeat": {
+        "same_grade": true,
+        "same_probabilities": true
+      },
+      "image_id": "IDRiD_138",
+      "prediction": {
+        "confidence": 0.805575,
+        "grade": 0,
+        "probabilities": {
+          "Mild": 0.150915,
+          "Moderate": 0.020916,
+          "No DR": 0.805575,
+          "Proliferative DR": 0.01354,
+          "Severe": 0.009054
+        },
+        "referable": false,
+        "referable_probability": 0.04351
+      },
+      "quality_decision": "GRADABLE"
+    },
+    {
+      "actual_grade": 1,
+      "brightness_perturbation": {
+        "grade": 1,
+        "probabilities": {
+          "Mild": 0.657104,
+          "Moderate": 0.080114,
+          "No DR": 0.229839,
+          "Proliferative DR": 0.02372,
+          "Severe": 0.009224
+        },
+        "same_grade": false
+      },
+      "deterministic_repeat": {
+        "same_grade": true,
+        "same_probabilities": true
+      },
+      "image_id": "IDRiD_079",
+      "prediction": {
+        "confidence": 0.470657,
+        "grade": 0,
+        "probabilities": {
+          "Mild": 0.45954,
+          "Moderate": 0.046989,
+          "No DR": 0.470657,
+          "Proliferative DR": 0.01656,
+          "Severe": 0.006255
+        },
+        "referable": false,
+        "referable_probability": 0.069804
+      },
+      "quality_decision": "BORDERLINE"
+    },
+    {
+      "actual_grade": 2,
+      "brightness_perturbation": {
+        "grade": 1,
+        "probabilities": {
+          "Mild": 0.572606,
+          "Moderate": 0.232856,
+          "No DR": 0.058596,
+          "Proliferative DR": 0.083903,
+          "Severe": 0.052039
+        },
+        "same_grade": true
+      },
+      "deterministic_repeat": {
+        "same_grade": true,
+        "same_probabilities": true
+      },
+      "image_id": "IDRiD_003",
+      "prediction": {
+        "confidence": 0.581386,
+        "grade": 1,
+        "probabilities": {
+          "Mild": 0.581386,
+          "Moderate": 0.236362,
+          "No DR": 0.068912,
+          "Proliferative DR": 0.071526,
+          "Severe": 0.041813
+        },
+        "referable": false,
+        "referable_probability": 0.349702
+      },
+      "quality_decision": "BORDERLINE"
+    },
+    {
+      "actual_grade": 3,
+      "brightness_perturbation": {
+        "grade": 2,
+        "probabilities": {
+          "Mild": 0.01236,
+          "Moderate": 0.427906,
+          "No DR": 0.002085,
+          "Proliferative DR": 0.184866,
+          "Severe": 0.372784
+        },
+        "same_grade": true
+      },
+      "deterministic_repeat": {
+        "same_grade": true,
+        "same_probabilities": true
+      },
+      "image_id": "IDRiD_001",
+      "prediction": {
+        "confidence": 0.461633,
+        "grade": 2,
+        "probabilities": {
+          "Mild": 0.010372,
+          "Moderate": 0.461633,
+          "No DR": 0.001737,
+          "Proliferative DR": 0.182738,
+          "Severe": 0.34352
+        },
+        "referable": true,
+        "referable_probability": 0.987891
+      },
+      "quality_decision": "BORDERLINE"
+    },
+    {
+      "actual_grade": 4,
+      "brightness_perturbation": {
+        "grade": 2,
+        "probabilities": {
+          "Mild": 0.203078,
+          "Moderate": 0.330348,
+          "No DR": 0.208027,
+          "Proliferative DR": 0.213838,
+          "Severe": 0.044709
+        },
+        "same_grade": true
+      },
+      "deterministic_repeat": {
+        "same_grade": true,
+        "same_probabilities": true
+      },
+      "image_id": "IDRiD_005",
+      "prediction": {
+        "confidence": 0.341891,
+        "grade": 2,
+        "probabilities": {
+          "Mild": 0.169765,
+          "Moderate": 0.341891,
+          "No DR": 0.241864,
+          "Proliferative DR": 0.207921,
+          "Severe": 0.038559
+        },
+        "referable": true,
+        "referable_probability": 0.588371
+      },
+      "quality_decision": "BORDERLINE"
+    }
+  ],
+  "schema_version": "idrid-max-quality-integration-1",
+  "validation_images_used": 5
+}

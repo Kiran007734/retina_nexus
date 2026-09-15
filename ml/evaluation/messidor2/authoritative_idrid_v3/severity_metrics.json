@@ -1,0 +1,115 @@
+{
+  "accuracy": 0.6146788990825688,
+  "class_distribution": {
+    "0": 1017,
+    "1": 270,
+    "2": 347,
+    "3": 75,
+    "4": 35
+  },
+  "confusion_matrix": [
+    [
+      1015,
+      0,
+      2,
+      0,
+      0
+    ],
+    [
+      270,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      324,
+      0,
+      11,
+      10,
+      2
+    ],
+    [
+      23,
+      0,
+      9,
+      42,
+      1
+    ],
+    [
+      14,
+      0,
+      1,
+      16,
+      4
+    ]
+  ],
+  "f1": 0.3199292794636392,
+  "per_class": {
+    "Mild": {
+      "f1": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "sensitivity": 0.0,
+      "specificity": 1.0,
+      "support": 270
+    },
+    "Moderate": {
+      "f1": 0.05945945945945946,
+      "precision": 0.4782608695652174,
+      "recall": 0.03170028818443804,
+      "sensitivity": 0.03170028818443804,
+      "specificity": 0.9914101646385111,
+      "support": 347
+    },
+    "No DR": {
+      "f1": 0.7622981599699586,
+      "precision": 0.6166464155528554,
+      "recall": 0.9980334316617503,
+      "sensitivity": 0.9980334316617503,
+      "specificity": 0.13204951856946354,
+      "support": 1017
+    },
+    "Proliferative DR": {
+      "f1": 0.19047619047619044,
+      "precision": 0.5714285714285714,
+      "recall": 0.11428571428571428,
+      "sensitivity": 0.11428571428571428,
+      "specificity": 0.9982445874780573,
+      "support": 35
+    },
+    "Severe": {
+      "f1": 0.5874125874125875,
+      "precision": 0.6176470588235294,
+      "recall": 0.56,
+      "sensitivity": 0.56,
+      "specificity": 0.9844218094667465,
+      "support": 75
+    }
+  },
+  "precision": 0.4567965830740347,
+  "quadratic_weighted_kappa": 0.375096080475121,
+  "recall": 0.3408038868263805,
+  "referable_dr": {
+    "f1": 0.4183673469387755,
+    "false_negative": 334,
+    "false_positive": 8,
+    "precision": 0.9389312977099237,
+    "recall": 0.26914660831509846,
+    "referable_grades": [
+      2,
+      3,
+      4
+    ],
+    "roc_auc": 0.8390843292375022,
+    "sensitivity": 0.26914660831509846,
+    "specificity": 0.9937839937839937,
+    "support": 457,
+    "true_negative": 1279,
+    "true_positive": 123
+  },
+  "roc_auc_ovr_macro": 0.7857131015005796,
+  "sample_count": 1744,
+  "sensitivity": 0.3408038868263805,
+  "specificity": 0.8212252160305556
+}

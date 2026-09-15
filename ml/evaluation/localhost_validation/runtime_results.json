@@ -1,0 +1,1006 @@
+{
+  "started_at": "2026-09-14T20:19:24.919540+00:00",
+  "cases": {
+    "gradable": {
+      "source_image": "ml/datasets/raw/aptos2019/train_images/04efb1a284cc.png",
+      "image_id": "0109bdf0-b794-42fe-973e-5986dbd7f969",
+      "quality": {
+        "quality_decision": "GRADABLE",
+        "quality_score": 0.7783,
+        "final_quality_score": 0.7783,
+        "enhancement_applied": false,
+        "enhancement_passes": 0,
+        "recheck_score": null,
+        "recheck_decision": null,
+        "next_action": "CONTINUE_SCREENING",
+        "issues": [],
+        "input_metadata": {
+          "width": 1050,
+          "height": 1050,
+          "channels": 3,
+          "mode": "RGB",
+          "format": "PNG",
+          "camera_metadata": {}
+        }
+      },
+      "screening_id": "3e6be56c-6fc0-4f72-a56b-cc6ebff2e654",
+      "initial_run": {
+        "screening_id": "3e6be56c-6fc0-4f72-a56b-cc6ebff2e654",
+        "status": "COMPLETED",
+        "primary_status": "COMPLETED",
+        "evidence_status": "PROCESSING",
+        "stage_status": {
+          "image_validation": "COMPLETED",
+          "quality_assessment": "COMPLETED",
+          "dr_classification": "COMPLETED",
+          "retinal_structure_analysis": "QUEUED",
+          "lesion_detection": "QUEUED",
+          "grad_cam": "QUEUED",
+          "attention_lesion_agreement": "QUEUED",
+          "uncertainty": "COMPLETED",
+          "model_disagreement": "COMPLETED",
+          "retinaguard": "COMPLETED",
+          "triage": "COMPLETED"
+        },
+        "stage_metrics": {
+          "image_validation": {
+            "started_at": "2026-09-14T20:19:29.579826+00:00",
+            "completed_at": "2026-09-14T20:19:29.647586+00:00",
+            "duration_ms": 67.76
+          },
+          "quality_assessment": {
+            "started_at": "2026-09-14T20:19:29.661333+00:00",
+            "completed_at": "2026-09-14T20:19:29.827320+00:00",
+            "duration_ms": 165.987
+          },
+          "dr_classification": {
+            "started_at": "2026-09-14T20:19:29.835176+00:00",
+            "completed_at": "2026-09-14T20:19:30.080666+00:00",
+            "duration_ms": 245.49
+          },
+          "uncertainty": {
+            "started_at": "2026-09-14T20:19:30.084673+00:00",
+            "completed_at": "2026-09-14T20:19:30.098698+00:00",
+            "duration_ms": 14.025
+          },
+          "model_disagreement": {
+            "started_at": "2026-09-14T20:19:30.114704+00:00",
+            "completed_at": "2026-09-14T20:19:30.124724+00:00",
+            "duration_ms": 10.02
+          },
+          "retinaguard": {
+            "started_at": "2026-09-14T20:19:30.134582+00:00",
+            "completed_at": "2026-09-14T20:19:30.142339+00:00",
+            "duration_ms": 7.757
+          },
+          "triage": {
+            "started_at": "2026-09-14T20:19:30.158571+00:00",
+            "completed_at": "2026-09-14T20:19:30.170337+00:00",
+            "duration_ms": 11.766
+          },
+          "retinal_structure_analysis": {
+            "optional": true,
+            "runtime_budget_seconds": 240
+          },
+          "lesion_detection": {
+            "optional": true,
+            "runtime_budget_seconds": 240
+          },
+          "grad_cam": {
+            "optional": true,
+            "runtime_budget_seconds": 30
+          },
+          "attention_lesion_agreement": {
+            "optional": true,
+            "runtime_budget_seconds": 30
+          },
+          "primary_screening": {
+            "status": "COMPLETED",
+            "completed_at": "2026-09-14T20:19:30.229523+00:00",
+            "duration_ms": 662.923
+          }
+        },
+        "stage_errors": {},
+        "classification": {
+          "predicted_grade": 0,
+          "predicted_grade_label": "No DR",
+          "referable_dr": false,
+          "referable_probability": 0.011533,
+          "raw_confidence": 0.973709,
+          "model_version": "efficientnet-b0-aptos2019-20260830-v1",
+          "backbone": "efficientnet_b0"
+        },
+        "retinaguard": {
+          "trust_score": 0.601936,
+          "trust_category": "REVIEW_RECOMMENDED",
+          "recommended_action": "Human review is required before relying on automated triage.",
+          "assessment_status": "COMPLETED_LIMITED",
+          "warnings": [
+            {
+              "code": "attention_evidence_not_available",
+              "severity": "medium",
+              "reason": "Attention-lesion agreement has not been calculated from supported evidence."
+            },
+            {
+              "code": "explanation_stability_not_run",
+              "severity": "medium",
+              "reason": "Explanation stability testing was not run for this real-time request."
+            },
+            {
+              "code": "ood_not_available",
+              "severity": "medium",
+              "reason": "No authorized reference distribution is configured for OOD monitoring."
+            }
+          ],
+          "risk_flags": [
+            {
+              "code": "attention_evidence_not_available",
+              "severity": "medium",
+              "reason": "Attention-lesion agreement has not been calculated from supported evidence."
+            },
+            {
+              "code": "explanation_stability_not_run",
+              "severity": "medium",
+              "reason": "Explanation stability testing was not run for this real-time request."
+            },
+            {
+              "code": "ood_not_available",
+              "severity": "medium",
+              "reason": "No authorized reference distribution is configured for OOD monitoring."
+            }
+          ]
+        },
+        "triage": {
+          "status": "completed",
+          "recommendation": "HUMAN_REVIEW_REQUIRED",
+          "priority": "high",
+          "reasons": [
+            "Attention-lesion agreement has not been calculated from supported evidence.",
+            "Explanation stability testing was not run for this real-time request.",
+            "No authorized reference distribution is configured for OOD monitoring.",
+            "Optional reliability capabilities are unavailable or were not run: lesion_evidence, attention_lesion_agreement, explanation_stability, model_agreement, ood."
+          ],
+          "referable_dr_signal": false,
+          "note": "Workflow triage recommendation only; not a diagnosis or final clinical decision."
+        },
+        "evidence": {
+          "status": null,
+          "modules": {},
+          "evidence_map_present": false
+        },
+        "explainability": {
+          "predicted_class": null,
+          "agreement": null,
+          "grad_cam_present": false,
+          "normalized_attention_present": false
+        }
+      },
+      "final_run": {
+        "screening_id": "3e6be56c-6fc0-4f72-a56b-cc6ebff2e654",
+        "status": "COMPLETED",
+        "primary_status": "COMPLETED",
+        "evidence_status": "AVAILABLE",
+        "stage_status": {
+          "image_validation": "COMPLETED",
+          "quality_assessment": "COMPLETED",
+          "dr_classification": "COMPLETED",
+          "retinal_structure_analysis": "COMPLETED",
+          "lesion_detection": "COMPLETED",
+          "grad_cam": "COMPLETED",
+          "attention_lesion_agreement": "COMPLETED",
+          "uncertainty": "COMPLETED",
+          "model_disagreement": "COMPLETED",
+          "retinaguard": "COMPLETED",
+          "triage": "COMPLETED"
+        },
+        "stage_metrics": {
+          "image_validation": {
+            "started_at": "2026-09-14T20:19:29.579826+00:00",
+            "completed_at": "2026-09-14T20:19:29.647586+00:00",
+            "duration_ms": 67.76
+          },
+          "quality_assessment": {
+            "started_at": "2026-09-14T20:19:29.661333+00:00",
+            "completed_at": "2026-09-14T20:19:29.827320+00:00",
+            "duration_ms": 165.987
+          },
+          "dr_classification": {
+            "started_at": "2026-09-14T20:19:29.835176+00:00",
+            "completed_at": "2026-09-14T20:19:30.080666+00:00",
+            "duration_ms": 245.49
+          },
+          "uncertainty": {
+            "started_at": "2026-09-14T20:19:30.084673+00:00",
+            "completed_at": "2026-09-14T20:19:30.098698+00:00",
+            "duration_ms": 14.025
+          },
+          "model_disagreement": {
+            "started_at": "2026-09-14T20:19:30.114704+00:00",
+            "completed_at": "2026-09-14T20:19:30.124724+00:00",
+            "duration_ms": 10.02
+          },
+          "retinaguard": {
+            "started_at": "2026-09-14T20:19:30.134582+00:00",
+            "completed_at": "2026-09-14T20:19:30.142339+00:00",
+            "duration_ms": 7.757
+          },
+          "triage": {
+            "started_at": "2026-09-14T20:19:30.158571+00:00",
+            "completed_at": "2026-09-14T20:19:30.170337+00:00",
+            "duration_ms": 11.766
+          },
+          "retinal_structure_analysis": {
+            "optional": true,
+            "runtime_budget_seconds": 240,
+            "started_at": "2026-09-14T20:19:30.272308+00:00",
+            "vessel_inference_ms": 64074.099,
+            "structure_analysis_ms": 96.87,
+            "completed_at": "2026-09-14T20:20:39.124002+00:00",
+            "duration_ms": 68851.694
+          },
+          "lesion_detection": {
+            "optional": true,
+            "runtime_budget_seconds": 240,
+            "started_at": "2026-09-14T20:19:30.279256+00:00",
+            "lesion_inference_ms": 3131.817,
+            "completed_at": "2026-09-14T20:20:39.221169+00:00",
+            "duration_ms": 68941.913
+          },
+          "grad_cam": {
+            "optional": true,
+            "runtime_budget_seconds": 30,
+            "started_at": "2026-09-14T20:20:39.327637+00:00",
+            "completed_at": "2026-09-14T20:20:42.395090+00:00",
+            "duration_ms": 3067.453
+          },
+          "attention_lesion_agreement": {
+            "optional": true,
+            "runtime_budget_seconds": 30,
+            "started_at": "2026-09-14T20:20:39.359938+00:00",
+            "completed_at": "2026-09-14T20:20:42.444397+00:00",
+            "duration_ms": 3084.459
+          },
+          "primary_screening": {
+            "status": "COMPLETED",
+            "completed_at": "2026-09-14T20:19:30.229523+00:00",
+            "duration_ms": 662.923
+          }
+        },
+        "stage_errors": {},
+        "classification": {
+          "predicted_grade": 0,
+          "predicted_grade_label": "No DR",
+          "referable_dr": false,
+          "referable_probability": 0.011533,
+          "raw_confidence": 0.973709,
+          "model_version": "efficientnet-b0-aptos2019-20260830-v1",
+          "backbone": "efficientnet_b0"
+        },
+        "retinaguard": {
+          "trust_score": 0.601936,
+          "trust_category": "REVIEW_RECOMMENDED",
+          "recommended_action": "Human review is required before relying on automated triage.",
+          "assessment_status": "COMPLETED_LIMITED",
+          "warnings": [
+            {
+              "code": "attention_evidence_not_available",
+              "severity": "medium",
+              "reason": "Attention-lesion agreement has not been calculated from supported evidence."
+            },
+            {
+              "code": "explanation_stability_not_run",
+              "severity": "medium",
+              "reason": "Explanation stability testing was not run for this real-time request."
+            },
+            {
+              "code": "ood_not_available",
+              "severity": "medium",
+              "reason": "No authorized reference distribution is configured for OOD monitoring."
+            }
+          ],
+          "risk_flags": [
+            {
+              "code": "attention_evidence_not_available",
+              "severity": "medium",
+              "reason": "Attention-lesion agreement has not been calculated from supported evidence."
+            },
+            {
+              "code": "explanation_stability_not_run",
+              "severity": "medium",
+              "reason": "Explanation stability testing was not run for this real-time request."
+            },
+            {
+              "code": "ood_not_available",
+              "severity": "medium",
+              "reason": "No authorized reference distribution is configured for OOD monitoring."
+            }
+          ]
+        },
+        "triage": {
+          "status": "completed",
+          "recommendation": "HUMAN_REVIEW_REQUIRED",
+          "priority": "high",
+          "reasons": [
+            "Attention-lesion agreement has not been calculated from supported evidence.",
+            "Explanation stability testing was not run for this real-time request.",
+            "No authorized reference distribution is configured for OOD monitoring.",
+            "Optional reliability capabilities are unavailable or were not run: lesion_evidence, attention_lesion_agreement, explanation_stability, model_agreement, ood."
+          ],
+          "referable_dr_signal": false,
+          "note": "Workflow triage recommendation only; not a diagnosis or final clinical decision."
+        },
+        "evidence": {
+          "status": "completed",
+          "modules": {
+            "vessel_segmentation": {
+              "status": "model_inference",
+              "supported": true,
+              "count": 99,
+              "confidence": 0.815
+            },
+            "cotton_wool_spot_detection": {
+              "status": "model_inference",
+              "supported": true,
+              "count": 0,
+              "confidence": 0.0
+            },
+            "microaneurysm_detection": {
+              "status": "model_inference",
+              "supported": true,
+              "count": 0,
+              "confidence": 0.0
+            },
+            "hemorrhage_detection": {
+              "status": "model_inference",
+              "supported": true,
+              "count": 0,
+              "confidence": 0.0
+            },
+            "exudate_segmentation": {
+              "status": "model_inference",
+              "supported": true,
+              "count": 0,
+              "confidence": 0.5
+            },
+            "neovascularization_detection": {
+              "status": "unsupported",
+              "supported": false,
+              "count": null,
+              "confidence": null
+            }
+          },
+          "evidence_map_present": true
+        },
+        "explainability": {
+          "predicted_class": 0,
+          "agreement": {
+            "status": "LOW AGREEMENT",
+            "score": 0.0,
+            "metrics": {
+              "attention_coverage": 0.125552,
+              "lesion_coverage": 2e-06,
+              "intersection_over_union": 0.0,
+              "dice": 0.0,
+              "attention_in_lesion": 0.0,
+              "lesion_in_attention": 0.0
+            },
+            "reason": "Attention and supported lesion regions were compared at the working image resolution.",
+            "note": "Engineering explainability metric only; overlap does not prove clinical causality."
+          },
+          "grad_cam_present": true,
+          "normalized_attention_present": true
+        }
+      },
+      "poll_duration_ms": 79277.2
+    },
+    "borderline": {
+      "source_image": "ml/datasets/raw/aptos2019/train_images/005b95c28852.png",
+      "image_id": "adef5ad9-4b26-42be-a75b-4a4f3fbd8ba1",
+      "quality": {
+        "quality_decision": "BORDERLINE",
+        "quality_score": 0.742,
+        "final_quality_score": 0.7622,
+        "enhancement_applied": true,
+        "enhancement_passes": 1,
+        "recheck_score": 0.7622,
+        "recheck_decision": "BORDERLINE",
+        "next_action": "RECAPTURE_IMAGE",
+        "issues": [
+          {
+            "type": "low_contrast",
+            "severity": "moderate"
+          }
+        ],
+        "input_metadata": {
+          "width": 2048,
+          "height": 1536,
+          "channels": 3,
+          "mode": "RGB",
+          "format": "PNG",
+          "camera_metadata": {}
+        }
+      },
+      "screening_id": "08cd0ff4-ff67-4530-875d-f2431a27abef",
+      "initial_run": {
+        "screening_id": "08cd0ff4-ff67-4530-875d-f2431a27abef",
+        "status": "COMPLETED",
+        "primary_status": "QUALITY_BLOCKED",
+        "evidence_status": "NOT_RUN",
+        "stage_status": {
+          "image_validation": "COMPLETED",
+          "quality_assessment": "COMPLETED",
+          "dr_classification": "SKIPPED",
+          "retinal_structure_analysis": "SKIPPED",
+          "lesion_detection": "SKIPPED",
+          "grad_cam": "SKIPPED",
+          "attention_lesion_agreement": "SKIPPED",
+          "uncertainty": "SKIPPED",
+          "model_disagreement": "SKIPPED",
+          "retinaguard": "SKIPPED",
+          "triage": "COMPLETED"
+        },
+        "stage_metrics": {
+          "image_validation": {
+            "started_at": "2026-09-14T20:20:56.676675+00:00",
+            "completed_at": "2026-09-14T20:20:56.756687+00:00",
+            "duration_ms": 80.012
+          },
+          "quality_assessment": {
+            "started_at": "2026-09-14T20:20:56.763832+00:00",
+            "completed_at": "2026-09-14T20:21:01.024282+00:00",
+            "duration_ms": 4260.45
+          },
+          "dr_classification": {
+            "completed_at": "2026-09-14T20:21:01.043892+00:00",
+            "duration_ms": 0.0
+          },
+          "retinal_structure_analysis": {
+            "completed_at": "2026-09-14T20:21:01.055839+00:00",
+            "duration_ms": 0.0
+          },
+          "lesion_detection": {
+            "completed_at": "2026-09-14T20:21:01.072176+00:00",
+            "duration_ms": 0.0
+          },
+          "grad_cam": {
+            "completed_at": "2026-09-14T20:21:01.086822+00:00",
+            "duration_ms": 0.0
+          },
+          "attention_lesion_agreement": {
+            "completed_at": "2026-09-14T20:21:01.103617+00:00",
+            "duration_ms": 0.0
+          },
+          "uncertainty": {
+            "completed_at": "2026-09-14T20:21:01.117122+00:00",
+            "duration_ms": 0.0
+          },
+          "model_disagreement": {
+            "completed_at": "2026-09-14T20:21:01.137848+00:00",
+            "duration_ms": 0.0
+          },
+          "retinaguard": {
+            "completed_at": "2026-09-14T20:21:01.152040+00:00",
+            "duration_ms": 0.0
+          },
+          "triage": {
+            "completed_at": "2026-09-14T20:21:01.166192+00:00"
+          }
+        },
+        "stage_errors": {},
+        "classification": {
+          "predicted_grade": null,
+          "predicted_grade_label": null,
+          "referable_dr": null,
+          "referable_probability": null,
+          "raw_confidence": null,
+          "model_version": null,
+          "backbone": null
+        },
+        "retinaguard": {
+          "trust_score": null,
+          "trust_category": null,
+          "recommended_action": null,
+          "assessment_status": null,
+          "warnings": null,
+          "risk_flags": null
+        },
+        "triage": {
+          "status": "blocked_before_clinical_ai",
+          "recommendation": "RECAPTURE_IMAGE",
+          "priority": "high",
+          "reasons": [
+            "Retinal structures have limited tonal separation.",
+            "Too little of the retinal field is visible."
+          ],
+          "recommended_action": "One controlled enhancement pass was used; recapture is recommended.",
+          "clinical_ai_started": false,
+          "note": "The Image Trust Gate blocked downstream clinical AI for this run."
+        },
+        "evidence": {
+          "status": null,
+          "modules": {},
+          "evidence_map_present": false
+        },
+        "explainability": {
+          "predicted_class": null,
+          "agreement": null,
+          "grad_cam_present": false,
+          "normalized_attention_present": false
+        }
+      },
+      "final_run": {
+        "screening_id": "08cd0ff4-ff67-4530-875d-f2431a27abef",
+        "status": "COMPLETED",
+        "primary_status": "QUALITY_BLOCKED",
+        "evidence_status": "NOT_RUN",
+        "stage_status": {
+          "image_validation": "COMPLETED",
+          "quality_assessment": "COMPLETED",
+          "dr_classification": "SKIPPED",
+          "retinal_structure_analysis": "SKIPPED",
+          "lesion_detection": "SKIPPED",
+          "grad_cam": "SKIPPED",
+          "attention_lesion_agreement": "SKIPPED",
+          "uncertainty": "SKIPPED",
+          "model_disagreement": "SKIPPED",
+          "retinaguard": "SKIPPED",
+          "triage": "COMPLETED"
+        },
+        "stage_metrics": {
+          "image_validation": {
+            "started_at": "2026-09-14T20:20:56.676675+00:00",
+            "completed_at": "2026-09-14T20:20:56.756687+00:00",
+            "duration_ms": 80.012
+          },
+          "quality_assessment": {
+            "started_at": "2026-09-14T20:20:56.763832+00:00",
+            "completed_at": "2026-09-14T20:21:01.024282+00:00",
+            "duration_ms": 4260.45
+          },
+          "dr_classification": {
+            "completed_at": "2026-09-14T20:21:01.043892+00:00",
+            "duration_ms": 0.0
+          },
+          "retinal_structure_analysis": {
+            "completed_at": "2026-09-14T20:21:01.055839+00:00",
+            "duration_ms": 0.0
+          },
+          "lesion_detection": {
+            "completed_at": "2026-09-14T20:21:01.072176+00:00",
+            "duration_ms": 0.0
+          },
+          "grad_cam": {
+            "completed_at": "2026-09-14T20:21:01.086822+00:00",
+            "duration_ms": 0.0
+          },
+          "attention_lesion_agreement": {
+            "completed_at": "2026-09-14T20:21:01.103617+00:00",
+            "duration_ms": 0.0
+          },
+          "uncertainty": {
+            "completed_at": "2026-09-14T20:21:01.117122+00:00",
+            "duration_ms": 0.0
+          },
+          "model_disagreement": {
+            "completed_at": "2026-09-14T20:21:01.137848+00:00",
+            "duration_ms": 0.0
+          },
+          "retinaguard": {
+            "completed_at": "2026-09-14T20:21:01.152040+00:00",
+            "duration_ms": 0.0
+          },
+          "triage": {
+            "completed_at": "2026-09-14T20:21:01.166192+00:00"
+          }
+        },
+        "stage_errors": {},
+        "classification": {
+          "predicted_grade": null,
+          "predicted_grade_label": null,
+          "referable_dr": null,
+          "referable_probability": null,
+          "raw_confidence": null,
+          "model_version": null,
+          "backbone": null
+        },
+        "retinaguard": {
+          "trust_score": null,
+          "trust_category": null,
+          "recommended_action": null,
+          "assessment_status": null,
+          "warnings": null,
+          "risk_flags": null
+        },
+        "triage": {
+          "status": "blocked_before_clinical_ai",
+          "recommendation": "RECAPTURE_IMAGE",
+          "priority": "high",
+          "reasons": [
+            "Retinal structures have limited tonal separation.",
+            "Too little of the retinal field is visible."
+          ],
+          "recommended_action": "One controlled enhancement pass was used; recapture is recommended.",
+          "clinical_ai_started": false,
+          "note": "The Image Trust Gate blocked downstream clinical AI for this run."
+        },
+        "evidence": {
+          "status": null,
+          "modules": {},
+          "evidence_map_present": false
+        },
+        "explainability": {
+          "predicted_class": null,
+          "agreement": null,
+          "grad_cam_present": false,
+          "normalized_attention_present": false
+        }
+      }
+    },
+    "ungradable": {
+      "source_image": "ml/datasets/raw/aptos2019/train_images/000c1434d8d7.png",
+      "image_id": "11f8fbec-b210-466a-98f3-cd1b72394525",
+      "quality": {
+        "quality_decision": "UNGRADABLE",
+        "quality_score": 0.6238,
+        "final_quality_score": 0.6238,
+        "enhancement_applied": false,
+        "enhancement_passes": 0,
+        "recheck_score": null,
+        "recheck_decision": null,
+        "next_action": "RECAPTURE_IMAGE",
+        "issues": [
+          {
+            "type": "severe_blur",
+            "severity": "severe"
+          },
+          {
+            "type": "low_contrast",
+            "severity": "moderate"
+          }
+        ],
+        "input_metadata": {
+          "width": 3216,
+          "height": 2136,
+          "channels": 3,
+          "mode": "RGB",
+          "format": "PNG",
+          "camera_metadata": {}
+        }
+      },
+      "screening_id": "b37741ea-fb4f-4b75-bb1b-3aaae059a974",
+      "initial_run": {
+        "screening_id": "b37741ea-fb4f-4b75-bb1b-3aaae059a974",
+        "status": "COMPLETED",
+        "primary_status": "QUALITY_BLOCKED",
+        "evidence_status": "NOT_RUN",
+        "stage_status": {
+          "image_validation": "COMPLETED",
+          "quality_assessment": "COMPLETED",
+          "dr_classification": "SKIPPED",
+          "retinal_structure_analysis": "SKIPPED",
+          "lesion_detection": "SKIPPED",
+          "grad_cam": "SKIPPED",
+          "attention_lesion_agreement": "SKIPPED",
+          "uncertainty": "SKIPPED",
+          "model_disagreement": "SKIPPED",
+          "retinaguard": "SKIPPED",
+          "triage": "COMPLETED"
+        },
+        "stage_metrics": {
+          "image_validation": {
+            "started_at": "2026-09-14T20:21:02.247149+00:00",
+            "completed_at": "2026-09-14T20:21:02.415325+00:00",
+            "duration_ms": 168.176
+          },
+          "quality_assessment": {
+            "started_at": "2026-09-14T20:21:02.427160+00:00",
+            "completed_at": "2026-09-14T20:21:03.087599+00:00",
+            "duration_ms": 660.439
+          },
+          "dr_classification": {
+            "completed_at": "2026-09-14T20:21:03.098118+00:00",
+            "duration_ms": 0.0
+          },
+          "retinal_structure_analysis": {
+            "completed_at": "2026-09-14T20:21:03.108761+00:00",
+            "duration_ms": 0.0
+          },
+          "lesion_detection": {
+            "completed_at": "2026-09-14T20:21:03.125614+00:00",
+            "duration_ms": 0.0
+          },
+          "grad_cam": {
+            "completed_at": "2026-09-14T20:21:03.141753+00:00",
+            "duration_ms": 0.0
+          },
+          "attention_lesion_agreement": {
+            "completed_at": "2026-09-14T20:21:03.159084+00:00",
+            "duration_ms": 0.0
+          },
+          "uncertainty": {
+            "completed_at": "2026-09-14T20:21:03.177575+00:00",
+            "duration_ms": 0.0
+          },
+          "model_disagreement": {
+            "completed_at": "2026-09-14T20:21:03.197421+00:00",
+            "duration_ms": 0.0
+          },
+          "retinaguard": {
+            "completed_at": "2026-09-14T20:21:03.214465+00:00",
+            "duration_ms": 0.0
+          },
+          "triage": {
+            "completed_at": "2026-09-14T20:21:03.231552+00:00"
+          }
+        },
+        "stage_errors": {},
+        "classification": {
+          "predicted_grade": null,
+          "predicted_grade_label": null,
+          "referable_dr": null,
+          "referable_probability": null,
+          "raw_confidence": null,
+          "model_version": null,
+          "backbone": null
+        },
+        "retinaguard": {
+          "trust_score": null,
+          "trust_category": null,
+          "recommended_action": null,
+          "assessment_status": null,
+          "warnings": null,
+          "risk_flags": null
+        },
+        "triage": {
+          "status": "blocked_before_clinical_ai",
+          "recommendation": "RECAPTURE_IMAGE",
+          "priority": "high",
+          "reasons": [
+            "The retinal image has insufficient focus detail.",
+            "Retinal structures have limited tonal separation."
+          ],
+          "recommended_action": "Recapture the image using the guidance below.",
+          "clinical_ai_started": false,
+          "note": "The Image Trust Gate blocked downstream clinical AI for this run."
+        },
+        "evidence": {
+          "status": null,
+          "modules": {},
+          "evidence_map_present": false
+        },
+        "explainability": {
+          "predicted_class": null,
+          "agreement": null,
+          "grad_cam_present": false,
+          "normalized_attention_present": false
+        }
+      },
+      "final_run": {
+        "screening_id": "b37741ea-fb4f-4b75-bb1b-3aaae059a974",
+        "status": "COMPLETED",
+        "primary_status": "QUALITY_BLOCKED",
+        "evidence_status": "NOT_RUN",
+        "stage_status": {
+          "image_validation": "COMPLETED",
+          "quality_assessment": "COMPLETED",
+          "dr_classification": "SKIPPED",
+          "retinal_structure_analysis": "SKIPPED",
+          "lesion_detection": "SKIPPED",
+          "grad_cam": "SKIPPED",
+          "attention_lesion_agreement": "SKIPPED",
+          "uncertainty": "SKIPPED",
+          "model_disagreement": "SKIPPED",
+          "retinaguard": "SKIPPED",
+          "triage": "COMPLETED"
+        },
+        "stage_metrics": {
+          "image_validation": {
+            "started_at": "2026-09-14T20:21:02.247149+00:00",
+            "completed_at": "2026-09-14T20:21:02.415325+00:00",
+            "duration_ms": 168.176
+          },
+          "quality_assessment": {
+            "started_at": "2026-09-14T20:21:02.427160+00:00",
+            "completed_at": "2026-09-14T20:21:03.087599+00:00",
+            "duration_ms": 660.439
+          },
+          "dr_classification": {
+            "completed_at": "2026-09-14T20:21:03.098118+00:00",
+            "duration_ms": 0.0
+          },
+          "retinal_structure_analysis": {
+            "completed_at": "2026-09-14T20:21:03.108761+00:00",
+            "duration_ms": 0.0
+          },
+          "lesion_detection": {
+            "completed_at": "2026-09-14T20:21:03.125614+00:00",
+            "duration_ms": 0.0
+          },
+          "grad_cam": {
+            "completed_at": "2026-09-14T20:21:03.141753+00:00",
+            "duration_ms": 0.0
+          },
+          "attention_lesion_agreement": {
+            "completed_at": "2026-09-14T20:21:03.159084+00:00",
+            "duration_ms": 0.0
+          },
+          "uncertainty": {
+            "completed_at": "2026-09-14T20:21:03.177575+00:00",
+            "duration_ms": 0.0
+          },
+          "model_disagreement": {
+            "completed_at": "2026-09-14T20:21:03.197421+00:00",
+            "duration_ms": 0.0
+          },
+          "retinaguard": {
+            "completed_at": "2026-09-14T20:21:03.214465+00:00",
+            "duration_ms": 0.0
+          },
+          "triage": {
+            "completed_at": "2026-09-14T20:21:03.231552+00:00"
+          }
+        },
+        "stage_errors": {},
+        "classification": {
+          "predicted_grade": null,
+          "predicted_grade_label": null,
+          "referable_dr": null,
+          "referable_probability": null,
+          "raw_confidence": null,
+          "model_version": null,
+          "backbone": null
+        },
+        "retinaguard": {
+          "trust_score": null,
+          "trust_category": null,
+          "recommended_action": null,
+          "assessment_status": null,
+          "warnings": null,
+          "risk_flags": null
+        },
+        "triage": {
+          "status": "blocked_before_clinical_ai",
+          "recommendation": "RECAPTURE_IMAGE",
+          "priority": "high",
+          "reasons": [
+            "The retinal image has insufficient focus detail.",
+            "Retinal structures have limited tonal separation."
+          ],
+          "recommended_action": "Recapture the image using the guidance below.",
+          "clinical_ai_started": false,
+          "note": "The Image Trust Gate blocked downstream clinical AI for this run."
+        },
+        "evidence": {
+          "status": null,
+          "modules": {},
+          "evidence_map_present": false
+        },
+        "explainability": {
+          "predicted_class": null,
+          "agreement": null,
+          "grad_cam_present": false,
+          "normalized_attention_present": false
+        }
+      }
+    }
+  },
+  "notes": [],
+  "concurrency": {
+    "requested_workers": 2,
+    "requests": [
+      {
+        "image_id": "2928c77f-fbd8-451b-ad47-02ba2b1be8b6",
+        "response": {
+          "status": 200,
+          "content_type": "application/json",
+          "request_id": "c5a5b12b-0987-495f-9e5f-fb9a6c2b28ca",
+          "keys": [
+            "classification",
+            "error",
+            "evidence_message",
+            "evidence_status",
+            "explainability",
+            "image_id",
+            "lesions",
+            "message",
+            "model_versions",
+            "patient_id",
+            "primary_status",
+            "quality",
+            "retinaguard",
+            "screening_id",
+            "screening_session_id",
+            "stage_errors",
+            "stage_metrics",
+            "stage_status",
+            "status",
+            "triage"
+          ]
+        },
+        "duration_ms": 3076.3,
+        "screening_id": "96ca72b0-259a-4367-90f0-e01a58def530",
+        "primary_status": "COMPLETED"
+      },
+      {
+        "image_id": "24a1d95c-88de-4edb-88e9-802628d9feaf",
+        "response": {
+          "status": 200,
+          "content_type": "application/json",
+          "request_id": "86475ee4-c20c-4e19-8ea7-a7a68479aeb5",
+          "keys": [
+            "classification",
+            "error",
+            "evidence_message",
+            "evidence_status",
+            "explainability",
+            "image_id",
+            "lesions",
+            "message",
+            "model_versions",
+            "patient_id",
+            "primary_status",
+            "quality",
+            "retinaguard",
+            "screening_id",
+            "screening_session_id",
+            "stage_errors",
+            "stage_metrics",
+            "stage_status",
+            "status",
+            "triage"
+          ]
+        },
+        "duration_ms": 2620.0,
+        "screening_id": "5362b8b5-3a52-4d73-9974-2cb51ab2a100",
+        "primary_status": "COMPLETED"
+      }
+    ],
+    "all_http_200": true,
+    "note": "Controlled two-request probe; optional evidence was not polled for these probe sessions."
+  },
+  "report_and_artifact": {
+    "report_status": 201,
+    "report_id": "03a5048f-a774-4f59-ad07-bc6a27493a38",
+    "report_status_value": "ready",
+    "ai_assessment": {
+      "predicted_grade": 0,
+      "predicted_grade_label": "No DR",
+      "referable_dr": false,
+      "confidence": 0.973709,
+      "model_version": "efficientnet-b0-aptos2019-20260830-v1"
+    },
+    "retinaguard": {
+      "trust_score": 0.601936,
+      "trust_category": "REVIEW_RECOMMENDED",
+      "recommended_safe_action": "PROFESSIONAL_REVIEW_RECOMMENDED"
+    },
+    "recommended_action": "HUMAN_REVIEW_REQUIRED",
+    "clinician_decision": null,
+    "pdf": {
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 2058,
+      "pdf_header": true,
+      "pdf_eof": true
+    }
+  },
+  "frontend": {
+    "url": "http://localhost:5173",
+    "status": 200,
+    "assets": [
+      {
+        "path": "/@vite/client",
+        "status": 200,
+        "bytes": 182631
+      },
+      {
+        "path": "/src/main.tsx",
+        "status": 200,
+        "bytes": 2473
+      }
+    ],
+    "browser_automation_available": false,
+    "browser_note": "No browser automation tool is installed in this environment; live HTTP/API and production build checks were executed."
+  },
+  "finished_at": "2026-09-14T20:21:32.456874+00:00"
+}

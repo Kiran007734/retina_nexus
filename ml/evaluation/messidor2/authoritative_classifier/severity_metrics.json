@@ -1,0 +1,84 @@
+{
+  "accuracy": 0.6032110091743119,
+  "averaging": {
+    "macro_f1": "unweighted mean across five classes",
+    "roc_auc_ovr_macro": "one-vs-rest macro average",
+    "weighted_f1": "support-weighted mean across five classes"
+  },
+  "class_distribution": {
+    "0": 1017,
+    "1": 270,
+    "2": 347,
+    "3": 75,
+    "4": 35
+  },
+  "clinical_validation_claim": false,
+  "confusion_matrix": [
+    [
+      932,
+      1,
+      52,
+      19,
+      13
+    ],
+    [
+      247,
+      2,
+      15,
+      4,
+      2
+    ],
+    [
+      217,
+      4,
+      80,
+      33,
+      13
+    ],
+    [
+      5,
+      0,
+      34,
+      28,
+      8
+    ],
+    [
+      2,
+      0,
+      9,
+      14,
+      10
+    ]
+  ],
+  "evaluation_population": "Successful inference on readable, label-matched, gradable authoritative original images",
+  "exclusions": "Unmatched label rows are excluded; ungradable rows and unsuccessful inferences are excluded from grade metrics.",
+  "label_mapping": "Messidor-2 adjudicated five-point ICDR grade 0..4 mapped 1:1 to the existing APTOS output labels defined in the downloaded label readme.",
+  "macro_f1": 0.3306505904354619,
+  "precision_macro": 0.3748326625544617,
+  "prediction_distribution": {
+    "0": 1403,
+    "1": 7,
+    "2": 190,
+    "3": 98,
+    "4": 46
+  },
+  "quadratic_weighted_kappa": 0.4923817586206797,
+  "recall_macro": 0.3626846845023377,
+  "referable_dr_grade_2_or_worse": {
+    "f1": 0.5981735159817351,
+    "false_negative": 195,
+    "false_positive": 157,
+    "precision": 0.6252983293556086,
+    "recall": 0.5733041575492341,
+    "roc_auc": 0.8185252627265757,
+    "rule": "true and predicted referable if grade >= 2",
+    "sensitivity": 0.5733041575492341,
+    "specificity": 0.878010878010878,
+    "true_negative": 1130,
+    "true_positive": 262
+  },
+  "roc_auc_ovr_macro": 0.7689673671300099,
+  "sample_count": 1744,
+  "status": "CALCULATED",
+  "weighted_f1": 0.5295583124650238
+}

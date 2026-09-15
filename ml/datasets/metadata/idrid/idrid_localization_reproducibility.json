@@ -1,0 +1,13 @@
+{
+  "checkpoint_sha256": "91d49e43c5ea87fdc4adf36f9687ba7f07eeac546f89f09e1203ab56b083d569",
+  "development_images_checked": 20,
+  "generated_at_utc": "2026-09-13T14:52:35.793996+00:00",
+  "identical_within_tolerance": true,
+  "max_confidence_absolute_difference": 0.0,
+  "max_point_absolute_difference": 0.0,
+  "model_version": "idrid-localization-shared-heatmap-512x352-20260913-v1",
+  "official_test_images_opened": 0,
+  "preprocessing_verified": true,
+  "production_promoted": false,
+  "schema_version": "idrid-localization-reproducibility-1"
+}

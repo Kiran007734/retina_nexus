@@ -1,0 +1,94 @@
+{
+  "actual_sha256": "ea219b13b03984b8d454f999343c5bda1a8a7cb8586aeb3639a29814cab2330a",
+  "architecture": "RRWNet (R2-V2 bv variant)",
+  "checkpoint_path": "ml/weights/vessel_segmentation/r2-v2-bv-2025/bv.safetensors",
+  "configuration": {
+    "base_channels": 64,
+    "base_criterion": "MultiMxCrBCELoss",
+    "criterion": "RRLoss",
+    "data_folder": "../_Processed_Data",
+    "dataset": "Unified_Fundus",
+    "gpu_id": 0,
+    "in_channels": 6,
+    "learning_rate": 0.0001,
+    "model": "RRWNet",
+    "n_proc": 1,
+    "num_epochs": null,
+    "num_folds": 0,
+    "num_iterations": 5,
+    "out_channels": 3,
+    "overwrite": false,
+    "save_period": 5,
+    "seed": 77,
+    "use_cfp": true,
+    "version": "Journal_paper"
+  },
+  "cpu_inference": true,
+  "expected_channels": 6,
+  "expected_sha256": "ea219b13b03984b8d454f999343c5bda1a8a7cb8586aeb3639a29814cab2330a",
+  "fallback_model_used": false,
+  "file_exists": true,
+  "file_readable": true,
+  "fov_handling": {
+    "binary_evidence_mask": "probability >= 0.5 and FOV-valid pixels",
+    "evaluation_mask": "genuine DRIVE FOV mask",
+    "official_test_accessed_this_cycle": false,
+    "preprocessing_mask": "published enhanced mask"
+  },
+  "input_configuration": {
+    "channels": 6,
+    "padding_multiple": 32,
+    "preprocessing_source": "published preprocessing.py",
+    "width": 1408
+  },
+  "model_eval": true,
+  "model_load_seconds": 1.0236047999933362,
+  "model_loaded": true,
+  "output": {
+    "activation": "sigmoid",
+    "channels": {
+      "0": "artery",
+      "1": "vein",
+      "2": "blood_vessels"
+    },
+    "threshold": 0.5,
+    "vessel_channel": 2
+  },
+  "preprocessing": {
+    "source": "published preprocessing.py",
+    "steps": [
+      "RGB converted to float [0,1]",
+      "aspect-preserving resize to width 1408",
+      "non-black FOV construction",
+      "published enhance_image",
+      "CLAHE",
+      "enhanced RGB concatenated with original RGB",
+      "padding to U-Net multiple of 32"
+    ]
+  },
+  "protected_r2v2_unchanged": true,
+  "published_input_width": 1408,
+  "random_initialization_used": false,
+  "research_unet_preserved": true,
+  "sha_matches": true,
+  "silent_checkpoint_substitution": false,
+  "source_files_present": {
+    "bv_config.json": true,
+    "model.py": true,
+    "preprocessing.py": true,
+    "transformations.py": true
+  },
+  "state_dict_integrity": {
+    "architecture_compatibility": true,
+    "canonical_model_parameter_count": 92,
+    "checkpoint_tensor_count": 92,
+    "max_loaded_parameter_difference": 0.0,
+    "missing_canonical_keys": [],
+    "model_eval_mode": true,
+    "model_parameter_count": 62065413,
+    "note": "RRWNet source registers some convolution modules both directly and inside Sequential containers. Integrity is checked against deduplicated canonical named parameters; duplicated alias keys are not treated as missing parameters.",
+    "shape_mismatches": [],
+    "unexpected_canonical_keys": []
+  },
+  "status": "PASS"
+}

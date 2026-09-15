@@ -31,6 +31,13 @@ class Settings(BaseSettings):
     classifier_model_version: str | None = None
     classifier_device: str = "auto"
     classifier_model_sha256: str | None = None
+    # Research-gated referable fusion. Disabled by default because the
+    # verifier has known IDRiD training-overlap risk and is not promoted.
+    referable_fusion_enabled: bool = False
+    referable_fusion_verifier_model_path: str | None = None
+    referable_fusion_verifier_model_version: str = "retguard-dr-v1.0.0"
+    referable_fusion_verifier_model_sha256: str | None = "f0e19fa86d5a27a05731550d1d6708c01f6f363f45a1fa57849de988f91e775b"
+    referable_fusion_threshold: float = Field(default=0.40, ge=0.05, le=0.95)
     lesion_model_sha256: str | None = None
     vessel_model_sha256: str | None = None
     verify_models_on_startup: bool = True
@@ -55,10 +62,33 @@ class Settings(BaseSettings):
     lesion_model_version: str = "fundus-lesions-unet-seresnext50-all-v1"
     lesion_model_device: str = "auto"
     lesion_model_threshold: float = Field(default=0.5, ge=0.05, le=0.95)
+    # IDRiD lesion model is research-only and opt-in.  The preserved external
+    # lesion model above remains the default evidence adapter.
+    idrid_lesion_model_enabled: bool = False
+    idrid_lesion_model_path: str | None = None
+    idrid_lesion_model_version: str = "idrid-lesion-unet-seresnext50-768-focaldice-20260913-v2"
+    idrid_lesion_model_device: str = "auto"
+    idrid_lesion_model_threshold: float = Field(default=0.7, ge=0.05, le=0.95)
+    idrid_lesion_model_sha256: str | None = None
+    # Frozen IDRiD optic-disc/fovea localization is supporting evidence only
+    # and remains opt-in so the existing production path is preserved.
+    idrid_localization_model_enabled: bool = False
+    idrid_localization_model_path: str | None = None
+    idrid_localization_model_version: str = "idrid-localization-frozen"
+    idrid_localization_model_device: str = "auto"
+    idrid_localization_model_sha256: str | None = None
     vessel_model_path: str | None = None
     vessel_model_version: str = "r2-v2-bv-2025"
     vessel_model_device: str = "auto"
     vessel_model_threshold: float = Field(default=0.5, ge=0.05, le=0.95)
+    # Experimental DRIVE-trained vessel model. Disabled by default so the
+    # protected R2-V2 production adapter remains unchanged.
+    drive_vessel_model_enabled: bool = False
+    drive_vessel_model_path: str | None = None
+    drive_vessel_model_version: str = "drive-vessel-scratch-green-focal-dice-512-20260913-v1"
+    drive_vessel_model_device: str = "auto"
+    drive_vessel_model_threshold: float = Field(default=0.3, ge=0.05, le=0.95)
+    drive_vessel_model_sha256: str | None = None
     explainability_stability_enabled: bool = False
     explainability_counterfactual_enabled: bool = False
     explainability_max_stability_variants: int = Field(default=3, ge=1, le=5)

@@ -1,0 +1,3737 @@
+[
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 3,
+    "confidence": 0.3704192638397217,
+    "entropy_nats": 1.1723710769527544,
+    "image_id": "IDRiD_001",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -4.028141975402832,
+      -1.6426646709442139,
+      1.267556071281433,
+      1.340195894241333,
+      1.0038812160491943
+    ],
+    "normalized_entropy": 0.7284351063780213,
+    "predicted": 3,
+    "probabilities": [
+      0.0017268483061343431,
+      0.01876089908182621,
+      0.34446609020233154,
+      0.3704192638397217,
+      0.2646268904209137
+    ],
+    "probability_margin": 0.025953173637390137,
+    "quality": {
+      "brightness_proxy": 0.246676966547966,
+      "contrast_proxy": 0.16370882093906403,
+      "focus_proxy": 0.0008219594019465148,
+      "quality_proxy_score": 0.2841787135126651
+    },
+    "record_key": "official_train:IDRiD_001",
+    "referable_predicted": 1,
+    "referable_probability": 0.9795122444629669,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 3,
+    "confidence": 0.6316327452659607,
+    "entropy_nats": 1.0547062016904152,
+    "image_id": "IDRiD_002",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -2.110053300857544,
+      -1.0196020603179932,
+      1.7889655828475952,
+      0.4258759617805481,
+      0.38969337940216064
+    ],
+    "normalized_entropy": 0.6553258088069309,
+    "predicted": 2,
+    "probabilities": [
+      0.01279800571501255,
+      0.03808195888996124,
+      0.6316327452659607,
+      0.161615252494812,
+      0.15587212145328522
+    ],
+    "probability_margin": 0.4700174927711487,
+    "quality": {
+      "brightness_proxy": 0.24361936748027802,
+      "contrast_proxy": 0.1606610119342804,
+      "focus_proxy": 0.0007038054754957557,
+      "quality_proxy_score": 0.2784879528480815
+    },
+    "record_key": "official_train:IDRiD_002",
+    "referable_predicted": 1,
+    "referable_probability": 0.9491201192140579,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 2,
+    "confidence": 0.51975017786026,
+    "entropy_nats": 1.1294842277394213,
+    "image_id": "IDRiD_003",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -0.548818051815033,
+      1.3958957195281982,
+      0.9657361507415771,
+      -1.3898770809173584,
+      -1.2793984413146973
+    ],
+    "normalized_entropy": 0.701788008728587,
+    "predicted": 1,
+    "probabilities": [
+      0.07433890551328659,
+      0.51975017786026,
+      0.3380482494831085,
+      0.032058920711278915,
+      0.03580380231142044
+    ],
+    "probability_margin": 0.1817019283771515,
+    "quality": {
+      "brightness_proxy": 0.19265952706336975,
+      "contrast_proxy": 0.1323682963848114,
+      "focus_proxy": 0.000391564448364079,
+      "quality_proxy_score": 0.22653952593391294
+    },
+    "record_key": "official_train:IDRiD_003",
+    "referable_predicted": 0,
+    "referable_probability": 0.4059109725058079,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 3,
+    "confidence": 0.3676294982433319,
+    "entropy_nats": 1.1893436352663573,
+    "image_id": "IDRiD_004",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -3.7381622791290283,
+      -1.3649351596832275,
+      1.259383201599121,
+      0.8615201115608215,
+      1.2771689891815186
+    ],
+    "normalized_entropy": 0.738980749787113,
+    "predicted": 4,
+    "probabilities": [
+      0.0024393810890614986,
+      0.026179363951086998,
+      0.3611487150192261,
+      0.2426030933856964,
+      0.3676294982433319
+    ],
+    "probability_margin": 0.006480783224105835,
+    "quality": {
+      "brightness_proxy": 0.22221088409423828,
+      "contrast_proxy": 0.1583394557237625,
+      "focus_proxy": 0.0004986441344954073,
+      "quality_proxy_score": 0.2695455932567711
+    },
+    "record_key": "official_train:IDRiD_004",
+    "referable_predicted": 1,
+    "referable_probability": 0.9713813066482544,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 4,
+    "confidence": 0.32285261154174805,
+    "entropy_nats": 1.517083084759029,
+    "image_id": "IDRiD_005",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -0.20468714833259583,
+      -0.16002580523490906,
+      0.5313141942024231,
+      -0.7632043957710266,
+      0.36103445291519165
+    ],
+    "normalized_entropy": 0.9426167191902454,
+    "predicted": 2,
+    "probabilities": [
+      0.15465465188026428,
+      0.16171830892562866,
+      0.32285261154174805,
+      0.08847122639417648,
+      0.27230319380760193
+    ],
+    "probability_margin": 0.05054941773414612,
+    "quality": {
+      "brightness_proxy": 0.2669602334499359,
+      "contrast_proxy": 0.17712044715881348,
+      "focus_proxy": 0.0007374712731689215,
+      "quality_proxy_score": 0.30643078771536236
+    },
+    "record_key": "official_train:IDRiD_005",
+    "referable_predicted": 1,
+    "referable_probability": 0.6836270317435265,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 4,
+    "confidence": 0.3347814381122589,
+    "entropy_nats": 1.4089508327667892,
+    "image_id": "IDRiD_006",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      0.25837239623069763,
+      0.5831663012504578,
+      0.7264056205749512,
+      -2.1580917835235596,
+      -0.09830673038959503
+    ],
+    "normalized_entropy": 0.8754303734748636,
+    "predicted": 2,
+    "probabilities": [
+      0.20965109765529633,
+      0.2901037335395813,
+      0.3347814381122589,
+      0.018708547577261925,
+      0.1467551589012146
+    ],
+    "probability_margin": 0.04467770457267761,
+    "quality": {
+      "brightness_proxy": 0.21606853604316711,
+      "contrast_proxy": 0.15274742245674133,
+      "focus_proxy": 0.000529402052052319,
+      "quality_proxy_score": 0.26069973775593097
+    },
+    "record_key": "official_train:IDRiD_006",
+    "referable_predicted": 1,
+    "referable_probability": 0.5002451445907354,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 4,
+    "confidence": 0.7109911441802979,
+    "entropy_nats": 0.9592558996420119,
+    "image_id": "IDRiD_007",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -0.7944474220275879,
+      -1.868065595626831,
+      -0.09403134882450104,
+      -0.33682742714881897,
+      1.7024461030960083
+    ],
+    "normalized_entropy": 0.596019201629991,
+    "predicted": 4,
+    "probabilities": [
+      0.05854329839348793,
+      0.02000831998884678,
+      0.11794077605009079,
+      0.0925164520740509,
+      0.7109911441802979
+    ],
+    "probability_margin": 0.5930503681302071,
+    "quality": {
+      "brightness_proxy": 0.20049743354320526,
+      "contrast_proxy": 0.1471351534128189,
+      "focus_proxy": 0.00035270050284452736,
+      "quality_proxy_score": 0.24851351744364364
+    },
+    "record_key": "official_train:IDRiD_007",
+    "referable_predicted": 1,
+    "referable_probability": 0.9214483723044395,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 4,
+    "confidence": 0.7652084231376648,
+    "entropy_nats": 0.7830750910128905,
+    "image_id": "IDRiD_008",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -2.515254020690918,
+      -1.4859576225280762,
+      -0.3302052617073059,
+      0.3301346004009247,
+      2.0640015602111816
+    ],
+    "normalized_entropy": 0.48655191042975643,
+    "predicted": 4,
+    "probabilities": [
+      0.007852977141737938,
+      0.02198123373091221,
+      0.06982146203517914,
+      0.1351359486579895,
+      0.7652084231376648
+    ],
+    "probability_margin": 0.6300724744796753,
+    "quality": {
+      "brightness_proxy": 0.2058149129152298,
+      "contrast_proxy": 0.14594142138957977,
+      "focus_proxy": 0.0005273064016364515,
+      "quality_proxy_score": 0.24910620403970823
+    },
+    "record_key": "official_train:IDRiD_008",
+    "referable_predicted": 1,
+    "referable_probability": 0.9701658338308334,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 3,
+    "confidence": 0.570396363735199,
+    "entropy_nats": 1.2282347026172102,
+    "image_id": "IDRiD_009",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -1.2071614265441895,
+      -0.11864287406206131,
+      1.4202673435211182,
+      -0.4746934473514557,
+      0.26813989877700806
+    ],
+    "normalized_entropy": 0.7631451285745087,
+    "predicted": 2,
+    "probabilities": [
+      0.04121914133429527,
+      0.12241552025079727,
+      0.570396363735199,
+      0.08574440330266953,
+      0.18022462725639343
+    ],
+    "probability_margin": 0.39017173647880554,
+    "quality": {
+      "brightness_proxy": 0.1765349805355072,
+      "contrast_proxy": 0.13077010214328766,
+      "focus_proxy": 0.00039476624806411564,
+      "quality_proxy_score": 0.22109915706314495
+    },
+    "record_key": "official_train:IDRiD_009",
+    "referable_predicted": 1,
+    "referable_probability": 0.8363653942942619,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 4,
+    "confidence": 0.6690998077392578,
+    "entropy_nats": 0.8340713408632625,
+    "image_id": "IDRiD_010",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -3.613199234008789,
+      -2.085139751434326,
+      0.10888588428497314,
+      1.5622990131378174,
+      2.501868724822998
+    ],
+    "normalized_entropy": 0.5182376619933229,
+    "predicted": 4,
+    "probabilities": [
+      0.0014782593352720141,
+      0.006813628599047661,
+      0.06112679839134216,
+      0.26148149371147156,
+      0.6690998077392578
+    ],
+    "probability_margin": 0.40761831402778625,
+    "quality": {
+      "brightness_proxy": 0.23824100196361542,
+      "contrast_proxy": 0.16325466334819794,
+      "focus_proxy": 0.0005971399368718266,
+      "quality_proxy_score": 0.28031006614619397
+    },
+    "record_key": "official_train:IDRiD_010",
+    "referable_predicted": 1,
+    "referable_probability": 0.9917080998420715,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 3,
+    "confidence": 0.3460146486759186,
+    "entropy_nats": 1.3146463850542331,
+    "image_id": "IDRiD_011",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -2.3642094135284424,
+      -0.8401062488555908,
+      0.7201685905456543,
+      0.8839285969734192,
+      0.6902391910552979
+    ],
+    "normalized_entropy": 0.8168357256267023,
+    "predicted": 3,
+    "probabilities": [
+      0.013441449031233788,
+      0.06171002238988876,
+      0.2937476634979248,
+      0.3460146486759186,
+      0.2850862145423889
+    ],
+    "probability_margin": 0.052266985177993774,
+    "quality": {
+      "brightness_proxy": 0.208168163895607,
+      "contrast_proxy": 0.1408049762248993,
+      "focus_proxy": 0.0005459957174025476,
+      "quality_proxy_score": 0.24251432005112292
+    },
+    "record_key": "official_train:IDRiD_011",
+    "referable_predicted": 1,
+    "referable_probability": 0.9248485267162323,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 3,
+    "confidence": 0.4934283196926117,
+    "entropy_nats": 1.273038533561982,
+    "image_id": "IDRiD_012",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -1.8085029125213623,
+      -0.7246240377426147,
+      1.1836936473846436,
+      0.09175107628107071,
+      0.4755666255950928
+    ],
+    "normalized_entropy": 0.7909833139425984,
+    "predicted": 2,
+    "probabilities": [
+      0.024758800864219666,
+      0.07319008558988571,
+      0.4934283196926117,
+      0.1655767858028412,
+      0.24304597079753876
+    ],
+    "probability_margin": 0.25038234889507294,
+    "quality": {
+      "brightness_proxy": 0.34663787484169006,
+      "contrast_proxy": 0.22418487071990967,
+      "focus_proxy": 0.0013648841995745897,
+      "quality_proxy_score": 0.3925699728482868
+    },
+    "record_key": "official_train:IDRiD_012",
+    "referable_predicted": 1,
+    "referable_probability": 0.9020510762929916,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 3,
+    "confidence": 0.43039363622665405,
+    "entropy_nats": 1.4545339922770353,
+    "image_id": "IDRiD_013",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      0.08941452950239182,
+      -0.14968867599964142,
+      0.9143737554550171,
+      -0.6624019742012024,
+      -0.18370890617370605
+    ],
+    "normalized_entropy": 0.9037527829061827,
+    "predicted": 2,
+    "probabilities": [
+      0.18862123787403107,
+      0.14850783348083496,
+      0.43039363622665405,
+      0.08893665671348572,
+      0.14354054629802704
+    ],
+    "probability_margin": 0.24177239835262299,
+    "quality": {
+      "brightness_proxy": 0.33445003628730774,
+      "contrast_proxy": 0.22207286953926086,
+      "focus_proxy": 0.0010621646651998162,
+      "quality_proxy_score": 0.3850944066856755
+    },
+    "record_key": "official_train:IDRiD_013",
+    "referable_predicted": 1,
+    "referable_probability": 0.6628708392381668,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 4,
+    "confidence": 0.6719028949737549,
+    "entropy_nats": 0.6983152905540448,
+    "image_id": "IDRiD_014",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -4.009291648864746,
+      -2.7013654708862305,
+      -0.956413984298706,
+      3.1211249828338623,
+      2.3609843254089355
+    ],
+    "normalized_entropy": 0.4338876853583738,
+    "predicted": 3,
+    "probabilities": [
+      0.0005377814522944391,
+      0.001988982316106558,
+      0.011388166807591915,
+      0.6719028949737549,
+      0.31418222188949585
+    ],
+    "probability_margin": 0.35772067308425903,
+    "quality": {
+      "brightness_proxy": 0.15145787596702576,
+      "contrast_proxy": 0.11157511919736862,
+      "focus_proxy": 0.0002612078096717596,
+      "quality_proxy_score": 0.18829254576121457
+    },
+    "record_key": "official_train:IDRiD_014",
+    "referable_predicted": 1,
+    "referable_probability": 0.9974732836708426,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 4,
+    "confidence": 0.9154410362243652,
+    "entropy_nats": 0.38160725542305574,
+    "image_id": "IDRiD_015",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -1.461762547492981,
+      -2.1699471473693848,
+      -1.1208610534667969,
+      -0.007943198084831238,
+      2.891239643096924
+    ],
+    "normalized_entropy": 0.23710591907575743,
+    "predicted": 4,
+    "probabilities": [
+      0.011780007742345333,
+      0.005802095402032137,
+      0.016565218567848206,
+      0.05041169375181198,
+      0.9154410362243652
+    ],
+    "probability_margin": 0.8650293424725533,
+    "quality": {
+      "brightness_proxy": 0.24618376791477203,
+      "contrast_proxy": 0.17245596647262573,
+      "focus_proxy": 0.0004985240520909429,
+      "quality_proxy_score": 0.29410245950275565
+    },
+    "record_key": "official_train:IDRiD_015",
+    "referable_predicted": 1,
+    "referable_probability": 0.9824179485440254,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 2,
+    "confidence": 0.3638870120048523,
+    "entropy_nats": 1.1571755543210085,
+    "image_id": "IDRiD_016",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -3.805481433868408,
+      -2.065896987915039,
+      1.4039433002471924,
+      1.2115832567214966,
+      1.2834795713424683
+    ],
+    "normalized_entropy": 0.7189935973180264,
+    "predicted": 2,
+    "probabilities": [
+      0.001988575328141451,
+      0.011324891820549965,
+      0.3638870120048523,
+      0.3002103269100189,
+      0.3225891888141632
+    ],
+    "probability_margin": 0.04129782319068909,
+    "quality": {
+      "brightness_proxy": 0.21673107147216797,
+      "contrast_proxy": 0.1454428881406784,
+      "focus_proxy": 0.0006390141206793487,
+      "quality_proxy_score": 0.2513594797710539
+    },
+    "record_key": "official_train:IDRiD_016",
+    "referable_predicted": 1,
+    "referable_probability": 0.9866865277290344,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 4,
+    "confidence": 0.5466749668121338,
+    "entropy_nats": 1.1245693021321546,
+    "image_id": "IDRiD_017",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -3.3905434608459473,
+      -0.9127843379974365,
+      1.7130577564239502,
+      0.834158182144165,
+      0.621065616607666
+    ],
+    "normalized_entropy": 0.6987341937480306,
+    "predicted": 2,
+    "probabilities": [
+      0.0033209570683538914,
+      0.03956766799092293,
+      0.5466749668121338,
+      0.2270011007785797,
+      0.1834353506565094
+    ],
+    "probability_margin": 0.3196738660335541,
+    "quality": {
+      "brightness_proxy": 0.22451220452785492,
+      "contrast_proxy": 0.15361542999744415,
+      "focus_proxy": 0.0005475675570778549,
+      "quality_proxy_score": 0.263728569856903
+    },
+    "record_key": "official_train:IDRiD_017",
+    "referable_predicted": 1,
+    "referable_probability": 0.9571114182472229,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 2,
+    "confidence": 0.8051137924194336,
+    "entropy_nats": 0.6911294822172988,
+    "image_id": "IDRiD_018",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -3.279653549194336,
+      0.18937066197395325,
+      2.381726026535034,
+      -1.3147430419921875,
+      0.10010194778442383
+    ],
+    "normalized_entropy": 0.42942289160570374,
+    "predicted": 2,
+    "probabilities": [
+      0.0027999563608318567,
+      0.08989372849464417,
+      0.8051137924194336,
+      0.019975660368800163,
+      0.0822167918086052
+    ],
+    "probability_margin": 0.7152200639247894,
+    "quality": {
+      "brightness_proxy": 0.1665104329586029,
+      "contrast_proxy": 0.11425908654928207,
+      "focus_proxy": 0.0002541128487791866,
+      "quality_proxy_score": 0.19501183359607238
+    },
+    "record_key": "official_train:IDRiD_018",
+    "referable_predicted": 1,
+    "referable_probability": 0.907306244596839,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 2,
+    "confidence": 0.7043572664260864,
+    "entropy_nats": 0.8477886733958317,
+    "image_id": "IDRiD_019",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -4.05725622177124,
+      -1.558884859085083,
+      2.277686595916748,
+      0.17986668646335602,
+      0.9818529486656189
+    ],
+    "normalized_entropy": 0.5267607199047792,
+    "predicted": 2,
+    "probabilities": [
+      0.001248999615199864,
+      0.015191168524324894,
+      0.7043572664260864,
+      0.08644133061170578,
+      0.19276119768619537
+    ],
+    "probability_margin": 0.511596068739891,
+    "quality": {
+      "brightness_proxy": 0.1359425038099289,
+      "contrast_proxy": 0.09403674304485321,
+      "focus_proxy": 0.00021788215963169932,
+      "quality_proxy_score": 0.1603378808722482
+    },
+    "record_key": "official_train:IDRiD_019",
+    "referable_predicted": 1,
+    "referable_probability": 0.9835597947239876,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 2,
+    "confidence": 0.3888290226459503,
+    "entropy_nats": 1.4990742892487332,
+    "image_id": "IDRiD_020",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -0.5290300846099854,
+      -0.3535487949848175,
+      0.6544564962387085,
+      -0.3970664441585541,
+      0.05891462042927742
+    ],
+    "normalized_entropy": 0.9314272254103583,
+    "predicted": 2,
+    "probabilities": [
+      0.11906304955482483,
+      0.14190168678760529,
+      0.3888290226459503,
+      0.13585889339447021,
+      0.21434734761714935
+    ],
+    "probability_margin": 0.17448167502880096,
+    "quality": {
+      "brightness_proxy": 0.29556816816329956,
+      "contrast_proxy": 0.19803601503372192,
+      "focus_proxy": 0.000894589873496443,
+      "quality_proxy_score": 0.3425143600601586
+    },
+    "record_key": "official_train:IDRiD_020",
+    "referable_predicted": 1,
+    "referable_probability": 0.7390352636575699,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 4,
+    "confidence": 0.5759808421134949,
+    "entropy_nats": 0.7754432676413112,
+    "image_id": "IDRiD_022",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -2.207740306854248,
+      -3.014101982116699,
+      -1.5772931575775146,
+      2.429154396057129,
+      2.078117609024048
+    ],
+    "normalized_entropy": 0.48180999195460567,
+    "predicted": 3,
+    "probabilities": [
+      0.005579949822276831,
+      0.0024913332890719175,
+      0.010481655597686768,
+      0.5759808421134949,
+      0.405466228723526
+    ],
+    "probability_margin": 0.17051461338996887,
+    "quality": {
+      "brightness_proxy": 0.2854952812194824,
+      "contrast_proxy": 0.19150833785533905,
+      "focus_proxy": 0.0008675569551996887,
+      "quality_proxy_score": 0.331175183308369
+    },
+    "record_key": "official_train:IDRiD_022",
+    "referable_predicted": 1,
+    "referable_probability": 0.9919287264347076,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 3,
+    "confidence": 0.44008854031562805,
+    "entropy_nats": 1.0956338445182972,
+    "image_id": "IDRiD_023",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -1.3997751474380493,
+      1.3252111673355103,
+      1.3259811401367188,
+      -1.5940760374069214,
+      -0.5473402142524719
+    ],
+    "normalized_entropy": 0.6807555830850721,
+    "predicted": 2,
+    "probabilities": [
+      0.028824329376220703,
+      0.4397498071193695,
+      0.44008854031562805,
+      0.023734236136078835,
+      0.06760314851999283
+    ],
+    "probability_margin": 0.0003387331962585449,
+    "quality": {
+      "brightness_proxy": 0.22986704111099243,
+      "contrast_proxy": 0.15701116621494293,
+      "focus_proxy": 0.0006750891334377229,
+      "quality_proxy_score": 0.2704302787155029
+    },
+    "record_key": "official_train:IDRiD_023",
+    "referable_predicted": 1,
+    "referable_probability": 0.5314259249716997,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 4,
+    "confidence": 0.7408972978591919,
+    "entropy_nats": 0.822262594014203,
+    "image_id": "IDRiD_024",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -3.531826972961426,
+      -1.0357366800308228,
+      2.2076377868652344,
+      -0.0466005802154541,
+      0.6106857657432556
+    ],
+    "normalized_entropy": 0.5109004750426315,
+    "predicted": 2,
+    "probabilities": [
+      0.0023830882273614407,
+      0.02891867607831955,
+      0.7408972978591919,
+      0.07775972783565521,
+      0.15004122257232666
+    ],
+    "probability_margin": 0.5908560752868652,
+    "quality": {
+      "brightness_proxy": 0.24054108560085297,
+      "contrast_proxy": 0.16290539503097534,
+      "focus_proxy": 0.0007657607784494758,
+      "quality_proxy_score": 0.2814403755153762
+    },
+    "record_key": "official_train:IDRiD_024",
+    "referable_predicted": 1,
+    "referable_probability": 0.9686982482671738,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 3,
+    "confidence": 0.39134475588798523,
+    "entropy_nats": 1.4392937576677265,
+    "image_id": "IDRiD_025",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -1.1549891233444214,
+      0.37819385528564453,
+      0.7946447730064392,
+      -0.3288516402244568,
+      -0.052956223487854004
+    ],
+    "normalized_entropy": 0.8942834927325347,
+    "predicted": 2,
+    "probabilities": [
+      0.05569860339164734,
+      0.25804603099823,
+      0.39134475588798523,
+      0.12724222242832184,
+      0.16766834259033203
+    ],
+    "probability_margin": 0.13329872488975525,
+    "quality": {
+      "brightness_proxy": 0.15196317434310913,
+      "contrast_proxy": 0.10981401056051254,
+      "focus_proxy": 0.0002723275974858552,
+      "quality_proxy_score": 0.1860045018860546
+    },
+    "record_key": "official_train:IDRiD_025",
+    "referable_predicted": 1,
+    "referable_probability": 0.6862553209066391,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 3,
+    "confidence": 0.3923044204711914,
+    "entropy_nats": 1.2664241156986724,
+    "image_id": "IDRiD_026",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -2.9574036598205566,
+      -1.0883177518844604,
+      0.5274487733840942,
+      0.6446977853775024,
+      0.9458422660827637
+    ],
+    "normalized_entropy": 0.786873545052349,
+    "predicted": 4,
+    "probabilities": [
+      0.007915257476270199,
+      0.051309604197740555,
+      0.2581768035888672,
+      0.2902938425540924,
+      0.3923044204711914
+    ],
+    "probability_margin": 0.102010577917099,
+    "quality": {
+      "brightness_proxy": 0.15114350616931915,
+      "contrast_proxy": 0.1076812818646431,
+      "focus_proxy": 0.0002543636364862323,
+      "quality_proxy_score": 0.182731245845207
+    },
+    "record_key": "official_train:IDRiD_026",
+    "referable_predicted": 1,
+    "referable_probability": 0.940775066614151,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 2,
+    "confidence": 0.5240713357925415,
+    "entropy_nats": 1.061100252742043,
+    "image_id": "IDRiD_029",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -3.706281900405884,
+      -1.6017861366271973,
+      1.3528062105178833,
+      1.8670793771743774,
+      0.577011227607727
+    ],
+    "normalized_entropy": 0.6592986560986649,
+    "predicted": 3,
+    "probabilities": [
+      0.001990262186154723,
+      0.0163260567933321,
+      0.3133606016635895,
+      0.5240713357925415,
+      0.14425168931484222
+    ],
+    "probability_margin": 0.21071073412895203,
+    "quality": {
+      "brightness_proxy": 0.22087962925434113,
+      "contrast_proxy": 0.1502978801727295,
+      "focus_proxy": 0.0007074301829561591,
+      "quality_proxy_score": 0.2594565406005131
+    },
+    "record_key": "official_train:IDRiD_029",
+    "referable_predicted": 1,
+    "referable_probability": 0.9816836267709732,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 3,
+    "confidence": 0.5485320687294006,
+    "entropy_nats": 1.1494880459109567,
+    "image_id": "IDRiD_034",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -3.4377593994140625,
+      -0.6038092970848083,
+      1.6611864566802979,
+      0.5787350535392761,
+      0.6786217093467712
+    ],
+    "normalized_entropy": 0.7142170797831403,
+    "predicted": 2,
+    "probabilities": [
+      0.0033477891702204943,
+      0.05695434287190437,
+      0.5485320687294006,
+      0.1858229637145996,
+      0.2053428590297699
+    ],
+    "probability_margin": 0.34318920969963074,
+    "quality": {
+      "brightness_proxy": 0.22409608960151672,
+      "contrast_proxy": 0.14814838767051697,
+      "focus_proxy": 0.0009593446739017963,
+      "quality_proxy_score": 0.25882245529210196
+    },
+    "record_key": "official_train:IDRiD_034",
+    "referable_predicted": 1,
+    "referable_probability": 0.9396978914737701,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 3,
+    "confidence": 0.7144017815589905,
+    "entropy_nats": 0.8147666714101425,
+    "image_id": "IDRiD_035",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -3.1033272743225098,
+      -2.1057190895080566,
+      0.2761521339416504,
+      2.4562082290649414,
+      1.1558890342712402
+    ],
+    "normalized_entropy": 0.5062429964619737,
+    "predicted": 3,
+    "probabilities": [
+      0.0027508502826094627,
+      0.007459721993654966,
+      0.08075253665447235,
+      0.7144017815589905,
+      0.1946350634098053
+    ],
+    "probability_margin": 0.5197667181491852,
+    "quality": {
+      "brightness_proxy": 0.17048273980617523,
+      "contrast_proxy": 0.11840642243623734,
+      "focus_proxy": 0.0005157632986083627,
+      "quality_proxy_score": 0.2034114120498998
+    },
+    "record_key": "official_train:IDRiD_035",
+    "referable_predicted": 1,
+    "referable_probability": 0.9897893816232681,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 3,
+    "confidence": 0.5817426443099976,
+    "entropy_nats": 1.0481431660739413,
+    "image_id": "IDRiD_036",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -3.0420432090759277,
+      -1.596261978149414,
+      0.8878703117370605,
+      1.9434908628463745,
+      0.8502844572067261
+    ],
+    "normalized_entropy": 0.6512479655016566,
+    "predicted": 3,
+    "probabilities": [
+      0.003976865671575069,
+      0.016882460564374924,
+      0.20243272185325623,
+      0.5817426443099976,
+      0.19496533274650574
+    ],
+    "probability_margin": 0.37930992245674133,
+    "quality": {
+      "brightness_proxy": 0.29489052295684814,
+      "contrast_proxy": 0.19008848071098328,
+      "focus_proxy": 0.0009411737555637956,
+      "quality_proxy_score": 0.3315725471562473
+    },
+    "record_key": "official_train:IDRiD_036",
+    "referable_predicted": 1,
+    "referable_probability": 0.9791406989097595,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 2,
+    "confidence": 0.40751898288726807,
+    "entropy_nats": 1.312562048258494,
+    "image_id": "IDRiD_037",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      0.73601895570755,
+      0.9513610601425171,
+      0.10298527032136917,
+      -1.0897220373153687,
+      -1.4609267711639404
+    ],
+    "normalized_entropy": 0.8155406543601215,
+    "predicted": 1,
+    "probabilities": [
+      0.32856854796409607,
+      0.40751898288726807,
+      0.17446282505989075,
+      0.052931807935237885,
+      0.03651779890060425
+    ],
+    "probability_margin": 0.078950434923172,
+    "quality": {
+      "brightness_proxy": 0.2159058153629303,
+      "contrast_proxy": 0.15251833200454712,
+      "focus_proxy": 0.0004489599959924817,
+      "quality_proxy_score": 0.2597934278514003
+    },
+    "record_key": "official_train:IDRiD_037",
+    "referable_predicted": 0,
+    "referable_probability": 0.2639124318957329,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 2,
+    "confidence": 0.3333425521850586,
+    "entropy_nats": 1.4730450775574693,
+    "image_id": "IDRiD_038",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      0.13625633716583252,
+      0.4807828366756439,
+      0.6393004059791565,
+      -1.014362096786499,
+      -0.40916791558265686
+    ],
+    "normalized_entropy": 0.9152543668675285,
+    "predicted": 2,
+    "probabilities": [
+      0.20156796276569366,
+      0.28447720408439636,
+      0.3333425521850586,
+      0.06378436833620071,
+      0.11682794988155365
+    ],
+    "probability_margin": 0.04886534810066223,
+    "quality": {
+      "brightness_proxy": 0.3229663372039795,
+      "contrast_proxy": 0.208365336060524,
+      "focus_proxy": 0.0009677393245510757,
+      "quality_proxy_score": 0.3629579457818181
+    },
+    "record_key": "official_train:IDRiD_038",
+    "referable_predicted": 1,
+    "referable_probability": 0.513954870402813,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 3,
+    "confidence": 0.4398552477359772,
+    "entropy_nats": 1.2961305315281384,
+    "image_id": "IDRiD_039",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -1.8298547267913818,
+      -0.7951017618179321,
+      0.6662557721138,
+      0.02218969166278839,
+      1.0339887142181396
+    ],
+    "normalized_entropy": 0.8053311789877508,
+    "predicted": 4,
+    "probabilities": [
+      0.025093333795666695,
+      0.07062295079231262,
+      0.3045126795768738,
+      0.15991568565368652,
+      0.4398552477359772
+    ],
+    "probability_margin": 0.1353425681591034,
+    "quality": {
+      "brightness_proxy": 0.2395208179950714,
+      "contrast_proxy": 0.16658510267734528,
+      "focus_proxy": 0.000659306300804019,
+      "quality_proxy_score": 0.28565603816532525
+    },
+    "record_key": "official_train:IDRiD_039",
+    "referable_predicted": 1,
+    "referable_probability": 0.9042836129665375,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 3,
+    "confidence": 0.28337469696998596,
+    "entropy_nats": 1.552045343332432,
+    "image_id": "IDRiD_040",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -0.14660486578941345,
+      0.22536122798919678,
+      0.37366798520088196,
+      -0.7236852645874023,
+      0.07069402933120728
+    ],
+    "normalized_entropy": 0.9643399918330069,
+    "predicted": 2,
+    "probabilities": [
+      0.16842611134052277,
+      0.2443161904811859,
+      0.28337469696998596,
+      0.09457723796367645,
+      0.2093057632446289
+    ],
+    "probability_margin": 0.03905850648880005,
+    "quality": {
+      "brightness_proxy": 0.24941489100456238,
+      "contrast_proxy": 0.16788873076438904,
+      "focus_proxy": 0.0007538430509157479,
+      "quality_proxy_score": 0.29010987224610285
+    },
+    "record_key": "official_train:IDRiD_040",
+    "referable_predicted": 1,
+    "referable_probability": 0.5872576981782913,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 2,
+    "confidence": 0.3578190505504608,
+    "entropy_nats": 1.3913354614076658,
+    "image_id": "IDRiD_041",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -1.3207039833068848,
+      0.29721906781196594,
+      0.7815591096878052,
+      0.6214563250541687,
+      -0.8062669038772583
+    ],
+    "normalized_entropy": 0.8644853278641994,
+    "predicted": 2,
+    "probabilities": [
+      0.04371819645166397,
+      0.22045361995697021,
+      0.3578190505504608,
+      0.3048819303512573,
+      0.07312727719545364
+    ],
+    "probability_margin": 0.05293712019920349,
+    "quality": {
+      "brightness_proxy": 0.2050645649433136,
+      "contrast_proxy": 0.13591445982456207,
+      "focus_proxy": 0.00048300050548277795,
+      "quality_proxy_score": 0.23461378521824372
+    },
+    "record_key": "official_train:IDRiD_041",
+    "referable_predicted": 1,
+    "referable_probability": 0.7358282580971718,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 2,
+    "confidence": 0.40882745385169983,
+    "entropy_nats": 1.3197376470673143,
+    "image_id": "IDRiD_042",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -1.7526698112487793,
+      0.8595920205116272,
+      1.0936013460159302,
+      0.1646203249692917,
+      -0.5076256990432739
+    ],
+    "normalized_entropy": 0.8199991045764259,
+    "predicted": 2,
+    "probabilities": [
+      0.02373669482767582,
+      0.32352742552757263,
+      0.40882745385169983,
+      0.16146883368492126,
+      0.08243962377309799
+    ],
+    "probability_margin": 0.0853000283241272,
+    "quality": {
+      "brightness_proxy": 0.2109651118516922,
+      "contrast_proxy": 0.14068518579006195,
+      "focus_proxy": 0.000653364637400955,
+      "quality_proxy_score": 0.24364416435855674
+    },
+    "record_key": "official_train:IDRiD_042",
+    "referable_predicted": 1,
+    "referable_probability": 0.6527359113097191,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 2,
+    "confidence": 0.49070069193840027,
+    "entropy_nats": 1.264329515870953,
+    "image_id": "IDRiD_043",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -2.3752732276916504,
+      0.5940575003623962,
+      1.3128823041915894,
+      -0.3363701403141022,
+      0.21436768770217896
+    ],
+    "normalized_entropy": 0.7855720970054644,
+    "predicted": 2,
+    "probabilities": [
+      0.01227639988064766,
+      0.23913052678108215,
+      0.49070069193840027,
+      0.094309501349926,
+      0.16358289122581482
+    ],
+    "probability_margin": 0.2515701651573181,
+    "quality": {
+      "brightness_proxy": 0.1810724288225174,
+      "contrast_proxy": 0.12338148802518845,
+      "focus_proxy": 0.0003723235276993364,
+      "quality_proxy_score": 0.21150829325270024
+    },
+    "record_key": "official_train:IDRiD_043",
+    "referable_predicted": 1,
+    "referable_probability": 0.7485930845141411,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 2,
+    "confidence": 0.4038556218147278,
+    "entropy_nats": 1.2812914103395352,
+    "image_id": "IDRiD_044",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -3.032021999359131,
+      -0.6934462189674377,
+      1.0679552555084229,
+      0.4951387047767639,
+      0.7447435259819031
+    ],
+    "normalized_entropy": 0.7961111145951079,
+    "predicted": 2,
+    "probabilities": [
+      0.006693119183182716,
+      0.06938397884368896,
+      0.4038556218147278,
+      0.22774825990200043,
+      0.29231899976730347
+    ],
+    "probability_margin": 0.11153662204742432,
+    "quality": {
+      "brightness_proxy": 0.20445112884044647,
+      "contrast_proxy": 0.14345788955688477,
+      "focus_proxy": 0.00053469801787287,
+      "quality_proxy_score": 0.24540732002060392
+    },
+    "record_key": "official_train:IDRiD_044",
+    "referable_predicted": 1,
+    "referable_probability": 0.9239228814840317,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 2,
+    "confidence": 0.5392441153526306,
+    "entropy_nats": 1.0506392847874273,
+    "image_id": "IDRiD_047",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -3.0591018199920654,
+      -1.7009069919586182,
+      1.8412606716156006,
+      1.283674716949463,
+      0.4366539418697357
+    ],
+    "normalized_entropy": 0.6527988912591536,
+    "predicted": 2,
+    "probabilities": [
+      0.004014071077108383,
+      0.01561138965189457,
+      0.5392441153526306,
+      0.30876559019088745,
+      0.13236479461193085
+    ],
+    "probability_margin": 0.23047852516174316,
+    "quality": {
+      "brightness_proxy": 0.30019864439964294,
+      "contrast_proxy": 0.2014513611793518,
+      "focus_proxy": 0.0009562477935105562,
+      "quality_proxy_score": 0.34864583811140615
+    },
+    "record_key": "official_train:IDRiD_047",
+    "referable_predicted": 1,
+    "referable_probability": 0.9803745001554489,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 2,
+    "confidence": 0.5811562538146973,
+    "entropy_nats": 0.8887578247067685,
+    "image_id": "IDRiD_048",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -3.884213447570801,
+      -1.8298686742782593,
+      2.332596778869629,
+      -0.0663752406835556,
+      1.8421155214309692
+    ],
+    "normalized_entropy": 0.5522162848535229,
+    "predicted": 2,
+    "probabilities": [
+      0.0011597557459026575,
+      0.009048093110322952,
+      0.5811562538146973,
+      0.05277552828192711,
+      0.3558603525161743
+    ],
+    "probability_margin": 0.22529590129852295,
+    "quality": {
+      "brightness_proxy": 0.23180058598518372,
+      "contrast_proxy": 0.15762560069561005,
+      "focus_proxy": 0.0005451004835776985,
+      "quality_proxy_score": 0.27078352399548744
+    },
+    "record_key": "official_train:IDRiD_048",
+    "referable_predicted": 1,
+    "referable_probability": 0.9897921346127987,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 2,
+    "confidence": 0.3688786029815674,
+    "entropy_nats": 1.1910292931747872,
+    "image_id": "IDRiD_050",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -2.9132347106933594,
+      -1.851747751235962,
+      1.2022778987884521,
+      1.0866928100585938,
+      0.9233414530754089
+    ],
+    "normalized_entropy": 0.7400281079333372,
+    "predicted": 2,
+    "probabilities": [
+      0.006019202526658773,
+      0.017399508506059647,
+      0.3688786029815674,
+      0.3286135792732239,
+      0.2790891230106354
+    ],
+    "probability_margin": 0.040265023708343506,
+    "quality": {
+      "brightness_proxy": 0.2653779089450836,
+      "contrast_proxy": 0.1793781965970993,
+      "focus_proxy": 0.0007518117199651897,
+      "quality_proxy_score": 0.30937376259971644
+    },
+    "record_key": "official_train:IDRiD_050",
+    "referable_predicted": 1,
+    "referable_probability": 0.9765813052654266,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 2,
+    "confidence": 0.7387568354606628,
+    "entropy_nats": 0.773529019960699,
+    "image_id": "IDRiD_051",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -3.094025135040283,
+      1.1735780239105225,
+      2.5687739849090576,
+      -1.7918158769607544,
+      0.15634262561798096
+    ],
+    "normalized_entropy": 0.4806206029972416,
+    "predicted": 2,
+    "probabilities": [
+      0.002565542468801141,
+      0.18305248022079468,
+      0.7387568354606628,
+      0.009434553794562817,
+      0.06619054079055786
+    ],
+    "probability_margin": 0.5557043552398682,
+    "quality": {
+      "brightness_proxy": 0.19566497206687927,
+      "contrast_proxy": 0.13222593069076538,
+      "focus_proxy": 0.00041563226841390133,
+      "quality_proxy_score": 0.22710676922579295
+    },
+    "record_key": "official_train:IDRiD_051",
+    "referable_predicted": 1,
+    "referable_probability": 0.8143819300457835,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 2,
+    "confidence": 0.3814724385738373,
+    "entropy_nats": 1.3746710487771536,
+    "image_id": "IDRiD_052",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -1.5798730850219727,
+      0.5740141868591309,
+      0.778497576713562,
+      -0.7044887542724609,
+      0.05451972037553787
+    ],
+    "normalized_entropy": 0.8541311461329457,
+    "predicted": 2,
+    "probabilities": [
+      0.03607744351029396,
+      0.31092607975006104,
+      0.3814724385738373,
+      0.08657856285572052,
+      0.18494541943073273
+    ],
+    "probability_margin": 0.07054635882377625,
+    "quality": {
+      "brightness_proxy": 0.18392306566238403,
+      "contrast_proxy": 0.12670229375362396,
+      "focus_proxy": 0.0003146585659123957,
+      "quality_proxy_score": 0.21633110202819805
+    },
+    "record_key": "official_train:IDRiD_052",
+    "referable_predicted": 1,
+    "referable_probability": 0.6529964208602905,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 2,
+    "confidence": 0.651894211769104,
+    "entropy_nats": 1.0038357638869195,
+    "image_id": "IDRiD_056",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -3.1071033477783203,
+      -0.8742521405220032,
+      1.8179469108581543,
+      0.5365001559257507,
+      0.11068463325500488
+    ],
+    "normalized_entropy": 0.6237182286632771,
+    "predicted": 2,
+    "probabilities": [
+      0.0047342912293970585,
+      0.04415399208664894,
+      0.651894211769104,
+      0.18098889291286469,
+      0.11822859942913055
+    ],
+    "probability_margin": 0.4709053188562393,
+    "quality": {
+      "brightness_proxy": 0.15693999826908112,
+      "contrast_proxy": 0.10727179795503616,
+      "focus_proxy": 0.00024820055114105344,
+      "quality_proxy_score": 0.18327489557996157
+    },
+    "record_key": "official_train:IDRiD_056",
+    "referable_predicted": 1,
+    "referable_probability": 0.9511117041110992,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 2,
+    "confidence": 0.707372784614563,
+    "entropy_nats": 0.9425504951406604,
+    "image_id": "IDRiD_058",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -2.94541597366333,
+      -0.20669211447238922,
+      1.9976847171783447,
+      -0.0029222965240478516,
+      0.17119009792804718
+    ],
+    "normalized_entropy": 0.5856395502173519,
+    "predicted": 2,
+    "probabilities": [
+      0.005045298952609301,
+      0.078036829829216,
+      0.707372784614563,
+      0.09567440301179886,
+      0.11387065798044205
+    ],
+    "probability_margin": 0.5935021266341209,
+    "quality": {
+      "brightness_proxy": 0.20462939143180847,
+      "contrast_proxy": 0.1467006355524063,
+      "focus_proxy": 0.0004989863955415785,
+      "quality_proxy_score": 0.24973729952907886
+    },
+    "record_key": "official_train:IDRiD_058",
+    "referable_predicted": 1,
+    "referable_probability": 0.9169178456068039,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 2,
+    "confidence": 0.49159669876098633,
+    "entropy_nats": 1.176261007582015,
+    "image_id": "IDRiD_059",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -1.789121150970459,
+      1.386535406112671,
+      1.0254030227661133,
+      -0.6172702312469482,
+      -0.44159799814224243
+    ],
+    "normalized_entropy": 0.7308520561709944,
+    "predicted": 1,
+    "probabilities": [
+      0.020532358437776566,
+      0.49159669876098633,
+      0.3425872027873993,
+      0.06627766788005829,
+      0.0790061205625534
+    ],
+    "probability_margin": 0.14900949597358704,
+    "quality": {
+      "brightness_proxy": 0.23053978383541107,
+      "contrast_proxy": 0.16279345750808716,
+      "focus_proxy": 0.0005053836503066123,
+      "quality_proxy_score": 0.2774933098742622
+    },
+    "record_key": "official_train:IDRiD_059",
+    "referable_predicted": 0,
+    "referable_probability": 0.487870991230011,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 2,
+    "confidence": 0.5518957376480103,
+    "entropy_nats": 1.2605219181047946,
+    "image_id": "IDRiD_060",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      1.3730998039245605,
+      -0.03956157714128494,
+      0.15090970695018768,
+      -0.18575458228588104,
+      -1.3839194774627686
+    ],
+    "normalized_entropy": 0.783206303496599,
+    "predicted": 0,
+    "probabilities": [
+      0.5518957376480103,
+      0.13438351452350616,
+      0.16257980465888977,
+      0.11610613763332367,
+      0.03503473103046417
+    ],
+    "probability_margin": 0.3893159329891205,
+    "quality": {
+      "brightness_proxy": 0.3347250521183014,
+      "contrast_proxy": 0.21723318099975586,
+      "focus_proxy": 0.001264386111870408,
+      "quality_proxy_score": 0.3797641183424275
+    },
+    "record_key": "official_train:IDRiD_060",
+    "referable_predicted": 0,
+    "referable_probability": 0.3137206733226776,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 2,
+    "confidence": 0.9781557321548462,
+    "entropy_nats": 0.13233850966183355,
+    "image_id": "IDRiD_061",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      4.4735636711120605,
+      -0.1418587863445282,
+      -0.5202850699424744,
+      -1.4521842002868652,
+      -1.3406589031219482
+    ],
+    "normalized_entropy": 0.08222653924045191,
+    "predicted": 0,
+    "probabilities": [
+      0.9781557321548462,
+      0.00968178827315569,
+      0.0066314274445176125,
+      0.00261149019934237,
+      0.0029195998795330524
+    ],
+    "probability_margin": 0.9684739438816905,
+    "quality": {
+      "brightness_proxy": 0.34868913888931274,
+      "contrast_proxy": 0.23076601326465607,
+      "focus_proxy": 0.0012096953578293324,
+      "quality_proxy_score": 0.4011269019334577
+    },
+    "record_key": "official_train:IDRiD_061",
+    "referable_predicted": 0,
+    "referable_probability": 0.012162517523393035,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 2,
+    "confidence": 0.4362120032310486,
+    "entropy_nats": 1.3727895094246718,
+    "image_id": "IDRiD_063",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -1.9172894954681396,
+      0.24745704233646393,
+      0.9433356523513794,
+      -0.11652801930904388,
+      0.0019608773291110992
+    ],
+    "normalized_entropy": 0.8529620800025001,
+    "predicted": 2,
+    "probabilities": [
+      0.02496570535004139,
+      0.21751105785369873,
+      0.4362120032310486,
+      0.15114879608154297,
+      0.17016245424747467
+    ],
+    "probability_margin": 0.21870094537734985,
+    "quality": {
+      "brightness_proxy": 0.21630819141864777,
+      "contrast_proxy": 0.14710472524166107,
+      "focus_proxy": 0.0005204100743867457,
+      "quality_proxy_score": 0.2527860728834639
+    },
+    "record_key": "official_train:IDRiD_063",
+    "referable_predicted": 1,
+    "referable_probability": 0.7575232535600662,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 2,
+    "confidence": 0.4011496901512146,
+    "entropy_nats": 1.3663488197025195,
+    "image_id": "IDRiD_064",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -2.63041090965271,
+      0.46535101532936096,
+      1.031101942062378,
+      0.11889427155256271,
+      0.3330855369567871
+    ],
+    "normalized_entropy": 0.8489602544754679,
+    "predicted": 2,
+    "probabilities": [
+      0.010306984186172485,
+      0.2278263419866562,
+      0.4011496901512146,
+      0.16111639142036438,
+      0.19960057735443115
+    ],
+    "probability_margin": 0.1733233481645584,
+    "quality": {
+      "brightness_proxy": 0.21851743757724762,
+      "contrast_proxy": 0.15215052664279938,
+      "focus_proxy": 0.0005466999718919396,
+      "quality_proxy_score": 0.26047278712212574
+    },
+    "record_key": "official_train:IDRiD_064",
+    "referable_predicted": 1,
+    "referable_probability": 0.7618666589260101,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 2,
+    "confidence": 0.42472776770591736,
+    "entropy_nats": 1.2005765094879735,
+    "image_id": "IDRiD_068",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -2.3489089012145996,
+      -1.646660327911377,
+      0.7882386445999146,
+      0.9748716354370117,
+      1.3333685398101807
+    ],
+    "normalized_entropy": 0.7459601269565171,
+    "predicted": 4,
+    "probabilities": [
+      0.01068852748721838,
+      0.021572504192590714,
+      0.24624291062355042,
+      0.2967682480812073,
+      0.42472776770591736
+    ],
+    "probability_margin": 0.12795951962471008,
+    "quality": {
+      "brightness_proxy": 0.2055462747812271,
+      "contrast_proxy": 0.13684068620204926,
+      "focus_proxy": 0.0003829372290056199,
+      "quality_proxy_score": 0.235318909088528
+    },
+    "record_key": "official_train:IDRiD_068",
+    "referable_predicted": 1,
+    "referable_probability": 0.967738926410675,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 2,
+    "confidence": 0.34519973397254944,
+    "entropy_nats": 1.4419712554444244,
+    "image_id": "IDRiD_073",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -1.5490267276763916,
+      -0.06923327594995499,
+      0.8061342835426331,
+      0.4009784758090973,
+      0.47542452812194824
+    ],
+    "normalized_entropy": 0.8959471156384028,
+    "predicted": 2,
+    "probabilities": [
+      0.032751940190792084,
+      0.1438477784395218,
+      0.34519973397254944,
+      0.23020435869693756,
+      0.24799619615077972
+    ],
+    "probability_margin": 0.09720353782176971,
+    "quality": {
+      "brightness_proxy": 0.30889075994491577,
+      "contrast_proxy": 0.20400327444076538,
+      "focus_proxy": 0.0012010314967483282,
+      "quality_proxy_score": 0.35563982774619946
+    },
+    "record_key": "official_train:IDRiD_073",
+    "referable_predicted": 1,
+    "referable_probability": 0.8234002888202667,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 1,
+    "confidence": 0.6356748938560486,
+    "entropy_nats": 0.9134608086461967,
+    "image_id": "IDRiD_079",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      2.116020679473877,
+      1.3310836553573608,
+      -0.6565444469451904,
+      -1.9154107570648193,
+      -1.1880738735198975
+    ],
+    "normalized_entropy": 0.5675651117629548,
+    "predicted": 0,
+    "probabilities": [
+      0.6356748938560486,
+      0.2899620831012726,
+      0.03973061963915825,
+      0.011282536201179028,
+      0.023349901661276817
+    ],
+    "probability_margin": 0.345712810754776,
+    "quality": {
+      "brightness_proxy": 0.22003677487373352,
+      "contrast_proxy": 0.15046928822994232,
+      "focus_proxy": 0.0006446860497817397,
+      "quality_proxy_score": 0.2590965750889154
+    },
+    "record_key": "official_train:IDRiD_079",
+    "referable_predicted": 0,
+    "referable_probability": 0.0743630575016141,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 1,
+    "confidence": 0.8134296536445618,
+    "entropy_nats": 0.7091858317606549,
+    "image_id": "IDRiD_105",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      2.494734287261963,
+      0.3601509928703308,
+      -0.7524417638778687,
+      -0.9594342708587646,
+      -0.709958016872406
+    ],
+    "normalized_entropy": 0.4406419323676104,
+    "predicted": 0,
+    "probabilities": [
+      0.8134296536445618,
+      0.09622374922037125,
+      0.031629279255867004,
+      0.025715421885252,
+      0.033001963049173355
+    ],
+    "probability_margin": 0.7172059044241905,
+    "quality": {
+      "brightness_proxy": 0.2288023829460144,
+      "contrast_proxy": 0.15646915137767792,
+      "focus_proxy": 0.0005538212135434151,
+      "quality_proxy_score": 0.2686248093610629
+    },
+    "record_key": "official_train:IDRiD_105",
+    "referable_predicted": 0,
+    "referable_probability": 0.09034666419029236,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 0,
+    "confidence": 0.9890972375869751,
+    "entropy_nats": 0.0654614532706471,
+    "image_id": "IDRiD_138",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      5.60788631439209,
+      0.9647512435913086,
+      -1.3869929313659668,
+      -2.884681224822998,
+      -2.595325469970703
+    ],
+    "normalized_entropy": 0.04067348778409461,
+    "predicted": 0,
+    "probabilities": [
+      0.9890972375869751,
+      0.00952250137925148,
+      0.0009065703488886356,
+      0.0002027514565270394,
+      0.00027078797575086355
+    ],
+    "probability_margin": 0.9795747362077236,
+    "quality": {
+      "brightness_proxy": 0.22324998676776886,
+      "contrast_proxy": 0.16001743078231812,
+      "focus_proxy": 0.0005707185482606292,
+      "quality_proxy_score": 0.27259809046809097
+    },
+    "record_key": "official_train:IDRiD_138",
+    "referable_predicted": 0,
+    "referable_probability": 0.0013801097811665386,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 0,
+    "confidence": 0.9860680103302002,
+    "entropy_nats": 0.08201810844865431,
+    "image_id": "IDRiD_139",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      5.206636428833008,
+      0.7633522152900696,
+      -1.505253553390503,
+      -1.954603910446167,
+      -2.6712350845336914
+    ],
+    "normalized_entropy": 0.05096071604564777,
+    "predicted": 0,
+    "probabilities": [
+      0.9860680103302002,
+      0.011593461968004704,
+      0.0011994163505733013,
+      0.0007652786443941295,
+      0.0003737582010217011
+    ],
+    "probability_margin": 0.9744745483621955,
+    "quality": {
+      "brightness_proxy": 0.1794911026954651,
+      "contrast_proxy": 0.13023336231708527,
+      "focus_proxy": 0.0004786130739375949,
+      "quality_proxy_score": 0.22151539266633336
+    },
+    "record_key": "official_train:IDRiD_139",
+    "referable_predicted": 0,
+    "referable_probability": 0.002338453195989132,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 0,
+    "confidence": 0.9737798571586609,
+    "entropy_nats": 0.14855612631973236,
+    "image_id": "IDRiD_140",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      4.389352321624756,
+      0.32604920864105225,
+      -1.360364317893982,
+      -1.0452247858047485,
+      -1.7357642650604248
+    ],
+    "normalized_entropy": 0.09230311102530034,
+    "predicted": 0,
+    "probabilities": [
+      0.9737798571586609,
+      0.01674135960638523,
+      0.003100205911323428,
+      0.004248680081218481,
+      0.0021298869978636503
+    ],
+    "probability_margin": 0.9570384975522757,
+    "quality": {
+      "brightness_proxy": 0.18051917850971222,
+      "contrast_proxy": 0.13223446905612946,
+      "focus_proxy": 0.0004726061597466469,
+      "quality_proxy_score": 0.22448125972878188
+    },
+    "record_key": "official_train:IDRiD_140",
+    "referable_predicted": 0,
+    "referable_probability": 0.00947877299040556,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 0,
+    "confidence": 0.8745306134223938,
+    "entropy_nats": 0.47154197694550576,
+    "image_id": "IDRiD_141",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      3.2165780067443848,
+      1.026540994644165,
+      -0.8607306480407715,
+      -1.5598735809326172,
+      -1.8700072765350342
+    ],
+    "normalized_entropy": 0.2929855033875458,
+    "predicted": 0,
+    "probabilities": [
+      0.8745306134223938,
+      0.09787100553512573,
+      0.014825943857431412,
+      0.007368659134954214,
+      0.005403799004852772
+    ],
+    "probability_margin": 0.7766596078872681,
+    "quality": {
+      "brightness_proxy": 0.2754257321357727,
+      "contrast_proxy": 0.18663205206394196,
+      "focus_proxy": 0.000786012620665133,
+      "quality_proxy_score": 0.3217738560837461
+    },
+    "record_key": "official_train:IDRiD_141",
+    "referable_predicted": 0,
+    "referable_probability": 0.027598401997238398,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 0,
+    "confidence": 0.9909153580665588,
+    "entropy_nats": 0.05815323509946083,
+    "image_id": "IDRiD_142",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      5.470724582672119,
+      0.5617573261260986,
+      -1.7620680332183838,
+      -2.1984522342681885,
+      -1.9505908489227295
+    ],
+    "normalized_entropy": 0.03613263652495322,
+    "predicted": 0,
+    "probabilities": [
+      0.9909153580665588,
+      0.007313062436878681,
+      0.0007159365341067314,
+      0.0004627594316843897,
+      0.0005929257604293525
+    ],
+    "probability_margin": 0.9836022956296802,
+    "quality": {
+      "brightness_proxy": 0.18867969512939453,
+      "contrast_proxy": 0.1305127590894699,
+      "focus_proxy": 0.0004911317373625934,
+      "quality_proxy_score": 0.2238303324455046
+    },
+    "record_key": "official_train:IDRiD_142",
+    "referable_predicted": 0,
+    "referable_probability": 0.0017716217262204736,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 0,
+    "confidence": 0.9938546419143677,
+    "entropy_nats": 0.04303739306175616,
+    "image_id": "IDRiD_143",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      5.511446952819824,
+      0.08415236324071884,
+      -1.6974217891693115,
+      -2.1380019187927246,
+      -1.9550554752349854
+    ],
+    "normalized_entropy": 0.02674063580164256,
+    "predicted": 0,
+    "probabilities": [
+      0.9938546419143677,
+      0.00436796061694622,
+      0.0007354461122304201,
+      0.00047337947762571275,
+      0.0005684106145054102
+    ],
+    "probability_margin": 0.9894866812974215,
+    "quality": {
+      "brightness_proxy": 0.18376441299915314,
+      "contrast_proxy": 0.12834762036800385,
+      "focus_proxy": 0.0005305318627506495,
+      "quality_proxy_score": 0.2200869576714467
+    },
+    "record_key": "official_train:IDRiD_143",
+    "referable_predicted": 0,
+    "referable_probability": 0.001777236204361543,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 0,
+    "confidence": 0.977405846118927,
+    "entropy_nats": 0.1386496368997086,
+    "image_id": "IDRiD_144",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      4.287837982177734,
+      -0.5845324993133545,
+      -0.8267343640327454,
+      -0.8921900391578674,
+      -1.2783643007278442
+    ],
+    "normalized_entropy": 0.08614786306979438,
+    "predicted": 0,
+    "probabilities": [
+      0.977405846118927,
+      0.007482232991605997,
+      0.005872787907719612,
+      0.0055006928741931915,
+      0.003738557454198599
+    ],
+    "probability_margin": 0.969923613127321,
+    "quality": {
+      "brightness_proxy": 0.2637954354286194,
+      "contrast_proxy": 0.17923294007778168,
+      "focus_proxy": 0.0009974546264857054,
+      "quality_proxy_score": 0.31054270375170745
+    },
+    "record_key": "official_train:IDRiD_144",
+    "referable_predicted": 0,
+    "referable_probability": 0.015112038236111403,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 0,
+    "confidence": 0.9992154836654663,
+    "entropy_nats": 0.00747159843350372,
+    "image_id": "IDRiD_145",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      6.996109962463379,
+      -1.3312184810638428,
+      -1.6359463930130005,
+      -1.730309009552002,
+      -1.5078396797180176
+    ],
+    "normalized_entropy": 0.0046423651237367325,
+    "predicted": 0,
+    "probabilities": [
+      0.9992154836654663,
+      0.0002416274364804849,
+      0.00017815777391660959,
+      0.000162115044076927,
+      0.00020250723173376173
+    ],
+    "probability_margin": 0.9989738562289858,
+    "quality": {
+      "brightness_proxy": 0.19045761227607727,
+      "contrast_proxy": 0.14384996891021729,
+      "focus_proxy": 0.0008028349257074296,
+      "quality_proxy_score": 0.24500096904375823
+    },
+    "record_key": "official_train:IDRiD_145",
+    "referable_predicted": 0,
+    "referable_probability": 0.0005427800497272983,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 0,
+    "confidence": 0.6139528155326843,
+    "entropy_nats": 0.9211582282110706,
+    "image_id": "IDRiD_146",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      1.961389422416687,
+      -2.4611778259277344,
+      -0.937434196472168,
+      -1.031095266342163,
+      1.2910513877868652
+    ],
+    "normalized_entropy": 0.5723477874445736,
+    "predicted": 0,
+    "probabilities": [
+      0.6139528155326843,
+      0.007369506172835827,
+      0.03382141888141632,
+      0.030797500163316727,
+      0.31405875086784363
+    ],
+    "probability_margin": 0.2998940646648407,
+    "quality": {
+      "brightness_proxy": 0.1389327496290207,
+      "contrast_proxy": 0.11126364767551422,
+      "focus_proxy": 0.00027287463308312,
+      "quality_proxy_score": 0.1854316697739705
+    },
+    "record_key": "official_train:IDRiD_146",
+    "referable_predicted": 0,
+    "referable_probability": 0.3786776699125767,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 0,
+    "confidence": 0.9295135736465454,
+    "entropy_nats": 0.34736038060108776,
+    "image_id": "IDRiD_147",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      3.331594467163086,
+      -1.1358811855316162,
+      -0.30915367603302,
+      -1.0914186239242554,
+      -0.31328925490379333
+    ],
+    "normalized_entropy": 0.21582713934937872,
+    "predicted": 0,
+    "probabilities": [
+      0.9295135736465454,
+      0.010667326860129833,
+      0.02438366413116455,
+      0.011152327992022038,
+      0.02428303100168705
+    ],
+    "probability_margin": 0.9051299095153809,
+    "quality": {
+      "brightness_proxy": 0.12836849689483643,
+      "contrast_proxy": 0.10191702097654343,
+      "focus_proxy": 0.0002173242683056742,
+      "quality_proxy_score": 0.1698516330907296
+    },
+    "record_key": "official_train:IDRiD_147",
+    "referable_predicted": 0,
+    "referable_probability": 0.05981902312487364,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 0,
+    "confidence": 0.6546273827552795,
+    "entropy_nats": 1.10110292144364,
+    "image_id": "IDRiD_148",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      1.678187608718872,
+      -0.2814961075782776,
+      -0.22153104841709137,
+      -1.1488656997680664,
+      -0.048426128923892975
+    ],
+    "normalized_entropy": 0.6841537116385815,
+    "predicted": 0,
+    "probabilities": [
+      0.6546273827552795,
+      0.09223894774913788,
+      0.09793926775455475,
+      0.03874543309211731,
+      0.11644888669252396
+    ],
+    "probability_margin": 0.5381784960627556,
+    "quality": {
+      "brightness_proxy": 0.12025579810142517,
+      "contrast_proxy": 0.087376669049263,
+      "focus_proxy": 0.00013709944323636591,
+      "quality_proxy_score": 0.14732105496150324
+    },
+    "record_key": "official_train:IDRiD_148",
+    "referable_predicted": 0,
+    "referable_probability": 0.253133587539196,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 0,
+    "confidence": 0.9710931777954102,
+    "entropy_nats": 0.14855102783395888,
+    "image_id": "IDRiD_149",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      4.654485702514648,
+      0.9536599516868591,
+      -1.2430121898651123,
+      -3.13815975189209,
+      -1.608721137046814
+    ],
+    "normalized_entropy": 0.09229994315797592,
+    "predicted": 0,
+    "probabilities": [
+      0.9710931777954102,
+      0.023989032953977585,
+      0.002666919957846403,
+      0.0004008279356639832,
+      0.0018500551814213395
+    ],
+    "probability_margin": 0.9471041448414326,
+    "quality": {
+      "brightness_proxy": 0.12779641151428223,
+      "contrast_proxy": 0.0922992080450058,
+      "focus_proxy": 0.00018499535508453846,
+      "quality_proxy_score": 0.15605001663207077
+    },
+    "record_key": "official_train:IDRiD_149",
+    "referable_predicted": 0,
+    "referable_probability": 0.004917803074931726,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 0,
+    "confidence": 0.7791311740875244,
+    "entropy_nats": 0.6616525448700719,
+    "image_id": "IDRiD_150",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      2.8713483810424805,
+      1.431235432624817,
+      -0.729922890663147,
+      -1.8658199310302734,
+      -1.682424545288086
+    ],
+    "normalized_entropy": 0.41110784066804673,
+    "predicted": 0,
+    "probabilities": [
+      0.7791311740875244,
+      0.18457695841789246,
+      0.02126171812415123,
+      0.006827858276665211,
+      0.008202233351767063
+    ],
+    "probability_margin": 0.594554215669632,
+    "quality": {
+      "brightness_proxy": 0.15746338665485382,
+      "contrast_proxy": 0.10975942015647888,
+      "focus_proxy": 0.00028235241188667715,
+      "quality_proxy_score": 0.18709703838176212
+    },
+    "record_key": "official_train:IDRiD_150",
+    "referable_predicted": 0,
+    "referable_probability": 0.036291809752583504,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 0,
+    "confidence": 0.3961704671382904,
+    "entropy_nats": 1.2512926292926356,
+    "image_id": "IDRiD_151",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      1.151168704032898,
+      1.1963906288146973,
+      0.2768336236476898,
+      -1.610121726989746,
+      -1.0175470113754272
+    ],
+    "normalized_entropy": 0.7774718239364644,
+    "predicted": 1,
+    "probabilities": [
+      0.3786539137363434,
+      0.3961704671382904,
+      0.1579514443874359,
+      0.02393477037549019,
+      0.04328935593366623
+    ],
+    "probability_margin": 0.01751655340194702,
+    "quality": {
+      "brightness_proxy": 0.16322916746139526,
+      "contrast_proxy": 0.1086728572845459,
+      "focus_proxy": 0.0003528849338181317,
+      "quality_proxy_score": 0.18721391761064296
+    },
+    "record_key": "official_train:IDRiD_151",
+    "referable_predicted": 0,
+    "referable_probability": 0.22517557069659233,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 0,
+    "confidence": 0.4436221420764923,
+    "entropy_nats": 1.347140982095109,
+    "image_id": "IDRiD_152",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      0.15360039472579956,
+      1.0566459894180298,
+      0.448463499546051,
+      -1.8252744674682617,
+      -0.33578258752822876
+    ],
+    "normalized_entropy": 0.8370257539526358,
+    "predicted": 1,
+    "probabilities": [
+      0.17981481552124023,
+      0.4436221420764923,
+      0.2414809614419937,
+      0.02485484816133976,
+      0.11022729426622391
+    ],
+    "probability_margin": 0.2021411806344986,
+    "quality": {
+      "brightness_proxy": 0.14795614778995514,
+      "contrast_proxy": 0.10674145817756653,
+      "focus_proxy": 0.00032610056223347783,
+      "quality_proxy_score": 0.18127121237193933
+    },
+    "record_key": "official_train:IDRiD_152",
+    "referable_predicted": 0,
+    "referable_probability": 0.3765631038695574,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 0,
+    "confidence": 0.2732716202735901,
+    "entropy_nats": 1.555101208212775,
+    "image_id": "IDRiD_153",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -0.35726985335350037,
+      0.18738755583763123,
+      0.12146392464637756,
+      -0.8106212615966797,
+      -0.06814076006412506
+    ],
+    "normalized_entropy": 0.966238707438458,
+    "predicted": 1,
+    "probabilities": [
+      0.15850859880447388,
+      0.2732716202735901,
+      0.2558375298976898,
+      0.10073138028383255,
+      0.21165083348751068
+    ],
+    "probability_margin": 0.01743409037590027,
+    "quality": {
+      "brightness_proxy": 0.1460786759853363,
+      "contrast_proxy": 0.10189929604530334,
+      "focus_proxy": 0.0002408997534075752,
+      "quality_proxy_score": 0.173530935465169
+    },
+    "record_key": "official_train:IDRiD_153",
+    "referable_predicted": 1,
+    "referable_probability": 0.568219743669033,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 0,
+    "confidence": 0.5406039953231812,
+    "entropy_nats": 0.9859886976536019,
+    "image_id": "IDRiD_154",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      1.9227666854858398,
+      1.5685222148895264,
+      -0.6977422833442688,
+      -1.3045110702514648,
+      -1.4112884998321533
+    ],
+    "normalized_entropy": 0.6126292229331176,
+    "predicted": 0,
+    "probabilities": [
+      0.5406039953231812,
+      0.3793436884880066,
+      0.03933749347925186,
+      0.021443236619234085,
+      0.01927158609032631
+    ],
+    "probability_margin": 0.16126030683517456,
+    "quality": {
+      "brightness_proxy": 0.1534384936094284,
+      "contrast_proxy": 0.10635808855295181,
+      "focus_proxy": 0.0002522874274291098,
+      "quality_proxy_score": 0.18132349875959333
+    },
+    "record_key": "official_train:IDRiD_154",
+    "referable_predicted": 0,
+    "referable_probability": 0.08005231618881226,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 0,
+    "confidence": 0.9760838150978088,
+    "entropy_nats": 0.12602816224640936,
+    "image_id": "IDRiD_155",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      4.970520496368408,
+      1.1039667129516602,
+      -1.1696721315383911,
+      -2.800783395767212,
+      -1.9416372776031494
+    ],
+    "normalized_entropy": 0.07830569994204091,
+    "predicted": 0,
+    "probabilities": [
+      0.9760838150978088,
+      0.02042980119585991,
+      0.002102981321513653,
+      0.00041157842497341335,
+      0.0009717958746477962
+    ],
+    "probability_margin": 0.9556540139019489,
+    "quality": {
+      "brightness_proxy": 0.1400764286518097,
+      "contrast_proxy": 0.10317467153072357,
+      "focus_proxy": 0.0003185876412317157,
+      "quality_proxy_score": 0.17465011590684298
+    },
+    "record_key": "official_train:IDRiD_155",
+    "referable_predicted": 0,
+    "referable_probability": 0.0034863556211348623,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 0,
+    "confidence": 0.5731215476989746,
+    "entropy_nats": 0.9160638601499148,
+    "image_id": "IDRiD_156",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      2.202061891555786,
+      1.7487337589263916,
+      -0.4438375234603882,
+      -1.6129744052886963,
+      -1.9119185209274292
+    ],
+    "normalized_entropy": 0.5691824785986728,
+    "predicted": 0,
+    "probabilities": [
+      0.5731215476989746,
+      0.36422422528266907,
+      0.040658120065927505,
+      0.012629830278456211,
+      0.009366294369101524
+    ],
+    "probability_margin": 0.20889732241630554,
+    "quality": {
+      "brightness_proxy": 0.2284020185470581,
+      "contrast_proxy": 0.15386433899402618,
+      "focus_proxy": 0.0006379194092005491,
+      "quality_proxy_score": 0.26547617423930203
+    },
+    "record_key": "official_train:IDRiD_156",
+    "referable_predicted": 0,
+    "referable_probability": 0.06265424471348524,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 0,
+    "confidence": 0.997491717338562,
+    "entropy_nats": 0.019580691933990146,
+    "image_id": "IDRiD_157",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      6.5009660720825195,
+      0.23572292923927307,
+      -1.8457932472229004,
+      -2.279998540878296,
+      -1.9093396663665771
+    ],
+    "normalized_entropy": 0.012166167941437687,
+    "predicted": 0,
+    "probabilities": [
+      0.997491717338562,
+      0.001896482426673174,
+      0.00023656887060496956,
+      0.00015324442938435823,
+      0.0002220035094069317
+    ],
+    "probability_margin": 0.9955952349118888,
+    "quality": {
+      "brightness_proxy": 0.15645457804203033,
+      "contrast_proxy": 0.1202675923705101,
+      "focus_proxy": 0.0003968957462348044,
+      "quality_proxy_score": 0.2023942031824845
+    },
+    "record_key": "official_train:IDRiD_157",
+    "referable_predicted": 0,
+    "referable_probability": 0.0006118168093962595,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 0,
+    "confidence": 0.8249241709709167,
+    "entropy_nats": 0.586915937479485,
+    "image_id": "IDRiD_158",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      3.079087734222412,
+      1.2986165285110474,
+      -0.5566186308860779,
+      -1.6318436861038208,
+      -1.7109359502792358
+    ],
+    "normalized_entropy": 0.36467137560580903,
+    "predicted": 0,
+    "probabilities": [
+      0.8249241709709167,
+      0.13904814422130585,
+      0.021749375388026237,
+      0.007421344053000212,
+      0.006856983993202448
+    ],
+    "probability_margin": 0.6858760267496109,
+    "quality": {
+      "brightness_proxy": 0.2211359441280365,
+      "contrast_proxy": 0.15186113119125366,
+      "focus_proxy": 0.0005949013866484165,
+      "quality_proxy_score": 0.2609227195265703
+    },
+    "record_key": "official_train:IDRiD_158",
+    "referable_predicted": 0,
+    "referable_probability": 0.0360277034342289,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 0,
+    "confidence": 0.9937223792076111,
+    "entropy_nats": 0.04506917110794994,
+    "image_id": "IDRiD_159",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      5.517337322235107,
+      -0.09255092591047287,
+      -1.071742296218872,
+      -1.8882170915603638,
+      -1.7870912551879883
+    ],
+    "normalized_entropy": 0.028003050481014025,
+    "predicted": 0,
+    "probabilities": [
+      0.9937223792076111,
+      0.0036384938284754753,
+      0.001366671291179955,
+      0.0006040511070750654,
+      0.0006683316896669567
+    ],
+    "probability_margin": 0.9900838853791356,
+    "quality": {
+      "brightness_proxy": 0.1436958909034729,
+      "contrast_proxy": 0.10986436903476715,
+      "focus_proxy": 0.00041988983866758645,
+      "quality_proxy_score": 0.18543603747020823
+    },
+    "record_key": "official_train:IDRiD_159",
+    "referable_predicted": 0,
+    "referable_probability": 0.002639054087921977,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 0,
+    "confidence": 0.3870570659637451,
+    "entropy_nats": 1.3880536497414928,
+    "image_id": "IDRiD_160",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      0.7448577880859375,
+      0.9202330112457275,
+      -0.06695247441530228,
+      -0.9727556705474854,
+      -0.5884037017822266
+    ],
+    "normalized_entropy": 0.8624462236273608,
+    "predicted": 1,
+    "probabilities": [
+      0.3247958719730377,
+      0.3870570659637451,
+      0.14422674477100372,
+      0.05829891562461853,
+      0.0856214165687561
+    ],
+    "probability_margin": 0.0622611939907074,
+    "quality": {
+      "brightness_proxy": 0.17876948416233063,
+      "contrast_proxy": 0.12372689694166183,
+      "focus_proxy": 0.00034938723547384143,
+      "quality_proxy_score": 0.21137358979467535
+    },
+    "record_key": "official_train:IDRiD_160",
+    "referable_predicted": 0,
+    "referable_probability": 0.28814707696437836,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 0,
+    "confidence": 0.914190948009491,
+    "entropy_nats": 0.3864986584759178,
+    "image_id": "IDRiD_161",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      3.313854455947876,
+      0.35144829750061035,
+      -0.2965351641178131,
+      -1.5216310024261475,
+      -1.6219199895858765
+    ],
+    "normalized_entropy": 0.24014511867151214,
+    "predicted": 0,
+    "probabilities": [
+      0.914190948009491,
+      0.047258537262678146,
+      0.024720918387174606,
+      0.0072612641379237175,
+      0.0065683661960065365
+    ],
+    "probability_margin": 0.8669324107468128,
+    "quality": {
+      "brightness_proxy": 0.15075691044330597,
+      "contrast_proxy": 0.12342310696840286,
+      "focus_proxy": 0.0003317935043014586,
+      "quality_proxy_score": 0.2052248121864977
+    },
+    "record_key": "official_train:IDRiD_161",
+    "referable_predicted": 0,
+    "referable_probability": 0.03855054872110486,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 0,
+    "confidence": 0.9751283526420593,
+    "entropy_nats": 0.15055049000481122,
+    "image_id": "IDRiD_162",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      4.102503776550293,
+      -1.088086724281311,
+      -0.726287841796875,
+      -0.8947130441665649,
+      -1.1596250534057617
+    ],
+    "normalized_entropy": 0.09354227885505688,
+    "predicted": 0,
+    "probabilities": [
+      0.9751283526420593,
+      0.0054302155040204525,
+      0.007797299884259701,
+      0.006588675547391176,
+      0.00505531532689929
+    ],
+    "probability_margin": 0.9673310527577996,
+    "quality": {
+      "brightness_proxy": 0.3360658884048462,
+      "contrast_proxy": 0.21902385354042053,
+      "focus_proxy": 0.0013802151661366224,
+      "quality_proxy_score": 0.3833355519047472
+    },
+    "record_key": "official_train:IDRiD_162",
+    "referable_predicted": 0,
+    "referable_probability": 0.019441290758550167,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 0,
+    "confidence": 0.40372151136398315,
+    "entropy_nats": 1.3805922987513903,
+    "image_id": "IDRiD_163",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      0.6677039265632629,
+      1.0257521867752075,
+      0.26259878277778625,
+      -1.1633342504501343,
+      -0.5851747989654541
+    ],
+    "normalized_entropy": 0.8578102255981992,
+    "predicted": 1,
+    "probabilities": [
+      0.28221720457077026,
+      0.40372151136398315,
+      0.1882125437259674,
+      0.045224495232105255,
+      0.08062416315078735
+    ],
+    "probability_margin": 0.12150430679321289,
+    "quality": {
+      "brightness_proxy": 0.22486381232738495,
+      "contrast_proxy": 0.15651968121528625,
+      "focus_proxy": 0.0006409756606444716,
+      "quality_proxy_score": 0.2685070238338085
+    },
+    "record_key": "official_train:IDRiD_163",
+    "referable_predicted": 0,
+    "referable_probability": 0.31406120210886,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 0,
+    "confidence": 0.9447802305221558,
+    "entropy_nats": 0.2605028057547477,
+    "image_id": "IDRiD_164",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      3.898287296295166,
+      0.7495933771133423,
+      -0.9248899221420288,
+      -1.9256839752197266,
+      -1.4960596561431885
+    ],
+    "normalized_entropy": 0.16185949376622144,
+    "predicted": 0,
+    "probabilities": [
+      0.9447802305221558,
+      0.04053875058889389,
+      0.0075971633195877075,
+      0.00279262219555676,
+      0.004291366320103407
+    ],
+    "probability_margin": 0.9042414799332619,
+    "quality": {
+      "brightness_proxy": 0.22492000460624695,
+      "contrast_proxy": 0.15189164876937866,
+      "focus_proxy": 0.00044859020272269845,
+      "quality_proxy_score": 0.26071636684209804
+    },
+    "record_key": "official_train:IDRiD_164",
+    "referable_predicted": 0,
+    "referable_probability": 0.014681151835247874,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 1,
+    "confidence": 0.97552889585495,
+    "entropy_nats": 0.12767202722498797,
+    "image_id": "IDRiD_194",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      4.982794761657715,
+      1.1540958881378174,
+      -1.230193853378296,
+      -2.192793846130371,
+      -2.471893787384033
+    ],
+    "normalized_entropy": 0.07932709068093088,
+    "predicted": 0,
+    "probabilities": [
+      0.97552889585495,
+      0.021205931901931763,
+      0.001954219536855817,
+      0.0007463140063919127,
+      0.0005645598866976798
+    ],
+    "probability_margin": 0.9543229639530182,
+    "quality": {
+      "brightness_proxy": 0.217172771692276,
+      "contrast_proxy": 0.15963725745677948,
+      "focus_proxy": 0.0009161951602436602,
+      "quality_proxy_score": 0.2732255565046216
+    },
+    "record_key": "official_train:IDRiD_194",
+    "referable_predicted": 0,
+    "referable_probability": 0.0032650934299454093,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": false
+    },
+    "actual": 1,
+    "confidence": 0.635674774646759,
+    "entropy_nats": 0.9134608889833665,
+    "image_id": "IDRiD_279",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      2.1160202026367188,
+      1.3310832977294922,
+      -0.6565443873405457,
+      -1.9154107570648193,
+      -1.188073992729187
+    ],
+    "normalized_entropy": 0.5675651616792449,
+    "predicted": 0,
+    "probabilities": [
+      0.635674774646759,
+      0.2899620831012726,
+      0.039730630815029144,
+      0.011282533407211304,
+      0.023349901661276817
+    ],
+    "probability_margin": 0.34571269154548645,
+    "quality": {
+      "brightness_proxy": 0.22003677487373352,
+      "contrast_proxy": 0.15046928822994232,
+      "focus_proxy": 0.0006446860497817397,
+      "quality_proxy_score": 0.2590965750889154
+    },
+    "record_key": "official_train:IDRiD_279",
+    "referable_predicted": 0,
+    "referable_probability": 0.07436306588351727,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  },
+  {
+    "abstention": {
+      "does_not_change_grade": true,
+      "policy": "research_only: normalized entropy >= 0.70 OR top-two probability margin < 0.15",
+      "review_recommended": true
+    },
+    "actual": 2,
+    "confidence": 0.3451996445655823,
+    "entropy_nats": 1.4419714434266293,
+    "image_id": "IDRiD_375",
+    "lesion_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    },
+    "logits": [
+      -1.5490258932113647,
+      -0.06923329830169678,
+      0.8061336278915405,
+      0.40097832679748535,
+      0.47542425990104675
+    ],
+    "normalized_entropy": 0.8959472324383138,
+    "predicted": 2,
+    "probabilities": [
+      0.03275198116898537,
+      0.14384783804416656,
+      0.3451996445655823,
+      0.23020440340042114,
+      0.2479962408542633
+    ],
+    "probability_margin": 0.09720340371131897,
+    "quality": {
+      "brightness_proxy": 0.30889075994491577,
+      "contrast_proxy": 0.20400327444076538,
+      "focus_proxy": 0.0012010314967483282,
+      "quality_proxy_score": 0.35563982774619946
+    },
+    "record_key": "official_train:IDRiD_375",
+    "referable_predicted": 1,
+    "referable_probability": 0.8234002888202667,
+    "structure_evidence": {
+      "availability": "not_run_for_v1_baseline",
+      "separate_from_grade": true
+    }
+  }
+]

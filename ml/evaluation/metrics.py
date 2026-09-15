@@ -7,6 +7,12 @@ from typing import Any
 
 import numpy as np
 
+from ml.clinical_rules import (
+    REFERABLE_PROBABILITY_THRESHOLD,
+    is_referable_probability,
+    referable_probability as calculate_referable_probability,
+)
+
 
 GRADE_LABELS = ["No DR", "Mild", "Moderate", "Severe", "Proliferative DR"]
 
@@ -86,8 +92,14 @@ def classification_metrics(actual_labels: list[int] | np.ndarray, probabilities:
         metrics = _binary_metrics(binary_actual, binary_predicted)
         per_class[label] = {key: value for key, value in metrics.items() if key in {"sensitivity", "specificity", "precision", "recall", "f1", "support"}}
     referable_actual = np.isin(actual, referable_grades).astype(int)
-    referable_probability = probabilities_array[:, list(referable_grades)].sum(axis=1)
-    referable_predicted = (referable_probability >= 0.5).astype(int)
+    referable_probability = np.asarray([
+        calculate_referable_probability(row.tolist(), referable_grades)
+        for row in probabilities_array
+    ], dtype=float)
+    referable_predicted = np.asarray([
+        int(is_referable_probability(row.tolist(), referable_grades, REFERABLE_PROBABILITY_THRESHOLD))
+        for row in probabilities_array
+    ], dtype=int)
     referable = _binary_metrics(referable_actual, referable_predicted)
     referable["roc_auc"] = _binary_roc_auc(referable_actual, referable_probability)
     return {

@@ -1,0 +1,54 @@
+{
+  "note": "Synthetic state and failure/fallback checks are recorded separately; no missing output is treated as a successful prediction.",
+  "real_image_rows": [
+    {
+      "case_id": "aptos_png_grade_0_quality_edge",
+      "risk_flags": [
+        {
+          "code": "low_attention_evidence_agreement",
+          "reason": "Classifier attention has low overlap with supported lesion evidence.",
+          "severity": "high"
+        },
+        {
+          "code": "explanation_stability_not_run",
+          "reason": "Explanation stability testing was not run for this real-time request.",
+          "severity": "medium"
+        },
+        {
+          "code": "ood_not_available",
+          "reason": "No authorized reference distribution is configured for OOD monitoring.",
+          "severity": "medium"
+        }
+      ],
+      "trust_category": "UNRELIABLE"
+    },
+    {
+      "case_id": "idrid_jpeg_grade_0_gradable",
+      "risk_flags": [
+        {
+          "code": "low_attention_evidence_agreement",
+          "reason": "Classifier attention has low overlap with supported lesion evidence.",
+          "severity": "high"
+        },
+        {
+          "code": "explanation_stability_not_run",
+          "reason": "Explanation stability testing was not run for this real-time request.",
+          "severity": "medium"
+        },
+        {
+          "code": "ood_not_available",
+          "reason": "No authorized reference distribution is configured for OOD monitoring.",
+          "severity": "medium"
+        }
+      ],
+      "trust_category": "UNRELIABLE"
+    }
+  ],
+  "real_image_state_counts": {
+    "INSUFFICIENT_EVIDENCE": 0,
+    "REVIEW_RECOMMENDED": 0,
+    "TRUSTED": 0,
+    "UNRELIABLE": 2
+  },
+  "status": "PASS"
+}

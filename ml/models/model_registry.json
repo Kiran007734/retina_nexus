@@ -1,0 +1,218 @@
+{
+  "backup_model_status": "NO_COMPATIBLE_DR_BACKUP_INSTALLED",
+  "clinical_validation_claim": false,
+  "generated_at_utc": "2026-09-14T06:01:04.975179+00:00",
+  "models": [
+    {
+      "architecture": "efficientnet_b0",
+      "checkpoint": "ml/weights/classifiers/aptos2019/efficientnet-b0-aptos2019-20260830-v1/checkpoint_best.pt",
+      "dataset": "APTOS 2019",
+      "expected_sha256": "ae6bb62ced2a108abc1a862870e64985b368b84e69bd8c8c8aa9912754d1a70b",
+      "limitations": [
+        "Messidor labels are not independently proven official clinical ground truth.",
+        "External evaluation is descriptive and does not establish clinical validation.",
+        "No clinical confidence calibration claim."
+      ],
+      "name": "APTOS EfficientNet-B0",
+      "production_status": "EXISTING_BEHAVIOR_PRESERVED",
+      "role": "PRIMARY_LEGACY_PRODUCTION_PATH",
+      "sha256": "ae6bb62ced2a108abc1a862870e64985b368b84e69bd8c8c8aa9912754d1a70b",
+      "sha_verified": true,
+      "source": "RETINA-NEXUS trained checkpoint",
+      "task": "five-class diabetic-retinopathy severity",
+      "training_status": "CHECKPOINT_PRESENT",
+      "validation": {
+        "external_dataset": "Messidor-2 authoritative original images with local/adjudicated labels",
+        "threshold_0.20": {
+          "f1": 0.5659301496792587,
+          "false_negative": 60,
+          "false_positive": 549,
+          "pr_auc": 0.6750497124694614,
+          "precision": 0.41966173361522197,
+          "recall": 0.8687089715536105,
+          "roc_auc": 0.8185252627265757,
+          "rule": "referable_probability = P(2)+P(3)+P(4); referable = referable_probability >= threshold; severity grade = argmax(P0..P4).",
+          "sample_count": 1744,
+          "sensitivity": 0.8687089715536105,
+          "specificity": 0.5734265734265734,
+          "threshold": 0.2,
+          "true_negative": 738,
+          "true_positive": 397
+        },
+        "threshold_0.50": {
+          "f1": 0.5981735159817351,
+          "false_negative": 195,
+          "false_positive": 157,
+          "pr_auc": 0.6750497124694614,
+          "precision": 0.6252983293556086,
+          "recall": 0.5733041575492341,
+          "roc_auc": 0.8185252627265757,
+          "rule": "referable_probability = P(2)+P(3)+P(4); referable = referable_probability >= threshold; severity grade = argmax(P0..P4).",
+          "sample_count": 1744,
+          "sensitivity": 0.5733041575492341,
+          "specificity": 0.878010878010878,
+          "threshold": 0.5,
+          "true_negative": 1130,
+          "true_positive": 262
+        }
+      }
+    },
+    {
+      "architecture": "EfficientNet-B0 multi-head",
+      "checkpoint": "ml/weights/classifiers/idrid/research/final/checkpoint_best.pt",
+      "dataset": "IDRiD development",
+      "expected_sha256": "97bd6a9933ca3d09c1e41bb16ba7452b5988eb1818fc7f1c87054471c4c33049",
+      "limitations": [
+        "Messidor evaluation is not clinical validation.",
+        "Official IDRiD test images remain outside this program.",
+        "Research threshold is not a production threshold."
+      ],
+      "name": "IDRiD V3 EfficientNet-B0",
+      "production_status": "NOT_PROMOTED",
+      "referable_rule": "P(2)+P(3)+P(4) >= 0.20",
+      "role": "PRIMARY_RESEARCH_ONLY",
+      "sha256": "97bd6a9933ca3d09c1e41bb16ba7452b5988eb1818fc7f1c87054471c4c33049",
+      "sha_verified": true,
+      "source": "RETINA-NEXUS research checkpoint",
+      "task": "five-class severity and research referable DR",
+      "training_status": "FROZEN_RESEARCH_CANDIDATE",
+      "validation": {
+        "development_oof": {
+          "f1": 0.9171717171717172,
+          "fn": 27,
+          "fp": 14,
+          "pr_auc": 0.9810133633928475,
+          "precision": 0.941908713692946,
+          "roc_auc": 0.9639193949440531,
+          "sensitivity": 0.8937007874015748,
+          "specificity": 0.9078947368421053,
+          "threshold": 0.2,
+          "tn": 138,
+          "tp": 227
+        },
+        "external_descriptive_threshold_0.20": {
+          "f1": 0.5710382513661202,
+          "fn": 248,
+          "fp": 66,
+          "pr_auc": 0.7129784661414245,
+          "precision": 0.76,
+          "recall": 0.4573304157549234,
+          "roc_auc": 0.8390843292375022,
+          "sensitivity": 0.4573304157549234,
+          "specificity": 0.9487179487179487,
+          "support": 457,
+          "threshold": 0.2,
+          "tn": 1221,
+          "tp": 209
+        },
+        "external_descriptive_threshold_0.50": {
+          "f1": 0.4183673469387755,
+          "fn": 334,
+          "fp": 8,
+          "pr_auc": 0.7129784661414245,
+          "precision": 0.9389312977099237,
+          "recall": 0.26914660831509846,
+          "roc_auc": 0.8390843292375022,
+          "sensitivity": 0.26914660831509846,
+          "specificity": 0.9937839937839937,
+          "support": 457,
+          "threshold": 0.5,
+          "tn": 1279,
+          "tp": 123
+        }
+      }
+    },
+    {
+      "architecture": "RRWNet (R2-V2 bv variant)",
+      "checkpoint": "ml/weights/vessel_segmentation/r2-v2-bv-2025/bv.safetensors",
+      "dataset": "DRIVE training split with manual vessel masks",
+      "expected_sha256": "ea219b13b03984b8d454f999343c5bda1a8a7cb8586aeb3639a29814cab2330a",
+      "limitations": [
+        "DRIVE test images have no manual vessel masks in the available copy.",
+        "CPU inference is a runtime bottleneck.",
+        "Engineering segmentation evaluation is not clinical validation."
+      ],
+      "name": "R2-V2 RRWNet vessel segmentor",
+      "production_status": "SUPPORTING_EVIDENCE_ONLY",
+      "role": "PRIMARY_SUPPORTING_EVIDENCE",
+      "sha256": "ea219b13b03984b8d454f999343c5bda1a8a7cb8586aeb3639a29814cab2330a",
+      "sha_verified": true,
+      "source": "https://huggingface.co/j-morano/R2-V2",
+      "task": "retinal vessel segmentation",
+      "training_status": "PRETRAINED_INFERENCE_ONLY",
+      "validation": {
+        "mean": {
+          "dice": 0.7175513678704364,
+          "f1": 0.7175513678704364,
+          "iou": 0.5624354384306053,
+          "pixel_accuracy": 0.9404486124434829,
+          "precision": 0.8822421578662646,
+          "recall": 0.609811322821545,
+          "sensitivity": 0.609811322821545,
+          "specificity": 0.9885151276684898
+        },
+        "micro_confusion": {
+          "evaluated_pixels": 4541006,
+          "false_negative": 224742,
+          "false_positive": 45692,
+          "ground_truth_vessel_pixels": 569415,
+          "predicted_vessel_pixels": 390365,
+          "true_negative": 3925899,
+          "true_positive": 344673
+        },
+        "sample_count": 20,
+        "std": {
+          "dice": 0.05819514312984749,
+          "f1": 0.0581951431298475,
+          "iou": 0.06446283258519549,
+          "pixel_accuracy": 0.01339115467219539,
+          "precision": 0.02882117693968193,
+          "recall": 0.07671631005896515,
+          "sensitivity": 0.07671631005896515,
+          "specificity": 0.0029437831634069288
+        }
+      }
+    },
+    {
+      "architecture": "U-Net with SE-ResNeXt-50 32x4d encoder",
+      "checkpoint": "ml/weights/lesion_segmentation/fundus-lesions-unet-seresnext50-all-v1/model.safetensors",
+      "dataset": "External mixed fundus lesion training provenance",
+      "limitations": [
+        "Evidence cannot rewrite the primary severity grade.",
+        "Not clinically validated by RETINA-NEXUS."
+      ],
+      "name": "Fundus lesions primary",
+      "production_status": "SUPPORTING_EVIDENCE_ONLY",
+      "role": "PRIMARY_SUPPORTING_EVIDENCE",
+      "sha256": "a7a7cb45b92328f7c9a8e581eec3944fd435d37fae8cbf340b1319c5f987c6d2",
+      "source": "ClementP/fundus-lesions-toolkit",
+      "task": "lesion segmentation/evidence",
+      "validation": {
+        "status": "available_in_pipeline; no new master-population clinical validation run"
+      }
+    },
+    {
+      "architecture": "RETFound candidate; compatible classifier head not installed",
+      "checkpoint": null,
+      "dataset": "External pretraining provenance not integrated",
+      "limitations": [
+        "No checkpoint or compatible five-class DR head is installed; no backup disagreement is claimed."
+      ],
+      "name": "Independent DR backup candidate inventory",
+      "production_status": "NOT_AVAILABLE",
+      "role": "RESEARCH_ONLY_NOT_ADOPTED",
+      "sha256": null,
+      "source": "https://github.com/rmaphoh/RETFound",
+      "task": "independent DR backup research",
+      "training_status": "NOT_DOWNLOADED",
+      "validation": {}
+    }
+  ],
+  "notes": [
+    "No model weights were changed by this master program.",
+    "No independent compatible DR backup checkpoint was promoted.",
+    "R2-V2 is a supporting vessel model, not an independent DR severity backup."
+  ],
+  "production_promotion_changed": false,
+  "schema_version": "retina-nexus-central-model-registry-v1"
+}

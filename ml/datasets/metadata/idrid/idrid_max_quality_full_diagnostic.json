@@ -1,0 +1,2103 @@
+{
+  "architecture": {
+    "backbone": "efficientnet_b0",
+    "device": "cpu",
+    "model_config": {
+      "backbone": "efficientnet_b0",
+      "input_size": 384,
+      "num_classes": 5,
+      "ordinal_mode": false,
+      "retinal_field_crop": true
+    },
+    "model_eval_mode": true,
+    "ordinal_mode": false,
+    "parameter_count": 4019077,
+    "runtime_class": "HierarchicalDRClassifier"
+  },
+  "checkpoint": {
+    "actual_sha256": "075d7e41714cac28cfd0b60eba39fc50b81f7a8788d743004cd9dda702e1cbab",
+    "configured_path": "C:\\Users\\kiran\\Downloads\\retina_nexus\\ml\\weights\\classifiers\\idrid\\research\\max_quality\\final\\checkpoint_best.pt",
+    "filename": "checkpoint_best.pt",
+    "load_state_dict_missing_keys": [],
+    "load_state_dict_unexpected_keys": [],
+    "manifest_checksum_matches_actual": true,
+    "manifest_sha256": "075d7e41714cac28cfd0b60eba39fc50b81f7a8788d743004cd9dda702e1cbab",
+    "model_version": "idrid-max-quality-20260912-v1",
+    "settings_checksum_matches_actual": null,
+    "settings_sha256": null,
+    "state_dict_key_count": 364,
+    "weights_loaded": true
+  },
+  "classifier": {
+    "class_mapping": {
+      "0": "No DR",
+      "1": "Mild",
+      "2": "Moderate",
+      "3": "Severe",
+      "4": "Proliferative DR"
+    },
+    "predicted_class_argmax_before_business_logic": 0,
+    "prediction_service_payload": {
+      "backbone": "efficientnet_b0",
+      "hierarchical_probabilities": {
+        "dr_vs_no_dr": {
+          "dr": 0.034166,
+          "non_dr": 0.965834
+        },
+        "referable_vs_non_referable": {
+          "non_referable": 0.985905,
+          "referable": 0.014095
+        }
+      },
+      "model_name": "RETINA-NEXUS DR classifier",
+      "model_version": "idrid-max-quality-20260912-v1",
+      "ordinal_mode": false,
+      "predicted_grade": 0,
+      "predicted_grade_label": "No DR",
+      "probabilities": {
+        "Mild": 0.150915,
+        "Moderate": 0.020916,
+        "No DR": 0.805575,
+        "Proliferative DR": 0.01354,
+        "Severe": 0.009054
+      },
+      "raw_confidence": 0.805575,
+      "referable_dr": false,
+      "referable_mapping": {
+        "name": "grade_2_or_worse",
+        "referable_grades": [
+          2,
+          3,
+          4
+        ]
+      },
+      "referable_probability": 0.04351
+    },
+    "raw_severity_logits": [
+      2.8119401931762695,
+      1.137099266052246,
+      -0.8391131162643433,
+      -1.6764001846313477,
+      -1.2739754915237427
+    ],
+    "referable_boolean": false,
+    "referable_formula": "sum(probabilities[index] for index in referable_grades)",
+    "referable_grades": [
+      2,
+      3,
+      4
+    ],
+    "referable_probability": 0.04351,
+    "severity_probability_vector_class_order": [
+      "No DR",
+      "Mild",
+      "Moderate",
+      "Severe",
+      "Proliferative DR"
+    ],
+    "softmax_probabilities": [
+      0.8055753111839294,
+      0.15091484785079956,
+      0.020915767177939415,
+      0.009054087102413177,
+      0.013539903797209263
+    ],
+    "softmax_probability_sum": 0.9999999171122909,
+    "stage1_logits": [
+      1.4813414812088013,
+      -1.860408902168274
+    ],
+    "stage1_probabilities": [
+      0.9658336639404297,
+      0.034166350960731506
+    ],
+    "stage2_logits": [
+      2.0980288982391357,
+      -2.149698257446289
+    ],
+    "stage2_probabilities": [
+      0.98590487241745,
+      0.01409517414867878
+    ]
+  },
+  "diagnostic": {
+    "clinical_correctness_claim": false,
+    "command": "scripts/diagnose_inference.py",
+    "database_written": false,
+    "model_artifacts_written": false,
+    "read_only": true,
+    "timestamp_utc": "2026-09-12T15:52:34Z"
+  },
+  "evidence": {
+    "availability": {
+      "dataset_support": {
+        "drive": {
+          "vessel_segmentation": {
+            "annotation_file_count": 60,
+            "reason": "DRIVE image and vessel-mask files were found.",
+            "status": "available"
+          }
+        },
+        "idrid": {
+          "cotton_wool_spot_detection": {
+            "reason": "No compatible IDRiD annotation was found for cotton_wool_spot_detection; annotations were not fabricated.",
+            "status": "unsupported"
+          },
+          "exudate_segmentation": {
+            "reason": "No compatible IDRiD annotation was found for exudate_segmentation; annotations were not fabricated.",
+            "status": "unsupported"
+          },
+          "hemorrhage_detection": {
+            "reason": "No compatible IDRiD annotation was found for hemorrhage_detection; annotations were not fabricated.",
+            "status": "unsupported"
+          },
+          "microaneurysm_detection": {
+            "reason": "No compatible IDRiD annotation was found for microaneurysm_detection; annotations were not fabricated.",
+            "status": "unsupported"
+          },
+          "neovascularization_detection": {
+            "reason": "No compatible IDRiD annotation was found for neovascularization_detection; annotations were not fabricated.",
+            "status": "unsupported"
+          }
+        }
+      },
+      "evidence_map_available": true,
+      "image_metadata": {
+        "channels": 3,
+        "format": "JPEG",
+        "height": 2848,
+        "width": 4288,
+        "working_height": 510,
+        "working_width": 768
+      },
+      "module_count": 8,
+      "modules": {
+        "cotton_wool_spot_detection": {
+          "adapter_name": "fundus-lesions-toolkit-unet-seresnext50",
+          "adapter_version": "fundus-lesions-unet-seresnext50-all-v1",
+          "confidence": 0.0,
+          "count": 0,
+          "implementation": "fundus-lesions-toolkit-unet-seresnext50",
+          "issues": [
+            {
+              "message": "Pretrained research model output is supporting evidence; it is not a clinical diagnosis or validated production claim.",
+              "type": "research_model"
+            }
+          ],
+          "model_version": "fundus-lesions-unet-seresnext50-all-v1",
+          "status": "model_inference",
+          "supported": true
+        },
+        "exudate_segmentation": {
+          "adapter_name": "fundus-lesions-toolkit-unet-seresnext50",
+          "adapter_version": "fundus-lesions-unet-seresnext50-all-v1",
+          "confidence": 0.0,
+          "count": 0,
+          "implementation": "fundus-lesions-toolkit-unet-seresnext50",
+          "issues": [
+            {
+              "message": "Pretrained research model output is supporting evidence; it is not a clinical diagnosis or validated production claim.",
+              "type": "research_model"
+            }
+          ],
+          "model_version": "fundus-lesions-unet-seresnext50-all-v1",
+          "status": "model_inference",
+          "supported": true
+        },
+        "fovea_localization": {
+          "adapter_name": null,
+          "adapter_version": null,
+          "confidence": 0.1,
+          "count": null,
+          "implementation": "optic_disc_relative_heuristic",
+          "issues": [
+            {
+              "message": "Approximate anatomical position only; not a validated fovea detector.",
+              "type": "approximation_only"
+            }
+          ],
+          "model_version": null,
+          "status": "approximate",
+          "supported": true
+        },
+        "hemorrhage_detection": {
+          "adapter_name": "fundus-lesions-toolkit-unet-seresnext50",
+          "adapter_version": "fundus-lesions-unet-seresnext50-all-v1",
+          "confidence": 0.9522,
+          "count": 2,
+          "implementation": "fundus-lesions-toolkit-unet-seresnext50",
+          "issues": [
+            {
+              "message": "Pretrained research model output is supporting evidence; it is not a clinical diagnosis or validated production claim.",
+              "type": "research_model"
+            }
+          ],
+          "model_version": "fundus-lesions-unet-seresnext50-all-v1",
+          "status": "model_inference",
+          "supported": true
+        },
+        "microaneurysm_detection": {
+          "adapter_name": "fundus-lesions-toolkit-unet-seresnext50",
+          "adapter_version": "fundus-lesions-unet-seresnext50-all-v1",
+          "confidence": 0.8937,
+          "count": 2,
+          "implementation": "fundus-lesions-toolkit-unet-seresnext50",
+          "issues": [
+            {
+              "message": "Pretrained research model output is supporting evidence; it is not a clinical diagnosis or validated production claim.",
+              "type": "research_model"
+            }
+          ],
+          "model_version": "fundus-lesions-unet-seresnext50-all-v1",
+          "status": "model_inference",
+          "supported": true
+        },
+        "neovascularization_detection": {
+          "adapter_name": null,
+          "adapter_version": null,
+          "confidence": null,
+          "count": null,
+          "implementation": "experimental_interface_only",
+          "issues": [
+            {
+              "message": "Advanced experimental module interface is present, but no validated model artifact or compatible annotation is configured.",
+              "type": "unsupported"
+            }
+          ],
+          "model_version": null,
+          "status": "unsupported",
+          "supported": false
+        },
+        "optic_disc_localization": {
+          "adapter_name": null,
+          "adapter_version": null,
+          "confidence": 0.5975,
+          "count": null,
+          "implementation": "classical_cv_baseline",
+          "issues": [
+            {
+              "message": "Bright-region localization baseline; not clinically validated.",
+              "type": "experimental_baseline"
+            }
+          ],
+          "model_version": null,
+          "status": "experimental_heuristic",
+          "supported": true
+        },
+        "vessel_segmentation": {
+          "adapter_name": "R2-V2 RRWNet bv vessel segmentor",
+          "adapter_version": "r2-v2-bv-2025",
+          "confidence": 0.8174,
+          "count": 132,
+          "implementation": "R2-V2 RRWNet bv vessel segmentor",
+          "issues": [
+            {
+              "message": "Real neural-network vessel segmentation output; measurements are engineering estimates and are not clinically validated biomarkers.",
+              "type": "engineering_evidence"
+            }
+          ],
+          "model_version": "r2-v2-bv-2025",
+          "status": "model_inference",
+          "supported": true
+        }
+      },
+      "stage_timings_ms": {
+        "lesion_inference_ms": 2794.303,
+        "structure_analysis_ms": 26.973,
+        "vessel_inference_ms": 43497.68
+      },
+      "status": "completed"
+    },
+    "changes_classifier_grade": false,
+    "changes_master_api_prediction": false,
+    "error": null,
+    "role": "supporting evidence; not a classifier override"
+  },
+  "explainability": {
+    "availability": {
+      "attention_lesion_agreement": {
+        "metrics": {
+          "attention_coverage": 0.069569,
+          "attention_in_lesion": 0.0,
+          "dice": 0.0,
+          "intersection_over_union": 0.0,
+          "lesion_coverage": 0.000556,
+          "lesion_in_attention": 0.0
+        },
+        "note": "Engineering explainability metric only; overlap does not prove clinical causality.",
+        "reason": "Attention and supported lesion regions were compared at the working image resolution.",
+        "score": 0.0,
+        "status": "LOW AGREEMENT"
+      },
+      "counterfactual": {
+        "experimental": true,
+        "reason": "Counterfactual analysis is disabled by default because it adds another inference pass.",
+        "status": "SKIPPED"
+      },
+      "explanation_stability": {
+        "grad_cam_stability": null,
+        "prediction_stability": null,
+        "reason": "Stability perturbations are disabled for real-time mode. Set run_stability=true or enable EXPLAINABILITY_STABILITY_ENABLED.",
+        "status": "SKIPPED",
+        "variants": []
+      },
+      "grad_cam": {
+        "heatmap_available": true,
+        "map_height": 2848,
+        "map_width": 4288,
+        "normalized_attention_map_available": true,
+        "overlay_available": true,
+        "target_class": 0,
+        "target_layer": "feature_extractor_output"
+      },
+      "model_version": "idrid-max-quality-20260912-v1",
+      "predicted_class": 0,
+      "predicted_class_label": "No DR",
+      "status": "AVAILABLE"
+    },
+    "changes_classifier_grade": false,
+    "error": null,
+    "role": "model-linked explanation and engineering agreement diagnostic"
+  },
+  "final_projections": {
+    "frontend_results_page_values": {
+      "confidence": 0.805575,
+      "dr_grade_level": "Level 0 of 4",
+      "dr_severity": "No DR",
+      "model_version": "idrid-max-quality-20260912-v1",
+      "quality_blocked": false,
+      "recommended_action": "HUMAN_REVIEW_REQUIRED",
+      "referable_dr": "No",
+      "referable_probability": 0.04351,
+      "trust_category": "REVIEW_RECOMMENDED",
+      "trust_score": 0.519854
+    },
+    "master_api_response_values": {
+      "classification": {
+        "backbone": "efficientnet_b0",
+        "hierarchical_probabilities": {
+          "dr_vs_no_dr": {
+            "dr": 0.034166,
+            "non_dr": 0.965834
+          },
+          "referable_vs_non_referable": {
+            "non_referable": 0.985905,
+            "referable": 0.014095
+          }
+        },
+        "model_name": "RETINA-NEXUS DR classifier",
+        "model_version": "idrid-max-quality-20260912-v1",
+        "ordinal_mode": false,
+        "predicted_grade": 0,
+        "predicted_grade_label": "No DR",
+        "probabilities": {
+          "Mild": 0.150915,
+          "Moderate": 0.020916,
+          "No DR": 0.805575,
+          "Proliferative DR": 0.01354,
+          "Severe": 0.009054
+        },
+        "raw_confidence": 0.805575,
+        "referable_dr": false,
+        "referable_mapping": {
+          "name": "grade_2_or_worse",
+          "referable_grades": [
+            2,
+            3,
+            4
+          ]
+        },
+        "referable_probability": 0.04351
+      },
+      "forensic_classifier_output_when_quality_blocked": null,
+      "model_versions": {
+        "confidence_calibration": "temperature-scaling-unfitted",
+        "dr_backbone": "efficientnet_b0",
+        "dr_classifier": "idrid-max-quality-20260912-v1",
+        "explainability": {
+          "attention_lesion_agreement": {
+            "metrics": {
+              "attention_coverage": 0.069569,
+              "attention_in_lesion": 0.0,
+              "dice": 0.0,
+              "intersection_over_union": 0.0,
+              "lesion_coverage": 0.000556,
+              "lesion_in_attention": 0.0
+            },
+            "note": "Engineering explainability metric only; overlap does not prove clinical causality.",
+            "reason": "Attention and supported lesion regions were compared at the working image resolution.",
+            "score": 0.0,
+            "status": "LOW AGREEMENT"
+          },
+          "counterfactual": {
+            "experimental": true,
+            "reason": "Counterfactual analysis is disabled by default because it adds another inference pass.",
+            "status": "SKIPPED"
+          },
+          "explanation_stability": {
+            "grad_cam_stability": null,
+            "prediction_stability": null,
+            "reason": "Stability perturbations are disabled for real-time mode. Set run_stability=true or enable EXPLAINABILITY_STABILITY_ENABLED.",
+            "status": "SKIPPED",
+            "variants": []
+          },
+          "grad_cam": {
+            "heatmap_available": true,
+            "map_height": 2848,
+            "map_width": 4288,
+            "normalized_attention_map_available": true,
+            "overlay_available": true,
+            "target_class": 0,
+            "target_layer": "feature_extractor_output"
+          },
+          "model_version": "idrid-max-quality-20260912-v1",
+          "predicted_class": 0,
+          "predicted_class_label": "No DR",
+          "status": "AVAILABLE"
+        },
+        "optional_evidence": {
+          "dataset_support": {
+            "drive": {
+              "vessel_segmentation": {
+                "annotation_file_count": 60,
+                "reason": "DRIVE image and vessel-mask files were found.",
+                "status": "available"
+              }
+            },
+            "idrid": {
+              "cotton_wool_spot_detection": {
+                "reason": "No compatible IDRiD annotation was found for cotton_wool_spot_detection; annotations were not fabricated.",
+                "status": "unsupported"
+              },
+              "exudate_segmentation": {
+                "reason": "No compatible IDRiD annotation was found for exudate_segmentation; annotations were not fabricated.",
+                "status": "unsupported"
+              },
+              "hemorrhage_detection": {
+                "reason": "No compatible IDRiD annotation was found for hemorrhage_detection; annotations were not fabricated.",
+                "status": "unsupported"
+              },
+              "microaneurysm_detection": {
+                "reason": "No compatible IDRiD annotation was found for microaneurysm_detection; annotations were not fabricated.",
+                "status": "unsupported"
+              },
+              "neovascularization_detection": {
+                "reason": "No compatible IDRiD annotation was found for neovascularization_detection; annotations were not fabricated.",
+                "status": "unsupported"
+              }
+            }
+          },
+          "evidence_map_available": true,
+          "image_metadata": {
+            "channels": 3,
+            "format": "JPEG",
+            "height": 2848,
+            "width": 4288,
+            "working_height": 510,
+            "working_width": 768
+          },
+          "module_count": 8,
+          "modules": {
+            "cotton_wool_spot_detection": {
+              "adapter_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "adapter_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "confidence": 0.0,
+              "count": 0,
+              "implementation": "fundus-lesions-toolkit-unet-seresnext50",
+              "issues": [
+                {
+                  "message": "Pretrained research model output is supporting evidence; it is not a clinical diagnosis or validated production claim.",
+                  "type": "research_model"
+                }
+              ],
+              "model_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "status": "model_inference",
+              "supported": true
+            },
+            "exudate_segmentation": {
+              "adapter_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "adapter_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "confidence": 0.0,
+              "count": 0,
+              "implementation": "fundus-lesions-toolkit-unet-seresnext50",
+              "issues": [
+                {
+                  "message": "Pretrained research model output is supporting evidence; it is not a clinical diagnosis or validated production claim.",
+                  "type": "research_model"
+                }
+              ],
+              "model_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "status": "model_inference",
+              "supported": true
+            },
+            "fovea_localization": {
+              "adapter_name": null,
+              "adapter_version": null,
+              "confidence": 0.1,
+              "count": null,
+              "implementation": "optic_disc_relative_heuristic",
+              "issues": [
+                {
+                  "message": "Approximate anatomical position only; not a validated fovea detector.",
+                  "type": "approximation_only"
+                }
+              ],
+              "model_version": null,
+              "status": "approximate",
+              "supported": true
+            },
+            "hemorrhage_detection": {
+              "adapter_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "adapter_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "confidence": 0.9522,
+              "count": 2,
+              "implementation": "fundus-lesions-toolkit-unet-seresnext50",
+              "issues": [
+                {
+                  "message": "Pretrained research model output is supporting evidence; it is not a clinical diagnosis or validated production claim.",
+                  "type": "research_model"
+                }
+              ],
+              "model_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "status": "model_inference",
+              "supported": true
+            },
+            "microaneurysm_detection": {
+              "adapter_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "adapter_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "confidence": 0.8937,
+              "count": 2,
+              "implementation": "fundus-lesions-toolkit-unet-seresnext50",
+              "issues": [
+                {
+                  "message": "Pretrained research model output is supporting evidence; it is not a clinical diagnosis or validated production claim.",
+                  "type": "research_model"
+                }
+              ],
+              "model_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "status": "model_inference",
+              "supported": true
+            },
+            "neovascularization_detection": {
+              "adapter_name": null,
+              "adapter_version": null,
+              "confidence": null,
+              "count": null,
+              "implementation": "experimental_interface_only",
+              "issues": [
+                {
+                  "message": "Advanced experimental module interface is present, but no validated model artifact or compatible annotation is configured.",
+                  "type": "unsupported"
+                }
+              ],
+              "model_version": null,
+              "status": "unsupported",
+              "supported": false
+            },
+            "optic_disc_localization": {
+              "adapter_name": null,
+              "adapter_version": null,
+              "confidence": 0.5975,
+              "count": null,
+              "implementation": "classical_cv_baseline",
+              "issues": [
+                {
+                  "message": "Bright-region localization baseline; not clinically validated.",
+                  "type": "experimental_baseline"
+                }
+              ],
+              "model_version": null,
+              "status": "experimental_heuristic",
+              "supported": true
+            },
+            "vessel_segmentation": {
+              "adapter_name": "R2-V2 RRWNet bv vessel segmentor",
+              "adapter_version": "r2-v2-bv-2025",
+              "confidence": 0.8174,
+              "count": 132,
+              "implementation": "R2-V2 RRWNet bv vessel segmentor",
+              "issues": [
+                {
+                  "message": "Real neural-network vessel segmentation output; measurements are engineering estimates and are not clinically validated biomarkers.",
+                  "type": "engineering_evidence"
+                }
+              ],
+              "model_version": "r2-v2-bv-2025",
+              "status": "model_inference",
+              "supported": true
+            }
+          },
+          "stage_timings_ms": {
+            "lesion_inference_ms": 2794.303,
+            "structure_analysis_ms": 26.973,
+            "vessel_inference_ms": 43497.68
+          },
+          "status": "completed"
+        },
+        "preprocessing": "image-trust-gate-v1",
+        "retinaguard": "retinaguard-v3-graceful-degradation"
+      },
+      "quality_blocked": false,
+      "retinaguard": {
+        "assessment_status": "COMPLETED_LIMITED",
+        "available_signals": {
+          "attention_lesion_agreement": "UNAVAILABLE",
+          "confidence": "AVAILABLE",
+          "explanation_stability": "UNAVAILABLE",
+          "image_quality": "AVAILABLE",
+          "lesion_evidence": "NOT_AVAILABLE",
+          "model_agreement": "NOT_AVAILABLE",
+          "ood": "NOT_AVAILABLE",
+          "uncertainty": "AVAILABLE"
+        },
+        "calibration": {
+          "calibrated_confidence": 0.805575,
+          "fitted": false,
+          "method": "temperature_scaling",
+          "note": "Fitted temperature scaling applied to logits.",
+          "probabilities": {
+            "Mild": 0.150915,
+            "Moderate": 0.020916,
+            "No DR": 0.805575,
+            "Proliferative DR": 0.01354,
+            "Severe": 0.009054
+          },
+          "temperature": 1.0,
+          "version": "temperature-scaling-unfitted"
+        },
+        "confidence": {
+          "calibrated": 0.805575,
+          "raw": 0.805575
+        },
+        "configuration": {
+          "assessment_status": "COMPLETED_LIMITED",
+          "calibration_version": "temperature-scaling-unfitted",
+          "clinical_validation_claim": false,
+          "critical_signals_missing": [],
+          "decision_policy_version": "retinaguard-state-policy-v3-graceful-degradation",
+          "mc_dropout_enabled": false,
+          "mc_dropout_samples": 8,
+          "missing_signal_score": 0.25,
+          "optional_capability_policy": "graceful_degradation",
+          "optional_signals_unavailable": [
+            "lesion_evidence",
+            "attention_lesion_agreement",
+            "explanation_stability",
+            "model_agreement",
+            "ood"
+          ],
+          "pipeline_failure": null,
+          "safe_action": "PROFESSIONAL_REVIEW_RECOMMENDED",
+          "trusted_threshold": 0.75,
+          "unreliable_threshold": 0.45,
+          "version": "retinaguard-v3-graceful-degradation",
+          "vessel_evidence_policy": "provenance_audit_only; no independent trust-score weight",
+          "weights": {
+            "attention_lesion_agreement": 0.15,
+            "calibrated_confidence": 0.2,
+            "explanation_stability": 0.05,
+            "lesion_evidence": 0.1,
+            "model_agreement": 0.1,
+            "ood": 0.05,
+            "quality": 0.2,
+            "uncertainty": 0.15
+          }
+        },
+        "contributing_factors": [
+          {
+            "contribution": 0.15282,
+            "explanation": "Image Trust Gate quality score.",
+            "factor": "quality",
+            "raw_value": 0.7641,
+            "score": 0.7641,
+            "status": "available",
+            "weight": 0.2
+          },
+          {
+            "contribution": 0.161115,
+            "explanation": "Temperature-scaled classifier confidence.",
+            "factor": "calibrated_confidence",
+            "raw_value": 0.805575,
+            "score": 0.805575,
+            "status": "available",
+            "weight": 0.2
+          },
+          {
+            "contribution": 0.093419,
+            "explanation": "Inverse predictive uncertainty; higher means less uncertainty.",
+            "factor": "uncertainty",
+            "raw_value": 0.6227929999999999,
+            "score": 0.622793,
+            "status": "available",
+            "weight": 0.15
+          },
+          {
+            "contribution": 0.025,
+            "explanation": "Inverse ensemble disagreement; higher means models agree.",
+            "factor": "model_agreement",
+            "raw_value": null,
+            "score": 0.25,
+            "status": "missing_or_not_run",
+            "weight": 0.1
+          },
+          {
+            "contribution": 0.025,
+            "explanation": "Strength of available supporting lesion modules.",
+            "factor": "lesion_evidence",
+            "raw_value": null,
+            "score": 0.25,
+            "status": "missing_or_not_run",
+            "weight": 0.1
+          },
+          {
+            "contribution": 0.0375,
+            "explanation": "Overlap between classifier attention and supported lesion regions.",
+            "factor": "attention_lesion_agreement",
+            "raw_value": null,
+            "score": 0.25,
+            "status": "missing_or_not_run",
+            "weight": 0.15
+          },
+          {
+            "contribution": 0.0125,
+            "explanation": "Combined prediction and Grad-CAM stability when perturbation tests ran.",
+            "factor": "explanation_stability",
+            "raw_value": null,
+            "score": 0.25,
+            "status": "missing_or_not_run",
+            "weight": 0.05
+          },
+          {
+            "contribution": 0.0125,
+            "explanation": "In-distribution score from the configured reference feature distribution.",
+            "factor": "ood",
+            "raw_value": null,
+            "score": 0.25,
+            "status": "missing_or_not_run",
+            "weight": 0.05
+          }
+        ],
+        "decision_trace": {
+          "assessment_status": "COMPLETED_LIMITED",
+          "available_signals": {
+            "attention_lesion_agreement": "UNAVAILABLE",
+            "confidence": "AVAILABLE",
+            "explanation_stability": "UNAVAILABLE",
+            "image_quality": "AVAILABLE",
+            "lesion_evidence": "NOT_AVAILABLE",
+            "model_agreement": "NOT_AVAILABLE",
+            "ood": "NOT_AVAILABLE",
+            "uncertainty": "AVAILABLE"
+          },
+          "critical_signals_missing": [],
+          "decision_policy_version": "retinaguard-state-policy-v3-graceful-degradation",
+          "engine_version": "retinaguard-v3-graceful-degradation",
+          "optional_signals_unavailable": [
+            "lesion_evidence",
+            "attention_lesion_agreement",
+            "explanation_stability",
+            "model_agreement",
+            "ood"
+          ],
+          "pipeline_failure": null,
+          "reasons": [
+            "Attention-lesion agreement has not been calculated from supported evidence.",
+            "Explanation stability testing was not run for this real-time request.",
+            "No authorized reference distribution is configured for OOD monitoring.",
+            "Optional reliability capabilities are unavailable or were not run: lesion_evidence, attention_lesion_agreement, explanation_stability, model_agreement, ood."
+          ],
+          "reliability_state": "REVIEW_RECOMMENDED",
+          "risk_flags": [
+            {
+              "code": "attention_evidence_not_available",
+              "reason": "Attention-lesion agreement has not been calculated from supported evidence.",
+              "severity": "medium"
+            },
+            {
+              "code": "explanation_stability_not_run",
+              "reason": "Explanation stability testing was not run for this real-time request.",
+              "severity": "medium"
+            },
+            {
+              "code": "ood_not_available",
+              "reason": "No authorized reference distribution is configured for OOD monitoring.",
+              "severity": "medium"
+            }
+          ],
+          "safe_action": "PROFESSIONAL_REVIEW_RECOMMENDED"
+        },
+        "evidence_status": "UNAVAILABLE",
+        "explanation_status": "UNAVAILABLE",
+        "image_quality_status": "AVAILABLE",
+        "model_disagreement": {
+          "agreement": null,
+          "disagreement": null,
+          "model_count": 1,
+          "reason": "At least two model predictions are required to measure disagreement.",
+          "severity": "not_applicable",
+          "status": "UNAVAILABLE"
+        },
+        "ood": {
+          "compared_feature_count": 0,
+          "distance": null,
+          "method": "robust_feature_z_score",
+          "per_feature_z": {},
+          "reason": "No authorized reference distribution is configured; OOD detection is not claimed.",
+          "score": null,
+          "status": "UNAVAILABLE",
+          "threshold": 3.0
+        },
+        "ood_status": "UNAVAILABLE",
+        "provenance": {
+          "calibration_version": "temperature-scaling-unfitted",
+          "clinical_validation_claim": false,
+          "engine_version": "retinaguard-v3-graceful-degradation",
+          "evidence_status": "UNAVAILABLE",
+          "explanation_status": "UNAVAILABLE",
+          "note": "RetinaGuard is an engineering reliability assessment. TRUSTED means no configured major warning was detected; it does not mean the prediction is correct.",
+          "ood_method": "robust_feature_z_score",
+          "uncertainty_method": "predictive_entropy+probability_margin"
+        },
+        "reason_summary": [
+          "Attention-lesion agreement has not been calculated from supported evidence.",
+          "Explanation stability testing was not run for this real-time request.",
+          "No authorized reference distribution is configured for OOD monitoring.",
+          "Optional reliability capabilities are unavailable or were not run: lesion_evidence, attention_lesion_agreement, explanation_stability, model_agreement, ood."
+        ],
+        "reasons": [
+          "Attention-lesion agreement has not been calculated from supported evidence.",
+          "Explanation stability testing was not run for this real-time request.",
+          "No authorized reference distribution is configured for OOD monitoring.",
+          "Optional reliability capabilities are unavailable or were not run: lesion_evidence, attention_lesion_agreement, explanation_stability, model_agreement, ood."
+        ],
+        "recommended_action": "Human review is required before relying on automated triage.",
+        "recommended_safe_action": "PROFESSIONAL_REVIEW_RECOMMENDED",
+        "reliability_score": 0.519854,
+        "reliability_state": "REVIEW_RECOMMENDED",
+        "risk_flags": [
+          {
+            "code": "attention_evidence_not_available",
+            "reason": "Attention-lesion agreement has not been calculated from supported evidence.",
+            "severity": "medium"
+          },
+          {
+            "code": "explanation_stability_not_run",
+            "reason": "Explanation stability testing was not run for this real-time request.",
+            "severity": "medium"
+          },
+          {
+            "code": "ood_not_available",
+            "reason": "No authorized reference distribution is configured for OOD monitoring.",
+            "severity": "medium"
+          }
+        ],
+        "signal_snapshot": {
+          "attention_lesion_agreement": null,
+          "calibrated_confidence": 0.805575,
+          "evidence_status": "UNAVAILABLE",
+          "explanation_stability": null,
+          "explanation_status": "UNAVAILABLE",
+          "image_quality_status": "AVAILABLE",
+          "lesion_evidence_status": "NOT_AVAILABLE",
+          "lesion_evidence_strength": null,
+          "ood": {
+            "compared_feature_count": 0,
+            "distance": null,
+            "method": "robust_feature_z_score",
+            "per_feature_z": {},
+            "reason": "No authorized reference distribution is configured; OOD detection is not claimed.",
+            "score": null,
+            "status": "UNAVAILABLE",
+            "threshold": 3.0
+          },
+          "quality_score": 0.7641,
+          "raw_confidence": 0.805575,
+          "uncertainty_score": 0.377207,
+          "vessel_evidence_status": "UNAVAILABLE"
+        },
+        "trust_category": "REVIEW_RECOMMENDED",
+        "trust_score": 0.519854,
+        "uncertainty": {
+          "component_weights": {
+            "entropy": 0.6,
+            "margin": 0.4
+          },
+          "margin_uncertainty": 0.34534,
+          "mc_dropout": {
+            "reason": "Monte Carlo dropout is disabled by default for real-time inference.",
+            "status": "SKIPPED"
+          },
+          "method": "predictive_entropy+probability_margin",
+          "note": "Uncertainty is an engineering estimate; it is not a calibrated probability of model error.",
+          "predictive_entropy": 0.398452,
+          "probability_margin": 0.65466,
+          "score": 0.377207
+        },
+        "warnings": [
+          {
+            "code": "attention_evidence_not_available",
+            "reason": "Attention-lesion agreement has not been calculated from supported evidence.",
+            "severity": "medium"
+          },
+          {
+            "code": "explanation_stability_not_run",
+            "reason": "Explanation stability testing was not run for this real-time request.",
+            "severity": "medium"
+          },
+          {
+            "code": "ood_not_available",
+            "reason": "No authorized reference distribution is configured for OOD monitoring.",
+            "severity": "medium"
+          }
+        ]
+      },
+      "triage": {
+        "note": "Workflow triage recommendation only; not a diagnosis or final clinical decision.",
+        "priority": "high",
+        "reasons": [
+          "Attention-lesion agreement has not been calculated from supported evidence.",
+          "Explanation stability testing was not run for this real-time request.",
+          "No authorized reference distribution is configured for OOD monitoring.",
+          "Optional reliability capabilities are unavailable or were not run: lesion_evidence, attention_lesion_agreement, explanation_stability, model_agreement, ood."
+        ],
+        "recommendation": "HUMAN_REVIEW_REQUIRED",
+        "referable_dr_signal": false,
+        "status": "completed"
+      }
+    },
+    "pdf_report_values": {
+      "confidence": 0.805575,
+      "dr_grade": "No DR",
+      "evidence_status": "UNAVAILABLE",
+      "explanation_status": "UNAVAILABLE",
+      "ood_status": "UNAVAILABLE",
+      "quality_blocked": false,
+      "recommended_action": "HUMAN_REVIEW_REQUIRED",
+      "referable_dr": false,
+      "reliability_state": "REVIEW_RECOMMENDED",
+      "report_source": "backend/app/api/routes/reports.py::_build_payload and _pdf_bytes",
+      "trust_score": 0.519854
+    }
+  },
+  "input_metadata": {
+    "original": {
+      "bands": [
+        "R",
+        "G",
+        "B"
+      ],
+      "byte_count": 407935,
+      "channels": 3,
+      "exif_keys": [
+        "34853",
+        "296",
+        "34665",
+        "274",
+        "306",
+        "531",
+        "282",
+        "283",
+        "59932"
+      ],
+      "format": "JPEG",
+      "height": 2848,
+      "mode": "RGB",
+      "sha256": "991a5e34c20e6480a4adc5c0d53f77e3f18770d01863e85e01d5770be27bd4e8",
+      "source": "uploaded_file",
+      "width": 4288
+    },
+    "prepared": {
+      "bands": [
+        "R",
+        "G",
+        "B"
+      ],
+      "byte_count": 407935,
+      "channels": 3,
+      "exif_keys": [
+        "34853",
+        "296",
+        "34665",
+        "274",
+        "306",
+        "531",
+        "282",
+        "283",
+        "59932"
+      ],
+      "format": "JPEG",
+      "height": 2848,
+      "mode": "RGB",
+      "sha256": "991a5e34c20e6480a4adc5c0d53f77e3f18770d01863e85e01d5770be27bd4e8",
+      "source": "classifier_input_after_quality_gate",
+      "width": 4288
+    },
+    "quality_gate_prepared_input": "original_bytes"
+  },
+  "model_disagreement": {
+    "enriched": {
+      "agreement": null,
+      "disagreement": null,
+      "model_count": 1,
+      "reason": "At least two model predictions are required to measure disagreement.",
+      "severity": "not_applicable",
+      "status": "UNAVAILABLE"
+    },
+    "input_additional_models": [],
+    "primary": {
+      "agreement": null,
+      "disagreement": null,
+      "model_count": 1,
+      "reason": "At least two model predictions are required to measure disagreement.",
+      "severity": "not_applicable",
+      "status": "UNAVAILABLE"
+    }
+  },
+  "preprocessing": {
+    "inference": {
+      "bgr_conversion": "none in classifier; OpenCV BGR is used only inside quality/evidence CV paths",
+      "input_color_conversion": "PIL Image.convert('RGB')",
+      "normalization_mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "normalization_std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "normalized_tensor": {
+        "device": "cpu",
+        "dtype": "torch.float32",
+        "max": 2.248908281326294,
+        "mean": -0.8190391063690186,
+        "min": -2.1179039478302,
+        "per_channel_mean": [
+          -0.05819645896553993,
+          -1.0853537321090698,
+          -1.313567042350769
+        ],
+        "per_channel_std": [
+          1.0067089796066284,
+          0.5616164207458496,
+          0.3510012626647949
+        ],
+        "shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "stage": "after Resize + ToTensor + Normalize",
+        "std": 0.8843907117843628
+      },
+      "pre_normalization_tensor": {
+        "device": "cpu",
+        "dtype": "torch.float32",
+        "max": 1.0,
+        "mean": 0.2650004029273987,
+        "min": 0.0,
+        "per_channel_mean": [
+          0.47167301177978516,
+          0.21288074553012848,
+          0.11044742166996002
+        ],
+        "per_channel_std": [
+          0.2305363416671753,
+          0.12580208480358124,
+          0.07897528260946274
+        ],
+        "shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "stage": "after Resize + ToTensor, before Normalize",
+        "std": 0.21948949992656708
+      },
+      "registered_artifact_retinal_field_crop": true,
+      "resize_or_crop": "RetinalFieldCrop -> Resize((384, 384))",
+      "source": "backend/app/ml/inference/classifier.py::TorchDRClassificationService._load",
+      "transform": {
+        "name": "Compose",
+        "repr": "Compose(\n    <ml.training.retinal_preprocessing.RetinalFieldCrop object at 0x000001BD13A7C210>\n    Resize(size=(384, 384), interpolation=bilinear, max_size=None, antialias=True)\n    ToTensor()\n    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])\n)",
+        "transforms": [
+          {
+            "name": "RetinalFieldCrop"
+          },
+          {
+            "antialias": true,
+            "interpolation": "bilinear",
+            "name": "Resize",
+            "size": [
+              384,
+              384
+            ]
+          },
+          {
+            "name": "ToTensor"
+          },
+          {
+            "mean": [
+              0.485,
+              0.456,
+              0.406
+            ],
+            "name": "Normalize",
+            "std": [
+              0.229,
+              0.224,
+              0.225
+            ]
+          }
+        ]
+      }
+    },
+    "training": {
+      "source": "scripts/train_classifier.py::make_transforms",
+      "train_transform": {
+        "name": "Compose",
+        "repr": "Compose(\n    Resize(size=(384, 384), interpolation=bilinear, max_size=None, antialias=True)\n    RandomHorizontalFlip(p=0.5)\n    RandomRotation(degrees=[-8.0, 8.0], interpolation=nearest, expand=False, fill=0)\n    RandomAffine(degrees=[0.0, 0.0], translate=(0.03, 0.03), scale=(0.95, 1.05))\n    ColorJitter(brightness=(0.88, 1.12), contrast=(0.88, 1.12), saturation=(0.92, 1.08), hue=(-0.02, 0.02))\n    ToTensor()\n    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])\n)",
+        "transforms": [
+          {
+            "antialias": true,
+            "interpolation": "bilinear",
+            "name": "Resize",
+            "size": [
+              384,
+              384
+            ]
+          },
+          {
+            "name": "RandomHorizontalFlip",
+            "p": 0.5
+          },
+          {
+            "degrees": [
+              -8.0,
+              8.0
+            ],
+            "interpolation": "nearest",
+            "name": "RandomRotation"
+          },
+          {
+            "degrees": [
+              0.0,
+              0.0
+            ],
+            "interpolation": "nearest",
+            "name": "RandomAffine",
+            "scale": [
+              0.95,
+              1.05
+            ],
+            "translate": [
+              0.03,
+              0.03
+            ]
+          },
+          {
+            "brightness": [
+              0.88,
+              1.12
+            ],
+            "contrast": [
+              0.88,
+              1.12
+            ],
+            "hue": [
+              -0.02,
+              0.02
+            ],
+            "name": "ColorJitter",
+            "saturation": [
+              0.92,
+              1.08
+            ]
+          },
+          {
+            "name": "ToTensor"
+          },
+          {
+            "mean": [
+              0.485,
+              0.456,
+              0.406
+            ],
+            "name": "Normalize",
+            "std": [
+              0.229,
+              0.224,
+              0.225
+            ]
+          }
+        ]
+      },
+      "validation_transform": {
+        "name": "Compose",
+        "repr": "Compose(\n    Resize(size=(384, 384), interpolation=bilinear, max_size=None, antialias=True)\n    ToTensor()\n    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])\n)",
+        "transforms": [
+          {
+            "antialias": true,
+            "interpolation": "bilinear",
+            "name": "Resize",
+            "size": [
+              384,
+              384
+            ]
+          },
+          {
+            "name": "ToTensor"
+          },
+          {
+            "mean": [
+              0.485,
+              0.456,
+              0.406
+            ],
+            "name": "Normalize",
+            "std": [
+              0.229,
+              0.224,
+              0.225
+            ]
+          }
+        ]
+      }
+    },
+    "training_augmentation_not_used_at_inference": true,
+    "training_validation_matches_inference": true
+  },
+  "provenance": {
+    "classifier_architecture_source": "backend/app/ml/models/classifier.py",
+    "classifier_source": "backend/app/ml/inference/classifier.py",
+    "clinical_validation_claim": false,
+    "dataset_version": null,
+    "evidence_source": "backend/app/ml/evidence/service.py",
+    "explainability_source": "backend/app/ml/explainability/service.py",
+    "frontend_rendering_source": "frontend/src/pages/ResultsPage.tsx",
+    "master_orchestration_source": "backend/app/services/screening_pipeline.py and backend/app/api/routes/screening.py",
+    "quality_gate_source": "backend/app/ml/quality/trust_gate.py",
+    "report_rendering_source": "backend/app/api/routes/reports.py",
+    "retinaguard_source": "backend/app/ml/trust/guard.py",
+    "settings_environment": "development",
+    "training_source": "scripts/train_classifier.py"
+  },
+  "quality_gate": {
+    "classifier_execution_in_this_diagnostic": "forensic_only_when_not_gradable",
+    "clinical_ai_allowed_by_gate": true,
+    "enhancement_applied": false,
+    "enhancement_passes": 0,
+    "final": {
+      "component_scores": {
+        "artifacts": 1.0,
+        "contrast": 0.4945,
+        "exposure": 1.0,
+        "field_of_view": 1.0,
+        "focus": 0.4576,
+        "illumination": 0.8369
+      },
+      "feature_vector": {
+        "artifacts": 1.0,
+        "contrast": 0.4945,
+        "contrast_spread": 0.2863,
+        "exposure": 1.0,
+        "field_of_view": 1.0,
+        "focus": 0.4576,
+        "illumination": 0.8369,
+        "mean_intensity": 0.3356,
+        "retinal_coverage": 0.6941
+      },
+      "input_metadata": {
+        "camera_metadata": {},
+        "channels": 3,
+        "format": "JPEG",
+        "height": 2848,
+        "mode": "RGB",
+        "width": 4288
+      },
+      "issues": [],
+      "metrics": {
+        "border_artifact_ratio": 0.0,
+        "high_clip_ratio": 0.0,
+        "intensity_stddev": 25.0276,
+        "laplacian_variance": 34.9959,
+        "low_clip_ratio": 0.0,
+        "mean_intensity": 85.5884,
+        "p1_intensity": 48.0,
+        "p50_intensity": 80.0,
+        "p5_intensity": 55.0,
+        "p95_intensity": 128.0,
+        "p99_intensity": 180.0,
+        "retinal_coverage_ratio": 0.6941,
+        "saturated_artifact_ratio": 0.0
+      },
+      "next_action": "CONTINUE_SCREENING",
+      "quality_decision": "GRADABLE",
+      "quality_score": 0.7641,
+      "recommended_action": "Proceed to clinical AI analysis."
+    },
+    "initial": {
+      "component_scores": {
+        "artifacts": 1.0,
+        "contrast": 0.4945,
+        "exposure": 1.0,
+        "field_of_view": 1.0,
+        "focus": 0.4576,
+        "illumination": 0.8369
+      },
+      "feature_vector": {
+        "artifacts": 1.0,
+        "contrast": 0.4945,
+        "contrast_spread": 0.2863,
+        "exposure": 1.0,
+        "field_of_view": 1.0,
+        "focus": 0.4576,
+        "illumination": 0.8369,
+        "mean_intensity": 0.3356,
+        "retinal_coverage": 0.6941
+      },
+      "input_metadata": {
+        "camera_metadata": {},
+        "channels": 3,
+        "format": "JPEG",
+        "height": 2848,
+        "mode": "RGB",
+        "width": 4288
+      },
+      "issues": [],
+      "metrics": {
+        "border_artifact_ratio": 0.0,
+        "high_clip_ratio": 0.0,
+        "intensity_stddev": 25.0276,
+        "laplacian_variance": 34.9959,
+        "low_clip_ratio": 0.0,
+        "mean_intensity": 85.5884,
+        "p1_intensity": 48.0,
+        "p50_intensity": 80.0,
+        "p5_intensity": 55.0,
+        "p95_intensity": 128.0,
+        "p99_intensity": 180.0,
+        "retinal_coverage_ratio": 0.6941,
+        "saturated_artifact_ratio": 0.0
+      },
+      "next_action": "CONTINUE_SCREENING",
+      "quality_decision": "GRADABLE",
+      "quality_score": 0.7641,
+      "recommended_action": "Proceed to clinical AI analysis."
+    }
+  },
+  "retinaguard": {
+    "enriched_comparison_only": {
+      "ordering": "evidence/explainability supplied before RetinaGuard; this is comparable to the direct trust route, not the current master /screening/run ordering",
+      "state": {
+        "assessment_status": "COMPLETED_LIMITED",
+        "available_signals": {
+          "attention_lesion_agreement": "AVAILABLE",
+          "confidence": "AVAILABLE",
+          "explanation_stability": "LIMITED",
+          "image_quality": "AVAILABLE",
+          "lesion_evidence": "AVAILABLE",
+          "model_agreement": "NOT_AVAILABLE",
+          "ood": "NOT_AVAILABLE",
+          "uncertainty": "AVAILABLE"
+        },
+        "calibration": {
+          "calibrated_confidence": 0.805575,
+          "fitted": false,
+          "method": "temperature_scaling",
+          "note": "Fitted temperature scaling applied to logits.",
+          "probabilities": {
+            "Mild": 0.150915,
+            "Moderate": 0.020916,
+            "No DR": 0.805575,
+            "Proliferative DR": 0.01354,
+            "Severe": 0.009054
+          },
+          "temperature": 1.0,
+          "version": "temperature-scaling-unfitted"
+        },
+        "confidence": {
+          "calibrated": 0.805575,
+          "raw": 0.805575
+        },
+        "configuration": {
+          "assessment_status": "COMPLETED_LIMITED",
+          "calibration_version": "temperature-scaling-unfitted",
+          "clinical_validation_claim": false,
+          "critical_signals_missing": [],
+          "decision_policy_version": "retinaguard-state-policy-v3-graceful-degradation",
+          "mc_dropout_enabled": false,
+          "mc_dropout_samples": 8,
+          "missing_signal_score": 0.25,
+          "optional_capability_policy": "graceful_degradation",
+          "optional_signals_unavailable": [
+            "explanation_stability",
+            "model_agreement",
+            "ood"
+          ],
+          "pipeline_failure": null,
+          "safe_action": "AUTOMATED_INTERPRETATION_UNRELIABLE",
+          "trusted_threshold": 0.75,
+          "unreliable_threshold": 0.45,
+          "version": "retinaguard-v3-graceful-degradation",
+          "vessel_evidence_policy": "provenance_audit_only; no independent trust-score weight",
+          "weights": {
+            "attention_lesion_agreement": 0.15,
+            "calibrated_confidence": 0.2,
+            "explanation_stability": 0.05,
+            "lesion_evidence": 0.1,
+            "model_agreement": 0.1,
+            "ood": 0.05,
+            "quality": 0.2,
+            "uncertainty": 0.15
+          }
+        },
+        "contributing_factors": [
+          {
+            "contribution": 0.15282,
+            "explanation": "Image Trust Gate quality score.",
+            "factor": "quality",
+            "raw_value": 0.7641,
+            "score": 0.7641,
+            "status": "available",
+            "weight": 0.2
+          },
+          {
+            "contribution": 0.161115,
+            "explanation": "Temperature-scaled classifier confidence.",
+            "factor": "calibrated_confidence",
+            "raw_value": 0.805575,
+            "score": 0.805575,
+            "status": "available",
+            "weight": 0.2
+          },
+          {
+            "contribution": 0.093419,
+            "explanation": "Inverse predictive uncertainty; higher means less uncertainty.",
+            "factor": "uncertainty",
+            "raw_value": 0.6227929999999999,
+            "score": 0.622793,
+            "status": "available",
+            "weight": 0.15
+          },
+          {
+            "contribution": 0.025,
+            "explanation": "Inverse ensemble disagreement; higher means models agree.",
+            "factor": "model_agreement",
+            "raw_value": null,
+            "score": 0.25,
+            "status": "missing_or_not_run",
+            "weight": 0.1
+          },
+          {
+            "contribution": 0.046148,
+            "explanation": "Strength of available supporting lesion modules.",
+            "factor": "lesion_evidence",
+            "raw_value": 0.461475,
+            "score": 0.461475,
+            "status": "available",
+            "weight": 0.1
+          },
+          {
+            "contribution": 0.0,
+            "explanation": "Overlap between classifier attention and supported lesion regions.",
+            "factor": "attention_lesion_agreement",
+            "raw_value": 0.0,
+            "score": 0.0,
+            "status": "available",
+            "weight": 0.15
+          },
+          {
+            "contribution": 0.0125,
+            "explanation": "Combined prediction and Grad-CAM stability when perturbation tests ran.",
+            "factor": "explanation_stability",
+            "raw_value": null,
+            "score": 0.25,
+            "status": "missing_or_not_run",
+            "weight": 0.05
+          },
+          {
+            "contribution": 0.0125,
+            "explanation": "In-distribution score from the configured reference feature distribution.",
+            "factor": "ood",
+            "raw_value": null,
+            "score": 0.25,
+            "status": "missing_or_not_run",
+            "weight": 0.05
+          }
+        ],
+        "decision_trace": {
+          "assessment_status": "COMPLETED_LIMITED",
+          "available_signals": {
+            "attention_lesion_agreement": "AVAILABLE",
+            "confidence": "AVAILABLE",
+            "explanation_stability": "LIMITED",
+            "image_quality": "AVAILABLE",
+            "lesion_evidence": "AVAILABLE",
+            "model_agreement": "NOT_AVAILABLE",
+            "ood": "NOT_AVAILABLE",
+            "uncertainty": "AVAILABLE"
+          },
+          "critical_signals_missing": [],
+          "decision_policy_version": "retinaguard-state-policy-v3-graceful-degradation",
+          "engine_version": "retinaguard-v3-graceful-degradation",
+          "optional_signals_unavailable": [
+            "explanation_stability",
+            "model_agreement",
+            "ood"
+          ],
+          "pipeline_failure": null,
+          "reasons": [
+            "Classifier attention has low overlap with supported lesion evidence.",
+            "Explanation stability testing was not run for this real-time request.",
+            "No authorized reference distribution is configured for OOD monitoring.",
+            "Optional reliability capabilities are unavailable or were not run: explanation_stability, model_agreement, ood."
+          ],
+          "reliability_state": "UNRELIABLE",
+          "risk_flags": [
+            {
+              "code": "low_attention_evidence_agreement",
+              "reason": "Classifier attention has low overlap with supported lesion evidence.",
+              "severity": "high"
+            },
+            {
+              "code": "explanation_stability_not_run",
+              "reason": "Explanation stability testing was not run for this real-time request.",
+              "severity": "medium"
+            },
+            {
+              "code": "ood_not_available",
+              "reason": "No authorized reference distribution is configured for OOD monitoring.",
+              "severity": "medium"
+            }
+          ],
+          "safe_action": "AUTOMATED_INTERPRETATION_UNRELIABLE"
+        },
+        "evidence_status": "AVAILABLE",
+        "explanation_status": "LIMITED",
+        "image_quality_status": "AVAILABLE",
+        "model_disagreement": {
+          "agreement": null,
+          "disagreement": null,
+          "model_count": 1,
+          "reason": "At least two model predictions are required to measure disagreement.",
+          "severity": "not_applicable",
+          "status": "UNAVAILABLE"
+        },
+        "ood": {
+          "compared_feature_count": 0,
+          "distance": null,
+          "method": "robust_feature_z_score",
+          "per_feature_z": {},
+          "reason": "No authorized reference distribution is configured; OOD detection is not claimed.",
+          "score": null,
+          "status": "UNAVAILABLE",
+          "threshold": 3.0
+        },
+        "ood_status": "UNAVAILABLE",
+        "provenance": {
+          "calibration_version": "temperature-scaling-unfitted",
+          "clinical_validation_claim": false,
+          "engine_version": "retinaguard-v3-graceful-degradation",
+          "evidence_status": "AVAILABLE",
+          "explanation_status": "LIMITED",
+          "note": "RetinaGuard is an engineering reliability assessment. TRUSTED means no configured major warning was detected; it does not mean the prediction is correct.",
+          "ood_method": "robust_feature_z_score",
+          "uncertainty_method": "predictive_entropy+probability_margin"
+        },
+        "reason_summary": [
+          "Classifier attention has low overlap with supported lesion evidence.",
+          "Explanation stability testing was not run for this real-time request.",
+          "No authorized reference distribution is configured for OOD monitoring.",
+          "Optional reliability capabilities are unavailable or were not run: explanation_stability, model_agreement, ood."
+        ],
+        "reasons": [
+          "Classifier attention has low overlap with supported lesion evidence.",
+          "Explanation stability testing was not run for this real-time request.",
+          "No authorized reference distribution is configured for OOD monitoring.",
+          "Optional reliability capabilities are unavailable or were not run: explanation_stability, model_agreement, ood."
+        ],
+        "recommended_action": "Do not rely on automated triage; require specialist or human review.",
+        "recommended_safe_action": "AUTOMATED_INTERPRETATION_UNRELIABLE",
+        "reliability_score": 0.503501,
+        "reliability_state": "UNRELIABLE",
+        "risk_flags": [
+          {
+            "code": "low_attention_evidence_agreement",
+            "reason": "Classifier attention has low overlap with supported lesion evidence.",
+            "severity": "high"
+          },
+          {
+            "code": "explanation_stability_not_run",
+            "reason": "Explanation stability testing was not run for this real-time request.",
+            "severity": "medium"
+          },
+          {
+            "code": "ood_not_available",
+            "reason": "No authorized reference distribution is configured for OOD monitoring.",
+            "severity": "medium"
+          }
+        ],
+        "signal_snapshot": {
+          "attention_lesion_agreement": {
+            "metrics": {
+              "attention_coverage": 0.069569,
+              "attention_in_lesion": 0.0,
+              "dice": 0.0,
+              "intersection_over_union": 0.0,
+              "lesion_coverage": 0.000556,
+              "lesion_in_attention": 0.0
+            },
+            "note": "Engineering explainability metric only; overlap does not prove clinical causality.",
+            "reason": "Attention and supported lesion regions were compared at the working image resolution.",
+            "score": 0.0,
+            "status": "LOW AGREEMENT"
+          },
+          "calibrated_confidence": 0.805575,
+          "evidence_status": "AVAILABLE",
+          "explanation_stability": {
+            "grad_cam_stability": null,
+            "prediction_stability": null,
+            "reason": "Stability perturbations are disabled for real-time mode. Set run_stability=true or enable EXPLAINABILITY_STABILITY_ENABLED.",
+            "status": "SKIPPED",
+            "variants": []
+          },
+          "explanation_status": "LIMITED",
+          "image_quality_status": "AVAILABLE",
+          "lesion_evidence_status": "AVAILABLE",
+          "lesion_evidence_strength": 0.461475,
+          "ood": {
+            "compared_feature_count": 0,
+            "distance": null,
+            "method": "robust_feature_z_score",
+            "per_feature_z": {},
+            "reason": "No authorized reference distribution is configured; OOD detection is not claimed.",
+            "score": null,
+            "status": "UNAVAILABLE",
+            "threshold": 3.0
+          },
+          "quality_score": 0.7641,
+          "raw_confidence": 0.805575,
+          "uncertainty_score": 0.377207,
+          "vessel_evidence_status": "REAL_MODEL_EVIDENCE"
+        },
+        "trust_category": "UNRELIABLE",
+        "trust_score": 0.503501,
+        "uncertainty": {
+          "component_weights": {
+            "entropy": 0.6,
+            "margin": 0.4
+          },
+          "margin_uncertainty": 0.34534,
+          "mc_dropout": {
+            "reason": "Monte Carlo dropout is disabled by default for real-time inference.",
+            "status": "SKIPPED"
+          },
+          "method": "predictive_entropy+probability_margin",
+          "note": "Uncertainty is an engineering estimate; it is not a calibrated probability of model error.",
+          "predictive_entropy": 0.398452,
+          "probability_margin": 0.65466,
+          "score": 0.377207
+        },
+        "warnings": [
+          {
+            "code": "low_attention_evidence_agreement",
+            "reason": "Classifier attention has low overlap with supported lesion evidence.",
+            "severity": "high"
+          },
+          {
+            "code": "explanation_stability_not_run",
+            "reason": "Explanation stability testing was not run for this real-time request.",
+            "severity": "medium"
+          },
+          {
+            "code": "ood_not_available",
+            "reason": "No authorized reference distribution is configured for OOD monitoring.",
+            "severity": "medium"
+          }
+        ]
+      },
+      "triage": {
+        "note": "Workflow triage recommendation only; not a diagnosis or final clinical decision.",
+        "priority": "high",
+        "reasons": [
+          "Classifier attention has low overlap with supported lesion evidence.",
+          "Explanation stability testing was not run for this real-time request.",
+          "No authorized reference distribution is configured for OOD monitoring.",
+          "Optional reliability capabilities are unavailable or were not run: explanation_stability, model_agreement, ood."
+        ],
+        "recommendation": "RECAPTURE_OR_SPECIALIST_REVIEW",
+        "referable_dr_signal": false,
+        "status": "completed"
+      }
+    },
+    "grade_changed_by_retinaguard": false,
+    "master_api_path": {
+      "ordering": "quality -> classifier -> uncertainty/disagreement -> RetinaGuard -> triage; optional evidence is queued afterward",
+      "state": {
+        "assessment_status": "COMPLETED_LIMITED",
+        "available_signals": {
+          "attention_lesion_agreement": "UNAVAILABLE",
+          "confidence": "AVAILABLE",
+          "explanation_stability": "UNAVAILABLE",
+          "image_quality": "AVAILABLE",
+          "lesion_evidence": "NOT_AVAILABLE",
+          "model_agreement": "NOT_AVAILABLE",
+          "ood": "NOT_AVAILABLE",
+          "uncertainty": "AVAILABLE"
+        },
+        "calibration": {
+          "calibrated_confidence": 0.805575,
+          "fitted": false,
+          "method": "temperature_scaling",
+          "note": "Fitted temperature scaling applied to logits.",
+          "probabilities": {
+            "Mild": 0.150915,
+            "Moderate": 0.020916,
+            "No DR": 0.805575,
+            "Proliferative DR": 0.01354,
+            "Severe": 0.009054
+          },
+          "temperature": 1.0,
+          "version": "temperature-scaling-unfitted"
+        },
+        "confidence": {
+          "calibrated": 0.805575,
+          "raw": 0.805575
+        },
+        "configuration": {
+          "assessment_status": "COMPLETED_LIMITED",
+          "calibration_version": "temperature-scaling-unfitted",
+          "clinical_validation_claim": false,
+          "critical_signals_missing": [],
+          "decision_policy_version": "retinaguard-state-policy-v3-graceful-degradation",
+          "mc_dropout_enabled": false,
+          "mc_dropout_samples": 8,
+          "missing_signal_score": 0.25,
+          "optional_capability_policy": "graceful_degradation",
+          "optional_signals_unavailable": [
+            "lesion_evidence",
+            "attention_lesion_agreement",
+            "explanation_stability",
+            "model_agreement",
+            "ood"
+          ],
+          "pipeline_failure": null,
+          "safe_action": "PROFESSIONAL_REVIEW_RECOMMENDED",
+          "trusted_threshold": 0.75,
+          "unreliable_threshold": 0.45,
+          "version": "retinaguard-v3-graceful-degradation",
+          "vessel_evidence_policy": "provenance_audit_only; no independent trust-score weight",
+          "weights": {
+            "attention_lesion_agreement": 0.15,
+            "calibrated_confidence": 0.2,
+            "explanation_stability": 0.05,
+            "lesion_evidence": 0.1,
+            "model_agreement": 0.1,
+            "ood": 0.05,
+            "quality": 0.2,
+            "uncertainty": 0.15
+          }
+        },
+        "contributing_factors": [
+          {
+            "contribution": 0.15282,
+            "explanation": "Image Trust Gate quality score.",
+            "factor": "quality",
+            "raw_value": 0.7641,
+            "score": 0.7641,
+            "status": "available",
+            "weight": 0.2
+          },
+          {
+            "contribution": 0.161115,
+            "explanation": "Temperature-scaled classifier confidence.",
+            "factor": "calibrated_confidence",
+            "raw_value": 0.805575,
+            "score": 0.805575,
+            "status": "available",
+            "weight": 0.2
+          },
+          {
+            "contribution": 0.093419,
+            "explanation": "Inverse predictive uncertainty; higher means less uncertainty.",
+            "factor": "uncertainty",
+            "raw_value": 0.6227929999999999,
+            "score": 0.622793,
+            "status": "available",
+            "weight": 0.15
+          },
+          {
+            "contribution": 0.025,
+            "explanation": "Inverse ensemble disagreement; higher means models agree.",
+            "factor": "model_agreement",
+            "raw_value": null,
+            "score": 0.25,
+            "status": "missing_or_not_run",
+            "weight": 0.1
+          },
+          {
+            "contribution": 0.025,
+            "explanation": "Strength of available supporting lesion modules.",
+            "factor": "lesion_evidence",
+            "raw_value": null,
+            "score": 0.25,
+            "status": "missing_or_not_run",
+            "weight": 0.1
+          },
+          {
+            "contribution": 0.0375,
+            "explanation": "Overlap between classifier attention and supported lesion regions.",
+            "factor": "attention_lesion_agreement",
+            "raw_value": null,
+            "score": 0.25,
+            "status": "missing_or_not_run",
+            "weight": 0.15
+          },
+          {
+            "contribution": 0.0125,
+            "explanation": "Combined prediction and Grad-CAM stability when perturbation tests ran.",
+            "factor": "explanation_stability",
+            "raw_value": null,
+            "score": 0.25,
+            "status": "missing_or_not_run",
+            "weight": 0.05
+          },
+          {
+            "contribution": 0.0125,
+            "explanation": "In-distribution score from the configured reference feature distribution.",
+            "factor": "ood",
+            "raw_value": null,
+            "score": 0.25,
+            "status": "missing_or_not_run",
+            "weight": 0.05
+          }
+        ],
+        "decision_trace": {
+          "assessment_status": "COMPLETED_LIMITED",
+          "available_signals": {
+            "attention_lesion_agreement": "UNAVAILABLE",
+            "confidence": "AVAILABLE",
+            "explanation_stability": "UNAVAILABLE",
+            "image_quality": "AVAILABLE",
+            "lesion_evidence": "NOT_AVAILABLE",
+            "model_agreement": "NOT_AVAILABLE",
+            "ood": "NOT_AVAILABLE",
+            "uncertainty": "AVAILABLE"
+          },
+          "critical_signals_missing": [],
+          "decision_policy_version": "retinaguard-state-policy-v3-graceful-degradation",
+          "engine_version": "retinaguard-v3-graceful-degradation",
+          "optional_signals_unavailable": [
+            "lesion_evidence",
+            "attention_lesion_agreement",
+            "explanation_stability",
+            "model_agreement",
+            "ood"
+          ],
+          "pipeline_failure": null,
+          "reasons": [
+            "Attention-lesion agreement has not been calculated from supported evidence.",
+            "Explanation stability testing was not run for this real-time request.",
+            "No authorized reference distribution is configured for OOD monitoring.",
+            "Optional reliability capabilities are unavailable or were not run: lesion_evidence, attention_lesion_agreement, explanation_stability, model_agreement, ood."
+          ],
+          "reliability_state": "REVIEW_RECOMMENDED",
+          "risk_flags": [
+            {
+              "code": "attention_evidence_not_available",
+              "reason": "Attention-lesion agreement has not been calculated from supported evidence.",
+              "severity": "medium"
+            },
+            {
+              "code": "explanation_stability_not_run",
+              "reason": "Explanation stability testing was not run for this real-time request.",
+              "severity": "medium"
+            },
+            {
+              "code": "ood_not_available",
+              "reason": "No authorized reference distribution is configured for OOD monitoring.",
+              "severity": "medium"
+            }
+          ],
+          "safe_action": "PROFESSIONAL_REVIEW_RECOMMENDED"
+        },
+        "evidence_status": "UNAVAILABLE",
+        "explanation_status": "UNAVAILABLE",
+        "image_quality_status": "AVAILABLE",
+        "model_disagreement": {
+          "agreement": null,
+          "disagreement": null,
+          "model_count": 1,
+          "reason": "At least two model predictions are required to measure disagreement.",
+          "severity": "not_applicable",
+          "status": "UNAVAILABLE"
+        },
+        "ood": {
+          "compared_feature_count": 0,
+          "distance": null,
+          "method": "robust_feature_z_score",
+          "per_feature_z": {},
+          "reason": "No authorized reference distribution is configured; OOD detection is not claimed.",
+          "score": null,
+          "status": "UNAVAILABLE",
+          "threshold": 3.0
+        },
+        "ood_status": "UNAVAILABLE",
+        "provenance": {
+          "calibration_version": "temperature-scaling-unfitted",
+          "clinical_validation_claim": false,
+          "engine_version": "retinaguard-v3-graceful-degradation",
+          "evidence_status": "UNAVAILABLE",
+          "explanation_status": "UNAVAILABLE",
+          "note": "RetinaGuard is an engineering reliability assessment. TRUSTED means no configured major warning was detected; it does not mean the prediction is correct.",
+          "ood_method": "robust_feature_z_score",
+          "uncertainty_method": "predictive_entropy+probability_margin"
+        },
+        "reason_summary": [
+          "Attention-lesion agreement has not been calculated from supported evidence.",
+          "Explanation stability testing was not run for this real-time request.",
+          "No authorized reference distribution is configured for OOD monitoring.",
+          "Optional reliability capabilities are unavailable or were not run: lesion_evidence, attention_lesion_agreement, explanation_stability, model_agreement, ood."
+        ],
+        "reasons": [
+          "Attention-lesion agreement has not been calculated from supported evidence.",
+          "Explanation stability testing was not run for this real-time request.",
+          "No authorized reference distribution is configured for OOD monitoring.",
+          "Optional reliability capabilities are unavailable or were not run: lesion_evidence, attention_lesion_agreement, explanation_stability, model_agreement, ood."
+        ],
+        "recommended_action": "Human review is required before relying on automated triage.",
+        "recommended_safe_action": "PROFESSIONAL_REVIEW_RECOMMENDED",
+        "reliability_score": 0.519854,
+        "reliability_state": "REVIEW_RECOMMENDED",
+        "risk_flags": [
+          {
+            "code": "attention_evidence_not_available",
+            "reason": "Attention-lesion agreement has not been calculated from supported evidence.",
+            "severity": "medium"
+          },
+          {
+            "code": "explanation_stability_not_run",
+            "reason": "Explanation stability testing was not run for this real-time request.",
+            "severity": "medium"
+          },
+          {
+            "code": "ood_not_available",
+            "reason": "No authorized reference distribution is configured for OOD monitoring.",
+            "severity": "medium"
+          }
+        ],
+        "signal_snapshot": {
+          "attention_lesion_agreement": null,
+          "calibrated_confidence": 0.805575,
+          "evidence_status": "UNAVAILABLE",
+          "explanation_stability": null,
+          "explanation_status": "UNAVAILABLE",
+          "image_quality_status": "AVAILABLE",
+          "lesion_evidence_status": "NOT_AVAILABLE",
+          "lesion_evidence_strength": null,
+          "ood": {
+            "compared_feature_count": 0,
+            "distance": null,
+            "method": "robust_feature_z_score",
+            "per_feature_z": {},
+            "reason": "No authorized reference distribution is configured; OOD detection is not claimed.",
+            "score": null,
+            "status": "UNAVAILABLE",
+            "threshold": 3.0
+          },
+          "quality_score": 0.7641,
+          "raw_confidence": 0.805575,
+          "uncertainty_score": 0.377207,
+          "vessel_evidence_status": "UNAVAILABLE"
+        },
+        "trust_category": "REVIEW_RECOMMENDED",
+        "trust_score": 0.519854,
+        "uncertainty": {
+          "component_weights": {
+            "entropy": 0.6,
+            "margin": 0.4
+          },
+          "margin_uncertainty": 0.34534,
+          "mc_dropout": {
+            "reason": "Monte Carlo dropout is disabled by default for real-time inference.",
+            "status": "SKIPPED"
+          },
+          "method": "predictive_entropy+probability_margin",
+          "note": "Uncertainty is an engineering estimate; it is not a calibrated probability of model error.",
+          "predictive_entropy": 0.398452,
+          "probability_margin": 0.65466,
+          "score": 0.377207
+        },
+        "warnings": [
+          {
+            "code": "attention_evidence_not_available",
+            "reason": "Attention-lesion agreement has not been calculated from supported evidence.",
+            "severity": "medium"
+          },
+          {
+            "code": "explanation_stability_not_run",
+            "reason": "Explanation stability testing was not run for this real-time request.",
+            "severity": "medium"
+          },
+          {
+            "code": "ood_not_available",
+            "reason": "No authorized reference distribution is configured for OOD monitoring.",
+            "severity": "medium"
+          }
+        ]
+      },
+      "triage": {
+        "note": "Workflow triage recommendation only; not a diagnosis or final clinical decision.",
+        "priority": "high",
+        "reasons": [
+          "Attention-lesion agreement has not been calculated from supported evidence.",
+          "Explanation stability testing was not run for this real-time request.",
+          "No authorized reference distribution is configured for OOD monitoring.",
+          "Optional reliability capabilities are unavailable or were not run: lesion_evidence, attention_lesion_agreement, explanation_stability, model_agreement, ood."
+        ],
+        "recommendation": "HUMAN_REVIEW_REQUIRED",
+        "referable_dr_signal": false,
+        "status": "completed"
+      }
+    }
+  },
+  "uncertainty": {
+    "enriched": {
+      "component_weights": {
+        "entropy": 0.6,
+        "margin": 0.4
+      },
+      "margin_uncertainty": 0.34534,
+      "mc_dropout": {
+        "reason": "Monte Carlo dropout is disabled by default for real-time inference.",
+        "status": "SKIPPED"
+      },
+      "method": "predictive_entropy+probability_margin",
+      "note": "Uncertainty is an engineering estimate; it is not a calibrated probability of model error.",
+      "predictive_entropy": 0.398452,
+      "probability_margin": 0.65466,
+      "score": 0.377207
+    },
+    "mc_dropout_enabled": false,
+    "primary": {
+      "component_weights": {
+        "entropy": 0.6,
+        "margin": 0.4
+      },
+      "margin_uncertainty": 0.34534,
+      "mc_dropout": {
+        "reason": "Monte Carlo dropout is disabled by default for real-time inference.",
+        "status": "SKIPPED"
+      },
+      "method": "predictive_entropy+probability_margin",
+      "note": "Uncertainty is an engineering estimate; it is not a calibrated probability of model error.",
+      "predictive_entropy": 0.398452,
+      "probability_margin": 0.65466,
+      "score": 0.377207
+    }
+  }
+}

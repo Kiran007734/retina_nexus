@@ -1,0 +1,25 @@
+{
+  "checkpoint": "ml/weights/vessel_segmentation/r2-v2-bv-2025/bv.safetensors",
+  "checkpoint_sha256": "ea219b13b03984b8d454f999343c5bda1a8a7cb8586aeb3639a29814cab2330a",
+  "drive_evaluation_verified": true,
+  "drive_training_or_finetuning_verified": false,
+  "interpretation": "The repository proves this is the published j-morano/R2-V2 RRWNet bv artifact and records Unified_Fundus as stated in its configuration. It does not prove that R2-V2 was trained or fine-tuned on DRIVE. The prior DRIVE result is an evaluation of this exact checkpoint SHA, not evidence that the checkpoint was trained on DRIVE.",
+  "license": "CC BY 4.0 (declared by the model repository and model card)",
+  "model_version": "r2-v2-bv-2025",
+  "previous_reference_protocol": {
+    "channel": 2,
+    "count": 20,
+    "field_of_view_applied": true,
+    "metrics_scope": "pixel-level engineering measurements; no clinical validation claim",
+    "split": "DRIVE training images with genuine manual vessel masks",
+    "threshold": 0.5
+  },
+  "previous_reference_report": "ml/evaluation/drive/r2-v2-evaluation.json",
+  "repository": "j-morano/R2-V2",
+  "required_statement": "Training provenance not fully verified.",
+  "source_code_url": "https://github.com/j-morano/R2-V2",
+  "source_revision": "bb8c6c9346054df749f8bd48a9da41ba974e6a6b",
+  "source_url": "https://huggingface.co/j-morano/R2-V2",
+  "training_dataset_provenance": "Unified_Fundus (as stated in the published bv_config.json; constituent datasets are not asserted here)",
+  "training_provenance_fully_verified": false
+}

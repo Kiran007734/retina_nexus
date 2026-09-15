@@ -18,6 +18,21 @@ from app.models.screening import ScreeningResult, ScreeningSession, ScreeningSta
 from app.models.segmentation_result import SegmentationResult
 
 
+def authoritative_referable_value(payload: dict[str, Any], prediction: Any) -> bool | None:
+    """Persist the same referable policy that was returned by the pipeline.
+
+    The primary classifier still owns the five-class severity grade. When the
+    research fusion path is explicitly enabled, its fused referable decision
+    is recorded in the RetinaGuard signal snapshot and must remain consistent
+    in the durable screening result. Disabled/unavailable fusion falls back to
+    the primary classifier decision.
+    """
+    signal_snapshot = payload.get("signal_snapshot") or {}
+    fusion = signal_snapshot.get("referable_fusion") or {}
+    fused = fusion.get("fused_referable")
+    return bool(fused) if fused is not None else getattr(prediction, "referable_dr", None)
+
+
 async def persist_evidence_analysis(
     payload: dict[str, Any],
     image: FundusImage,
@@ -156,7 +171,7 @@ async def persist_retinaguard(
         screening_result = ScreeningResult(id=uuid4(), session_id=session.id)
         db.add(screening_result)
     screening_result.dr_grade = prediction.predicted_grade
-    screening_result.referable_dr = prediction.referable_dr
+    screening_result.referable_dr = authoritative_referable_value(payload, prediction)
     screening_result.confidence = prediction.raw_confidence
     screening_result.calibrated_confidence = payload.get("calibration", {}).get("calibrated_confidence")
     screening_result.uncertainty = payload.get("uncertainty", {}).get("score")

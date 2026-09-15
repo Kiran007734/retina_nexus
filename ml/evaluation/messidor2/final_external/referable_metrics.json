@@ -1,0 +1,15 @@
+{
+  "f1": 0.5416036308623298,
+  "false_negative": 278,
+  "false_positive": 25,
+  "precision": 0.8774509803921569,
+  "recall": 0.3916849015317287,
+  "roc_auc": 0.8296804095491184,
+  "rule": "referable_probability = P(2)+P(3)+P(4); referable = referable_probability >= 0.5; severity grade = argmax(P0..P4).",
+  "sensitivity": 0.3916849015317287,
+  "specificity": 0.9805749805749806,
+  "status": "CALCULATED",
+  "threshold": 0.5,
+  "true_negative": 1262,
+  "true_positive": 179
+}

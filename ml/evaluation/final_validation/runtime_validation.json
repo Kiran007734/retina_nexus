@@ -1,0 +1,80 @@
+{
+  "model_loads": "shared configured service instances",
+  "note": "Focused local engineering measurements; not a throughput or clinical-performance claim.",
+  "production_settings_changed": false,
+  "stage_latency_ms": {
+    "classification": {
+      "count": 2,
+      "max_ms": 275.199,
+      "mean_ms": 209.25,
+      "median_ms": 209.25,
+      "min_ms": 143.301,
+      "p95_ms": 143.301
+    },
+    "evidence": {
+      "count": 2,
+      "max_ms": 260825.204,
+      "mean_ms": 153354.435,
+      "median_ms": 153354.435,
+      "min_ms": 45883.666,
+      "p95_ms": 45883.666
+    },
+    "grad_cam_and_agreement": {
+      "count": 2,
+      "max_ms": 15747.513,
+      "mean_ms": 10215.685,
+      "median_ms": 10215.685,
+      "min_ms": 4683.858,
+      "p95_ms": 4683.858
+    },
+    "image_validation": {
+      "count": 2,
+      "max_ms": 161.371,
+      "mean_ms": 99.043,
+      "median_ms": 99.043,
+      "min_ms": 36.715,
+      "p95_ms": 36.715
+    },
+    "pdf_generation": {
+      "count": 2,
+      "max_ms": 3.547,
+      "mean_ms": 1.862,
+      "median_ms": 1.862,
+      "min_ms": 0.178,
+      "p95_ms": 0.178
+    },
+    "quality_assessment": {
+      "count": 2,
+      "max_ms": 759.187,
+      "mean_ms": 425.995,
+      "median_ms": 425.995,
+      "min_ms": 92.803,
+      "p95_ms": 92.803
+    },
+    "retinaguard": {
+      "count": 2,
+      "max_ms": 17.142,
+      "mean_ms": 8.792,
+      "median_ms": 8.792,
+      "min_ms": 0.441,
+      "p95_ms": 0.441
+    },
+    "verifier_fusion": {
+      "count": 2,
+      "max_ms": 8941.853,
+      "mean_ms": 8853.07,
+      "median_ms": 8853.07,
+      "min_ms": 8764.288,
+      "p95_ms": 8764.288
+    }
+  },
+  "status": "PASS",
+  "total_latency_ms": {
+    "count": 11,
+    "max_ms": 274897.456,
+    "mean_ms": 44025.012,
+    "median_ms": 15426.9,
+    "min_ms": 610.177,
+    "p95_ms": 71461.708
+  }
+}

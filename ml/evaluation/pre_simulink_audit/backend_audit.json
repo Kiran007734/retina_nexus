@@ -1,0 +1,41 @@
+{
+  "generated_at_utc": "2026-09-14T16:08:17.235321+00:00",
+  "implementation_trace": {
+    "classifier_precedes_evidence": true,
+    "evidence_and_xai_are_supporting_only": true,
+    "fusion_precedes_retinaguard": true,
+    "persisted_fusion_consistency_fixed": true,
+    "quality_precedes_classifier": true,
+    "report_reads_master_run": true,
+    "retinaguard_precedes_triage": true
+  },
+  "known_runtime_limitation": "Optional evidence uses an in-process worker and can be interrupted by backend restart; replace with a durable queue in a later deployment phase.",
+  "locked_flow": [
+    "image_validation",
+    "quality_assessment",
+    "dr_classification",
+    "retinal_structure_analysis",
+    "lesion_detection",
+    "grad_cam",
+    "attention_lesion_agreement",
+    "uncertainty",
+    "model_disagreement",
+    "retinaguard",
+    "triage",
+    "report_pdf"
+  ],
+  "real_smoke": {
+    "completed_full_pipeline": 2,
+    "failed_count": 0,
+    "official_idrid_test_images_opened": 0,
+    "quality_gate_terminal_count": 11,
+    "representative_count": 11
+  },
+  "safe_behavior": {
+    "no_fake_prediction_on_failure": true,
+    "optional_failure_preserves_primary": true,
+    "quality_block_skips_clinical_ai": true
+  },
+  "schema_version": "pre-simulink-backend-audit-v1",
+  "status": "PASS"
+}

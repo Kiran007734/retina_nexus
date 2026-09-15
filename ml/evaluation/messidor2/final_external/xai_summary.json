@@ -1,0 +1,43 @@
+{
+  "classifier_linked": true,
+  "smoke": {
+    "errors": {},
+    "evidence_module_status": {
+      "cotton_wool_spot_detection": "model_inference",
+      "exudate_segmentation": "model_inference",
+      "fovea_localization": "approximate",
+      "hemorrhage_detection": "model_inference",
+      "microaneurysm_detection": "model_inference",
+      "neovascularization_detection": "unsupported",
+      "optic_disc_localization": "experimental_heuristic",
+      "vessel_segmentation": "model_inference"
+    },
+    "image_id": "20051020_43882_0100_PP.png",
+    "pdf_generation_attempted": true,
+    "prediction": {
+      "grade": 0,
+      "model_version": "efficientnet-b0-aptos2019-20260830-v1",
+      "raw_confidence": 0.958417,
+      "referable_dr": false
+    },
+    "retinaguard": {
+      "trust_category": "UNRELIABLE",
+      "trust_score": 0.566341
+    },
+    "scope_note": "This one-image run does not establish population-level evidence metrics.",
+    "stage_timings_ms": {
+      "classification": 198.66029999684542,
+      "evidence_total": 71623.13809999614,
+      "grad_cam_and_agreement": 705.8046000020113,
+      "image_validation": 13.958399998955429,
+      "lesion_inference_ms": 2686.618,
+      "pdf_generation": 0.14290001126937568,
+      "quality_assessment": 24.18450001277961,
+      "retinaguard": 0.26190001517534256,
+      "structure_analysis_ms": 12.712,
+      "vessel_inference_ms": 67637.217
+    },
+    "status": "COMPLETED_SMOKE_ONLY"
+  },
+  "status": "PARTIAL_SMOKE_ONLY"
+}

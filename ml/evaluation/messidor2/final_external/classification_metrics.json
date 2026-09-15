@@ -1,0 +1,84 @@
+{
+  "accuracy": 0.6238532110091743,
+  "averaging": {
+    "macro_f1": "unweighted mean across five classes",
+    "roc_auc_ovr_macro": "one-vs-rest macro average",
+    "weighted_f1": "support-weighted mean across five classes"
+  },
+  "class_distribution": {
+    "0": 1017,
+    "1": 270,
+    "2": 347,
+    "3": 75,
+    "4": 35
+  },
+  "clinical_validation_claim": false,
+  "confusion_matrix": [
+    [
+      999,
+      0,
+      0,
+      0,
+      18
+    ],
+    [
+      266,
+      2,
+      0,
+      0,
+      2
+    ],
+    [
+      282,
+      1,
+      45,
+      3,
+      16
+    ],
+    [
+      7,
+      0,
+      25,
+      12,
+      31
+    ],
+    [
+      2,
+      0,
+      1,
+      2,
+      30
+    ]
+  ],
+  "evaluation_population": "1,744 matched Messidor-2 images; successful gradable rows only for grade metrics; released-label descriptive evaluation",
+  "exclusions": "Unmatched label rows are excluded; ungradable rows and unsuccessful inferences are excluded from grade metrics.",
+  "label_mapping": "Messidor-2 adjudicated five-point ICDR grade 0..4 mapped 1:1 to the existing APTOS output labels defined in the downloaded label readme.",
+  "macro_f1": 0.34438069917298414,
+  "precision_macro": 0.5915322070707528,
+  "prediction_distribution": {
+    "0": 1556,
+    "1": 3,
+    "2": 71,
+    "3": 17,
+    "4": 97
+  },
+  "quadratic_weighted_kappa": 0.5181399386379085,
+  "recall_macro": 0.42730682932483444,
+  "referable_dr_grade_2_or_worse": {
+    "f1": 0.5416036308623298,
+    "false_negative": 278,
+    "false_positive": 25,
+    "precision": 0.8774509803921569,
+    "recall": 0.3916849015317287,
+    "roc_auc": 0.8296804095491184,
+      "rule": "referable_probability = P(2)+P(3)+P(4); referable = referable_probability >= 0.5; severity grade = argmax(P0..P4).",
+    "sensitivity": 0.3916849015317287,
+    "specificity": 0.9805749805749806,
+    "true_negative": 1262,
+    "true_positive": 179
+  },
+  "roc_auc_ovr_macro": 0.7750565082447286,
+  "sample_count": 1744,
+  "status": "CALCULATED",
+  "weighted_f1": 0.5182738878127344
+}

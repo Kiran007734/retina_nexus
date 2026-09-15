@@ -1,0 +1,22 @@
+{
+  "primary_artifact": {
+    "architecture": "U-Net with SE-ResNeXt-50 32x4d",
+    "exists": true,
+    "manifest_path": "ml/weights/lesion_segmentation/fundus-lesions-unet-seresnext50-all-v1/model_manifest.json",
+    "model_version": "fundus-lesions-unet-seresnext50-all-v1",
+    "path": "ml/weights/lesion_segmentation/fundus-lesions-unet-seresnext50-all-v1/model.safetensors",
+    "sha256": "a7a7cb45b92328f7c9a8e581eec3944fd435d37fae8cbf340b1319c5f987c6d2",
+    "status": "AVAILABLE"
+  },
+  "smoke": {
+    "cotton_wool_spot_detection": "model_inference",
+    "exudate_segmentation": "model_inference",
+    "fovea_localization": "approximate",
+    "hemorrhage_detection": "model_inference",
+    "microaneurysm_detection": "model_inference",
+    "neovascularization_detection": "unsupported",
+    "optic_disc_localization": "experimental_heuristic",
+    "vessel_segmentation": "model_inference"
+  },
+  "status": "BLOCKED_NOT_EXECUTED_FOR_ALL_IMAGES"
+}

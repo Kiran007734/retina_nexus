@@ -1,0 +1,52 @@
+{
+  "clinical_validation_claim": false,
+  "per_class": {
+    "0": {
+      "f1": 0.7702479338842976,
+      "label": "No DR",
+      "precision": 0.6642908054169636,
+      "recall": 0.9164208456243854,
+      "sensitivity": 0.9164208456243854,
+      "specificity": 0.35213204951856947,
+      "support": 1017
+    },
+    "1": {
+      "f1": 0.01444043321299639,
+      "label": "Mild",
+      "precision": 0.2857142857142857,
+      "recall": 0.007407407407407408,
+      "sensitivity": 0.007407407407407408,
+      "specificity": 0.9966078697421981,
+      "support": 270
+    },
+    "2": {
+      "f1": 0.297951582867784,
+      "label": "Moderate",
+      "precision": 0.42105263157894735,
+      "recall": 0.23054755043227665,
+      "sensitivity": 0.23054755043227665,
+      "specificity": 0.9212598425196851,
+      "support": 347
+    },
+    "3": {
+      "f1": 0.3236994219653179,
+      "label": "Severe",
+      "precision": 0.2857142857142857,
+      "recall": 0.37333333333333335,
+      "sensitivity": 0.37333333333333335,
+      "specificity": 0.9580587177950869,
+      "support": 75
+    },
+    "4": {
+      "f1": 0.24691358024691357,
+      "label": "Proliferative DR",
+      "precision": 0.21739130434782608,
+      "recall": 0.2857142857142857,
+      "sensitivity": 0.2857142857142857,
+      "specificity": 0.9789350497366881,
+      "support": 35
+    }
+  },
+  "sample_count": 1744,
+  "status": "CALCULATED"
+}

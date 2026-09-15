@@ -1,0 +1,64 @@
+{
+  "clinical_claim": false,
+  "method": "fixed validation perturbations; no threshold or weight changes",
+  "perturbations": {
+    "brightness_minus": {
+      "grade_stability": 0.891566265060241,
+      "mean_confidence_abs_delta": 0.040906676147357525,
+      "mean_probability_l1_delta": 0.12620738263121237,
+      "referable_stability": 0.9879518072289156,
+      "sample_count": 83
+    },
+    "brightness_plus": {
+      "grade_stability": 0.891566265060241,
+      "mean_confidence_abs_delta": 0.036485960505094873,
+      "mean_probability_l1_delta": 0.09511078419095008,
+      "referable_stability": 1.0,
+      "sample_count": 83
+    },
+    "contrast_minus": {
+      "grade_stability": 0.9156626506024096,
+      "mean_confidence_abs_delta": 0.03222141477716974,
+      "mean_probability_l1_delta": 0.09334833973480272,
+      "referable_stability": 0.9879518072289156,
+      "sample_count": 83
+    },
+    "contrast_plus": {
+      "grade_stability": 0.8072289156626506,
+      "mean_confidence_abs_delta": 0.051671406052198755,
+      "mean_probability_l1_delta": 0.1653179598320039,
+      "referable_stability": 0.9879518072289156,
+      "sample_count": 83
+    },
+    "illumination_change": {
+      "grade_stability": 0.9518072289156626,
+      "mean_confidence_abs_delta": 0.026997694947633398,
+      "mean_probability_l1_delta": 0.07843018023979027,
+      "referable_stability": 0.9879518072289156,
+      "sample_count": 83
+    },
+    "jpeg_compression": {
+      "grade_stability": 0.9759036144578314,
+      "mean_confidence_abs_delta": 0.012999584696379053,
+      "mean_probability_l1_delta": 0.03461146645417738,
+      "referable_stability": 1.0,
+      "sample_count": 83
+    },
+    "mild_blur": {
+      "grade_stability": 0.9759036144578314,
+      "mean_confidence_abs_delta": 0.007147040173231837,
+      "mean_probability_l1_delta": 0.01944739023464678,
+      "referable_stability": 1.0,
+      "sample_count": 83
+    },
+    "small_fov_crop": {
+      "grade_stability": 0.8072289156626506,
+      "mean_confidence_abs_delta": 0.07636929438056717,
+      "mean_probability_l1_delta": 0.26014554755825686,
+      "referable_stability": 0.9759036144578314,
+      "sample_count": 83
+    }
+  },
+  "source_v3_robustness_artifact": "ml/datasets/metadata/idrid/idrid_v3_robustness.json",
+  "status": "COMPLETED"
+}

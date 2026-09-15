@@ -1,0 +1,47 @@
+{
+  "development_referable_research": {
+    "official_test_images_opened": 0,
+    "selected_probability_source": "derived_probability_oof",
+    "selected_threshold": {
+      "f1": 0.9171717171717172,
+      "fn": 27,
+      "fp": 14,
+      "pr_auc": 0.9810133633928475,
+      "precision": 0.941908713692946,
+      "roc_auc": 0.9639193949440531,
+      "sensitivity": 0.8937007874015748,
+      "specificity": 0.9078947368421053,
+      "threshold": 0.2,
+      "tn": 138,
+      "tp": 227
+    },
+    "source": "ml/evaluation/referable_research/cv_results.json"
+  },
+  "external_descriptive_evaluation": {
+    "aptos_threshold_0.20": {
+      "false_negative": 60,
+      "sensitivity": 0.8687089715536105
+    },
+    "aptos_threshold_0.50": {
+      "false_negative": 195,
+      "sensitivity": 0.5733041575492341
+    },
+    "dataset": "Messidor-2 authoritative original label-matched images",
+    "idrid_v3_threshold_0.20": {
+      "false_negative": 248,
+      "sensitivity": 0.4573304157549234
+    },
+    "idrid_v3_threshold_0.50": {
+      "false_negative": 334,
+      "sensitivity": 0.26914660831509846
+    },
+    "warning": "These are descriptive results against local/adjudicated labels, not clinical false-negative rates."
+  },
+  "generated_at_utc": "2026-09-14T06:01:04.975179+00:00",
+  "per_image_sources": [
+    "ml/evaluation/messidor2/authoritative_classifier/predictions.jsonl",
+    "ml/evaluation/messidor2/authoritative_idrid_v3/predictions.jsonl",
+    "ml/evaluation/referable_research/false_negative_analysis.json"
+  ],
+  "schema_version": "retina-nexus-master-false-negative-analysis-v1"
+}

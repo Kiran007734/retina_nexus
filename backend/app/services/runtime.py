@@ -180,7 +180,10 @@ def verify_models(settings: Settings | None = None, load_models: bool = True, lo
     global _last_model_check
     settings = settings or get_settings()
     from app.ml.evidence.lesion_model import DEFAULT_MODEL_PATH, PretrainedRetinalLesionAdapter
+    from app.ml.evidence.idrid_lesion_model import DEFAULT_MODEL_PATH as IDRID_LESION_DEFAULT_MODEL_PATH, IDRiDLesionAdapter
+    from app.ml.evidence.idrid_localization_model import DEFAULT_MODEL_PATH as IDRID_LOCALIZATION_DEFAULT_MODEL_PATH, IDRiDLocalizationAdapter
     from app.ml.evidence.vessel_model import DEFAULT_MODEL_PATH as VESSEL_DEFAULT_MODEL_PATH, PretrainedRetinalVesselAdapter
+    from app.ml.evidence.drive_research_model import DEFAULT_MODEL_PATH as DRIVE_VESSEL_DEFAULT_MODEL_PATH, DriveResearchVesselAdapter
     from app.ml.inference.classifier import TorchDRClassificationService
     from app.ml.models.classifier import ReferableDRMapping
 
@@ -219,6 +222,49 @@ def verify_models(settings: Settings | None = None, load_models: bool = True, lo
         verify_optional_checksums,
     )
     checks = {item.name: item.to_dict() for item in (classifier_check, lesion_check, vessel_check)}
+    if settings.drive_vessel_model_enabled:
+        drive_path = resolve_path(settings.drive_vessel_model_path) or DRIVE_VESSEL_DEFAULT_MODEL_PATH
+        drive_adapter = DriveResearchVesselAdapter(
+            model_path=drive_path,
+            device=settings.drive_vessel_model_device,
+            threshold=settings.drive_vessel_model_threshold,
+            version=settings.drive_vessel_model_version,
+            expected_sha256=settings.drive_vessel_model_sha256,
+        )
+        drive_check = _check_artifact(
+            "drive_vessel_research", False, drive_adapter.model_path, settings.drive_vessel_model_version,
+            settings.drive_vessel_model_sha256, ("model_manifest.json",),
+            drive_adapter.verify_loadable if load_models and load_optional_models else None,
+            verify_optional_checksums,
+        )
+        checks[drive_check.name] = drive_check.to_dict()
+    if settings.idrid_lesion_model_enabled:
+        idrid_lesion_adapter = IDRiDLesionAdapter(
+            model_path=resolve_path(settings.idrid_lesion_model_path) or IDRID_LESION_DEFAULT_MODEL_PATH,
+            device=settings.idrid_lesion_model_device,
+            threshold=settings.idrid_lesion_model_threshold,
+            version=settings.idrid_lesion_model_version,
+            expected_sha256=settings.idrid_lesion_model_sha256,
+        )
+        idrid_check = _check_artifact(
+            "idrid_lesion_segmentation", False, idrid_lesion_adapter.model_path, settings.idrid_lesion_model_version, settings.idrid_lesion_model_sha256,
+            ("model_manifest.json",), idrid_lesion_adapter.verify_loadable if load_models and load_optional_models else None,
+            verify_optional_checksums,
+        )
+        checks[idrid_check.name] = idrid_check.to_dict()
+    if settings.idrid_localization_model_enabled:
+        idrid_localization_adapter = IDRiDLocalizationAdapter(
+            model_path=resolve_path(settings.idrid_localization_model_path) or IDRID_LOCALIZATION_DEFAULT_MODEL_PATH,
+            device=settings.idrid_localization_model_device,
+            version=settings.idrid_localization_model_version,
+            expected_sha256=settings.idrid_localization_model_sha256,
+        )
+        localization_check = _check_artifact(
+            "idrid_anatomical_localization", False, idrid_localization_adapter.model_path, settings.idrid_localization_model_version, settings.idrid_localization_model_sha256,
+            ("model_manifest.json",), idrid_localization_adapter.verify_loadable if load_models and load_optional_models else None,
+            verify_optional_checksums,
+        )
+        checks[localization_check.name] = localization_check.to_dict()
     result = {
         "check_version": RUNTIME_CHECK_VERSION,
         "status": "READY" if classifier_check.status == "AVAILABLE" else "NOT_READY",

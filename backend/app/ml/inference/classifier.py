@@ -10,6 +10,8 @@ from typing import Any
 
 from PIL import Image
 
+from ml.training.retinal_preprocessing import build_inference_transform
+
 from app.ml.models.classifier import ReferableDRMapping, build_classifier, severity_probabilities
 
 
@@ -105,10 +107,14 @@ class TorchDRClassificationService:
         self._device = device
         self._ordinal_mode = ordinal_mode
         self._artifact_config = {**model_config, **checkpoint.get("artifact", {})}
-        self._transform = transforms.Compose([
-            transforms.Resize((input_size, input_size)), transforms.ToTensor(),
-            transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
-        ])
+        # Research artifacts may opt into the exact retinal-field crop used
+        # during training.  APTOS production manifests do not set this flag,
+        # so their existing Resize -> Tensor -> ImageNet normalization path is
+        # unchanged.
+        self._transform = build_inference_transform(
+            input_size,
+            retinal_field_crop=bool(self._artifact_config.get("retinal_field_crop", False)),
+        )
 
     def predict(self, image_bytes: bytes) -> DRPrediction:
         self._load()
@@ -136,7 +142,7 @@ class TorchDRClassificationService:
         mapping_probability = self.mapping.probability(probabilities_tensor)
         return DRPrediction(
             predicted_grade=grade, predicted_grade_label=GRADE_LABELS[grade], probabilities=probabilities,
-            referable_dr=self.mapping.is_referable(grade), referable_probability=round(float(mapping_probability), 6),
+            referable_dr=self.mapping.is_referable_probability(probabilities_tensor), referable_probability=round(float(mapping_probability), 6),
             raw_confidence=round(float(max(probabilities_tensor)), 6), model_name=model_name,
             model_version=model_version, backbone=self._artifact_config.get("backbone", self.configured_backbone),
             referable_mapping=self.mapping.to_dict(),

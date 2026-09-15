@@ -1,0 +1,61 @@
+{
+  "authoritative_messidor_manifest": "ml/evaluation/messidor2/authoritative_external_manifest.json",
+  "datasets": {
+    "aptos2019": {
+      "class_distribution": {
+        "0": 1805,
+        "1": 370,
+        "2": 999,
+        "3": 193,
+        "4": 295
+      },
+      "purpose": "Primary legacy DR classifier training dataset",
+      "raw_root": "ml/datasets/raw/aptos2019",
+      "test_images": 1928,
+      "train_images": 3662,
+      "train_label_rows": 3662,
+      "validation_artifacts": [
+        "ml/datasets/metadata/reports/aptos2019/dataset_validation_report.json",
+        "ml/datasets/metadata/splits/aptos2019/splits.json"
+      ]
+    },
+    "drive": {
+      "files": 101,
+      "purpose": "Vessel segmentation research/evaluation",
+      "raw_root": "ml/datasets/raw/drive",
+      "validation_artifacts": [
+        "ml/evaluation/drive/validation_report.json",
+        "ml/evaluation/drive/dataset_manifest.json"
+      ]
+    },
+    "idrid": {
+      "development_records": 406,
+      "files": 1488,
+      "official_test_status": "NOT_USED_FOR_CURRENT_REFERABLE_RESEARCH",
+      "purpose": "Research severity, lesion, and localization data",
+      "raw_root": "ml/datasets/raw/idrid",
+      "validation_artifacts": [
+        "ml/datasets/metadata/idrid/idrid_v3_selected_candidate.json",
+        "ml/evaluation/referable_research/cv_results.json"
+      ]
+    },
+    "messidor2": {
+      "authoritative_original_count": 1748,
+      "authoritative_root": "ml/datasets/raw/messidor/messidor-2-original/IMAGES",
+      "historical_derivative_root": "ml/datasets/raw/messidor/images/messidor-2/messidor-2/preprocess",
+      "label_matched_count": 1744,
+      "official_ground_truth_status": "NOT_PROVEN; local/adjudicated label source only",
+      "purpose": "External descriptive evaluation",
+      "unlabeled_original_count": 4,
+      "validation_manifest": "ml/evaluation/messidor2/authoritative_external_manifest.json"
+    }
+  },
+  "external_label_warning": "Messidor-2 local labels are not independently proven official clinical ground truth.",
+  "generated_at_utc": "2026-09-14T04:46:58.110253+00:00",
+  "historical_results_preserved": true,
+  "patient_identifiers": {
+    "idrid": false,
+    "messidor2": false
+  },
+  "schema_version": "retina-nexus-master-dataset-registry-v1"
+}

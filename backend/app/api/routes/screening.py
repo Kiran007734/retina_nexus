@@ -19,10 +19,11 @@ from app.models.retinaguard_result import RetinaGuardResult
 from app.models.explainability_result import ExplainabilityResult
 from app.ml.evidence.service import RetinalEvidenceService
 from app.ml.inference.classifier import ClassifierNotConfiguredError, TorchDRClassificationService
+from app.ml.inference.referable_fusion import ReferableFusionService
 from app.ml.explainability.service import ExplainabilityService
 from app.ml.trust.guard import RetinaGuardEngine, RetinaGuardInputs, derive_lesion_evidence_strength, derive_vessel_evidence_status
 from app.services.screening_pipeline import OPTIONAL_EVIDENCE_STAGES, RUN_STAGES, ScreeningPipelineService
-from app.services.container import get_classifier_service
+from app.services.container import get_classifier_service, get_referable_fusion_service
 from app.storage.container import get_storage
 from app.repositories.patients import get_patient
 from app.schemas.screening import ClassifyRequest, ClassificationResponse, EvidenceAnalysisRequest, ExplainabilityRequest, ScreeningCreate, ScreeningHistoryItem, ScreeningResponse, ScreeningResultResponse, ScreeningRunRequest, ScreeningRunResponse
@@ -30,7 +31,7 @@ from app.schemas.evidence import EvidenceAnalysisResponse
 from app.schemas.explainability import ExplainabilityResponse
 from app.schemas.trust import TrustRequest, TrustResponse
 from app.services.container import get_evidence_service, get_explainability_service, get_retinaguard_service, get_screening_pipeline_service
-from app.services.screening_persistence import persist_evidence_analysis, persist_explainability, persist_retinaguard
+from app.services.screening_persistence import authoritative_referable_value, persist_evidence_analysis, persist_explainability, persist_retinaguard
 
 router = APIRouter(prefix="/screening", tags=["screening"])
 
@@ -155,6 +156,7 @@ async def classify_screening(
     payload: ClassifyRequest,
     db: AsyncSession = Depends(get_db),
     classifier: TorchDRClassificationService = Depends(get_classifier_service),
+    referable_fusion: ReferableFusionService = Depends(get_referable_fusion_service),
 ) -> ClassificationResponse:
     image = await db.get(FundusImage, payload.image_id)
     if image is None:
@@ -176,6 +178,7 @@ async def classify_screening(
     try:
         content = await get_storage().get(image.storage_path)
         prediction = await classifier.classify(content)
+        fusion = await referable_fusion.evaluate(content, prediction)
     except ClassifierNotConfiguredError as exc:
         raise HTTPException(status_code=503, detail=str(exc)) from exc
     if payload.model_version and payload.model_version != prediction.model_version:
@@ -185,7 +188,7 @@ async def classify_screening(
         result = ScreeningResult(id=uuid4(), session_id=session.id)
         db.add(result)
     result.dr_grade = prediction.predicted_grade
-    result.referable_dr = prediction.referable_dr
+    result.referable_dr = fusion.fused_referable if fusion.fused_referable is not None else prediction.referable_dr
     result.confidence = prediction.raw_confidence
     result.model_version = prediction.model_version
     session.status = ScreeningStatus.COMPLETE
@@ -194,11 +197,12 @@ async def classify_screening(
     return ClassificationResponse(
         image_id=image.id, screening_session_id=session.id, predicted_grade=prediction.predicted_grade,
         predicted_grade_label=prediction.predicted_grade_label, probabilities=prediction.probabilities,
-        referable_dr=prediction.referable_dr, referable_probability=prediction.referable_probability,
+        referable_dr=fusion.fused_referable if fusion.fused_referable is not None else prediction.referable_dr, referable_probability=fusion.fused_probability if fusion.fused_probability is not None else prediction.referable_probability,
         raw_confidence=prediction.raw_confidence, model_name=prediction.model_name,
         model_version=prediction.model_version, backbone=prediction.backbone,
         referable_mapping=prediction.referable_mapping, hierarchical_probabilities=prediction.hierarchical_probabilities,
-        ordinal_mode=prediction.ordinal_mode,
+        ordinal_mode=prediction.ordinal_mode, primary_referable_dr=prediction.referable_dr,
+        primary_referable_probability=prediction.referable_probability, referable_fusion=fusion.to_dict(),
         note="Raw model confidence only; this value is not a clinical trust guarantee and no final trust score is calculated at this stage.",
     )
 
@@ -267,6 +271,7 @@ async def trust_screening(
     payload: TrustRequest,
     db: AsyncSession = Depends(get_db),
     classifier: TorchDRClassificationService = Depends(get_classifier_service),
+    referable_fusion: ReferableFusionService = Depends(get_referable_fusion_service),
     evidence_service: RetinalEvidenceService = Depends(get_evidence_service),
     retinaguard: RetinaGuardEngine = Depends(get_retinaguard_service),
 ) -> TrustResponse:
@@ -281,6 +286,7 @@ async def trust_screening(
     try:
         content = await get_storage().get(image.storage_path)
         prediction = await classifier.classify(content)
+        fusion = await referable_fusion.evaluate(content, prediction)
         evidence = await evidence_service.analyze(content, str(image.id), str(session.id), image.eye.value)
     except ClassifierNotConfiguredError as exc:
         raise HTTPException(status_code=503, detail=str(exc)) from exc
@@ -315,7 +321,8 @@ async def trust_screening(
         quality_feature_vector={key: float(value) for key, value in feature_vector.items() if isinstance(value, (int, float))},
         predicted_grade=prediction.predicted_grade,
         predicted_grade_label=prediction.predicted_grade_label,
-        referable_dr=prediction.referable_dr,
+        referable_dr=fusion.fused_referable,
+        referable_fusion=fusion.to_dict(),
         model_version=prediction.model_version,
     )
     result = await retinaguard.evaluate_async(inputs, content, classifier)
@@ -444,7 +451,7 @@ async def _persist_retinaguard(payload: dict, image: FundusImage, session: Scree
         screening_result = ScreeningResult(id=uuid4(), session_id=session.id)
         db.add(screening_result)
     screening_result.dr_grade = prediction.predicted_grade
-    screening_result.referable_dr = prediction.referable_dr
+    screening_result.referable_dr = authoritative_referable_value(payload, prediction)
     screening_result.confidence = prediction.raw_confidence
     screening_result.calibrated_confidence = payload.get("calibration", {}).get("calibrated_confidence")
     screening_result.uncertainty = payload.get("uncertainty", {}).get("score")

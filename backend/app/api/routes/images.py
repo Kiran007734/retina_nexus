@@ -43,9 +43,19 @@ async def upload_image(
     except ImageTrustGateError as exc:
         raise HTTPException(status_code=422, detail={"code": "INVALID_IMAGE", "message": str(exc)}) from exc
 
+    decoded_mime_type = "image/jpeg" if metadata.format == "JPEG" else "image/png"
+    if image.content_type != decoded_mime_type:
+        raise HTTPException(
+            status_code=415,
+            detail={
+                "code": "UNSUPPORTED_MEDIA_TYPE",
+                "message": "The declared media type does not match the decoded image format",
+            },
+        )
+
     image_id = uuid4()
     suffix = ".jpg" if metadata.format == "JPEG" else ".png"
-    mime_type = "image/jpeg" if metadata.format == "JPEG" else "image/png"
+    mime_type = decoded_mime_type
     key = f"fundus/{patient_id}/{image_id}{suffix}"
     storage_path = await get_storage().save(key, content, mime_type)
     record = FundusImage(

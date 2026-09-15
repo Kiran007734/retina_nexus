@@ -1,0 +1,297 @@
+{
+  "all_operating_points": {
+    "and_rule": {
+      "operating_point": {
+        "confusion_matrix": {
+          "fn": 27,
+          "fp": 4,
+          "tn": 148,
+          "tp": 227
+        },
+        "f1": 0.9360824742268042,
+        "fnr": 0.10629921259842523,
+        "fpr": 0.02631578947368418,
+        "negative_support": 152,
+        "pr_auc": 0.9877819641112984,
+        "precision": 0.9826839826839827,
+        "recall": 0.8937007874015748,
+        "roc_auc": 0.975834024036469,
+        "score_semantics": "minimum of component threshold ratios; binary AND at ratio >= 1",
+        "sensitivity": 0.8937007874015748,
+        "specificity": 0.9736842105263158,
+        "support": 254,
+        "threshold": "component thresholds"
+      },
+      "strategy": "and_rule"
+    },
+    "learned_logistic": {
+      "operating_point": {
+        "confusion_matrix": {
+          "fn": 0,
+          "fp": 4,
+          "tn": 148,
+          "tp": 254
+        },
+        "f1": 0.9921875,
+        "fnr": 0.0,
+        "fpr": 0.02631578947368418,
+        "negative_support": 152,
+        "pr_auc": 0.9997647121450165,
+        "precision": 0.9844961240310077,
+        "recall": 1.0,
+        "roc_auc": 0.9996114794861168,
+        "score_semantics": "strict fold-held-out logistic probability",
+        "sensitivity": 1.0,
+        "specificity": 0.9736842105263158,
+        "support": 254,
+        "threshold": 0.2
+      },
+      "selection_source": "development OOF only",
+      "strategy": "learned_logistic"
+    },
+    "maximum_probability": {
+      "operating_point": {
+        "confusion_matrix": {
+          "fn": 0,
+          "fp": 3,
+          "tn": 149,
+          "tp": 254
+        },
+        "f1": 0.9941291585127202,
+        "fnr": 0.0,
+        "fpr": 0.019736842105263164,
+        "negative_support": 152,
+        "pr_auc": 0.9999231642165123,
+        "precision": 0.9883268482490273,
+        "recall": 1.0,
+        "roc_auc": 0.9998704931620389,
+        "score_semantics": "experimental uncalibrated composite score",
+        "sensitivity": 1.0,
+        "specificity": 0.9802631578947368,
+        "support": 254,
+        "threshold": 0.4
+      },
+      "selection_source": "development OOF only",
+      "strategy": "maximum_probability"
+    },
+    "minimum_probability": {
+      "operating_point": {
+        "confusion_matrix": {
+          "fn": 23,
+          "fp": 18,
+          "tn": 134,
+          "tp": 231
+        },
+        "f1": 0.9184890656063618,
+        "fnr": 0.09055118110236215,
+        "fpr": 0.11842105263157898,
+        "negative_support": 152,
+        "pr_auc": 0.9852603646946352,
+        "precision": 0.927710843373494,
+        "recall": 0.9094488188976378,
+        "roc_auc": 0.9710681723995027,
+        "score_semantics": "experimental uncalibrated composite score",
+        "sensitivity": 0.9094488188976378,
+        "specificity": 0.881578947368421,
+        "support": 254,
+        "threshold": 0.05
+      },
+      "selection_source": "development OOF only",
+      "strategy": "minimum_probability"
+    },
+    "or_rule": {
+      "operating_point": {
+        "confusion_matrix": {
+          "fn": 0,
+          "fp": 19,
+          "tn": 133,
+          "tp": 254
+        },
+        "f1": 0.9639468690702088,
+        "fnr": 0.0,
+        "fpr": 0.125,
+        "negative_support": 152,
+        "pr_auc": 0.9983877848762939,
+        "precision": 0.9304029304029304,
+        "recall": 1.0,
+        "roc_auc": 0.99753937007874,
+        "score_semantics": "maximum of component threshold ratios; binary OR at ratio >= 1",
+        "sensitivity": 1.0,
+        "specificity": 0.875,
+        "support": 254,
+        "threshold": "component thresholds"
+      },
+      "strategy": "or_rule"
+    },
+    "primary_only": {
+      "operating_point": {
+        "confusion_matrix": {
+          "fn": 27,
+          "fp": 15,
+          "tn": 137,
+          "tp": 227
+        },
+        "f1": 0.9153225806451614,
+        "fnr": 0.10629921259842523,
+        "fpr": 0.09868421052631582,
+        "negative_support": 152,
+        "pr_auc": 0.9807981771328491,
+        "precision": 0.9380165289256198,
+        "recall": 0.8937007874015748,
+        "roc_auc": 0.9630128470783258,
+        "score_semantics": "primary probability",
+        "sensitivity": 0.8937007874015748,
+        "specificity": 0.9013157894736842,
+        "support": 254,
+        "threshold": 0.1
+      },
+      "strategy": "primary_only"
+    },
+    "probability_average": {
+      "operating_point": {
+        "confusion_matrix": {
+          "fn": 0,
+          "fp": 6,
+          "tn": 146,
+          "tp": 254
+        },
+        "f1": 0.9883268482490272,
+        "fnr": 0.0,
+        "fpr": 0.03947368421052633,
+        "negative_support": 152,
+        "pr_auc": 0.9990125985170653,
+        "precision": 0.9769230769230769,
+        "recall": 1.0,
+        "roc_auc": 0.9984718193120596,
+        "score_semantics": "experimental uncalibrated composite score",
+        "sensitivity": 1.0,
+        "specificity": 0.9605263157894737,
+        "support": 254,
+        "threshold": 0.2
+      },
+      "selection_source": "development OOF only",
+      "strategy": "probability_average"
+    },
+    "verifier_only": {
+      "operating_point": {
+        "confusion_matrix": {
+          "fn": 0,
+          "fp": 8,
+          "tn": 144,
+          "tp": 254
+        },
+        "f1": 0.9844961240310077,
+        "fnr": 0.0,
+        "fpr": 0.052631578947368474,
+        "negative_support": 152,
+        "pr_auc": 0.9999383636328547,
+        "precision": 0.9694656488549618,
+        "recall": 1.0,
+        "roc_auc": 0.9998963945296311,
+        "score_semantics": "verifier probability",
+        "sensitivity": 1.0,
+        "specificity": 0.9473684210526315,
+        "support": 254,
+        "threshold": 0.204983
+      },
+      "strategy": "verifier_only"
+    },
+    "weighted_probability_average": {
+      "operating_point": {
+        "confusion_matrix": {
+          "fn": 0,
+          "fp": 16,
+          "tn": 136,
+          "tp": 254
+        },
+        "f1": 0.9694656488549619,
+        "fnr": 0.0,
+        "fpr": 0.10526315789473684,
+        "negative_support": 152,
+        "pr_auc": 0.997537436541181,
+        "precision": 0.9407407407407408,
+        "recall": 1.0,
+        "roc_auc": 0.9961147948611686,
+        "score_semantics": "experimental uncalibrated composite score",
+        "sensitivity": 1.0,
+        "specificity": 0.8947368421052632,
+        "support": 254,
+        "threshold": 0.1
+      },
+      "selection_source": "development OOF only",
+      "strategy": "weighted_probability_average"
+    }
+  },
+  "best_simple_or_learned_fusion": {
+    "operating_point": {
+      "confusion_matrix": {
+        "fn": 0,
+        "fp": 3,
+        "tn": 149,
+        "tp": 254
+      },
+      "f1": 0.9941291585127202,
+      "fnr": 0.0,
+      "fpr": 0.019736842105263164,
+      "negative_support": 152,
+      "pr_auc": 0.9999231642165123,
+      "precision": 0.9883268482490273,
+      "recall": 1.0,
+      "roc_auc": 0.9998704931620389,
+      "score_semantics": "experimental uncalibrated composite score",
+      "sensitivity": 1.0,
+      "specificity": 0.9802631578947368,
+      "support": 254,
+      "threshold": 0.4
+    },
+    "strategy": "maximum_probability"
+  },
+  "development_records": 406,
+  "primary": {
+    "confusion_matrix": {
+      "fn": 27,
+      "fp": 15,
+      "tn": 137,
+      "tp": 227
+    },
+    "f1": 0.9153225806451614,
+    "fnr": 0.10629921259842523,
+    "fpr": 0.09868421052631582,
+    "negative_support": 152,
+    "pr_auc": 0.9807981771328491,
+    "precision": 0.9380165289256198,
+    "recall": 0.8937007874015748,
+    "roc_auc": 0.9630128470783258,
+    "score_semantics": "primary probability",
+    "sensitivity": 0.8937007874015748,
+    "specificity": 0.9013157894736842,
+    "support": 254,
+    "threshold": 0.1
+  },
+  "selection_rule": "research description only; highest development sensitivity subject to specificity >= 0.85 where applicable, never external selection",
+  "status": "COMPLETED",
+  "target_status": "TARGET_NOT_YET_DEMONSTRATED",
+  "verifier": {
+    "confusion_matrix": {
+      "fn": 0,
+      "fp": 8,
+      "tn": 144,
+      "tp": 254
+    },
+    "f1": 0.9844961240310077,
+    "fnr": 0.0,
+    "fpr": 0.052631578947368474,
+    "negative_support": 152,
+    "pr_auc": 0.9999383636328547,
+    "precision": 0.9694656488549618,
+    "recall": 1.0,
+    "roc_auc": 0.9998963945296311,
+    "score_semantics": "verifier probability",
+    "sensitivity": 1.0,
+    "specificity": 0.9473684210526315,
+    "support": 254,
+    "threshold": 0.204983
+  },
+  "verifier_dataset_overlap_risk": true,
+  "verifier_overlap_note": "RETGUARD's published training datasets include IDRiD; sample-level membership is unknown."
+}

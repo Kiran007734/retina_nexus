@@ -10,6 +10,19 @@ from dataclasses import dataclass
 from typing import Any
 
 try:
+    from ml.clinical_rules import (
+        REFERABLE_PROBABILITY_THRESHOLD,
+        is_referable_probability,
+        referable_probability,
+    )
+except ModuleNotFoundError:  # Backend is also supported when started from backend/.
+    from app.ml.clinical_rules import (
+        REFERABLE_PROBABILITY_THRESHOLD,
+        is_referable_probability,
+        referable_probability,
+    )
+
+try:
     import torch
     from torch import nn
     from torchvision import models as tv_models
@@ -40,7 +53,11 @@ class ReferableDRMapping:
         return grade in self.referable_grades
 
     def probability(self, probabilities: list[float]) -> float:
-        return sum(probabilities[index] for index in self.referable_grades if 0 <= index < len(probabilities))
+        return referable_probability(probabilities, self.referable_grades)
+
+    def is_referable_probability(self, probabilities: list[float]) -> bool:
+        """Apply the authoritative probability rule, independent of argmax grade."""
+        return is_referable_probability(probabilities, self.referable_grades, REFERABLE_PROBABILITY_THRESHOLD)
 
     def to_dict(self) -> dict[str, Any]:
         return {"name": self.name, "referable_grades": list(self.referable_grades)}

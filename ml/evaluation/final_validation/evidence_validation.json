@@ -1,0 +1,830 @@
+{
+  "all_grad_cam_classes_match_primary": true,
+  "completed_images": 2,
+  "module_status_counts": {
+    "cotton_wool_spot_detection": {
+      "model_inference": 2
+    },
+    "exudate_segmentation": {
+      "model_inference": 2
+    },
+    "fovea_localization": {
+      "approximate": 2
+    },
+    "hemorrhage_detection": {
+      "model_inference": 2
+    },
+    "microaneurysm_detection": {
+      "model_inference": 2
+    },
+    "neovascularization_detection": {
+      "unsupported": 2
+    },
+    "optic_disc_localization": {
+      "experimental_heuristic": 2
+    },
+    "vessel_segmentation": {
+      "model_inference": 2
+    }
+  },
+  "rows": [
+    {
+      "case_id": "aptos_png_grade_0_quality_edge",
+      "evidence": {
+        "anatomical_landmarks": [
+          {
+            "brightness_score": 0.862,
+            "confidence": 0.631,
+            "landmark_type": "optic_disc",
+            "method": "bright-region-localization",
+            "radius": 22.0,
+            "status": "experimental_heuristic",
+            "x": 518.12,
+            "x_normalized": 0.674635,
+            "y": 297.97,
+            "y_normalized": 0.387982
+          },
+          {
+            "confidence": 0.1,
+            "eye_assumption": "right",
+            "landmark_type": "fovea",
+            "method": "optic-disc-relative-anatomical-approximation",
+            "radius": 7.7,
+            "status": "approximate",
+            "x": 566.52,
+            "x_normalized": 0.737656,
+            "y": 297.97,
+            "y_normalized": 0.387982
+          }
+        ],
+        "evidence_map_available": true,
+        "module_count": 8,
+        "modules": {
+          "cotton_wool_spot_detection": {
+            "bounding_region_count": 0,
+            "confidence": 0.0,
+            "count": 0,
+            "implementation": "fundus-lesions-toolkit-unet-seresnext50",
+            "issues": [
+              {
+                "message": "Pretrained research model output is supporting evidence; it is not a clinical diagnosis or validated production claim.",
+                "type": "research_model"
+              }
+            ],
+            "landmark_count": 0,
+            "mask_available": true,
+            "metadata": {
+              "adapter_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "adapter_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "architecture": "U-Net with SE-ResNeXt-50 32x4d encoder",
+              "checkpoint_sha256": "a7a7cb45b92328f7c9a8e581eec3944fd435d37fae8cbf340b1319c5f987c6d2",
+              "class_index": 1,
+              "class_name": "cotton_wool_spot",
+              "clinical_validation_claim": false,
+              "coarse_to_fine": "global fundus resized/cropped to 1024; class masks restored to the evidence working image",
+              "context": {
+                "patch_count": 16,
+                "proposal_count": 16,
+                "working_height": 768,
+                "working_width": 768
+              },
+              "coverage_ratio": 0.0,
+              "device": "cpu",
+              "input_resolution": 1024,
+              "license": "MIT",
+              "max_probability": 0.0,
+              "mean_probability": 0.0,
+              "model_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "model_repository": "ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+              "model_source": "https://huggingface.co/ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+              "model_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "pixel_count": 0,
+              "source_code": "https://github.com/ClementPla/fundus-lesions-toolkit",
+              "threshold": 0.5,
+              "trained_on": [
+                "IDRiD",
+                "DDR",
+                "FGADR",
+                "MESSIDOR",
+                "RETLES"
+              ]
+            },
+            "overlay_available": false,
+            "status": "model_inference",
+            "supported": true
+          },
+          "exudate_segmentation": {
+            "bounding_region_count": 0,
+            "confidence": 0.5,
+            "count": 0,
+            "implementation": "fundus-lesions-toolkit-unet-seresnext50",
+            "issues": [
+              {
+                "message": "Pretrained research model output is supporting evidence; it is not a clinical diagnosis or validated production claim.",
+                "type": "research_model"
+              }
+            ],
+            "landmark_count": 0,
+            "mask_available": true,
+            "metadata": {
+              "adapter_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "adapter_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "architecture": "U-Net with SE-ResNeXt-50 32x4d encoder",
+              "checkpoint_sha256": "a7a7cb45b92328f7c9a8e581eec3944fd435d37fae8cbf340b1319c5f987c6d2",
+              "class_index": 2,
+              "class_name": "exudate",
+              "clinical_validation_claim": false,
+              "coarse_to_fine": "global fundus resized/cropped to 1024; class masks restored to the evidence working image",
+              "context": {
+                "patch_count": 16,
+                "proposal_count": 16,
+                "working_height": 768,
+                "working_width": 768
+              },
+              "coverage_ratio": 1.7e-06,
+              "device": "cpu",
+              "input_resolution": 1024,
+              "license": "MIT",
+              "max_probability": 0.500002,
+              "mean_probability": 2e-06,
+              "model_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "model_repository": "ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+              "model_source": "https://huggingface.co/ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+              "model_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "pixel_count": 1,
+              "source_code": "https://github.com/ClementPla/fundus-lesions-toolkit",
+              "threshold": 0.5,
+              "trained_on": [
+                "IDRiD",
+                "DDR",
+                "FGADR",
+                "MESSIDOR",
+                "RETLES"
+              ]
+            },
+            "overlay_available": false,
+            "status": "model_inference",
+            "supported": true
+          },
+          "fovea_localization": {
+            "bounding_region_count": 0,
+            "confidence": 0.1,
+            "count": null,
+            "implementation": "optic_disc_relative_heuristic",
+            "issues": [
+              {
+                "message": "Approximate anatomical position only; not a validated fovea detector.",
+                "type": "approximation_only"
+              }
+            ],
+            "landmark_count": 1,
+            "mask_available": false,
+            "metadata": {},
+            "overlay_available": false,
+            "status": "approximate",
+            "supported": true
+          },
+          "hemorrhage_detection": {
+            "bounding_region_count": 0,
+            "confidence": 0.0,
+            "count": 0,
+            "implementation": "fundus-lesions-toolkit-unet-seresnext50",
+            "issues": [
+              {
+                "message": "Pretrained research model output is supporting evidence; it is not a clinical diagnosis or validated production claim.",
+                "type": "research_model"
+              }
+            ],
+            "landmark_count": 0,
+            "mask_available": true,
+            "metadata": {
+              "adapter_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "adapter_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "architecture": "U-Net with SE-ResNeXt-50 32x4d encoder",
+              "checkpoint_sha256": "a7a7cb45b92328f7c9a8e581eec3944fd435d37fae8cbf340b1319c5f987c6d2",
+              "class_index": 3,
+              "class_name": "hemorrhage",
+              "clinical_validation_claim": false,
+              "coarse_to_fine": "global fundus resized/cropped to 1024; class masks restored to the evidence working image",
+              "context": {
+                "patch_count": 16,
+                "proposal_count": 16,
+                "working_height": 768,
+                "working_width": 768
+              },
+              "coverage_ratio": 0.0,
+              "device": "cpu",
+              "input_resolution": 1024,
+              "license": "MIT",
+              "max_probability": 7e-06,
+              "mean_probability": 0.0,
+              "model_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "model_repository": "ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+              "model_source": "https://huggingface.co/ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+              "model_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "pixel_count": 0,
+              "source_code": "https://github.com/ClementPla/fundus-lesions-toolkit",
+              "threshold": 0.5,
+              "trained_on": [
+                "IDRiD",
+                "DDR",
+                "FGADR",
+                "MESSIDOR",
+                "RETLES"
+              ]
+            },
+            "overlay_available": false,
+            "status": "model_inference",
+            "supported": true
+          },
+          "microaneurysm_detection": {
+            "bounding_region_count": 0,
+            "confidence": 0.0,
+            "count": 0,
+            "implementation": "fundus-lesions-toolkit-unet-seresnext50",
+            "issues": [
+              {
+                "message": "Pretrained research model output is supporting evidence; it is not a clinical diagnosis or validated production claim.",
+                "type": "research_model"
+              }
+            ],
+            "landmark_count": 0,
+            "mask_available": true,
+            "metadata": {
+              "adapter_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "adapter_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "architecture": "U-Net with SE-ResNeXt-50 32x4d encoder",
+              "checkpoint_sha256": "a7a7cb45b92328f7c9a8e581eec3944fd435d37fae8cbf340b1319c5f987c6d2",
+              "class_index": 4,
+              "class_name": "microaneurysm",
+              "clinical_validation_claim": false,
+              "coarse_to_fine": "global fundus resized/cropped to 1024; class masks restored to the evidence working image",
+              "context": {
+                "patch_count": 16,
+                "proposal_count": 16,
+                "working_height": 768,
+                "working_width": 768
+              },
+              "coverage_ratio": 0.0,
+              "device": "cpu",
+              "input_resolution": 1024,
+              "license": "MIT",
+              "max_probability": 0.0,
+              "mean_probability": 0.0,
+              "model_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "model_repository": "ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+              "model_source": "https://huggingface.co/ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+              "model_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "pixel_count": 0,
+              "source_code": "https://github.com/ClementPla/fundus-lesions-toolkit",
+              "threshold": 0.5,
+              "trained_on": [
+                "IDRiD",
+                "DDR",
+                "FGADR",
+                "MESSIDOR",
+                "RETLES"
+              ]
+            },
+            "overlay_available": false,
+            "status": "model_inference",
+            "supported": true
+          },
+          "neovascularization_detection": {
+            "bounding_region_count": 0,
+            "confidence": null,
+            "count": null,
+            "implementation": "experimental_interface_only",
+            "issues": [
+              {
+                "message": "Advanced experimental module interface is present, but no validated model artifact or compatible annotation is configured.",
+                "type": "unsupported"
+              }
+            ],
+            "landmark_count": 0,
+            "mask_available": false,
+            "metadata": {},
+            "overlay_available": false,
+            "status": "unsupported",
+            "supported": false
+          },
+          "optic_disc_localization": {
+            "bounding_region_count": 0,
+            "confidence": 0.631,
+            "count": null,
+            "implementation": "classical_cv_baseline",
+            "issues": [
+              {
+                "message": "Bright-region localization baseline; not clinically validated.",
+                "type": "experimental_baseline"
+              }
+            ],
+            "landmark_count": 1,
+            "mask_available": true,
+            "metadata": {},
+            "overlay_available": false,
+            "status": "experimental_heuristic",
+            "supported": true
+          },
+          "vessel_segmentation": {
+            "bounding_region_count": 0,
+            "confidence": 0.815,
+            "count": 99,
+            "implementation": "R2-V2 RRWNet bv vessel segmentor",
+            "issues": [
+              {
+                "message": "Real neural-network vessel segmentation output; measurements are engineering estimates and are not clinically validated biomarkers.",
+                "type": "engineering_evidence"
+              }
+            ],
+            "landmark_count": 0,
+            "mask_available": true,
+            "metadata": {
+              "adapter_name": "R2-V2 RRWNet bv vessel segmentor",
+              "adapter_version": "r2-v2-bv-2025",
+              "architecture": "RRWNet (R2-V2 bv variant)",
+              "checkpoint_sha256": "ea219b13b03984b8d454f999343c5bda1a8a7cb8586aeb3639a29814cab2330a",
+              "clinical_validation_claim": false,
+              "connected_components": 99,
+              "context": {
+                "retina_area_ratio": 0.7939,
+                "working_height": 768,
+                "working_width": 768
+              },
+              "coverage_ratio": 0.0728675,
+              "device": "cpu",
+              "input_configuration": {
+                "channels": 6,
+                "preprocessing": "published R2-V2 enhance_image + CLAHE, RGB fundus concatenated with enhanced RGB",
+                "width": 1408
+              },
+              "license": "CC BY 4.0",
+              "max_probability": 0.999174,
+              "mean_probability_inside_mask": 0.815046,
+              "measurement_status": "ENGINEERING_ESTIMATE",
+              "model_name": "R2-V2 RRWNet bv vessel segmentor",
+              "model_repository": "j-morano/R2-V2",
+              "model_source": "https://huggingface.co/j-morano/R2-V2",
+              "model_version": "r2-v2-bv-2025",
+              "output_configuration": {
+                "channels": {
+                  "0": "artery",
+                  "1": "vein",
+                  "2": "blood_vessels"
+                },
+                "probability_activation": "sigmoid",
+                "vessel_channel": 2
+              },
+              "pixel_count": 42979,
+              "source_code": "https://github.com/j-morano/R2-V2",
+              "source_revision": "bb8c6c9346054df749f8bd48a9da41ba974e6a6b",
+              "threshold": 0.5,
+              "training_dataset_provenance": "Unified_Fundus (as stated in the published R2-V2 bv_config.json)"
+            },
+            "overlay_available": true,
+            "status": "model_inference",
+            "supported": true
+          }
+        },
+        "stage_timings_ms": {
+          "lesion_inference_ms": 10622.801,
+          "structure_analysis_ms": 99.193,
+          "vessel_inference_ms": 246406.366
+        },
+        "status": "completed"
+      },
+      "explainability": {
+        "attention_lesion_agreement": {
+          "metrics": {
+            "attention_coverage": 0.125552,
+            "attention_in_lesion": 0.0,
+            "dice": 0.0,
+            "intersection_over_union": 0.0,
+            "lesion_coverage": 2e-06,
+            "lesion_in_attention": 0.0
+          },
+          "note": "Engineering explainability metric only; overlap does not prove clinical causality.",
+          "reason": "Attention and supported lesion regions were compared at the working image resolution.",
+          "score": 0.0,
+          "status": "LOW AGREEMENT"
+        },
+        "grad_cam": {
+          "heatmap_available": true,
+          "normalized_attention_available": true,
+          "overlay_available": true,
+          "target_class": 0
+        },
+        "matches_primary_grade": true,
+        "predicted_class": 0,
+        "predicted_class_label": "No DR",
+        "stability": {
+          "grad_cam_stability": null,
+          "prediction_stability": null,
+          "reason": "Stability perturbations are disabled for real-time mode. Set run_stability=true or enable EXPLAINABILITY_STABILITY_ENABLED.",
+          "status": "SKIPPED",
+          "variants": []
+        }
+      }
+    },
+    {
+      "case_id": "idrid_jpeg_grade_0_gradable",
+      "evidence": {
+        "anatomical_landmarks": [
+          {
+            "brightness_score": 0.7949,
+            "confidence": 0.5975,
+            "landmark_type": "optic_disc",
+            "method": "bright-region-localization",
+            "radius": 24.0,
+            "status": "experimental_heuristic",
+            "x": 521.5,
+            "x_normalized": 0.679036,
+            "y": 302.06,
+            "y_normalized": 0.592275
+          },
+          {
+            "confidence": 0.1,
+            "eye_assumption": "right",
+            "landmark_type": "fovea",
+            "method": "optic-disc-relative-anatomical-approximation",
+            "radius": 8.4,
+            "status": "approximate",
+            "x": 574.3,
+            "x_normalized": 0.747786,
+            "y": 302.06,
+            "y_normalized": 0.592275
+          }
+        ],
+        "evidence_map_available": true,
+        "module_count": 8,
+        "modules": {
+          "cotton_wool_spot_detection": {
+            "bounding_region_count": 0,
+            "confidence": 0.0,
+            "count": 0,
+            "implementation": "fundus-lesions-toolkit-unet-seresnext50",
+            "issues": [
+              {
+                "message": "Pretrained research model output is supporting evidence; it is not a clinical diagnosis or validated production claim.",
+                "type": "research_model"
+              }
+            ],
+            "landmark_count": 0,
+            "mask_available": true,
+            "metadata": {
+              "adapter_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "adapter_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "architecture": "U-Net with SE-ResNeXt-50 32x4d encoder",
+              "checkpoint_sha256": "a7a7cb45b92328f7c9a8e581eec3944fd435d37fae8cbf340b1319c5f987c6d2",
+              "class_index": 1,
+              "class_name": "cotton_wool_spot",
+              "clinical_validation_claim": false,
+              "coarse_to_fine": "global fundus resized/cropped to 1024; class masks restored to the evidence working image",
+              "context": {
+                "patch_count": 16,
+                "proposal_count": 16,
+                "working_height": 510,
+                "working_width": 768
+              },
+              "coverage_ratio": 0.0,
+              "device": "cpu",
+              "input_resolution": 1024,
+              "license": "MIT",
+              "max_probability": 0.0,
+              "mean_probability": 0.0,
+              "model_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "model_repository": "ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+              "model_source": "https://huggingface.co/ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+              "model_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "pixel_count": 0,
+              "source_code": "https://github.com/ClementPla/fundus-lesions-toolkit",
+              "threshold": 0.5,
+              "trained_on": [
+                "IDRiD",
+                "DDR",
+                "FGADR",
+                "MESSIDOR",
+                "RETLES"
+              ]
+            },
+            "overlay_available": false,
+            "status": "model_inference",
+            "supported": true
+          },
+          "exudate_segmentation": {
+            "bounding_region_count": 0,
+            "confidence": 0.0,
+            "count": 0,
+            "implementation": "fundus-lesions-toolkit-unet-seresnext50",
+            "issues": [
+              {
+                "message": "Pretrained research model output is supporting evidence; it is not a clinical diagnosis or validated production claim.",
+                "type": "research_model"
+              }
+            ],
+            "landmark_count": 0,
+            "mask_available": true,
+            "metadata": {
+              "adapter_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "adapter_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "architecture": "U-Net with SE-ResNeXt-50 32x4d encoder",
+              "checkpoint_sha256": "a7a7cb45b92328f7c9a8e581eec3944fd435d37fae8cbf340b1319c5f987c6d2",
+              "class_index": 2,
+              "class_name": "exudate",
+              "clinical_validation_claim": false,
+              "coarse_to_fine": "global fundus resized/cropped to 1024; class masks restored to the evidence working image",
+              "context": {
+                "patch_count": 16,
+                "proposal_count": 16,
+                "working_height": 510,
+                "working_width": 768
+              },
+              "coverage_ratio": 0.0,
+              "device": "cpu",
+              "input_resolution": 1024,
+              "license": "MIT",
+              "max_probability": 0.0,
+              "mean_probability": 0.0,
+              "model_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "model_repository": "ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+              "model_source": "https://huggingface.co/ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+              "model_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "pixel_count": 0,
+              "source_code": "https://github.com/ClementPla/fundus-lesions-toolkit",
+              "threshold": 0.5,
+              "trained_on": [
+                "IDRiD",
+                "DDR",
+                "FGADR",
+                "MESSIDOR",
+                "RETLES"
+              ]
+            },
+            "overlay_available": false,
+            "status": "model_inference",
+            "supported": true
+          },
+          "fovea_localization": {
+            "bounding_region_count": 0,
+            "confidence": 0.1,
+            "count": null,
+            "implementation": "optic_disc_relative_heuristic",
+            "issues": [
+              {
+                "message": "Approximate anatomical position only; not a validated fovea detector.",
+                "type": "approximation_only"
+              }
+            ],
+            "landmark_count": 1,
+            "mask_available": false,
+            "metadata": {},
+            "overlay_available": false,
+            "status": "approximate",
+            "supported": true
+          },
+          "hemorrhage_detection": {
+            "bounding_region_count": 2,
+            "confidence": 0.9522,
+            "count": 2,
+            "implementation": "fundus-lesions-toolkit-unet-seresnext50",
+            "issues": [
+              {
+                "message": "Pretrained research model output is supporting evidence; it is not a clinical diagnosis or validated production claim.",
+                "type": "research_model"
+              }
+            ],
+            "landmark_count": 0,
+            "mask_available": true,
+            "metadata": {
+              "adapter_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "adapter_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "architecture": "U-Net with SE-ResNeXt-50 32x4d encoder",
+              "checkpoint_sha256": "a7a7cb45b92328f7c9a8e581eec3944fd435d37fae8cbf340b1319c5f987c6d2",
+              "class_index": 3,
+              "class_name": "hemorrhage",
+              "clinical_validation_claim": false,
+              "coarse_to_fine": "global fundus resized/cropped to 1024; class masks restored to the evidence working image",
+              "context": {
+                "patch_count": 16,
+                "proposal_count": 16,
+                "working_height": 510,
+                "working_width": 768
+              },
+              "coverage_ratio": 0.00044424,
+              "device": "cpu",
+              "input_resolution": 1024,
+              "license": "MIT",
+              "max_probability": 1.0,
+              "mean_probability": 0.000435,
+              "model_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "model_repository": "ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+              "model_source": "https://huggingface.co/ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+              "model_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "pixel_count": 174,
+              "source_code": "https://github.com/ClementPla/fundus-lesions-toolkit",
+              "threshold": 0.5,
+              "trained_on": [
+                "IDRiD",
+                "DDR",
+                "FGADR",
+                "MESSIDOR",
+                "RETLES"
+              ]
+            },
+            "overlay_available": false,
+            "status": "model_inference",
+            "supported": true
+          },
+          "microaneurysm_detection": {
+            "bounding_region_count": 2,
+            "confidence": 0.8937,
+            "count": 2,
+            "implementation": "fundus-lesions-toolkit-unet-seresnext50",
+            "issues": [
+              {
+                "message": "Pretrained research model output is supporting evidence; it is not a clinical diagnosis or validated production claim.",
+                "type": "research_model"
+              }
+            ],
+            "landmark_count": 0,
+            "mask_available": true,
+            "metadata": {
+              "adapter_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "adapter_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "architecture": "U-Net with SE-ResNeXt-50 32x4d encoder",
+              "checkpoint_sha256": "a7a7cb45b92328f7c9a8e581eec3944fd435d37fae8cbf340b1319c5f987c6d2",
+              "class_index": 4,
+              "class_name": "microaneurysm",
+              "clinical_validation_claim": false,
+              "coarse_to_fine": "global fundus resized/cropped to 1024; class masks restored to the evidence working image",
+              "context": {
+                "patch_count": 16,
+                "proposal_count": 16,
+                "working_height": 510,
+                "working_width": 768
+              },
+              "coverage_ratio": 0.00011234,
+              "device": "cpu",
+              "input_resolution": 1024,
+              "license": "MIT",
+              "max_probability": 1.0,
+              "mean_probability": 0.000106,
+              "model_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "model_repository": "ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+              "model_source": "https://huggingface.co/ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+              "model_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "pixel_count": 44,
+              "source_code": "https://github.com/ClementPla/fundus-lesions-toolkit",
+              "threshold": 0.5,
+              "trained_on": [
+                "IDRiD",
+                "DDR",
+                "FGADR",
+                "MESSIDOR",
+                "RETLES"
+              ]
+            },
+            "overlay_available": false,
+            "status": "model_inference",
+            "supported": true
+          },
+          "neovascularization_detection": {
+            "bounding_region_count": 0,
+            "confidence": null,
+            "count": null,
+            "implementation": "experimental_interface_only",
+            "issues": [
+              {
+                "message": "Advanced experimental module interface is present, but no validated model artifact or compatible annotation is configured.",
+                "type": "unsupported"
+              }
+            ],
+            "landmark_count": 0,
+            "mask_available": false,
+            "metadata": {},
+            "overlay_available": false,
+            "status": "unsupported",
+            "supported": false
+          },
+          "optic_disc_localization": {
+            "bounding_region_count": 0,
+            "confidence": 0.5975,
+            "count": null,
+            "implementation": "classical_cv_baseline",
+            "issues": [
+              {
+                "message": "Bright-region localization baseline; not clinically validated.",
+                "type": "experimental_baseline"
+              }
+            ],
+            "landmark_count": 1,
+            "mask_available": true,
+            "metadata": {},
+            "overlay_available": false,
+            "status": "experimental_heuristic",
+            "supported": true
+          },
+          "vessel_segmentation": {
+            "bounding_region_count": 0,
+            "confidence": 0.8174,
+            "count": 132,
+            "implementation": "R2-V2 RRWNet bv vessel segmentor",
+            "issues": [
+              {
+                "message": "Real neural-network vessel segmentation output; measurements are engineering estimates and are not clinically validated biomarkers.",
+                "type": "engineering_evidence"
+              }
+            ],
+            "landmark_count": 0,
+            "mask_available": true,
+            "metadata": {
+              "adapter_name": "R2-V2 RRWNet bv vessel segmentor",
+              "adapter_version": "r2-v2-bv-2025",
+              "architecture": "RRWNet (R2-V2 bv variant)",
+              "checkpoint_sha256": "ea219b13b03984b8d454f999343c5bda1a8a7cb8586aeb3639a29814cab2330a",
+              "clinical_validation_claim": false,
+              "connected_components": 132,
+              "context": {
+                "retina_area_ratio": 0.7153,
+                "working_height": 510,
+                "working_width": 768
+              },
+              "coverage_ratio": 0.06010263,
+              "device": "cpu",
+              "input_configuration": {
+                "channels": 6,
+                "preprocessing": "published R2-V2 enhance_image + CLAHE, RGB fundus concatenated with enhanced RGB",
+                "width": 1408
+              },
+              "license": "CC BY 4.0",
+              "max_probability": 0.999609,
+              "mean_probability_inside_mask": 0.817352,
+              "measurement_status": "ENGINEERING_ESTIMATE",
+              "model_name": "R2-V2 RRWNet bv vessel segmentor",
+              "model_repository": "j-morano/R2-V2",
+              "model_source": "https://huggingface.co/j-morano/R2-V2",
+              "model_version": "r2-v2-bv-2025",
+              "output_configuration": {
+                "channels": {
+                  "0": "artery",
+                  "1": "vein",
+                  "2": "blood_vessels"
+                },
+                "probability_activation": "sigmoid",
+                "vessel_channel": 2
+              },
+              "pixel_count": 23541,
+              "source_code": "https://github.com/j-morano/R2-V2",
+              "source_revision": "bb8c6c9346054df749f8bd48a9da41ba974e6a6b",
+              "threshold": 0.5,
+              "training_dataset_provenance": "Unified_Fundus (as stated in the published R2-V2 bv_config.json)"
+            },
+            "overlay_available": true,
+            "status": "model_inference",
+            "supported": true
+          }
+        },
+        "stage_timings_ms": {
+          "lesion_inference_ms": 1928.215,
+          "structure_analysis_ms": 19.825,
+          "vessel_inference_ms": 42579.625
+        },
+        "status": "completed"
+      },
+      "explainability": {
+        "attention_lesion_agreement": {
+          "metrics": {
+            "attention_coverage": 0.110691,
+            "attention_in_lesion": 0.001,
+            "dice": 0.002,
+            "intersection_over_union": 0.001,
+            "lesion_coverage": 0.000556,
+            "lesion_in_attention": 0.2025
+          },
+          "note": "Engineering explainability metric only; overlap does not prove clinical causality.",
+          "reason": "Attention and supported lesion regions were compared at the working image resolution.",
+          "score": 0.0015,
+          "status": "LOW AGREEMENT"
+        },
+        "grad_cam": {
+          "heatmap_available": true,
+          "normalized_attention_available": true,
+          "overlay_available": true,
+          "target_class": 1
+        },
+        "matches_primary_grade": true,
+        "predicted_class": 1,
+        "predicted_class_label": "Mild",
+        "stability": {
+          "grad_cam_stability": null,
+          "prediction_stability": null,
+          "reason": "Stability perturbations are disabled for real-time mode. Set run_stability=true or enable EXPLAINABILITY_STABILITY_ENABLED.",
+          "status": "SKIPPED",
+          "variants": []
+        }
+      }
+    }
+  ],
+  "status": "PASS",
+  "supporting_evidence_rewrote_grade": false
+}

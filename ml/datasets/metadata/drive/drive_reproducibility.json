@@ -1,0 +1,218 @@
+{
+  "checkpoint": "ml/weights/vessels/drive/checkpoint_best.pt",
+  "checkpoint_sha256": "f199543db550f7cd84548cb0e2ab2cf7efbad99ffb41af8649b249d4433a3133",
+  "image_count": 20,
+  "maximum_abs_probability_delta": 0.0,
+  "model_version": "drive-vessel-scratch-green-focal-dice-512-20260913-v1",
+  "official_test_images_opened": 0,
+  "per_image": [
+    {
+      "binary_mask_exact_match": true,
+      "exact_probability_match": true,
+      "image_id": "21",
+      "max_abs_probability_delta": 0.0,
+      "probability_shape": [
+        512,
+        512
+      ]
+    },
+    {
+      "binary_mask_exact_match": true,
+      "exact_probability_match": true,
+      "image_id": "22",
+      "max_abs_probability_delta": 0.0,
+      "probability_shape": [
+        512,
+        512
+      ]
+    },
+    {
+      "binary_mask_exact_match": true,
+      "exact_probability_match": true,
+      "image_id": "23",
+      "max_abs_probability_delta": 0.0,
+      "probability_shape": [
+        512,
+        512
+      ]
+    },
+    {
+      "binary_mask_exact_match": true,
+      "exact_probability_match": true,
+      "image_id": "24",
+      "max_abs_probability_delta": 0.0,
+      "probability_shape": [
+        512,
+        512
+      ]
+    },
+    {
+      "binary_mask_exact_match": true,
+      "exact_probability_match": true,
+      "image_id": "25",
+      "max_abs_probability_delta": 0.0,
+      "probability_shape": [
+        512,
+        512
+      ]
+    },
+    {
+      "binary_mask_exact_match": true,
+      "exact_probability_match": true,
+      "image_id": "26",
+      "max_abs_probability_delta": 0.0,
+      "probability_shape": [
+        512,
+        512
+      ]
+    },
+    {
+      "binary_mask_exact_match": true,
+      "exact_probability_match": true,
+      "image_id": "27",
+      "max_abs_probability_delta": 0.0,
+      "probability_shape": [
+        512,
+        512
+      ]
+    },
+    {
+      "binary_mask_exact_match": true,
+      "exact_probability_match": true,
+      "image_id": "28",
+      "max_abs_probability_delta": 0.0,
+      "probability_shape": [
+        512,
+        512
+      ]
+    },
+    {
+      "binary_mask_exact_match": true,
+      "exact_probability_match": true,
+      "image_id": "29",
+      "max_abs_probability_delta": 0.0,
+      "probability_shape": [
+        512,
+        512
+      ]
+    },
+    {
+      "binary_mask_exact_match": true,
+      "exact_probability_match": true,
+      "image_id": "30",
+      "max_abs_probability_delta": 0.0,
+      "probability_shape": [
+        512,
+        512
+      ]
+    },
+    {
+      "binary_mask_exact_match": true,
+      "exact_probability_match": true,
+      "image_id": "31",
+      "max_abs_probability_delta": 0.0,
+      "probability_shape": [
+        512,
+        512
+      ]
+    },
+    {
+      "binary_mask_exact_match": true,
+      "exact_probability_match": true,
+      "image_id": "32",
+      "max_abs_probability_delta": 0.0,
+      "probability_shape": [
+        512,
+        512
+      ]
+    },
+    {
+      "binary_mask_exact_match": true,
+      "exact_probability_match": true,
+      "image_id": "33",
+      "max_abs_probability_delta": 0.0,
+      "probability_shape": [
+        512,
+        512
+      ]
+    },
+    {
+      "binary_mask_exact_match": true,
+      "exact_probability_match": true,
+      "image_id": "34",
+      "max_abs_probability_delta": 0.0,
+      "probability_shape": [
+        512,
+        512
+      ]
+    },
+    {
+      "binary_mask_exact_match": true,
+      "exact_probability_match": true,
+      "image_id": "35",
+      "max_abs_probability_delta": 0.0,
+      "probability_shape": [
+        512,
+        512
+      ]
+    },
+    {
+      "binary_mask_exact_match": true,
+      "exact_probability_match": true,
+      "image_id": "36",
+      "max_abs_probability_delta": 0.0,
+      "probability_shape": [
+        512,
+        512
+      ]
+    },
+    {
+      "binary_mask_exact_match": true,
+      "exact_probability_match": true,
+      "image_id": "37",
+      "max_abs_probability_delta": 0.0,
+      "probability_shape": [
+        512,
+        512
+      ]
+    },
+    {
+      "binary_mask_exact_match": true,
+      "exact_probability_match": true,
+      "image_id": "38",
+      "max_abs_probability_delta": 0.0,
+      "probability_shape": [
+        512,
+        512
+      ]
+    },
+    {
+      "binary_mask_exact_match": true,
+      "exact_probability_match": true,
+      "image_id": "39",
+      "max_abs_probability_delta": 0.0,
+      "probability_shape": [
+        512,
+        512
+      ]
+    },
+    {
+      "binary_mask_exact_match": true,
+      "exact_probability_match": true,
+      "image_id": "40",
+      "max_abs_probability_delta": 0.0,
+      "probability_shape": [
+        512,
+        512
+      ]
+    }
+  ],
+  "preprocessing": {
+    "color": "green channel replicated to three input channels",
+    "mode": "green",
+    "normalization": "float32 [0,1]"
+  },
+  "probabilities_identical": true,
+  "production_promoted": false,
+  "status": "PASS"
+}

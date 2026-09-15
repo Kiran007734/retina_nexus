@@ -1,0 +1,19 @@
+{
+  "abstention_or_escalation": "Quality gate, uncertainty, disagreement availability, OOD monitoring, and RetinaGuard can escalate; they do not silently change grade.",
+  "backup_disagreement": "NOT_AVAILABLE_NO_BACKUP_CHECKPOINT",
+  "generated_at_utc": "2026-09-14T06:01:04.975179+00:00",
+  "known_safety_limitations": [
+    "No clinical validation claim.",
+    "Raw confidence is not clinically calibrated.",
+    "Messidor labels are not independently proven official ground truth.",
+    "Full-population evidence and XAI validation were not run because CPU cost is high."
+  ],
+  "missing_evidence_behavior": "Missing or failed evidence is surfaced as unavailable/error and cannot be silently fabricated.",
+  "referable_rule": {
+    "aptos_external_evaluation": "P(2)+P(3)+P(4) >= threshold; evaluated at 0.50 and 0.20",
+    "idrid_research": "P(2)+P(3)+P(4) >= 0.20"
+  },
+  "schema_version": "retina-nexus-master-safety-analysis-v1",
+  "severity_grade_protection": "The classifier argmax remains distinct from referable probability, evidence, and RetinaGuard state.",
+  "status": "RESEARCH_AND_ENGINEERING_AUDIT"
+}

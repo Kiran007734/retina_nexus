@@ -1,0 +1,199 @@
+{
+  "clinical_validation_claim": false,
+  "dataset": "Messidor-2 authoritative original label-matched records",
+  "labels_used_for_selection": false,
+  "models": {
+    "and_rule": {
+      "confusion_matrix": {
+        "fn": 243,
+        "fp": 46,
+        "tn": 1241,
+        "tp": 214
+      },
+      "f1": 0.596931659693166,
+      "fnr": 0.5317286652078774,
+      "fpr": 0.035742035742035716,
+      "negative_support": 1287,
+      "pr_auc": 0.7569602109989635,
+      "precision": 0.823076923076923,
+      "recall": 0.4682713347921225,
+      "roc_auc": 0.8652320205930709,
+      "score_semantics": "minimum of component threshold ratios; binary AND at ratio >= 1",
+      "sensitivity": 0.4682713347921225,
+      "specificity": 0.9642579642579643,
+      "support": 457,
+      "threshold": "component thresholds"
+    },
+    "learned_logistic": {
+      "confusion_matrix": {
+        "fn": 20,
+        "fp": 245,
+        "tn": 1042,
+        "tp": 437
+      },
+      "f1": 0.7673397717295873,
+      "fnr": 0.043763676148796504,
+      "fpr": 0.1903651903651904,
+      "negative_support": 1287,
+      "pr_auc": 0.9315177724691133,
+      "precision": 0.6407624633431085,
+      "recall": 0.9562363238512035,
+      "roc_auc": 0.9672792561195187,
+      "score_semantics": "development-fitted logistic applied without external tuning",
+      "sensitivity": 0.9562363238512035,
+      "specificity": 0.8096348096348096,
+      "support": 457,
+      "threshold": 0.2
+    },
+    "maximum_probability": {
+      "confusion_matrix": {
+        "fn": 33,
+        "fp": 179,
+        "tn": 1108,
+        "tp": 424
+      },
+      "f1": 0.7999999999999999,
+      "fnr": 0.07221006564551424,
+      "fpr": 0.13908313908313907,
+      "negative_support": 1287,
+      "pr_auc": 0.9393200319501056,
+      "precision": 0.703150912106136,
+      "recall": 0.9277899343544858,
+      "roc_auc": 0.9685884259188418,
+      "score_semantics": "experimental uncalibrated composite score",
+      "sensitivity": 0.9277899343544858,
+      "specificity": 0.8609168609168609,
+      "support": 457,
+      "threshold": 0.4
+    },
+    "minimum_probability": {
+      "confusion_matrix": {
+        "fn": 195,
+        "fp": 119,
+        "tn": 1168,
+        "tp": 262
+      },
+      "f1": 0.6252983293556086,
+      "fnr": 0.42669584245076586,
+      "fpr": 0.09246309246309248,
+      "negative_support": 1287,
+      "pr_auc": 0.7354911795453903,
+      "precision": 0.6876640419947506,
+      "recall": 0.5733041575492341,
+      "roc_auc": 0.8534919979121292,
+      "score_semantics": "experimental uncalibrated composite score",
+      "sensitivity": 0.5733041575492341,
+      "specificity": 0.9075369075369075,
+      "support": 457,
+      "threshold": 0.05
+    },
+    "or_rule": {
+      "confusion_matrix": {
+        "fn": 13,
+        "fp": 336,
+        "tn": 951,
+        "tp": 444
+      },
+      "f1": 0.7178658043654003,
+      "fnr": 0.02844638949671774,
+      "fpr": 0.2610722610722611,
+      "negative_support": 1287,
+      "pr_auc": 0.9231602999266184,
+      "precision": 0.5692307692307692,
+      "recall": 0.9715536105032823,
+      "roc_auc": 0.9654413177389107,
+      "score_semantics": "maximum of component threshold ratios; binary OR at ratio >= 1",
+      "sensitivity": 0.9715536105032823,
+      "specificity": 0.7389277389277389,
+      "support": 457,
+      "threshold": "component thresholds"
+    },
+    "primary_only": {
+      "confusion_matrix": {
+        "fn": 243,
+        "fp": 73,
+        "tn": 1214,
+        "tp": 214
+      },
+      "f1": 0.575268817204301,
+      "fnr": 0.5317286652078774,
+      "fpr": 0.05672105672105676,
+      "negative_support": 1287,
+      "pr_auc": 0.7132375925239202,
+      "precision": 0.7456445993031359,
+      "recall": 0.4682713347921225,
+      "roc_auc": 0.8408474579152916,
+      "score_semantics": "primary probability at frozen development threshold",
+      "sensitivity": 0.4682713347921225,
+      "specificity": 0.9432789432789432,
+      "support": 457,
+      "threshold": 0.1
+    },
+    "probability_average": {
+      "confusion_matrix": {
+        "fn": 31,
+        "fp": 206,
+        "tn": 1081,
+        "tp": 426
+      },
+      "f1": 0.7823691460055097,
+      "fnr": 0.06783369803063455,
+      "fpr": 0.16006216006216,
+      "negative_support": 1287,
+      "pr_auc": 0.9193677652493808,
+      "precision": 0.6740506329113924,
+      "recall": 0.9321663019693655,
+      "roc_auc": 0.9640522375752135,
+      "score_semantics": "experimental uncalibrated composite score",
+      "sensitivity": 0.9321663019693655,
+      "specificity": 0.83993783993784,
+      "support": 457,
+      "threshold": 0.2
+    },
+    "verifier_only": {
+      "confusion_matrix": {
+        "fn": 13,
+        "fp": 309,
+        "tn": 978,
+        "tp": 444
+      },
+      "f1": 0.7338842975206612,
+      "fnr": 0.02844638949671774,
+      "fpr": 0.24009324009324007,
+      "negative_support": 1287,
+      "pr_auc": 0.9397947381008545,
+      "precision": 0.5896414342629482,
+      "recall": 0.9715536105032823,
+      "roc_auc": 0.9690270828126408,
+      "score_semantics": "verifier probability at published fixed threshold",
+      "sensitivity": 0.9715536105032823,
+      "specificity": 0.7599067599067599,
+      "support": 457,
+      "threshold": 0.204983
+    },
+    "weighted_probability_average": {
+      "confusion_matrix": {
+        "fn": 29,
+        "fp": 241,
+        "tn": 1046,
+        "tp": 428
+      },
+      "f1": 0.7602131438721138,
+      "fnr": 0.06345733041575496,
+      "fpr": 0.1872571872571872,
+      "negative_support": 1287,
+      "pr_auc": 0.8829888704391473,
+      "precision": 0.6397608370702541,
+      "recall": 0.936542669584245,
+      "roc_auc": 0.9536145838115204,
+      "score_semantics": "experimental uncalibrated composite score",
+      "sensitivity": 0.936542669584245,
+      "specificity": 0.8127428127428128,
+      "support": 457,
+      "threshold": 0.1
+    }
+  },
+  "records": 1744,
+  "target_status": "TARGET_NOT_YET_DEMONSTRATED",
+  "threshold_selection_on_messidor": false
+}

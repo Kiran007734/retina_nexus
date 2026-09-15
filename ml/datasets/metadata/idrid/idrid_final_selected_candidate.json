@@ -1,0 +1,10 @@
+{
+  "checkpoint": "ml/weights/classifiers/idrid/research/final/checkpoint_best.pt",
+  "checkpoint_sha256": "97bd6a9933ca3d09c1e41bb16ba7452b5988eb1818fc7f1c87054471c4c33049",
+  "development_cv_artifact": "ml/datasets/metadata/idrid/idrid_final_cv_stability.json",
+  "official_test_images_opened_in_current_cycle": 0,
+  "official_test_reused": false,
+  "production_promoted": false,
+  "selected_model": "idrid-final-development-candidate-a-v3-control-20260912",
+  "selection_status": "EXISTING_FROZEN_V3_REFERENCE; CURRENT_CV_RESEARCH_NOT_PROMOTED"
+}

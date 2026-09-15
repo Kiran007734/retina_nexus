@@ -1,0 +1,22 @@
+{
+  "cached_jobs": 0,
+  "clinical_validation_claim": false,
+  "completed_jobs": 0,
+  "evaluation_scope": "BENCHMARK_SUBSET",
+  "failed_jobs": 0,
+  "generated_at_utc": "2026-09-13T20:51:52.119099+00:00",
+  "completed_at_utc": "2026-09-14T02:26:56+05:30",
+  "interruption_reason": "Bounded one-worker benchmark exceeded the five-minute execution limit before a terminal pipeline result was returned. No prediction was substituted.",
+  "limited_run": true,
+  "model_fingerprint": "production-default-frozen-artifacts",
+  "official_test_images_opened": 0,
+  "pending_jobs": 1,
+  "production_promoted": false,
+  "runner_version": "messidor2-parallel-full-pipeline-v1",
+  "schema_version": "messidor2-parallel-run-v1",
+  "source_total_jobs": 1744,
+  "status": "INTERRUPTED_TIMEOUT",
+  "torch_threads_per_worker": 1,
+  "total_jobs": 1,
+  "workers": 1
+}

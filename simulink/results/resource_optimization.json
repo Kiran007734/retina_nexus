@@ -1,0 +1,20 @@
+{
+  "recommended_configuration": {
+    "BandwidthMbps": 1,
+    "ClassifierWorkers": 1,
+    "LesionWorkers": 1,
+    "VesselWorkers": 1,
+    "XAIWorkers": 1,
+    "Reviewers": 1,
+    "RelativeResourceCost": 6,
+    "AnalyticalCapacity": 237219.79840529565,
+    "BottleneckOfferedUtilization": 0.4415277777777778,
+    "P95LatencySeconds": 161.96966000000248,
+    "Feasible": 1,
+    "EvidencePending": 0,
+    "ReviewPending": 0
+  },
+  "feasible_candidates": 3375,
+  "target_patients_per_year": 100000,
+  "relative_cost_definition": "Bandwidth tier plus worker counts; not financial cost"
+}

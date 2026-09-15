@@ -1,0 +1,71 @@
+{
+  "best_examples": [
+    "21"
+  ],
+  "dataset": "DRIVE",
+  "dataset_scope": "One bounded live production-path inference on a labeled training image; the existing legitimate 20-image report is retained as the full development reference",
+  "field_of_view_applied": true,
+  "live_sample_minus_full_reference": {
+    "dice": 0.05911514586998656,
+    "f1": 0.05911514586998656,
+    "iou": 0.07244174139313375,
+    "pixel_accuracy": 0.016395359187722836,
+    "precision": 0.011391710376978614,
+    "sensitivity": 0.07696352504863746,
+    "specificity": 0.001457502338974681
+  },
+  "measured_live_sample_mean": {
+    "dice": 0.776666513740423,
+    "f1": 0.776666513740423,
+    "iou": 0.634877179823739,
+    "pixel_accuracy": 0.9568439716312057,
+    "precision": 0.8936338682432432,
+    "sensitivity": 0.6867748478701825,
+    "specificity": 0.9899726300074645
+  },
+  "measured_live_sample_std": {
+    "dice": 0.0,
+    "f1": 0.0,
+    "iou": 0.0,
+    "pixel_accuracy": 0.0,
+    "precision": 0.0,
+    "sensitivity": 0.0,
+    "specificity": 0.0
+  },
+  "official_test_images_accessed_this_cycle": 0,
+  "per_image_metrics": [
+    {
+      "dice": 0.776666513740423,
+      "evaluated_pixels": 225600,
+      "f1": 0.776666513740423,
+      "false_negative": 7721,
+      "false_positive": 2015,
+      "ground_truth_vessel_pixels": 24650,
+      "iou": 0.634877179823739,
+      "pixel_accuracy": 0.9568439716312057,
+      "precision": 0.8936338682432432,
+      "predicted_vessel_pixels": 18944,
+      "recall": 0.6867748478701825,
+      "sensitivity": 0.6867748478701825,
+      "specificity": 0.9899726300074645,
+      "specimen_id": "21",
+      "true_negative": 198935,
+      "true_positive": 16929
+    }
+  ],
+  "previous_full_development_reference_mean": {
+    "dice": 0.7175513678704364,
+    "f1": 0.7175513678704364,
+    "iou": 0.5624354384306053,
+    "pixel_accuracy": 0.9404486124434829,
+    "precision": 0.8822421578662646,
+    "sensitivity": 0.609811322821545,
+    "specificity": 0.9885151276684898
+  },
+  "protocol_comparison": "The live forensic check uses the same channel-2 sigmoid output, threshold 0.5, and genuine FOV masking as the existing 20-image reference evaluator, but it is a one-image runtime sanity check and must not be interpreted as a replacement development estimate. The existing report remains the full 20-image development result.",
+  "status": "PASS",
+  "threshold": 0.5,
+  "worst_examples": [
+    "21"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "clinical_validation_claim": false,
+  "image_source": "ORIGINAL_ONLY",
+  "label_source": "ml/datasets/raw/messidor/images/messidor_data.csv",
+  "label_source_warning": "Labels are local/adjudicated reference labels and not independently proven official Messidor-2 ground truth.",
+  "record_count": 1744,
+  "source_manifest": "ml/evaluation/messidor2/authoritative_external_manifest.json",
+  "unlabeled_originals_excluded": 4
+}

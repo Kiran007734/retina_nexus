@@ -1,0 +1,2138 @@
+{
+  "duplicate_group_overlap_any_fold": false,
+  "fixed_referable_threshold": 0.4,
+  "fold_count": 5,
+  "folds": [
+    {
+      "checkpoint": "ml/weights/classifiers/idrid/research/master_cv/20260912/fold_1/checkpoint_best.pt",
+      "checkpoint_sha256": "b85ae7855fe2023fffd13ec3eb50cc0ac0a64f7c805156dfbdd0d877fea7658c",
+      "duplicate_group_overlap": [],
+      "fold": 1,
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 2.0863209529356523,
+          "validation_metrics": {
+            "accuracy": 0.575,
+            "class_distribution": {
+              "0": 26,
+              "1": 2,
+              "2": 26,
+              "3": 16,
+              "4": 10
+            },
+            "confusion_matrix": [
+              [
+                24,
+                2,
+                0,
+                0,
+                0
+              ],
+              [
+                2,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                6,
+                5,
+                15,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                6,
+                4,
+                4
+              ],
+              [
+                1,
+                0,
+                3,
+                3,
+                3
+              ]
+            ],
+            "f1": 0.42015345268542204,
+            "per_class": {
+              "Mild": {
+                "f1": 0.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "sensitivity": 0.0,
+                "specificity": 0.8974358974358975,
+                "support": 2
+              },
+              "Moderate": {
+                "f1": 0.6,
+                "precision": 0.625,
+                "recall": 0.5769230769230769,
+                "sensitivity": 0.5769230769230769,
+                "specificity": 0.8333333333333334,
+                "support": 26
+              },
+              "No DR": {
+                "f1": 0.8000000000000002,
+                "precision": 0.7058823529411765,
+                "recall": 0.9230769230769231,
+                "sensitivity": 0.9230769230769231,
+                "specificity": 0.8148148148148148,
+                "support": 26
+              },
+              "Proliferative DR": {
+                "f1": 0.3529411764705882,
+                "precision": 0.42857142857142855,
+                "recall": 0.3,
+                "sensitivity": 0.3,
+                "specificity": 0.9428571428571428,
+                "support": 10
+              },
+              "Severe": {
+                "f1": 0.34782608695652173,
+                "precision": 0.5714285714285714,
+                "recall": 0.25,
+                "sensitivity": 0.25,
+                "specificity": 0.953125,
+                "support": 16
+              }
+            },
+            "precision": 0.4661764705882353,
+            "quadratic_weighted_kappa": 0.724901185770751,
+            "recall": 0.41,
+            "referable_dr": {
+              "f1": 0.8936170212765957,
+              "false_negative": 10,
+              "false_negative_rate": 0.1923076923076923,
+              "false_positive": 0,
+              "precision": 1.0,
+              "recall": 0.7692307692307693,
+              "referable_grades": [
+                2,
+                3,
+                4
+              ],
+              "roc_auc": 0.9622252747252746,
+              "sensitivity": 0.8076923076923077,
+              "specificity": 1.0,
+              "support": 52,
+              "threshold": 0.4,
+              "true_negative": 28,
+              "true_positive": 42
+            },
+            "roc_auc_ovr_macro": 0.7825278127543752,
+            "sample_count": 80,
+            "sensitivity": 0.41,
+            "specificity": 0.8883132376882378
+          }
+        },
+        {
+          "epoch": 2,
+          "train_loss": 1.8433695056221702,
+          "validation_metrics": {
+            "accuracy": 0.5625,
+            "class_distribution": {
+              "0": 26,
+              "1": 2,
+              "2": 26,
+              "3": 16,
+              "4": 10
+            },
+            "confusion_matrix": [
+              [
+                25,
+                1,
+                0,
+                0,
+                0
+              ],
+              [
+                2,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                6,
+                5,
+                14,
+                1,
+                0
+              ],
+              [
+                1,
+                1,
+                6,
+                3,
+                5
+              ],
+              [
+                1,
+                0,
+                3,
+                3,
+                3
+              ]
+            ],
+            "f1": 0.3970607202253674,
+            "per_class": {
+              "Mild": {
+                "f1": 0.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "sensitivity": 0.0,
+                "specificity": 0.9102564102564102,
+                "support": 2
+              },
+              "Moderate": {
+                "f1": 0.5714285714285715,
+                "precision": 0.6086956521739131,
+                "recall": 0.5384615384615384,
+                "sensitivity": 0.5384615384615384,
+                "specificity": 0.8333333333333334,
+                "support": 26
+              },
+              "No DR": {
+                "f1": 0.819672131147541,
+                "precision": 0.7142857142857143,
+                "recall": 0.9615384615384616,
+                "sensitivity": 0.9615384615384616,
+                "specificity": 0.8148148148148148,
+                "support": 26
+              },
+              "Proliferative DR": {
+                "f1": 0.33333333333333326,
+                "precision": 0.375,
+                "recall": 0.3,
+                "sensitivity": 0.3,
+                "specificity": 0.9285714285714286,
+                "support": 10
+              },
+              "Severe": {
+                "f1": 0.26086956521739124,
+                "precision": 0.42857142857142855,
+                "recall": 0.1875,
+                "sensitivity": 0.1875,
+                "specificity": 0.9375,
+                "support": 16
+              }
+            },
+            "precision": 0.4253105590062113,
+            "quadratic_weighted_kappa": 0.7281433426011739,
+            "recall": 0.3975,
+            "referable_dr": {
+              "f1": 0.8817204301075269,
+              "false_negative": 11,
+              "false_negative_rate": 0.21153846153846156,
+              "false_positive": 0,
+              "precision": 1.0,
+              "recall": 0.7692307692307693,
+              "referable_grades": [
+                2,
+                3,
+                4
+              ],
+              "roc_auc": 0.9594780219780219,
+              "sensitivity": 0.7884615384615384,
+              "specificity": 1.0,
+              "support": 52,
+              "threshold": 0.4,
+              "true_negative": 28,
+              "true_positive": 41
+            },
+            "roc_auc_ovr_macro": 0.7757503020706146,
+            "sample_count": 80,
+            "sensitivity": 0.3975,
+            "specificity": 0.8848951973951975
+          }
+        }
+      ],
+      "metrics": {
+        "accuracy": 0.5625,
+        "class_distribution": {
+          "0": 26,
+          "1": 2,
+          "2": 26,
+          "3": 16,
+          "4": 10
+        },
+        "confusion_matrix": [
+          [
+            25,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            6,
+            5,
+            14,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            6,
+            3,
+            5
+          ],
+          [
+            1,
+            0,
+            3,
+            3,
+            3
+          ]
+        ],
+        "f1": 0.3970607202253674,
+        "per_class": {
+          "Mild": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "sensitivity": 0.0,
+            "specificity": 0.9102564102564102,
+            "support": 2
+          },
+          "Moderate": {
+            "f1": 0.5714285714285715,
+            "precision": 0.6086956521739131,
+            "recall": 0.5384615384615384,
+            "sensitivity": 0.5384615384615384,
+            "specificity": 0.8333333333333334,
+            "support": 26
+          },
+          "No DR": {
+            "f1": 0.819672131147541,
+            "precision": 0.7142857142857143,
+            "recall": 0.9615384615384616,
+            "sensitivity": 0.9615384615384616,
+            "specificity": 0.8148148148148148,
+            "support": 26
+          },
+          "Proliferative DR": {
+            "f1": 0.33333333333333326,
+            "precision": 0.375,
+            "recall": 0.3,
+            "sensitivity": 0.3,
+            "specificity": 0.9285714285714286,
+            "support": 10
+          },
+          "Severe": {
+            "f1": 0.26086956521739124,
+            "precision": 0.42857142857142855,
+            "recall": 0.1875,
+            "sensitivity": 0.1875,
+            "specificity": 0.9375,
+            "support": 16
+          }
+        },
+        "precision": 0.4253105590062113,
+        "quadratic_weighted_kappa": 0.7281433426011739,
+        "recall": 0.3975,
+        "referable_dr": {
+          "f1": 0.8817204301075269,
+          "false_negative": 11,
+          "false_negative_rate": 0.21153846153846156,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 0.7692307692307693,
+          "referable_grades": [
+            2,
+            3,
+            4
+          ],
+          "roc_auc": 0.9594780219780219,
+          "sensitivity": 0.7884615384615384,
+          "specificity": 1.0,
+          "support": 52,
+          "threshold": 0.4,
+          "true_negative": 28,
+          "true_positive": 41
+        },
+        "roc_auc_ovr_macro": 0.7757503020706146,
+        "sample_count": 80,
+        "sensitivity": 0.3975,
+        "specificity": 0.8848951973951975
+      },
+      "official_test_images_opened": 0,
+      "protocol": "APTOS initialized EfficientNet-B0, IDRiD development fold only, robust augmentation, weighted cross-entropy, frozen referable threshold 0.40",
+      "seed": 20260913,
+      "train_class_distribution": {
+        "0": 107,
+        "1": 17,
+        "2": 107,
+        "3": 57,
+        "4": 38
+      },
+      "train_count": 326,
+      "training_seconds": 144.83073849999346,
+      "validation_class_distribution": {
+        "0": 26,
+        "1": 2,
+        "2": 26,
+        "3": 16,
+        "4": 10
+      },
+      "validation_count": 80
+    },
+    {
+      "checkpoint": "ml/weights/classifiers/idrid/research/master_cv/20260912/fold_2/checkpoint_best.pt",
+      "checkpoint_sha256": "ff81a9d3f55c5677e2f9532bf354eef5dc3ba64294486ab3042f89cec055fd8c",
+      "duplicate_group_overlap": [],
+      "fold": 2,
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 1.8979969891634854,
+          "validation_metrics": {
+            "accuracy": 0.5185185185185185,
+            "class_distribution": {
+              "0": 25,
+              "1": 4,
+              "2": 25,
+              "3": 14,
+              "4": 13
+            },
+            "confusion_matrix": [
+              [
+                22,
+                3,
+                0,
+                0,
+                0
+              ],
+              [
+                4,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                5,
+                6,
+                12,
+                1,
+                1
+              ],
+              [
+                0,
+                2,
+                5,
+                3,
+                4
+              ],
+              [
+                0,
+                1,
+                5,
+                2,
+                5
+              ]
+            ],
+            "f1": 0.4062270384564556,
+            "per_class": {
+              "Mild": {
+                "f1": 0.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "sensitivity": 0.0,
+                "specificity": 0.8441558441558441,
+                "support": 4
+              },
+              "Moderate": {
+                "f1": 0.5106382978723404,
+                "precision": 0.5454545454545454,
+                "recall": 0.48,
+                "sensitivity": 0.48,
+                "specificity": 0.8214285714285714,
+                "support": 25
+              },
+              "No DR": {
+                "f1": 0.7857142857142856,
+                "precision": 0.7096774193548387,
+                "recall": 0.88,
+                "sensitivity": 0.88,
+                "specificity": 0.8392857142857143,
+                "support": 25
+              },
+              "Proliferative DR": {
+                "f1": 0.4347826086956522,
+                "precision": 0.5,
+                "recall": 0.38461538461538464,
+                "sensitivity": 0.38461538461538464,
+                "specificity": 0.9264705882352942,
+                "support": 13
+              },
+              "Severe": {
+                "f1": 0.3,
+                "precision": 0.5,
+                "recall": 0.21428571428571427,
+                "sensitivity": 0.21428571428571427,
+                "specificity": 0.9552238805970149,
+                "support": 14
+              }
+            },
+            "precision": 0.4510263929618768,
+            "quadratic_weighted_kappa": 0.743595406360424,
+            "recall": 0.3917802197802197,
+            "referable_dr": {
+              "f1": 0.9052631578947368,
+              "false_negative": 9,
+              "false_negative_rate": 0.17307692307692313,
+              "false_positive": 0,
+              "precision": 1.0,
+              "recall": 0.7884615384615384,
+              "referable_grades": [
+                2,
+                3,
+                4
+              ],
+              "roc_auc": 0.98342175066313,
+              "sensitivity": 0.8269230769230769,
+              "specificity": 1.0,
+              "support": 52,
+              "threshold": 0.4,
+              "true_negative": 29,
+              "true_positive": 43
+            },
+            "roc_auc_ovr_macro": 0.7470648789314285,
+            "sample_count": 81,
+            "sensitivity": 0.3917802197802197,
+            "specificity": 0.8773129197404879
+          }
+        },
+        {
+          "epoch": 2,
+          "train_loss": 1.9620995413173328,
+          "validation_metrics": {
+            "accuracy": 0.5679012345679012,
+            "class_distribution": {
+              "0": 25,
+              "1": 4,
+              "2": 25,
+              "3": 14,
+              "4": 13
+            },
+            "confusion_matrix": [
+              [
+                24,
+                1,
+                0,
+                0,
+                0
+              ],
+              [
+                4,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                7,
+                3,
+                12,
+                1,
+                2
+              ],
+              [
+                0,
+                2,
+                4,
+                4,
+                4
+              ],
+              [
+                1,
+                0,
+                3,
+                3,
+                6
+              ]
+            ],
+            "f1": 0.4351952309985097,
+            "per_class": {
+              "Mild": {
+                "f1": 0.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "sensitivity": 0.0,
+                "specificity": 0.922077922077922,
+                "support": 4
+              },
+              "Moderate": {
+                "f1": 0.5454545454545454,
+                "precision": 0.631578947368421,
+                "recall": 0.48,
+                "sensitivity": 0.48,
+                "specificity": 0.875,
+                "support": 25
+              },
+              "No DR": {
+                "f1": 0.7868852459016393,
+                "precision": 0.6666666666666666,
+                "recall": 0.96,
+                "sensitivity": 0.96,
+                "specificity": 0.7857142857142857,
+                "support": 25
+              },
+              "Proliferative DR": {
+                "f1": 0.48000000000000004,
+                "precision": 0.5,
+                "recall": 0.46153846153846156,
+                "sensitivity": 0.46153846153846156,
+                "specificity": 0.9117647058823529,
+                "support": 13
+              },
+              "Severe": {
+                "f1": 0.36363636363636365,
+                "precision": 0.5,
+                "recall": 0.2857142857142857,
+                "sensitivity": 0.2857142857142857,
+                "specificity": 0.9402985074626866,
+                "support": 14
+              }
+            },
+            "precision": 0.45964912280701753,
+            "quadratic_weighted_kappa": 0.7445145364783323,
+            "recall": 0.43745054945054945,
+            "referable_dr": {
+              "f1": 0.9052631578947368,
+              "false_negative": 9,
+              "false_negative_rate": 0.17307692307692313,
+              "false_positive": 0,
+              "precision": 1.0,
+              "recall": 0.7884615384615384,
+              "referable_grades": [
+                2,
+                3,
+                4
+              ],
+              "roc_auc": 0.9860742705570291,
+              "sensitivity": 0.8269230769230769,
+              "specificity": 1.0,
+              "support": 52,
+              "threshold": 0.4,
+              "true_negative": 29,
+              "true_positive": 43
+            },
+            "roc_auc_ovr_macro": 0.7395904543217976,
+            "sample_count": 81,
+            "sensitivity": 0.43745054945054945,
+            "specificity": 0.8869710842274495
+          }
+        }
+      ],
+      "metrics": {
+        "accuracy": 0.5679012345679012,
+        "class_distribution": {
+          "0": 25,
+          "1": 4,
+          "2": 25,
+          "3": 14,
+          "4": 13
+        },
+        "confusion_matrix": [
+          [
+            24,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            4,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            7,
+            3,
+            12,
+            1,
+            2
+          ],
+          [
+            0,
+            2,
+            4,
+            4,
+            4
+          ],
+          [
+            1,
+            0,
+            3,
+            3,
+            6
+          ]
+        ],
+        "f1": 0.4351952309985097,
+        "per_class": {
+          "Mild": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "sensitivity": 0.0,
+            "specificity": 0.922077922077922,
+            "support": 4
+          },
+          "Moderate": {
+            "f1": 0.5454545454545454,
+            "precision": 0.631578947368421,
+            "recall": 0.48,
+            "sensitivity": 0.48,
+            "specificity": 0.875,
+            "support": 25
+          },
+          "No DR": {
+            "f1": 0.7868852459016393,
+            "precision": 0.6666666666666666,
+            "recall": 0.96,
+            "sensitivity": 0.96,
+            "specificity": 0.7857142857142857,
+            "support": 25
+          },
+          "Proliferative DR": {
+            "f1": 0.48000000000000004,
+            "precision": 0.5,
+            "recall": 0.46153846153846156,
+            "sensitivity": 0.46153846153846156,
+            "specificity": 0.9117647058823529,
+            "support": 13
+          },
+          "Severe": {
+            "f1": 0.36363636363636365,
+            "precision": 0.5,
+            "recall": 0.2857142857142857,
+            "sensitivity": 0.2857142857142857,
+            "specificity": 0.9402985074626866,
+            "support": 14
+          }
+        },
+        "precision": 0.45964912280701753,
+        "quadratic_weighted_kappa": 0.7445145364783323,
+        "recall": 0.43745054945054945,
+        "referable_dr": {
+          "f1": 0.9052631578947368,
+          "false_negative": 9,
+          "false_negative_rate": 0.17307692307692313,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 0.7884615384615384,
+          "referable_grades": [
+            2,
+            3,
+            4
+          ],
+          "roc_auc": 0.9860742705570291,
+          "sensitivity": 0.8269230769230769,
+          "specificity": 1.0,
+          "support": 52,
+          "threshold": 0.4,
+          "true_negative": 29,
+          "true_positive": 43
+        },
+        "roc_auc_ovr_macro": 0.7395904543217976,
+        "sample_count": 81,
+        "sensitivity": 0.43745054945054945,
+        "specificity": 0.8869710842274495
+      },
+      "official_test_images_opened": 0,
+      "protocol": "APTOS initialized EfficientNet-B0, IDRiD development fold only, robust augmentation, weighted cross-entropy, frozen referable threshold 0.40",
+      "seed": 20260914,
+      "train_class_distribution": {
+        "0": 108,
+        "1": 15,
+        "2": 108,
+        "3": 59,
+        "4": 35
+      },
+      "train_count": 325,
+      "training_seconds": 144.63268450000032,
+      "validation_class_distribution": {
+        "0": 25,
+        "1": 4,
+        "2": 25,
+        "3": 14,
+        "4": 13
+      },
+      "validation_count": 81
+    },
+    {
+      "checkpoint": "ml/weights/classifiers/idrid/research/master_cv/20260912/fold_3/checkpoint_best.pt",
+      "checkpoint_sha256": "3dee46bb059f7bd5cb9cdac49a2058c60db5081d389a48bb93af181725c2cda0",
+      "duplicate_group_overlap": [],
+      "fold": 3,
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 2.2510361996564,
+          "validation_metrics": {
+            "accuracy": 0.6463414634146342,
+            "class_distribution": {
+              "0": 30,
+              "1": 4,
+              "2": 27,
+              "3": 13,
+              "4": 8
+            },
+            "confusion_matrix": [
+              [
+                27,
+                3,
+                0,
+                0,
+                0
+              ],
+              [
+                4,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                4,
+                4,
+                18,
+                0,
+                1
+              ],
+              [
+                0,
+                2,
+                3,
+                5,
+                3
+              ],
+              [
+                0,
+                0,
+                2,
+                3,
+                3
+              ]
+            ],
+            "f1": 0.48539194139194136,
+            "per_class": {
+              "Mild": {
+                "f1": 0.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "sensitivity": 0.0,
+                "specificity": 0.8846153846153846,
+                "support": 4
+              },
+              "Moderate": {
+                "f1": 0.72,
+                "precision": 0.782608695652174,
+                "recall": 0.6666666666666666,
+                "sensitivity": 0.6666666666666666,
+                "specificity": 0.9090909090909091,
+                "support": 27
+              },
+              "No DR": {
+                "f1": 0.8307692307692307,
+                "precision": 0.7714285714285715,
+                "recall": 0.9,
+                "sensitivity": 0.9,
+                "specificity": 0.8461538461538461,
+                "support": 30
+              },
+              "Proliferative DR": {
+                "f1": 0.39999999999999997,
+                "precision": 0.42857142857142855,
+                "recall": 0.375,
+                "sensitivity": 0.375,
+                "specificity": 0.9459459459459459,
+                "support": 8
+              },
+              "Severe": {
+                "f1": 0.4761904761904762,
+                "precision": 0.625,
+                "recall": 0.38461538461538464,
+                "sensitivity": 0.38461538461538464,
+                "specificity": 0.9565217391304348,
+                "support": 13
+              }
+            },
+            "precision": 0.5215217391304348,
+            "quadratic_weighted_kappa": 0.816598769869798,
+            "recall": 0.4652564102564103,
+            "referable_dr": {
+              "f1": 0.9347826086956522,
+              "false_negative": 5,
+              "false_negative_rate": 0.10416666666666663,
+              "false_positive": 1,
+              "precision": 0.9772727272727273,
+              "recall": 0.8541666666666666,
+              "referable_grades": [
+                2,
+                3,
+                4
+              ],
+              "roc_auc": 0.9822303921568627,
+              "sensitivity": 0.8958333333333334,
+              "specificity": 0.9705882352941176,
+              "support": 48,
+              "threshold": 0.4,
+              "true_negative": 33,
+              "true_positive": 43
+            },
+            "roc_auc_ovr_macro": 0.8405102054015098,
+            "sample_count": 82,
+            "sensitivity": 0.4652564102564103,
+            "specificity": 0.908465564987304
+          }
+        },
+        {
+          "epoch": 2,
+          "train_loss": 2.110259933905168,
+          "validation_metrics": {
+            "accuracy": 0.6463414634146342,
+            "class_distribution": {
+              "0": 30,
+              "1": 4,
+              "2": 27,
+              "3": 13,
+              "4": 8
+            },
+            "confusion_matrix": [
+              [
+                27,
+                3,
+                0,
+                0,
+                0
+              ],
+              [
+                4,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                5,
+                2,
+                19,
+                0,
+                1
+              ],
+              [
+                0,
+                2,
+                4,
+                5,
+                2
+              ],
+              [
+                0,
+                0,
+                2,
+                4,
+                2
+              ]
+            ],
+            "f1": 0.46223776223776236,
+            "per_class": {
+              "Mild": {
+                "f1": 0.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "sensitivity": 0.0,
+                "specificity": 0.9102564102564102,
+                "support": 4
+              },
+              "Moderate": {
+                "f1": 0.7307692307692308,
+                "precision": 0.76,
+                "recall": 0.7037037037037037,
+                "sensitivity": 0.7037037037037037,
+                "specificity": 0.8909090909090909,
+                "support": 27
+              },
+              "No DR": {
+                "f1": 0.8181818181818182,
+                "precision": 0.75,
+                "recall": 0.9,
+                "sensitivity": 0.9,
+                "specificity": 0.8269230769230769,
+                "support": 30
+              },
+              "Proliferative DR": {
+                "f1": 0.3076923076923077,
+                "precision": 0.4,
+                "recall": 0.25,
+                "sensitivity": 0.25,
+                "specificity": 0.9594594594594594,
+                "support": 8
+              },
+              "Severe": {
+                "f1": 0.4545454545454546,
+                "precision": 0.5555555555555556,
+                "recall": 0.38461538461538464,
+                "sensitivity": 0.38461538461538464,
+                "specificity": 0.9420289855072463,
+                "support": 13
+              }
+            },
+            "precision": 0.4931111111111111,
+            "quadratic_weighted_kappa": 0.801867474813662,
+            "recall": 0.44766381766381763,
+            "referable_dr": {
+              "f1": 0.945054945054945,
+              "false_negative": 5,
+              "false_negative_rate": 0.10416666666666663,
+              "false_positive": 0,
+              "precision": 1.0,
+              "recall": 0.8541666666666666,
+              "referable_grades": [
+                2,
+                3,
+                4
+              ],
+              "roc_auc": 0.9846813725490196,
+              "sensitivity": 0.8958333333333334,
+              "specificity": 1.0,
+              "support": 48,
+              "threshold": 0.4,
+              "true_negative": 34,
+              "true_positive": 43
+            },
+            "roc_auc_ovr_macro": 0.8305554406641363,
+            "sample_count": 82,
+            "sensitivity": 0.44766381766381763,
+            "specificity": 0.9059154046110567
+          }
+        }
+      ],
+      "metrics": {
+        "accuracy": 0.6463414634146342,
+        "class_distribution": {
+          "0": 30,
+          "1": 4,
+          "2": 27,
+          "3": 13,
+          "4": 8
+        },
+        "confusion_matrix": [
+          [
+            27,
+            3,
+            0,
+            0,
+            0
+          ],
+          [
+            4,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            5,
+            2,
+            19,
+            0,
+            1
+          ],
+          [
+            0,
+            2,
+            4,
+            5,
+            2
+          ],
+          [
+            0,
+            0,
+            2,
+            4,
+            2
+          ]
+        ],
+        "f1": 0.46223776223776236,
+        "per_class": {
+          "Mild": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "sensitivity": 0.0,
+            "specificity": 0.9102564102564102,
+            "support": 4
+          },
+          "Moderate": {
+            "f1": 0.7307692307692308,
+            "precision": 0.76,
+            "recall": 0.7037037037037037,
+            "sensitivity": 0.7037037037037037,
+            "specificity": 0.8909090909090909,
+            "support": 27
+          },
+          "No DR": {
+            "f1": 0.8181818181818182,
+            "precision": 0.75,
+            "recall": 0.9,
+            "sensitivity": 0.9,
+            "specificity": 0.8269230769230769,
+            "support": 30
+          },
+          "Proliferative DR": {
+            "f1": 0.3076923076923077,
+            "precision": 0.4,
+            "recall": 0.25,
+            "sensitivity": 0.25,
+            "specificity": 0.9594594594594594,
+            "support": 8
+          },
+          "Severe": {
+            "f1": 0.4545454545454546,
+            "precision": 0.5555555555555556,
+            "recall": 0.38461538461538464,
+            "sensitivity": 0.38461538461538464,
+            "specificity": 0.9420289855072463,
+            "support": 13
+          }
+        },
+        "precision": 0.4931111111111111,
+        "quadratic_weighted_kappa": 0.801867474813662,
+        "recall": 0.44766381766381763,
+        "referable_dr": {
+          "f1": 0.945054945054945,
+          "false_negative": 5,
+          "false_negative_rate": 0.10416666666666663,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 0.8541666666666666,
+          "referable_grades": [
+            2,
+            3,
+            4
+          ],
+          "roc_auc": 0.9846813725490196,
+          "sensitivity": 0.8958333333333334,
+          "specificity": 1.0,
+          "support": 48,
+          "threshold": 0.4,
+          "true_negative": 34,
+          "true_positive": 43
+        },
+        "roc_auc_ovr_macro": 0.8305554406641363,
+        "sample_count": 82,
+        "sensitivity": 0.44766381766381763,
+        "specificity": 0.9059154046110567
+      },
+      "official_test_images_opened": 0,
+      "protocol": "APTOS initialized EfficientNet-B0, IDRiD development fold only, robust augmentation, weighted cross-entropy, frozen referable threshold 0.40",
+      "seed": 20260915,
+      "train_class_distribution": {
+        "0": 103,
+        "1": 15,
+        "2": 106,
+        "3": 60,
+        "4": 40
+      },
+      "train_count": 324,
+      "training_seconds": 218.64787250000518,
+      "validation_class_distribution": {
+        "0": 30,
+        "1": 4,
+        "2": 27,
+        "3": 13,
+        "4": 8
+      },
+      "validation_count": 82
+    },
+    {
+      "checkpoint": "ml/weights/classifiers/idrid/research/master_cv/20260912/fold_4/checkpoint_best.pt",
+      "checkpoint_sha256": "4c0c6d034e75f129114e4bf8e31526d132f01672071314a754c84810bba1e840",
+      "duplicate_group_overlap": [],
+      "fold": 4,
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 2.034959489648992,
+          "validation_metrics": {
+            "accuracy": 0.5365853658536586,
+            "class_distribution": {
+              "0": 26,
+              "1": 3,
+              "2": 31,
+              "3": 14,
+              "4": 8
+            },
+            "confusion_matrix": [
+              [
+                22,
+                3,
+                0,
+                0,
+                1
+              ],
+              [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                3,
+                9,
+                16,
+                2,
+                1
+              ],
+              [
+                0,
+                1,
+                7,
+                3,
+                3
+              ],
+              [
+                0,
+                1,
+                1,
+                3,
+                3
+              ]
+            ],
+            "f1": 0.4088720538720539,
+            "per_class": {
+              "Mild": {
+                "f1": 0.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "sensitivity": 0.0,
+                "specificity": 0.8227848101265823,
+                "support": 3
+              },
+              "Moderate": {
+                "f1": 0.5818181818181819,
+                "precision": 0.6666666666666666,
+                "recall": 0.5161290322580645,
+                "sensitivity": 0.5161290322580645,
+                "specificity": 0.8431372549019608,
+                "support": 31
+              },
+              "No DR": {
+                "f1": 0.8148148148148148,
+                "precision": 0.7857142857142857,
+                "recall": 0.8461538461538461,
+                "sensitivity": 0.8461538461538461,
+                "specificity": 0.8928571428571429,
+                "support": 26
+              },
+              "Proliferative DR": {
+                "f1": 0.375,
+                "precision": 0.375,
+                "recall": 0.375,
+                "sensitivity": 0.375,
+                "specificity": 0.9324324324324325,
+                "support": 8
+              },
+              "Severe": {
+                "f1": 0.2727272727272727,
+                "precision": 0.375,
+                "recall": 0.21428571428571427,
+                "sensitivity": 0.21428571428571427,
+                "specificity": 0.9264705882352942,
+                "support": 14
+              }
+            },
+            "precision": 0.4404761904761905,
+            "quadratic_weighted_kappa": 0.728476821192053,
+            "recall": 0.390313718539525,
+            "referable_dr": {
+              "f1": 0.9,
+              "false_negative": 8,
+              "false_negative_rate": 0.15094339622641506,
+              "false_positive": 2,
+              "precision": 0.9574468085106383,
+              "recall": 0.7547169811320755,
+              "referable_grades": [
+                2,
+                3,
+                4
+              ],
+              "roc_auc": 0.9414443721535459,
+              "sensitivity": 0.8490566037735849,
+              "specificity": 0.9310344827586207,
+              "support": 53,
+              "threshold": 0.4,
+              "true_negative": 27,
+              "true_positive": 45
+            },
+            "roc_auc_ovr_macro": 0.7637051661413345,
+            "sample_count": 82,
+            "sensitivity": 0.390313718539525,
+            "specificity": 0.8835364457106826
+          }
+        },
+        {
+          "epoch": 2,
+          "train_loss": 2.1547619754617866,
+          "validation_metrics": {
+            "accuracy": 0.5487804878048781,
+            "class_distribution": {
+              "0": 26,
+              "1": 3,
+              "2": 31,
+              "3": 14,
+              "4": 8
+            },
+            "confusion_matrix": [
+              [
+                24,
+                2,
+                0,
+                0,
+                0
+              ],
+              [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                5,
+                8,
+                15,
+                2,
+                1
+              ],
+              [
+                1,
+                0,
+                7,
+                3,
+                3
+              ],
+              [
+                0,
+                1,
+                1,
+                3,
+                3
+              ]
+            ],
+            "f1": 0.40836843006334533,
+            "per_class": {
+              "Mild": {
+                "f1": 0.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "sensitivity": 0.0,
+                "specificity": 0.8607594936708861,
+                "support": 3
+              },
+              "Moderate": {
+                "f1": 0.5555555555555556,
+                "precision": 0.6521739130434783,
+                "recall": 0.4838709677419355,
+                "sensitivity": 0.4838709677419355,
+                "specificity": 0.8431372549019608,
+                "support": 31
+              },
+              "No DR": {
+                "f1": 0.8135593220338984,
+                "precision": 0.7272727272727273,
+                "recall": 0.9230769230769231,
+                "sensitivity": 0.9230769230769231,
+                "specificity": 0.8392857142857143,
+                "support": 26
+              },
+              "Proliferative DR": {
+                "f1": 0.39999999999999997,
+                "precision": 0.42857142857142855,
+                "recall": 0.375,
+                "sensitivity": 0.375,
+                "specificity": 0.9459459459459459,
+                "support": 8
+              },
+              "Severe": {
+                "f1": 0.2727272727272727,
+                "precision": 0.375,
+                "recall": 0.21428571428571427,
+                "sensitivity": 0.21428571428571427,
+                "specificity": 0.9264705882352942,
+                "support": 14
+              }
+            },
+            "precision": 0.43660361377752677,
+            "quadratic_weighted_kappa": 0.7520634142355153,
+            "recall": 0.3992467210209146,
+            "referable_dr": {
+              "f1": 0.851063829787234,
+              "false_negative": 13,
+              "false_negative_rate": 0.24528301886792447,
+              "false_positive": 1,
+              "precision": 0.975609756097561,
+              "recall": 0.7358490566037735,
+              "referable_grades": [
+                2,
+                3,
+                4
+              ],
+              "roc_auc": 0.9492517891997397,
+              "sensitivity": 0.7547169811320755,
+              "specificity": 0.9655172413793104,
+              "support": 53,
+              "threshold": 0.4,
+              "true_negative": 28,
+              "true_positive": 40
+            },
+            "roc_auc_ovr_macro": 0.7209974914557217,
+            "sample_count": 82,
+            "sensitivity": 0.3992467210209146,
+            "specificity": 0.8831197994079603
+          }
+        }
+      ],
+      "metrics": {
+        "accuracy": 0.5487804878048781,
+        "class_distribution": {
+          "0": 26,
+          "1": 3,
+          "2": 31,
+          "3": 14,
+          "4": 8
+        },
+        "confusion_matrix": [
+          [
+            24,
+            2,
+            0,
+            0,
+            0
+          ],
+          [
+            3,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            5,
+            8,
+            15,
+            2,
+            1
+          ],
+          [
+            1,
+            0,
+            7,
+            3,
+            3
+          ],
+          [
+            0,
+            1,
+            1,
+            3,
+            3
+          ]
+        ],
+        "f1": 0.40836843006334533,
+        "per_class": {
+          "Mild": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "sensitivity": 0.0,
+            "specificity": 0.8607594936708861,
+            "support": 3
+          },
+          "Moderate": {
+            "f1": 0.5555555555555556,
+            "precision": 0.6521739130434783,
+            "recall": 0.4838709677419355,
+            "sensitivity": 0.4838709677419355,
+            "specificity": 0.8431372549019608,
+            "support": 31
+          },
+          "No DR": {
+            "f1": 0.8135593220338984,
+            "precision": 0.7272727272727273,
+            "recall": 0.9230769230769231,
+            "sensitivity": 0.9230769230769231,
+            "specificity": 0.8392857142857143,
+            "support": 26
+          },
+          "Proliferative DR": {
+            "f1": 0.39999999999999997,
+            "precision": 0.42857142857142855,
+            "recall": 0.375,
+            "sensitivity": 0.375,
+            "specificity": 0.9459459459459459,
+            "support": 8
+          },
+          "Severe": {
+            "f1": 0.2727272727272727,
+            "precision": 0.375,
+            "recall": 0.21428571428571427,
+            "sensitivity": 0.21428571428571427,
+            "specificity": 0.9264705882352942,
+            "support": 14
+          }
+        },
+        "precision": 0.43660361377752677,
+        "quadratic_weighted_kappa": 0.7520634142355153,
+        "recall": 0.3992467210209146,
+        "referable_dr": {
+          "f1": 0.851063829787234,
+          "false_negative": 13,
+          "false_negative_rate": 0.24528301886792447,
+          "false_positive": 1,
+          "precision": 0.975609756097561,
+          "recall": 0.7358490566037735,
+          "referable_grades": [
+            2,
+            3,
+            4
+          ],
+          "roc_auc": 0.9492517891997397,
+          "sensitivity": 0.7547169811320755,
+          "specificity": 0.9655172413793104,
+          "support": 53,
+          "threshold": 0.4,
+          "true_negative": 28,
+          "true_positive": 40
+        },
+        "roc_auc_ovr_macro": 0.7209974914557217,
+        "sample_count": 82,
+        "sensitivity": 0.3992467210209146,
+        "specificity": 0.8831197994079603
+      },
+      "official_test_images_opened": 0,
+      "protocol": "APTOS initialized EfficientNet-B0, IDRiD development fold only, robust augmentation, weighted cross-entropy, frozen referable threshold 0.40",
+      "seed": 20260916,
+      "train_class_distribution": {
+        "0": 107,
+        "1": 16,
+        "2": 102,
+        "3": 59,
+        "4": 40
+      },
+      "train_count": 324,
+      "training_seconds": 159.9766546000028,
+      "validation_class_distribution": {
+        "0": 26,
+        "1": 3,
+        "2": 31,
+        "3": 14,
+        "4": 8
+      },
+      "validation_count": 82
+    },
+    {
+      "checkpoint": "ml/weights/classifiers/idrid/research/master_cv/20260912/fold_5/checkpoint_best.pt",
+      "checkpoint_sha256": "949bd58a13253a794bb7e38a37ea444750fad31f5c7698e9406d5e84e7d53c8c",
+      "duplicate_group_overlap": [],
+      "fold": 5,
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 2.0096415931528266,
+          "validation_metrics": {
+            "accuracy": 0.49382716049382713,
+            "class_distribution": {
+              "0": 26,
+              "1": 6,
+              "2": 24,
+              "3": 16,
+              "4": 9
+            },
+            "confusion_matrix": [
+              [
+                19,
+                6,
+                0,
+                0,
+                1
+              ],
+              [
+                6,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                4,
+                4,
+                16,
+                0,
+                0
+              ],
+              [
+                0,
+                2,
+                10,
+                0,
+                4
+              ],
+              [
+                0,
+                0,
+                2,
+                2,
+                5
+              ]
+            ],
+            "f1": 0.3665218991534781,
+            "per_class": {
+              "Mild": {
+                "f1": 0.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "sensitivity": 0.0,
+                "specificity": 0.84,
+                "support": 6
+              },
+              "Moderate": {
+                "f1": 0.6153846153846153,
+                "precision": 0.5714285714285714,
+                "recall": 0.6666666666666666,
+                "sensitivity": 0.6666666666666666,
+                "specificity": 0.7894736842105263,
+                "support": 24
+              },
+              "No DR": {
+                "f1": 0.6909090909090909,
+                "precision": 0.6551724137931034,
+                "recall": 0.7307692307692307,
+                "sensitivity": 0.7307692307692307,
+                "specificity": 0.8181818181818182,
+                "support": 26
+              },
+              "Proliferative DR": {
+                "f1": 0.5263157894736842,
+                "precision": 0.5,
+                "recall": 0.5555555555555556,
+                "sensitivity": 0.5555555555555556,
+                "specificity": 0.9305555555555556,
+                "support": 9
+              },
+              "Severe": {
+                "f1": 0.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "sensitivity": 0.0,
+                "specificity": 0.9692307692307692,
+                "support": 16
+              }
+            },
+            "precision": 0.345320197044335,
+            "quadratic_weighted_kappa": 0.7364568081991215,
+            "recall": 0.3905982905982906,
+            "referable_dr": {
+              "f1": 0.8936170212765957,
+              "false_negative": 7,
+              "false_negative_rate": 0.1428571428571429,
+              "false_positive": 3,
+              "precision": 0.9333333333333333,
+              "recall": 0.7959183673469388,
+              "referable_grades": [
+                2,
+                3,
+                4
+              ],
+              "roc_auc": 0.9362244897959183,
+              "sensitivity": 0.8571428571428571,
+              "specificity": 0.90625,
+              "support": 49,
+              "threshold": 0.4,
+              "true_negative": 29,
+              "true_positive": 42
+            },
+            "roc_auc_ovr_macro": 0.8081501633519176,
+            "sample_count": 81,
+            "sensitivity": 0.3905982905982906,
+            "specificity": 0.8694883654357339
+          }
+        },
+        {
+          "epoch": 2,
+          "train_loss": 2.073273030194369,
+          "validation_metrics": {
+            "accuracy": 0.5432098765432098,
+            "class_distribution": {
+              "0": 26,
+              "1": 6,
+              "2": 24,
+              "3": 16,
+              "4": 9
+            },
+            "confusion_matrix": [
+              [
+                23,
+                2,
+                0,
+                0,
+                1
+              ],
+              [
+                6,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                6,
+                2,
+                16,
+                0,
+                0
+              ],
+              [
+                0,
+                2,
+                11,
+                0,
+                3
+              ],
+              [
+                0,
+                0,
+                2,
+                2,
+                5
+              ]
+            ],
+            "f1": 0.3826855002233907,
+            "per_class": {
+              "Mild": {
+                "f1": 0.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "sensitivity": 0.0,
+                "specificity": 0.92,
+                "support": 6
+              },
+              "Moderate": {
+                "f1": 0.6037735849056604,
+                "precision": 0.5517241379310345,
+                "recall": 0.6666666666666666,
+                "sensitivity": 0.6666666666666666,
+                "specificity": 0.7719298245614035,
+                "support": 24
+              },
+              "No DR": {
+                "f1": 0.7540983606557377,
+                "precision": 0.6571428571428571,
+                "recall": 0.8846153846153846,
+                "sensitivity": 0.8846153846153846,
+                "specificity": 0.7818181818181819,
+                "support": 26
+              },
+              "Proliferative DR": {
+                "f1": 0.5555555555555556,
+                "precision": 0.5555555555555556,
+                "recall": 0.5555555555555556,
+                "sensitivity": 0.5555555555555556,
+                "specificity": 0.9444444444444444,
+                "support": 9
+              },
+              "Severe": {
+                "f1": 0.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "sensitivity": 0.0,
+                "specificity": 0.9692307692307692,
+                "support": 16
+              }
+            },
+            "precision": 0.35288451012588945,
+            "quadratic_weighted_kappa": 0.7378640776699028,
+            "recall": 0.4213675213675213,
+            "referable_dr": {
+              "f1": 0.8913043478260869,
+              "false_negative": 8,
+              "false_negative_rate": 0.16326530612244894,
+              "false_positive": 2,
+              "precision": 0.9534883720930233,
+              "recall": 0.7959183673469388,
+              "referable_grades": [
+                2,
+                3,
+                4
+              ],
+              "roc_auc": 0.9464285714285715,
+              "sensitivity": 0.8367346938775511,
+              "specificity": 0.9375,
+              "support": 49,
+              "threshold": 0.4,
+              "true_negative": 30,
+              "true_positive": 41
+            },
+            "roc_auc_ovr_macro": 0.7929849916165705,
+            "sample_count": 81,
+            "sensitivity": 0.4213675213675213,
+            "specificity": 0.8774846440109598
+          }
+        }
+      ],
+      "metrics": {
+        "accuracy": 0.5432098765432098,
+        "class_distribution": {
+          "0": 26,
+          "1": 6,
+          "2": 24,
+          "3": 16,
+          "4": 9
+        },
+        "confusion_matrix": [
+          [
+            23,
+            2,
+            0,
+            0,
+            1
+          ],
+          [
+            6,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            6,
+            2,
+            16,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            11,
+            0,
+            3
+          ],
+          [
+            0,
+            0,
+            2,
+            2,
+            5
+          ]
+        ],
+        "f1": 0.3826855002233907,
+        "per_class": {
+          "Mild": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "sensitivity": 0.0,
+            "specificity": 0.92,
+            "support": 6
+          },
+          "Moderate": {
+            "f1": 0.6037735849056604,
+            "precision": 0.5517241379310345,
+            "recall": 0.6666666666666666,
+            "sensitivity": 0.6666666666666666,
+            "specificity": 0.7719298245614035,
+            "support": 24
+          },
+          "No DR": {
+            "f1": 0.7540983606557377,
+            "precision": 0.6571428571428571,
+            "recall": 0.8846153846153846,
+            "sensitivity": 0.8846153846153846,
+            "specificity": 0.7818181818181819,
+            "support": 26
+          },
+          "Proliferative DR": {
+            "f1": 0.5555555555555556,
+            "precision": 0.5555555555555556,
+            "recall": 0.5555555555555556,
+            "sensitivity": 0.5555555555555556,
+            "specificity": 0.9444444444444444,
+            "support": 9
+          },
+          "Severe": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "sensitivity": 0.0,
+            "specificity": 0.9692307692307692,
+            "support": 16
+          }
+        },
+        "precision": 0.35288451012588945,
+        "quadratic_weighted_kappa": 0.7378640776699028,
+        "recall": 0.4213675213675213,
+        "referable_dr": {
+          "f1": 0.8913043478260869,
+          "false_negative": 8,
+          "false_negative_rate": 0.16326530612244894,
+          "false_positive": 2,
+          "precision": 0.9534883720930233,
+          "recall": 0.7959183673469388,
+          "referable_grades": [
+            2,
+            3,
+            4
+          ],
+          "roc_auc": 0.9464285714285715,
+          "sensitivity": 0.8367346938775511,
+          "specificity": 0.9375,
+          "support": 49,
+          "threshold": 0.4,
+          "true_negative": 30,
+          "true_positive": 41
+        },
+        "roc_auc_ovr_macro": 0.7929849916165705,
+        "sample_count": 81,
+        "sensitivity": 0.4213675213675213,
+        "specificity": 0.8774846440109598
+      },
+      "official_test_images_opened": 0,
+      "protocol": "APTOS initialized EfficientNet-B0, IDRiD development fold only, robust augmentation, weighted cross-entropy, frozen referable threshold 0.40",
+      "seed": 20260917,
+      "train_class_distribution": {
+        "0": 107,
+        "1": 13,
+        "2": 109,
+        "3": 57,
+        "4": 39
+      },
+      "train_count": 325,
+      "training_seconds": 142.2079367999977,
+      "validation_class_distribution": {
+        "0": 26,
+        "1": 6,
+        "2": 24,
+        "3": 16,
+        "4": 9
+      },
+      "validation_count": 81
+    }
+  ],
+  "generated_at": "2026-09-12T13:49:34.448294+00:00",
+  "model_protocol": "APTOS initialized EfficientNet-B0; no IDRiD test records, lesion masks, localization labels, Messidor, or DRIVE used",
+  "official_test_images_opened": 0,
+  "patient_level_limitation": "Patient IDs are unavailable; duplicate_group_id/record_key grouping was used.",
+  "patient_level_split": false,
+  "seed": 20260912,
+  "study": "stratified 5-fold grouped development study",
+  "summary": {
+    "accuracy": {
+      "approximate_95_percent_ci": [
+        0.5371138329988784,
+        0.6103793919333708
+      ],
+      "max": 0.6463414634146342,
+      "mean": 0.5737466124661246,
+      "min": 0.5432098765432098,
+      "std": 0.04179254341506174,
+      "values": [
+        0.5625,
+        0.5679012345679012,
+        0.6463414634146342,
+        0.5487804878048781,
+        0.5432098765432098
+      ]
+    },
+    "macro_f1": {
+      "approximate_95_percent_ci": [
+        0.389297462486721,
+        0.44492159501262923
+      ],
+      "max": 0.46223776223776236,
+      "mean": 0.4171095287496751,
+      "min": 0.3826855002233907,
+      "std": 0.03172942385647654,
+      "values": [
+        0.3970607202253674,
+        0.4351952309985097,
+        0.46223776223776236,
+        0.40836843006334533,
+        0.3826855002233907
+      ]
+    },
+    "macro_precision": {
+      "approximate_95_percent_ci": [
+        0.38793848084906996,
+        0.4790850858820324
+      ],
+      "max": 0.4931111111111111,
+      "mean": 0.4335117833655512,
+      "min": 0.35288451012588945,
+      "std": 0.05199234815612972,
+      "values": [
+        0.4253105590062113,
+        0.45964912280701753,
+        0.4931111111111111,
+        0.43660361377752677,
+        0.35288451012588945
+      ]
+    },
+    "macro_recall": {
+      "approximate_95_percent_ci": [
+        0.4010136902995704,
+        0.4402777535015508
+      ],
+      "max": 0.44766381766381763,
+      "mean": 0.4206457219005606,
+      "min": 0.3975,
+      "std": 0.022397223059305128,
+      "values": [
+        0.3975,
+        0.43745054945054945,
+        0.44766381766381763,
+        0.3992467210209146,
+        0.4213675213675213
+      ]
+    },
+    "qwk": {
+      "approximate_95_percent_ci": [
+        0.7276841763894601,
+        0.7780969619299742
+      ],
+      "max": 0.801867474813662,
+      "mean": 0.7528905691597172,
+      "min": 0.7281433426011739,
+      "std": 0.028756738623394916,
+      "values": [
+        0.7281433426011739,
+        0.7445145364783323,
+        0.801867474813662,
+        0.7520634142355153,
+        0.7378640776699028
+      ]
+    },
+    "referable_f1": {
+      "approximate_95_percent_ci": [
+        0.864735702931692,
+        0.9250269813365195
+      ],
+      "max": 0.945054945054945,
+      "mean": 0.8948813421341058,
+      "min": 0.851063829787234,
+      "std": 0.0343916828988672,
+      "values": [
+        0.8817204301075269,
+        0.9052631578947368,
+        0.945054945054945,
+        0.851063829787234,
+        0.8913043478260869
+      ]
+    },
+    "referable_false_negative_rate": {
+      "approximate_95_percent_ci": [
+        0.1328077922591043,
+        0.22612435824986557
+      ],
+      "max": 0.24528301886792447,
+      "mean": 0.17946607525448494,
+      "min": 0.10416666666666663,
+      "std": 0.053230149230149806,
+      "values": [
+        0.21153846153846156,
+        0.17307692307692313,
+        0.10416666666666663,
+        0.24528301886792447,
+        0.16326530612244894
+      ]
+    },
+    "referable_precision": {
+      "approximate_95_percent_ci": [
+        0.967470840689677,
+        1.0041684105865567
+      ],
+      "max": 1.0,
+      "mean": 0.9858196256381169,
+      "min": 0.9534883720930233,
+      "std": 0.020933229821039054,
+      "values": [
+        1.0,
+        1.0,
+        1.0,
+        0.975609756097561,
+        0.9534883720930233
+      ]
+    },
+    "referable_sensitivity": {
+      "approximate_95_percent_ci": [
+        0.7738756417501343,
+        0.8671922077408957
+      ],
+      "max": 0.8958333333333334,
+      "mean": 0.820533924745515,
+      "min": 0.7547169811320755,
+      "std": 0.0532301492301498,
+      "values": [
+        0.7884615384615384,
+        0.8269230769230769,
+        0.8958333333333334,
+        0.7547169811320755,
+        0.8367346938775511
+      ]
+    },
+    "referable_specificity": {
+      "approximate_95_percent_ci": [
+        0.9557563235405937,
+        1.0054505730111305
+      ],
+      "max": 1.0,
+      "mean": 0.9806034482758621,
+      "min": 0.9375,
+      "std": 0.028346867323202376,
+      "values": [
+        1.0,
+        1.0,
+        1.0,
+        0.9655172413793104,
+        0.9375
+      ]
+    },
+    "roc_auc_ovr": {
+      "approximate_95_percent_ci": [
+        0.7339325302106857,
+        0.8100189418408504
+      ],
+      "max": 0.8305554406641363,
+      "mean": 0.7719757360257681,
+      "min": 0.7209974914557217,
+      "std": 0.04340162973700995,
+      "values": [
+        0.7757503020706146,
+        0.7395904543217976,
+        0.8305554406641363,
+        0.7209974914557217,
+        0.7929849916165705
+      ]
+    }
+  }
+}

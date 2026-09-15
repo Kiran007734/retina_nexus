@@ -1,0 +1,10 @@
+{
+  "backup_voting": "UNAVAILABLE_NO_COMPATIBLE_BACKUP_CHECKPOINT",
+  "generated_at_utc": "2026-09-14T06:01:04.975179+00:00",
+  "messidor_labels_used_for_training_or_selection": false,
+  "primary_grade_protection": "Supporting lesion/vessel/evidence signals may affect reliability and escalation; they do not rewrite the primary classifier grade.",
+  "production_status": "NO_LEARNED_FUSION_PROMOTED",
+  "reason": "No leak-safe OOF lesion-evidence table exists for all 406 development images. IDRiD lesion annotations are incomplete; no fusion score was fabricated and the primary lesion model was not replaced.",
+  "schema_version": "retina-nexus-master-fusion-results-v1",
+  "status": "NOT_RUN"
+}

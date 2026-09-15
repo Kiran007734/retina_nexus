@@ -25,6 +25,7 @@ from app.models.screening_run import ScreeningRun
 from app.ml.evidence.service import RetinalEvidenceAnalysis, RetinalEvidenceService
 from app.ml.explainability.service import ExplainabilityAnalysis, ExplainabilityService
 from app.ml.inference.classifier import ClassifierNotConfiguredError, DRPrediction, TorchDRClassificationService
+from app.ml.inference.referable_fusion import ReferableFusionResult, ReferableFusionService
 from app.ml.quality.trust_gate import ImageTrustGateError, ImageTrustGateService, TrustGateDecision, TrustGateOutcome
 from app.ml.trust.guard import RetinaGuardEngine, RetinaGuardInputs, RetinaGuardResult, derive_lesion_evidence_strength, derive_vessel_evidence_status
 from app.services.screening_persistence import persist_evidence_analysis, persist_explainability
@@ -93,12 +94,13 @@ class ScreeningPipelineOutput:
 class ScreeningPipelineService:
     """Run every current AI stage with explicit state and audit boundaries."""
 
-    def __init__(self, quality_service: ImageTrustGateService, classifier: TorchDRClassificationService, evidence_service: RetinalEvidenceService, explainability_service: ExplainabilityService, retinaguard: RetinaGuardEngine, storage: Any, max_concurrent_screenings: int = 1, timeout_seconds: int = 900, primary_timeout_seconds: int = 60, optional_evidence_timeout_seconds: int = 240, optional_explainability_timeout_seconds: int = 30):
+    def __init__(self, quality_service: ImageTrustGateService, classifier: TorchDRClassificationService, evidence_service: RetinalEvidenceService, explainability_service: ExplainabilityService, retinaguard: RetinaGuardEngine, storage: Any, max_concurrent_screenings: int = 1, timeout_seconds: int = 900, primary_timeout_seconds: int = 60, optional_evidence_timeout_seconds: int = 240, optional_explainability_timeout_seconds: int = 30, referable_fusion: ReferableFusionService | None = None):
         self.quality_service = quality_service
         self.classifier = classifier
         self.evidence_service = evidence_service
         self.explainability_service = explainability_service
         self.retinaguard = retinaguard
+        self.referable_fusion = referable_fusion or ReferableFusionService.disabled()
         self.storage = storage
         concurrency = max(1, min(8, int(max_concurrent_screenings)))
         self._screening_slots = asyncio.Semaphore(concurrency)
@@ -204,15 +206,16 @@ class ScreeningPipelineService:
             current_stage = "dr_classification"
             await self._set_stage(db, run, actor_id, current_stage, "PROCESSING")
             prediction = await self.classifier.classify(prepared)
-            classification = self._classification_payload(prediction)
+            fusion = await self.referable_fusion.evaluate(prepared, prediction)
+            classification = self._classification_payload(prediction, fusion)
             run.classification = classification
-            run.model_versions = {"preprocessing": "image-trust-gate-v1", "dr_classifier": prediction.model_version, "dr_backbone": prediction.backbone}
+            run.model_versions = {"preprocessing": "image-trust-gate-v1", "dr_classifier": prediction.model_version, "dr_backbone": prediction.backbone, "referable_fusion": fusion.to_dict()}
             await self._set_stage(db, run, actor_id, current_stage, "COMPLETED", {"model_version": prediction.model_version})
 
             if defer_optional:
                 return await self._finish_primary(
                     db, run, session, image, actor_id, prepared, prediction,
-                    model_predictions or [],
+                    model_predictions or [], fusion,
                 )
 
             evidence = None
@@ -268,7 +271,7 @@ class ScreeningPipelineService:
                 explanation_stability=explanation.explanation_stability,
                 quality_feature_vector={key: float(value) for key, value in final_quality.get("feature_vector", {}).items() if isinstance(value, (int, float))},
                 predicted_grade=prediction.predicted_grade, predicted_grade_label=prediction.predicted_grade_label,
-                referable_dr=prediction.referable_dr, model_version=prediction.model_version,
+                referable_dr=fusion.fused_referable, referable_fusion=fusion.to_dict(), model_version=prediction.model_version,
             )
             guard = await self.retinaguard.evaluate_async(inputs, prepared, self.classifier)
             run.retinaguard = guard.to_dict()
@@ -277,7 +280,7 @@ class ScreeningPipelineService:
 
             current_stage = "triage"
             await self._set_stage(db, run, actor_id, current_stage, "PROCESSING")
-            triage = self._triage_payload(prediction, guard)
+            triage = self._triage_payload(prediction, guard, fusion)
             run.triage = triage
             await self._set_stage(db, run, actor_id, current_stage, "COMPLETED", {"recommendation": triage["recommendation"], "priority": triage["priority"]})
             run.status = "COMPLETED"
@@ -328,6 +331,7 @@ class ScreeningPipelineService:
         prepared: bytes,
         prediction: DRPrediction,
         model_predictions: list[dict[str, Any]],
+        fusion: ReferableFusionResult,
     ) -> ScreeningPipelineOutput:
         """Complete the mandatory result and queue enrichment separately."""
         current_stage = "uncertainty"
@@ -362,7 +366,8 @@ class ScreeningPipelineService:
                 },
                 predicted_grade=prediction.predicted_grade,
                 predicted_grade_label=prediction.predicted_grade_label,
-                referable_dr=prediction.referable_dr,
+                referable_dr=fusion.fused_referable,
+                referable_fusion=fusion.to_dict(),
                 model_version=prediction.model_version,
             )
             guard = await self.retinaguard.evaluate_async(inputs, prepared, self.classifier)
@@ -383,7 +388,7 @@ class ScreeningPipelineService:
 
             current_stage = "triage"
             await self._set_stage(db, run, actor_id, current_stage, "PROCESSING")
-            triage = self._triage_payload(prediction, guard)
+            triage = self._triage_payload(prediction, guard, fusion)
             run.triage = triage
             await self._set_stage(db, run, actor_id, current_stage, "COMPLETED", {
                 "recommendation": triage["recommendation"],
@@ -726,8 +731,9 @@ class ScreeningPipelineService:
         db.add(AuditLog(actor_id=actor_id, action=action, resource_type="screening_run", resource_id=str(resource_id), details={"timestamp": datetime.now(timezone.utc).isoformat(), **details}))
 
     @staticmethod
-    def _classification_payload(prediction: DRPrediction) -> dict[str, Any]:
-        return {"predicted_grade": prediction.predicted_grade, "predicted_grade_label": prediction.predicted_grade_label, "probabilities": prediction.probabilities, "referable_dr": prediction.referable_dr, "referable_probability": prediction.referable_probability, "raw_confidence": prediction.raw_confidence, "model_name": prediction.model_name, "model_version": prediction.model_version, "backbone": prediction.backbone, "referable_mapping": prediction.referable_mapping, "hierarchical_probabilities": prediction.hierarchical_probabilities, "ordinal_mode": prediction.ordinal_mode}
+    def _classification_payload(prediction: DRPrediction, fusion: ReferableFusionResult | None = None) -> dict[str, Any]:
+        fusion_payload = fusion.to_dict() if fusion is not None else None
+        return {"predicted_grade": prediction.predicted_grade, "predicted_grade_label": prediction.predicted_grade_label, "probabilities": prediction.probabilities, "referable_dr": prediction.referable_dr if fusion is None or fusion.fused_referable is None else fusion.fused_referable, "referable_probability": prediction.referable_probability if fusion is None or fusion.fused_probability is None else fusion.fused_probability, "primary_referable_dr": prediction.referable_dr, "primary_referable_probability": prediction.referable_probability, "raw_confidence": prediction.raw_confidence, "model_name": prediction.model_name, "model_version": prediction.model_version, "backbone": prediction.backbone, "referable_mapping": prediction.referable_mapping, "hierarchical_probabilities": prediction.hierarchical_probabilities, "ordinal_mode": prediction.ordinal_mode, "referable_fusion": fusion_payload}
 
     @staticmethod
     def _lesion_payload(evidence: RetinalEvidenceAnalysis) -> dict[str, Any]:
@@ -743,20 +749,21 @@ class ScreeningPipelineService:
         }
 
     @staticmethod
-    def _triage_payload(prediction: DRPrediction, guard: RetinaGuardResult) -> dict[str, Any]:
+    def _triage_payload(prediction: DRPrediction, guard: RetinaGuardResult, fusion: ReferableFusionResult | None = None) -> dict[str, Any]:
+        referable = prediction.referable_dr if fusion is None or fusion.fused_referable is None else fusion.fused_referable
         if guard.trust_category in {"UNRELIABLE", "INSUFFICIENT_EVIDENCE"}:
             recommendation = "RECAPTURE_OR_SPECIALIST_REVIEW"
             priority = "high"
         elif guard.trust_category in {"REVIEW_RECOMMENDED", "UNCERTAIN"}:
             recommendation = "HUMAN_REVIEW_REQUIRED"
             priority = "high"
-        elif prediction.referable_dr:
+        elif referable:
             recommendation = "SPECIALIST_REVIEW_RECOMMENDED"
             priority = "high"
         else:
             recommendation = "AI_TRIAGE_MAY_PROCEED"
             priority = "routine"
-        return {"status": "completed", "recommendation": recommendation, "priority": priority, "reasons": guard.reason_summary, "referable_dr_signal": prediction.referable_dr, "note": "Workflow triage recommendation only; not a diagnosis or final clinical decision."}
+        return {"status": "completed", "recommendation": recommendation, "priority": priority, "reasons": guard.reason_summary, "referable_dr_signal": referable, "note": "Workflow triage recommendation only; not a diagnosis or final clinical decision."}
 
     @staticmethod
     def _output(run: ScreeningRun, prediction: DRPrediction | None = None, evidence: RetinalEvidenceAnalysis | None = None, explanation: ExplainabilityAnalysis | None = None, guard: RetinaGuardResult | None = None) -> ScreeningPipelineOutput:

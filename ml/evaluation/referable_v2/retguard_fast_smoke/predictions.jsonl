@@ -1,0 +1,1 @@
+{"actual_referable": 0, "decision": false, "image_id": "20051020_43808_0100_PP.png", "image_path": "ml/datasets/raw/messidor/messidor-2-original/IMAGES/20051020_43808_0100_PP.png", "label": 0, "latency_ms": 8027.7866999967955, "ood_flagged": false, "ood_score": 25.468198940701004, "probability": 0.008623602109952935, "threshold": 0.204983, "tta": true}

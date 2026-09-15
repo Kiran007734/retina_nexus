@@ -1,0 +1,1484 @@
+{
+  "aggregate": {
+    "brightness_minus_5pct": {
+      "mask_dice": {
+        "max": 0.9796344006870322,
+        "mean": 0.8818962120217471,
+        "min": 0.4701840490797546,
+        "std": 0.10011730164682994
+      },
+      "mask_iou": {
+        "max": 0.9600817602500902,
+        "mean": 0.8012697220096113,
+        "min": 0.3073468078280398,
+        "std": 0.141248725586567
+      },
+      "mean_absolute_probability_change": {
+        "max": 0.02291547693312168,
+        "mean": 0.0030613362365158993,
+        "min": 2.7140515612700256e-06,
+        "std": 0.004591187290732502
+      }
+    },
+    "contrast_plus_5pct": {
+      "mask_dice": {
+        "max": 0.9725497052652613,
+        "mean": 0.7846761089365925,
+        "min": 0.4092371758470566,
+        "std": 0.18239782983277802
+      },
+      "mask_iou": {
+        "max": 0.9465661845144038,
+        "mean": 0.6800569148891021,
+        "min": 0.2572584483579248,
+        "std": 0.23026053406593136
+      },
+      "mean_absolute_probability_change": {
+        "max": 0.028486328199505806,
+        "mean": 0.0044505143276637685,
+        "min": 2.095320996886585e-05,
+        "std": 0.00655407769571367
+      }
+    },
+    "gaussian_noise_std_2": {
+      "mask_dice": {
+        "max": 0.9739298925488814,
+        "mean": 0.7452191983170582,
+        "min": 0.0,
+        "std": 0.23215407830214743
+      },
+      "mask_iou": {
+        "max": 0.9491845493562232,
+        "mean": 0.638316781009139,
+        "min": 0.0,
+        "std": 0.2438783354307424
+      },
+      "mean_absolute_probability_change": {
+        "max": 0.0340743213891983,
+        "mean": 0.004810121033506221,
+        "min": 1.591641739651095e-05,
+        "std": 0.006889665362451529
+      }
+    },
+    "mild_blur": {
+      "mask_dice": {
+        "max": 0.9991976893453145,
+        "mean": 0.9867135112415089,
+        "min": 0.9230769230769231,
+        "std": 0.014764293304726077
+      },
+      "mask_iou": {
+        "max": 0.9983966650633317,
+        "mean": 0.9741792510696697,
+        "min": 0.8571428571428571,
+        "std": 0.027720543352659333
+      },
+      "mean_absolute_probability_change": {
+        "max": 0.000865766778588295,
+        "mean": 0.00023847804379784066,
+        "min": 3.511983777571004e-06,
+        "std": 0.0002468937078579838
+      }
+    },
+    "rotation_plus_2deg": {
+      "mask_dice": {
+        "max": 0.8765432098765432,
+        "mean": 0.516890391787235,
+        "min": 0.0,
+        "std": 0.21115991645917428
+      },
+      "mask_iou": {
+        "max": 0.7802197802197802,
+        "mean": 0.3753445008267636,
+        "min": 0.0,
+        "std": 0.19092618207531942
+      },
+      "mean_absolute_probability_change": {
+        "max": 0.12749437987804413,
+        "mean": 0.01755862828767931,
+        "min": 5.139102358953096e-05,
+        "std": 0.027061877878273136
+      }
+    }
+  },
+  "checkpoint_sha256": "8f3c64a7aae23318f08bb34199aee079b16ff155db92912e97543aa670246a2c",
+  "development_only": true,
+  "generated_at_utc": "2026-09-13T09:55:19.821461+00:00",
+  "interpretation": "Engineering perturbation consistency only; not clinical validation and not a guarantee of explanation or prediction stability.",
+  "model_version": "idrid-lesion-unet-seresnext50-768-focaldice-20260913-v2",
+  "official_test_images_opened": 0,
+  "per_image": [
+    {
+      "image_id": "IDRiD_01",
+      "variants": {
+        "brightness_minus_5pct": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.8299772036474165,
+            "mask_iou": 0.7093684039616821,
+            "mean_absolute_probability_change": 0.0030309113208204508
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.9004846162515496,
+            "mask_iou": 0.8189831898318983,
+            "mean_absolute_probability_change": 0.003089412348344922
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.9771767520199185,
+            "mask_iou": 0.955372058612954,
+            "mean_absolute_probability_change": 0.003167227143421769
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.9430204551173743,
+            "mask_iou": 0.8921842051561119,
+            "mean_absolute_probability_change": 0.0053856088779866695
+          }
+        ],
+        "contrast_plus_5pct": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.8935019793376461,
+            "mask_iou": 0.8075043630017452,
+            "mean_absolute_probability_change": 0.0018937846180051565
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.9114890273334456,
+            "mask_iou": 0.8373723832113025,
+            "mean_absolute_probability_change": 0.0026905082631856203
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.9725497052652613,
+            "mask_iou": 0.9465661845144038,
+            "mean_absolute_probability_change": 0.0037258598022162914
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.9331914516272058,
+            "mask_iou": 0.8747506317329432,
+            "mean_absolute_probability_change": 0.005781410727649927
+          }
+        ],
+        "gaussian_noise_std_2": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.8338520228892682,
+            "mask_iou": 0.7150482093663911,
+            "mean_absolute_probability_change": 0.0028846857603639364
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.8694307298792457,
+            "mask_iou": 0.7690203093759865,
+            "mean_absolute_probability_change": 0.0038819042965769768
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.954904269161658,
+            "mask_iou": 0.9137002869542533,
+            "mean_absolute_probability_change": 0.006172994151711464
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.905050295909036,
+            "mask_iou": 0.826567916797983,
+            "mean_absolute_probability_change": 0.008775747381150723
+          }
+        ],
+        "mild_blur": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.9866208642198517,
+            "mask_iou": 0.9735950044603033,
+            "mean_absolute_probability_change": 0.00026278526638634503
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.990246913580247,
+            "mask_iou": 0.9806822349920529,
+            "mean_absolute_probability_change": 0.00028140086214989424
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.9973450786076956,
+            "mask_iou": 0.9947042171026943,
+            "mean_absolute_probability_change": 0.00037284244899637997
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.9925506502698399,
+            "mask_iou": 0.9852114655051286,
+            "mean_absolute_probability_change": 0.0006672911695204675
+          }
+        ],
+        "rotation_plus_2deg": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.7010091145833334,
+            "mask_iou": 0.5396566846259867,
+            "mean_absolute_probability_change": 0.006528340280056
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.6782496088059138,
+            "mask_iou": 0.5131450032658393,
+            "mean_absolute_probability_change": 0.01032552495598793
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.8765432098765432,
+            "mask_iou": 0.7802197802197802,
+            "mean_absolute_probability_change": 0.016377368941903114
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.746683315124083,
+            "mask_iou": 0.5957658779576588,
+            "mean_absolute_probability_change": 0.021772144362330437
+          }
+        ]
+      }
+    },
+    {
+      "image_id": "IDRiD_02",
+      "variants": {
+        "brightness_minus_5pct": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.8599428338097183,
+            "mask_iou": 0.754297994269341,
+            "mean_absolute_probability_change": 0.0005897689843550324
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.8835978835978836,
+            "mask_iou": 0.7914691943127962,
+            "mean_absolute_probability_change": 0.00022903956414666027
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.8055612488897999,
+            "mask_iou": 0.6744265858262312,
+            "mean_absolute_probability_change": 0.009817617014050484
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.7607049845557508,
+            "mask_iou": 0.613820740885544,
+            "mean_absolute_probability_change": 0.0068746451288461685
+          }
+        ],
+        "contrast_plus_5pct": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.4092371758470566,
+            "mask_iou": 0.2572584483579248,
+            "mean_absolute_probability_change": 0.005373172461986542
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.4383561643835616,
+            "mask_iou": 0.2807017543859649,
+            "mean_absolute_probability_change": 0.0013537874910980463
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.5869463294262801,
+            "mask_iou": 0.4153744062587315,
+            "mean_absolute_probability_change": 0.028486328199505806
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.48893231613363897,
+            "mask_iou": 0.3235674492638281,
+            "mean_absolute_probability_change": 0.023457113653421402
+          }
+        ],
+        "gaussian_noise_std_2": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.8025949953660797,
+            "mask_iou": 0.6702786377708978,
+            "mean_absolute_probability_change": 0.0007340501178987324
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.6905311778290993,
+            "mask_iou": 0.527336860670194,
+            "mean_absolute_probability_change": 0.0004696396936196834
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.771614657887203,
+            "mask_iou": 0.6281535862028783,
+            "mean_absolute_probability_change": 0.010874978266656399
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.7375662103597717,
+            "mask_iou": 0.5842414995640802,
+            "mean_absolute_probability_change": 0.006781157571822405
+          }
+        ],
+        "mild_blur": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.9873737373737373,
+            "mask_iou": 0.9750623441396509,
+            "mean_absolute_probability_change": 4.553061808110215e-05
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.980276134122288,
+            "mask_iou": 0.9613152804642167,
+            "mean_absolute_probability_change": 3.883136378135532e-05
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.9793980500211954,
+            "mask_iou": 0.9596278451570028,
+            "mean_absolute_probability_change": 0.000865766778588295
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.9689793985318494,
+            "mask_iou": 0.9398254478640331,
+            "mean_absolute_probability_change": 0.0006366054876707494
+          }
+        ],
+        "rotation_plus_2deg": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.20536071476196827,
+            "mask_iou": 0.1144300787635607,
+            "mean_absolute_probability_change": 0.010227427817881107
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.3718849840255591,
+            "mask_iou": 0.22841444270015698,
+            "mean_absolute_probability_change": 0.0016837249277159572
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.5701441094932441,
+            "mask_iou": 0.39874235807860264,
+            "mean_absolute_probability_change": 0.029186656698584557
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.43761760301063707,
+            "mask_iou": 0.28009634763800817,
+            "mean_absolute_probability_change": 0.025369087234139442
+          }
+        ]
+      }
+    },
+    {
+      "image_id": "IDRiD_03",
+      "variants": {
+        "brightness_minus_5pct": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.9405669003352637,
+            "mask_iou": 0.8878020713463751,
+            "mean_absolute_probability_change": 0.000336356257321313
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.9560924915562484,
+            "mask_iou": 0.9158785465405674,
+            "mean_absolute_probability_change": 0.0008754308801144361
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.9786471554427355,
+            "mask_iou": 0.958187134502924,
+            "mean_absolute_probability_change": 0.0009819812839850783
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.9776284003781115,
+            "mask_iou": 0.956235874255188,
+            "mean_absolute_probability_change": 0.0007094756583683193
+          }
+        ],
+        "contrast_plus_5pct": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.912621359223301,
+            "mask_iou": 0.8392857142857143,
+            "mean_absolute_probability_change": 0.0004973208997398615
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.9224762059708778,
+            "mask_iou": 0.8561075041521969,
+            "mean_absolute_probability_change": 0.0016765560721978545
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.962056660112155,
+            "mask_iou": 0.926887454392366,
+            "mean_absolute_probability_change": 0.0017982744611799717
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.9597748208802457,
+            "mask_iou": 0.9226606317032372,
+            "mean_absolute_probability_change": 0.0013187560252845287
+          }
+        ],
+        "gaussian_noise_std_2": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.7290448343079922,
+            "mask_iou": 0.5736196319018405,
+            "mean_absolute_probability_change": 0.0012432889780029655
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.854050087147968,
+            "mask_iou": 0.7452769772654498,
+            "mean_absolute_probability_change": 0.0027648909017443657
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.9439656853187756,
+            "mask_iou": 0.8938778524481206,
+            "mean_absolute_probability_change": 0.0024636192247271538
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.9311140408701384,
+            "mask_iou": 0.8711069996916435,
+            "mean_absolute_probability_change": 0.002208020305261016
+          }
+        ],
+        "mild_blur": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.994375,
+            "mask_iou": 0.9888129272840274,
+            "mean_absolute_probability_change": 3.2690597436157987e-05
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.995277243309428,
+            "mask_iou": 0.9905988857938719,
+            "mean_absolute_probability_change": 9.102838521357626e-05
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.9959508098380324,
+            "mask_iou": 0.9919342793129201,
+            "mean_absolute_probability_change": 0.000210926664294675
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.9947709684166492,
+            "mask_iou": 0.9895963379109447,
+            "mean_absolute_probability_change": 0.00015853106742724776
+          }
+        ],
+        "rotation_plus_2deg": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.14937012597480503,
+            "mask_iou": 0.0807131280388979,
+            "mean_absolute_probability_change": 0.005111196544021368
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.48477345877692496,
+            "mask_iou": 0.3199346405228758,
+            "mean_absolute_probability_change": 0.010728287510573864
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.6935899763936808,
+            "mask_iou": 0.5309129322806627,
+            "mean_absolute_probability_change": 0.014433984644711018
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.6544059795436664,
+            "mask_iou": 0.4863324075427569,
+            "mean_absolute_probability_change": 0.01212780550122261
+          }
+        ]
+      }
+    },
+    {
+      "image_id": "IDRiD_04",
+      "variants": {
+        "brightness_minus_5pct": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.9270248596631917,
+            "mask_iou": 0.8639760837070254,
+            "mean_absolute_probability_change": 0.00017928628949448466
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.936426116838488,
+            "mask_iou": 0.8804523424878837,
+            "mean_absolute_probability_change": 0.0007739322609268129
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.9532710280373832,
+            "mask_iou": 0.9107142857142857,
+            "mean_absolute_probability_change": 8.364168024854735e-06
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.9230769230769231,
+            "mask_iou": 0.8571428571428571,
+            "mean_absolute_probability_change": 2.7140515612700256e-06
+          }
+        ],
+        "contrast_plus_5pct": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.9102040816326531,
+            "mask_iou": 0.8352059925093633,
+            "mean_absolute_probability_change": 0.00024057531845755875
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.912621359223301,
+            "mask_iou": 0.8392857142857143,
+            "mean_absolute_probability_change": 0.0009279127116315067
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.7671232876712328,
+            "mask_iou": 0.6222222222222222,
+            "mean_absolute_probability_change": 6.049592775525525e-05
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.5384615384615384,
+            "mask_iou": 0.3684210526315789,
+            "mean_absolute_probability_change": 2.095320996886585e-05
+          }
+        ],
+        "gaussian_noise_std_2": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.7989228007181328,
+            "mask_iou": 0.6651718983557549,
+            "mean_absolute_probability_change": 0.0004516260523814708
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.8805906573903166,
+            "mask_iou": 0.7866565195332319,
+            "mean_absolute_probability_change": 0.00144953781273216
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.5822784810126582,
+            "mask_iou": 0.4107142857142857,
+            "mean_absolute_probability_change": 5.5637086916249245e-05
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.0,
+            "mask_iou": 0.0,
+            "mean_absolute_probability_change": 1.591641739651095e-05
+          }
+        ],
+        "mild_blur": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.9970104633781763,
+            "mask_iou": 0.9940387481371088,
+            "mean_absolute_probability_change": 1.2834620974899735e-05
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.997421507659639,
+            "mask_iou": 0.9948562783661119,
+            "mean_absolute_probability_change": 2.4787617803667672e-05
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.9433962264150944,
+            "mask_iou": 0.8928571428571429,
+            "mean_absolute_probability_change": 8.525382327206898e-06
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.9230769230769231,
+            "mask_iou": 0.8571428571428571,
+            "mean_absolute_probability_change": 3.511983777571004e-06
+          }
+        ],
+        "rotation_plus_2deg": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.6755162241887905,
+            "mask_iou": 0.5100222717149221,
+            "mean_absolute_probability_change": 0.0008756180759519339
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.5815440091788231,
+            "mask_iou": 0.40998382250982207,
+            "mean_absolute_probability_change": 0.004354825243353844
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.2962962962962963,
+            "mask_iou": 0.17391304347826086,
+            "mean_absolute_probability_change": 0.00019781083392444998
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.0,
+            "mask_iou": 0.0,
+            "mean_absolute_probability_change": 5.139102358953096e-05
+          }
+        ]
+      }
+    },
+    {
+      "image_id": "IDRiD_05",
+      "variants": {
+        "brightness_minus_5pct": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.8024337866857552,
+            "mask_iou": 0.6700537955768081,
+            "mean_absolute_probability_change": 0.00091090879868716
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.8240354535974974,
+            "mask_iou": 0.7007315451119486,
+            "mean_absolute_probability_change": 0.002303272020071745
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.9457068516912402,
+            "mask_iou": 0.8970055939453768,
+            "mean_absolute_probability_change": 0.0005257060402072966
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.8251104565537555,
+            "mask_iou": 0.7022876841115637,
+            "mean_absolute_probability_change": 0.001601304393261671
+          }
+        ],
+        "contrast_plus_5pct": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.6023201856148492,
+            "mask_iou": 0.4309428950863214,
+            "mean_absolute_probability_change": 0.0014654421247541904
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.5486624928856004,
+            "mask_iou": 0.3780392156862745,
+            "mean_absolute_probability_change": 0.004063230939209461
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.5475564897530215,
+            "mask_iou": 0.37698986975397974,
+            "mean_absolute_probability_change": 0.0029313720297068357
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.48365617433414043,
+            "mask_iou": 0.3189620758483034,
+            "mean_absolute_probability_change": 0.002927822060883045
+          }
+        ],
+        "gaussian_noise_std_2": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.3397471137987905,
+            "mask_iou": 0.20463576158940397,
+            "mean_absolute_probability_change": 0.0020583802834153175
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.29626334519572955,
+            "mask_iou": 0.17389033942558746,
+            "mean_absolute_probability_change": 0.005443888250738382
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.279375,
+            "mask_iou": 0.16236832546313112,
+            "mean_absolute_probability_change": 0.003933236934244633
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.18352764197066565,
+            "mask_iou": 0.1010351966873706,
+            "mean_absolute_probability_change": 0.0037400287110358477
+          }
+        ],
+        "mild_blur": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.9893653516295026,
+            "mask_iou": 0.9789545145960624,
+            "mean_absolute_probability_change": 4.185836951364763e-05
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.9937871047908325,
+            "mask_iou": 0.9876509330406147,
+            "mean_absolute_probability_change": 8.201336459023878e-05
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.9804061275382971,
+            "mask_iou": 0.9615653389238294,
+            "mean_absolute_probability_change": 0.00019122121739201248
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.96653977158886,
+            "mask_iou": 0.9352462194649089,
+            "mean_absolute_probability_change": 0.00028197249048389494
+          }
+        ],
+        "rotation_plus_2deg": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.31881533101045295,
+            "mask_iou": 0.18963730569948187,
+            "mean_absolute_probability_change": 0.005470768548548222
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.6118027888446215,
+            "mask_iou": 0.44071748878923767,
+            "mean_absolute_probability_change": 0.005325917154550552
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.7678629162625283,
+            "mask_iou": 0.6231960115455261,
+            "mean_absolute_probability_change": 0.0024470044299960136
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.6763836911561946,
+            "mask_iou": 0.5110119047619047,
+            "mean_absolute_probability_change": 0.002812235848978162
+          }
+        ]
+      }
+    },
+    {
+      "image_id": "IDRiD_06",
+      "variants": {
+        "brightness_minus_5pct": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.9245012091898428,
+            "mask_iou": 0.859602276719837,
+            "mean_absolute_probability_change": 0.0034393607638776302
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.9380440998919743,
+            "mask_iou": 0.88331737673528,
+            "mean_absolute_probability_change": 0.0016266044694930315
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.974467372650789,
+            "mask_iou": 0.9502061140361618,
+            "mean_absolute_probability_change": 0.0020496246870607138
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.9586776859504132,
+            "mask_iou": 0.9206349206349206,
+            "mean_absolute_probability_change": 0.0025063338689506054
+          }
+        ],
+        "contrast_plus_5pct": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.9374534623976173,
+            "mask_iou": 0.882270497547302,
+            "mean_absolute_probability_change": 0.0026026898995041847
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.9308636949589525,
+            "mask_iou": 0.8706688666074375,
+            "mean_absolute_probability_change": 0.0017427073325961828
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.9702184791895521,
+            "mask_iou": 0.9421595353798744,
+            "mean_absolute_probability_change": 0.002492080442607403
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.9500259003789634,
+            "mask_iou": 0.9048088907353552,
+            "mean_absolute_probability_change": 0.0031325656455010176
+          }
+        ],
+        "gaussian_noise_std_2": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.7951039723347135,
+            "mask_iou": 0.6598942598187311,
+            "mean_absolute_probability_change": 0.007810620591044426
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.7802484766954182,
+            "mask_iou": 0.6396782146100947,
+            "mean_absolute_probability_change": 0.004809209145605564
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.9141723529027054,
+            "mask_iou": 0.8419129457115323,
+            "mean_absolute_probability_change": 0.00666045630350709
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.8560933570681811,
+            "mask_iou": 0.7483944274281198,
+            "mean_absolute_probability_change": 0.008598236367106438
+          }
+        ],
+        "mild_blur": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.9889571537565756,
+            "mask_iou": 0.9781555326078323,
+            "mean_absolute_probability_change": 0.00047204032307490706
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.9903751718719308,
+            "mask_iou": 0.9809338521400778,
+            "mean_absolute_probability_change": 0.00025514033040963113
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.9948186528497409,
+            "mask_iou": 0.9896907216494846,
+            "mean_absolute_probability_change": 0.0004171802429482341
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.9900035603757565,
+            "mask_iou": 0.9802050002711644,
+            "mean_absolute_probability_change": 0.000598610145971179
+          }
+        ],
+        "rotation_plus_2deg": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.6628150501913772,
+            "mask_iou": 0.4956794124000864,
+            "mean_absolute_probability_change": 0.01609591394662857
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.601713373021635,
+            "mask_iou": 0.4303219106957425,
+            "mean_absolute_probability_change": 0.009432408958673477
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.8754671287500783,
+            "mask_iou": 0.7785162631813456,
+            "mean_absolute_probability_change": 0.010141070000827312
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.8047330578044499,
+            "mask_iou": 0.6732663887836302,
+            "mean_absolute_probability_change": 0.011683870106935501
+          }
+        ]
+      }
+    },
+    {
+      "image_id": "IDRiD_07",
+      "variants": {
+        "brightness_minus_5pct": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.8890799656061908,
+            "mask_iou": 0.8003095975232198,
+            "mean_absolute_probability_change": 0.0002357261982979253
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.8152022315202232,
+            "mask_iou": 0.6880517951736316,
+            "mean_absolute_probability_change": 0.0018241734942421317
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.9689494354442808,
+            "mask_iou": 0.939769075110106,
+            "mean_absolute_probability_change": 0.0008661041501909494
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.967314327219902,
+            "mask_iou": 0.9366977316687182,
+            "mean_absolute_probability_change": 0.0006298403604887426
+          }
+        ],
+        "contrast_plus_5pct": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.8467532467532467,
+            "mask_iou": 0.7342342342342343,
+            "mean_absolute_probability_change": 0.0003397465916350484
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.8079049198452184,
+            "mask_iou": 0.6777185253883607,
+            "mean_absolute_probability_change": 0.0023863313253968954
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.9443842336432605,
+            "mask_iou": 0.8946287690478764,
+            "mean_absolute_probability_change": 0.0016839815070852637
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.9580532629966817,
+            "mask_iou": 0.9194839131144864,
+            "mean_absolute_probability_change": 0.0008932980126701295
+          }
+        ],
+        "gaussian_noise_std_2": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.8869895536562203,
+            "mask_iou": 0.7969283276450512,
+            "mean_absolute_probability_change": 0.00020709451928269118
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.8124796880077998,
+            "mask_iou": 0.6841817186644773,
+            "mean_absolute_probability_change": 0.001997602405026555
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.9667262969588551,
+            "mask_iou": 0.935595567867036,
+            "mean_absolute_probability_change": 0.0009651019354350865
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.9739298925488814,
+            "mask_iou": 0.9491845493562232,
+            "mean_absolute_probability_change": 0.0005241439794190228
+          }
+        ],
+        "mild_blur": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.9872727272727273,
+            "mask_iou": 0.9748653500897666,
+            "mean_absolute_probability_change": 1.8620492483023554e-05
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.9887179487179487,
+            "mask_iou": 0.9776876267748479,
+            "mean_absolute_probability_change": 0.00011203757458133623
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.9960746421885379,
+            "mask_iou": 0.9921799807507219,
+            "mean_absolute_probability_change": 0.00011022114631487057
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.9946780202235231,
+            "mask_iou": 0.9894123875066173,
+            "mean_absolute_probability_change": 8.029142918530852e-05
+          }
+        ],
+        "rotation_plus_2deg": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.09172661870503597,
+            "mask_iou": 0.04806786050895382,
+            "mean_absolute_probability_change": 0.001878043869510293
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.3011243851018974,
+            "mask_iou": 0.17724922440537746,
+            "mean_absolute_probability_change": 0.006823559757322073
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.4945210321668434,
+            "mask_iou": 0.3284808640525945,
+            "mean_absolute_probability_change": 0.01463457103818655
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.4728970346675888,
+            "mask_iou": 0.309669384057971,
+            "mean_absolute_probability_change": 0.010580988600850105
+          }
+        ]
+      }
+    },
+    {
+      "image_id": "IDRiD_08",
+      "variants": {
+        "brightness_minus_5pct": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.8872266973532796,
+            "mask_iou": 0.7973112719751809,
+            "mean_absolute_probability_change": 0.00034294568467885256
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.7872146118721461,
+            "mask_iou": 0.6490963855421686,
+            "mean_absolute_probability_change": 0.0008320027263835073
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.4701840490797546,
+            "mask_iou": 0.3073468078280398,
+            "mean_absolute_probability_change": 0.0037226593121886253
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.8396449704142012,
+            "mask_iou": 0.7236104028556859,
+            "mean_absolute_probability_change": 0.0019576693885028362
+          }
+        ],
+        "contrast_plus_5pct": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.6458923512747875,
+            "mask_iou": 0.4769874476987448,
+            "mean_absolute_probability_change": 0.0008773081353865564
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.6924731182795699,
+            "mask_iou": 0.5296052631578947,
+            "mean_absolute_probability_change": 0.0012749911984428763
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.4654706316048169,
+            "mask_iou": 0.30333119795003205,
+            "mean_absolute_probability_change": 0.0037373341619968414
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.7851408783252007,
+            "mask_iou": 0.6462814200570096,
+            "mean_absolute_probability_change": 0.0024441154673695564
+          }
+        ],
+        "gaussian_noise_std_2": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.6502463054187192,
+            "mask_iou": 0.48175182481751827,
+            "mean_absolute_probability_change": 0.0008730485569685698
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.6563916591115141,
+            "mask_iou": 0.4885290148448043,
+            "mean_absolute_probability_change": 0.0013385068159550428
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.39060887512899894,
+            "mask_iou": 0.24270599551138186,
+            "mean_absolute_probability_change": 0.004067544359713793
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.7443829371540215,
+            "mask_iou": 0.5928423236514523,
+            "mean_absolute_probability_change": 0.0027871790807694197
+          }
+        ],
+        "mild_blur": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.9775533108866442,
+            "mask_iou": 0.9560922063666301,
+            "mean_absolute_probability_change": 7.236056990223005e-05
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.9770466717674062,
+            "mask_iou": 0.9551234106207929,
+            "mean_absolute_probability_change": 0.00010743425809778273
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.9774388306323483,
+            "mask_iou": 0.9558732131758857,
+            "mean_absolute_probability_change": 0.0002686701191123575
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.9855222337125129,
+            "mask_iou": 0.9714576962283384,
+            "mean_absolute_probability_change": 0.00020658325229305774
+          }
+        ],
+        "rotation_plus_2deg": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.428780345130155,
+            "mask_iou": 0.27289650037230084,
+            "mean_absolute_probability_change": 0.003350107930600643
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.49339009634774816,
+            "mask_iou": 0.3274836406900654,
+            "mean_absolute_probability_change": 0.003937300760298967
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.7549864565377986,
+            "mask_iou": 0.6064082278481012,
+            "mean_absolute_probability_change": 0.0033547887578606606
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.6436695178118245,
+            "mask_iou": 0.4745668745668746,
+            "mean_absolute_probability_change": 0.006449159700423479
+          }
+        ]
+      }
+    },
+    {
+      "image_id": "IDRiD_09",
+      "variants": {
+        "brightness_minus_5pct": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.8802816901408451,
+            "mask_iou": 0.7861635220125787,
+            "mean_absolute_probability_change": 0.000534978520590812
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.9071555292726198,
+            "mask_iou": 0.8300865800865801,
+            "mean_absolute_probability_change": 0.000811543024610728
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.9758129752467238,
+            "mask_iou": 0.9527683437327226,
+            "mean_absolute_probability_change": 0.0010471958667039871
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.9796344006870322,
+            "mask_iou": 0.9600817602500902,
+            "mean_absolute_probability_change": 0.0005869448650628328
+          }
+        ],
+        "contrast_plus_5pct": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.8748353096179183,
+            "mask_iou": 0.7775175644028103,
+            "mean_absolute_probability_change": 0.000498507812153548
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.8586553732133404,
+            "mask_iou": 0.7523191094619666,
+            "mean_absolute_probability_change": 0.0013914078008383512
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.9532746074301034,
+            "mask_iou": 0.9107208196121478,
+            "mean_absolute_probability_change": 0.0020676078274846077
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.9503655709445402,
+            "mask_iou": 0.9054253029788198,
+            "mean_absolute_probability_change": 0.0014138012193143368
+          }
+        ],
+        "gaussian_noise_std_2": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.853185595567867,
+            "mask_iou": 0.7439613526570048,
+            "mean_absolute_probability_change": 0.0005818360950797796
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.8744604991555639,
+            "mask_iou": 0.7769256418806268,
+            "mean_absolute_probability_change": 0.0011686008656397462
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.9618619844834626,
+            "mask_iou": 0.9265261170547514,
+            "mean_absolute_probability_change": 0.0016498022014275193
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.9584220413274891,
+            "mask_iou": 0.9201635205001804,
+            "mean_absolute_probability_change": 0.0011876241769641638
+          }
+        ],
+        "mild_blur": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.9974248927038627,
+            "mask_iou": 0.9948630136986302,
+            "mean_absolute_probability_change": 1.2967815564479679e-05
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.9953271028037384,
+            "mask_iou": 0.9906976744186047,
+            "mean_absolute_probability_change": 3.7988425901858136e-05
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.9991976893453145,
+            "mask_iou": 0.9983966650633317,
+            "mean_absolute_probability_change": 5.107850665808655e-05
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.9987170871769809,
+            "mask_iou": 0.9974374618669921,
+            "mean_absolute_probability_change": 3.7014237022958696e-05
+          }
+        ],
+        "rotation_plus_2deg": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.22782386726228462,
+            "mask_iou": 0.12855599567879006,
+            "mean_absolute_probability_change": 0.00431392528116703
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.3293234742302174,
+            "mask_iou": 0.19711983088915314,
+            "mean_absolute_probability_change": 0.010496731847524643
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.38007603539346635,
+            "mask_iou": 0.23462584892728822,
+            "mean_absolute_probability_change": 0.06265101581811905
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.32470991500104224,
+            "mask_iou": 0.193823098404623,
+            "mean_absolute_probability_change": 0.050449859350919724
+          }
+        ]
+      }
+    },
+    {
+      "image_id": "IDRiD_10",
+      "variants": {
+        "brightness_minus_5pct": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.6698689357030124,
+            "mask_iou": 0.5036112257531985,
+            "mean_absolute_probability_change": 0.008360123261809349
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.7259324458136208,
+            "mask_iou": 0.5697754749568221,
+            "mean_absolute_probability_change": 0.012870351783931255
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.8678570723131925,
+            "mask_iou": 0.7665614041209414,
+            "mean_absolute_probability_change": 0.02291547693312168
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.8983123737538281,
+            "mask_iou": 0.8153966263692067,
+            "mean_absolute_probability_change": 0.01390082761645317
+          }
+        ],
+        "contrast_plus_5pct": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.5668610931086627,
+            "mask_iou": 0.39553813687066625,
+            "mean_absolute_probability_change": 0.010376740247011185
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.7853824284030234,
+            "mask_iou": 0.6466088147978991,
+            "mean_absolute_probability_change": 0.010713987052440643
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.8693418179302985,
+            "mask_iou": 0.7688811983290511,
+            "mean_absolute_probability_change": 0.022660359740257263
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.8919551720509313,
+            "mask_iou": 0.8049811249079988,
+            "mean_absolute_probability_change": 0.01460033468902111
+          }
+        ],
+        "gaussian_noise_std_2": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.8453959631464025,
+            "mask_iou": 0.7321955719557196,
+            "mean_absolute_probability_change": 0.005403513088822365
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.8265075220688798,
+            "mask_iou": 0.7043142905577217,
+            "mean_absolute_probability_change": 0.011943917721509933
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.848637113495679,
+            "mask_iou": 0.7370717985119751,
+            "mean_absolute_probability_change": 0.0340743213891983
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.8284997994384276,
+            "mask_iou": 0.7072126825426718,
+            "mean_absolute_probability_change": 0.029353253543376923
+          }
+        ],
+        "mild_blur": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.9939329430548164,
+            "mask_iou": 0.9879390605162929,
+            "mean_absolute_probability_change": 0.0002213202533312142
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.9910064493225252,
+            "mask_iou": 0.9821732246525539,
+            "mean_absolute_probability_change": 0.0005679946043528616
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.9953031111422099,
+            "mask_iou": 0.9906501375491868,
+            "mean_absolute_probability_change": 0.000853642588481307
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.9950039254871172,
+            "mask_iou": 0.9900575243235565,
+            "mean_absolute_probability_change": 0.0007269696798175573
+          }
+        ],
+        "rotation_plus_2deg": [
+          {
+            "class": "microaneurysms",
+            "mask_dice": 0.518147063204409,
+            "mask_iou": 0.34966159619379483,
+            "mean_absolute_probability_change": 0.01741153374314308
+          },
+          {
+            "class": "haemorrhages",
+            "mask_dice": 0.6362895643998746,
+            "mask_iou": 0.46658700248184576,
+            "mean_absolute_probability_change": 0.029752012342214584
+          },
+          {
+            "class": "hard_exudates",
+            "mask_dice": 0.5959370375353155,
+            "mask_iou": 0.4244375455137787,
+            "mean_absolute_probability_change": 0.12749437987804413
+          },
+          {
+            "class": "soft_exudates",
+            "mask_dice": 0.5396311609182897,
+            "mask_iou": 0.3695170332842854,
+            "mean_absolute_probability_change": 0.1160067692399025
+          }
+        ]
+      }
+    }
+  ],
+  "production_promoted": false,
+  "sample_count": 10,
+  "sample_image_ids": [
+    "IDRiD_01",
+    "IDRiD_02",
+    "IDRiD_03",
+    "IDRiD_04",
+    "IDRiD_05",
+    "IDRiD_06",
+    "IDRiD_07",
+    "IDRiD_08",
+    "IDRiD_09",
+    "IDRiD_10"
+  ],
+  "schema_version": "idrid-lesion-robustness-1",
+  "variants": [
+    "brightness_minus_5pct",
+    "contrast_plus_5pct",
+    "gaussian_noise_std_2",
+    "rotation_plus_2deg",
+    "mild_blur"
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "all_error_count": 29,
+  "confidence": {
+    "max": 0.9998440742492676,
+    "mean": 0.6045244860361858,
+    "min": 0.24310797452926636
+  },
+  "development_only": true,
+  "high_confidence_error_count": 2,
+  "high_confidence_errors": [
+    {
+      "abstention": {
+        "does_not_change_grade": true,
+        "review_recommended": false
+      },
+      "actual": 2,
+      "confidence": 0.8723313808441162,
+      "entropy_nats": 0.5240213024941479,
+      "image_id": "IDRiD_061",
+      "logits": [
+        3.0341901779174805,
+        0.33946070075035095,
+        0.16614606976509094,
+        -1.4472510814666748,
+        -1.5065337419509888
+      ],
+      "normalized_entropy": 0.325592741693044,
+      "predicted": 0,
+      "probabilities": [
+        0.8723313808441162,
+        0.05893527716398239,
+        0.04955708608031273,
+        0.009872250258922577,
+        0.00930401124060154
+      ],
+      "probability_margin": 0.8133961036801338,
+      "quality": {
+        "brightness_proxy": 0.34868913888931274,
+        "contrast_proxy": 0.23076601326465607,
+        "focus_proxy": 0.0012096953578293324,
+        "quality_proxy_score": 0.4011269019334577
+      },
+      "record_key": "official_train:IDRiD_061",
+      "referable_predicted": 0,
+      "referable_probability": 0.06873334757983685
+    },
+    {
+      "abstention": {
+        "does_not_change_grade": true,
+        "review_recommended": false
+      },
+      "actual": 1,
+      "confidence": 0.9409504532814026,
+      "entropy_nats": 0.2491110328955187,
+      "image_id": "IDRiD_194",
+      "logits": [
+        4.363931655883789,
+        1.4890458583831787,
+        -1.1597634553909302,
+        -2.3840246200561523,
+        -2.3882880210876465
+      ],
+      "normalized_entropy": 0.15478138732221441,
+      "predicted": 0,
+      "probabilities": [
+        0.9409504532814026,
+        0.05309085547924042,
+        0.003755402285605669,
+        0.0011039937380701303,
+        0.0010992969619110227
+      ],
+      "probability_margin": 0.8878595978021622,
+      "quality": {
+        "brightness_proxy": 0.217172771692276,
+        "contrast_proxy": 0.15963725745677948,
+        "focus_proxy": 0.0009161951602436602,
+        "quality_proxy_score": 0.2732255565046216
+      },
+      "record_key": "official_train:IDRiD_194",
+      "referable_predicted": 0,
+      "referable_probability": 0.005958692985586822
+    }
+  ],
+  "official_test_images_opened": 0,
+  "source_model": "ml/weights/classifiers/idrid/research/v3/20260912/v3_b_domain_robust/validation_predictions.json",
+  "statement": "Reliability flags are engineering safety signals, not clinical guarantees or error concealment.",
+  "threshold": 0.4,
+  "uncertainty": {
+    "mean_normalized_entropy": 0.5827552953529479,
+    "policy": "normalized entropy >= 0.70 OR top-two probability margin < 0.15; does not change grade",
+    "review_recommended_count": 44,
+    "review_recommended_rate": 0.5301204819277109
+  }
+}

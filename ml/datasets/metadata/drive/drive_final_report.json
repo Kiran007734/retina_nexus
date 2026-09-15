@@ -1,0 +1,478 @@
+{
+  "audit": {
+    "confirmed_perceptual_duplicates": [],
+    "corrupt_files": 0,
+    "exact_duplicates": [],
+    "manual_test_vessel_masks": 0,
+    "manual_training_vessel_masks": 20,
+    "missing_pairs": [],
+    "official_test_images": 20,
+    "training_images": 20
+  },
+  "clinical_validation_claim": false,
+  "dataset": "DRIVE",
+  "dataset_version": "drive-vessel-62fa7262a390bdca",
+  "official_test": {
+    "accuracy_metrics_available": false,
+    "limitation": "The supplied DRIVE official test split contains FOV masks but no manual vessel segmentation masks. Dice, IoU, pixel accuracy, sensitivity, specificity, precision, and F1 are therefore unavailable and intentionally not calculated.",
+    "manual_vessel_masks_available": 0,
+    "metrics": null,
+    "official_test_images_opened": 20,
+    "status": "COMPLETED_ONCE"
+  },
+  "official_test_used_for_model_selection": false,
+  "protected_reference": {
+    "checkpoint_sha256": "ea219b13b03984b8d454f999343c5bda1a8a7cb8586aeb3639a29814cab2330a",
+    "development_metrics": {},
+    "model_version": "r2-v2-bv-2025",
+    "role": "primary/default vessel model; unchanged"
+  },
+  "reasons_for_further_research": [
+    "Five-fold development Dice and IoU for the new candidate are materially below the protected R2-V2 reference artifact.",
+    "The official test split lacks manual vessel masks, so external segmentation accuracy cannot be measured.",
+    "The new model is random-initialized and trained on only 20 labeled DRIVE images; its output is research evidence only."
+  ],
+  "reproducibility": {
+    "checkpoint": "ml/weights/vessels/drive/checkpoint_best.pt",
+    "checkpoint_sha256": "f199543db550f7cd84548cb0e2ab2cf7efbad99ffb41af8649b249d4433a3133",
+    "image_count": 20,
+    "maximum_abs_probability_delta": 0.0,
+    "model_version": "drive-vessel-scratch-green-focal-dice-512-20260913-v1",
+    "official_test_images_opened": 0,
+    "per_image": [
+      {
+        "binary_mask_exact_match": true,
+        "exact_probability_match": true,
+        "image_id": "21",
+        "max_abs_probability_delta": 0.0,
+        "probability_shape": [
+          512,
+          512
+        ]
+      },
+      {
+        "binary_mask_exact_match": true,
+        "exact_probability_match": true,
+        "image_id": "22",
+        "max_abs_probability_delta": 0.0,
+        "probability_shape": [
+          512,
+          512
+        ]
+      },
+      {
+        "binary_mask_exact_match": true,
+        "exact_probability_match": true,
+        "image_id": "23",
+        "max_abs_probability_delta": 0.0,
+        "probability_shape": [
+          512,
+          512
+        ]
+      },
+      {
+        "binary_mask_exact_match": true,
+        "exact_probability_match": true,
+        "image_id": "24",
+        "max_abs_probability_delta": 0.0,
+        "probability_shape": [
+          512,
+          512
+        ]
+      },
+      {
+        "binary_mask_exact_match": true,
+        "exact_probability_match": true,
+        "image_id": "25",
+        "max_abs_probability_delta": 0.0,
+        "probability_shape": [
+          512,
+          512
+        ]
+      },
+      {
+        "binary_mask_exact_match": true,
+        "exact_probability_match": true,
+        "image_id": "26",
+        "max_abs_probability_delta": 0.0,
+        "probability_shape": [
+          512,
+          512
+        ]
+      },
+      {
+        "binary_mask_exact_match": true,
+        "exact_probability_match": true,
+        "image_id": "27",
+        "max_abs_probability_delta": 0.0,
+        "probability_shape": [
+          512,
+          512
+        ]
+      },
+      {
+        "binary_mask_exact_match": true,
+        "exact_probability_match": true,
+        "image_id": "28",
+        "max_abs_probability_delta": 0.0,
+        "probability_shape": [
+          512,
+          512
+        ]
+      },
+      {
+        "binary_mask_exact_match": true,
+        "exact_probability_match": true,
+        "image_id": "29",
+        "max_abs_probability_delta": 0.0,
+        "probability_shape": [
+          512,
+          512
+        ]
+      },
+      {
+        "binary_mask_exact_match": true,
+        "exact_probability_match": true,
+        "image_id": "30",
+        "max_abs_probability_delta": 0.0,
+        "probability_shape": [
+          512,
+          512
+        ]
+      },
+      {
+        "binary_mask_exact_match": true,
+        "exact_probability_match": true,
+        "image_id": "31",
+        "max_abs_probability_delta": 0.0,
+        "probability_shape": [
+          512,
+          512
+        ]
+      },
+      {
+        "binary_mask_exact_match": true,
+        "exact_probability_match": true,
+        "image_id": "32",
+        "max_abs_probability_delta": 0.0,
+        "probability_shape": [
+          512,
+          512
+        ]
+      },
+      {
+        "binary_mask_exact_match": true,
+        "exact_probability_match": true,
+        "image_id": "33",
+        "max_abs_probability_delta": 0.0,
+        "probability_shape": [
+          512,
+          512
+        ]
+      },
+      {
+        "binary_mask_exact_match": true,
+        "exact_probability_match": true,
+        "image_id": "34",
+        "max_abs_probability_delta": 0.0,
+        "probability_shape": [
+          512,
+          512
+        ]
+      },
+      {
+        "binary_mask_exact_match": true,
+        "exact_probability_match": true,
+        "image_id": "35",
+        "max_abs_probability_delta": 0.0,
+        "probability_shape": [
+          512,
+          512
+        ]
+      },
+      {
+        "binary_mask_exact_match": true,
+        "exact_probability_match": true,
+        "image_id": "36",
+        "max_abs_probability_delta": 0.0,
+        "probability_shape": [
+          512,
+          512
+        ]
+      },
+      {
+        "binary_mask_exact_match": true,
+        "exact_probability_match": true,
+        "image_id": "37",
+        "max_abs_probability_delta": 0.0,
+        "probability_shape": [
+          512,
+          512
+        ]
+      },
+      {
+        "binary_mask_exact_match": true,
+        "exact_probability_match": true,
+        "image_id": "38",
+        "max_abs_probability_delta": 0.0,
+        "probability_shape": [
+          512,
+          512
+        ]
+      },
+      {
+        "binary_mask_exact_match": true,
+        "exact_probability_match": true,
+        "image_id": "39",
+        "max_abs_probability_delta": 0.0,
+        "probability_shape": [
+          512,
+          512
+        ]
+      },
+      {
+        "binary_mask_exact_match": true,
+        "exact_probability_match": true,
+        "image_id": "40",
+        "max_abs_probability_delta": 0.0,
+        "probability_shape": [
+          512,
+          512
+        ]
+      }
+    ],
+    "preprocessing": {
+      "color": "green channel replicated to three input channels",
+      "mode": "green",
+      "normalization": "float32 [0,1]"
+    },
+    "probabilities_identical": true,
+    "production_promoted": false,
+    "status": "PASS"
+  },
+  "research_model": {
+    "architecture": "lightweight U-Net",
+    "checkpoint": "ml/weights/vessels/drive/checkpoint_best.pt",
+    "checkpoint_sha256": "f199543db550f7cd84548cb0e2ab2cf7efbad99ffb41af8649b249d4433a3133",
+    "development_cv": {
+      "dice": {
+        "max": 0.2806437964418863,
+        "mean": 0.20461287935241682,
+        "min": 0.0514415090146161,
+        "std": 0.08282021584612098,
+        "values": [
+          0.2806437964418863,
+          0.2745214608940686,
+          0.19984991426326532,
+          0.21660771614824775,
+          0.0514415090146161
+        ]
+      },
+      "f1": {
+        "max": 0.2806437964418863,
+        "mean": 0.20461287935241682,
+        "min": 0.051441509014616096,
+        "std": 0.08282021584612098,
+        "values": [
+          0.2806437964418863,
+          0.2745214608940686,
+          0.19984991426326532,
+          0.21660771614824775,
+          0.051441509014616096
+        ]
+      },
+      "false_negative_rate": {
+        "max": 0.9688324768421008,
+        "mean": 0.355429560429401,
+        "min": 0.0,
+        "std": 0.3395601974801284,
+        "values": [
+          0.4122721058934546,
+          0.3007998355032851,
+          0.09524338390816448,
+          0.0,
+          0.9688324768421008
+        ]
+      },
+      "false_positive_rate": {
+        "max": 1.0,
+        "mean": 0.5741925676854431,
+        "min": 0.027801431879551246,
+        "std": 0.34498516017194686,
+        "values": [
+          0.3992597405158866,
+          0.578856358936189,
+          0.8650453070955888,
+          1.0,
+          0.027801431879551246
+        ]
+      },
+      "iou": {
+        "max": 0.1635990122132146,
+        "mean": 0.11657444165297574,
+        "min": 0.02653365025740041,
+        "std": 0.049480741434853925,
+        "values": [
+          0.1635990122132146,
+          0.15984571358863575,
+          0.11141556376292414,
+          0.1214782684427038,
+          0.02653365025740041
+        ]
+      },
+      "pixel_accuracy": {
+        "max": 0.8405374194237767,
+        "mean": 0.44785049630567875,
+        "min": 0.1214782684427038,
+        "std": 0.2592815404853739,
+        "values": [
+          0.597723247094241,
+          0.4613758263383762,
+          0.21813772022929584,
+          0.1214782684427038,
+          0.8405374194237767
+        ]
+      },
+      "precision": {
+        "max": 0.22382665671257515,
+        "mean": 0.16082722741901795,
+        "min": 0.11281089493967753,
+        "std": 0.04262942159693289,
+        "values": [
+          0.22382665671257515,
+          0.19499485158859928,
+          0.11281089493967753,
+          0.1214782684427038,
+          0.15102546541153397
+        ]
+      },
+      "sensitivity": {
+        "max": 1.0,
+        "mean": 0.644570439570599,
+        "min": 0.031167523157899207,
+        "std": 0.33956019748012833,
+        "values": [
+          0.5877278941065454,
+          0.6992001644967148,
+          0.9047566160918354,
+          1.0,
+          0.031167523157899207
+        ]
+      },
+      "specificity": {
+        "max": 0.9721985681204488,
+        "mean": 0.42580743231455687,
+        "min": 0.0,
+        "std": 0.34498516017194686,
+        "values": [
+          0.6007402594841134,
+          0.42114364106381097,
+          0.13495469290441117,
+          0.0,
+          0.9721985681204488
+        ]
+      }
+    },
+    "final_fit": {
+      "max": {
+        "dice": 0.5261905507373431,
+        "f1": 0.5261905507373431,
+        "false_negative_rate": 0.4281585303084293,
+        "false_positive_rate": 0.8923429444338362,
+        "iou": 0.3570275322909585,
+        "pixel_accuracy": 0.8332576780850734,
+        "precision": 0.42794074074074073,
+        "sensitivity": 0.9910426044650571,
+        "specificity": 0.8757489365262217
+      },
+      "mean": {
+        "dice": 0.3356667070910874,
+        "f1": 0.3356667070910874,
+        "false_negative_rate": 0.10357676566054416,
+        "false_positive_rate": 0.5492061465713237,
+        "iou": 0.20561113008352846,
+        "pixel_accuracy": 0.5058692753743868,
+        "precision": 0.21775635150517245,
+        "sensitivity": 0.8964232343394558,
+        "specificity": 0.4507938534286763
+      },
+      "micro_confusion": {
+        "evaluated_pixels": 3607834,
+        "false_negative": 48143,
+        "false_positive": 1733526,
+        "ground_truth_vessel_pixels": 452436,
+        "predicted_vessel_pixels": 2137819,
+        "true_negative": 1421872,
+        "true_positive": 404293
+      },
+      "min": {
+        "dice": 0.21471714393571698,
+        "f1": 0.214717143935717,
+        "false_negative_rate": 0.008957395534942937,
+        "false_positive_rate": 0.12425106347377837,
+        "iou": 0.1202706580676343,
+        "pixel_accuracy": 0.21182399689862377,
+        "precision": 0.12146588872363956,
+        "sensitivity": 0.5718414696915707,
+        "specificity": 0.10765705556616384
+      },
+      "sample_count": 20,
+      "std": {
+        "dice": 0.09297628301900072,
+        "f1": 0.09297628301900074,
+        "false_negative_rate": 0.09612677433568736,
+        "false_positive_rate": 0.23433556248067886,
+        "iou": 0.07044079953408872,
+        "pixel_accuracy": 0.19451421235193372,
+        "precision": 0.08973137812374295,
+        "sensitivity": 0.09612677433568739,
+        "specificity": 0.2343355624806789
+      }
+    },
+    "model_version": "drive-vessel-scratch-green-focal-dice-512-20260913-v1",
+    "preprocessing": {
+      "color": "green channel replicated to three input channels",
+      "mode": "green",
+      "normalization": "float32 [0,1]"
+    },
+    "production_promoted": false,
+    "threshold": 0.3,
+    "threshold_selection": {
+      "method": "development OOF threshold analysis; no official test images",
+      "selected_mean_metrics": {
+        "dice": 0.2749435854708098,
+        "f1": 0.2749435854708098,
+        "iou": 0.1655029818005444,
+        "pixel_accuracy": 0.2794338027163097,
+        "precision": 0.19419090281393414,
+        "sensitivity": 0.9101545908364447,
+        "specificity": 0.19398908379734583
+      },
+      "selected_threshold": 0.3,
+      "selection_score": 0.3477562289438158
+    }
+  },
+  "robustness": {
+    "perturbations": [
+      "clean",
+      "brightness_minus_10",
+      "brightness_plus_10",
+      "contrast_minus_10",
+      "contrast_plus_10",
+      "mild_blur",
+      "jpeg_quality_70",
+      "rotation_plus_3",
+      "gaussian_noise"
+    ],
+    "sample_image_ids": [
+      "21",
+      "25",
+      "29",
+      "33",
+      "37"
+    ],
+    "status": "COMPLETED_DEVELOPMENT_SAMPLE"
+  },
+  "schema_version": "drive-vessel-final-report-1",
+  "status": "VESSEL SEGMENTATION REQUIRES FURTHER RESEARCH"
+}

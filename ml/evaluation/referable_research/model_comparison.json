@@ -1,0 +1,61 @@
+{
+  "candidates": [
+    {
+      "baseline_threshold_0_40": {
+        "f1": 0.8946236559139785,
+        "fn": 46,
+        "fp": 3,
+        "pr_auc": 0.9810133633928475,
+        "precision": 0.985781990521327,
+        "roc_auc": 0.9639193949440531,
+        "sensitivity": 0.8188976377952756,
+        "specificity": 0.9802631578947368,
+        "threshold": 0.4,
+        "tn": 149,
+        "tp": 208
+      },
+      "candidate": "existing_5_class_probability_sum",
+      "evaluation": "406-image leak-safe OOF",
+      "selected_threshold": {
+        "f1": 0.9171717171717172,
+        "fn": 27,
+        "fp": 14,
+        "pr_auc": 0.9810133633928475,
+        "precision": 0.941908713692946,
+        "roc_auc": 0.9639193949440531,
+        "sensitivity": 0.8937007874015748,
+        "specificity": 0.9078947368421053,
+        "threshold": 0.2,
+        "tn": 138,
+        "tp": 227
+      }
+    },
+    {
+      "candidate": "existing_hierarchical_stage2_binary_head",
+      "evaluation": "406-image leak-safe OOF",
+      "selected_threshold": {
+        "f1": 0.9153225806451614,
+        "fn": 27,
+        "fp": 15,
+        "pr_auc": 0.9807981771328491,
+        "precision": 0.9380165289256198,
+        "roc_auc": 0.9630128470783258,
+        "sensitivity": 0.8937007874015748,
+        "specificity": 0.9013157894736842,
+        "threshold": 0.1,
+        "tn": 137,
+        "tp": 227
+      }
+    },
+    {
+      "candidate": "frozen_v3_holdout_reference",
+      "checkpoint_sha256": "97bd6a9933ca3d09c1e41bb16ba7452b5988eb1818fc7f1c87054471c4c33049",
+      "evaluation": "83-image development holdout; not OOF",
+      "referable_sensitivity": 0.9615384615384616,
+      "referable_specificity": 0.967741935483871
+    }
+  ],
+  "development_only": true,
+  "messidor_used_for_selection": false,
+  "selection_note": "The threshold research candidate is not production promoted and has not been externally validated."
+}

@@ -1,0 +1,333 @@
+{
+  "fold_count": 5,
+  "method": "StratifiedGroupKFold",
+  "official_test_used": false,
+  "records": [
+    {
+      "duplicate_group": "exact_000",
+      "fold": 1,
+      "image_id": "IDRiD_01",
+      "perceptual_duplicate_group": "phash_000"
+    },
+    {
+      "duplicate_group": "exact_001",
+      "fold": 2,
+      "image_id": "IDRiD_02",
+      "perceptual_duplicate_group": "phash_001"
+    },
+    {
+      "duplicate_group": "exact_002",
+      "fold": 3,
+      "image_id": "IDRiD_03",
+      "perceptual_duplicate_group": "phash_002"
+    },
+    {
+      "duplicate_group": "exact_003",
+      "fold": 4,
+      "image_id": "IDRiD_04",
+      "perceptual_duplicate_group": "phash_003"
+    },
+    {
+      "duplicate_group": "exact_004",
+      "fold": 5,
+      "image_id": "IDRiD_05",
+      "perceptual_duplicate_group": "phash_004"
+    },
+    {
+      "duplicate_group": "exact_005",
+      "fold": 1,
+      "image_id": "IDRiD_06",
+      "perceptual_duplicate_group": "phash_005"
+    },
+    {
+      "duplicate_group": "exact_006",
+      "fold": 2,
+      "image_id": "IDRiD_07",
+      "perceptual_duplicate_group": "phash_006"
+    },
+    {
+      "duplicate_group": "exact_007",
+      "fold": 3,
+      "image_id": "IDRiD_08",
+      "perceptual_duplicate_group": "phash_007"
+    },
+    {
+      "duplicate_group": "exact_008",
+      "fold": 4,
+      "image_id": "IDRiD_09",
+      "perceptual_duplicate_group": "phash_008"
+    },
+    {
+      "duplicate_group": "exact_009",
+      "fold": 5,
+      "image_id": "IDRiD_10",
+      "perceptual_duplicate_group": "phash_009"
+    },
+    {
+      "duplicate_group": "exact_010",
+      "fold": 4,
+      "image_id": "IDRiD_11",
+      "perceptual_duplicate_group": "phash_010"
+    },
+    {
+      "duplicate_group": "exact_011",
+      "fold": 5,
+      "image_id": "IDRiD_12",
+      "perceptual_duplicate_group": "phash_011"
+    },
+    {
+      "duplicate_group": "exact_012",
+      "fold": 1,
+      "image_id": "IDRiD_13",
+      "perceptual_duplicate_group": "phash_012"
+    },
+    {
+      "duplicate_group": "exact_013",
+      "fold": 2,
+      "image_id": "IDRiD_14",
+      "perceptual_duplicate_group": "phash_013"
+    },
+    {
+      "duplicate_group": "exact_014",
+      "fold": 3,
+      "image_id": "IDRiD_15",
+      "perceptual_duplicate_group": "phash_014"
+    },
+    {
+      "duplicate_group": "exact_015",
+      "fold": 1,
+      "image_id": "IDRiD_16",
+      "perceptual_duplicate_group": "phash_015"
+    },
+    {
+      "duplicate_group": "exact_016",
+      "fold": 2,
+      "image_id": "IDRiD_17",
+      "perceptual_duplicate_group": "phash_016"
+    },
+    {
+      "duplicate_group": "exact_017",
+      "fold": 4,
+      "image_id": "IDRiD_18",
+      "perceptual_duplicate_group": "phash_017"
+    },
+    {
+      "duplicate_group": "exact_018",
+      "fold": 5,
+      "image_id": "IDRiD_19",
+      "perceptual_duplicate_group": "phash_018"
+    },
+    {
+      "duplicate_group": "exact_019",
+      "fold": 3,
+      "image_id": "IDRiD_20",
+      "perceptual_duplicate_group": "phash_019"
+    },
+    {
+      "duplicate_group": "exact_020",
+      "fold": 1,
+      "image_id": "IDRiD_21",
+      "perceptual_duplicate_group": "phash_020"
+    },
+    {
+      "duplicate_group": "exact_021",
+      "fold": 2,
+      "image_id": "IDRiD_22",
+      "perceptual_duplicate_group": "phash_021"
+    },
+    {
+      "duplicate_group": "exact_022",
+      "fold": 3,
+      "image_id": "IDRiD_23",
+      "perceptual_duplicate_group": "phash_022"
+    },
+    {
+      "duplicate_group": "exact_023",
+      "fold": 4,
+      "image_id": "IDRiD_24",
+      "perceptual_duplicate_group": "phash_023"
+    },
+    {
+      "duplicate_group": "exact_024",
+      "fold": 5,
+      "image_id": "IDRiD_25",
+      "perceptual_duplicate_group": "phash_024"
+    },
+    {
+      "duplicate_group": "exact_025",
+      "fold": 1,
+      "image_id": "IDRiD_26",
+      "perceptual_duplicate_group": "phash_025"
+    },
+    {
+      "duplicate_group": "exact_026",
+      "fold": 3,
+      "image_id": "IDRiD_27",
+      "perceptual_duplicate_group": "phash_026"
+    },
+    {
+      "duplicate_group": "exact_027",
+      "fold": 2,
+      "image_id": "IDRiD_28",
+      "perceptual_duplicate_group": "phash_027"
+    },
+    {
+      "duplicate_group": "exact_028",
+      "fold": 4,
+      "image_id": "IDRiD_29",
+      "perceptual_duplicate_group": "phash_028"
+    },
+    {
+      "duplicate_group": "exact_029",
+      "fold": 5,
+      "image_id": "IDRiD_30",
+      "perceptual_duplicate_group": "phash_029"
+    },
+    {
+      "duplicate_group": "exact_030",
+      "fold": 2,
+      "image_id": "IDRiD_31",
+      "perceptual_duplicate_group": "phash_030"
+    },
+    {
+      "duplicate_group": "exact_031",
+      "fold": 1,
+      "image_id": "IDRiD_32",
+      "perceptual_duplicate_group": "phash_031"
+    },
+    {
+      "duplicate_group": "exact_032",
+      "fold": 3,
+      "image_id": "IDRiD_33",
+      "perceptual_duplicate_group": "phash_032"
+    },
+    {
+      "duplicate_group": "exact_033",
+      "fold": 4,
+      "image_id": "IDRiD_34",
+      "perceptual_duplicate_group": "phash_033"
+    },
+    {
+      "duplicate_group": "exact_034",
+      "fold": 5,
+      "image_id": "IDRiD_35",
+      "perceptual_duplicate_group": "phash_034"
+    },
+    {
+      "duplicate_group": "exact_035",
+      "fold": 2,
+      "image_id": "IDRiD_36",
+      "perceptual_duplicate_group": "phash_035"
+    },
+    {
+      "duplicate_group": "exact_036",
+      "fold": 3,
+      "image_id": "IDRiD_37",
+      "perceptual_duplicate_group": "phash_036"
+    },
+    {
+      "duplicate_group": "exact_037",
+      "fold": 1,
+      "image_id": "IDRiD_38",
+      "perceptual_duplicate_group": "phash_037"
+    },
+    {
+      "duplicate_group": "exact_038",
+      "fold": 4,
+      "image_id": "IDRiD_39",
+      "perceptual_duplicate_group": "phash_038"
+    },
+    {
+      "duplicate_group": "exact_039",
+      "fold": 5,
+      "image_id": "IDRiD_40",
+      "perceptual_duplicate_group": "phash_039"
+    },
+    {
+      "duplicate_group": "exact_040",
+      "fold": 1,
+      "image_id": "IDRiD_41",
+      "perceptual_duplicate_group": "phash_040"
+    },
+    {
+      "duplicate_group": "exact_041",
+      "fold": 2,
+      "image_id": "IDRiD_42",
+      "perceptual_duplicate_group": "phash_041"
+    },
+    {
+      "duplicate_group": "exact_042",
+      "fold": 4,
+      "image_id": "IDRiD_43",
+      "perceptual_duplicate_group": "phash_042"
+    },
+    {
+      "duplicate_group": "exact_043",
+      "fold": 3,
+      "image_id": "IDRiD_44",
+      "perceptual_duplicate_group": "phash_043"
+    },
+    {
+      "duplicate_group": "exact_044",
+      "fold": 5,
+      "image_id": "IDRiD_45",
+      "perceptual_duplicate_group": "phash_044"
+    },
+    {
+      "duplicate_group": "exact_045",
+      "fold": 1,
+      "image_id": "IDRiD_46",
+      "perceptual_duplicate_group": "phash_045"
+    },
+    {
+      "duplicate_group": "exact_046",
+      "fold": 2,
+      "image_id": "IDRiD_47",
+      "perceptual_duplicate_group": "phash_046"
+    },
+    {
+      "duplicate_group": "exact_047",
+      "fold": 3,
+      "image_id": "IDRiD_48",
+      "perceptual_duplicate_group": "phash_047"
+    },
+    {
+      "duplicate_group": "exact_048",
+      "fold": 5,
+      "image_id": "IDRiD_49",
+      "perceptual_duplicate_group": "phash_048"
+    },
+    {
+      "duplicate_group": "exact_049",
+      "fold": 4,
+      "image_id": "IDRiD_50",
+      "perceptual_duplicate_group": "phash_049"
+    },
+    {
+      "duplicate_group": "exact_050",
+      "fold": 3,
+      "image_id": "IDRiD_51",
+      "perceptual_duplicate_group": "phash_050"
+    },
+    {
+      "duplicate_group": "exact_051",
+      "fold": 1,
+      "image_id": "IDRiD_52",
+      "perceptual_duplicate_group": "phash_051"
+    },
+    {
+      "duplicate_group": "exact_052",
+      "fold": 2,
+      "image_id": "IDRiD_53",
+      "perceptual_duplicate_group": "phash_052"
+    },
+    {
+      "duplicate_group": "exact_053",
+      "fold": 4,
+      "image_id": "IDRiD_54",
+      "perceptual_duplicate_group": "phash_053"
+    }
+  ],
+  "schema_version": "idrid-lesion-split-1",
+  "seed": 20260913
+}

@@ -1,0 +1,35 @@
+{
+  "baseline_threshold_0_40": {
+    "f1": 0.8946236559139785,
+    "fn": 46,
+    "fp": 3,
+    "pr_auc": 0.9810133633928475,
+    "precision": 0.985781990521327,
+    "roc_auc": 0.9639193949440531,
+    "sensitivity": 0.8188976377952756,
+    "specificity": 0.9802631578947368,
+    "threshold": 0.4,
+    "tn": 149,
+    "tp": 208
+  },
+  "external_validation_required": true,
+  "improvement_is_development_only": true,
+  "no_claim_over_90_percent": true,
+  "note": "A lower threshold improved OOF sensitivity under the documented specificity constraint, but this does not establish Messidor performance or clinical utility.",
+  "production_promoted": false,
+  "selected_research_candidate": "existing_5_class_probability_sum_with_development_oof_threshold",
+  "selected_threshold": {
+    "f1": 0.9171717171717172,
+    "fn": 27,
+    "fp": 14,
+    "pr_auc": 0.9810133633928475,
+    "precision": 0.941908713692946,
+    "roc_auc": 0.9639193949440531,
+    "sensitivity": 0.8937007874015748,
+    "specificity": 0.9078947368421053,
+    "threshold": 0.2,
+    "tn": 138,
+    "tp": 227
+  },
+  "status": "RESEARCH CANDIDATE IMPROVED — EXTERNAL VALIDATION PENDING"
+}

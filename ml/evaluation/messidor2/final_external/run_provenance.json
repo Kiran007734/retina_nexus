@@ -1,0 +1,14 @@
+{
+  "command": "scripts/evaluate_messidor2_final_external.py",
+  "elapsed_seconds": 120.426,
+  "generated_at_utc": "2026-09-13T20:11:43.552160+00:00",
+  "official_test_images_opened": 0,
+  "production_promoted": false,
+  "read_only_inputs": [
+    "ml/datasets/raw/messidor/images/messidor_data.csv",
+    "ml/datasets/metadata/messidor2/messidor2_audit_manifest.json",
+    "ml/evaluation/reliability/_phase5_1_messidor_quality_records.json",
+    "ml/weights/classifiers/aptos2019/efficientnet-b0-aptos2019-20260830-v1/checkpoint_best.pt"
+  ],
+  "writes_only_under": "ml/evaluation/messidor2/final_external"
+}

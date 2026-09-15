@@ -1,0 +1,86 @@
+{
+  "backup_status": "NO_COMPATIBLE_BACKUP_CHECKPOINT",
+  "candidates": [
+    {
+      "checkpoint_sha256": "ae6bb62ced2a108abc1a862870e64985b368b84e69bd8c8c8aa9912754d1a70b",
+      "external_validation_status": "DESCRIPTIVE_ONLY",
+      "model": "APTOS EfficientNet-B0",
+      "threshold_0.20": {
+        "f1": 0.5659301496792587,
+        "false_negative": 60,
+        "false_positive": 549,
+        "pr_auc": 0.6750497124694614,
+        "precision": 0.41966173361522197,
+        "recall": 0.8687089715536105,
+        "roc_auc": 0.8185252627265757,
+        "rule": "referable_probability = P(2)+P(3)+P(4); referable = referable_probability >= threshold; severity grade = argmax(P0..P4).",
+        "sample_count": 1744,
+        "sensitivity": 0.8687089715536105,
+        "specificity": 0.5734265734265734,
+        "threshold": 0.2,
+        "true_negative": 738,
+        "true_positive": 397
+      },
+      "threshold_0.50": {
+        "f1": 0.5981735159817351,
+        "false_negative": 195,
+        "false_positive": 157,
+        "pr_auc": 0.6750497124694614,
+        "precision": 0.6252983293556086,
+        "recall": 0.5733041575492341,
+        "roc_auc": 0.8185252627265757,
+        "rule": "referable_probability = P(2)+P(3)+P(4); referable = referable_probability >= threshold; severity grade = argmax(P0..P4).",
+        "sample_count": 1744,
+        "sensitivity": 0.5733041575492341,
+        "specificity": 0.878010878010878,
+        "threshold": 0.5,
+        "true_negative": 1130,
+        "true_positive": 262
+      }
+    },
+    {
+      "checkpoint_sha256": "97bd6a9933ca3d09c1e41bb16ba7452b5988eb1818fc7f1c87054471c4c33049",
+      "external_validation_status": "DESCRIPTIVE_ONLY_RESEARCH",
+      "model": "IDRiD V3 EfficientNet-B0",
+      "threshold_0.20": {
+        "f1": 0.5710382513661202,
+        "fn": 248,
+        "fp": 66,
+        "pr_auc": 0.7129784661414245,
+        "precision": 0.76,
+        "recall": 0.4573304157549234,
+        "roc_auc": 0.8390843292375022,
+        "sensitivity": 0.4573304157549234,
+        "specificity": 0.9487179487179487,
+        "support": 457,
+        "threshold": 0.2,
+        "tn": 1221,
+        "tp": 209
+      },
+      "threshold_0.50": {
+        "f1": 0.4183673469387755,
+        "fn": 334,
+        "fp": 8,
+        "pr_auc": 0.7129784661414245,
+        "precision": 0.9389312977099237,
+        "recall": 0.26914660831509846,
+        "roc_auc": 0.8390843292375022,
+        "sensitivity": 0.26914660831509846,
+        "specificity": 0.9937839937839937,
+        "support": 457,
+        "threshold": 0.5,
+        "tn": 1279,
+        "tp": 123
+      }
+    }
+  ],
+  "generated_at_utc": "2026-09-14T06:01:04.975179+00:00",
+  "label_status": "local/adjudicated labels; not independently proven official clinical ground truth",
+  "messidor_population": 1744,
+  "schema_version": "retina-nexus-master-model-comparison-v1",
+  "selection_tuning_on_messidor": false,
+  "sih_target": {
+    "definition": "referable sensitivity > 0.90 and specificity > 0.85 on the same frozen external evaluation",
+    "status": "TARGET_NOT_YET_DEMONSTRATED"
+  }
+}

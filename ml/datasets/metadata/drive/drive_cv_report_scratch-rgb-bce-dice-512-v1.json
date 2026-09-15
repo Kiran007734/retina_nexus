@@ -1,0 +1,3654 @@
+{
+  "architecture": "lightweight U-Net",
+  "candidate": "scratch-rgb-bce-dice-512-v1",
+  "development_images": 20,
+  "fine_tuned_summary": {
+    "dice": {
+      "max": 0.23484103411998689,
+      "mean": 0.13395238489334055,
+      "min": 0.0,
+      "std": 0.09465648880460308,
+      "values": [
+        0.0,
+        0.23484103411998689,
+        0.043521510953403585,
+        0.21660771614824775,
+        0.17479166324506457
+      ]
+    },
+    "f1": {
+      "max": 0.23484103411998686,
+      "mean": 0.13395238489334055,
+      "min": 0.0,
+      "std": 0.09465648880460308,
+      "values": [
+        0.0,
+        0.23484103411998686,
+        0.043521510953403585,
+        0.21660771614824775,
+        0.17479166324506457
+      ]
+    },
+    "false_negative_rate": {
+      "max": 1.0,
+      "mean": 0.5533272193959835,
+      "min": 0.0,
+      "std": 0.44422614570559266,
+      "values": [
+        1.0,
+        0.03700937548437189,
+        0.9657227496450118,
+        0.0,
+        0.7639039718505338
+      ]
+    },
+    "false_positive_rate": {
+      "max": 1.0,
+      "mean": 0.4448189296216314,
+      "min": 0.0,
+      "std": 0.43980747807759,
+      "values": [
+        0.0,
+        0.9496914365018606,
+        0.04525024969942926,
+        1.0,
+        0.22915296190686696
+      ]
+    },
+    "iou": {
+      "max": 0.13307006052276538,
+      "mean": 0.07463796589874032,
+      "min": 0.0,
+      "std": 0.05350808103756104,
+      "values": [
+        0.0,
+        0.13307006052276538,
+        0.022802330843546582,
+        0.1214782684427038,
+        0.09583916968468587
+      ]
+    },
+    "pixel_accuracy": {
+      "max": 0.8750970696227688,
+      "mean": 0.5437265111615437,
+      "min": 0.1214782684427038,
+      "std": 0.3308994007923827,
+      "values": [
+        0.8750970696227688,
+        0.17110482769668894,
+        0.8564369596004127,
+        0.1214782684427038,
+        0.6945154304451442
+      ]
+    },
+    "precision": {
+      "max": 0.14721647042305852,
+      "mean": 0.09491619677586849,
+      "min": 0.0,
+      "std": 0.053818783982298106,
+      "values": [
+        0.0,
+        0.1337935502841032,
+        0.07209269472947694,
+        0.1214782684427038,
+        0.14721647042305852
+      ]
+    },
+    "sensitivity": {
+      "max": 1.0,
+      "mean": 0.4466727806040165,
+      "min": 0.0,
+      "std": 0.44422614570559266,
+      "values": [
+        0.0,
+        0.9629906245156281,
+        0.03427725035498824,
+        1.0,
+        0.23609602814946617
+      ]
+    },
+    "specificity": {
+      "max": 1.0,
+      "mean": 0.5551810703783685,
+      "min": 0.0,
+      "std": 0.43980747807758996,
+      "values": [
+        1.0,
+        0.050308563498139364,
+        0.9547497503005706,
+        0.0,
+        0.770847038093133
+      ]
+    }
+  },
+  "fold_count": 5,
+  "folds": [
+    {
+      "fine_tuned_best_metrics": {
+        "max": {
+          "dice": 0.0,
+          "f1": 0.0,
+          "false_negative_rate": 1.0,
+          "false_positive_rate": 0.0,
+          "iou": 0.0,
+          "pixel_accuracy": 0.88304352151756,
+          "precision": 0.0,
+          "sensitivity": 0.0,
+          "specificity": 1.0
+        },
+        "mean": {
+          "dice": 0.0,
+          "f1": 0.0,
+          "false_negative_rate": 1.0,
+          "false_positive_rate": 0.0,
+          "iou": 0.0,
+          "pixel_accuracy": 0.8750970696227688,
+          "precision": 0.0,
+          "sensitivity": 0.0,
+          "specificity": 1.0
+        },
+        "micro_confusion": {
+          "evaluated_pixels": 722413,
+          "false_negative": 90230,
+          "false_positive": 0,
+          "ground_truth_vessel_pixels": 90230,
+          "predicted_vessel_pixels": 0,
+          "true_negative": 632183,
+          "true_positive": 0
+        },
+        "min": {
+          "dice": 0.0,
+          "f1": 0.0,
+          "false_negative_rate": 1.0,
+          "false_positive_rate": 0.0,
+          "iou": 0.0,
+          "pixel_accuracy": 0.8691498360710119,
+          "precision": 0.0,
+          "sensitivity": 0.0,
+          "specificity": 1.0
+        },
+        "sample_count": 4,
+        "std": {
+          "dice": 0.0,
+          "f1": 0.0,
+          "false_negative_rate": 0.0,
+          "false_positive_rate": 0.0,
+          "iou": 0.0,
+          "pixel_accuracy": 0.005012862424933235,
+          "precision": 0.0,
+          "sensitivity": 0.0,
+          "specificity": 0.0
+        }
+      },
+      "fold": 1,
+      "history": [
+        {
+          "epoch": 1,
+          "learning_rate": 0.00042677669529663686,
+          "phase": "scratch",
+          "train": {
+            "dice_loss": 0.8117417618632317,
+            "loss": 1.3254326432943344,
+            "pixel_loss": 0.5136908665299416
+          },
+          "validation": {
+            "max": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.88304352151756,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0
+            },
+            "mean": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.8750970696227688,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0
+            },
+            "micro_confusion": {
+              "evaluated_pixels": 722413,
+              "false_negative": 90230,
+              "false_positive": 0,
+              "ground_truth_vessel_pixels": 90230,
+              "predicted_vessel_pixels": 0,
+              "true_negative": 632183,
+              "true_positive": 0
+            },
+            "min": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.8691498360710119,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0
+            },
+            "sample_count": 4,
+            "std": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 0.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.005012862424933235,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.0
+            }
+          }
+        },
+        {
+          "epoch": 2,
+          "learning_rate": 0.00025,
+          "phase": "scratch",
+          "train": {
+            "dice_loss": 0.7964665964245796,
+            "loss": 1.2619583755731583,
+            "pixel_loss": 0.46549177542328835
+          },
+          "validation": {
+            "max": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.88304352151756,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0
+            },
+            "mean": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.8750970696227688,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0
+            },
+            "micro_confusion": {
+              "evaluated_pixels": 722413,
+              "false_negative": 90230,
+              "false_positive": 0,
+              "ground_truth_vessel_pixels": 90230,
+              "predicted_vessel_pixels": 0,
+              "true_negative": 632183,
+              "true_positive": 0
+            },
+            "min": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.8691498360710119,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0
+            },
+            "sample_count": 4,
+            "std": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 0.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.005012862424933235,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.0
+            }
+          }
+        },
+        {
+          "epoch": 3,
+          "learning_rate": 7.322330470336314e-05,
+          "phase": "scratch",
+          "train": {
+            "dice_loss": 0.7828114181756973,
+            "loss": 1.2263110280036926,
+            "pixel_loss": 0.4434996098279953
+          },
+          "validation": {
+            "max": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.88304352151756,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0
+            },
+            "mean": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.8750970696227688,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0
+            },
+            "micro_confusion": {
+              "evaluated_pixels": 722413,
+              "false_negative": 90230,
+              "false_positive": 0,
+              "ground_truth_vessel_pixels": 90230,
+              "predicted_vessel_pixels": 0,
+              "true_negative": 632183,
+              "true_positive": 0
+            },
+            "min": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.8691498360710119,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0
+            },
+            "sample_count": 4,
+            "std": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 0.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.005012862424933235,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.0
+            }
+          }
+        },
+        {
+          "epoch": 4,
+          "learning_rate": 0.0,
+          "phase": "scratch",
+          "train": {
+            "dice_loss": 0.766957126557827,
+            "loss": 1.1937956362962723,
+            "pixel_loss": 0.4268385097384453
+          },
+          "validation": {
+            "max": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.88304352151756,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0
+            },
+            "mean": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.8750970696227688,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0
+            },
+            "micro_confusion": {
+              "evaluated_pixels": 722413,
+              "false_negative": 90230,
+              "false_positive": 0,
+              "ground_truth_vessel_pixels": 90230,
+              "predicted_vessel_pixels": 0,
+              "true_negative": 632183,
+              "true_positive": 0
+            },
+            "min": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.8691498360710119,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0
+            },
+            "sample_count": 4,
+            "std": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 0.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.005012862424933235,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.0
+            }
+          }
+        },
+        {
+          "epoch": 1,
+          "learning_rate": 2.5e-05,
+          "phase": "controlled_fine_tune",
+          "train": {
+            "dice_loss": 0.8029475957155228,
+            "loss": 1.2782548367977142,
+            "pixel_loss": 0.47530722990632057
+          },
+          "validation": {
+            "max": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.88304352151756,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0
+            },
+            "mean": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.8750970696227688,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0
+            },
+            "micro_confusion": {
+              "evaluated_pixels": 722413,
+              "false_negative": 90230,
+              "false_positive": 0,
+              "ground_truth_vessel_pixels": 90230,
+              "predicted_vessel_pixels": 0,
+              "true_negative": 632183,
+              "true_positive": 0
+            },
+            "min": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.8691498360710119,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0
+            },
+            "sample_count": 4,
+            "std": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 0.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.005012862424933235,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.0
+            }
+          }
+        },
+        {
+          "epoch": 2,
+          "learning_rate": 0.0,
+          "phase": "controlled_fine_tune",
+          "train": {
+            "dice_loss": 0.8003888726234436,
+            "loss": 1.268052563071251,
+            "pixel_loss": 0.4676636941730976
+          },
+          "validation": {
+            "max": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.88304352151756,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0
+            },
+            "mean": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.8750970696227688,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0
+            },
+            "micro_confusion": {
+              "evaluated_pixels": 722413,
+              "false_negative": 90230,
+              "false_positive": 0,
+              "ground_truth_vessel_pixels": 90230,
+              "predicted_vessel_pixels": 0,
+              "true_negative": 632183,
+              "true_positive": 0
+            },
+            "min": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.8691498360710119,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0
+            },
+            "sample_count": 4,
+            "std": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 0.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.005012862424933235,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.0
+            }
+          }
+        }
+      ],
+      "official_test_images_opened": 0,
+      "production_promoted": false,
+      "scratch_best_metrics": {
+        "max": {
+          "dice": 0.0,
+          "f1": 0.0,
+          "false_negative_rate": 1.0,
+          "false_positive_rate": 0.0,
+          "iou": 0.0,
+          "pixel_accuracy": 0.88304352151756,
+          "precision": 0.0,
+          "sensitivity": 0.0,
+          "specificity": 1.0
+        },
+        "mean": {
+          "dice": 0.0,
+          "f1": 0.0,
+          "false_negative_rate": 1.0,
+          "false_positive_rate": 0.0,
+          "iou": 0.0,
+          "pixel_accuracy": 0.8750970696227688,
+          "precision": 0.0,
+          "sensitivity": 0.0,
+          "specificity": 1.0
+        },
+        "micro_confusion": {
+          "evaluated_pixels": 722413,
+          "false_negative": 90230,
+          "false_positive": 0,
+          "ground_truth_vessel_pixels": 90230,
+          "predicted_vessel_pixels": 0,
+          "true_negative": 632183,
+          "true_positive": 0
+        },
+        "min": {
+          "dice": 0.0,
+          "f1": 0.0,
+          "false_negative_rate": 1.0,
+          "false_positive_rate": 0.0,
+          "iou": 0.0,
+          "pixel_accuracy": 0.8691498360710119,
+          "precision": 0.0,
+          "sensitivity": 0.0,
+          "specificity": 1.0
+        },
+        "sample_count": 4,
+        "std": {
+          "dice": 0.0,
+          "f1": 0.0,
+          "false_negative_rate": 0.0,
+          "false_positive_rate": 0.0,
+          "iou": 0.0,
+          "pixel_accuracy": 0.005012862424933235,
+          "precision": 0.0,
+          "sensitivity": 0.0,
+          "specificity": 0.0
+        }
+      },
+      "seconds": 90.813,
+      "selected_metrics": {
+        "max": {
+          "dice": 0.0,
+          "f1": 0.0,
+          "false_negative_rate": 1.0,
+          "false_positive_rate": 0.0,
+          "iou": 0.0,
+          "pixel_accuracy": 0.88304352151756,
+          "precision": 0.0,
+          "sensitivity": 0.0,
+          "specificity": 1.0
+        },
+        "mean": {
+          "dice": 0.0,
+          "f1": 0.0,
+          "false_negative_rate": 1.0,
+          "false_positive_rate": 0.0,
+          "iou": 0.0,
+          "pixel_accuracy": 0.8750970696227688,
+          "precision": 0.0,
+          "sensitivity": 0.0,
+          "specificity": 1.0
+        },
+        "micro_confusion": {
+          "evaluated_pixels": 722413,
+          "false_negative": 90230,
+          "false_positive": 0,
+          "ground_truth_vessel_pixels": 90230,
+          "predicted_vessel_pixels": 0,
+          "true_negative": 632183,
+          "true_positive": 0
+        },
+        "min": {
+          "dice": 0.0,
+          "f1": 0.0,
+          "false_negative_rate": 1.0,
+          "false_positive_rate": 0.0,
+          "iou": 0.0,
+          "pixel_accuracy": 0.8691498360710119,
+          "precision": 0.0,
+          "sensitivity": 0.0,
+          "specificity": 1.0
+        },
+        "sample_count": 4,
+        "std": {
+          "dice": 0.0,
+          "f1": 0.0,
+          "false_negative_rate": 0.0,
+          "false_positive_rate": 0.0,
+          "iou": 0.0,
+          "pixel_accuracy": 0.005012862424933235,
+          "precision": 0.0,
+          "sensitivity": 0.0,
+          "specificity": 0.0
+        }
+      },
+      "train_count": 16,
+      "validation_count": 4,
+      "validation_predictions": [
+        {
+          "dice": 0.0,
+          "evaluated_pixels": 180871,
+          "f1": 0.0,
+          "false_negative": 23667,
+          "false_negative_rate": 1.0,
+          "false_positive": 0,
+          "false_positive_rate": 0.0,
+          "ground_truth_vessel_pixels": 23667,
+          "image_id": "22",
+          "iou": 0.0,
+          "pixel_accuracy": 0.8691498360710119,
+          "precision": 0.0,
+          "predicted_vessel_pixels": 0,
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "true_negative": 157204,
+          "true_positive": 0,
+          "vessel_prevalence": 0.13085016392898807
+        },
+        {
+          "dice": 0.0,
+          "evaluated_pixels": 180922,
+          "f1": 0.0,
+          "false_negative": 21160,
+          "false_negative_rate": 1.0,
+          "false_positive": 0,
+          "false_positive_rate": 0.0,
+          "ground_truth_vessel_pixels": 21160,
+          "image_id": "33",
+          "iou": 0.0,
+          "pixel_accuracy": 0.88304352151756,
+          "precision": 0.0,
+          "predicted_vessel_pixels": 0,
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "true_negative": 159762,
+          "true_positive": 0,
+          "vessel_prevalence": 0.11695647848243995
+        },
+        {
+          "dice": 0.0,
+          "evaluated_pixels": 180885,
+          "f1": 0.0,
+          "false_negative": 22778,
+          "false_negative_rate": 1.0,
+          "false_positive": 0,
+          "false_positive_rate": 0.0,
+          "ground_truth_vessel_pixels": 22778,
+          "image_id": "35",
+          "iou": 0.0,
+          "pixel_accuracy": 0.8740746883378943,
+          "precision": 0.0,
+          "predicted_vessel_pixels": 0,
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "true_negative": 158107,
+          "true_positive": 0,
+          "vessel_prevalence": 0.12592531166210577
+        },
+        {
+          "dice": 0.0,
+          "evaluated_pixels": 179735,
+          "f1": 0.0,
+          "false_negative": 22625,
+          "false_negative_rate": 1.0,
+          "false_positive": 0,
+          "false_positive_rate": 0.0,
+          "ground_truth_vessel_pixels": 22625,
+          "image_id": "38",
+          "iou": 0.0,
+          "pixel_accuracy": 0.874120232564609,
+          "precision": 0.0,
+          "predicted_vessel_pixels": 0,
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "true_negative": 157110,
+          "true_positive": 0,
+          "vessel_prevalence": 0.125879767435391
+        }
+      ]
+    },
+    {
+      "fine_tuned_best_metrics": {
+        "max": {
+          "dice": 0.24490195406742585,
+          "f1": 0.24490195406742585,
+          "false_negative_rate": 0.08999024390243902,
+          "false_positive_rate": 0.9914857742282173,
+          "iou": 0.139537477484511,
+          "pixel_accuracy": 0.19284031713881258,
+          "precision": 0.13972058117329103,
+          "sensitivity": 0.9906956487310449,
+          "specificity": 0.08649711188579862
+        },
+        "mean": {
+          "dice": 0.23484103411998689,
+          "f1": 0.23484103411998686,
+          "false_negative_rate": 0.03700937548437189,
+          "false_positive_rate": 0.9496914365018606,
+          "iou": 0.13307006052276538,
+          "pixel_accuracy": 0.17110482769668894,
+          "precision": 0.1337935502841032,
+          "sensitivity": 0.9629906245156281,
+          "specificity": 0.050308563498139364
+        },
+        "micro_confusion": {
+          "evaluated_pixels": 719897,
+          "false_negative": 3615,
+          "false_positive": 593155,
+          "ground_truth_vessel_pixels": 95299,
+          "predicted_vessel_pixels": 684839,
+          "true_negative": 31443,
+          "true_positive": 91684
+        },
+        "min": {
+          "dice": 0.22439433530113875,
+          "f1": 0.22439433530113875,
+          "false_negative_rate": 0.009304351268955142,
+          "false_positive_rate": 0.9135028881142013,
+          "iou": 0.1263762217942662,
+          "pixel_accuracy": 0.1458393303956954,
+          "precision": 0.1268825965087221,
+          "sensitivity": 0.910009756097561,
+          "specificity": 0.008514225771782711
+        },
+        "sample_count": 4,
+        "std": {
+          "dice": 0.008717551294238906,
+          "f1": 0.008717551294238913,
+          "false_negative_rate": 0.031511433345580715,
+          "false_positive_rate": 0.029658591597411414,
+          "iou": 0.005595193955458128,
+          "pixel_accuracy": 0.019807713806732567,
+          "precision": 0.0058560169893039785,
+          "sensitivity": 0.03151143334558073,
+          "specificity": 0.029658591597411396
+        }
+      },
+      "fold": 2,
+      "history": [
+        {
+          "epoch": 1,
+          "learning_rate": 0.00042677669529663686,
+          "phase": "scratch",
+          "train": {
+            "dice_loss": 0.7884894236922264,
+            "loss": 1.5508875101804733,
+            "pixel_loss": 0.7623980790376663
+          },
+          "validation": {
+            "max": {
+              "dice": 0.24923163709928417,
+              "f1": 0.2492316370992842,
+              "false_negative_rate": 0.0,
+              "false_positive_rate": 1.0,
+              "iou": 0.14235557506096985,
+              "pixel_accuracy": 0.14235557506096985,
+              "precision": 0.14235557506096985,
+              "sensitivity": 1.0,
+              "specificity": 0.0
+            },
+            "mean": {
+              "dice": 0.23365593544705515,
+              "f1": 0.23365593544705515,
+              "false_negative_rate": 0.0,
+              "false_positive_rate": 1.0,
+              "iou": 0.13235480495755292,
+              "pixel_accuracy": 0.13235480495755292,
+              "precision": 0.13235480495755292,
+              "sensitivity": 1.0,
+              "specificity": 0.0
+            },
+            "micro_confusion": {
+              "evaluated_pixels": 719897,
+              "false_negative": 0,
+              "false_positive": 624598,
+              "ground_truth_vessel_pixels": 95299,
+              "predicted_vessel_pixels": 719897,
+              "true_negative": 0,
+              "true_positive": 95299
+            },
+            "min": {
+              "dice": 0.21500124843945068,
+              "f1": 0.2150012484394507,
+              "false_negative_rate": 0.0,
+              "false_positive_rate": 1.0,
+              "iou": 0.12044896292027327,
+              "pixel_accuracy": 0.12044896292027327,
+              "precision": 0.12044896292027327,
+              "sensitivity": 1.0,
+              "specificity": 0.0
+            },
+            "sample_count": 4,
+            "std": {
+              "dice": 0.014149377885529625,
+              "f1": 0.014149377885529623,
+              "false_negative_rate": 0.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.009059742353611741,
+              "pixel_accuracy": 0.009059742353611741,
+              "precision": 0.009059742353611741,
+              "sensitivity": 0.0,
+              "specificity": 0.0
+            }
+          }
+        },
+        {
+          "epoch": 2,
+          "learning_rate": 0.00025,
+          "phase": "scratch",
+          "train": {
+            "dice_loss": 0.7867026850581169,
+            "loss": 1.4016429781913757,
+            "pixel_loss": 0.6149403005838394
+          },
+          "validation": {
+            "max": {
+              "dice": 0.24490195406742585,
+              "f1": 0.24490195406742585,
+              "false_negative_rate": 0.08999024390243902,
+              "false_positive_rate": 0.9914857742282173,
+              "iou": 0.139537477484511,
+              "pixel_accuracy": 0.19284031713881258,
+              "precision": 0.13972058117329103,
+              "sensitivity": 0.9906956487310449,
+              "specificity": 0.08649711188579862
+            },
+            "mean": {
+              "dice": 0.23484103411998689,
+              "f1": 0.23484103411998686,
+              "false_negative_rate": 0.03700937548437189,
+              "false_positive_rate": 0.9496914365018606,
+              "iou": 0.13307006052276538,
+              "pixel_accuracy": 0.17110482769668894,
+              "precision": 0.1337935502841032,
+              "sensitivity": 0.9629906245156281,
+              "specificity": 0.050308563498139364
+            },
+            "micro_confusion": {
+              "evaluated_pixels": 719897,
+              "false_negative": 3615,
+              "false_positive": 593155,
+              "ground_truth_vessel_pixels": 95299,
+              "predicted_vessel_pixels": 684839,
+              "true_negative": 31443,
+              "true_positive": 91684
+            },
+            "min": {
+              "dice": 0.22439433530113875,
+              "f1": 0.22439433530113875,
+              "false_negative_rate": 0.009304351268955142,
+              "false_positive_rate": 0.9135028881142013,
+              "iou": 0.1263762217942662,
+              "pixel_accuracy": 0.1458393303956954,
+              "precision": 0.1268825965087221,
+              "sensitivity": 0.910009756097561,
+              "specificity": 0.008514225771782711
+            },
+            "sample_count": 4,
+            "std": {
+              "dice": 0.008717551294238906,
+              "f1": 0.008717551294238913,
+              "false_negative_rate": 0.031511433345580715,
+              "false_positive_rate": 0.029658591597411414,
+              "iou": 0.005595193955458128,
+              "pixel_accuracy": 0.019807713806732567,
+              "precision": 0.0058560169893039785,
+              "sensitivity": 0.03151143334558073,
+              "specificity": 0.029658591597411396
+            }
+          }
+        },
+        {
+          "epoch": 3,
+          "learning_rate": 7.322330470336314e-05,
+          "phase": "scratch",
+          "train": {
+            "dice_loss": 0.772525243461132,
+            "loss": 1.3439115434885025,
+            "pixel_loss": 0.571386307477951
+          },
+          "validation": {
+            "max": {
+              "dice": 0.0019689511548655813,
+              "f1": 0.001968951154865581,
+              "false_negative_rate": 0.9999219512195122,
+              "false_positive_rate": 0.007252858990777864,
+              "iou": 0.0009854457246816252,
+              "pixel_accuracy": 0.8786893684640478,
+              "precision": 0.07692307692307693,
+              "sensitivity": 0.0010294175872035474,
+              "specificity": 0.9989312705157892
+            },
+            "mean": {
+              "dice": 0.0008943284209911629,
+              "f1": 0.0008943284209911628,
+              "false_negative_rate": 0.999538703288997,
+              "false_positive_rate": 0.004998908437641375,
+              "iou": 0.0004475139657458374,
+              "pixel_accuracy": 0.8633825594783362,
+              "precision": 0.025989389949185638,
+              "sensitivity": 0.00046129671100297853,
+              "specificity": 0.9950010915623586
+            },
+            "micro_confusion": {
+              "evaluated_pixels": 719897,
+              "false_negative": 95255,
+              "false_positive": 3119,
+              "ground_truth_vessel_pixels": 95299,
+              "predicted_vessel_pixels": 3163,
+              "true_negative": 621479,
+              "true_positive": 44
+            },
+            "min": {
+              "dice": 0.00015153237110277683,
+              "f1": 0.0001515323711027768,
+              "false_negative_rate": 0.9989705824127965,
+              "false_positive_rate": 0.001068729484210794,
+              "iou": 7.577192650123129e-05,
+              "pixel_accuracy": 0.853377924191837,
+              "precision": 0.001893939393939394,
+              "sensitivity": 7.804878048780487e-05,
+              "specificity": 0.9927471410092221
+            },
+            "sample_count": 4,
+            "std": {
+              "dice": 0.000773287266032343,
+              "f1": 0.000773287266032343,
+              "false_negative_rate": 0.00040162104781713026,
+              "false_positive_rate": 0.002417354582904698,
+              "iou": 0.00038703087665916563,
+              "pixel_accuracy": 0.01044868866024756,
+              "precision": 0.030553892682869847,
+              "sensitivity": 0.0004016210478171194,
+              "specificity": 0.0024173545829047076
+            }
+          }
+        },
+        {
+          "epoch": 4,
+          "learning_rate": 0.0,
+          "phase": "scratch",
+          "train": {
+            "dice_loss": 0.7516929656267166,
+            "loss": 1.3085703253746033,
+            "pixel_loss": 0.5568773746490479
+          },
+          "validation": {
+            "max": {
+              "dice": 0.005677269087997671,
+              "f1": 0.005677269087997671,
+              "false_negative_rate": 0.9991699432066404,
+              "false_positive_rate": 0.013791372508639719,
+              "iou": 0.0028467153284671533,
+              "pixel_accuracy": 0.8772066270149896,
+              "precision": 0.05708245243128964,
+              "sensitivity": 0.0030882527616106427,
+              "specificity": 0.9971627776788213
+            },
+            "mean": {
+              "dice": 0.00295910570970006,
+              "f1": 0.00295910570970006,
+              "false_negative_rate": 0.9984141799687224,
+              "false_positive_rate": 0.010374922107923651,
+              "iou": 0.001482392747687251,
+              "pixel_accuracy": 0.8588871304068404,
+              "precision": 0.0293322222458978,
+              "sensitivity": 0.001585820031277673,
+              "specificity": 0.9896250778920763
+            },
+            "micro_confusion": {
+              "evaluated_pixels": 719897,
+              "false_negative": 95145,
+              "false_positive": 6470,
+              "ground_truth_vessel_pixels": 95299,
+              "predicted_vessel_pixels": 6624,
+              "true_negative": 618128,
+              "true_positive": 154
+            },
+            "min": {
+              "dice": 0.0015252468491611143,
+              "f1": 0.001525246849161114,
+              "false_negative_rate": 0.9969117472383894,
+              "false_positive_rate": 0.002837222321178656,
+              "iou": 0.0007632054629443663,
+              "pixel_accuracy": 0.8473892681951257,
+              "precision": 0.009387351778656126,
+              "sensitivity": 0.0008300567933595456,
+              "specificity": 0.9862086274913603
+            },
+            "sample_count": 4,
+            "std": {
+              "dice": 0.0016052216006839956,
+              "f1": 0.0016052216006839956,
+              "false_negative_rate": 0.000881862598272274,
+              "false_positive_rate": 0.004391542020041151,
+              "iou": 0.0008056388770359733,
+              "pixel_accuracy": 0.012057139038191018,
+              "precision": 0.0186153052904203,
+              "sensitivity": 0.0008818625982722839,
+              "specificity": 0.004391542020041142
+            }
+          }
+        },
+        {
+          "epoch": 1,
+          "learning_rate": 2.5e-05,
+          "phase": "controlled_fine_tune",
+          "train": {
+            "dice_loss": 0.7750703990459442,
+            "loss": 1.3480545282363892,
+            "pixel_loss": 0.572984129190445
+          },
+          "validation": {
+            "max": {
+              "dice": 0.006951587160844121,
+              "f1": 0.006951587160844121,
+              "false_negative_rate": 0.9994320664045435,
+              "false_positive_rate": 0.016012229404982446,
+              "iou": 0.003487916859451187,
+              "pixel_accuracy": 0.8765128159218455,
+              "precision": 0.04975124378109453,
+              "sensitivity": 0.003824390243902439,
+              "specificity": 0.9963548690806382
+            },
+            "mean": {
+              "dice": 0.00414929171558052,
+              "f1": 0.00414929171558052,
+              "false_negative_rate": 0.9977418631815167,
+              "false_positive_rate": 0.012310864475962208,
+              "iou": 0.002080383698204048,
+              "pixel_accuracy": 0.8573131702495222,
+              "precision": 0.03149344573195875,
+              "sensitivity": 0.002258136818483236,
+              "specificity": 0.9876891355240378
+            },
+            "micro_confusion": {
+              "evaluated_pixels": 719897,
+              "false_negative": 95076,
+              "false_positive": 7673,
+              "ground_truth_vessel_pixels": 95299,
+              "predicted_vessel_pixels": 7896,
+              "true_negative": 616925,
+              "true_positive": 223
+            },
+            "min": {
+              "dice": 0.0010375927847394045,
+              "f1": 0.0010375927847394047,
+              "false_negative_rate": 0.9961756097560975,
+              "false_positive_rate": 0.0036451309193618157,
+              "iou": 0.000519065681772809,
+              "pixel_accuracy": 0.8444560489314304,
+              "precision": 0.005996309963099631,
+              "sensitivity": 0.0005679335954565313,
+              "specificity": 0.9839877705950175
+            },
+            "sample_count": 4,
+            "std": {
+              "dice": 0.002379971003485526,
+              "f1": 0.0023799710034855255,
+              "false_negative_rate": 0.0013261288692255774,
+              "false_positive_rate": 0.005090076779265073,
+              "iou": 0.001194788758658855,
+              "pixel_accuracy": 0.01282148847188328,
+              "precision": 0.016030330912807117,
+              "sensitivity": 0.0013261288692255461,
+              "specificity": 0.005090076779265089
+            }
+          }
+        },
+        {
+          "epoch": 2,
+          "learning_rate": 0.0,
+          "phase": "controlled_fine_tune",
+          "train": {
+            "dice_loss": 0.7696670293807983,
+            "loss": 1.3411205857992172,
+            "pixel_loss": 0.5714535415172577
+          },
+          "validation": {
+            "max": {
+              "dice": 0.00824595699306913,
+              "f1": 0.00824595699306913,
+              "false_negative_rate": 0.9985583224115334,
+              "false_positive_rate": 0.019147309919550208,
+              "iou": 0.004140047824690389,
+              "pixel_accuracy": 0.8756119805509084,
+              "precision": 0.05778894472361809,
+              "sensitivity": 0.00459278615829275,
+              "specificity": 0.9952288862312018
+            },
+            "mean": {
+              "dice": 0.005709556377313764,
+              "f1": 0.005709556377313764,
+              "false_negative_rate": 0.9968547321899396,
+              "false_positive_rate": 0.014408872943058492,
+              "iou": 0.0028644231266223945,
+              "pixel_accuracy": 0.8556156093951031,
+              "precision": 0.03696900796989528,
+              "sensitivity": 0.003145267810060427,
+              "specificity": 0.9855911270569415
+            },
+            "micro_confusion": {
+              "evaluated_pixels": 719897,
+              "false_negative": 94991,
+              "false_positive": 8981,
+              "ground_truth_vessel_pixels": 95299,
+              "predicted_vessel_pixels": 9289,
+              "true_negative": 615617,
+              "true_positive": 308
+            },
+            "min": {
+              "dice": 0.002594747601824186,
+              "f1": 0.0025947476018241857,
+              "false_negative_rate": 0.9954072138417073,
+              "false_positive_rate": 0.004771113768798188,
+              "iou": 0.0012990591662402078,
+              "pixel_accuracy": 0.8418505946990951,
+              "precision": 0.012961508248232521,
+              "sensitivity": 0.0014416775884665792,
+              "specificity": 0.9808526900804498
+            },
+            "sample_count": 4,
+            "std": {
+              "dice": 0.0024162099082246724,
+              "f1": 0.002416209908224673,
+              "false_negative_rate": 0.0013796161880311666,
+              "false_positive_rate": 0.005679361605583231,
+              "iou": 0.0012148327783176587,
+              "pixel_accuracy": 0.013282873038056132,
+              "precision": 0.015976436053138407,
+              "sensitivity": 0.0013796161880311577,
+              "specificity": 0.005679361605583193
+            }
+          }
+        }
+      ],
+      "official_test_images_opened": 0,
+      "production_promoted": false,
+      "scratch_best_metrics": {
+        "max": {
+          "dice": 0.24490195406742585,
+          "f1": 0.24490195406742585,
+          "false_negative_rate": 0.08999024390243902,
+          "false_positive_rate": 0.9914857742282173,
+          "iou": 0.139537477484511,
+          "pixel_accuracy": 0.19284031713881258,
+          "precision": 0.13972058117329103,
+          "sensitivity": 0.9906956487310449,
+          "specificity": 0.08649711188579862
+        },
+        "mean": {
+          "dice": 0.23484103411998689,
+          "f1": 0.23484103411998686,
+          "false_negative_rate": 0.03700937548437189,
+          "false_positive_rate": 0.9496914365018606,
+          "iou": 0.13307006052276538,
+          "pixel_accuracy": 0.17110482769668894,
+          "precision": 0.1337935502841032,
+          "sensitivity": 0.9629906245156281,
+          "specificity": 0.050308563498139364
+        },
+        "micro_confusion": {
+          "evaluated_pixels": 719897,
+          "false_negative": 3615,
+          "false_positive": 593155,
+          "ground_truth_vessel_pixels": 95299,
+          "predicted_vessel_pixels": 684839,
+          "true_negative": 31443,
+          "true_positive": 91684
+        },
+        "min": {
+          "dice": 0.22439433530113875,
+          "f1": 0.22439433530113875,
+          "false_negative_rate": 0.009304351268955142,
+          "false_positive_rate": 0.9135028881142013,
+          "iou": 0.1263762217942662,
+          "pixel_accuracy": 0.1458393303956954,
+          "precision": 0.1268825965087221,
+          "sensitivity": 0.910009756097561,
+          "specificity": 0.008514225771782711
+        },
+        "sample_count": 4,
+        "std": {
+          "dice": 0.008717551294238906,
+          "f1": 0.008717551294238913,
+          "false_negative_rate": 0.031511433345580715,
+          "false_positive_rate": 0.029658591597411414,
+          "iou": 0.005595193955458128,
+          "pixel_accuracy": 0.019807713806732567,
+          "precision": 0.0058560169893039785,
+          "sensitivity": 0.03151143334558073,
+          "specificity": 0.029658591597411396
+        }
+      },
+      "seconds": 90.886,
+      "selected_metrics": {
+        "max": {
+          "dice": 0.24490195406742585,
+          "f1": 0.24490195406742585,
+          "false_negative_rate": 0.08999024390243902,
+          "false_positive_rate": 0.9914857742282173,
+          "iou": 0.139537477484511,
+          "pixel_accuracy": 0.19284031713881258,
+          "precision": 0.13972058117329103,
+          "sensitivity": 0.9906956487310449,
+          "specificity": 0.08649711188579862
+        },
+        "mean": {
+          "dice": 0.23484103411998689,
+          "f1": 0.23484103411998686,
+          "false_negative_rate": 0.03700937548437189,
+          "false_positive_rate": 0.9496914365018606,
+          "iou": 0.13307006052276538,
+          "pixel_accuracy": 0.17110482769668894,
+          "precision": 0.1337935502841032,
+          "sensitivity": 0.9629906245156281,
+          "specificity": 0.050308563498139364
+        },
+        "micro_confusion": {
+          "evaluated_pixels": 719897,
+          "false_negative": 3615,
+          "false_positive": 593155,
+          "ground_truth_vessel_pixels": 95299,
+          "predicted_vessel_pixels": 684839,
+          "true_negative": 31443,
+          "true_positive": 91684
+        },
+        "min": {
+          "dice": 0.22439433530113875,
+          "f1": 0.22439433530113875,
+          "false_negative_rate": 0.009304351268955142,
+          "false_positive_rate": 0.9135028881142013,
+          "iou": 0.1263762217942662,
+          "pixel_accuracy": 0.1458393303956954,
+          "precision": 0.1268825965087221,
+          "sensitivity": 0.910009756097561,
+          "specificity": 0.008514225771782711
+        },
+        "sample_count": 4,
+        "std": {
+          "dice": 0.008717551294238906,
+          "f1": 0.008717551294238913,
+          "false_negative_rate": 0.031511433345580715,
+          "false_positive_rate": 0.029658591597411414,
+          "iou": 0.005595193955458128,
+          "pixel_accuracy": 0.019807713806732567,
+          "precision": 0.0058560169893039785,
+          "sensitivity": 0.03151143334558073,
+          "specificity": 0.029658591597411396
+        }
+      },
+      "train_count": 16,
+      "validation_count": 4,
+      "validation_predictions": [
+        {
+          "dice": 0.24490195406742585,
+          "evaluated_pixels": 180644,
+          "f1": 0.24490195406742585,
+          "false_negative": 235,
+          "false_negative_rate": 0.009304351268955142,
+          "false_positive": 154064,
+          "false_positive_rate": 0.9914857742282173,
+          "ground_truth_vessel_pixels": 25257,
+          "image_id": "25",
+          "iou": 0.139537477484511,
+          "pixel_accuracy": 0.1458393303956954,
+          "precision": 0.13972058117329103,
+          "predicted_vessel_pixels": 179086,
+          "sensitivity": 0.9906956487310449,
+          "specificity": 0.008514225771782711,
+          "true_negative": 1323,
+          "true_positive": 25022,
+          "vessel_prevalence": 0.13981643453422202
+        },
+        {
+          "dice": 0.22439433530113875,
+          "evaluated_pixels": 178723,
+          "f1": 0.22439433530113875,
+          "false_negative": 659,
+          "false_negative_rate": 0.030612718911134856,
+          "false_positive": 143599,
+          "false_positive_rate": 0.9135028881142013,
+          "ground_truth_vessel_pixels": 21527,
+          "image_id": "32",
+          "iou": 0.1263762217942662,
+          "pixel_accuracy": 0.19284031713881258,
+          "precision": 0.1268825965087221,
+          "predicted_vessel_pixels": 164467,
+          "sensitivity": 0.9693872810888652,
+          "specificity": 0.08649711188579862,
+          "true_negative": 13597,
+          "true_positive": 20868,
+          "vessel_prevalence": 0.12044896292027327
+        },
+        {
+          "dice": 0.24187324966289803,
+          "evaluated_pixels": 180007,
+          "f1": 0.24187324966289803,
+          "false_negative": 2306,
+          "false_negative_rate": 0.08999024390243902,
+          "false_positive": 143876,
+          "false_positive_rate": 0.9319480250288246,
+          "ground_truth_vessel_pixels": 25625,
+          "image_id": "34",
+          "iou": 0.1375744095905039,
+          "pixel_accuracy": 0.1879093590804802,
+          "precision": 0.13947187415891624,
+          "predicted_vessel_pixels": 167195,
+          "sensitivity": 0.910009756097561,
+          "specificity": 0.06805197497117539,
+          "true_negative": 10506,
+          "true_positive": 23319,
+          "vessel_prevalence": 0.14235557506096985
+        },
+        {
+          "dice": 0.2281945974484849,
+          "evaluated_pixels": 180523,
+          "f1": 0.22819459744848486,
+          "false_negative": 415,
+          "false_negative_rate": 0.0181301878549585,
+          "false_positive": 151616,
+          "false_positive_rate": 0.9618290586361993,
+          "ground_truth_vessel_pixels": 22890,
+          "image_id": "37",
+          "iou": 0.12879213322178035,
+          "pixel_accuracy": 0.15783030417176758,
+          "precision": 0.12909914929548338,
+          "predicted_vessel_pixels": 174091,
+          "sensitivity": 0.9818698121450415,
+          "specificity": 0.038170941363800726,
+          "true_negative": 6017,
+          "true_positive": 22475,
+          "vessel_prevalence": 0.1267982473147466
+        }
+      ]
+    },
+    {
+      "fine_tuned_best_metrics": {
+        "max": {
+          "dice": 0.1207548890003191,
+          "f1": 0.1207548890003191,
+          "false_negative_rate": 0.9951825410644843,
+          "false_positive_rate": 0.10067672616782035,
+          "iou": 0.06425712553062463,
+          "pixel_accuracy": 0.8852329705608173,
+          "precision": 0.14511092851273624,
+          "sensitivity": 0.10339982044576292,
+          "specificity": 0.9801878522229179
+        },
+        "mean": {
+          "dice": 0.043521510953403585,
+          "f1": 0.043521510953403585,
+          "false_negative_rate": 0.9657227496450118,
+          "false_positive_rate": 0.04525024969942926,
+          "iou": 0.022802330843546582,
+          "pixel_accuracy": 0.8564369596004127,
+          "precision": 0.07209269472947694,
+          "sensitivity": 0.03427725035498824,
+          "specificity": 0.9547497503005706
+        },
+        "micro_confusion": {
+          "evaluated_pixels": 722060,
+          "false_negative": 74924,
+          "false_positive": 28738,
+          "ground_truth_vessel_pixels": 78172,
+          "predicted_vessel_pixels": 31986,
+          "true_negative": 615150,
+          "true_positive": 3248
+        },
+        "min": {
+          "dice": 0.00791531565897387,
+          "f1": 0.007915315658973871,
+          "false_negative_rate": 0.8966001795542371,
+          "false_positive_rate": 0.01981214777708203,
+          "iou": 0.003973383120302551,
+          "pixel_accuracy": 0.7864363616232076,
+          "precision": 0.022174726155490248,
+          "sensitivity": 0.004817458935515701,
+          "specificity": 0.8993232738321797
+        },
+        "sample_count": 4,
+        "std": {
+          "dice": 0.045106215099059634,
+          "f1": 0.045106215099059634,
+          "false_negative_rate": 0.04011569572147172,
+          "false_positive_rate": 0.03276872383375981,
+          "iou": 0.024182738112968043,
+          "pixel_accuracy": 0.04057527132924683,
+          "precision": 0.049490910460987934,
+          "sensitivity": 0.04011569572147172,
+          "specificity": 0.03276872383375979
+        }
+      },
+      "fold": 3,
+      "history": [
+        {
+          "epoch": 1,
+          "learning_rate": 0.00042677669529663686,
+          "phase": "scratch",
+          "train": {
+            "dice_loss": 0.789264440536499,
+            "loss": 1.600452497601509,
+            "pixel_loss": 0.8111880347132683
+          },
+          "validation": {
+            "max": {
+              "dice": 0.07093193105463044,
+              "f1": 0.07093193105463044,
+              "false_negative_rate": 0.9960531661733124,
+              "false_positive_rate": 0.04771919412170749,
+              "iou": 0.036770050884419675,
+              "pixel_accuracy": 0.8918939833623525,
+              "precision": 0.1409824642898618,
+              "sensitivity": 0.047386705179749404,
+              "specificity": 0.9876142767689418
+            },
+            "mean": {
+              "dice": 0.023838059280273702,
+              "f1": 0.0238380592802737,
+              "false_negative_rate": 0.9845614463627138,
+              "false_positive_rate": 0.025099293676388728,
+              "iou": 0.012257723024703324,
+              "pixel_accuracy": 0.8715849653847171,
+              "precision": 0.05797317759877237,
+              "sensitivity": 0.015438553637286252,
+              "specificity": 0.9749007063236113
+            },
+            "micro_confusion": {
+              "evaluated_pixels": 722060,
+              "false_negative": 76708,
+              "false_positive": 16010,
+              "ground_truth_vessel_pixels": 78172,
+              "predicted_vessel_pixels": 17474,
+              "true_negative": 627878,
+              "true_positive": 1464
+            },
+            "min": {
+              "dice": 0.006772571087097256,
+              "f1": 0.006772571087097255,
+              "false_negative_rate": 0.9526132948202506,
+              "false_positive_rate": 0.012385723231058235,
+              "iou": 0.0033977914355668814,
+              "pixel_accuracy": 0.8239384376903062,
+              "precision": 0.023084728564180618,
+              "sensitivity": 0.003946833826687562,
+              "specificity": 0.9522808058782926
+            },
+            "sample_count": 4,
+            "std": {
+              "dice": 0.02720399406997028,
+              "f1": 0.02720399406997028,
+              "false_negative_rate": 0.01845658119685086,
+              "false_positive_rate": 0.013624845398635113,
+              "iou": 0.014159194563408938,
+              "pixel_accuracy": 0.027843474732599807,
+              "precision": 0.04865274010227696,
+              "sensitivity": 0.01845658119685087,
+              "specificity": 0.013624845398635088
+            }
+          }
+        },
+        {
+          "epoch": 2,
+          "learning_rate": 0.00025,
+          "phase": "scratch",
+          "train": {
+            "dice_loss": 0.7958699688315392,
+            "loss": 1.4401033073663712,
+            "pixel_loss": 0.6442333534359932
+          },
+          "validation": {
+            "max": {
+              "dice": 0.1207548890003191,
+              "f1": 0.1207548890003191,
+              "false_negative_rate": 0.9951825410644843,
+              "false_positive_rate": 0.10067672616782035,
+              "iou": 0.06425712553062463,
+              "pixel_accuracy": 0.8852329705608173,
+              "precision": 0.14511092851273624,
+              "sensitivity": 0.10339982044576292,
+              "specificity": 0.9801878522229179
+            },
+            "mean": {
+              "dice": 0.043521510953403585,
+              "f1": 0.043521510953403585,
+              "false_negative_rate": 0.9657227496450118,
+              "false_positive_rate": 0.04525024969942926,
+              "iou": 0.022802330843546582,
+              "pixel_accuracy": 0.8564369596004127,
+              "precision": 0.07209269472947694,
+              "sensitivity": 0.03427725035498824,
+              "specificity": 0.9547497503005706
+            },
+            "micro_confusion": {
+              "evaluated_pixels": 722060,
+              "false_negative": 74924,
+              "false_positive": 28738,
+              "ground_truth_vessel_pixels": 78172,
+              "predicted_vessel_pixels": 31986,
+              "true_negative": 615150,
+              "true_positive": 3248
+            },
+            "min": {
+              "dice": 0.00791531565897387,
+              "f1": 0.007915315658973871,
+              "false_negative_rate": 0.8966001795542371,
+              "false_positive_rate": 0.01981214777708203,
+              "iou": 0.003973383120302551,
+              "pixel_accuracy": 0.7864363616232076,
+              "precision": 0.022174726155490248,
+              "sensitivity": 0.004817458935515701,
+              "specificity": 0.8993232738321797
+            },
+            "sample_count": 4,
+            "std": {
+              "dice": 0.045106215099059634,
+              "f1": 0.045106215099059634,
+              "false_negative_rate": 0.04011569572147172,
+              "false_positive_rate": 0.03276872383375981,
+              "iou": 0.024182738112968043,
+              "pixel_accuracy": 0.04057527132924683,
+              "precision": 0.049490910460987934,
+              "sensitivity": 0.04011569572147172,
+              "specificity": 0.03276872383375979
+            }
+          }
+        },
+        {
+          "epoch": 3,
+          "learning_rate": 7.322330470336314e-05,
+          "phase": "scratch",
+          "train": {
+            "dice_loss": 0.7957456335425377,
+            "loss": 1.409683734178543,
+            "pixel_loss": 0.613938108086586
+          },
+          "validation": {
+            "max": {
+              "dice": 0.011190269331016507,
+              "f1": 0.011190269331016507,
+              "false_negative_rate": 0.9993854348048755,
+              "false_positive_rate": 0.01932120946255427,
+              "iou": 0.00562661634165094,
+              "pixel_accuracy": 0.8977807257551889,
+              "precision": 0.05101394169835234,
+              "sensitivity": 0.0062843982981381,
+              "specificity": 0.9921477770820288
+            },
+            "mean": {
+              "dice": 0.004186724187842406,
+              "f1": 0.004186724187842406,
+              "false_negative_rate": 0.9976369054222225,
+              "false_positive_rate": 0.0146679269518063,
+              "iou": 0.0021019258755912026,
+              "pixel_accuracy": 0.8789610944935718,
+              "precision": 0.019140832101798445,
+              "sensitivity": 0.0023630945777775303,
+              "specificity": 0.9853320730481938
+            },
+            "micro_confusion": {
+              "evaluated_pixels": 722060,
+              "false_negative": 77957,
+              "false_positive": 9434,
+              "ground_truth_vessel_pixels": 78172,
+              "predicted_vessel_pixels": 9649,
+              "true_negative": 634454,
+              "true_positive": 215
+            },
+            "min": {
+              "dice": 0.0011542901115813775,
+              "f1": 0.0011542901115813775,
+              "false_negative_rate": 0.9937156017018619,
+              "false_positive_rate": 0.007852222917971196,
+              "iou": 0.0005774783445620789,
+              "pixel_accuracy": 0.8424791009245419,
+              "precision": 0.008032128514056224,
+              "sensitivity": 0.0006145651951244494,
+              "specificity": 0.9806787905374458
+            },
+            "sample_count": 4,
+            "std": {
+              "dice": 0.004067851065171239,
+              "f1": 0.00406785106517124,
+              "false_negative_rate": 0.002281518439885347,
+              "false_positive_rate": 0.004226149906842859,
+              "iou": 0.0020471203162675043,
+              "pixel_accuracy": 0.02161022354179286,
+              "precision": 0.01841137973921329,
+              "sensitivity": 0.002281518439885354,
+              "specificity": 0.00422614990684286
+            }
+          }
+        },
+        {
+          "epoch": 4,
+          "learning_rate": 0.0,
+          "phase": "scratch",
+          "train": {
+            "dice_loss": 0.7942591533064842,
+            "loss": 1.399800717830658,
+            "pixel_loss": 0.6055415496230125
+          },
+          "validation": {
+            "max": {
+              "dice": 0.008537058595265812,
+              "f1": 0.008537058595265812,
+              "false_negative_rate": 0.9996927174024378,
+              "false_positive_rate": 0.016818161291779293,
+              "iou": 0.004286827747466875,
+              "pixel_accuracy": 0.8990299311831523,
+              "precision": 0.04435483870967742,
+              "sensitivity": 0.0047230571060541005,
+              "specificity": 0.99296180338134
+            },
+            "mean": {
+              "dice": 0.0029662747112051014,
+              "f1": 0.0029662747112051014,
+              "false_negative_rate": 0.9983480573905278,
+              "false_positive_rate": 0.013331990586991362,
+              "iou": 0.0014879693446934444,
+              "pixel_accuracy": 0.8800548786462915,
+              "precision": 0.015083148180306557,
+              "sensitivity": 0.0016519426094721175,
+              "specificity": 0.9866680094130087
+            },
+            "micro_confusion": {
+              "evaluated_pixels": 722060,
+              "false_negative": 78019,
+              "false_positive": 8582,
+              "ground_truth_vessel_pixels": 78172,
+              "predicted_vessel_pixels": 8735,
+              "true_negative": 635306,
+              "true_positive": 153
+            },
+            "min": {
+              "dice": 0.0005809450038729666,
+              "f1": 0.0005809450038729668,
+              "false_negative_rate": 0.9952769428939459,
+              "false_positive_rate": 0.007038196618659988,
+              "iou": 0.00029055690072639226,
+              "pixel_accuracy": 0.8444056911919393,
+              "precision": 0.0052104208416833666,
+              "sensitivity": 0.0003072825975622247,
+              "specificity": 0.9831818387082207
+            },
+            "sample_count": 4,
+            "std": {
+              "dice": 0.003232705998543656,
+              "f1": 0.003232705998543656,
+              "false_negative_rate": 0.0017841323530839014,
+              "false_positive_rate": 0.0037377062233698937,
+              "iou": 0.0016241046147003786,
+              "pixel_accuracy": 0.021186717187841323,
+              "precision": 0.016900247260694803,
+              "sensitivity": 0.0017841323530838826,
+              "specificity": 0.00373770622336988
+            }
+          }
+        },
+        {
+          "epoch": 1,
+          "learning_rate": 2.5e-05,
+          "phase": "controlled_fine_tune",
+          "train": {
+            "dice_loss": 0.7955614700913429,
+            "loss": 1.4126230031251907,
+            "pixel_loss": 0.6170615255832672
+          },
+          "validation": {
+            "max": {
+              "dice": 0.012695580565468021,
+              "f1": 0.012695580565468023,
+              "false_negative_rate": 0.9988732971422718,
+              "false_positive_rate": 0.02154685796491862,
+              "iou": 0.006388342138886011,
+              "pixel_accuracy": 0.8962551474449327,
+              "precision": 0.0524822695035461,
+              "sensitivity": 0.007221203013388501,
+              "specificity": 0.9902629931120852
+            },
+            "mean": {
+              "dice": 0.005218810581133276,
+              "f1": 0.005218810581133277,
+              "false_negative_rate": 0.9970148490189172,
+              "false_positive_rate": 0.01659028266968702,
+              "iou": 0.0026209932554956757,
+              "pixel_accuracy": 0.8773213214370185,
+              "precision": 0.021656553913520355,
+              "sensitivity": 0.0029851509810827547,
+              "specificity": 0.9834097173303129
+            },
+            "micro_confusion": {
+              "evaluated_pixels": 722060,
+              "false_negative": 77906,
+              "false_positive": 10669,
+              "ground_truth_vessel_pixels": 78172,
+              "predicted_vessel_pixels": 10935,
+              "true_negative": 633219,
+              "true_positive": 266
+            },
+            "min": {
+              "dice": 0.002085011609723736,
+              "f1": 0.0020850116097237362,
+              "false_negative_rate": 0.9927787969866115,
+              "false_positive_rate": 0.00973700688791484,
+              "iou": 0.0010435937574118875,
+              "pixel_accuracy": 0.8407019874882357,
+              "precision": 0.00964974982130093,
+              "sensitivity": 0.0011267028577281574,
+              "specificity": 0.9784531420350814
+            },
+            "sample_count": 4,
+            "std": {
+              "dice": 0.004341653978878821,
+              "f1": 0.004341653978878822,
+              "false_negative_rate": 0.0024662498631864123,
+              "false_positive_rate": 0.004306239445960671,
+              "iou": 0.0021875220575899267,
+              "pixel_accuracy": 0.021695047715035973,
+              "precision": 0.017869437753281186,
+              "sensitivity": 0.002466249863186437,
+              "specificity": 0.004306239445960693
+            }
+          }
+        },
+        {
+          "epoch": 2,
+          "learning_rate": 0.0,
+          "phase": "controlled_fine_tune",
+          "train": {
+            "dice_loss": 0.7948490902781487,
+            "loss": 1.409616395831108,
+            "pixel_loss": 0.61476731300354
+          },
+          "validation": {
+            "max": {
+              "dice": 0.010532924107142858,
+              "f1": 0.010532924107142858,
+              "false_negative_rate": 0.9994366485711359,
+              "false_positive_rate": 0.018721252040177792,
+              "iou": 0.005294344518074401,
+              "pixel_accuracy": 0.8973716938893955,
+              "precision": 0.049459547985587944,
+              "sensitivity": 0.0058940630001171005,
+              "specificity": 0.9914965560425798
+            },
+            "mean": {
+              "dice": 0.0038799949545823124,
+              "f1": 0.0038799949545823124,
+              "false_negative_rate": 0.9978105918400841,
+              "false_positive_rate": 0.015233211302840569,
+              "iou": 0.0019475216974914312,
+              "pixel_accuracy": 0.8784231981247291,
+              "precision": 0.017775845012815976,
+              "sensitivity": 0.0021894081599158214,
+              "specificity": 0.9847667886971594
+            },
+            "micro_confusion": {
+              "evaluated_pixels": 722060,
+              "false_negative": 77972,
+              "false_positive": 9808,
+              "ground_truth_vessel_pixels": 78172,
+              "predicted_vessel_pixels": 10008,
+              "true_negative": 634080,
+              "true_positive": 200
+            },
+            "min": {
+              "dice": 0.0010528834649437665,
+              "f1": 0.0010528834649437665,
+              "false_negative_rate": 0.9941059369998829,
+              "false_positive_rate": 0.008503443957420163,
+              "iou": 0.0005267190193449531,
+              "pixel_accuracy": 0.842938603775674,
+              "precision": 0.006417112299465241,
+              "sensitivity": 0.0005633514288640787,
+              "specificity": 0.9812787479598222
+            },
+            "sample_count": 4,
+            "std": {
+              "dice": 0.00385922606015994,
+              "f1": 0.00385922606015994,
+              "false_negative_rate": 0.0021522687478369037,
+              "false_positive_rate": 0.0039595400308527606,
+              "iou": 0.0019413391839992857,
+              "pixel_accuracy": 0.021064234194970652,
+              "precision": 0.018301541714050153,
+              "sensitivity": 0.002152268747836924,
+              "specificity": 0.003959540030852752
+            }
+          }
+        }
+      ],
+      "official_test_images_opened": 0,
+      "production_promoted": false,
+      "scratch_best_metrics": {
+        "max": {
+          "dice": 0.1207548890003191,
+          "f1": 0.1207548890003191,
+          "false_negative_rate": 0.9951825410644843,
+          "false_positive_rate": 0.10067672616782035,
+          "iou": 0.06425712553062463,
+          "pixel_accuracy": 0.8852329705608173,
+          "precision": 0.14511092851273624,
+          "sensitivity": 0.10339982044576292,
+          "specificity": 0.9801878522229179
+        },
+        "mean": {
+          "dice": 0.043521510953403585,
+          "f1": 0.043521510953403585,
+          "false_negative_rate": 0.9657227496450118,
+          "false_positive_rate": 0.04525024969942926,
+          "iou": 0.022802330843546582,
+          "pixel_accuracy": 0.8564369596004127,
+          "precision": 0.07209269472947694,
+          "sensitivity": 0.03427725035498824,
+          "specificity": 0.9547497503005706
+        },
+        "micro_confusion": {
+          "evaluated_pixels": 722060,
+          "false_negative": 74924,
+          "false_positive": 28738,
+          "ground_truth_vessel_pixels": 78172,
+          "predicted_vessel_pixels": 31986,
+          "true_negative": 615150,
+          "true_positive": 3248
+        },
+        "min": {
+          "dice": 0.00791531565897387,
+          "f1": 0.007915315658973871,
+          "false_negative_rate": 0.8966001795542371,
+          "false_positive_rate": 0.01981214777708203,
+          "iou": 0.003973383120302551,
+          "pixel_accuracy": 0.7864363616232076,
+          "precision": 0.022174726155490248,
+          "sensitivity": 0.004817458935515701,
+          "specificity": 0.8993232738321797
+        },
+        "sample_count": 4,
+        "std": {
+          "dice": 0.045106215099059634,
+          "f1": 0.045106215099059634,
+          "false_negative_rate": 0.04011569572147172,
+          "false_positive_rate": 0.03276872383375981,
+          "iou": 0.024182738112968043,
+          "pixel_accuracy": 0.04057527132924683,
+          "precision": 0.049490910460987934,
+          "sensitivity": 0.04011569572147172,
+          "specificity": 0.03276872383375979
+        }
+      },
+      "seconds": 92.349,
+      "selected_metrics": {
+        "max": {
+          "dice": 0.1207548890003191,
+          "f1": 0.1207548890003191,
+          "false_negative_rate": 0.9951825410644843,
+          "false_positive_rate": 0.10067672616782035,
+          "iou": 0.06425712553062463,
+          "pixel_accuracy": 0.8852329705608173,
+          "precision": 0.14511092851273624,
+          "sensitivity": 0.10339982044576292,
+          "specificity": 0.9801878522229179
+        },
+        "mean": {
+          "dice": 0.043521510953403585,
+          "f1": 0.043521510953403585,
+          "false_negative_rate": 0.9657227496450118,
+          "false_positive_rate": 0.04525024969942926,
+          "iou": 0.022802330843546582,
+          "pixel_accuracy": 0.8564369596004127,
+          "precision": 0.07209269472947694,
+          "sensitivity": 0.03427725035498824,
+          "specificity": 0.9547497503005706
+        },
+        "micro_confusion": {
+          "evaluated_pixels": 722060,
+          "false_negative": 74924,
+          "false_positive": 28738,
+          "ground_truth_vessel_pixels": 78172,
+          "predicted_vessel_pixels": 31986,
+          "true_negative": 615150,
+          "true_positive": 3248
+        },
+        "min": {
+          "dice": 0.00791531565897387,
+          "f1": 0.007915315658973871,
+          "false_negative_rate": 0.8966001795542371,
+          "false_positive_rate": 0.01981214777708203,
+          "iou": 0.003973383120302551,
+          "pixel_accuracy": 0.7864363616232076,
+          "precision": 0.022174726155490248,
+          "sensitivity": 0.004817458935515701,
+          "specificity": 0.8993232738321797
+        },
+        "sample_count": 4,
+        "std": {
+          "dice": 0.045106215099059634,
+          "f1": 0.045106215099059634,
+          "false_negative_rate": 0.04011569572147172,
+          "false_positive_rate": 0.03276872383375981,
+          "iou": 0.024182738112968043,
+          "pixel_accuracy": 0.04057527132924683,
+          "precision": 0.049490910460987934,
+          "sensitivity": 0.04011569572147172,
+          "specificity": 0.03276872383375979
+        }
+      },
+      "train_count": 16,
+      "validation_count": 4,
+      "validation_predictions": [
+        {
+          "dice": 0.027128075819493957,
+          "evaluated_pixels": 179226,
+          "f1": 0.02712807581949396,
+          "false_negative": 19214,
+          "false_negative_rate": 0.9840213049267643,
+          "false_positive": 3164,
+          "false_positive_rate": 0.01981214777708203,
+          "ground_truth_vessel_pixels": 19526,
+          "image_id": "21",
+          "iou": 0.01375055090348171,
+          "pixel_accuracy": 0.8751408835771596,
+          "precision": 0.08975834292289989,
+          "predicted_vessel_pixels": 3476,
+          "sensitivity": 0.015978695073235686,
+          "specificity": 0.9801878522229179,
+          "true_negative": 156536,
+          "true_positive": 312,
+          "vessel_prevalence": 0.10894624663832256
+        },
+        {
+          "dice": 0.00791531565897387,
+          "evaluated_pixels": 181289,
+          "f1": 0.007915315658973871,
+          "false_negative": 17146,
+          "false_negative_rate": 0.9951825410644843,
+          "false_positive": 3660,
+          "false_positive_rate": 0.022308911373887602,
+          "ground_truth_vessel_pixels": 17229,
+          "image_id": "23",
+          "iou": 0.003973383120302551,
+          "pixel_accuracy": 0.8852329705608173,
+          "precision": 0.022174726155490248,
+          "predicted_vessel_pixels": 3743,
+          "sensitivity": 0.004817458935515701,
+          "specificity": 0.9776910886261124,
+          "true_negative": 160400,
+          "true_positive": 83,
+          "vessel_prevalence": 0.09503610257654904
+        },
+        {
+          "dice": 0.1207548890003191,
+          "evaluated_pixels": 180630,
+          "f1": 0.1207548890003191,
+          "false_negative": 22970,
+          "false_negative_rate": 0.8966001795542371,
+          "false_positive": 15606,
+          "false_positive_rate": 0.10067672616782035,
+          "ground_truth_vessel_pixels": 25619,
+          "image_id": "28",
+          "iou": 0.06425712553062463,
+          "pixel_accuracy": 0.7864363616232076,
+          "precision": 0.14511092851273624,
+          "predicted_vessel_pixels": 18255,
+          "sensitivity": 0.10339982044576292,
+          "specificity": 0.8993232738321797,
+          "true_negative": 139405,
+          "true_positive": 2649,
+          "vessel_prevalence": 0.14183136798981344
+        },
+        {
+          "dice": 0.01828776333482743,
+          "evaluated_pixels": 180915,
+          "f1": 0.01828776333482743,
+          "false_negative": 15594,
+          "false_negative_rate": 0.9870869730345614,
+          "false_positive": 6308,
+          "false_positive_rate": 0.038203213478927064,
+          "ground_truth_vessel_pixels": 15798,
+          "image_id": "31",
+          "iou": 0.009228263819777436,
+          "pixel_accuracy": 0.8789376226404665,
+          "precision": 0.03132678132678133,
+          "predicted_vessel_pixels": 6512,
+          "sensitivity": 0.012913026965438662,
+          "specificity": 0.9617967865210729,
+          "true_negative": 158809,
+          "true_positive": 204,
+          "vessel_prevalence": 0.08732277588922975
+        }
+      ]
+    },
+    {
+      "fine_tuned_best_metrics": {
+        "max": {
+          "dice": 0.22556169862369133,
+          "f1": 0.22556169862369133,
+          "false_negative_rate": 0.0,
+          "false_positive_rate": 1.0,
+          "iou": 0.127117239550532,
+          "pixel_accuracy": 0.127117239550532,
+          "precision": 0.127117239550532,
+          "sensitivity": 1.0,
+          "specificity": 0.0
+        },
+        "mean": {
+          "dice": 0.21660771614824775,
+          "f1": 0.21660771614824775,
+          "false_negative_rate": 0.0,
+          "false_positive_rate": 1.0,
+          "iou": 0.1214782684427038,
+          "pixel_accuracy": 0.1214782684427038,
+          "precision": 0.1214782684427038,
+          "sensitivity": 1.0,
+          "specificity": 0.0
+        },
+        "micro_confusion": {
+          "evaluated_pixels": 720986,
+          "false_negative": 0,
+          "false_positive": 633402,
+          "ground_truth_vessel_pixels": 87584,
+          "predicted_vessel_pixels": 720986,
+          "true_negative": 0,
+          "true_positive": 87584
+        },
+        "min": {
+          "dice": 0.20472667979080914,
+          "f1": 0.20472667979080914,
+          "false_negative_rate": 0.0,
+          "false_positive_rate": 1.0,
+          "iou": 0.11403649655248803,
+          "pixel_accuracy": 0.11403649655248803,
+          "precision": 0.11403649655248803,
+          "sensitivity": 1.0,
+          "specificity": 0.0
+        },
+        "sample_count": 4,
+        "std": {
+          "dice": 0.007542337601435774,
+          "f1": 0.007542337601435774,
+          "false_negative_rate": 0.0,
+          "false_positive_rate": 0.0,
+          "iou": 0.004732045361096655,
+          "pixel_accuracy": 0.004732045361096655,
+          "precision": 0.004732045361096655,
+          "sensitivity": 0.0,
+          "specificity": 0.0
+        }
+      },
+      "fold": 4,
+      "history": [
+        {
+          "epoch": 1,
+          "learning_rate": 0.00042677669529663686,
+          "phase": "scratch",
+          "train": {
+            "dice_loss": 0.7927779108285904,
+            "loss": 1.3918786644935608,
+            "pixel_loss": 0.599100723862648
+          },
+          "validation": {
+            "max": {
+              "dice": 0.22556169862369133,
+              "f1": 0.22556169862369133,
+              "false_negative_rate": 0.0,
+              "false_positive_rate": 1.0,
+              "iou": 0.127117239550532,
+              "pixel_accuracy": 0.127117239550532,
+              "precision": 0.127117239550532,
+              "sensitivity": 1.0,
+              "specificity": 0.0
+            },
+            "mean": {
+              "dice": 0.21660771614824775,
+              "f1": 0.21660771614824775,
+              "false_negative_rate": 0.0,
+              "false_positive_rate": 1.0,
+              "iou": 0.1214782684427038,
+              "pixel_accuracy": 0.1214782684427038,
+              "precision": 0.1214782684427038,
+              "sensitivity": 1.0,
+              "specificity": 0.0
+            },
+            "micro_confusion": {
+              "evaluated_pixels": 720986,
+              "false_negative": 0,
+              "false_positive": 633402,
+              "ground_truth_vessel_pixels": 87584,
+              "predicted_vessel_pixels": 720986,
+              "true_negative": 0,
+              "true_positive": 87584
+            },
+            "min": {
+              "dice": 0.20472667979080914,
+              "f1": 0.20472667979080914,
+              "false_negative_rate": 0.0,
+              "false_positive_rate": 1.0,
+              "iou": 0.11403649655248803,
+              "pixel_accuracy": 0.11403649655248803,
+              "precision": 0.11403649655248803,
+              "sensitivity": 1.0,
+              "specificity": 0.0
+            },
+            "sample_count": 4,
+            "std": {
+              "dice": 0.007542337601435774,
+              "f1": 0.007542337601435774,
+              "false_negative_rate": 0.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.004732045361096655,
+              "pixel_accuracy": 0.004732045361096655,
+              "precision": 0.004732045361096655,
+              "sensitivity": 0.0,
+              "specificity": 0.0
+            }
+          }
+        },
+        {
+          "epoch": 2,
+          "learning_rate": 0.00025,
+          "phase": "scratch",
+          "train": {
+            "dice_loss": 0.7732326909899712,
+            "loss": 1.2857096791267395,
+            "pixel_loss": 0.512476984411478
+          },
+          "validation": {
+            "max": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.000101263259157996,
+              "iou": 0.0,
+              "pixel_accuracy": 0.885963503447512,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0
+            },
+            "mean": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 2.5315814789499e-05,
+              "iou": 0.0,
+              "pixel_accuracy": 0.8784996338189998,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.9999746841852105
+            },
+            "micro_confusion": {
+              "evaluated_pixels": 720986,
+              "false_negative": 87584,
+              "false_positive": 16,
+              "ground_truth_vessel_pixels": 87584,
+              "predicted_vessel_pixels": 16,
+              "true_negative": 633386,
+              "true_positive": 0
+            },
+            "min": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.8727943694962821,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.999898736740842
+            },
+            "sample_count": 4,
+            "std": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 0.0,
+              "false_positive_rate": 4.384827745041587e-05,
+              "iou": 0.0,
+              "pixel_accuracy": 0.004758459335246454,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 4.384827745043772e-05
+            }
+          }
+        },
+        {
+          "epoch": 3,
+          "learning_rate": 7.322330470336314e-05,
+          "phase": "scratch",
+          "train": {
+            "dice_loss": 0.7337499037384987,
+            "loss": 1.2024499028921127,
+            "pixel_loss": 0.46870000287890434
+          },
+          "validation": {
+            "max": {
+              "dice": 0.0016357688113413304,
+              "f1": 0.0016357688113413304,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0008185538881309686,
+              "pixel_accuracy": 0.885963503447512,
+              "precision": 1.0,
+              "sensitivity": 0.0008185538881309686,
+              "specificity": 1.0
+            },
+            "mean": {
+              "dice": 0.0007780740914877841,
+              "f1": 0.0007780740914877841,
+              "false_negative_rate": 0.9996106592246209,
+              "false_positive_rate": 0.0,
+              "iou": 0.0003893407753791133,
+              "pixel_accuracy": 0.8785701273477579,
+              "precision": 0.5,
+              "sensitivity": 0.0003893407753791133,
+              "specificity": 1.0
+            },
+            "micro_confusion": {
+              "evaluated_pixels": 720986,
+              "false_negative": 87549,
+              "false_positive": 0,
+              "ground_truth_vessel_pixels": 87584,
+              "predicted_vessel_pixels": 35,
+              "true_negative": 633402,
+              "true_positive": 35
+            },
+            "min": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 0.999181446111869,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.872976675837228,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0
+            },
+            "sample_count": 4,
+            "std": {
+              "dice": 0.0007801083348325539,
+              "f1": 0.0007801083348325539,
+              "false_negative_rate": 0.0003903602707968767,
+              "false_positive_rate": 0.0,
+              "iou": 0.0003903602707968526,
+              "pixel_accuracy": 0.004702736118039261,
+              "precision": 0.5,
+              "sensitivity": 0.0003903602707968526,
+              "specificity": 0.0
+            }
+          }
+        },
+        {
+          "epoch": 4,
+          "learning_rate": 0.0,
+          "phase": "scratch",
+          "train": {
+            "dice_loss": 0.7101076245307922,
+            "loss": 1.1630002558231354,
+            "pixel_loss": 0.45289262756705284
+          },
+          "validation": {
+            "max": {
+              "dice": 0.11163238301455551,
+              "f1": 0.11163238301455553,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0033986481354902408,
+              "iou": 0.05911581093132883,
+              "pixel_accuracy": 0.885963503447512,
+              "precision": 0.9236111111111112,
+              "sensitivity": 0.06049543676662321,
+              "specificity": 1.0
+            },
+            "mean": {
+              "dice": 0.03387811101533203,
+              "f1": 0.03387811101533203,
+              "false_negative_rate": 0.9818520389438603,
+              "false_positive_rate": 0.0008843382837937506,
+              "iou": 0.017800032144062446,
+              "pixel_accuracy": 0.8800403424596962,
+              "precision": 0.41130713236564714,
+              "sensitivity": 0.01814796105613966,
+              "specificity": 0.9991156617162062
+            },
+            "micro_confusion": {
+              "evaluated_pixels": 720986,
+              "false_negative": 85926,
+              "false_positive": 559,
+              "ground_truth_vessel_pixels": 87584,
+              "predicted_vessel_pixels": 2217,
+              "true_negative": 632843,
+              "true_positive": 1658
+            },
+            "min": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 0.9395045632333768,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.8770014596743976,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.9966013518645097
+            },
+            "sample_count": 4,
+            "std": {
+              "dice": 0.04593784014632534,
+              "f1": 0.04593784014632535,
+              "false_negative_rate": 0.024943070084656044,
+              "false_positive_rate": 0.0014527414967119697,
+              "iou": 0.024358495734000795,
+              "pixel_accuracy": 0.0035512852180457884,
+              "precision": 0.4174610624048501,
+              "sensitivity": 0.024943070084656058,
+              "specificity": 0.001452741496711997
+            }
+          }
+        },
+        {
+          "epoch": 1,
+          "learning_rate": 2.5e-05,
+          "phase": "controlled_fine_tune",
+          "train": {
+            "dice_loss": 0.7835483774542809,
+            "loss": 1.3084499090909958,
+            "pixel_loss": 0.5249015316367149
+          },
+          "validation": {
+            "max": {
+              "dice": 0.07317073170731707,
+              "f1": 0.07317073170731707,
+              "false_negative_rate": 0.9997827031725337,
+              "false_positive_rate": 0.02174103291784915,
+              "iou": 0.0379746835443038,
+              "pixel_accuracy": 0.8716362528729267,
+              "precision": 0.2606516290726817,
+              "sensitivity": 0.04327133213539896,
+              "specificity": 0.9957216273005747
+            },
+            "mean": {
+              "dice": 0.04284383115489962,
+              "f1": 0.04284383115489962,
+              "false_negative_rate": 0.9748387076636508,
+              "false_positive_rate": 0.013918330806226044,
+              "iou": 0.02214372336622905,
+              "pixel_accuracy": 0.8692606515536698,
+              "precision": 0.15229218414589663,
+              "sensitivity": 0.02516129233634919,
+              "specificity": 0.9860816691937739
+            },
+            "micro_confusion": {
+              "evaluated_pixels": 720986,
+              "false_negative": 85431,
+              "false_positive": 8827,
+              "ground_truth_vessel_pixels": 87584,
+              "predicted_vessel_pixels": 10980,
+              "true_negative": 624575,
+              "true_positive": 2153
+            },
+            "min": {
+              "dice": 0.00042210121987252544,
+              "f1": 0.00042210121987252544,
+              "false_negative_rate": 0.9567286678646011,
+              "false_positive_rate": 0.004278372699425331,
+              "iou": 0.00021109516169889387,
+              "pixel_accuracy": 0.8673877420906341,
+              "precision": 0.007342143906020558,
+              "sensitivity": 0.000217296827466319,
+              "specificity": 0.9782589670821509
+            },
+            "sample_count": 4,
+            "std": {
+              "dice": 0.030843294156046756,
+              "f1": 0.030843294156046752,
+              "false_negative_rate": 0.01846922656435492,
+              "false_positive_rate": 0.0064153661605260365,
+              "iou": 0.0160459440463884,
+              "pixel_accuracy": 0.0015275065455331767,
+              "precision": 0.0944008435342329,
+              "sensitivity": 0.01846922656435492,
+              "specificity": 0.006415366160526026
+            }
+          }
+        },
+        {
+          "epoch": 2,
+          "learning_rate": 0.0,
+          "phase": "controlled_fine_tune",
+          "train": {
+            "dice_loss": 0.7813434451818466,
+            "loss": 1.301897868514061,
+            "pixel_loss": 0.5205544084310532
+          },
+          "validation": {
+            "max": {
+              "dice": 0.0003433181701141533,
+              "f1": 0.0003433181701141533,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.001822738664843928,
+              "iou": 0.00017168855695767876,
+              "pixel_accuracy": 0.8857862819483289,
+              "precision": 0.5,
+              "sensitivity": 0.0001738374619730552,
+              "specificity": 0.9999936230183529
+            },
+            "mean": {
+              "dice": 0.00010856198171926349,
+              "f1": 0.00010856198171926349,
+              "false_negative_rate": 0.9999451733812899,
+              "false_positive_rate": 0.0005482680605774048,
+              "iou": 5.42888756220695e-05,
+              "pixel_accuracy": 0.8780492001870956,
+              "precision": 0.1284246575342466,
+              "sensitivity": 5.482661871019646e-05,
+              "specificity": 0.9994517319394226
+            },
+            "micro_confusion": {
+              "evaluated_pixels": 720986,
+              "false_negative": 87579,
+              "false_positive": 347,
+              "ground_truth_vessel_pixels": 87584,
+              "predicted_vessel_pixels": 352,
+              "true_negative": 633055,
+              "true_positive": 5
+            },
+            "min": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 0.9998261625380269,
+              "false_positive_rate": 6.37698164704682e-06,
+              "iou": 0.0,
+              "pixel_accuracy": 0.8713138210304175,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.998177261335156
+            },
+            "sample_count": 4,
+            "std": {
+              "dice": 0.000140528263257108,
+              "f1": 0.000140528263257108,
+              "false_negative_rate": 7.117419096771033e-05,
+              "false_positive_rate": 0.0007394101621972719,
+              "iou": 7.027637522819894e-05,
+              "pixel_accuracy": 0.0051557648859106376,
+              "precision": 0.2146020047765607,
+              "sensitivity": 7.117419096769946e-05,
+              "specificity": 0.0007394101621972727
+            }
+          }
+        }
+      ],
+      "official_test_images_opened": 0,
+      "production_promoted": false,
+      "scratch_best_metrics": {
+        "max": {
+          "dice": 0.22556169862369133,
+          "f1": 0.22556169862369133,
+          "false_negative_rate": 0.0,
+          "false_positive_rate": 1.0,
+          "iou": 0.127117239550532,
+          "pixel_accuracy": 0.127117239550532,
+          "precision": 0.127117239550532,
+          "sensitivity": 1.0,
+          "specificity": 0.0
+        },
+        "mean": {
+          "dice": 0.21660771614824775,
+          "f1": 0.21660771614824775,
+          "false_negative_rate": 0.0,
+          "false_positive_rate": 1.0,
+          "iou": 0.1214782684427038,
+          "pixel_accuracy": 0.1214782684427038,
+          "precision": 0.1214782684427038,
+          "sensitivity": 1.0,
+          "specificity": 0.0
+        },
+        "micro_confusion": {
+          "evaluated_pixels": 720986,
+          "false_negative": 0,
+          "false_positive": 633402,
+          "ground_truth_vessel_pixels": 87584,
+          "predicted_vessel_pixels": 720986,
+          "true_negative": 0,
+          "true_positive": 87584
+        },
+        "min": {
+          "dice": 0.20472667979080914,
+          "f1": 0.20472667979080914,
+          "false_negative_rate": 0.0,
+          "false_positive_rate": 1.0,
+          "iou": 0.11403649655248803,
+          "pixel_accuracy": 0.11403649655248803,
+          "precision": 0.11403649655248803,
+          "sensitivity": 1.0,
+          "specificity": 0.0
+        },
+        "sample_count": 4,
+        "std": {
+          "dice": 0.007542337601435774,
+          "f1": 0.007542337601435774,
+          "false_negative_rate": 0.0,
+          "false_positive_rate": 0.0,
+          "iou": 0.004732045361096655,
+          "pixel_accuracy": 0.004732045361096655,
+          "precision": 0.004732045361096655,
+          "sensitivity": 0.0,
+          "specificity": 0.0
+        }
+      },
+      "seconds": 92.825,
+      "selected_metrics": {
+        "max": {
+          "dice": 0.22556169862369133,
+          "f1": 0.22556169862369133,
+          "false_negative_rate": 0.0,
+          "false_positive_rate": 1.0,
+          "iou": 0.127117239550532,
+          "pixel_accuracy": 0.127117239550532,
+          "precision": 0.127117239550532,
+          "sensitivity": 1.0,
+          "specificity": 0.0
+        },
+        "mean": {
+          "dice": 0.21660771614824775,
+          "f1": 0.21660771614824775,
+          "false_negative_rate": 0.0,
+          "false_positive_rate": 1.0,
+          "iou": 0.1214782684427038,
+          "pixel_accuracy": 0.1214782684427038,
+          "precision": 0.1214782684427038,
+          "sensitivity": 1.0,
+          "specificity": 0.0
+        },
+        "micro_confusion": {
+          "evaluated_pixels": 720986,
+          "false_negative": 0,
+          "false_positive": 633402,
+          "ground_truth_vessel_pixels": 87584,
+          "predicted_vessel_pixels": 720986,
+          "true_negative": 0,
+          "true_positive": 87584
+        },
+        "min": {
+          "dice": 0.20472667979080914,
+          "f1": 0.20472667979080914,
+          "false_negative_rate": 0.0,
+          "false_positive_rate": 1.0,
+          "iou": 0.11403649655248803,
+          "pixel_accuracy": 0.11403649655248803,
+          "precision": 0.11403649655248803,
+          "sensitivity": 1.0,
+          "specificity": 0.0
+        },
+        "sample_count": 4,
+        "std": {
+          "dice": 0.007542337601435774,
+          "f1": 0.007542337601435774,
+          "false_negative_rate": 0.0,
+          "false_positive_rate": 0.0,
+          "iou": 0.004732045361096655,
+          "pixel_accuracy": 0.004732045361096655,
+          "precision": 0.004732045361096655,
+          "sensitivity": 0.0,
+          "specificity": 0.0
+        }
+      },
+      "train_count": 16,
+      "validation_count": 4,
+      "validation_predictions": [
+        {
+          "dice": 0.21905378486055777,
+          "evaluated_pixels": 178807,
+          "f1": 0.21905378486055777,
+          "false_negative": 0,
+          "false_negative_rate": 0.0,
+          "false_positive": 156814,
+          "false_positive_rate": 1.0,
+          "ground_truth_vessel_pixels": 21993,
+          "image_id": "26",
+          "iou": 0.12299854032560247,
+          "pixel_accuracy": 0.12299854032560247,
+          "precision": 0.12299854032560247,
+          "predicted_vessel_pixels": 178807,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "true_negative": 0,
+          "true_positive": 21993,
+          "vessel_prevalence": 0.12299854032560247
+        },
+        {
+          "dice": 0.22556169862369133,
+          "evaluated_pixels": 181014,
+          "f1": 0.22556169862369133,
+          "false_negative": 0,
+          "false_negative_rate": 0.0,
+          "false_positive": 158004,
+          "false_positive_rate": 1.0,
+          "ground_truth_vessel_pixels": 23010,
+          "image_id": "27",
+          "iou": 0.127117239550532,
+          "pixel_accuracy": 0.127117239550532,
+          "precision": 0.127117239550532,
+          "predicted_vessel_pixels": 181014,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "true_negative": 0,
+          "true_positive": 23010,
+          "vessel_prevalence": 0.127117239550532
+        },
+        {
+          "dice": 0.21708870131793276,
+          "evaluated_pixels": 180600,
+          "f1": 0.21708870131793276,
+          "false_negative": 0,
+          "false_negative_rate": 0.0,
+          "false_positive": 158610,
+          "false_positive_rate": 1.0,
+          "ground_truth_vessel_pixels": 21990,
+          "image_id": "29",
+          "iou": 0.1217607973421927,
+          "pixel_accuracy": 0.1217607973421927,
+          "precision": 0.1217607973421927,
+          "predicted_vessel_pixels": 180600,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "true_negative": 0,
+          "true_positive": 21990,
+          "vessel_prevalence": 0.1217607973421927
+        },
+        {
+          "dice": 0.20472667979080914,
+          "evaluated_pixels": 180565,
+          "f1": 0.20472667979080914,
+          "false_negative": 0,
+          "false_negative_rate": 0.0,
+          "false_positive": 159974,
+          "false_positive_rate": 1.0,
+          "ground_truth_vessel_pixels": 20591,
+          "image_id": "30",
+          "iou": 0.11403649655248803,
+          "pixel_accuracy": 0.11403649655248803,
+          "precision": 0.11403649655248803,
+          "predicted_vessel_pixels": 180565,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "true_negative": 0,
+          "true_positive": 20591,
+          "vessel_prevalence": 0.11403649655248803
+        }
+      ]
+    },
+    {
+      "fine_tuned_best_metrics": {
+        "max": {
+          "dice": 0.195865215027384,
+          "f1": 0.195865215027384,
+          "false_negative_rate": 0.8322822623473181,
+          "false_positive_rate": 0.26509261626130814,
+          "iou": 0.10856462425026461,
+          "pixel_accuracy": 0.7476759481357843,
+          "precision": 0.1971363920099875,
+          "sensitivity": 0.26714873958019486,
+          "specificity": 0.8635399122050846
+        },
+        "mean": {
+          "dice": 0.17479166324506457,
+          "f1": 0.17479166324506457,
+          "false_negative_rate": 0.7639039718505338,
+          "false_positive_rate": 0.22915296190686696,
+          "iou": 0.09583916968468587,
+          "pixel_accuracy": 0.6945154304451442,
+          "precision": 0.14721647042305852,
+          "sensitivity": 0.23609602814946617,
+          "specificity": 0.770847038093133
+        },
+        "micro_confusion": {
+          "evaluated_pixels": 722478,
+          "false_negative": 77733,
+          "false_positive": 142951,
+          "ground_truth_vessel_pixels": 101151,
+          "predicted_vessel_pixels": 166369,
+          "true_negative": 478376,
+          "true_positive": 23418
+        },
+        "min": {
+          "dice": 0.1570410166339498,
+          "f1": 0.15704101663394981,
+          "false_negative_rate": 0.7328512604198052,
+          "false_positive_rate": 0.1364600877949153,
+          "iou": 0.08521134656351609,
+          "pixel_accuracy": 0.6641131310445678,
+          "precision": 0.11120633792512385,
+          "sensitivity": 0.1677177376526819,
+          "specificity": 0.7349073837386918
+        },
+        "sample_count": 4,
+        "std": {
+          "dice": 0.014968899151709302,
+          "f1": 0.0149688991517093,
+          "false_negative_rate": 0.039907826893844894,
+          "false_positive_rate": 0.05363017451493743,
+          "iou": 0.009004698190592698,
+          "pixel_accuracy": 0.031659645725675166,
+          "precision": 0.03347073638325184,
+          "sensitivity": 0.039907826893844936,
+          "specificity": 0.05363017451493742
+        }
+      },
+      "fold": 5,
+      "history": [
+        {
+          "epoch": 1,
+          "learning_rate": 0.00042677669529663686,
+          "phase": "scratch",
+          "train": {
+            "dice_loss": 0.7878666743636131,
+            "loss": 1.4217717945575714,
+            "pixel_loss": 0.6339051201939583
+          },
+          "validation": {
+            "max": {
+              "dice": 0.195865215027384,
+              "f1": 0.195865215027384,
+              "false_negative_rate": 0.8322822623473181,
+              "false_positive_rate": 0.26509261626130814,
+              "iou": 0.10856462425026461,
+              "pixel_accuracy": 0.7476759481357843,
+              "precision": 0.1971363920099875,
+              "sensitivity": 0.26714873958019486,
+              "specificity": 0.8635399122050846
+            },
+            "mean": {
+              "dice": 0.17479166324506457,
+              "f1": 0.17479166324506457,
+              "false_negative_rate": 0.7639039718505338,
+              "false_positive_rate": 0.22915296190686696,
+              "iou": 0.09583916968468587,
+              "pixel_accuracy": 0.6945154304451442,
+              "precision": 0.14721647042305852,
+              "sensitivity": 0.23609602814946617,
+              "specificity": 0.770847038093133
+            },
+            "micro_confusion": {
+              "evaluated_pixels": 722478,
+              "false_negative": 77733,
+              "false_positive": 142951,
+              "ground_truth_vessel_pixels": 101151,
+              "predicted_vessel_pixels": 166369,
+              "true_negative": 478376,
+              "true_positive": 23418
+            },
+            "min": {
+              "dice": 0.1570410166339498,
+              "f1": 0.15704101663394981,
+              "false_negative_rate": 0.7328512604198052,
+              "false_positive_rate": 0.1364600877949153,
+              "iou": 0.08521134656351609,
+              "pixel_accuracy": 0.6641131310445678,
+              "precision": 0.11120633792512385,
+              "sensitivity": 0.1677177376526819,
+              "specificity": 0.7349073837386918
+            },
+            "sample_count": 4,
+            "std": {
+              "dice": 0.014968899151709302,
+              "f1": 0.0149688991517093,
+              "false_negative_rate": 0.039907826893844894,
+              "false_positive_rate": 0.05363017451493743,
+              "iou": 0.009004698190592698,
+              "pixel_accuracy": 0.031659645725675166,
+              "precision": 0.03347073638325184,
+              "sensitivity": 0.039907826893844936,
+              "specificity": 0.05363017451493742
+            }
+          }
+        },
+        {
+          "epoch": 2,
+          "learning_rate": 0.00025,
+          "phase": "scratch",
+          "train": {
+            "dice_loss": 0.7643440365791321,
+            "loss": 1.2829035222530365,
+            "pixel_loss": 0.5185594782233238
+          },
+          "validation": {
+            "max": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.8895550366874275,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0
+            },
+            "mean": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.860014810141871,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0
+            },
+            "micro_confusion": {
+              "evaluated_pixels": 722478,
+              "false_negative": 101151,
+              "false_positive": 0,
+              "ground_truth_vessel_pixels": 101151,
+              "predicted_vessel_pixels": 0,
+              "true_negative": 621327,
+              "true_positive": 0
+            },
+            "min": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.8334862436026397,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0
+            },
+            "sample_count": 4,
+            "std": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 0.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.02305760926274608,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.0
+            }
+          }
+        },
+        {
+          "epoch": 3,
+          "learning_rate": 7.322330470336314e-05,
+          "phase": "scratch",
+          "train": {
+            "dice_loss": 0.7252515405416489,
+            "loss": 1.2032391726970673,
+            "pixel_loss": 0.4779876433312893
+          },
+          "validation": {
+            "max": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.8895550366874275,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0
+            },
+            "mean": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.860014810141871,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0
+            },
+            "micro_confusion": {
+              "evaluated_pixels": 722478,
+              "false_negative": 101151,
+              "false_positive": 0,
+              "ground_truth_vessel_pixels": 101151,
+              "predicted_vessel_pixels": 0,
+              "true_negative": 621327,
+              "true_positive": 0
+            },
+            "min": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.8334862436026397,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0
+            },
+            "sample_count": 4,
+            "std": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 0.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.02305760926274608,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.0
+            }
+          }
+        },
+        {
+          "epoch": 4,
+          "learning_rate": 0.0,
+          "phase": "scratch",
+          "train": {
+            "dice_loss": 0.709813117980957,
+            "loss": 1.176473468542099,
+            "pixel_loss": 0.4666603356599808
+          },
+          "validation": {
+            "max": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0007493070567484052,
+              "iou": 0.0,
+              "pixel_accuracy": 0.8894773913381067,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.9999539497921162
+            },
+            "mean": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.00023647149396674143,
+              "iou": 0.0,
+              "pixel_accuracy": 0.8598157362024995,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.9997635285060332
+            },
+            "micro_confusion": {
+              "evaluated_pixels": 722478,
+              "false_negative": 101151,
+              "false_positive": 144,
+              "ground_truth_vessel_pixels": 101151,
+              "predicted_vessel_pixels": 144,
+              "true_negative": 621183,
+              "true_positive": 0
+            },
+            "min": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 4.605020788379559e-05,
+              "iou": 0.0,
+              "pixel_accuracy": 0.8328617064786055,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.9992506929432516
+            },
+            "sample_count": 4,
+            "std": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 0.0,
+              "false_positive_rate": 0.0002964477544261657,
+              "iou": 0.0,
+              "pixel_accuracy": 0.023211745428673974,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.00029644775442613737
+            }
+          }
+        },
+        {
+          "epoch": 1,
+          "learning_rate": 2.5e-05,
+          "phase": "controlled_fine_tune",
+          "train": {
+            "dice_loss": 0.7773297801613808,
+            "loss": 1.3124537616968155,
+            "pixel_loss": 0.5351239889860153
+          },
+          "validation": {
+            "max": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.8895550366874275,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0
+            },
+            "mean": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.860014810141871,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0
+            },
+            "micro_confusion": {
+              "evaluated_pixels": 722478,
+              "false_negative": 101151,
+              "false_positive": 0,
+              "ground_truth_vessel_pixels": 101151,
+              "predicted_vessel_pixels": 0,
+              "true_negative": 621327,
+              "true_positive": 0
+            },
+            "min": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.8334862436026397,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0
+            },
+            "sample_count": 4,
+            "std": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 0.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.02305760926274608,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.0
+            }
+          }
+        },
+        {
+          "epoch": 2,
+          "learning_rate": 0.0,
+          "phase": "controlled_fine_tune",
+          "train": {
+            "dice_loss": 0.7725954353809357,
+            "loss": 1.3044390082359314,
+            "pixel_loss": 0.5318435803055763
+          },
+          "validation": {
+            "max": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.8895550366874275,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0
+            },
+            "mean": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.860014810141871,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0
+            },
+            "micro_confusion": {
+              "evaluated_pixels": 722478,
+              "false_negative": 101151,
+              "false_positive": 0,
+              "ground_truth_vessel_pixels": 101151,
+              "predicted_vessel_pixels": 0,
+              "true_negative": 621327,
+              "true_positive": 0
+            },
+            "min": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 1.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.8334862436026397,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0
+            },
+            "sample_count": 4,
+            "std": {
+              "dice": 0.0,
+              "f1": 0.0,
+              "false_negative_rate": 0.0,
+              "false_positive_rate": 0.0,
+              "iou": 0.0,
+              "pixel_accuracy": 0.02305760926274608,
+              "precision": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.0
+            }
+          }
+        }
+      ],
+      "official_test_images_opened": 0,
+      "production_promoted": false,
+      "scratch_best_metrics": {
+        "max": {
+          "dice": 0.195865215027384,
+          "f1": 0.195865215027384,
+          "false_negative_rate": 0.8322822623473181,
+          "false_positive_rate": 0.26509261626130814,
+          "iou": 0.10856462425026461,
+          "pixel_accuracy": 0.7476759481357843,
+          "precision": 0.1971363920099875,
+          "sensitivity": 0.26714873958019486,
+          "specificity": 0.8635399122050846
+        },
+        "mean": {
+          "dice": 0.17479166324506457,
+          "f1": 0.17479166324506457,
+          "false_negative_rate": 0.7639039718505338,
+          "false_positive_rate": 0.22915296190686696,
+          "iou": 0.09583916968468587,
+          "pixel_accuracy": 0.6945154304451442,
+          "precision": 0.14721647042305852,
+          "sensitivity": 0.23609602814946617,
+          "specificity": 0.770847038093133
+        },
+        "micro_confusion": {
+          "evaluated_pixels": 722478,
+          "false_negative": 77733,
+          "false_positive": 142951,
+          "ground_truth_vessel_pixels": 101151,
+          "predicted_vessel_pixels": 166369,
+          "true_negative": 478376,
+          "true_positive": 23418
+        },
+        "min": {
+          "dice": 0.1570410166339498,
+          "f1": 0.15704101663394981,
+          "false_negative_rate": 0.7328512604198052,
+          "false_positive_rate": 0.1364600877949153,
+          "iou": 0.08521134656351609,
+          "pixel_accuracy": 0.6641131310445678,
+          "precision": 0.11120633792512385,
+          "sensitivity": 0.1677177376526819,
+          "specificity": 0.7349073837386918
+        },
+        "sample_count": 4,
+        "std": {
+          "dice": 0.014968899151709302,
+          "f1": 0.0149688991517093,
+          "false_negative_rate": 0.039907826893844894,
+          "false_positive_rate": 0.05363017451493743,
+          "iou": 0.009004698190592698,
+          "pixel_accuracy": 0.031659645725675166,
+          "precision": 0.03347073638325184,
+          "sensitivity": 0.039907826893844936,
+          "specificity": 0.05363017451493742
+        }
+      },
+      "seconds": 91.997,
+      "selected_metrics": {
+        "max": {
+          "dice": 0.195865215027384,
+          "f1": 0.195865215027384,
+          "false_negative_rate": 0.8322822623473181,
+          "false_positive_rate": 0.26509261626130814,
+          "iou": 0.10856462425026461,
+          "pixel_accuracy": 0.7476759481357843,
+          "precision": 0.1971363920099875,
+          "sensitivity": 0.26714873958019486,
+          "specificity": 0.8635399122050846
+        },
+        "mean": {
+          "dice": 0.17479166324506457,
+          "f1": 0.17479166324506457,
+          "false_negative_rate": 0.7639039718505338,
+          "false_positive_rate": 0.22915296190686696,
+          "iou": 0.09583916968468587,
+          "pixel_accuracy": 0.6945154304451442,
+          "precision": 0.14721647042305852,
+          "sensitivity": 0.23609602814946617,
+          "specificity": 0.770847038093133
+        },
+        "micro_confusion": {
+          "evaluated_pixels": 722478,
+          "false_negative": 77733,
+          "false_positive": 142951,
+          "ground_truth_vessel_pixels": 101151,
+          "predicted_vessel_pixels": 166369,
+          "true_negative": 478376,
+          "true_positive": 23418
+        },
+        "min": {
+          "dice": 0.1570410166339498,
+          "f1": 0.15704101663394981,
+          "false_negative_rate": 0.7328512604198052,
+          "false_positive_rate": 0.1364600877949153,
+          "iou": 0.08521134656351609,
+          "pixel_accuracy": 0.6641131310445678,
+          "precision": 0.11120633792512385,
+          "sensitivity": 0.1677177376526819,
+          "specificity": 0.7349073837386918
+        },
+        "sample_count": 4,
+        "std": {
+          "dice": 0.014968899151709302,
+          "f1": 0.0149688991517093,
+          "false_negative_rate": 0.039907826893844894,
+          "false_positive_rate": 0.05363017451493743,
+          "iou": 0.009004698190592698,
+          "pixel_accuracy": 0.031659645725675166,
+          "precision": 0.03347073638325184,
+          "sensitivity": 0.039907826893844936,
+          "specificity": 0.05363017451493742
+        }
+      },
+      "train_count": 16,
+      "validation_count": 4,
+      "validation_predictions": [
+        {
+          "dice": 0.18124103299856528,
+          "evaluated_pixels": 180934,
+          "f1": 0.18124103299856528,
+          "false_negative": 25075,
+          "false_negative_rate": 0.8322822623473181,
+          "false_positive": 20579,
+          "false_positive_rate": 0.1364600877949153,
+          "ground_truth_vessel_pixels": 30128,
+          "image_id": "24",
+          "iou": 0.09965093576823712,
+          "pixel_accuracy": 0.7476759481357843,
+          "precision": 0.1971363920099875,
+          "predicted_vessel_pixels": 25632,
+          "sensitivity": 0.1677177376526819,
+          "specificity": 0.8635399122050846,
+          "true_negative": 130227,
+          "true_positive": 5053,
+          "vessel_prevalence": 0.16651375639736035
+        },
+        {
+          "dice": 0.195865215027384,
+          "evaluated_pixels": 180534,
+          "f1": 0.195865215027384,
+          "false_negative": 21141,
+          "false_negative_rate": 0.7411133702587114,
+          "false_positive": 39498,
+          "false_positive_rate": 0.2598415872848797,
+          "ground_truth_vessel_pixels": 28526,
+          "image_id": "36",
+          "iou": 0.10856462425026461,
+          "pixel_accuracy": 0.6641131310445678,
+          "precision": 0.15751978329031846,
+          "predicted_vessel_pixels": 46883,
+          "sensitivity": 0.2588866297412887,
+          "specificity": 0.7401584127151203,
+          "true_negative": 112510,
+          "true_positive": 7385,
+          "vessel_prevalence": 0.1580090176919583
+        },
+        {
+          "dice": 0.1650193883203592,
+          "evaluated_pixels": 180703,
+          "f1": 0.16501938832035917,
+          "false_negative": 16923,
+          "false_negative_rate": 0.7493689943763008,
+          "false_positive": 40355,
+          "false_positive_rate": 0.2552175562863648,
+          "ground_truth_vessel_pixels": 22583,
+          "image_id": "39",
+          "iou": 0.08992977215672567,
+          "pixel_accuracy": 0.6830268451547566,
+          "precision": 0.1230033684668043,
+          "predicted_vessel_pixels": 46015,
+          "sensitivity": 0.2506310056236992,
+          "specificity": 0.7447824437136352,
+          "true_negative": 117765,
+          "true_positive": 5660,
+          "vessel_prevalence": 0.12497302203062484
+        },
+        {
+          "dice": 0.1570410166339498,
+          "evaluated_pixels": 180307,
+          "f1": 0.15704101663394981,
+          "false_negative": 14594,
+          "false_negative_rate": 0.7328512604198052,
+          "false_positive": 42519,
+          "false_positive_rate": 0.26509261626130814,
+          "ground_truth_vessel_pixels": 19914,
+          "image_id": "40",
+          "iou": 0.08521134656351609,
+          "pixel_accuracy": 0.683245797445468,
+          "precision": 0.11120633792512385,
+          "predicted_vessel_pixels": 47839,
+          "sensitivity": 0.26714873958019486,
+          "specificity": 0.7349073837386918,
+          "true_negative": 117874,
+          "true_positive": 5320,
+          "vessel_prevalence": 0.11044496331257245
+        }
+      ]
+    }
+  ],
+  "generated_at_utc": "2026-09-13T16:37:22.686041+00:00",
+  "initialization": "random_initialization",
+  "input_size": 512,
+  "loss": "bce_dice",
+  "note": "All fold metrics are development-only engineering measurements within the supplied FOV masks.",
+  "official_test_images_opened": 0,
+  "preprocessing": "rgb",
+  "production_promoted": false,
+  "schema_version": "drive-vessel-cv-1",
+  "scratch_summary": {
+    "dice": {
+      "max": 0.23484103411998689,
+      "mean": 0.13395238489334055,
+      "min": 0.0,
+      "std": 0.09465648880460308,
+      "values": [
+        0.0,
+        0.23484103411998689,
+        0.043521510953403585,
+        0.21660771614824775,
+        0.17479166324506457
+      ]
+    },
+    "f1": {
+      "max": 0.23484103411998686,
+      "mean": 0.13395238489334055,
+      "min": 0.0,
+      "std": 0.09465648880460308,
+      "values": [
+        0.0,
+        0.23484103411998686,
+        0.043521510953403585,
+        0.21660771614824775,
+        0.17479166324506457
+      ]
+    },
+    "false_negative_rate": {
+      "max": 1.0,
+      "mean": 0.5533272193959835,
+      "min": 0.0,
+      "std": 0.44422614570559266,
+      "values": [
+        1.0,
+        0.03700937548437189,
+        0.9657227496450118,
+        0.0,
+        0.7639039718505338
+      ]
+    },
+    "false_positive_rate": {
+      "max": 1.0,
+      "mean": 0.4448189296216314,
+      "min": 0.0,
+      "std": 0.43980747807759,
+      "values": [
+        0.0,
+        0.9496914365018606,
+        0.04525024969942926,
+        1.0,
+        0.22915296190686696
+      ]
+    },
+    "iou": {
+      "max": 0.13307006052276538,
+      "mean": 0.07463796589874032,
+      "min": 0.0,
+      "std": 0.05350808103756104,
+      "values": [
+        0.0,
+        0.13307006052276538,
+        0.022802330843546582,
+        0.1214782684427038,
+        0.09583916968468587
+      ]
+    },
+    "pixel_accuracy": {
+      "max": 0.8750970696227688,
+      "mean": 0.5437265111615437,
+      "min": 0.1214782684427038,
+      "std": 0.3308994007923827,
+      "values": [
+        0.8750970696227688,
+        0.17110482769668894,
+        0.8564369596004127,
+        0.1214782684427038,
+        0.6945154304451442
+      ]
+    },
+    "precision": {
+      "max": 0.14721647042305852,
+      "mean": 0.09491619677586849,
+      "min": 0.0,
+      "std": 0.053818783982298106,
+      "values": [
+        0.0,
+        0.1337935502841032,
+        0.07209269472947694,
+        0.1214782684427038,
+        0.14721647042305852
+      ]
+    },
+    "sensitivity": {
+      "max": 1.0,
+      "mean": 0.4466727806040165,
+      "min": 0.0,
+      "std": 0.44422614570559266,
+      "values": [
+        0.0,
+        0.9629906245156281,
+        0.03427725035498824,
+        1.0,
+        0.23609602814946617
+      ]
+    },
+    "specificity": {
+      "max": 1.0,
+      "mean": 0.5551810703783685,
+      "min": 0.0,
+      "std": 0.43980747807758996,
+      "values": [
+        1.0,
+        0.050308563498139364,
+        0.9547497503005706,
+        0.0,
+        0.770847038093133
+      ]
+    }
+  },
+  "selected_summary": {
+    "dice": {
+      "max": 0.23484103411998689,
+      "mean": 0.13395238489334055,
+      "min": 0.0,
+      "std": 0.09465648880460308,
+      "values": [
+        0.0,
+        0.23484103411998689,
+        0.043521510953403585,
+        0.21660771614824775,
+        0.17479166324506457
+      ]
+    },
+    "f1": {
+      "max": 0.23484103411998686,
+      "mean": 0.13395238489334055,
+      "min": 0.0,
+      "std": 0.09465648880460308,
+      "values": [
+        0.0,
+        0.23484103411998686,
+        0.043521510953403585,
+        0.21660771614824775,
+        0.17479166324506457
+      ]
+    },
+    "false_negative_rate": {
+      "max": 1.0,
+      "mean": 0.5533272193959835,
+      "min": 0.0,
+      "std": 0.44422614570559266,
+      "values": [
+        1.0,
+        0.03700937548437189,
+        0.9657227496450118,
+        0.0,
+        0.7639039718505338
+      ]
+    },
+    "false_positive_rate": {
+      "max": 1.0,
+      "mean": 0.4448189296216314,
+      "min": 0.0,
+      "std": 0.43980747807759,
+      "values": [
+        0.0,
+        0.9496914365018606,
+        0.04525024969942926,
+        1.0,
+        0.22915296190686696
+      ]
+    },
+    "iou": {
+      "max": 0.13307006052276538,
+      "mean": 0.07463796589874032,
+      "min": 0.0,
+      "std": 0.05350808103756104,
+      "values": [
+        0.0,
+        0.13307006052276538,
+        0.022802330843546582,
+        0.1214782684427038,
+        0.09583916968468587
+      ]
+    },
+    "pixel_accuracy": {
+      "max": 0.8750970696227688,
+      "mean": 0.5437265111615437,
+      "min": 0.1214782684427038,
+      "std": 0.3308994007923827,
+      "values": [
+        0.8750970696227688,
+        0.17110482769668894,
+        0.8564369596004127,
+        0.1214782684427038,
+        0.6945154304451442
+      ]
+    },
+    "precision": {
+      "max": 0.14721647042305852,
+      "mean": 0.09491619677586849,
+      "min": 0.0,
+      "std": 0.053818783982298106,
+      "values": [
+        0.0,
+        0.1337935502841032,
+        0.07209269472947694,
+        0.1214782684427038,
+        0.14721647042305852
+      ]
+    },
+    "sensitivity": {
+      "max": 1.0,
+      "mean": 0.4466727806040165,
+      "min": 0.0,
+      "std": 0.44422614570559266,
+      "values": [
+        0.0,
+        0.9629906245156281,
+        0.03427725035498824,
+        1.0,
+        0.23609602814946617
+      ]
+    },
+    "specificity": {
+      "max": 1.0,
+      "mean": 0.5551810703783685,
+      "min": 0.0,
+      "std": 0.43980747807758996,
+      "values": [
+        1.0,
+        0.050308563498139364,
+        0.9547497503005706,
+        0.0,
+        0.770847038093133
+      ]
+    }
+  }
+}

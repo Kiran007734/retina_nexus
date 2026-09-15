@@ -1,0 +1,51 @@
+{
+  "both_false_negative_count": 0,
+  "disagreement_count": 42,
+  "disagreement_rate": 0.10344827586206896,
+  "interpretation": "Verifier-positive primary-negative cases are complementary only as research evidence; their false-positive burden is measured and no diagnosis is rewritten.",
+  "primary_false_negative_count": 27,
+  "primary_non_referable_verifier_referable": {
+    "count": 31,
+    "ground_truth_non_referable": 4,
+    "ground_truth_referable": 27,
+    "primary": {
+      "fn": 27,
+      "fp": 0,
+      "tn": 4,
+      "tp": 0
+    },
+    "verifier": {
+      "fn": 0,
+      "fp": 4,
+      "tn": 0,
+      "tp": 27
+    }
+  },
+  "primary_referable_verifier_non_referable": {
+    "count": 11,
+    "ground_truth_non_referable": 11,
+    "ground_truth_referable": 0,
+    "primary": {
+      "fn": 0,
+      "fp": 11,
+      "tn": 0,
+      "tp": 0
+    },
+    "verifier": {
+      "fn": 0,
+      "fp": 0,
+      "tn": 11,
+      "tp": 0
+    }
+  },
+  "thresholds": {
+    "primary": 0.1,
+    "verifier": 0.204983
+  },
+  "verifier_caught_primary_false_negative_count": 27,
+  "verifier_dataset_overlap_risk": true,
+  "verifier_false_negative_count": 0,
+  "verifier_overlap_note": "RETGUARD's published training datasets include IDRiD; sample-level membership is unknown.",
+  "verifier_positive_primary_false_negative_ground_truth_non_referable": 0,
+  "verifier_positive_primary_false_negative_ground_truth_referable": 27
+}

@@ -1,0 +1,469 @@
+{
+  "annotation_counts": {
+    "test": {
+      "fovea": 103,
+      "optic_disc": 103
+    },
+    "train": {
+      "fovea": 413,
+      "optic_disc": 413
+    }
+  },
+  "conflicting_coordinate_records": {
+    "fovea": [],
+    "optic_disc": []
+  },
+  "coordinate_ranges": {
+    "fovea": {
+      "x_max": 2776.0,
+      "x_min": 1093.0,
+      "x_norm_mean": 0.45892268309614714,
+      "y_max": 2243.0,
+      "y_min": 711.0,
+      "y_norm_mean": 0.5380798983102517
+    },
+    "optic_disc": {
+      "x_max": 3477.0,
+      "x_min": 479.0,
+      "x_norm_mean": 0.449458286329978,
+      "y_max": 2146.0,
+      "y_min": 696.0,
+      "y_norm_mean": 0.4874507338210957
+    }
+  },
+  "coordinate_system": "Pixel coordinates refer to the original JPEG dimensions; origin is top-left; x increases rightward and y increases downward.",
+  "coordinate_units": "pixels",
+  "cross_split_duplicate_exclusions": [
+    {
+      "duplicate_group": "exact_0117",
+      "image_id": "IDRiD_118",
+      "image_path": "ml/datasets/raw/idrid/C. Localization/C. Localization/1. Original Images/a. Training Set/IDRiD_118.jpg",
+      "reason": "exact/perceptual duplicate of an official test image"
+    }
+  ],
+  "csv_files": [
+    {
+      "blank_rows_ignored": 102,
+      "columns": [
+        "Image No",
+        "X- Coordinate",
+        "Y - Coordinate",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "conflicting_records": [],
+      "duplicate_records": [],
+      "invalid_rows": [],
+      "landmark": "optic_disc",
+      "nonempty_records": 413,
+      "path": "ml/datasets/raw/idrid/C. Localization/C. Localization/2. Groundtruths/1. Optic Disc Center Location/a. IDRiD_OD_Center_Training Set_Markups.csv",
+      "split": "train"
+    },
+    {
+      "blank_rows_ignored": 412,
+      "columns": [
+        "Image No",
+        "X- Coordinate",
+        "Y - Coordinate",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "conflicting_records": [],
+      "duplicate_records": [],
+      "invalid_rows": [],
+      "landmark": "optic_disc",
+      "nonempty_records": 103,
+      "path": "ml/datasets/raw/idrid/C. Localization/C. Localization/2. Groundtruths/1. Optic Disc Center Location/b. IDRiD_OD_Center_Testing Set_Markups.csv",
+      "split": "test"
+    },
+    {
+      "blank_rows_ignored": 102,
+      "columns": [
+        "Image No",
+        "X- Coordinate",
+        "Y - Coordinate",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "conflicting_records": [],
+      "duplicate_records": [],
+      "invalid_rows": [],
+      "landmark": "fovea",
+      "nonempty_records": 413,
+      "path": "ml/datasets/raw/idrid/C. Localization/C. Localization/2. Groundtruths/2. Fovea Center Location/IDRiD_Fovea_Center_Training Set_Markups.csv",
+      "split": "train"
+    },
+    {
+      "blank_rows_ignored": 412,
+      "columns": [
+        "Image No",
+        "X- Coordinate",
+        "Y - Coordinate",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "conflicting_records": [],
+      "duplicate_records": [],
+      "invalid_rows": [],
+      "landmark": "fovea",
+      "nonempty_records": 103,
+      "path": "ml/datasets/raw/idrid/C. Localization/C. Localization/2. Groundtruths/2. Fovea Center Location/IDRiD_Fovea_Center_Testing Set_Markups.csv",
+      "split": "test"
+    }
+  ],
+  "dataset": "IDRiD C. Localization",
+  "development_images_after_leakage_exclusion": 412,
+  "duplicate_coordinate_records": {
+    "fovea": [],
+    "optic_disc": []
+  },
+  "duplicate_images_exact": [
+    [
+      {
+        "image_id": "IDRiD_021",
+        "path": "ml/datasets/raw/idrid/C. Localization/C. Localization/1. Original Images/a. Training Set/IDRiD_021.jpg",
+        "split": "train"
+      },
+      {
+        "image_id": "IDRiD_391",
+        "path": "ml/datasets/raw/idrid/C. Localization/C. Localization/1. Original Images/a. Training Set/IDRiD_391.jpg",
+        "split": "train"
+      }
+    ],
+    [
+      {
+        "image_id": "IDRiD_028",
+        "path": "ml/datasets/raw/idrid/C. Localization/C. Localization/1. Original Images/a. Training Set/IDRiD_028.jpg",
+        "split": "train"
+      },
+      {
+        "image_id": "IDRiD_327",
+        "path": "ml/datasets/raw/idrid/C. Localization/C. Localization/1. Original Images/a. Training Set/IDRiD_327.jpg",
+        "split": "train"
+      }
+    ],
+    [
+      {
+        "image_id": "IDRiD_045",
+        "path": "ml/datasets/raw/idrid/C. Localization/C. Localization/1. Original Images/a. Training Set/IDRiD_045.jpg",
+        "split": "train"
+      },
+      {
+        "image_id": "IDRiD_333",
+        "path": "ml/datasets/raw/idrid/C. Localization/C. Localization/1. Original Images/a. Training Set/IDRiD_333.jpg",
+        "split": "train"
+      }
+    ],
+    [
+      {
+        "image_id": "IDRiD_073",
+        "path": "ml/datasets/raw/idrid/C. Localization/C. Localization/1. Original Images/a. Training Set/IDRiD_073.jpg",
+        "split": "train"
+      },
+      {
+        "image_id": "IDRiD_375",
+        "path": "ml/datasets/raw/idrid/C. Localization/C. Localization/1. Original Images/a. Training Set/IDRiD_375.jpg",
+        "split": "train"
+      }
+    ],
+    [
+      {
+        "image_id": "IDRiD_079",
+        "path": "ml/datasets/raw/idrid/C. Localization/C. Localization/1. Original Images/a. Training Set/IDRiD_079.jpg",
+        "split": "train"
+      },
+      {
+        "image_id": "IDRiD_279",
+        "path": "ml/datasets/raw/idrid/C. Localization/C. Localization/1. Original Images/a. Training Set/IDRiD_279.jpg",
+        "split": "train"
+      }
+    ],
+    [
+      {
+        "image_id": "IDRiD_118",
+        "path": "ml/datasets/raw/idrid/C. Localization/C. Localization/1. Original Images/a. Training Set/IDRiD_118.jpg",
+        "split": "train"
+      },
+      {
+        "image_id": "IDRiD_064",
+        "path": "ml/datasets/raw/idrid/C. Localization/C. Localization/1. Original Images/b. Testing Set/IDRiD_064.jpg",
+        "split": "test"
+      }
+    ]
+  ],
+  "duplicate_images_perceptual": [
+    [
+      {
+        "image_id": "IDRiD_021",
+        "path": "ml/datasets/raw/idrid/C. Localization/C. Localization/1. Original Images/a. Training Set/IDRiD_021.jpg",
+        "split": "train"
+      },
+      {
+        "image_id": "IDRiD_391",
+        "path": "ml/datasets/raw/idrid/C. Localization/C. Localization/1. Original Images/a. Training Set/IDRiD_391.jpg",
+        "split": "train"
+      }
+    ],
+    [
+      {
+        "image_id": "IDRiD_028",
+        "path": "ml/datasets/raw/idrid/C. Localization/C. Localization/1. Original Images/a. Training Set/IDRiD_028.jpg",
+        "split": "train"
+      },
+      {
+        "image_id": "IDRiD_327",
+        "path": "ml/datasets/raw/idrid/C. Localization/C. Localization/1. Original Images/a. Training Set/IDRiD_327.jpg",
+        "split": "train"
+      }
+    ],
+    [
+      {
+        "image_id": "IDRiD_045",
+        "path": "ml/datasets/raw/idrid/C. Localization/C. Localization/1. Original Images/a. Training Set/IDRiD_045.jpg",
+        "split": "train"
+      },
+      {
+        "image_id": "IDRiD_333",
+        "path": "ml/datasets/raw/idrid/C. Localization/C. Localization/1. Original Images/a. Training Set/IDRiD_333.jpg",
+        "split": "train"
+      }
+    ],
+    [
+      {
+        "image_id": "IDRiD_073",
+        "path": "ml/datasets/raw/idrid/C. Localization/C. Localization/1. Original Images/a. Training Set/IDRiD_073.jpg",
+        "split": "train"
+      },
+      {
+        "image_id": "IDRiD_375",
+        "path": "ml/datasets/raw/idrid/C. Localization/C. Localization/1. Original Images/a. Training Set/IDRiD_375.jpg",
+        "split": "train"
+      }
+    ],
+    [
+      {
+        "image_id": "IDRiD_079",
+        "path": "ml/datasets/raw/idrid/C. Localization/C. Localization/1. Original Images/a. Training Set/IDRiD_079.jpg",
+        "split": "train"
+      },
+      {
+        "image_id": "IDRiD_279",
+        "path": "ml/datasets/raw/idrid/C. Localization/C. Localization/1. Original Images/a. Training Set/IDRiD_279.jpg",
+        "split": "train"
+      }
+    ],
+    [
+      {
+        "image_id": "IDRiD_118",
+        "path": "ml/datasets/raw/idrid/C. Localization/C. Localization/1. Original Images/a. Training Set/IDRiD_118.jpg",
+        "split": "train"
+      },
+      {
+        "image_id": "IDRiD_064",
+        "path": "ml/datasets/raw/idrid/C. Localization/C. Localization/1. Original Images/b. Testing Set/IDRiD_064.jpg",
+        "split": "test"
+      }
+    ]
+  ],
+  "generated_at_utc": "2026-09-13T14:08:15.601407+00:00",
+  "image_dimensions": [
+    [
+      4288,
+      2848
+    ]
+  ],
+  "image_formats": {
+    "JPEG": 516
+  },
+  "image_modes": {
+    "RGB": 516
+  },
+  "missing_coordinates": {
+    "fovea": [],
+    "optic_disc": []
+  },
+  "official_test_images": 103,
+  "official_test_used_for_training_or_selection": false,
+  "out_of_image_coordinates": {
+    "fovea": [],
+    "optic_disc": []
+  },
+  "patient_ids_available": false,
+  "raw_files_untouched": true,
+  "schema_version": "idrid-localization-audit-1",
+  "status": "PASS",
+  "training_images": 413,
+  "unreadable_images": []
+}

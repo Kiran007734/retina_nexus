@@ -14,6 +14,8 @@ __pycache__/
 storage/
 frontend/node_modules/
 frontend/dist/
+slprj/
+*.slxc
 backend/.pytest_cache/
 .DS_Store
 .idea/
@@ -55,6 +57,16 @@ ml/evaluation/reliability/_phase5_1_*_quality_records.json
 !ml/weights/vessel_segmentation/**/
 !ml/weights/vessel_segmentation/**/model_manifest.json
 !ml/weights/vessel_segmentation/README.md
+!ml/weights/vessels/
+ml/weights/vessels/**
+!ml/weights/vessels/drive/
+ml/weights/vessels/drive/**
+!ml/weights/vessels/drive/model_manifest.json
+!ml/weights/localization/
+ml/weights/localization/**
+!ml/weights/localization/idrid/
+ml/weights/localization/idrid/**
+!ml/weights/localization/idrid/model_manifest.json
 ml/experiments/**
 !ml/experiments/.gitkeep
 ml/ood/**

@@ -1,0 +1,1170 @@
+{
+  "dedicated_stage2_head": {
+    "by_actual_grade": {
+      "2": 24,
+      "3": 2,
+      "4": 1
+    },
+    "clinical_validation_claim": false,
+    "false_negative_count": 27,
+    "mean_confidence": 0.7841420537895627,
+    "mean_normalized_entropy": 0.380208493039684,
+    "mean_quality_proxy": 0.31391861188460973,
+    "probability_source": "dedicated_referable_probability",
+    "records": [
+      {
+        "actual_grade": 4,
+        "confidence": 0.884373664855957,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 1,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_046",
+        "predicted_grade": 0,
+        "probability": 0.07111464440822601,
+        "quality": {
+          "brightness_proxy": 0.3403838872909546,
+          "contrast_proxy": 0.22195637226104736,
+          "focus_proxy": 0.0012344012502580881,
+          "quality_proxy_score": 0.38730220721918157
+        },
+        "uncertainty": {
+          "entropy_nats": 0.5088891685976105,
+          "normalized_entropy": 0.3161906182686916,
+          "probability_margin": 0.8383252657949924
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.7814108729362488,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 1,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_129",
+        "predicted_grade": 0,
+        "probability": 0.0032379108015447855,
+        "quality": {
+          "brightness_proxy": 0.24136433005332947,
+          "contrast_proxy": 0.1659117192029953,
+          "focus_proxy": 0.0006342945271171629,
+          "quality_proxy_score": 0.2849100477687898
+        },
+        "uncertainty": {
+          "entropy_nats": 0.5826841228225409,
+          "normalized_entropy": 0.3620420013228683,
+          "probability_margin": 0.5746746808290482
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.7939924597740173,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 1,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_135",
+        "predicted_grade": 0,
+        "probability": 0.04754038155078888,
+        "quality": {
+          "brightness_proxy": 0.23701652884483337,
+          "contrast_proxy": 0.1635381132364273,
+          "focus_proxy": 0.0005555511452257633,
+          "quality_proxy_score": 0.280176078423392
+        },
+        "uncertainty": {
+          "entropy_nats": 0.7695003349848168,
+          "normalized_entropy": 0.4781174402813906,
+          "probability_margin": 0.7058510705828667
+        }
+      },
+      {
+        "actual_grade": 3,
+        "confidence": 0.9191800355911255,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 1,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_180",
+        "predicted_grade": 0,
+        "probability": 0.027355747297406197,
+        "quality": {
+          "brightness_proxy": 0.2640592157840729,
+          "contrast_proxy": 0.18969719111919403,
+          "focus_proxy": 0.0020144511945545673,
+          "quality_proxy_score": 0.33223726268624887
+        },
+        "uncertainty": {
+          "entropy_nats": 0.390440980463713,
+          "normalized_entropy": 0.2425946210458118,
+          "probability_margin": 0.8905014805495739
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.6378649473190308,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 1,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_183",
+        "predicted_grade": 0,
+        "probability": 0.02721337229013443,
+        "quality": {
+          "brightness_proxy": 0.252574622631073,
+          "contrast_proxy": 0.19334717094898224,
+          "focus_proxy": 0.001895552733913064,
+          "quality_proxy_score": 0.334232888900442
+        },
+        "uncertainty": {
+          "entropy_nats": 0.9273248119849054,
+          "normalized_entropy": 0.5761793013701455,
+          "probability_margin": 0.35413339734077454
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.9477560520172119,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 1,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_248",
+        "predicted_grade": 0,
+        "probability": 0.015062904916703701,
+        "quality": {
+          "brightness_proxy": 0.2810002267360687,
+          "contrast_proxy": 0.198946014046669,
+          "focus_proxy": 0.0013279158156365156,
+          "quality_proxy_score": 0.34385388624505137
+        },
+        "uncertainty": {
+          "entropy_nats": 0.26616192873756245,
+          "normalized_entropy": 0.16537570457441345,
+          "probability_margin": 0.9198549967259169
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.9359096884727478,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 1,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_303",
+        "predicted_grade": 0,
+        "probability": 0.014394460245966911,
+        "quality": {
+          "brightness_proxy": 0.30541831254959106,
+          "contrast_proxy": 0.20848628878593445,
+          "focus_proxy": 0.00148942437954247,
+          "quality_proxy_score": 0.3632042594195809
+        },
+        "uncertainty": {
+          "entropy_nats": 0.31618811207427366,
+          "normalized_entropy": 0.19645871992419606,
+          "probability_margin": 0.9030894823372364
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.9730105400085449,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 1,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_061",
+        "predicted_grade": 0,
+        "probability": 0.01214863546192646,
+        "quality": {
+          "brightness_proxy": 0.34868913888931274,
+          "contrast_proxy": 0.23076601326465607,
+          "focus_proxy": 0.0012096953578293324,
+          "quality_proxy_score": 0.4011269019334577
+        },
+        "uncertainty": {
+          "entropy_nats": 0.15589711417376048,
+          "normalized_entropy": 0.0968643232331858,
+          "probability_margin": 0.9588684011250734
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.49018755555152893,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 2,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_134",
+        "predicted_grade": 0,
+        "probability": 0.04315939173102379,
+        "quality": {
+          "brightness_proxy": 0.23083260655403137,
+          "contrast_proxy": 0.15285398066043854,
+          "focus_proxy": 0.000678200856782496,
+          "quality_proxy_score": 0.26482472512579985
+        },
+        "uncertainty": {
+          "entropy_nats": 1.0460961517663907,
+          "normalized_entropy": 0.6499760840008322,
+          "probability_margin": 0.08335325121879578
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.48970314860343933,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 2,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_188",
+        "predicted_grade": 0,
+        "probability": 0.04369422793388367,
+        "quality": {
+          "brightness_proxy": 0.23737628757953644,
+          "contrast_proxy": 0.16868500411510468,
+          "focus_proxy": 0.0015181609196588397,
+          "quality_proxy_score": 0.29407161959970834
+        },
+        "uncertainty": {
+          "entropy_nats": 1.0652407586483204,
+          "normalized_entropy": 0.6618712970649854,
+          "probability_margin": 0.08394652605056763
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.9532445073127747,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 2,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_260",
+        "predicted_grade": 0,
+        "probability": 0.005444343667477369,
+        "quality": {
+          "brightness_proxy": 0.2041904479265213,
+          "contrast_proxy": 0.14734534919261932,
+          "focus_proxy": 0.000838349515106529,
+          "quality_proxy_score": 0.2528852313713287
+        },
+        "uncertainty": {
+          "entropy_nats": 0.2327140210371952,
+          "normalized_entropy": 0.14459335103224982,
+          "probability_margin": 0.9207384549081326
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.820435643196106,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 2,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_262",
+        "predicted_grade": 0,
+        "probability": 0.054283712059259415,
+        "quality": {
+          "brightness_proxy": 0.2880949079990387,
+          "contrast_proxy": 0.1997164785861969,
+          "focus_proxy": 0.0020426237024366856,
+          "quality_proxy_score": 0.35126508957473557
+        },
+        "uncertainty": {
+          "entropy_nats": 0.6799579215086353,
+          "normalized_entropy": 0.42248161066385764,
+          "probability_margin": 0.7241423428058624
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.9111282825469971,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 2,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_311",
+        "predicted_grade": 0,
+        "probability": 0.015210454352200031,
+        "quality": {
+          "brightness_proxy": 0.28472790122032166,
+          "contrast_proxy": 0.20190776884555817,
+          "focus_proxy": 0.0015057690907269716,
+          "quality_proxy_score": 0.34996861912659366
+        },
+        "uncertainty": {
+          "entropy_nats": 0.37696079126144605,
+          "normalized_entropy": 0.23421890856997007,
+          "probability_margin": 0.8484227061271667
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.6710024476051331,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 2,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_405",
+        "predicted_grade": 0,
+        "probability": 0.06730005145072937,
+        "quality": {
+          "brightness_proxy": 0.29100853204727173,
+          "contrast_proxy": 0.192833811044693,
+          "focus_proxy": 0.0008993647643364966,
+          "quality_proxy_score": 0.334352174626838
+        },
+        "uncertainty": {
+          "entropy_nats": 1.0266476307575603,
+          "normalized_entropy": 0.6378920384725293,
+          "probability_margin": 0.4937649369239807
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.9067131280899048,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 3,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_091",
+        "predicted_grade": 0,
+        "probability": 0.017692945897579193,
+        "quality": {
+          "brightness_proxy": 0.20923082530498505,
+          "contrast_proxy": 0.14224670827388763,
+          "focus_proxy": 0.00047103772521950305,
+          "quality_proxy_score": 0.24422994100532378
+        },
+        "uncertainty": {
+          "entropy_nats": 0.41804510590503,
+          "normalized_entropy": 0.25974602852046785,
+          "probability_margin": 0.8537792414426804
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.8438807725906372,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 3,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_215",
+        "predicted_grade": 0,
+        "probability": 0.003610451240092516,
+        "quality": {
+          "brightness_proxy": 0.19640693068504333,
+          "contrast_proxy": 0.14812970161437988,
+          "focus_proxy": 0.0006938889855518937,
+          "quality_proxy_score": 0.25143345517280974
+        },
+        "uncertainty": {
+          "entropy_nats": 0.4985878724127561,
+          "normalized_entropy": 0.3097900630777959,
+          "probability_margin": 0.7027987241744995
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.6354402899742126,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 3,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_263",
+        "predicted_grade": 0,
+        "probability": 0.03321065381169319,
+        "quality": {
+          "brightness_proxy": 0.26916536688804626,
+          "contrast_proxy": 0.1851590871810913,
+          "focus_proxy": 0.0017233019461855292,
+          "quality_proxy_score": 0.32490349631116255
+        },
+        "uncertainty": {
+          "entropy_nats": 0.9612626452275702,
+          "normalized_entropy": 0.5972660627670717,
+          "probability_margin": 0.3652759790420532
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.4798882007598877,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 4,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_133",
+        "predicted_grade": 1,
+        "probability": 0.04939698427915573,
+        "quality": {
+          "brightness_proxy": 0.2511933445930481,
+          "contrast_proxy": 0.1635703593492508,
+          "focus_proxy": 0.0006369695765897632,
+          "quality_proxy_score": 0.28361633784661533
+        },
+        "uncertainty": {
+          "entropy_nats": 1.0966432299773594,
+          "normalized_entropy": 0.681382749533224,
+          "probability_margin": 0.07804989814758301
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.9961291551589966,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 4,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_201",
+        "predicted_grade": 0,
+        "probability": 0.0007947444682940841,
+        "quality": {
+          "brightness_proxy": 0.27275457978248596,
+          "contrast_proxy": 0.19385330379009247,
+          "focus_proxy": 0.0012426601024344563,
+          "quality_proxy_score": 0.33448882946686354
+        },
+        "uncertainty": {
+          "entropy_nats": 0.028666232484534558,
+          "normalized_entropy": 0.0178113316848489,
+          "probability_margin": 0.9932616273872554
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.9746825098991394,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 4,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_208",
+        "predicted_grade": 0,
+        "probability": 0.002484517404809594,
+        "quality": {
+          "brightness_proxy": 0.2647971510887146,
+          "contrast_proxy": 0.1805247664451599,
+          "focus_proxy": 0.001369465608149767,
+          "quality_proxy_score": 0.31510917929699644
+        },
+        "uncertainty": {
+          "entropy_nats": 0.1351769800494481,
+          "normalized_entropy": 0.08399018005298978,
+          "probability_margin": 0.9539879914373159
+        }
+      },
+      {
+        "actual_grade": 3,
+        "confidence": 0.4906509816646576,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 4,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_269",
+        "predicted_grade": 0,
+        "probability": 0.08326421678066254,
+        "quality": {
+          "brightness_proxy": 0.20771867036819458,
+          "contrast_proxy": 0.1479441523551941,
+          "focus_proxy": 0.0007453050347976387,
+          "quality_proxy_score": 0.2537895194851444
+        },
+        "uncertainty": {
+          "entropy_nats": 1.238079949419796,
+          "normalized_entropy": 0.7692623243523166,
+          "probability_margin": 0.18229880928993225
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.618282675743103,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 4,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_282",
+        "predicted_grade": 0,
+        "probability": 0.01616406813263893,
+        "quality": {
+          "brightness_proxy": 0.28670868277549744,
+          "contrast_proxy": 0.1997593492269516,
+          "focus_proxy": 0.0012231412110850215,
+          "quality_proxy_score": 0.34541392129904125
+        },
+        "uncertainty": {
+          "entropy_nats": 0.8543236313263807,
+          "normalized_entropy": 0.5308211175629067,
+          "probability_margin": 0.28326696157455444
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.8313329815864563,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 4,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_412",
+        "predicted_grade": 0,
+        "probability": 0.024944277480244637,
+        "quality": {
+          "brightness_proxy": 0.21885348856449127,
+          "contrast_proxy": 0.1482357382774353,
+          "focus_proxy": 0.0006380248232744634,
+          "quality_proxy_score": 0.2556871519613196
+        },
+        "uncertainty": {
+          "entropy_nats": 0.6290699839209325,
+          "normalized_entropy": 0.39086315729292864,
+          "probability_margin": 0.7240986526012421
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.9618632197380066,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 5,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_216",
+        "predicted_grade": 0,
+        "probability": 0.0044546304270625114,
+        "quality": {
+          "brightness_proxy": 0.30901360511779785,
+          "contrast_proxy": 0.21162493526935577,
+          "focus_proxy": 0.0014597506960853934,
+          "quality_proxy_score": 0.36811341643624473
+        },
+        "uncertainty": {
+          "entropy_nats": 0.19450323595945038,
+          "normalized_entropy": 0.12085165538649784,
+          "probability_margin": 0.9345358218997717
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.5870154500007629,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 5,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_283",
+        "predicted_grade": 0,
+        "probability": 0.017835628241300583,
+        "quality": {
+          "brightness_proxy": 0.24972572922706604,
+          "contrast_proxy": 0.17352741956710815,
+          "focus_proxy": 0.0009160586632788181,
+          "quality_proxy_score": 0.2991814365494065
+        },
+        "uncertainty": {
+          "entropy_nats": 0.8775543822832474,
+          "normalized_entropy": 0.5452551946884622,
+          "probability_margin": 0.22590947151184082
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.9161177277565002,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 5,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_404",
+        "predicted_grade": 0,
+        "probability": 0.04341844841837883,
+        "quality": {
+          "brightness_proxy": 0.34709474444389343,
+          "contrast_proxy": 0.22827991843223572,
+          "focus_proxy": 0.0013411635300144553,
+          "quality_proxy_score": 0.39823133396275806
+        },
+        "uncertainty": {
+          "entropy_nats": 0.39099481909828715,
+          "normalized_entropy": 0.2429387403375815,
+          "probability_margin": 0.8778512999415398
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.7206385135650635,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 5,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_413",
+        "predicted_grade": 0,
+        "probability": 0.04553321748971939,
+        "quality": {
+          "brightness_proxy": 0.18597500026226044,
+          "contrast_proxy": 0.133637934923172,
+          "focus_proxy": 0.0004226037999615073,
+          "quality_proxy_score": 0.22719351006962824
+        },
+        "uncertainty": {
+          "entropy_nats": 0.8542810929590905,
+          "normalized_entropy": 0.5307946869892501,
+          "probability_margin": 0.5332803428173065
+        }
+      }
+    ],
+    "threshold": 0.1
+  },
+  "derived_probability": {
+    "by_actual_grade": {
+      "2": 25,
+      "3": 1,
+      "4": 1
+    },
+    "clinical_validation_claim": false,
+    "false_negative_count": 27,
+    "mean_confidence": 0.7891369528240628,
+    "mean_normalized_entropy": 0.37754820401401623,
+    "mean_quality_proxy": 0.31428735519307166,
+    "probability_source": "derived_referable_probability",
+    "records": [
+      {
+        "actual_grade": 4,
+        "confidence": 0.884373664855957,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 1,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_046",
+        "predicted_grade": 0,
+        "probability": 0.0819746907800436,
+        "quality": {
+          "brightness_proxy": 0.3403838872909546,
+          "contrast_proxy": 0.22195637226104736,
+          "focus_proxy": 0.0012344012502580881,
+          "quality_proxy_score": 0.38730220721918157
+        },
+        "uncertainty": {
+          "entropy_nats": 0.5088891685976105,
+          "normalized_entropy": 0.3161906182686916,
+          "probability_margin": 0.8383252657949924
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.7814108729362488,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 1,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_129",
+        "predicted_grade": 0,
+        "probability": 0.011852954979985952,
+        "quality": {
+          "brightness_proxy": 0.24136433005332947,
+          "contrast_proxy": 0.1659117192029953,
+          "focus_proxy": 0.0006342945271171629,
+          "quality_proxy_score": 0.2849100477687898
+        },
+        "uncertainty": {
+          "entropy_nats": 0.5826841228225409,
+          "normalized_entropy": 0.3620420013228683,
+          "probability_margin": 0.5746746808290482
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.7939924597740173,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 1,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_135",
+        "predicted_grade": 0,
+        "probability": 0.11786614172160625,
+        "quality": {
+          "brightness_proxy": 0.23701652884483337,
+          "contrast_proxy": 0.1635381132364273,
+          "focus_proxy": 0.0005555511452257633,
+          "quality_proxy_score": 0.280176078423392
+        },
+        "uncertainty": {
+          "entropy_nats": 0.7695003349848168,
+          "normalized_entropy": 0.4781174402813906,
+          "probability_margin": 0.7058510705828667
+        }
+      },
+      {
+        "actual_grade": 3,
+        "confidence": 0.9191800355911255,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 1,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_180",
+        "predicted_grade": 0,
+        "probability": 0.05214128643274307,
+        "quality": {
+          "brightness_proxy": 0.2640592157840729,
+          "contrast_proxy": 0.18969719111919403,
+          "focus_proxy": 0.0020144511945545673,
+          "quality_proxy_score": 0.33223726268624887
+        },
+        "uncertainty": {
+          "entropy_nats": 0.390440980463713,
+          "normalized_entropy": 0.2425946210458118,
+          "probability_margin": 0.8905014805495739
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.6378649473190308,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 1,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_183",
+        "predicted_grade": 0,
+        "probability": 0.07840343005955219,
+        "quality": {
+          "brightness_proxy": 0.252574622631073,
+          "contrast_proxy": 0.19334717094898224,
+          "focus_proxy": 0.001895552733913064,
+          "quality_proxy_score": 0.334232888900442
+        },
+        "uncertainty": {
+          "entropy_nats": 0.9273248119849054,
+          "normalized_entropy": 0.5761793013701455,
+          "probability_margin": 0.35413339734077454
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.9477560520172119,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 1,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_248",
+        "predicted_grade": 0,
+        "probability": 0.024342821445316076,
+        "quality": {
+          "brightness_proxy": 0.2810002267360687,
+          "contrast_proxy": 0.198946014046669,
+          "focus_proxy": 0.0013279158156365156,
+          "quality_proxy_score": 0.34385388624505137
+        },
+        "uncertainty": {
+          "entropy_nats": 0.26616192873756245,
+          "normalized_entropy": 0.16537570457441345,
+          "probability_margin": 0.9198549967259169
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.9359096884727478,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 1,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_303",
+        "predicted_grade": 0,
+        "probability": 0.03127017943188548,
+        "quality": {
+          "brightness_proxy": 0.30541831254959106,
+          "contrast_proxy": 0.20848628878593445,
+          "focus_proxy": 0.00148942437954247,
+          "quality_proxy_score": 0.3632042594195809
+        },
+        "uncertainty": {
+          "entropy_nats": 0.31618811207427366,
+          "normalized_entropy": 0.19645871992419606,
+          "probability_margin": 0.9030894823372364
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.9730105400085449,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 1,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_061",
+        "predicted_grade": 0,
+        "probability": 0.01284717908129096,
+        "quality": {
+          "brightness_proxy": 0.34868913888931274,
+          "contrast_proxy": 0.23076601326465607,
+          "focus_proxy": 0.0012096953578293324,
+          "quality_proxy_score": 0.4011269019334577
+        },
+        "uncertainty": {
+          "entropy_nats": 0.15589711417376048,
+          "normalized_entropy": 0.0968643232331858,
+          "probability_margin": 0.9588684011250734
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.6255132555961609,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 2,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_080",
+        "predicted_grade": 0,
+        "probability": 0.19659996405243874,
+        "quality": {
+          "brightness_proxy": 0.21976858377456665,
+          "contrast_proxy": 0.15398922562599182,
+          "focus_proxy": 0.000611920899245888,
+          "quality_proxy_score": 0.2637455888136173
+        },
+        "uncertainty": {
+          "entropy_nats": 1.1224775589893579,
+          "normalized_entropy": 0.6974345206592855,
+          "probability_margin": 0.44762641191482544
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.49018755555152893,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 2,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_134",
+        "predicted_grade": 0,
+        "probability": 0.1029781624674797,
+        "quality": {
+          "brightness_proxy": 0.23083260655403137,
+          "contrast_proxy": 0.15285398066043854,
+          "focus_proxy": 0.000678200856782496,
+          "quality_proxy_score": 0.26482472512579985
+        },
+        "uncertainty": {
+          "entropy_nats": 1.0460961517663907,
+          "normalized_entropy": 0.6499760840008322,
+          "probability_margin": 0.08335325121879578
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.48970314860343933,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 2,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_188",
+        "predicted_grade": 0,
+        "probability": 0.10454026237130165,
+        "quality": {
+          "brightness_proxy": 0.23737628757953644,
+          "contrast_proxy": 0.16868500411510468,
+          "focus_proxy": 0.0015181609196588397,
+          "quality_proxy_score": 0.29407161959970834
+        },
+        "uncertainty": {
+          "entropy_nats": 1.0652407586483204,
+          "normalized_entropy": 0.6618712970649854,
+          "probability_margin": 0.08394652605056763
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.9532445073127747,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 2,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_260",
+        "predicted_grade": 0,
+        "probability": 0.01424938254058361,
+        "quality": {
+          "brightness_proxy": 0.2041904479265213,
+          "contrast_proxy": 0.14734534919261932,
+          "focus_proxy": 0.000838349515106529,
+          "quality_proxy_score": 0.2528852313713287
+        },
+        "uncertainty": {
+          "entropy_nats": 0.2327140210371952,
+          "normalized_entropy": 0.14459335103224982,
+          "probability_margin": 0.9207384549081326
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.820435643196106,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 2,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_262",
+        "predicted_grade": 0,
+        "probability": 0.08327114395797253,
+        "quality": {
+          "brightness_proxy": 0.2880949079990387,
+          "contrast_proxy": 0.1997164785861969,
+          "focus_proxy": 0.0020426237024366856,
+          "quality_proxy_score": 0.35126508957473557
+        },
+        "uncertainty": {
+          "entropy_nats": 0.6799579215086353,
+          "normalized_entropy": 0.42248161066385764,
+          "probability_margin": 0.7241423428058624
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.9111282825469971,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 2,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_311",
+        "predicted_grade": 0,
+        "probability": 0.026166128925979137,
+        "quality": {
+          "brightness_proxy": 0.28472790122032166,
+          "contrast_proxy": 0.20190776884555817,
+          "focus_proxy": 0.0015057690907269716,
+          "quality_proxy_score": 0.34996861912659366
+        },
+        "uncertainty": {
+          "entropy_nats": 0.37696079126144605,
+          "normalized_entropy": 0.23421890856997007,
+          "probability_margin": 0.8484227061271667
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.6710024476051331,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 2,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_405",
+        "predicted_grade": 0,
+        "probability": 0.1517600156366825,
+        "quality": {
+          "brightness_proxy": 0.29100853204727173,
+          "contrast_proxy": 0.192833811044693,
+          "focus_proxy": 0.0008993647643364966,
+          "quality_proxy_score": 0.334352174626838
+        },
+        "uncertainty": {
+          "entropy_nats": 1.0266476307575603,
+          "normalized_entropy": 0.6378920384725293,
+          "probability_margin": 0.4937649369239807
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.9067131280899048,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 3,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_091",
+        "predicted_grade": 0,
+        "probability": 0.04035298619419336,
+        "quality": {
+          "brightness_proxy": 0.20923082530498505,
+          "contrast_proxy": 0.14224670827388763,
+          "focus_proxy": 0.00047103772521950305,
+          "quality_proxy_score": 0.24422994100532378
+        },
+        "uncertainty": {
+          "entropy_nats": 0.41804510590503,
+          "normalized_entropy": 0.25974602852046785,
+          "probability_margin": 0.8537792414426804
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.8438807725906372,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 3,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_215",
+        "predicted_grade": 0,
+        "probability": 0.015037111239507794,
+        "quality": {
+          "brightness_proxy": 0.19640693068504333,
+          "contrast_proxy": 0.14812970161437988,
+          "focus_proxy": 0.0006938889855518937,
+          "quality_proxy_score": 0.25143345517280974
+        },
+        "uncertainty": {
+          "entropy_nats": 0.4985878724127561,
+          "normalized_entropy": 0.3097900630777959,
+          "probability_margin": 0.7027987241744995
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.6354402899742126,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 3,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_263",
+        "predicted_grade": 0,
+        "probability": 0.09439531154930592,
+        "quality": {
+          "brightness_proxy": 0.26916536688804626,
+          "contrast_proxy": 0.1851590871810913,
+          "focus_proxy": 0.0017233019461855292,
+          "quality_proxy_score": 0.32490349631116255
+        },
+        "uncertainty": {
+          "entropy_nats": 0.9612626452275702,
+          "normalized_entropy": 0.5972660627670717,
+          "probability_margin": 0.3652759790420532
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.4798882007598877,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 4,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_133",
+        "predicted_grade": 1,
+        "probability": 0.11827349103987217,
+        "quality": {
+          "brightness_proxy": 0.2511933445930481,
+          "contrast_proxy": 0.1635703593492508,
+          "focus_proxy": 0.0006369695765897632,
+          "quality_proxy_score": 0.28361633784661533
+        },
+        "uncertainty": {
+          "entropy_nats": 1.0966432299773594,
+          "normalized_entropy": 0.681382749533224,
+          "probability_margin": 0.07804989814758301
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.9961291551589966,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 4,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_201",
+        "predicted_grade": 0,
+        "probability": 0.001003398181637749,
+        "quality": {
+          "brightness_proxy": 0.27275457978248596,
+          "contrast_proxy": 0.19385330379009247,
+          "focus_proxy": 0.0012426601024344563,
+          "quality_proxy_score": 0.33448882946686354
+        },
+        "uncertainty": {
+          "entropy_nats": 0.028666232484534558,
+          "normalized_entropy": 0.0178113316848489,
+          "probability_margin": 0.9932616273872554
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.9746825098991394,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 4,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_208",
+        "predicted_grade": 0,
+        "probability": 0.004622959182597697,
+        "quality": {
+          "brightness_proxy": 0.2647971510887146,
+          "contrast_proxy": 0.1805247664451599,
+          "focus_proxy": 0.001369465608149767,
+          "quality_proxy_score": 0.31510917929699644
+        },
+        "uncertainty": {
+          "entropy_nats": 0.1351769800494481,
+          "normalized_entropy": 0.08399018005298978,
+          "probability_margin": 0.9539879914373159
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.618282675743103,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 4,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_282",
+        "predicted_grade": 0,
+        "probability": 0.04670164454728365,
+        "quality": {
+          "brightness_proxy": 0.28670868277549744,
+          "contrast_proxy": 0.1997593492269516,
+          "focus_proxy": 0.0012231412110850215,
+          "quality_proxy_score": 0.34541392129904125
+        },
+        "uncertainty": {
+          "entropy_nats": 0.8543236313263807,
+          "normalized_entropy": 0.5308211175629067,
+          "probability_margin": 0.28326696157455444
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.8313329815864563,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 4,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_412",
+        "predicted_grade": 0,
+        "probability": 0.06143263913691044,
+        "quality": {
+          "brightness_proxy": 0.21885348856449127,
+          "contrast_proxy": 0.1482357382774353,
+          "focus_proxy": 0.0006380248232744634,
+          "quality_proxy_score": 0.2556871519613196
+        },
+        "uncertainty": {
+          "entropy_nats": 0.6290699839209325,
+          "normalized_entropy": 0.39086315729292864,
+          "probability_margin": 0.7240986526012421
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.9618632197380066,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 5,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_216",
+        "predicted_grade": 0,
+        "probability": 0.010809450352098793,
+        "quality": {
+          "brightness_proxy": 0.30901360511779785,
+          "contrast_proxy": 0.21162493526935577,
+          "focus_proxy": 0.0014597506960853934,
+          "quality_proxy_score": 0.36811341643624473
+        },
+        "uncertainty": {
+          "entropy_nats": 0.19450323595945038,
+          "normalized_entropy": 0.12085165538649784,
+          "probability_margin": 0.9345358218997717
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.5870154500007629,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 5,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_283",
+        "predicted_grade": 0,
+        "probability": 0.051878619473427534,
+        "quality": {
+          "brightness_proxy": 0.24972572922706604,
+          "contrast_proxy": 0.17352741956710815,
+          "focus_proxy": 0.0009160586632788181,
+          "quality_proxy_score": 0.2991814365494065
+        },
+        "uncertainty": {
+          "entropy_nats": 0.8775543822832474,
+          "normalized_entropy": 0.5452551946884622,
+          "probability_margin": 0.22590947151184082
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.9161177277565002,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 5,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_404",
+        "predicted_grade": 0,
+        "probability": 0.045615856535732746,
+        "quality": {
+          "brightness_proxy": 0.34709474444389343,
+          "contrast_proxy": 0.22827991843223572,
+          "focus_proxy": 0.0013411635300144553,
+          "quality_proxy_score": 0.39823133396275806
+        },
+        "uncertainty": {
+          "entropy_nats": 0.39099481909828715,
+          "normalized_entropy": 0.2429387403375815,
+          "probability_margin": 0.8778512999415398
+        }
+      },
+      {
+        "actual_grade": 2,
+        "confidence": 0.7206385135650635,
+        "disagreement_status": "NOT_AVAILABLE_IN_OOF_ARTIFACT",
+        "fold": 5,
+        "grad_cam_status": "NOT_PRESENT_IN_OOF_ARTIFACT",
+        "image_id": "IDRiD_413",
+        "predicted_grade": 0,
+        "probability": 0.09200320951640606,
+        "quality": {
+          "brightness_proxy": 0.18597500026226044,
+          "contrast_proxy": 0.133637934923172,
+          "focus_proxy": 0.0004226037999615073,
+          "quality_proxy_score": 0.22719351006962824
+        },
+        "uncertainty": {
+          "entropy_nats": 0.8542810929590905,
+          "normalized_entropy": 0.5307946869892501,
+          "probability_margin": 0.5332803428173065
+        }
+      }
+    ],
+    "threshold": 0.2
+  },
+  "messidor_analysis": "NOT_RUN_FOR_SELECTION",
+  "official_test_images_opened": 0
+}

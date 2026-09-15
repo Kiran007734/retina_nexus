@@ -1,0 +1,131 @@
+{
+  "clinical_validation_claim": false,
+  "dataset": {
+    "label_matched_images": 1744,
+    "label_status": "local/adjudicated; not independently proven official clinical ground truth",
+    "manifest": "ml/evaluation/messidor2/authoritative_external_manifest.json",
+    "original_images": 1748
+  },
+  "models": {
+    "APTOS_EfficientNet_B0": {
+      "threshold_0.20": {
+        "f1": 0.5659301496792587,
+        "false_negative": 60,
+        "false_positive": 549,
+        "pr_auc": 0.6750497124694614,
+        "precision": 0.41966173361522197,
+        "recall": 0.8687089715536105,
+        "roc_auc": 0.8185252627265757,
+        "rule": "referable_probability = P(2)+P(3)+P(4); referable = referable_probability >= threshold; severity grade = argmax(P0..P4).",
+        "sample_count": 1744,
+        "sensitivity": 0.8687089715536105,
+        "specificity": 0.5734265734265734,
+        "threshold": 0.2,
+        "true_negative": 738,
+        "true_positive": 397
+      },
+      "threshold_0.50": {
+        "f1": 0.5981735159817351,
+        "false_negative": 195,
+        "false_positive": 157,
+        "pr_auc": 0.6750497124694614,
+        "precision": 0.6252983293556086,
+        "recall": 0.5733041575492341,
+        "roc_auc": 0.8185252627265757,
+        "rule": "referable_probability = P(2)+P(3)+P(4); referable = referable_probability >= threshold; severity grade = argmax(P0..P4).",
+        "sample_count": 1744,
+        "sensitivity": 0.5733041575492341,
+        "specificity": 0.878010878010878,
+        "threshold": 0.5,
+        "true_negative": 1130,
+        "true_positive": 262
+      }
+    },
+    "IDRiD_V3": {
+      "threshold_0.20": {
+        "f1": 0.5710382513661202,
+        "fn": 248,
+        "fp": 66,
+        "pr_auc": 0.7129784661414245,
+        "precision": 0.76,
+        "recall": 0.4573304157549234,
+        "roc_auc": 0.8390843292375022,
+        "sensitivity": 0.4573304157549234,
+        "specificity": 0.9487179487179487,
+        "support": 457,
+        "threshold": 0.2,
+        "tn": 1221,
+        "tp": 209
+      },
+      "threshold_0.50": {
+        "f1": 0.4183673469387755,
+        "fn": 334,
+        "fp": 8,
+        "pr_auc": 0.7129784661414245,
+        "precision": 0.9389312977099237,
+        "recall": 0.26914660831509846,
+        "roc_auc": 0.8390843292375022,
+        "sensitivity": 0.26914660831509846,
+        "specificity": 0.9937839937839937,
+        "support": 457,
+        "threshold": 0.5,
+        "tn": 1279,
+        "tp": 123
+      }
+    },
+    "IDRiD_V3_stage2_binary_head": {
+      "fixed_development_threshold_0.10": {
+        "accuracy": 0.8188073394495413,
+        "f1": 0.575268817204301,
+        "fn": 243,
+        "fp": 73,
+        "pr_auc": 0.7132375925239202,
+        "precision": 0.7456445993031359,
+        "recall": 0.4682713347921225,
+        "roc_auc": 0.8408474579152916,
+        "sensitivity": 0.4682713347921225,
+        "specificity": 0.9432789432789432,
+        "support": 457,
+        "threshold": 0.1,
+        "tn": 1214,
+        "tp": 214
+      }
+    },
+    "RETGUARD_DR": {
+      "fixed_published_threshold_0.204983": {
+        "accuracy": 0.8153669724770642,
+        "f1": 0.7338842975206612,
+        "fn": 13,
+        "fp": 309,
+        "pr_auc": 0.9397947381008545,
+        "precision": 0.5896414342629482,
+        "recall": 0.9715536105032823,
+        "roc_auc": 0.9690270828126408,
+        "sensitivity": 0.9715536105032823,
+        "specificity": 0.7599067599067599,
+        "support": 457,
+        "threshold": 0.204983,
+        "tn": 978,
+        "tp": 444
+      }
+    },
+    "safety_review_flag": {
+      "accuracy": 0.6955275229357798,
+      "f1": 0.46417759838546924,
+      "fn": 227,
+      "fp": 304,
+      "pr_auc": 0.34693006995977693,
+      "precision": 0.4307116104868914,
+      "recall": 0.5032822757111597,
+      "roc_auc": 0.6335370197514617,
+      "sensitivity": 0.5032822757111597,
+      "specificity": 0.7637917637917638,
+      "support": 457,
+      "threshold": 0.5,
+      "tn": 983,
+      "tp": 230
+    }
+  },
+  "target_status": "TARGET_NOT_YET_DEMONSTRATED",
+  "threshold_selection_on_messidor": false
+}

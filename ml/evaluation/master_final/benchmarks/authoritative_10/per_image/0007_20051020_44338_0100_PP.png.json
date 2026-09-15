@@ -1,0 +1,54 @@
+{
+  "completed_at_utc": "2026-09-14T05:03:42.507663+00:00",
+  "elapsed_wall_ms": 105123.42239997815,
+  "errors": {},
+  "evidence_status": {
+    "cotton_wool_spot_detection": "model_inference",
+    "exudate_segmentation": "model_inference",
+    "fovea_localization": "approximate",
+    "hemorrhage_detection": "model_inference",
+    "microaneurysm_detection": "model_inference",
+    "neovascularization_detection": "unsupported",
+    "optic_disc_localization": "experimental_heuristic",
+    "vessel_segmentation": "model_inference"
+  },
+  "image_id": "20051020_44338_0100_PP.png",
+  "image_path": "ml/datasets/raw/messidor/messidor-2-original/IMAGES/20051020_44338_0100_PP.png",
+  "image_sha256": "816a624caf706a8fe2753b053c02006a2a5c8a6525cb61f4a27b521427abbf09",
+  "prediction": {
+    "grade": 0,
+    "model_version": "efficientnet-b0-aptos2019-20260830-v1",
+    "raw_confidence": 0.463125,
+    "referable_dr": false
+  },
+  "quality": {
+    "dimensions": [
+      2240,
+      1488
+    ],
+    "enhancement_applied": true,
+    "final_decision": "GRADABLE",
+    "final_score": 0.8366,
+    "initial_decision": "BORDERLINE",
+    "initial_score": 0.7102
+  },
+  "retinaguard": {
+    "trust_category": "UNRELIABLE",
+    "trust_score": 0.388686
+  },
+  "source_manifest": "ml/evaluation/messidor2/authoritative_external_manifest.json",
+  "stage_timings_ms": {
+    "classification": 194.03990000137128,
+    "evidence_total": 87167.50080001657,
+    "grad_cam_and_agreement": 7630.309800006216,
+    "image_validation": 112.47299998649396,
+    "lesion_inference_ms": 3298.529,
+    "pdf_generation": 0.16590001177974045,
+    "quality_assessment": 512.7232000231743,
+    "quality_enhancement": 9504.45740003488,
+    "retinaguard": 0.4752000095322728,
+    "structure_analysis_ms": 53.823,
+    "vessel_inference_ms": 81220.265
+  },
+  "status": "COMPLETED"
+}

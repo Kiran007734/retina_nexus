@@ -1,0 +1,319 @@
+{
+  "architecture": "shared compact heatmap network with auxiliary coordinate regression",
+  "checkpoint": "ml/weights/localization/idrid/checkpoint_best.pt",
+  "checkpoint_sha256": "91d49e43c5ea87fdc4adf36f9687ba7f07eeac546f89f09e1203ab56b083d569",
+  "clinical_validation_claim": false,
+  "heatmap_resolution": [
+    128,
+    88
+  ],
+  "input_resolution": [
+    512,
+    352
+  ],
+  "known_limitations": [
+    "IDRiD localization has no patient identifiers; duplicate-aware image-level splitting was used.",
+    "IDRiD_118 was excluded because it is an exact duplicate of official test IDRiD_064.",
+    "This artifact is research-only and does not establish clinical validity or regulatory approval."
+  ],
+  "landmarks": [
+    "optic_disc",
+    "fovea"
+  ],
+  "model_version": "idrid-localization-shared-heatmap-512x352-20260913-v1",
+  "prediction": {
+    "confidence": "peak sigmoid multiplied by one minus normalized spatial entropy",
+    "heatmap_decode": "temperature-scaled spatial soft-argmax",
+    "temperature": 5.0
+  },
+  "preprocessing": {
+    "color": "RGB",
+    "coordinate_convention": "original image pixels, x right and y down",
+    "normalization": {
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ]
+    },
+    "resize": "aspect-ratio-preserving letterbox"
+  },
+  "production_promoted": false,
+  "schema_version": "idrid-localization-model-manifest-1",
+  "training": {
+    "development_images": 412,
+    "excluded_cross_split_duplicates": [
+      {
+        "duplicate_group": "exact_0117",
+        "image_id": "IDRiD_118",
+        "image_path": "ml/datasets/raw/idrid/C. Localization/C. Localization/1. Original Images/a. Training Set/IDRiD_118.jpg",
+        "reason": "exact/perceptual duplicate of an official test image"
+      }
+    ],
+    "fold_count": 5,
+    "history": [
+      {
+        "coordinate_smooth_l1": 0.009782504864507218,
+        "epoch": 1,
+        "heatmap_mse": 0.07234703818137206,
+        "learning_rate": 0.00015000000000000001,
+        "train_loss": 0.07479266457042648
+      },
+      {
+        "coordinate_smooth_l1": 0.009578503320192538,
+        "epoch": 2,
+        "heatmap_mse": 0.027115722467164392,
+        "learning_rate": 5.000000000000003e-05,
+        "train_loss": 0.029510348311905722
+      },
+      {
+        "coordinate_smooth_l1": 0.009529947506679782,
+        "epoch": 3,
+        "heatmap_mse": 0.018344723013708892,
+        "learning_rate": 0.0,
+        "train_loss": 0.020727209891509085
+      }
+    ],
+    "loss": "heatmap MSE + auxiliary Smooth L1 coordinate loss",
+    "official_test_images_opened": 0,
+    "optimizer": "AdamW",
+    "patient_ids_available": false,
+    "raw_training_images": 413,
+    "scheduler": "CosineAnnealingLR",
+    "seconds": 435.195
+  },
+  "validation": {
+    "cv_report": "ml/datasets/metadata/idrid/idrid_localization_cv_report.json",
+    "cv_summary": {
+      "fovea": {
+        "mean_euclidean_error_px": {
+          "max": 1640.5834655714496,
+          "mean": 895.808167093823,
+          "min": 370.6458841249331,
+          "std": 583.7846682952985,
+          "values": [
+            474.2447207524604,
+            415.65116930053574,
+            1640.5834655714496,
+            1577.9155957197358,
+            370.6458841249331
+          ]
+        },
+        "mean_normalized_error": {
+          "max": 0.3187068434746704,
+          "mean": 0.17402357105547,
+          "min": 0.0720032733812721,
+          "std": 0.11340853592992588,
+          "values": [
+            0.09212883169762787,
+            0.08074619483513276,
+            0.3187068434746704,
+            0.30653271188864695,
+            0.0720032733812721
+          ]
+        },
+        "p90_euclidean_error_px": {
+          "max": 1922.236244279766,
+          "mean": 1151.6037134247135,
+          "min": 660.9093163223604,
+          "std": 554.329919008159,
+          "values": [
+            734.2919583394196,
+            711.2876018366925,
+            1922.236244279766,
+            1729.2934463453291,
+            660.9093163223604
+          ]
+        },
+        "within_10pct_diagonal": {
+          "max": 0.7142857142857143,
+          "mean": 0.38097819073428835,
+          "min": 0.0,
+          "std": 0.3148362360992027,
+          "values": [
+            0.5609756097560976,
+            0.6296296296296297,
+            0.0,
+            0.0,
+            0.7142857142857143
+          ]
+        },
+        "within_1pct_diagonal": {
+          "max": 0.023809523809523808,
+          "mean": 0.009670064954617799,
+          "min": 0.0,
+          "std": 0.00894963052404548,
+          "values": [
+            0.012195121951219513,
+            0.012345679012345678,
+            0.0,
+            0.0,
+            0.023809523809523808
+          ]
+        },
+        "within_2pct_diagonal": {
+          "max": 0.13095238095238096,
+          "mean": 0.05076138856626662,
+          "min": 0.0,
+          "std": 0.04925736020460955,
+          "values": [
+            0.04878048780487805,
+            0.07407407407407407,
+            0.0,
+            0.0,
+            0.13095238095238096
+          ]
+        },
+        "within_5pct_diagonal": {
+          "max": 0.36904761904761907,
+          "mean": 0.17456230911515463,
+          "min": 0.0,
+          "std": 0.15308075716873928,
+          "values": [
+            0.1951219512195122,
+            0.30864197530864196,
+            0.0,
+            0.0,
+            0.36904761904761907
+          ]
+        }
+      },
+      "optic_disc": {
+        "mean_euclidean_error_px": {
+          "max": 1789.2375070426149,
+          "mean": 912.4002086020412,
+          "min": 662.7722830314569,
+          "std": 439.20293897690055,
+          "values": [
+            662.7722830314569,
+            668.9472875193159,
+            1789.2375070426149,
+            735.2618426231228,
+            705.7821227936944
+          ]
+        },
+        "mean_normalized_error": {
+          "max": 0.34758502085562154,
+          "mean": 0.17724681283917465,
+          "min": 0.12875301177918466,
+          "std": 0.0853214635302748,
+          "values": [
+            0.12875301177918466,
+            0.12995259487268004,
+            0.34758502085562154,
+            0.1428351473164227,
+            0.13710828937196443
+          ]
+        },
+        "p90_euclidean_error_px": {
+          "max": 2132.187471360863,
+          "mean": 1394.7783306739393,
+          "min": 1102.8997659274446,
+          "std": 376.3657785753606,
+          "values": [
+            1159.0578408425456,
+            1260.5784617691695,
+            2132.187471360863,
+            1102.8997659274446,
+            1319.168113469674
+          ]
+        },
+        "within_10pct_diagonal": {
+          "max": 0.37037037037037035,
+          "mean": 0.28129459378357413,
+          "min": 0.0,
+          "std": 0.14141232163690307,
+          "values": [
+            0.35365853658536583,
+            0.37037037037037035,
+            0.0,
+            0.3253012048192771,
+            0.35714285714285715
+          ]
+        },
+        "within_1pct_diagonal": {
+          "max": 0.024390243902439025,
+          "mean": 0.009728136963909322,
+          "min": 0.0,
+          "std": 0.009119648019112497,
+          "values": [
+            0.024390243902439025,
+            0.012345679012345678,
+            0.0,
+            0.0,
+            0.011904761904761904
+          ]
+        },
+        "within_2pct_diagonal": {
+          "max": 0.1728395061728395,
+          "mean": 0.07788962016604292,
+          "min": 0.0,
+          "std": 0.06816158714239755,
+          "values": [
+            0.0975609756097561,
+            0.1728395061728395,
+            0.0,
+            0.0,
+            0.11904761904761904
+          ]
+        },
+        "within_5pct_diagonal": {
+          "max": 0.30864197530864196,
+          "mean": 0.16062502688518948,
+          "min": 0.0,
+          "std": 0.13371684100698136,
+          "values": [
+            0.2682926829268293,
+            0.30864197530864196,
+            0.0,
+            0.0,
+            0.2261904761904762
+          ]
+        }
+      }
+    },
+    "development_fit_metrics_not_for_model_selection": {
+      "fovea": {
+        "failures": 0,
+        "max_euclidean_error_px": 1115.388937723769,
+        "mean_euclidean_error_px": 386.6217664273685,
+        "mean_normalized_error": 0.07510681741129711,
+        "median_euclidean_error_px": 372.202893363522,
+        "median_normalized_error": 0.07230574473375442,
+        "p90_euclidean_error_px": 638.0656958627324,
+        "p90_normalized_error": 0.12395340324062534,
+        "status": "MEASURED",
+        "support": 412,
+        "within_10pct_diagonal": 0.7135922330097088,
+        "within_1pct_diagonal": 0.01699029126213592,
+        "within_2pct_diagonal": 0.07766990291262135,
+        "within_5pct_diagonal": 0.2961165048543689,
+        "x_coordinate_mae_px": 330.33721834941974,
+        "y_coordinate_mae_px": 147.70667926084647
+      },
+      "optic_disc": {
+        "failures": 0,
+        "max_euclidean_error_px": 2398.5965517109903,
+        "mean_euclidean_error_px": 591.0832428251764,
+        "mean_normalized_error": 0.11482638860191523,
+        "median_euclidean_error_px": 593.8860485327073,
+        "median_normalized_error": 0.11537087376750768,
+        "p90_euclidean_error_px": 1167.6738820911207,
+        "p90_normalized_error": 0.22683738132119322,
+        "status": "MEASURED",
+        "support": 412,
+        "within_10pct_diagonal": 0.46601941747572817,
+        "within_1pct_diagonal": 0.03398058252427184,
+        "within_2pct_diagonal": 0.20631067961165048,
+        "within_5pct_diagonal": 0.3883495145631068,
+        "x_coordinate_mae_px": 573.0314602157445,
+        "y_coordinate_mae_px": 98.48288376817426
+      }
+    }
+  }
+}

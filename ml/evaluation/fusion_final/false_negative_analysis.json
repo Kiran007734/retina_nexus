@@ -1,0 +1,16 @@
+{
+  "both_fn": 0,
+  "clinical_validation_claim": false,
+  "development_only": true,
+  "fn_reduction_percent": 100.0,
+  "fp_increase": -12,
+  "fp_increase_percent": -80.0,
+  "fusion_fn": 0,
+  "net_change": {
+    "sensitivity": 0.10629921259842523,
+    "specificity": 0.07894736842105265
+  },
+  "primary_false_negatives_detected_after_fusion": 27,
+  "primary_fn": 27,
+  "verifier_fn": 0
+}

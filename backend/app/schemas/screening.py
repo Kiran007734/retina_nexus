@@ -127,4 +127,7 @@ class ClassificationResponse(BaseModel):
     referable_mapping: dict
     hierarchical_probabilities: dict[str, dict[str, float]]
     ordinal_mode: bool
+    primary_referable_dr: bool | None = None
+    primary_referable_probability: float | None = None
+    referable_fusion: dict | None = None
     note: str

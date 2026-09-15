@@ -1,0 +1,10 @@
+{
+  "checkpoint_sha256": "075d7e41714cac28cfd0b60eba39fc50b81f7a8788d743004cd9dda702e1cbab",
+  "current_model": "idrid-max-quality-20260912-v1",
+  "external_datasets_used": false,
+  "new_model_manifest": null,
+  "official_test_images_opened": 0,
+  "production_promoted": false,
+  "selected_repaired_candidate": null,
+  "status": "NO_MEANINGFUL_IMPROVEMENT_FOUND_CURRENT_MODEL_RETAINED"
+}

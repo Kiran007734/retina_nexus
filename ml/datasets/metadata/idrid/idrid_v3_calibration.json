@@ -1,0 +1,29 @@
+{
+  "candidates": {
+    "v3_a_v2_reproduction_control": {
+      "calibrator_fitted": false,
+      "raw_softmax_ece_10_bins": 0.11099169627729669,
+      "referable_brier": 0.055445221922209395
+    },
+    "v3_b": {
+      "calibrator_fitted": false,
+      "raw_softmax_ece_10_bins": 0.0768582131489214,
+      "referable_brier": 0.056570314723472334
+    },
+    "v3_c": {
+      "calibrator_fitted": false,
+      "raw_softmax_ece_10_bins": 0.08952560805412663,
+      "referable_brier": 0.056889171934468366
+    },
+    "v3_d": {
+      "calibrator_fitted": false,
+      "raw_softmax_ece_10_bins": 0.22703916049865355,
+      "referable_brier": 0.08037093300786707
+    }
+  },
+  "decision": "Raw softmax confidence is not clinically calibrated; a separate calibration subset was not fitted because the 83-image validation set is too small and creating one would weaken controlled model selection.",
+  "messidor2_used_for_calibration": false,
+  "official_test_used": false,
+  "schema_version": "idrid-v3-calibration-1",
+  "status": "UNCALIBRATED"
+}

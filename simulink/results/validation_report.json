@@ -1,0 +1,17 @@
+{
+  "MODEL_EXISTS": true,
+  "MODEL_OPENS": true,
+  "MODEL_COMPILES": true,
+  "BASELINE_RUNS": true,
+  "SCENARIOS_RUN": true,
+  "WORKLOAD_100K_RUNS": true,
+  "METRICS_VALID": true,
+  "QUEUE_VALUES_VALID": true,
+  "LATENCY_VALUES_VALID": true,
+  "UTILIZATION_VALID": true,
+  "RESULTS_VALID": true,
+  "PLOTS_EXIST": true,
+  "OPTIMIZATION_RUNS": true,
+  "errors": [],
+  "PASS": true
+}

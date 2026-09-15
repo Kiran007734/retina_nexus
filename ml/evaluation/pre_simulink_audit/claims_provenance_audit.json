@@ -1,0 +1,15 @@
+{
+  "generated_at_utc": "2026-09-14T16:08:17.235321+00:00",
+  "messidor_status": "CLOSED; no tuning or acquisition performed in this audit.",
+  "required_statement": "Dedicated neovascularization detection is not currently validated in the prototype and remains future work.",
+  "schema_version": "pre-simulink-claims-audit-v1",
+  "status": "PASS_WITH_LIMITATIONS",
+  "unsupported_claims_found": [],
+  "verified_boundaries": [
+    "AI-assisted screening language is used.",
+    "Reports disclaim diagnosis/regulatory approval.",
+    "Messidor-2 is descriptive external evaluation only.",
+    "Fusion artifact is engineering research and not clinically validated.",
+    "Vessel/lesion/localization/XAI outputs are supporting evidence only."
+  ]
+}

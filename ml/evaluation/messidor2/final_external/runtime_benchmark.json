@@ -1,0 +1,15 @@
+{
+  "schema_version": "messidor2-runtime-benchmark-v1",
+  "status": "BENCHMARK_INTERRUPTED",
+  "evaluation_scope": "BENCHMARK_SUBSET",
+  "source_total_jobs": 1744,
+  "limited_run": true,
+  "workers": 1,
+  "torch_threads_per_worker": 1,
+  "measured_elapsed_seconds": 304.061,
+  "completed_sample_count": 0,
+  "mean_completed_pipeline_seconds": null,
+  "estimated_parallel_total_seconds": null,
+  "estimated_speedup": null,
+  "note": "The five-minute bounded one-worker benchmark timed out before a terminal result. No runtime or clinical performance estimate was derived from incomplete work."
+}

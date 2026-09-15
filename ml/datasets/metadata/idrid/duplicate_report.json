@@ -1,0 +1,175 @@
+{
+  "conflicting_duplicate_group_count": 4,
+  "dataset": "idrid",
+  "duplicate_group_count": 6,
+  "duplicate_groups": [
+    {
+      "crosses_train_test": false,
+      "duplicate_group_id": "idrid_disease_duplicate_099",
+      "labels_conflict": false,
+      "potential_train_test_leakage": false,
+      "recommended_action": "Keep all records in one future split; do not separate exact duplicates.",
+      "records": [
+        {
+          "dme_grade": 0,
+          "dr_grade": 1,
+          "image_id": "IDRiD_079",
+          "original_filename": "IDRiD_079.jpg",
+          "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_079.jpg",
+          "split": "train"
+        },
+        {
+          "dme_grade": 0,
+          "dr_grade": 1,
+          "image_id": "IDRiD_279",
+          "original_filename": "IDRiD_279.jpg",
+          "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_279.jpg",
+          "split": "train"
+        }
+      ],
+      "sha256": "314e41f14e9d2966eff50a085d02c7acf2a1439702358b5849f3db4657f8381b"
+    },
+    {
+      "crosses_train_test": false,
+      "duplicate_group_id": "idrid_disease_duplicate_106",
+      "labels_conflict": true,
+      "potential_train_test_leakage": false,
+      "recommended_action": "Keep records grouped and exclude the entire group from future supervised candidates until label policy is reviewed.",
+      "records": [
+        {
+          "dme_grade": 2,
+          "dr_grade": 4,
+          "image_id": "IDRiD_028",
+          "original_filename": "IDRiD_028.jpg",
+          "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_028.jpg",
+          "split": "train"
+        },
+        {
+          "dme_grade": 2,
+          "dr_grade": 3,
+          "image_id": "IDRiD_327",
+          "original_filename": "IDRiD_327.jpg",
+          "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_327.jpg",
+          "split": "train"
+        }
+      ],
+      "sha256": "350754e96bf6b9540264c1b53088dc1f5826edb2a9d3d3221acf9ef5afd76a13"
+    },
+    {
+      "crosses_train_test": true,
+      "duplicate_group_id": "idrid_disease_duplicate_168",
+      "labels_conflict": true,
+      "potential_train_test_leakage": true,
+      "recommended_action": "Exclude the training member from future train/validation candidates; retain the official testing record unchanged.",
+      "records": [
+        {
+          "dme_grade": 0,
+          "dr_grade": 3,
+          "image_id": "IDRiD_064",
+          "original_filename": "IDRiD_064.jpg",
+          "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/b. Testing Set/IDRiD_064.jpg",
+          "split": "test"
+        },
+        {
+          "dme_grade": 0,
+          "dr_grade": 0,
+          "image_id": "IDRiD_118",
+          "original_filename": "IDRiD_118.jpg",
+          "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_118.jpg",
+          "split": "train"
+        }
+      ],
+      "sha256": "505330878f4d4186a71b8001570100b82b6b05cb431e81e2c259d8c584314708"
+    },
+    {
+      "crosses_train_test": false,
+      "duplicate_group_id": "idrid_disease_duplicate_244",
+      "labels_conflict": true,
+      "potential_train_test_leakage": false,
+      "recommended_action": "Keep records grouped and exclude the entire group from future supervised candidates until label policy is reviewed.",
+      "records": [
+        {
+          "dme_grade": 0,
+          "dr_grade": 1,
+          "image_id": "IDRiD_021",
+          "original_filename": "IDRiD_021.jpg",
+          "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_021.jpg",
+          "split": "train"
+        },
+        {
+          "dme_grade": 0,
+          "dr_grade": 2,
+          "image_id": "IDRiD_391",
+          "original_filename": "IDRiD_391.jpg",
+          "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_391.jpg",
+          "split": "train"
+        }
+      ],
+      "sha256": "7c8af82fac4906b51dbe2d827e050b8b29a18cac21f569d2ac16af1cd65c9baf"
+    },
+    {
+      "crosses_train_test": false,
+      "duplicate_group_id": "idrid_disease_duplicate_309",
+      "labels_conflict": false,
+      "potential_train_test_leakage": false,
+      "recommended_action": "Keep all records in one future split; do not separate exact duplicates.",
+      "records": [
+        {
+          "dme_grade": 1,
+          "dr_grade": 2,
+          "image_id": "IDRiD_073",
+          "original_filename": "IDRiD_073.jpg",
+          "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_073.jpg",
+          "split": "train"
+        },
+        {
+          "dme_grade": 1,
+          "dr_grade": 2,
+          "image_id": "IDRiD_375",
+          "original_filename": "IDRiD_375.jpg",
+          "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_375.jpg",
+          "split": "train"
+        }
+      ],
+      "sha256": "a05e538dcf8554a99cdbc72a2ae4dedc196d87c73d9278869e644b4163af8f4d"
+    },
+    {
+      "crosses_train_test": false,
+      "duplicate_group_id": "idrid_disease_duplicate_508",
+      "labels_conflict": true,
+      "potential_train_test_leakage": false,
+      "recommended_action": "Keep records grouped and exclude the entire group from future supervised candidates until label policy is reviewed.",
+      "records": [
+        {
+          "dme_grade": 0,
+          "dr_grade": 2,
+          "image_id": "IDRiD_045",
+          "original_filename": "IDRiD_045.jpg",
+          "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_045.jpg",
+          "split": "train"
+        },
+        {
+          "dme_grade": 1,
+          "dr_grade": 2,
+          "image_id": "IDRiD_333",
+          "original_filename": "IDRiD_333.jpg",
+          "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_333.jpg",
+          "split": "train"
+        }
+      ],
+      "sha256": "fe4f412a179adf78bd9a367d1702878d45302db3f7706c4bf7efc834a312e91c"
+    }
+  ],
+  "method": "Exact SHA-256 file-content matching",
+  "policy": {
+    "conflicting_training_groups": "Keep original records and labels, but exclude the entire group from future supervised candidates pending explicit review.",
+    "cross_split_groups": "Exclude the training member from future train/validation candidates and retain the official testing member unchanged.",
+    "no_automatic_relabeling": true,
+    "official_test_records_are_retained": true,
+    "raw_records_are_unchanged": true,
+    "same_label_training_groups": "Keep records in one split; never split exact duplicates across train and validation.",
+    "testing_copy_is_not_used_for_training": true
+  },
+  "scope": "B. Disease Grading image files",
+  "train_test_leakage_group_count": 1
+}

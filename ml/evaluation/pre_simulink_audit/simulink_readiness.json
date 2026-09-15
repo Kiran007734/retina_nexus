@@ -1,0 +1,91 @@
+{
+  "checkpoint_integrity": true,
+  "critical_issues": [],
+  "gates": {
+    "backend_ready": true,
+    "frontend_ready": true,
+    "ml_ready": true,
+    "report_ready": true,
+    "security_baseline_ready": "PARTIAL_BASELINE_PASS",
+    "simulink_ready": true
+  },
+  "generated_at_utc": "2026-09-14T16:08:17.235321+00:00",
+  "high_issues": [],
+  "low_or_informational": [
+    "Dedicated neovascularization detection is not currently validated and remains future work.",
+    "Focused browser session was not repeated; frontend build and API integration tests passed."
+  ],
+  "medium_issues": [
+    "Legacy/generated model registries contain conflicting availability/selection metadata; runtime currently selects ml/weights/model_registry.json.",
+    "Prototype route-level authentication/authorization is incomplete for PHI-bearing endpoints.",
+    "In-process optional worker can be interrupted by backend restart.",
+    "CPU evidence latency is high and must be accounted for in system workflow simulation."
+  ],
+  "next_phase": "SIMULINK / SYSTEM WORKFLOW SIMULATION",
+  "overall_audit_status": "PRE-SIMULINK AUDIT PASSED",
+  "runtime_model_check": {
+    "check_version": "deployment-runtime-check-v1",
+    "models": {
+      "classifier": {
+        "artifact_present": true,
+        "checksum_configured": true,
+        "checksum_valid": true,
+        "error_code": null,
+        "loadable": true,
+        "manifest_present": true,
+        "name": "classifier",
+        "required": true,
+        "status": "AVAILABLE",
+        "version": "efficientnet-b0-aptos2019-20260830-v1"
+      },
+      "lesion_segmentation": {
+        "artifact_present": true,
+        "checksum_configured": true,
+        "checksum_valid": true,
+        "error_code": null,
+        "loadable": true,
+        "manifest_present": true,
+        "name": "lesion_segmentation",
+        "required": false,
+        "status": "AVAILABLE",
+        "version": "fundus-lesions-unet-seresnext50-all-v1"
+      },
+      "vessel_segmentation": {
+        "artifact_present": true,
+        "checksum_configured": true,
+        "checksum_valid": true,
+        "error_code": null,
+        "loadable": true,
+        "manifest_present": true,
+        "name": "vessel_segmentation",
+        "required": false,
+        "status": "AVAILABLE",
+        "version": "r2-v2-bv-2025"
+      }
+    },
+    "note": "Model checks verify local deployment artifacts and loadability. They do not establish clinical validity.",
+    "optional_capabilities": {
+      "lesion_segmentation": true,
+      "vessel_segmentation": true
+    },
+    "optional_checksums_verified_at_check": true,
+    "optional_models_loaded_at_check": true,
+    "required_models_available": true,
+    "status": "READY"
+  },
+  "schema_version": "pre-simulink-readiness-v1",
+  "test_results": {
+    "compileall": "PASS",
+    "frontend_lint_typecheck": "PASS",
+    "frontend_production_build": "PASS",
+    "git_diff_check": "PASS",
+    "pytest": "103 passed",
+    "targeted_fusion_and_api_tests": "30 passed before full-suite rerun"
+  },
+  "what_was_fixed": [
+    "Persisted ScreeningResult now uses the recorded fused referable decision when research fusion is explicitly enabled, while retaining primary severity grade."
+  ],
+  "what_was_not_changed": [
+    "No datasets acquired, no training, no checkpoints/weights, no thresholds, no fusion enablement, no Messidor tuning, no production promotion."
+  ]
+}

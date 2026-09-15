@@ -1,0 +1,54 @@
+{
+  "clinical_validation_claim": false,
+  "errors": {},
+  "evidence_status": {
+    "cotton_wool_spot_detection": "model_inference",
+    "exudate_segmentation": "model_inference",
+    "fovea_localization": "approximate",
+    "hemorrhage_detection": "model_inference",
+    "microaneurysm_detection": "model_inference",
+    "neovascularization_detection": "unsupported",
+    "optic_disc_localization": "experimental_heuristic",
+    "vessel_segmentation": "model_inference"
+  },
+  "ground_label_for_reference_only": 1,
+  "image_id": "20051020_43882_0100_PP.png",
+  "image_path": "images/messidor-2/messidor-2/preprocess/20051020_43882_0100_PP.png",
+  "image_sha256": "1b6e58eaa25604bb7889623c9e28d87ff452c55909af7904b91066158557d33f",
+  "prediction": {
+    "grade": 0,
+    "model_version": "efficientnet-b0-aptos2019-20260830-v1",
+    "raw_confidence": 0.958417,
+    "referable_dr": false
+  },
+  "quality": {
+    "dimensions": [
+      512,
+      512
+    ],
+    "enhancement_applied": false,
+    "final_decision": "GRADABLE",
+    "final_score": 0.8413,
+    "initial_decision": "GRADABLE",
+    "initial_score": 0.8413
+  },
+  "retinaguard": {
+    "trust_category": "UNRELIABLE",
+    "trust_score": 0.566341
+  },
+  "source": "one real authorized Messidor-2 image; smoke result only",
+  "stage_timings_ms": {
+    "classification": 198.66029999684542,
+    "evidence_total": 71623.13809999614,
+    "grad_cam_and_agreement": 705.8046000020113,
+    "image_validation": 13.958399998955429,
+    "lesion_inference_ms": 2686.618,
+    "pdf_generation": 0.14290001126937568,
+    "quality_assessment": 24.18450001277961,
+    "retinaguard": 0.26190001517534256,
+    "structure_analysis_ms": 12.712,
+    "vessel_inference_ms": 67637.217
+  },
+  "status": "COMPLETED",
+  "total_elapsed_ms": 72569.523
+}

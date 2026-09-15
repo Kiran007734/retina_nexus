@@ -1,0 +1,551 @@
+{
+  "clinical_validation_claim": false,
+  "comparison": {
+    "aptos_model_zero_shot": {
+      "checkpoint_sha256": "ae6bb62ced2a108abc1a862870e64985b368b84e69bd8c8c8aa9912754d1a70b",
+      "metrics": {
+        "accuracy": 0.5180722891566265,
+        "class_distribution": {
+          "0": 27,
+          "1": 4,
+          "2": 27,
+          "3": 15,
+          "4": 10
+        },
+        "confusion_matrix": [
+          [
+            8,
+            16,
+            1,
+            0,
+            2
+          ],
+          [
+            0,
+            4,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            3,
+            21,
+            1,
+            2
+          ],
+          [
+            0,
+            2,
+            6,
+            5,
+            2
+          ],
+          [
+            0,
+            0,
+            3,
+            2,
+            5
+          ]
+        ],
+        "f1": 0.4736231884057971,
+        "per_class": {
+          "Mild": {
+            "f1": 0.2758620689655173,
+            "precision": 0.16,
+            "recall": 1.0,
+            "sensitivity": 1.0,
+            "specificity": 0.7341772151898734,
+            "support": 4
+          },
+          "Moderate": {
+            "f1": 0.7241379310344828,
+            "precision": 0.6774193548387096,
+            "recall": 0.7777777777777778,
+            "sensitivity": 0.7777777777777778,
+            "specificity": 0.8214285714285714,
+            "support": 27
+          },
+          "No DR": {
+            "f1": 0.45714285714285713,
+            "precision": 1.0,
+            "recall": 0.2962962962962963,
+            "sensitivity": 0.2962962962962963,
+            "specificity": 1.0,
+            "support": 27
+          },
+          "Proliferative DR": {
+            "f1": 0.47619047619047616,
+            "precision": 0.45454545454545453,
+            "recall": 0.5,
+            "sensitivity": 0.5,
+            "specificity": 0.9178082191780822,
+            "support": 10
+          },
+          "Severe": {
+            "f1": 0.43478260869565216,
+            "precision": 0.625,
+            "recall": 0.3333333333333333,
+            "sensitivity": 0.3333333333333333,
+            "specificity": 0.9558823529411765,
+            "support": 15
+          }
+        },
+        "precision": 0.5833929618768329,
+        "quadratic_weighted_kappa": 0.6517275243281849,
+        "recall": 0.5814814814814815,
+        "referable_dr": {
+          "f1": 0.9230769230769231,
+          "false_negative": 4,
+          "false_positive": 4,
+          "precision": 0.9230769230769231,
+          "recall": 0.9230769230769231,
+          "referable_grades": [
+            2,
+            3,
+            4
+          ],
+          "roc_auc": 0.9503722084367245,
+          "sensitivity": 0.9230769230769231,
+          "specificity": 0.8709677419354839,
+          "support": 52,
+          "true_negative": 27,
+          "true_positive": 48
+        },
+        "roc_auc_ovr_macro": 0.8435074145258359,
+        "sample_count": 83,
+        "sensitivity": 0.5814814814814815,
+        "specificity": 0.8858592717475406
+      },
+      "model_version": "efficientnet-b0-aptos2019-20260830-v1"
+    },
+    "clinical_validation_claim": false,
+    "dataset": "idrid",
+    "evaluation_population": "same IDRiD validation split for both models",
+    "idrid_model": {
+      "metrics": {
+        "accuracy": 0.6024096385542169,
+        "class_distribution": {
+          "0": 27,
+          "1": 4,
+          "2": 27,
+          "3": 15,
+          "4": 10
+        },
+        "confusion_matrix": [
+          [
+            22,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            4,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            3,
+            20,
+            1,
+            1
+          ],
+          [
+            0,
+            0,
+            8,
+            4,
+            3
+          ],
+          [
+            0,
+            0,
+            4,
+            2,
+            4
+          ]
+        ],
+        "f1": 0.4572093819551447,
+        "per_class": {
+          "Mild": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "sensitivity": 0.0,
+            "specificity": 0.8987341772151899,
+            "support": 4
+          },
+          "Moderate": {
+            "f1": 0.6779661016949152,
+            "precision": 0.625,
+            "recall": 0.7407407407407407,
+            "sensitivity": 0.7407407407407407,
+            "specificity": 0.7857142857142857,
+            "support": 27
+          },
+          "No DR": {
+            "f1": 0.7999999999999999,
+            "precision": 0.7857142857142857,
+            "recall": 0.8148148148148148,
+            "sensitivity": 0.8148148148148148,
+            "specificity": 0.8928571428571429,
+            "support": 27
+          },
+          "Proliferative DR": {
+            "f1": 0.4444444444444445,
+            "precision": 0.5,
+            "recall": 0.4,
+            "sensitivity": 0.4,
+            "specificity": 0.9452054794520548,
+            "support": 10
+          },
+          "Severe": {
+            "f1": 0.36363636363636365,
+            "precision": 0.5714285714285714,
+            "recall": 0.26666666666666666,
+            "sensitivity": 0.26666666666666666,
+            "specificity": 0.9558823529411765,
+            "support": 15
+          }
+        },
+        "precision": 0.49642857142857133,
+        "quadratic_weighted_kappa": 0.821945018274273,
+        "recall": 0.44444444444444436,
+        "referable_dr": {
+          "f1": 0.9400000000000001,
+          "false_negative": 5,
+          "false_positive": 1,
+          "precision": 0.9791666666666666,
+          "recall": 0.9038461538461539,
+          "referable_grades": [
+            2,
+            3,
+            4
+          ],
+          "roc_auc": 0.978908188585608,
+          "sensitivity": 0.9038461538461539,
+          "specificity": 0.967741935483871,
+          "support": 52,
+          "true_negative": 30,
+          "true_positive": 47
+        },
+        "roc_auc_ovr_macro": 0.8167093356811733,
+        "sample_count": 83,
+        "sensitivity": 0.44444444444444436,
+        "specificity": 0.89567868763597
+      },
+      "model_version": "efficientnet-b0-idrid-20260912-v1"
+    },
+    "metric_selection_or_tuning": false,
+    "note": "Engineering comparison only; the APTOS model was not tuned, changed, or promoted.",
+    "official_test_set_used": false,
+    "validation_record_count": 83
+  },
+  "dataset": "idrid",
+  "excluded_records": [
+    {
+      "dme_grade": 0,
+      "dr_grade": 1,
+      "duplicate_group_id": "idrid_disease_duplicate_244",
+      "group_records": [
+        {
+          "dme_grade": 0,
+          "dr_grade": 1,
+          "image_id": "IDRiD_021",
+          "original_filename": "IDRiD_021.jpg",
+          "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_021.jpg",
+          "split": "train"
+        },
+        {
+          "dme_grade": 0,
+          "dr_grade": 2,
+          "image_id": "IDRiD_391",
+          "original_filename": "IDRiD_391.jpg",
+          "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_391.jpg",
+          "split": "train"
+        }
+      ],
+      "image_id": "IDRiD_021",
+      "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_021.jpg",
+      "reason": "CONFLICTING_LABELS_IN_EXACT_TRAINING_DUPLICATE_GROUP"
+    },
+    {
+      "dme_grade": 2,
+      "dr_grade": 4,
+      "duplicate_group_id": "idrid_disease_duplicate_106",
+      "group_records": [
+        {
+          "dme_grade": 2,
+          "dr_grade": 4,
+          "image_id": "IDRiD_028",
+          "original_filename": "IDRiD_028.jpg",
+          "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_028.jpg",
+          "split": "train"
+        },
+        {
+          "dme_grade": 2,
+          "dr_grade": 3,
+          "image_id": "IDRiD_327",
+          "original_filename": "IDRiD_327.jpg",
+          "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_327.jpg",
+          "split": "train"
+        }
+      ],
+      "image_id": "IDRiD_028",
+      "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_028.jpg",
+      "reason": "CONFLICTING_LABELS_IN_EXACT_TRAINING_DUPLICATE_GROUP"
+    },
+    {
+      "dme_grade": 0,
+      "dr_grade": 2,
+      "duplicate_group_id": "idrid_disease_duplicate_508",
+      "group_records": [
+        {
+          "dme_grade": 0,
+          "dr_grade": 2,
+          "image_id": "IDRiD_045",
+          "original_filename": "IDRiD_045.jpg",
+          "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_045.jpg",
+          "split": "train"
+        },
+        {
+          "dme_grade": 1,
+          "dr_grade": 2,
+          "image_id": "IDRiD_333",
+          "original_filename": "IDRiD_333.jpg",
+          "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_333.jpg",
+          "split": "train"
+        }
+      ],
+      "image_id": "IDRiD_045",
+      "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_045.jpg",
+      "reason": "CONFLICTING_LABELS_IN_EXACT_TRAINING_DUPLICATE_GROUP"
+    },
+    {
+      "dme_grade": 0,
+      "dr_grade": 0,
+      "duplicate_group_id": "idrid_disease_duplicate_168",
+      "image_id": "IDRiD_118",
+      "paired_official_test_ids": [
+        "IDRiD_064"
+      ],
+      "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_118.jpg",
+      "reason": "TRAINING_COPY_OF_CROSS_SPLIT_EXACT_DUPLICATE"
+    },
+    {
+      "dme_grade": 2,
+      "dr_grade": 3,
+      "duplicate_group_id": "idrid_disease_duplicate_106",
+      "group_records": [
+        {
+          "dme_grade": 2,
+          "dr_grade": 4,
+          "image_id": "IDRiD_028",
+          "original_filename": "IDRiD_028.jpg",
+          "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_028.jpg",
+          "split": "train"
+        },
+        {
+          "dme_grade": 2,
+          "dr_grade": 3,
+          "image_id": "IDRiD_327",
+          "original_filename": "IDRiD_327.jpg",
+          "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_327.jpg",
+          "split": "train"
+        }
+      ],
+      "image_id": "IDRiD_327",
+      "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_327.jpg",
+      "reason": "CONFLICTING_LABELS_IN_EXACT_TRAINING_DUPLICATE_GROUP"
+    },
+    {
+      "dme_grade": 1,
+      "dr_grade": 2,
+      "duplicate_group_id": "idrid_disease_duplicate_508",
+      "group_records": [
+        {
+          "dme_grade": 0,
+          "dr_grade": 2,
+          "image_id": "IDRiD_045",
+          "original_filename": "IDRiD_045.jpg",
+          "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_045.jpg",
+          "split": "train"
+        },
+        {
+          "dme_grade": 1,
+          "dr_grade": 2,
+          "image_id": "IDRiD_333",
+          "original_filename": "IDRiD_333.jpg",
+          "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_333.jpg",
+          "split": "train"
+        }
+      ],
+      "image_id": "IDRiD_333",
+      "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_333.jpg",
+      "reason": "CONFLICTING_LABELS_IN_EXACT_TRAINING_DUPLICATE_GROUP"
+    },
+    {
+      "dme_grade": 0,
+      "dr_grade": 2,
+      "duplicate_group_id": "idrid_disease_duplicate_244",
+      "group_records": [
+        {
+          "dme_grade": 0,
+          "dr_grade": 1,
+          "image_id": "IDRiD_021",
+          "original_filename": "IDRiD_021.jpg",
+          "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_021.jpg",
+          "split": "train"
+        },
+        {
+          "dme_grade": 0,
+          "dr_grade": 2,
+          "image_id": "IDRiD_391",
+          "original_filename": "IDRiD_391.jpg",
+          "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_391.jpg",
+          "split": "train"
+        }
+      ],
+      "image_id": "IDRiD_391",
+      "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_391.jpg",
+      "reason": "CONFLICTING_LABELS_IN_EXACT_TRAINING_DUPLICATE_GROUP"
+    }
+  ],
+  "metrics": {
+    "best_epoch": 8,
+    "clinical_validation_claim": false,
+    "epochs_completed": 8,
+    "note": "IDRiD internal validation / engineering evaluation only; no clinical validation claim.",
+    "official_test": {
+      "record_count": 103,
+      "status": "RESERVED_NOT_EVALUATED"
+    },
+    "validation": {
+      "accuracy": 0.6024096385542169,
+      "class_distribution": {
+        "0": 27,
+        "1": 4,
+        "2": 27,
+        "3": 15,
+        "4": 10
+      },
+      "confusion_matrix": [
+        [
+          22,
+          5,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          3,
+          20,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          8,
+          4,
+          3
+        ],
+        [
+          0,
+          0,
+          4,
+          2,
+          4
+        ]
+      ],
+      "f1": 0.4572093819551447,
+      "per_class": {
+        "Mild": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "sensitivity": 0.0,
+          "specificity": 0.8987341772151899,
+          "support": 4
+        },
+        "Moderate": {
+          "f1": 0.6779661016949152,
+          "precision": 0.625,
+          "recall": 0.7407407407407407,
+          "sensitivity": 0.7407407407407407,
+          "specificity": 0.7857142857142857,
+          "support": 27
+        },
+        "No DR": {
+          "f1": 0.7999999999999999,
+          "precision": 0.7857142857142857,
+          "recall": 0.8148148148148148,
+          "sensitivity": 0.8148148148148148,
+          "specificity": 0.8928571428571429,
+          "support": 27
+        },
+        "Proliferative DR": {
+          "f1": 0.4444444444444445,
+          "precision": 0.5,
+          "recall": 0.4,
+          "sensitivity": 0.4,
+          "specificity": 0.9452054794520548,
+          "support": 10
+        },
+        "Severe": {
+          "f1": 0.36363636363636365,
+          "precision": 0.5714285714285714,
+          "recall": 0.26666666666666666,
+          "sensitivity": 0.26666666666666666,
+          "specificity": 0.9558823529411765,
+          "support": 15
+        }
+      },
+      "precision": 0.49642857142857133,
+      "quadratic_weighted_kappa": 0.821945018274273,
+      "recall": 0.44444444444444436,
+      "referable_dr": {
+        "f1": 0.9400000000000001,
+        "false_negative": 5,
+        "false_positive": 1,
+        "precision": 0.9791666666666666,
+        "recall": 0.9038461538461539,
+        "referable_grades": [
+          2,
+          3,
+          4
+        ],
+        "roc_auc": 0.978908188585608,
+        "sensitivity": 0.9038461538461539,
+        "specificity": 0.967741935483871,
+        "support": 52,
+        "true_negative": 30,
+        "true_positive": 47
+      },
+      "roc_auc_ovr_macro": 0.8167093356811733,
+      "sample_count": 83,
+      "sensitivity": 0.44444444444444436,
+      "specificity": 0.89567868763597
+    }
+  },
+  "model_manifest": "ml/weights/classifiers/idrid/efficientnet-b0-idrid-20260912-v1/model_manifest.json",
+  "official_test_set": {
+    "record_count": 103,
+    "status": "RESERVED_NOT_EVALUATED"
+  },
+  "report_type": "IDRiD internal validation / engineering evaluation",
+  "training_history": "ml/weights/classifiers/idrid/efficientnet-b0-idrid-20260912-v1/history.json"
+}

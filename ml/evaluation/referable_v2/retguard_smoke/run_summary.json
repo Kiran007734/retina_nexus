@@ -1,0 +1,15 @@
+{
+  "clinical_validation_claim": false,
+  "elapsed_wall_seconds": 132.1650105000008,
+  "failed_count": 0,
+  "failures": [],
+  "manifest": "ml/evaluation/messidor2/authoritative_external_manifest.json",
+  "messidor_labels_used_for_selection": false,
+  "onnx_sha256": "f0e19fa86d5a27a05731550d1d6708c01f6f363f45a1fa57849de988f91e775b",
+  "requested_count": 8,
+  "status": "COMPLETE",
+  "successful_count": 8,
+  "threshold": 0.204983,
+  "tta": true,
+  "weights_dir": "ml/weights/backup_verifier/retguard/v1.0.0"
+}

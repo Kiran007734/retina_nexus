@@ -1,0 +1,34 @@
+{
+  "report": {
+    "report_status": 201,
+    "report_id": "03a5048f-a774-4f59-ad07-bc6a27493a38",
+    "report_status_value": "ready",
+    "ai_assessment": {
+      "predicted_grade": 0,
+      "predicted_grade_label": "No DR",
+      "referable_dr": false,
+      "confidence": 0.973709,
+      "model_version": "efficientnet-b0-aptos2019-20260830-v1"
+    },
+    "retinaguard": {
+      "trust_score": 0.601936,
+      "trust_category": "REVIEW_RECOMMENDED",
+      "recommended_safe_action": "PROFESSIONAL_REVIEW_RECOMMENDED"
+    },
+    "recommended_action": "HUMAN_REVIEW_REQUIRED",
+    "clinician_decision": null,
+    "pdf": {
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 2058,
+      "pdf_header": true,
+      "pdf_eof": true
+    }
+  },
+  "no_base64_or_image_bytes_written": true,
+  "source_images": {
+    "gradable": "ml/datasets/raw/aptos2019/train_images/04efb1a284cc.png",
+    "borderline": "ml/datasets/raw/aptos2019/train_images/005b95c28852.png",
+    "ungradable": "ml/datasets/raw/aptos2019/train_images/000c1434d8d7.png"
+  }
+}

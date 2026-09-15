@@ -1,0 +1,1 @@
+{"actual_grade": 3, "actual_referable": 1, "decision": true, "image_id": "IDRiD_001", "image_path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_001.jpg", "latency_ms": 28344.834199990146, "ood_flagged": false, "ood_score": 21.07187933724509, "probability": 0.9896989814621686, "threshold": 0.204983, "tta": true}

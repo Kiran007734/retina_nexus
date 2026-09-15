@@ -1,0 +1,57 @@
+{
+  "artifact_type": "referable_fusion_runtime_integration",
+  "status": "RESEARCH_GATED_INTEGRATION",
+  "production_enabled_by_default": false,
+  "authoritative_rule": {
+    "fused_referable_probability": "max(primary_referable_probability, verifier_referable_probability)",
+    "fused_referable_decision": "fused_referable_probability >= 0.40",
+    "verifier_published_decision": "verifier_referable_probability >= 0.204983",
+    "severity_grade": "argmax(primary P0..P4)",
+    "grade_rewrite_allowed": false
+  },
+  "primary_controller": {
+    "role": "controls the five-class DR severity grade",
+    "model_family": "configured primary DR classifier",
+    "checkpoint_sha256": "97bd6a9933ca3d09c1e41bb16ba7452b5988eb1818fc7f1c87054471c4c33049"
+  },
+  "independent_verifier": {
+    "role": "referable-risk verifier and reliability signal",
+    "model_version": "retguard-dr-v1.0.0",
+    "checkpoint_sha256": "f0e19fa86d5a27a05731550d1d6708c01f6f363f45a1fa57849de988f91e775b",
+    "clinical_validation_claim": false
+  },
+  "affected_runtime_paths": [
+    "POST /api/v1/screening/classify",
+    "POST /api/v1/screening/trust",
+    "POST /api/v1/screening/run",
+    "RetinaGuard model-disagreement and review signals",
+    "persisted screening classification/audit payload",
+    "screening report and PDF projection"
+  ],
+  "safety_behavior": {
+    "verifier_unavailable": "primary result is retained and review is recommended",
+    "primary_unavailable": "verifier-only fallback is marked for review",
+    "both_unavailable": "no referable result is fabricated; evidence is insufficient",
+    "disagreement": "fused referable output follows the max rule and review is recommended",
+    "ood": "verifier OOD is retained as a review signal; it does not rewrite severity"
+  },
+  "tests_added": [
+    "maximum-probability low/low, primary-high, verifier-high, and both-high cases",
+    "severity grade remains primary when fused referability differs",
+    "disabled fusion preserves existing primary behavior",
+    "verifier unavailable, verifier-only, and insufficient-evidence fallbacks",
+    "RetinaGuard receives referable disagreement as a review signal"
+  ],
+  "regression": {
+    "backend_pytest": "101 passed",
+    "compileall": "passed",
+    "frontend_lint": "passed",
+    "frontend_build": "passed",
+    "official_idrid_test_images_opened": 0
+  },
+  "limitations": [
+    "Fusion is not promoted to production.",
+    "RETGUARD has known IDRiD training-overlap risk in development evidence.",
+    "The fusion result is an engineering research signal, not a clinical guarantee."
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "classifier": {
+    "architecture": "efficientnet_b0",
+    "checkpoint_path": "ml/weights/classifiers/aptos2019/efficientnet-b0-aptos2019-20260830-v1/checkpoint_best.pt",
+    "checkpoint_sha256_actual": "ae6bb62ced2a108abc1a862870e64985b368b84e69bd8c8c8aa9912754d1a70b",
+    "checkpoint_sha256_after": "ae6bb62ced2a108abc1a862870e64985b368b84e69bd8c8c8aa9912754d1a70b",
+    "checkpoint_sha256_before": "ae6bb62ced2a108abc1a862870e64985b368b84e69bd8c8c8aa9912754d1a70b",
+    "checkpoint_sha256_expected": "ae6bb62ced2a108abc1a862870e64985b368b84e69bd8c8c8aa9912754d1a70b",
+    "checkpoint_unchanged": true,
+    "checkpoint_unchanged_during_evaluation": true,
+    "class_mapping": {
+      "0": "No DR",
+      "1": "Mild",
+      "2": "Moderate",
+      "3": "Severe",
+      "4": "Proliferative DR"
+    },
+    "clinical_validation_claim": false,
+    "confidence_note": "Raw model confidence is not clinically calibrated; no calibration was fitted for this external evaluation.",
+    "dataset_version": "aptos2019-inventory-0738551f82b4",
+    "input_resolution": 224,
+    "model_name": "RETINA-NEXUS DR classifier",
+    "model_version": "efficientnet-b0-aptos2019-20260830-v1",
+    "ordinal_mode": false,
+    "output_classes": 5,
+    "preprocessing": {
+      "color_conversion": "RGB",
+      "dataset_specific_optimization": false,
+      "normalization_mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "normalization_std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "resize": [
+        224,
+        224
+      ],
+      "to_tensor": true
+    },
+    "preprocessing_contract": {
+      "color_conversion": "RGB",
+      "dataset_specific_optimization": false,
+      "normalization_mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "normalization_std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "resize": [
+        224,
+        224
+      ],
+      "to_tensor": true
+    },
+    "referable_mapping": {
+      "name": "grade_2_or_worse",
+      "referable_grades": [
+        2,
+        3,
+        4
+      ]
+    },
+    "referable_rule": "referable_probability = P(2) + P(3) + P(4); referable = referable_probability >= 0.5; severity grade = argmax(P0..P4)."
+  },
+  "generated_at_utc": "2026-09-13T20:10:29.180968+00:00",
+  "grad_cam": {
+    "classifier_linked": true,
+    "implementation": "backend/app/ml/explainability/service.py",
+    "status": "AVAILABLE_FROM_REGISTERED_CLASSIFIER"
+  },
+  "localization": {
+    "clinical_validation_claim": false,
+    "method": "classical optic-disc/fovea heuristic only when evidence service runs",
+    "research_idrid_localization_enabled": false,
+    "status": "NOT_CONFIGURED_FOR_PRODUCTION"
+  },
+  "primary_lesion": {
+    "architecture": "U-Net with SE-ResNeXt-50 32x4d",
+    "exists": true,
+    "manifest_path": "ml/weights/lesion_segmentation/fundus-lesions-unet-seresnext50-all-v1/model_manifest.json",
+    "model_version": "fundus-lesions-unet-seresnext50-all-v1",
+    "path": "ml/weights/lesion_segmentation/fundus-lesions-unet-seresnext50-all-v1/model.safetensors",
+    "sha256": "a7a7cb45b92328f7c9a8e581eec3944fd435d37fae8cbf340b1319c5f987c6d2",
+    "status": "AVAILABLE"
+  },
+  "primary_vessel": {
+    "architecture": "RRWNet (R2-V2 bv variant)",
+    "exists": true,
+    "manifest_path": "ml/weights/vessel_segmentation/r2-v2-bv-2025/model_manifest.json",
+    "model_version": "r2-v2-bv-2025",
+    "path": "ml/weights/vessel_segmentation/r2-v2-bv-2025/bv.safetensors",
+    "sha256": "ea219b13b03984b8d454f999343c5bda1a8a7cb8586aeb3639a29814cab2330a",
+    "status": "AVAILABLE"
+  },
+  "production_behavior_changed": false,
+  "research_models": {
+    "drive_vessel": {
+      "enabled": false
+    },
+    "idrid_lesion": {
+      "enabled": false
+    },
+    "idrid_localization": {
+      "enabled": false
+    }
+  },
+  "retinaguard": {
+    "calibration_fitted": false,
+    "calibration_version": "temperature-scaling-unfitted",
+    "configuration_version": "retinaguard-v3-graceful-degradation",
+    "status": "AVAILABLE",
+    "thresholds": {
+      "trusted": 0.75,
+      "unreliable": 0.45
+    }
+  }
+}

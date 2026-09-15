@@ -80,6 +80,7 @@ class RetinaGuardInputs:
     predicted_grade: int | None = None
     predicted_grade_label: str | None = None
     referable_dr: bool | None = None
+    referable_fusion: dict[str, Any] | None = None
     model_version: str | None = None
     pipeline_failure: str | None = None
 
@@ -223,6 +224,12 @@ class RetinaGuardEngine:
         if inputs.predicted_grade is not None and not any(item.get("model_version") == inputs.model_version for item in disagreement_inputs):
             disagreement_inputs.insert(0, {"model_version": inputs.model_version or "primary", "predicted_grade": inputs.predicted_grade, "predicted_grade_label": inputs.predicted_grade_label})
         disagreement = calculate_model_disagreement(disagreement_inputs)
+        referable_fusion = inputs.referable_fusion or {}
+        disagreement = {
+            **disagreement,
+            "referable_fusion": referable_fusion,
+            "referable_disagreement": referable_fusion.get("disagreement"),
+        }
         ood = inputs.ood or self.ood_monitor.evaluate(inputs.quality_feature_vector)
         agreement_score = (inputs.attention_lesion_agreement or {}).get("score")
         stability_score = self._stability_score(inputs.explanation_stability)
@@ -286,6 +293,7 @@ class RetinaGuardEngine:
             "calibrated_confidence": calibrated_confidence, "uncertainty_score": uncertainty.get("score"),
             "lesion_evidence_strength": inputs.lesion_evidence_strength, "attention_lesion_agreement": inputs.attention_lesion_agreement,
             "explanation_stability": inputs.explanation_stability, "ood": ood,
+            "referable_fusion": referable_fusion,
             "vessel_evidence_status": inputs.vessel_evidence_status or "UNAVAILABLE",
             "image_quality_status": "AVAILABLE" if inputs.quality_score is not None else "UNAVAILABLE",
             "lesion_evidence_status": "AVAILABLE" if inputs.lesion_evidence_strength is not None else "NOT_AVAILABLE",
@@ -293,7 +301,7 @@ class RetinaGuardEngine:
             "explanation_status": "AVAILABLE" if inputs.explanation_stability and inputs.explanation_stability.get("status") == "COMPLETED" else "LIMITED" if inputs.explanation_stability else "UNAVAILABLE",
         }
         assessment_status = "FAILED" if inputs.pipeline_failure else "COMPLETED_WITH_CRITICAL_SIGNAL_MISSING" if core_missing else "COMPLETED_LIMITED" if optional_missing else "COMPLETED"
-        configuration = {"version": self.version, "weights": self.weights, "missing_signal_score": self.missing_signal_score, "trusted_threshold": self.trusted_threshold, "unreliable_threshold": self.unreliable_threshold, "calibration_version": self.calibrator.version, "mc_dropout_enabled": self.mc_dropout_enabled, "mc_dropout_samples": self.mc_dropout_samples, "vessel_evidence_policy": "provenance_audit_only; no independent trust-score weight", "decision_policy_version": "retinaguard-state-policy-v3-graceful-degradation", "optional_capability_policy": "required" if self.require_optional_capabilities else "graceful_degradation", "safe_action": safe_action, "clinical_validation_claim": False, "assessment_status": assessment_status, "critical_signals_missing": core_missing, "optional_signals_unavailable": optional_missing, "pipeline_failure": inputs.pipeline_failure}
+        configuration = {"version": self.version, "weights": self.weights, "missing_signal_score": self.missing_signal_score, "trusted_threshold": self.trusted_threshold, "unreliable_threshold": self.unreliable_threshold, "calibration_version": self.calibrator.version, "mc_dropout_enabled": self.mc_dropout_enabled, "mc_dropout_samples": self.mc_dropout_samples, "vessel_evidence_policy": "provenance_audit_only; no independent trust-score weight", "referable_fusion_policy": "max(primary_probability, verifier_probability) >= 0.40; severity remains primary argmax", "decision_policy_version": "retinaguard-state-policy-v3-graceful-degradation", "optional_capability_policy": "required" if self.require_optional_capabilities else "graceful_degradation", "safe_action": safe_action, "clinical_validation_claim": False, "assessment_status": assessment_status, "critical_signals_missing": core_missing, "optional_signals_unavailable": optional_missing, "pipeline_failure": inputs.pipeline_failure}
         result = RetinaGuardResult(trust_score, category, contributing, risk_flags, action, calibration, uncertainty, disagreement, ood, signal_snapshot, configuration, reason_summary)
         logger.info("retinaguard.score", extra={"event": "retinaguard.score", "trust_category": result.trust_category, "configuration_version": self.version, "missing_capabilities": optional_missing})
         return result
@@ -333,6 +341,13 @@ class RetinaGuardEngine:
             add("high_model_disagreement", "high", "Multiple model predictions disagree materially in severity.")
         elif disagreement.get("disagreement") is None and len(inputs.model_predictions) > 0:
             add("model_disagreement_not_available", "medium", "Additional model predictions were supplied but could not be compared.")
+        referable_fusion = inputs.referable_fusion or {}
+        if referable_fusion.get("disagreement") is True:
+            add("referable_model_disagreement", "medium", "Primary and independent referable-risk signals disagree; human review is recommended.")
+        elif referable_fusion.get("status") == "VERIFIER_UNAVAILABLE":
+            add("referable_verifier_unavailable", "medium", "Primary referable risk remains available, but independent verification was unavailable.")
+        elif referable_fusion.get("status") == "INSUFFICIENT_EVIDENCE":
+            add("referable_fusion_insufficient_evidence", "high", "Neither primary nor independent referable-risk signal was available.")
         if agreement is not None and agreement < 0.30:
             add("low_attention_evidence_agreement", "high", "Classifier attention has low overlap with supported lesion evidence.")
         elif agreement is None:

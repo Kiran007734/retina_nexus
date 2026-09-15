@@ -1,0 +1,80 @@
+{
+  "corrupt_images": [],
+  "dataset": "IDRiD A. Segmentation",
+  "duplicate_group_cross_split": [],
+  "exact_duplicate_groups": {},
+  "fov": {
+    "reason": "No official FOV masks were found in the IDRiD segmentation package.",
+    "status": "UNAVAILABLE"
+  },
+  "generated_at_utc": "2026-09-12T19:59:37.127846+00:00",
+  "image_dimensions": {
+    "4288x2848": 81
+  },
+  "image_formats": {
+    "JPEG": 81
+  },
+  "image_modes": {
+    "RGB": 81
+  },
+  "mask_missing_policy": "UNAVAILABLE masks are excluded from supervised loss and class-specific evaluation; they are never treated as negative masks.",
+  "mask_summary": {
+    "haemorrhages": {
+      "active_pixels_train": 6500485,
+      "available_test": 27,
+      "available_total": 80,
+      "available_train": 53,
+      "positive_train_images": 53,
+      "unavailable_test": 0,
+      "unavailable_total": 1,
+      "unavailable_train": 1,
+      "unreadable_total": 0
+    },
+    "hard_exudates": {
+      "active_pixels_train": 5319524,
+      "available_test": 27,
+      "available_total": 81,
+      "available_train": 54,
+      "positive_train_images": 54,
+      "unavailable_test": 0,
+      "unavailable_total": 0,
+      "unavailable_train": 0,
+      "unreadable_total": 0
+    },
+    "microaneurysms": {
+      "active_pixels_train": 704963,
+      "available_test": 27,
+      "available_total": 81,
+      "available_train": 54,
+      "positive_train_images": 54,
+      "unavailable_test": 0,
+      "unavailable_total": 0,
+      "unavailable_train": 0,
+      "unreadable_total": 0
+    },
+    "soft_exudates": {
+      "active_pixels_train": 1249041,
+      "available_test": 14,
+      "available_total": 40,
+      "available_train": 26,
+      "positive_train_images": 26,
+      "unavailable_test": 13,
+      "unavailable_total": 41,
+      "unavailable_train": 28,
+      "unreadable_total": 0
+    }
+  },
+  "official_test_set_status": "FROZEN_UNTIL_FINAL_MODEL_SELECTION",
+  "official_testing_images": 27,
+  "official_testing_predictions_or_model_selection": false,
+  "perceptual_duplicate_groups": {},
+  "raw_root": "ml/datasets/raw/idrid/A. Segmentation/A. Segmentation",
+  "schema_version": "idrid-lesion-audit-1",
+  "special_encoding": {
+    "file": "IDRiD_81_EX.tif",
+    "handling": "RGBA hard-exudate mask uses the varying red channel; raw TIFF is not rewritten.",
+    "image_id": "IDRiD_81"
+  },
+  "split_artifact": "ml/datasets/metadata/idrid/idrid_lesion_split.json",
+  "training_images": 54
+}

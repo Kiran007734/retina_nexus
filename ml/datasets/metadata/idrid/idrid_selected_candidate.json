@@ -1,0 +1,25 @@
+{
+  "decision": "KEEP_CURRENT_IDRID_MODEL",
+  "eligible_target_candidates": [
+    "baseline"
+  ],
+  "official_test": "RESERVED_NOT_EVALUATED",
+  "priority_order": [
+    "leakage_and_defects",
+    "referable_sensitivity",
+    "referable_specificity",
+    "referable_false_negatives",
+    "qwk",
+    "macro_f1",
+    "grade_3_4_sensitivity",
+    "ece",
+    "reproducibility"
+  ],
+  "production_promoted": false,
+  "ranked_candidates": [
+    "baseline"
+  ],
+  "rationale": "No candidate was selected over the current checkpoint unless it met referable targets, did not increase referable false negatives, and improved both QWK and macro F1 on the fixed validation split.",
+  "selected_experiment": "baseline",
+  "selected_model_version": "efficientnet-b0-idrid-20260912-v1"
+}

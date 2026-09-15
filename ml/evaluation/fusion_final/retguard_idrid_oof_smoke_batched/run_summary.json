@@ -1,0 +1,17 @@
+{
+  "clinical_validation_claim": false,
+  "elapsed_wall_seconds": 10.648303099966142,
+  "failed_count": 0,
+  "failures": [],
+  "manifest": "ml/datasets/metadata/idrid/idrid_v2_development_manifest.json",
+  "messidor_labels_used": false,
+  "official_idrid_test_images_opened": 0,
+  "onnx_sha256": "f0e19fa86d5a27a05731550d1d6708c01f6f363f45a1fa57849de988f91e775b",
+  "oof_source": "ml/evaluation/referable_v2/oof_predictions.jsonl",
+  "requested_count": 1,
+  "status": "COMPLETE",
+  "successful_count": 1,
+  "threshold": 0.204983,
+  "tta": true,
+  "weights_dir": "ml/weights/backup_verifier/retguard/v1.0.0"
+}

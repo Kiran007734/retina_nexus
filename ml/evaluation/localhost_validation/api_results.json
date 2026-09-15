@@ -1,0 +1,581 @@
+{
+  "backend_root": {
+    "status": 200,
+    "content_type": "application/json",
+    "request_id": "83356f45-a488-4d6c-b151-2a9ddf9a6222",
+    "keys": [
+      "docs",
+      "name",
+      "status"
+    ],
+    "duration_ms": 2085.1
+  },
+  "backend_ready": {
+    "status": 200,
+    "content_type": "application/json",
+    "request_id": "5f66d660-1f5d-49df-86b0-f99f68016f85",
+    "keys": [
+      "backend_ready",
+      "classifier",
+      "database",
+      "note",
+      "optional_models",
+      "report_generator",
+      "status"
+    ],
+    "duration_ms": 12.1
+  },
+  "backend_health": {
+    "status": 200,
+    "content_type": "application/json",
+    "request_id": "fd14a993-5f88-48c8-9cb3-6b5c1f2b5e3a",
+    "keys": [
+      "database",
+      "service",
+      "status",
+      "version"
+    ],
+    "duration_ms": 10.6
+  },
+  "docs": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "request_id": "baaeed6b-77e7-4e96-895f-11834f15b4d4",
+    "bytes": 940,
+    "prefix": "\n    <!DOCTY",
+    "duration_ms": 4.6
+  },
+  "openapi": {
+    "status": 200,
+    "content_type": "application/json",
+    "request_id": "997590d2-4cb4-4c49-924f-3d9345f7283f",
+    "keys": [
+      "components",
+      "info",
+      "openapi",
+      "paths"
+    ],
+    "duration_ms": 79.4
+  },
+  "cors_preflight": {
+    "status": 200,
+    "content_type": "text/plain; charset=utf-8",
+    "request_id": "1357c43c-d524-4664-a73e-9d04eefa59bd",
+    "bytes": 2,
+    "prefix": "OK",
+    "duration_ms": 4.6,
+    "allow_origin": "http://localhost:5173",
+    "allow_methods": "DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT"
+  },
+  "frontend_root": {
+    "status": 200,
+    "content_type": "text/html",
+    "request_id": null,
+    "bytes": 714,
+    "prefix": "<!doctype ht",
+    "duration_ms": 2032.6
+  },
+  "frontend_route:/screening/new": {
+    "status": 200,
+    "content_type": "text/html",
+    "request_id": null,
+    "bytes": 714,
+    "prefix": "<!doctype ht",
+    "duration_ms": 8.6
+  },
+  "frontend_route:/screening/results": {
+    "status": 200,
+    "content_type": "text/html",
+    "request_id": null,
+    "bytes": 714,
+    "prefix": "<!doctype ht",
+    "duration_ms": 7.5
+  },
+  "frontend_asset:/@vite/client": {
+    "status": 200,
+    "content_type": "text/javascript",
+    "request_id": null,
+    "bytes": 182631,
+    "prefix": "import \"/nod",
+    "duration_ms": 46.4
+  },
+  "frontend_asset:/src/main.tsx": {
+    "status": 200,
+    "content_type": "text/javascript",
+    "request_id": null,
+    "bytes": 2473,
+    "prefix": "import __vit",
+    "duration_ms": 3.4
+  },
+  "patient_create": {
+    "status": 201,
+    "content_type": "application/json",
+    "request_id": "52297690-25d4-49d7-a1b9-d1e483a4125d",
+    "keys": [
+      "age_group",
+      "anonymized_identifier",
+      "created_at",
+      "id"
+    ],
+    "duration_ms": 34.4
+  },
+  "gradable_upload": {
+    "status": 201,
+    "content_type": "application/json",
+    "request_id": "3712a0f9-61e3-4cb5-86c2-3a47f881c267",
+    "keys": [
+      "eye",
+      "image_id",
+      "message",
+      "patient_id",
+      "quality_decision"
+    ],
+    "duration_ms": 133.3
+  },
+  "gradable_quality": {
+    "status": 200,
+    "content_type": "application/json",
+    "request_id": "7ea79cdf-b5cf-4001-a7c7-c7be96823cf2",
+    "keys": [
+      "component_scores",
+      "enhancement_applied",
+      "enhancement_passes",
+      "feature_vector",
+      "final_quality_score",
+      "image_id",
+      "input_metadata",
+      "issues",
+      "metrics",
+      "next_action",
+      "quality_decision",
+      "quality_score",
+      "recheck_decision",
+      "recheck_issues",
+      "recheck_score",
+      "recommended_action"
+    ],
+    "duration_ms": 153.5
+  },
+  "gradable_run": {
+    "status": 200,
+    "content_type": "application/json",
+    "request_id": "94001ec0-41dd-4b8d-b8ba-bbd4eb601b1f",
+    "keys": [
+      "classification",
+      "error",
+      "evidence_message",
+      "evidence_status",
+      "explainability",
+      "image_id",
+      "lesions",
+      "message",
+      "model_versions",
+      "patient_id",
+      "primary_status",
+      "quality",
+      "retinaguard",
+      "screening_id",
+      "screening_session_id",
+      "stage_errors",
+      "stage_metrics",
+      "stage_status",
+      "status",
+      "triage"
+    ],
+    "duration_ms": 728.5
+  },
+  "gradable_status_last": {
+    "status": 200,
+    "content_type": "application/json",
+    "request_id": "1a6237e2-d1ee-4ad9-82df-ec629382fc04",
+    "keys": [
+      "classification",
+      "error",
+      "evidence_message",
+      "evidence_status",
+      "explainability",
+      "image_id",
+      "lesions",
+      "message",
+      "model_versions",
+      "patient_id",
+      "primary_status",
+      "quality",
+      "retinaguard",
+      "screening_id",
+      "screening_session_id",
+      "stage_errors",
+      "stage_metrics",
+      "stage_status",
+      "status",
+      "triage"
+    ]
+  },
+  "borderline_upload": {
+    "status": 201,
+    "content_type": "application/json",
+    "request_id": "8e4f5498-7d8b-49c9-a120-413b27e8c680",
+    "keys": [
+      "eye",
+      "image_id",
+      "message",
+      "patient_id",
+      "quality_decision"
+    ],
+    "duration_ms": 2267.5
+  },
+  "borderline_quality": {
+    "status": 200,
+    "content_type": "application/json",
+    "request_id": "a46926ae-1394-4431-ade6-f3aa1ba98255",
+    "keys": [
+      "component_scores",
+      "enhancement_applied",
+      "enhancement_passes",
+      "feature_vector",
+      "final_quality_score",
+      "image_id",
+      "input_metadata",
+      "issues",
+      "metrics",
+      "next_action",
+      "quality_decision",
+      "quality_score",
+      "recheck_decision",
+      "recheck_issues",
+      "recheck_score",
+      "recommended_action"
+    ],
+    "duration_ms": 4817.3
+  },
+  "borderline_run": {
+    "status": 200,
+    "content_type": "application/json",
+    "request_id": "e87886fe-8d1e-4e46-b31b-1e1a563fc5b7",
+    "keys": [
+      "classification",
+      "error",
+      "evidence_message",
+      "evidence_status",
+      "explainability",
+      "image_id",
+      "lesions",
+      "message",
+      "model_versions",
+      "patient_id",
+      "primary_status",
+      "quality",
+      "retinaguard",
+      "screening_id",
+      "screening_session_id",
+      "stage_errors",
+      "stage_metrics",
+      "stage_status",
+      "status",
+      "triage"
+    ],
+    "duration_ms": 4572.9
+  },
+  "ungradable_upload": {
+    "status": 201,
+    "content_type": "application/json",
+    "request_id": "673496f4-137a-4923-8efa-bea3600ac0fe",
+    "keys": [
+      "eye",
+      "image_id",
+      "message",
+      "patient_id",
+      "quality_decision"
+    ],
+    "duration_ms": 244.9
+  },
+  "ungradable_quality": {
+    "status": 200,
+    "content_type": "application/json",
+    "request_id": "cb9f8f3f-0308-4f5e-aa29-ce1116be4887",
+    "keys": [
+      "component_scores",
+      "enhancement_applied",
+      "enhancement_passes",
+      "feature_vector",
+      "final_quality_score",
+      "image_id",
+      "input_metadata",
+      "issues",
+      "metrics",
+      "next_action",
+      "quality_decision",
+      "quality_score",
+      "recheck_decision",
+      "recheck_issues",
+      "recheck_score",
+      "recommended_action"
+    ],
+    "duration_ms": 771.1
+  },
+  "ungradable_run": {
+    "status": 200,
+    "content_type": "application/json",
+    "request_id": "43799502-1a0f-48a8-aaa4-932abbe35b0f",
+    "keys": [
+      "classification",
+      "error",
+      "evidence_message",
+      "evidence_status",
+      "explainability",
+      "image_id",
+      "lesions",
+      "message",
+      "model_versions",
+      "patient_id",
+      "primary_status",
+      "quality",
+      "retinaguard",
+      "screening_id",
+      "screening_session_id",
+      "stage_errors",
+      "stage_metrics",
+      "stage_status",
+      "status",
+      "triage"
+    ],
+    "duration_ms": 1049.8
+  },
+  "direct_classifier": {
+    "status": 200,
+    "content_type": "application/json",
+    "request_id": "e4816b0c-094f-4c61-b24a-682ff543bbdb",
+    "keys": [
+      "backbone",
+      "hierarchical_probabilities",
+      "image_id",
+      "model_name",
+      "model_version",
+      "note",
+      "ordinal_mode",
+      "predicted_grade",
+      "predicted_grade_label",
+      "primary_referable_dr",
+      "primary_referable_probability",
+      "probabilities",
+      "raw_confidence",
+      "referable_dr",
+      "referable_fusion",
+      "referable_mapping",
+      "referable_probability",
+      "screening_session_id"
+    ],
+    "duration_ms": 117.4,
+    "summary": {
+      "predicted_grade": 0,
+      "predicted_grade_label": "No DR",
+      "referable_dr": false,
+      "referable_probability": 0.011533,
+      "raw_confidence": 0.973709,
+      "model_version": "efficientnet-b0-aptos2019-20260830-v1"
+    }
+  },
+  "persisted_result": {
+    "status": 200,
+    "content_type": "application/json",
+    "request_id": "97ae4193-6d6b-4398-bf22-f7def70c1ac3",
+    "keys": [
+      "calibrated_confidence",
+      "confidence",
+      "created_at",
+      "dr_grade",
+      "final_decision",
+      "model_version",
+      "referable_dr",
+      "session_id",
+      "status",
+      "trust_score",
+      "uncertainty"
+    ],
+    "duration_ms": 16.6,
+    "summary": {
+      "session_id": "3e6be56c-6fc0-4f72-a56b-cc6ebff2e654",
+      "status": "complete",
+      "dr_grade": 0,
+      "referable_dr": false,
+      "confidence": 0.973709,
+      "calibrated_confidence": 0.973709,
+      "uncertainty": 0.073107,
+      "trust_score": 0.601936,
+      "final_decision": null,
+      "model_version": "efficientnet-b0-aptos2019-20260830-v1",
+      "created_at": "2026-09-14T20:19:30"
+    }
+  },
+  "image_content": {
+    "status": 200,
+    "content_type": "image/png",
+    "request_id": "aa313af4-4a72-45e9-96e0-3d95aa0045b7",
+    "bytes": 1003991,
+    "prefix": "\u0089PNG\r\n\u001a\n\u0000\u0000\u0000\r",
+    "duration_ms": 18.4,
+    "image_bytes": 1003991
+  },
+  "concurrency_upload_1": {
+    "status": 201,
+    "content_type": "application/json",
+    "request_id": "6a6e1dac-fff4-47d7-b9fa-97c33e70387c",
+    "keys": [
+      "eye",
+      "image_id",
+      "message",
+      "patient_id",
+      "quality_decision"
+    ]
+  },
+  "concurrency_upload_2": {
+    "status": 201,
+    "content_type": "application/json",
+    "request_id": "92e83cb3-d805-4da9-8b0a-5df680730893",
+    "keys": [
+      "eye",
+      "image_id",
+      "message",
+      "patient_id",
+      "quality_decision"
+    ]
+  },
+  "concurrency_run_1": {
+    "status": 200,
+    "content_type": "application/json",
+    "request_id": "c5a5b12b-0987-495f-9e5f-fb9a6c2b28ca",
+    "keys": [
+      "classification",
+      "error",
+      "evidence_message",
+      "evidence_status",
+      "explainability",
+      "image_id",
+      "lesions",
+      "message",
+      "model_versions",
+      "patient_id",
+      "primary_status",
+      "quality",
+      "retinaguard",
+      "screening_id",
+      "screening_session_id",
+      "stage_errors",
+      "stage_metrics",
+      "stage_status",
+      "status",
+      "triage"
+    ],
+    "duration_ms": 3076.3
+  },
+  "concurrency_run_2": {
+    "status": 200,
+    "content_type": "application/json",
+    "request_id": "86475ee4-c20c-4e19-8ea7-a7a68479aeb5",
+    "keys": [
+      "classification",
+      "error",
+      "evidence_message",
+      "evidence_status",
+      "explainability",
+      "image_id",
+      "lesions",
+      "message",
+      "model_versions",
+      "patient_id",
+      "primary_status",
+      "quality",
+      "retinaguard",
+      "screening_id",
+      "screening_session_id",
+      "stage_errors",
+      "stage_metrics",
+      "stage_status",
+      "status",
+      "triage"
+    ],
+    "duration_ms": 2620.0
+  },
+  "invalid_image_upload": {
+    "status": 422,
+    "content_type": "application/json",
+    "request_id": "dbfdff3d-c3bf-4e00-8b35-2393e66c18b7",
+    "keys": [
+      "detail",
+      "error_code"
+    ],
+    "body": {
+      "detail": "Image decoding or integrity check failed",
+      "error_code": "INVALID_IMAGE"
+    }
+  },
+  "mismatched_mime_upload": {
+    "status": 415,
+    "content_type": "application/json",
+    "request_id": "02385eae-0066-4cc4-a8d2-8d97e67b4a52",
+    "keys": [
+      "detail",
+      "error_code"
+    ],
+    "body": {
+      "detail": "The declared media type does not match the decoded image format",
+      "error_code": "UNSUPPORTED_MEDIA_TYPE"
+    }
+  },
+  "oversized_upload": {
+    "status": 413,
+    "content_type": "application/json",
+    "request_id": "7c412bb4-35bf-4e1e-a6f8-38ea39eb9280",
+    "keys": [
+      "detail",
+      "error_code"
+    ],
+    "body": {
+      "detail": "Image exceeds configured size limit",
+      "error_code": "PAYLOAD_TOO_LARGE"
+    }
+  },
+  "traversal_filename_upload": {
+    "status": 201,
+    "content_type": "application/json",
+    "request_id": "ceb43ba4-894e-435e-a665-6025b5706988",
+    "keys": [
+      "eye",
+      "image_id",
+      "message",
+      "patient_id",
+      "quality_decision"
+    ],
+    "generated_storage_id": true
+  },
+  "report_generate": {
+    "status": 201,
+    "content_type": "application/json",
+    "request_id": "a9a75f27-8074-469f-8ac8-e74f2f00d4a8",
+    "keys": [
+      "created_at",
+      "download_url",
+      "report",
+      "report_id",
+      "session_id",
+      "status"
+    ],
+    "duration_ms": 116.9
+  },
+  "report_pdf": {
+    "status": 200,
+    "content_type": "application/pdf",
+    "request_id": "10607b8e-9569-4197-9914-128157bb6865",
+    "bytes": 2058,
+    "prefix": "%PDF-1.4\n1 0",
+    "duration_ms": 16.6
+  },
+  "frontend_contract": {
+    "api_base": "http://localhost:8000/api/v1",
+    "upload_method": "POST",
+    "upload_field": "image",
+    "content_type_header_managed_by_browser": true,
+    "run_method": "POST",
+    "run_content_type": "application/json"
+  }
+}

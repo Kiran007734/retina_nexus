@@ -1,0 +1,11 @@
+{
+  "category_counts": {
+    "REVIEW_RECOMMENDED": 1444,
+    "UNRELIABLE": 300
+  },
+  "engine_version": "retinaguard-v3-graceful-degradation",
+  "false_negative_warning_coverage": "Not computed as a clinical safety measure; complete FN records include the current engineering Guard state.",
+  "optional_signals": "lesion evidence, vessel evidence, attention agreement, and explanation stability were unavailable in the all-image pass and are not inferred.",
+  "population_count": 1744,
+  "status": "CALCULATED_FOR_CLASSIFIER_AND_QUALITY_SIGNALS"
+}

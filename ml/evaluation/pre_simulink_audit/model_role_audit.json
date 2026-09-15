@@ -1,0 +1,1028 @@
+{
+  "generated_at_utc": "2026-09-14T16:08:17.235321+00:00",
+  "legacy_registry_note": "ml/weights/model_registry.json is the runtime registry selected by the registry service. ml/model_registry.json and ml/models/model_registry.json contain legacy/generated records and should be reconciled before production packaging.",
+  "registry_conflicts": [
+    {
+      "authoritative": {
+        "availability": "MODEL_AVAILABLE",
+        "checkpoint": "ml\\weights\\classifiers\\aptos2019\\efficientnet-b0-aptos2019-20260830-v1\\checkpoint_best.pt",
+        "sha256": "ae6bb62ced2a108abc1a862870e64985b368b84e69bd8c8c8aa9912754d1a70b"
+      },
+      "authoritative_registry": "ml/weights/model_registry.json",
+      "legacy": {
+        "availability": "MODEL_MISSING",
+        "checkpoint": "ml\\weights\\classifiers\\aptos2019\\efficientnet-b0-aptos2019-20260830-v1\\checkpoint_best.pt",
+        "sha256": "ae6bb62ced2a108abc1a862870e64985b368b84e69bd8c8c8aa9912754d1a70b"
+      },
+      "legacy_registry": "ml/model_registry.json",
+      "model_version": "efficientnet-b0-aptos2019-20260830-v1"
+    },
+    {
+      "authoritative": {
+        "availability": "MODEL_AVAILABLE",
+        "checkpoint": "ml\\weights\\lesion_segmentation\\fundus-lesions-unet-seresnext50-all-v1\\model.safetensors",
+        "sha256": "a7a7cb45b92328f7c9a8e581eec3944fd435d37fae8cbf340b1319c5f987c6d2"
+      },
+      "authoritative_registry": "ml/weights/model_registry.json",
+      "legacy": {
+        "availability": "MODEL_MISSING",
+        "checkpoint": "ml\\weights\\lesion_segmentation\\fundus-lesions-unet-seresnext50-all-v1\\model.safetensors",
+        "sha256": "a7a7cb45b92328f7c9a8e581eec3944fd435d37fae8cbf340b1319c5f987c6d2"
+      },
+      "legacy_registry": "ml/model_registry.json",
+      "model_version": "fundus-lesions-unet-seresnext50-all-v1"
+    },
+    {
+      "authoritative": {
+        "availability": "MODEL_AVAILABLE",
+        "checkpoint": "ml\\weights\\vessel_segmentation\\r2-v2-bv-2025\\bv.safetensors",
+        "sha256": "ea219b13b03984b8d454f999343c5bda1a8a7cb8586aeb3639a29814cab2330a"
+      },
+      "authoritative_registry": "ml/weights/model_registry.json",
+      "legacy": {
+        "availability": "MODEL_MISSING",
+        "checkpoint": "ml\\weights\\vessel_segmentation\\r2-v2-bv-2025\\bv.safetensors",
+        "sha256": "ea219b13b03984b8d454f999343c5bda1a8a7cb8586aeb3639a29814cab2330a"
+      },
+      "legacy_registry": "ml/model_registry.json",
+      "model_version": "r2-v2-bv-2025"
+    }
+  ],
+  "role_rules": {
+    "grad_cam": "explanation only",
+    "lesion_primary": "pretrained U-Net + SE-ResNeXt-50 supporting evidence",
+    "localization": "existing baseline primary; IDRiD adapter opt-in research",
+    "referable_research_fusion": "disabled by default; max(primary_probability, verifier_probability) >= 0.40 when explicitly enabled",
+    "severity_controller": "APTOS primary classifier; severity = argmax(P0..P4)",
+    "vessel_primary": "R2-V2/RRWNet supporting evidence"
+  },
+  "roles": [
+    {
+      "actual_sha256": "ae6bb62ced2a108abc1a862870e64985b368b84e69bd8c8c8aa9912754d1a70b",
+      "architecture": "EfficientNet-B0 multi-head; severity head controls Grade 0-4",
+      "exists": true,
+      "expected_sha256": "ae6bb62ced2a108abc1a862870e64985b368b84e69bd8c8c8aa9912754d1a70b",
+      "manifest_architecture": null,
+      "manifest_present": true,
+      "model_version": "efficientnet-b0-aptos2019-20260830-v1",
+      "name": "APTOS EfficientNet-B0",
+      "path": "ml/weights/classifiers/aptos2019/efficientnet-b0-aptos2019-20260830-v1/checkpoint_best.pt",
+      "production_promoted": true,
+      "registry_record": {
+        "architecture": "efficientnet_b0",
+        "artifact_directory": "ml\\weights\\classifiers\\aptos2019\\efficientnet-b0-aptos2019-20260830-v1",
+        "artifact_kind": "FINE_TUNED_MODEL",
+        "artifact_status": "MODEL_TRAINED",
+        "availability_status": "MODEL_AVAILABLE",
+        "checkpoint": "ml\\weights\\classifiers\\aptos2019\\efficientnet-b0-aptos2019-20260830-v1\\checkpoint_best.pt",
+        "checkpoint_sha256": "ae6bb62ced2a108abc1a862870e64985b368b84e69bd8c8c8aa9912754d1a70b",
+        "class_mapping": {
+          "0": "No DR",
+          "1": "Mild",
+          "2": "Moderate",
+          "3": "Severe",
+          "4": "Proliferative DR"
+        },
+        "clinical_validation_claim": false,
+        "dataset_version": "aptos2019-inventory-0738551f82b4",
+        "evaluation": {
+          "bootstrap_confidence_intervals": {
+            "confidence_level": 0.95,
+            "intervals": {
+              "accuracy": {
+                "lower": 0.6014908256880734,
+                "successful_resamples": 2000,
+                "upper": 0.6456422018348624
+              },
+              "macro_f1": {
+                "lower": 0.30937502312399445,
+                "successful_resamples": 2000,
+                "upper": 0.3802667683579632
+              },
+              "quadratic_weighted_kappa": {
+                "lower": 0.46314708498889623,
+                "successful_resamples": 2000,
+                "upper": 0.5646140585702821
+              },
+              "referable_roc_auc": {
+                "lower": 0.8053588052680403,
+                "successful_resamples": 2000,
+                "upper": 0.8524726937833578
+              },
+              "referable_sensitivity": {
+                "lower": 0.34734282310609743,
+                "successful_resamples": 2000,
+                "upper": 0.43469849529215654
+              },
+              "referable_specificity": {
+                "lower": 0.9727196550839431,
+                "successful_resamples": 2000,
+                "upper": 0.9876450259783593
+              },
+              "weighted_f1": {
+                "lower": 0.490655884409651,
+                "successful_resamples": 2000,
+                "upper": 0.5458695451838601
+              }
+            },
+            "iterations": 2000,
+            "method": "nonparametric percentile bootstrap",
+            "note": "Intervals quantify sampling variability for this external evaluation population; they are not clinical uncertainty guarantees.",
+            "sample_count": 1744,
+            "seed": 42,
+            "status": "CALCULATED"
+          },
+          "checkpoint_sha256_after": "ae6bb62ced2a108abc1a862870e64985b368b84e69bd8c8c8aa9912754d1a70b",
+          "checkpoint_sha256_before": "ae6bb62ced2a108abc1a862870e64985b368b84e69bd8c8c8aa9912754d1a70b",
+          "checkpoint_unchanged": true,
+          "clinical_validation_claim": false,
+          "dataset": "Messidor-2",
+          "dataset_version": "messidor2-external-f7abdb1e0276",
+          "evaluation_type": "zero_shot_external_validation",
+          "label_source": "google-brain/messidor2-dr-grades",
+          "metrics": {
+            "accuracy": 0.6238532110091743,
+            "averaging": {
+              "macro_f1": "unweighted mean across five classes",
+              "roc_auc_ovr_macro": "one-vs-rest macro average",
+              "weighted_f1": "support-weighted mean across five classes"
+            },
+            "class_distribution": {
+              "0": 1017,
+              "1": 270,
+              "2": 347,
+              "3": 75,
+              "4": 35
+            },
+            "clinical_validation_claim": false,
+            "confusion_matrix": [
+              [
+                999,
+                0,
+                0,
+                0,
+                18
+              ],
+              [
+                266,
+                2,
+                0,
+                0,
+                2
+              ],
+              [
+                282,
+                1,
+                45,
+                3,
+                16
+              ],
+              [
+                7,
+                0,
+                25,
+                12,
+                31
+              ],
+              [
+                2,
+                0,
+                1,
+                2,
+                30
+              ]
+            ],
+            "evaluation_population": "Matched Messidor-2 images with successful inference, adjudicated_gradable=1, and valid adjudicated_dr_grade 0..4; four unmatched label records excluded.",
+            "exclusions": "Unmatched label rows are excluded; ungradable rows and unsuccessful inferences are excluded from grade metrics.",
+            "label_mapping": "Messidor-2 adjudicated five-point ICDR grade 0..4 mapped 1:1 to the existing APTOS output labels defined in the downloaded label readme.",
+            "macro_f1": 0.34438069917298414,
+            "precision_macro": 0.5915322070707528,
+            "prediction_distribution": {
+              "0": 1556,
+              "1": 3,
+              "2": 71,
+              "3": 17,
+              "4": 97
+            },
+            "quadratic_weighted_kappa": 0.5181399386379085,
+            "recall_macro": 0.42730682932483444,
+            "referable_dr_grade_2_or_worse": {
+              "f1": 0.5416036308623298,
+              "false_negative": 278,
+              "false_positive": 25,
+              "precision": 0.8774509803921569,
+              "recall": 0.3916849015317287,
+              "roc_auc": 0.8296804095491184,
+              "rule": "true and predicted referable if grade >= 2",
+              "sensitivity": 0.3916849015317287,
+              "specificity": 0.9805749805749806,
+              "true_negative": 1262,
+              "true_positive": 179
+            },
+            "roc_auc_ovr_macro": 0.7750565082447286,
+            "sample_count": 1744,
+            "status": "CALCULATED",
+            "weighted_f1": 0.5182738878127344
+          },
+          "report": "ml/evaluation/messidor/phase4b_external_validation_report.md",
+          "sample_count": 1744
+        },
+        "evaluation_status": "EXTERNAL_VALIDATION_COMPLETED",
+        "evaluation_type": "zero_shot_external_validation",
+        "input_size": 224,
+        "model_config": {
+          "backbone": "efficientnet_b0",
+          "input_size": 224,
+          "num_classes": 5,
+          "ordinal_mode": false
+        },
+        "model_version": "efficientnet-b0-aptos2019-20260830-v1",
+        "preprocessing": {
+          "color_conversion": "RGB",
+          "dataset_specific_optimization": false,
+          "normalization_mean": [
+            0.485,
+            0.456,
+            0.406
+          ],
+          "normalization_std": [
+            0.229,
+            0.224,
+            0.225
+          ],
+          "resize": [
+            224,
+            224
+          ],
+          "to_tensor": true
+        },
+        "registered_at": "2026-08-30T14:28:30.178861+00:00",
+        "training_config": {
+          "amp_enabled": false,
+          "backbone": "efficientnet_b0",
+          "batch_size": 32,
+          "clinical_validation_claim": false,
+          "dataset": "aptos2019",
+          "dataset_version": "aptos2019-inventory-0738551f82b4",
+          "device": "cpu",
+          "device_used": "cpu",
+          "epochs": 5,
+          "input_size": 224,
+          "learning_rate": 0.0001,
+          "loss_strategy": "weighted_loss",
+          "manifest": "C:\\Users\\kiran\\Downloads\\retina_nexus\\ml\\datasets\\metadata\\splits\\aptos2019\\splits.json",
+          "mixed_precision": false,
+          "model_version": "efficientnet-b0-aptos2019-20260830-v1",
+          "num_workers": 0,
+          "ordinal_mode": false,
+          "output_dir": null,
+          "patience": 2,
+          "pretrained": true,
+          "raw_dir": "C:\\Users\\kiran\\Downloads\\retina_nexus\\ml\\datasets\\raw\\aptos2019",
+          "referable_mapping": {
+            "name": "grade_2_or_worse",
+            "referable_grades": [
+              2,
+              3,
+              4
+            ]
+          },
+          "referable_min_grade": 2,
+          "seed": 42,
+          "weight_decay": 0.0001
+        },
+        "validation_metrics": {
+          "accuracy": 0.8063314711359404,
+          "class_distribution": {
+            "0": 270,
+            "1": 54,
+            "2": 146,
+            "3": 26,
+            "4": 41
+          },
+          "confusion_matrix": [
+            [
+              266,
+              4,
+              0,
+              0,
+              0
+            ],
+            [
+              3,
+              34,
+              15,
+              1,
+              1
+            ],
+            [
+              1,
+              27,
+              96,
+              12,
+              10
+            ],
+            [
+              0,
+              1,
+              8,
+              14,
+              3
+            ],
+            [
+              0,
+              2,
+              9,
+              7,
+              23
+            ]
+          ],
+          "f1": 0.6599404835566138,
+          "loss": 0.8992102188327015,
+          "loss_components": {
+            "severity": 0.8381336530049642,
+            "stage1": 0.05439901741800805,
+            "stage2": 0.18990723286483097
+          },
+          "per_class": {
+            "Mild": {
+              "f1": 0.5573770491803278,
+              "precision": 0.5,
+              "recall": 0.6296296296296297,
+              "sensitivity": 0.6296296296296297,
+              "specificity": 0.9296066252587992,
+              "support": 54
+            },
+            "Moderate": {
+              "f1": 0.7007299270072993,
+              "precision": 0.75,
+              "recall": 0.6575342465753424,
+              "sensitivity": 0.6575342465753424,
+              "specificity": 0.9181585677749361,
+              "support": 146
+            },
+            "No DR": {
+              "f1": 0.9851851851851852,
+              "precision": 0.9851851851851852,
+              "recall": 0.9851851851851852,
+              "sensitivity": 0.9851851851851852,
+              "specificity": 0.9850187265917603,
+              "support": 270
+            },
+            "Proliferative DR": {
+              "f1": 0.5897435897435899,
+              "precision": 0.6216216216216216,
+              "recall": 0.5609756097560976,
+              "sensitivity": 0.5609756097560976,
+              "specificity": 0.9717741935483871,
+              "support": 41
+            },
+            "Severe": {
+              "f1": 0.4666666666666667,
+              "precision": 0.4117647058823529,
+              "recall": 0.5384615384615384,
+              "sensitivity": 0.5384615384615384,
+              "specificity": 0.9608610567514677,
+              "support": 26
+            }
+          },
+          "precision": 0.6537143025378318,
+          "quadratic_weighted_kappa": 0.8890777024652948,
+          "recall": 0.6743572419215587,
+          "referable_dr": {
+            "f1": 0.8904761904761904,
+            "false_negative": 26,
+            "false_positive": 20,
+            "precision": 0.9033816425120773,
+            "recall": 0.8779342723004695,
+            "referable_grades": [
+              2,
+              3,
+              4
+            ],
+            "roc_auc": 0.971599142178172,
+            "sensitivity": 0.8779342723004695,
+            "specificity": 0.9382716049382716,
+            "support": 213,
+            "true_negative": 304,
+            "true_positive": 187
+          },
+          "roc_auc_ovr_macro": 0.9328569477025667,
+          "sample_count": 537,
+          "sensitivity": 0.6743572419215587,
+          "specificity": 0.95308383398507
+        }
+      },
+      "role": "PRIMARY",
+      "sha256_matches": true
+    },
+    {
+      "actual_sha256": "d6b8f92bb86a54f98a0295fe8a8b9fadc8938515d03bb5213e6c354344e0b6de",
+      "architecture": "EfficientNet-B0 multi-head; severity head controls Grade 0-4",
+      "exists": true,
+      "expected_sha256": "d6b8f92bb86a54f98a0295fe8a8b9fadc8938515d03bb5213e6c354344e0b6de",
+      "manifest_architecture": null,
+      "manifest_present": true,
+      "model_version": "efficientnet-b0-idrid-20260912-v1",
+      "name": "IDRiD EfficientNet-B0",
+      "path": "ml/weights/classifiers/idrid/efficientnet-b0-idrid-20260912-v1/checkpoint_best.pt",
+      "production_promoted": false,
+      "registry_record": {
+        "artifact_directory": "ml/weights/classifiers/idrid/efficientnet-b0-idrid-20260912-v1",
+        "artifact_kind": "EXPERIMENTAL_FINE_TUNED_MODEL",
+        "artifact_status": "MODEL_TRAINED",
+        "availability_status": "MODEL_AVAILABLE",
+        "checkpoint": "ml/weights/classifiers/idrid/efficientnet-b0-idrid-20260912-v1/checkpoint_best.pt",
+        "checkpoint_sha256": "d6b8f92bb86a54f98a0295fe8a8b9fadc8938515d03bb5213e6c354344e0b6de",
+        "class_mapping": {
+          "0": "No DR",
+          "1": "Mild",
+          "2": "Moderate",
+          "3": "Severe",
+          "4": "Proliferative DR"
+        },
+        "clinical_validation_claim": false,
+        "dataset": "idrid",
+        "dataset_version": "idrid-grading-5058e7616887e569-split-20260912",
+        "model_config": {
+          "backbone": "efficientnet_b0",
+          "input_size": 224,
+          "num_classes": 5,
+          "ordinal_mode": false
+        },
+        "model_version": "efficientnet-b0-idrid-20260912-v1",
+        "production_promoted": false,
+        "training_config": {
+          "amp_enabled": false,
+          "architecture": "EfficientNet-B0 with RETINA-NEXUS hierarchical heads; severity head used for 5-class output",
+          "augmentation": [
+            "Resize(224,224)",
+            "RandomHorizontalFlip(p=0.5)",
+            "RandomRotation(8 degrees)",
+            "RandomAffine(translate=0.03, scale=0.95..1.05)",
+            "ColorJitter(brightness=0.12, contrast=0.12, saturation=0.08, hue=0.02)"
+          ],
+          "backbone": "efficientnet_b0",
+          "batch_size": 32,
+          "class_mapping": {
+            "0": "No DR",
+            "1": "Mild",
+            "2": "Moderate",
+            "3": "Severe",
+            "4": "Proliferative DR"
+          },
+          "class_weight_counts_from_train_subset": {
+            "0": 106,
+            "1": 15,
+            "2": 106,
+            "3": 58,
+            "4": 38
+          },
+          "class_weights_from_train_subset_only": [
+            0.6094339489936829,
+            4.306666851043701,
+            0.6094339489936829,
+            1.113793134689331,
+            1.7000000476837158
+          ],
+          "clinical_validation_claim": false,
+          "color_space": "RGB",
+          "dataset": "idrid",
+          "dataset_source": "ml/datasets/raw/idrid/B. Disease Grading/",
+          "dataset_version": "idrid-grading-5058e7616887e569-split-20260912",
+          "device_requested": "auto",
+          "device_used": "cpu",
+          "early_stopping": {
+            "metric": "validation_macro_f1",
+            "patience": 2
+          },
+          "epochs_requested": 8,
+          "excluded_records": [
+            {
+              "dme_grade": 0,
+              "dr_grade": 1,
+              "duplicate_group_id": "idrid_disease_duplicate_244",
+              "group_records": [
+                {
+                  "dme_grade": 0,
+                  "dr_grade": 1,
+                  "image_id": "IDRiD_021",
+                  "original_filename": "IDRiD_021.jpg",
+                  "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_021.jpg",
+                  "split": "train"
+                },
+                {
+                  "dme_grade": 0,
+                  "dr_grade": 2,
+                  "image_id": "IDRiD_391",
+                  "original_filename": "IDRiD_391.jpg",
+                  "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_391.jpg",
+                  "split": "train"
+                }
+              ],
+              "image_id": "IDRiD_021",
+              "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_021.jpg",
+              "reason": "CONFLICTING_LABELS_IN_EXACT_TRAINING_DUPLICATE_GROUP"
+            },
+            {
+              "dme_grade": 2,
+              "dr_grade": 4,
+              "duplicate_group_id": "idrid_disease_duplicate_106",
+              "group_records": [
+                {
+                  "dme_grade": 2,
+                  "dr_grade": 4,
+                  "image_id": "IDRiD_028",
+                  "original_filename": "IDRiD_028.jpg",
+                  "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_028.jpg",
+                  "split": "train"
+                },
+                {
+                  "dme_grade": 2,
+                  "dr_grade": 3,
+                  "image_id": "IDRiD_327",
+                  "original_filename": "IDRiD_327.jpg",
+                  "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_327.jpg",
+                  "split": "train"
+                }
+              ],
+              "image_id": "IDRiD_028",
+              "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_028.jpg",
+              "reason": "CONFLICTING_LABELS_IN_EXACT_TRAINING_DUPLICATE_GROUP"
+            },
+            {
+              "dme_grade": 0,
+              "dr_grade": 2,
+              "duplicate_group_id": "idrid_disease_duplicate_508",
+              "group_records": [
+                {
+                  "dme_grade": 0,
+                  "dr_grade": 2,
+                  "image_id": "IDRiD_045",
+                  "original_filename": "IDRiD_045.jpg",
+                  "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_045.jpg",
+                  "split": "train"
+                },
+                {
+                  "dme_grade": 1,
+                  "dr_grade": 2,
+                  "image_id": "IDRiD_333",
+                  "original_filename": "IDRiD_333.jpg",
+                  "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_333.jpg",
+                  "split": "train"
+                }
+              ],
+              "image_id": "IDRiD_045",
+              "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_045.jpg",
+              "reason": "CONFLICTING_LABELS_IN_EXACT_TRAINING_DUPLICATE_GROUP"
+            },
+            {
+              "dme_grade": 0,
+              "dr_grade": 0,
+              "duplicate_group_id": "idrid_disease_duplicate_168",
+              "image_id": "IDRiD_118",
+              "paired_official_test_ids": [
+                "IDRiD_064"
+              ],
+              "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_118.jpg",
+              "reason": "TRAINING_COPY_OF_CROSS_SPLIT_EXACT_DUPLICATE"
+            },
+            {
+              "dme_grade": 2,
+              "dr_grade": 3,
+              "duplicate_group_id": "idrid_disease_duplicate_106",
+              "group_records": [
+                {
+                  "dme_grade": 2,
+                  "dr_grade": 4,
+                  "image_id": "IDRiD_028",
+                  "original_filename": "IDRiD_028.jpg",
+                  "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_028.jpg",
+                  "split": "train"
+                },
+                {
+                  "dme_grade": 2,
+                  "dr_grade": 3,
+                  "image_id": "IDRiD_327",
+                  "original_filename": "IDRiD_327.jpg",
+                  "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_327.jpg",
+                  "split": "train"
+                }
+              ],
+              "image_id": "IDRiD_327",
+              "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_327.jpg",
+              "reason": "CONFLICTING_LABELS_IN_EXACT_TRAINING_DUPLICATE_GROUP"
+            },
+            {
+              "dme_grade": 1,
+              "dr_grade": 2,
+              "duplicate_group_id": "idrid_disease_duplicate_508",
+              "group_records": [
+                {
+                  "dme_grade": 0,
+                  "dr_grade": 2,
+                  "image_id": "IDRiD_045",
+                  "original_filename": "IDRiD_045.jpg",
+                  "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_045.jpg",
+                  "split": "train"
+                },
+                {
+                  "dme_grade": 1,
+                  "dr_grade": 2,
+                  "image_id": "IDRiD_333",
+                  "original_filename": "IDRiD_333.jpg",
+                  "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_333.jpg",
+                  "split": "train"
+                }
+              ],
+              "image_id": "IDRiD_333",
+              "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_333.jpg",
+              "reason": "CONFLICTING_LABELS_IN_EXACT_TRAINING_DUPLICATE_GROUP"
+            },
+            {
+              "dme_grade": 0,
+              "dr_grade": 2,
+              "duplicate_group_id": "idrid_disease_duplicate_244",
+              "group_records": [
+                {
+                  "dme_grade": 0,
+                  "dr_grade": 1,
+                  "image_id": "IDRiD_021",
+                  "original_filename": "IDRiD_021.jpg",
+                  "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_021.jpg",
+                  "split": "train"
+                },
+                {
+                  "dme_grade": 0,
+                  "dr_grade": 2,
+                  "image_id": "IDRiD_391",
+                  "original_filename": "IDRiD_391.jpg",
+                  "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_391.jpg",
+                  "split": "train"
+                }
+              ],
+              "image_id": "IDRiD_391",
+              "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_391.jpg",
+              "reason": "CONFLICTING_LABELS_IN_EXACT_TRAINING_DUPLICATE_GROUP"
+            }
+          ],
+          "fine_tune_all_layers": true,
+          "initialization": {
+            "checkpoint": "ml/weights/classifiers/aptos2019/efficientnet-b0-aptos2019-20260830-v1/checkpoint_best.pt",
+            "checkpoint_sha256": "ae6bb62ced2a108abc1a862870e64985b368b84e69bd8c8c8aa9912754d1a70b",
+            "dataset": null,
+            "dataset_version": "aptos2019-inventory-0738551f82b4",
+            "model_version": "efficientnet-b0-aptos2019-20260830-v1",
+            "source": "local APTOS EfficientNet-B0 checkpoint used as initialization only",
+            "state_dict_loaded": true
+          },
+          "input_channels": 3,
+          "input_size": 224,
+          "learning_rate": 1e-05,
+          "loss": "hierarchical weighted cross-entropy; severity weight=1.0, stage1 weight=0.25, stage2 weight=0.25",
+          "mixed_precision_requested": false,
+          "model_version": "efficientnet-b0-idrid-20260912-v1",
+          "normalization": {
+            "mean": [
+              0.485,
+              0.456,
+              0.406
+            ],
+            "std": [
+              0.229,
+              0.224,
+              0.225
+            ]
+          },
+          "official_test_set": {
+            "record_count": 103,
+            "status": "RESERVED_NOT_EVALUATED"
+          },
+          "optimizer": "AdamW",
+          "production_promoted": false,
+          "referable_mapping": {
+            "name": "grade_2_or_worse",
+            "referable_grades": [
+              2,
+              3,
+              4
+            ]
+          },
+          "scheduler": "ReduceLROnPlateau(mode=max, factor=0.5, patience=2, min_lr=1e-7)",
+          "seed": 20260912,
+          "software_versions": {
+            "Pillow": "12.2.0",
+            "numpy": "1.26.4",
+            "platform": "Windows-10-10.0.26200-SP0",
+            "python": "3.11.9",
+            "scikit-learn": "1.5.1",
+            "torch": "2.11.0",
+            "torchvision": "0.26.0"
+          },
+          "split_manifest": "ml/datasets/metadata/idrid/dr_training_split.json",
+          "split_manifest_sha256": "b0730cda4289236ebbf925391eef1a7c62599693d029adc427b14fce787cb41c",
+          "train_record_count": 323,
+          "validation_record_count": 83,
+          "validation_transform": [
+            "Resize(224,224)",
+            "ToTensor",
+            "ImageNet normalization"
+          ],
+          "weight_decay": 0.0001
+        },
+        "validation_metrics": {
+          "best_epoch": 8,
+          "clinical_validation_claim": false,
+          "epochs_completed": 8,
+          "note": "IDRiD internal validation / engineering evaluation only; no clinical validation claim.",
+          "official_test": {
+            "record_count": 103,
+            "status": "RESERVED_NOT_EVALUATED"
+          },
+          "validation": {
+            "accuracy": 0.6024096385542169,
+            "class_distribution": {
+              "0": 27,
+              "1": 4,
+              "2": 27,
+              "3": 15,
+              "4": 10
+            },
+            "confusion_matrix": [
+              [
+                22,
+                5,
+                0,
+                0,
+                0
+              ],
+              [
+                4,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                2,
+                3,
+                20,
+                1,
+                1
+              ],
+              [
+                0,
+                0,
+                8,
+                4,
+                3
+              ],
+              [
+                0,
+                0,
+                4,
+                2,
+                4
+              ]
+            ],
+            "f1": 0.4572093819551447,
+            "per_class": {
+              "Mild": {
+                "f1": 0.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "sensitivity": 0.0,
+                "specificity": 0.8987341772151899,
+                "support": 4
+              },
+              "Moderate": {
+                "f1": 0.6779661016949152,
+                "precision": 0.625,
+                "recall": 0.7407407407407407,
+                "sensitivity": 0.7407407407407407,
+                "specificity": 0.7857142857142857,
+                "support": 27
+              },
+              "No DR": {
+                "f1": 0.7999999999999999,
+                "precision": 0.7857142857142857,
+                "recall": 0.8148148148148148,
+                "sensitivity": 0.8148148148148148,
+                "specificity": 0.8928571428571429,
+                "support": 27
+              },
+              "Proliferative DR": {
+                "f1": 0.4444444444444445,
+                "precision": 0.5,
+                "recall": 0.4,
+                "sensitivity": 0.4,
+                "specificity": 0.9452054794520548,
+                "support": 10
+              },
+              "Severe": {
+                "f1": 0.36363636363636365,
+                "precision": 0.5714285714285714,
+                "recall": 0.26666666666666666,
+                "sensitivity": 0.26666666666666666,
+                "specificity": 0.9558823529411765,
+                "support": 15
+              }
+            },
+            "precision": 0.49642857142857133,
+            "quadratic_weighted_kappa": 0.821945018274273,
+            "recall": 0.44444444444444436,
+            "referable_dr": {
+              "f1": 0.9400000000000001,
+              "false_negative": 5,
+              "false_positive": 1,
+              "precision": 0.9791666666666666,
+              "recall": 0.9038461538461539,
+              "referable_grades": [
+                2,
+                3,
+                4
+              ],
+              "roc_auc": 0.978908188585608,
+              "sensitivity": 0.9038461538461539,
+              "specificity": 0.967741935483871,
+              "support": 52,
+              "true_negative": 30,
+              "true_positive": 47
+            },
+            "roc_auc_ovr_macro": 0.8167093356811733,
+            "sample_count": 83,
+            "sensitivity": 0.44444444444444436,
+            "specificity": 0.89567868763597
+          }
+        }
+      },
+      "role": "RESEARCH",
+      "sha256_matches": true
+    },
+    {
+      "actual_sha256": "f0e19fa86d5a27a05731550d1d6708c01f6f363f45a1fa57849de988f91e775b",
+      "architecture": "Authorized RETGUARD ONNX verifier",
+      "exists": true,
+      "expected_sha256": "f0e19fa86d5a27a05731550d1d6708c01f6f363f45a1fa57849de988f91e775b",
+      "manifest_architecture": null,
+      "manifest_present": true,
+      "model_version": "retguard-dr-v1.0.0",
+      "name": "RETGUARD verifier",
+      "path": "ml/weights/backup_verifier/retguard/v1.0.0/retguard_dr_v1.0.0.onnx",
+      "production_promoted": false,
+      "registry_record": null,
+      "role": "VERIFIER_RESEARCH",
+      "sha256_matches": true
+    },
+    {
+      "actual_sha256": "a7a7cb45b92328f7c9a8e581eec3944fd435d37fae8cbf340b1319c5f987c6d2",
+      "architecture": "U-Net with SE-ResNeXt-50 32x4d encoder",
+      "exists": true,
+      "expected_sha256": "a7a7cb45b92328f7c9a8e581eec3944fd435d37fae8cbf340b1319c5f987c6d2",
+      "manifest_architecture": "U-Net with SE-ResNeXt-50 32x4d encoder",
+      "manifest_present": true,
+      "model_version": "fundus-lesions-unet-seresnext50-all-v1",
+      "name": "Fundus lesions U-Net SE-ResNeXt-50",
+      "path": "ml/weights/lesion_segmentation/fundus-lesions-unet-seresnext50-all-v1/model.safetensors",
+      "production_promoted": false,
+      "registry_record": {
+        "artifact_directory": "ml\\weights\\lesion_segmentation\\fundus-lesions-unet-seresnext50-all-v1",
+        "artifact_kind": "EXPERIMENTAL",
+        "artifact_status": "MODEL_DOWNLOADED",
+        "availability_status": "MODEL_AVAILABLE",
+        "checkpoint": "ml\\weights\\lesion_segmentation\\fundus-lesions-unet-seresnext50-all-v1\\model.safetensors",
+        "checkpoint_sha256": "a7a7cb45b92328f7c9a8e581eec3944fd435d37fae8cbf340b1319c5f987c6d2",
+        "class_mapping": {
+          "0": "background",
+          "1": "cotton_wool_spot",
+          "2": "exudate",
+          "3": "hemorrhage",
+          "4": "microaneurysm"
+        },
+        "clinical_validation_claim": false,
+        "dataset_version": "IDRiD-DDR-FGADR-MESSIDOR-RETLES-author-reported",
+        "model_config": {
+          "architecture": "U-Net with SE-ResNeXt-50 32x4d encoder",
+          "input_size": 1024,
+          "num_classes": 5
+        },
+        "model_name": "fundus-lesions-toolkit U-Net SE-ResNeXt-50",
+        "model_type": "semantic_segmentation",
+        "model_version": "fundus-lesions-unet-seresnext50-all-v1",
+        "registered_at": "2026-08-30T21:20:00+00:00",
+        "source": "https://huggingface.co/ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+        "source_code": "https://github.com/ClementPla/fundus-lesions-toolkit",
+        "training_config": {
+          "clinical_validation_claim": false,
+          "license": "MIT",
+          "trained_on": [
+            "IDRiD",
+            "DDR",
+            "FGADR",
+            "MESSIDOR",
+            "RETLES"
+          ]
+        }
+      },
+      "role": "PRIMARY_SUPPORTING_EVIDENCE",
+      "sha256_matches": true
+    },
+    {
+      "actual_sha256": "ea219b13b03984b8d454f999343c5bda1a8a7cb8586aeb3639a29814cab2330a",
+      "architecture": "RRWNet (R2-V2 bv variant)",
+      "exists": true,
+      "expected_sha256": "ea219b13b03984b8d454f999343c5bda1a8a7cb8586aeb3639a29814cab2330a",
+      "manifest_architecture": "RRWNet (R2-V2 bv variant)",
+      "manifest_present": true,
+      "model_version": "r2-v2-bv-2025",
+      "name": "R2-V2 RRWNet",
+      "path": "ml/weights/vessel_segmentation/r2-v2-bv-2025/bv.safetensors",
+      "production_promoted": false,
+      "registry_record": {
+        "artifact_directory": "ml\\weights\\vessel_segmentation\\r2-v2-bv-2025",
+        "artifact_kind": "EXPERIMENTAL",
+        "artifact_status": "MODEL_DOWNLOADED",
+        "availability_status": "MODEL_AVAILABLE",
+        "checkpoint": "ml\\weights\\vessel_segmentation\\r2-v2-bv-2025\\bv.safetensors",
+        "checkpoint_sha256": "ea219b13b03984b8d454f999343c5bda1a8a7cb8586aeb3639a29814cab2330a",
+        "class_mapping": {
+          "0": "artery",
+          "1": "vein",
+          "2": "blood_vessels"
+        },
+        "clinical_validation_claim": false,
+        "dataset_version": "Unified_Fundus-author-reported",
+        "evaluation": {
+          "clinical_validation_claim": false,
+          "dataset": "DRIVE",
+          "dataset_version": "drive-inventory-72974de918c7a0e7",
+          "ground_truth_scope": {
+            "field_of_view_masks_applied": true,
+            "limitation": "The discovered test split has no manual vessel ground-truth masks; no test accuracy metrics are reported.",
+            "manual_vessel_masks": 20,
+            "test_images_inferred_without_metrics": 0,
+            "test_images_without_ground_truth": 20,
+            "training_images_evaluated": 20
+          },
+          "metrics": {
+            "mean": {
+              "dice": 0.7175513678704364,
+              "f1": 0.7175513678704364,
+              "iou": 0.5624354384306053,
+              "pixel_accuracy": 0.9404486124434829,
+              "precision": 0.8822421578662646,
+              "recall": 0.609811322821545,
+              "sensitivity": 0.609811322821545,
+              "specificity": 0.9885151276684898
+            },
+            "micro_confusion": {
+              "evaluated_pixels": 4541006,
+              "false_negative": 224742,
+              "false_positive": 45692,
+              "ground_truth_vessel_pixels": 569415,
+              "predicted_vessel_pixels": 390365,
+              "true_negative": 3925899,
+              "true_positive": 344673
+            },
+            "sample_count": 20,
+            "std": {
+              "dice": 0.05819514312984749,
+              "f1": 0.0581951431298475,
+              "iou": 0.06446283258519549,
+              "pixel_accuracy": 0.01339115467219539,
+              "precision": 0.02882117693968193,
+              "recall": 0.07671631005896515,
+              "sensitivity": 0.07671631005896515,
+              "specificity": 0.0029437831634069288
+            }
+          },
+          "report": "ml/evaluation/drive/r2-v2-evaluation.json",
+          "threshold": 0.5
+        },
+        "model_config": {
+          "architecture": "RRWNet (R2-V2 bv variant)",
+          "input_channels": 6,
+          "input_width": 1408,
+          "output_channels": 3,
+          "vessel_channel": 2
+        },
+        "model_name": "R2-V2 RRWNet bv vessel segmentor",
+        "model_type": "binary_vessel_segmentation",
+        "model_version": "r2-v2-bv-2025",
+        "registered_at": "2026-08-30T00:00:00+00:00",
+        "source": "https://huggingface.co/j-morano/R2-V2",
+        "source_code": "https://github.com/j-morano/R2-V2",
+        "source_revision": "bb8c6c9346054df749f8bd48a9da41ba974e6a6b",
+        "training_config": {
+          "clinical_validation_claim": false,
+          "license": "CC BY 4.0",
+          "training_dataset_provenance": "Unified_Fundus (as stated in the published bv_config.json)"
+        }
+      },
+      "role": "PRIMARY_SUPPORTING_EVIDENCE",
+      "sha256_matches": true
+    }
+  ],
+  "schema_version": "pre-simulink-model-role-audit-v1",
+  "status": "PASS"
+}

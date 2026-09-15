@@ -1,0 +1,34 @@
+{
+  "threshold_0.20": {
+    "f1": 0.5659301496792587,
+    "false_negative": 60,
+    "false_positive": 549,
+    "pr_auc": 0.6750497124694614,
+    "precision": 0.41966173361522197,
+    "recall": 0.8687089715536105,
+    "roc_auc": 0.8185252627265757,
+    "rule": "referable_probability = P(2)+P(3)+P(4); referable = referable_probability >= threshold; severity grade = argmax(P0..P4).",
+    "sample_count": 1744,
+    "sensitivity": 0.8687089715536105,
+    "specificity": 0.5734265734265734,
+    "threshold": 0.2,
+    "true_negative": 738,
+    "true_positive": 397
+  },
+  "threshold_0.50": {
+    "f1": 0.5981735159817351,
+    "false_negative": 195,
+    "false_positive": 157,
+    "pr_auc": 0.6750497124694614,
+    "precision": 0.6252983293556086,
+    "recall": 0.5733041575492341,
+    "roc_auc": 0.8185252627265757,
+    "rule": "referable_probability = P(2)+P(3)+P(4); referable = referable_probability >= threshold; severity grade = argmax(P0..P4).",
+    "sample_count": 1744,
+    "sensitivity": 0.5733041575492341,
+    "specificity": 0.878010878010878,
+    "threshold": 0.5,
+    "true_negative": 1130,
+    "true_positive": 262
+  }
+}

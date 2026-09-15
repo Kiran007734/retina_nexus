@@ -1,0 +1,42 @@
+[
+  {
+    "AnnualTarget": 100000,
+    "AnalyticalCapacity": 237219.79840529565,
+    "Sustainable": 1,
+    "HorizonPrimaryPathSustainable": 0,
+    "AnnualizedCompleted": 102877.85714285713,
+    "PrimaryPending": 1,
+    "EvidencePending": 2,
+    "BottleneckOfferedUtilization": 0.46064153439153438
+  },
+  {
+    "AnnualTarget": 125000,
+    "AnalyticalCapacity": 237219.79840529565,
+    "Sustainable": 1,
+    "HorizonPrimaryPathSustainable": 1,
+    "AnnualizedCompleted": 128323.57142857142,
+    "PrimaryPending": 0,
+    "EvidencePending": 0,
+    "BottleneckOfferedUtilization": 0.5750851521164021
+  },
+  {
+    "AnnualTarget": 150000,
+    "AnalyticalCapacity": 237219.79840529565,
+    "Sustainable": 1,
+    "HorizonPrimaryPathSustainable": 1,
+    "AnnualizedCompleted": 154134.28571428571,
+    "PrimaryPending": 0,
+    "EvidencePending": 0,
+    "BottleneckOfferedUtilization": 0.6912012235449736
+  },
+  {
+    "AnnualTarget": 200000,
+    "AnalyticalCapacity": 237219.79840529565,
+    "Sustainable": 1,
+    "HorizonPrimaryPathSustainable": 0,
+    "AnnualizedCompleted": 204295.71428571426,
+    "PrimaryPending": 0,
+    "EvidencePending": 4,
+    "BottleneckOfferedUtilization": 0.91483217592592592
+  }
+]

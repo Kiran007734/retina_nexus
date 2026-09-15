@@ -1,0 +1,1326 @@
+{
+  "report_type": "IDRiD classifier final readiness and freeze audit",
+  "generated_at_utc": "2026-09-12T09:24:18.053095+00:00",
+  "selected_model": {
+    "model_version": "efficientnet-b0-idrid-20260912-v1",
+    "checkpoint_path": "ml/weights/classifiers/idrid/efficientnet-b0-idrid-20260912-v1/checkpoint_best.pt",
+    "checkpoint_sha256": "d6b8f92bb86a54f98a0295fe8a8b9fadc8938515d03bb5213e6c354344e0b6de",
+    "expected_checkpoint_sha256": "d6b8f92bb86a54f98a0295fe8a8b9fadc8938515d03bb5213e6c354344e0b6de",
+    "checkpoint_unchanged_after_audit": true,
+    "architecture": "EfficientNet-B0 with RETINA-NEXUS hierarchical heads; severity head used for 5-class output",
+    "model_config": {
+      "backbone": "efficientnet_b0",
+      "num_classes": 5,
+      "input_size": 224,
+      "ordinal_mode": false
+    },
+    "input_size": 224,
+    "color_space": "RGB",
+    "inference_preprocessing": {
+      "name": "Compose",
+      "transforms": [
+        {
+          "name": "Resize",
+          "size": [
+            224,
+            224
+          ],
+          "interpolation": "InterpolationMode.BILINEAR",
+          "antialias": true
+        },
+        {
+          "name": "ToTensor"
+        },
+        {
+          "name": "Normalize",
+          "mean": [
+            0.485,
+            0.456,
+            0.406
+          ],
+          "std": [
+            0.229,
+            0.224,
+            0.225
+          ]
+        }
+      ],
+      "repr": "Compose(\n    Resize(size=(224, 224), interpolation=bilinear, max_size=None, antialias=True)\n    ToTensor()\n    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])\n)"
+    },
+    "normalization": {
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ]
+    },
+    "class_mapping": {
+      "0": "No DR",
+      "1": "Mild",
+      "2": "Moderate",
+      "3": "Severe",
+      "4": "Proliferative DR"
+    }
+  },
+  "training_freeze": {
+    "dataset": "IDRiD",
+    "dataset_version": "idrid-grading-5058e7616887e569-split-20260912",
+    "training_split": {
+      "count": 323,
+      "class_distribution": {
+        "0": 106,
+        "1": 15,
+        "2": 106,
+        "3": 58,
+        "4": 38
+      }
+    },
+    "validation_split": {
+      "count": 83,
+      "class_distribution": {
+        "0": 27,
+        "1": 4,
+        "2": 27,
+        "3": 15,
+        "4": 10
+      }
+    },
+    "excluded_records": [
+      {
+        "dme_grade": 0,
+        "dr_grade": 1,
+        "duplicate_group_id": "idrid_disease_duplicate_244",
+        "group_records": [
+          {
+            "dme_grade": 0,
+            "dr_grade": 1,
+            "image_id": "IDRiD_021",
+            "original_filename": "IDRiD_021.jpg",
+            "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_021.jpg",
+            "split": "train"
+          },
+          {
+            "dme_grade": 0,
+            "dr_grade": 2,
+            "image_id": "IDRiD_391",
+            "original_filename": "IDRiD_391.jpg",
+            "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_391.jpg",
+            "split": "train"
+          }
+        ],
+        "image_id": "IDRiD_021",
+        "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_021.jpg",
+        "reason": "CONFLICTING_LABELS_IN_EXACT_TRAINING_DUPLICATE_GROUP"
+      },
+      {
+        "dme_grade": 2,
+        "dr_grade": 4,
+        "duplicate_group_id": "idrid_disease_duplicate_106",
+        "group_records": [
+          {
+            "dme_grade": 2,
+            "dr_grade": 4,
+            "image_id": "IDRiD_028",
+            "original_filename": "IDRiD_028.jpg",
+            "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_028.jpg",
+            "split": "train"
+          },
+          {
+            "dme_grade": 2,
+            "dr_grade": 3,
+            "image_id": "IDRiD_327",
+            "original_filename": "IDRiD_327.jpg",
+            "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_327.jpg",
+            "split": "train"
+          }
+        ],
+        "image_id": "IDRiD_028",
+        "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_028.jpg",
+        "reason": "CONFLICTING_LABELS_IN_EXACT_TRAINING_DUPLICATE_GROUP"
+      },
+      {
+        "dme_grade": 0,
+        "dr_grade": 2,
+        "duplicate_group_id": "idrid_disease_duplicate_508",
+        "group_records": [
+          {
+            "dme_grade": 0,
+            "dr_grade": 2,
+            "image_id": "IDRiD_045",
+            "original_filename": "IDRiD_045.jpg",
+            "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_045.jpg",
+            "split": "train"
+          },
+          {
+            "dme_grade": 1,
+            "dr_grade": 2,
+            "image_id": "IDRiD_333",
+            "original_filename": "IDRiD_333.jpg",
+            "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_333.jpg",
+            "split": "train"
+          }
+        ],
+        "image_id": "IDRiD_045",
+        "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_045.jpg",
+        "reason": "CONFLICTING_LABELS_IN_EXACT_TRAINING_DUPLICATE_GROUP"
+      },
+      {
+        "dme_grade": 0,
+        "dr_grade": 0,
+        "duplicate_group_id": "idrid_disease_duplicate_168",
+        "image_id": "IDRiD_118",
+        "paired_official_test_ids": [
+          "IDRiD_064"
+        ],
+        "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_118.jpg",
+        "reason": "TRAINING_COPY_OF_CROSS_SPLIT_EXACT_DUPLICATE"
+      },
+      {
+        "dme_grade": 2,
+        "dr_grade": 3,
+        "duplicate_group_id": "idrid_disease_duplicate_106",
+        "group_records": [
+          {
+            "dme_grade": 2,
+            "dr_grade": 4,
+            "image_id": "IDRiD_028",
+            "original_filename": "IDRiD_028.jpg",
+            "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_028.jpg",
+            "split": "train"
+          },
+          {
+            "dme_grade": 2,
+            "dr_grade": 3,
+            "image_id": "IDRiD_327",
+            "original_filename": "IDRiD_327.jpg",
+            "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_327.jpg",
+            "split": "train"
+          }
+        ],
+        "image_id": "IDRiD_327",
+        "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_327.jpg",
+        "reason": "CONFLICTING_LABELS_IN_EXACT_TRAINING_DUPLICATE_GROUP"
+      },
+      {
+        "dme_grade": 1,
+        "dr_grade": 2,
+        "duplicate_group_id": "idrid_disease_duplicate_508",
+        "group_records": [
+          {
+            "dme_grade": 0,
+            "dr_grade": 2,
+            "image_id": "IDRiD_045",
+            "original_filename": "IDRiD_045.jpg",
+            "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_045.jpg",
+            "split": "train"
+          },
+          {
+            "dme_grade": 1,
+            "dr_grade": 2,
+            "image_id": "IDRiD_333",
+            "original_filename": "IDRiD_333.jpg",
+            "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_333.jpg",
+            "split": "train"
+          }
+        ],
+        "image_id": "IDRiD_333",
+        "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_333.jpg",
+        "reason": "CONFLICTING_LABELS_IN_EXACT_TRAINING_DUPLICATE_GROUP"
+      },
+      {
+        "dme_grade": 0,
+        "dr_grade": 2,
+        "duplicate_group_id": "idrid_disease_duplicate_244",
+        "group_records": [
+          {
+            "dme_grade": 0,
+            "dr_grade": 1,
+            "image_id": "IDRiD_021",
+            "original_filename": "IDRiD_021.jpg",
+            "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_021.jpg",
+            "split": "train"
+          },
+          {
+            "dme_grade": 0,
+            "dr_grade": 2,
+            "image_id": "IDRiD_391",
+            "original_filename": "IDRiD_391.jpg",
+            "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_391.jpg",
+            "split": "train"
+          }
+        ],
+        "image_id": "IDRiD_391",
+        "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_391.jpg",
+        "reason": "CONFLICTING_LABELS_IN_EXACT_TRAINING_DUPLICATE_GROUP"
+      }
+    ],
+    "loss": "hierarchical weighted cross-entropy; severity weight=1.0, stage1 weight=0.25, stage2 weight=0.25",
+    "optimizer": "AdamW",
+    "learning_rate": 1e-05,
+    "batch_size": 32,
+    "seed": 20260912,
+    "best_epoch": 8
+  },
+  "validation_metrics": {
+    "accuracy": 0.6024096385542169,
+    "class_distribution": {
+      "0": 27,
+      "1": 4,
+      "2": 27,
+      "3": 15,
+      "4": 10
+    },
+    "confusion_matrix": [
+      [
+        22,
+        5,
+        0,
+        0,
+        0
+      ],
+      [
+        4,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        2,
+        3,
+        20,
+        1,
+        1
+      ],
+      [
+        0,
+        0,
+        8,
+        4,
+        3
+      ],
+      [
+        0,
+        0,
+        4,
+        2,
+        4
+      ]
+    ],
+    "f1": 0.4572093819551447,
+    "per_class": {
+      "Mild": {
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "sensitivity": 0.0,
+        "specificity": 0.8987341772151899,
+        "support": 4
+      },
+      "Moderate": {
+        "f1": 0.6779661016949152,
+        "precision": 0.625,
+        "recall": 0.7407407407407407,
+        "sensitivity": 0.7407407407407407,
+        "specificity": 0.7857142857142857,
+        "support": 27
+      },
+      "No DR": {
+        "f1": 0.7999999999999999,
+        "precision": 0.7857142857142857,
+        "recall": 0.8148148148148148,
+        "sensitivity": 0.8148148148148148,
+        "specificity": 0.8928571428571429,
+        "support": 27
+      },
+      "Proliferative DR": {
+        "f1": 0.4444444444444445,
+        "precision": 0.5,
+        "recall": 0.4,
+        "sensitivity": 0.4,
+        "specificity": 0.9452054794520548,
+        "support": 10
+      },
+      "Severe": {
+        "f1": 0.36363636363636365,
+        "precision": 0.5714285714285714,
+        "recall": 0.26666666666666666,
+        "sensitivity": 0.26666666666666666,
+        "specificity": 0.9558823529411765,
+        "support": 15
+      }
+    },
+    "precision": 0.49642857142857133,
+    "quadratic_weighted_kappa": 0.821945018274273,
+    "raw_softmax_ece": 0.1353628890342023,
+    "recall": 0.44444444444444436,
+    "referable_dr": {
+      "f1": 0.9400000000000001,
+      "false_negative": 5,
+      "false_positive": 1,
+      "precision": 0.9791666666666666,
+      "recall": 0.9038461538461539,
+      "referable_grades": [
+        2,
+        3,
+        4
+      ],
+      "roc_auc": 0.978908188585608,
+      "sensitivity": 0.9038461538461539,
+      "specificity": 0.967741935483871,
+      "support": 52,
+      "true_negative": 30,
+      "true_positive": 47
+    },
+    "roc_auc_ovr_macro": 0.8167093356811733,
+    "sample_count": 83,
+    "sensitivity": 0.44444444444444436,
+    "specificity": 0.89567868763597
+  },
+  "error_analysis": {
+    "validation_sample_count": 83,
+    "error_count": 33,
+    "high_confidence_threshold": 0.8,
+    "high_confidence_incorrect_predictions": [
+      {
+        "image_id": "IDRiD_061",
+        "actual_grade": 2,
+        "actual_grade_label": "Moderate",
+        "predicted_grade": 0,
+        "predicted_grade_label": "No DR",
+        "class_probabilities": {
+          "No DR": 0.9781557322,
+          "Mild": 0.0096817883,
+          "Moderate": 0.0066314274,
+          "Severe": 0.0026114902,
+          "Proliferative DR": 0.0029195999
+        },
+        "referable_probability": 0.0121625175,
+        "threshold_referable": false,
+        "runtime_referable": false,
+        "confidence": 0.9781557322,
+        "quality_status": "GRADABLE",
+        "quality_score": 0.7721,
+        "uncertainty": {
+          "score": 0.061946,
+          "predictive_entropy": 0.082227,
+          "probability_margin": 0.968474,
+          "margin_uncertainty": 0.031526,
+          "component_weights": {
+            "entropy": 0.6,
+            "margin": 0.4
+          },
+          "method": "predictive_entropy+probability_margin",
+          "mc_dropout": {
+            "status": "SKIPPED",
+            "reason": "Monte Carlo dropout is disabled by default for real-time inference."
+          },
+          "note": "Uncertainty is an engineering estimate; it is not a calibrated probability of model error."
+        }
+      },
+      {
+        "image_id": "IDRiD_194",
+        "actual_grade": 1,
+        "actual_grade_label": "Mild",
+        "predicted_grade": 0,
+        "predicted_grade_label": "No DR",
+        "class_probabilities": {
+          "No DR": 0.9755288959,
+          "Mild": 0.0212059319,
+          "Moderate": 0.0019542195,
+          "Severe": 0.000746314,
+          "Proliferative DR": 0.0005645599
+        },
+        "referable_probability": 0.0032650934,
+        "threshold_referable": false,
+        "runtime_referable": false,
+        "confidence": 0.9755288959,
+        "quality_status": "GRADABLE",
+        "quality_score": 0.7682,
+        "uncertainty": {
+          "score": 0.065867,
+          "predictive_entropy": 0.079327,
+          "probability_margin": 0.954323,
+          "margin_uncertainty": 0.045677,
+          "component_weights": {
+            "entropy": 0.6,
+            "margin": 0.4
+          },
+          "method": "predictive_entropy+probability_margin",
+          "mc_dropout": {
+            "status": "SKIPPED",
+            "reason": "Monte Carlo dropout is disabled by default for real-time inference."
+          },
+          "note": "Uncertainty is an engineering estimate; it is not a calibrated probability of model error."
+        }
+      },
+      {
+        "image_id": "IDRiD_105",
+        "actual_grade": 1,
+        "actual_grade_label": "Mild",
+        "predicted_grade": 0,
+        "predicted_grade_label": "No DR",
+        "class_probabilities": {
+          "No DR": 0.8134296536,
+          "Mild": 0.0962237492,
+          "Moderate": 0.0316292793,
+          "Severe": 0.0257154219,
+          "Proliferative DR": 0.033001963
+        },
+        "referable_probability": 0.0903466642,
+        "threshold_referable": false,
+        "runtime_referable": false,
+        "confidence": 0.8134296536,
+        "quality_status": "BORDERLINE",
+        "quality_score": 0.7607,
+        "uncertainty": {
+          "score": 0.377503,
+          "predictive_entropy": 0.440642,
+          "probability_margin": 0.717206,
+          "margin_uncertainty": 0.282794,
+          "component_weights": {
+            "entropy": 0.6,
+            "margin": 0.4
+          },
+          "method": "predictive_entropy+probability_margin",
+          "mc_dropout": {
+            "status": "SKIPPED",
+            "reason": "Monte Carlo dropout is disabled by default for real-time inference."
+          },
+          "note": "Uncertainty is an engineering estimate; it is not a calibrated probability of model error."
+        }
+      }
+    ],
+    "grade_0_to_2_3_4": [],
+    "grade_1_to_2_3_4": [],
+    "grade_2_3_4_to_0_1": [
+      {
+        "image_id": "IDRiD_003",
+        "actual_grade": 2,
+        "actual_grade_label": "Moderate",
+        "predicted_grade": 1,
+        "predicted_grade_label": "Mild",
+        "class_probabilities": {
+          "No DR": 0.0743389055,
+          "Mild": 0.5197501779,
+          "Moderate": 0.3380482495,
+          "Severe": 0.0320589207,
+          "Proliferative DR": 0.0358038023
+        },
+        "referable_probability": 0.4059109725,
+        "threshold_referable": false,
+        "runtime_referable": false,
+        "confidence": 0.5197501779,
+        "quality_status": "BORDERLINE",
+        "quality_score": 0.6689,
+        "uncertainty": {
+          "score": 0.748392,
+          "predictive_entropy": 0.701788,
+          "probability_margin": 0.181702,
+          "margin_uncertainty": 0.818298,
+          "component_weights": {
+            "entropy": 0.6,
+            "margin": 0.4
+          },
+          "method": "predictive_entropy+probability_margin",
+          "mc_dropout": {
+            "status": "SKIPPED",
+            "reason": "Monte Carlo dropout is disabled by default for real-time inference."
+          },
+          "note": "Uncertainty is an engineering estimate; it is not a calibrated probability of model error."
+        }
+      },
+      {
+        "image_id": "IDRiD_037",
+        "actual_grade": 2,
+        "actual_grade_label": "Moderate",
+        "predicted_grade": 1,
+        "predicted_grade_label": "Mild",
+        "class_probabilities": {
+          "No DR": 0.328568548,
+          "Mild": 0.4075189829,
+          "Moderate": 0.1744628251,
+          "Severe": 0.0529318079,
+          "Proliferative DR": 0.0365177989
+        },
+        "referable_probability": 0.2639124319,
+        "threshold_referable": false,
+        "runtime_referable": false,
+        "confidence": 0.4075189829,
+        "quality_status": "GRADABLE",
+        "quality_score": 0.7502,
+        "uncertainty": {
+          "score": 0.857744,
+          "predictive_entropy": 0.815541,
+          "probability_margin": 0.07895,
+          "margin_uncertainty": 0.92105,
+          "component_weights": {
+            "entropy": 0.6,
+            "margin": 0.4
+          },
+          "method": "predictive_entropy+probability_margin",
+          "mc_dropout": {
+            "status": "SKIPPED",
+            "reason": "Monte Carlo dropout is disabled by default for real-time inference."
+          },
+          "note": "Uncertainty is an engineering estimate; it is not a calibrated probability of model error."
+        }
+      },
+      {
+        "image_id": "IDRiD_059",
+        "actual_grade": 2,
+        "actual_grade_label": "Moderate",
+        "predicted_grade": 1,
+        "predicted_grade_label": "Mild",
+        "class_probabilities": {
+          "No DR": 0.0205323584,
+          "Mild": 0.4915966988,
+          "Moderate": 0.3425872028,
+          "Severe": 0.0662776679,
+          "Proliferative DR": 0.0790061206
+        },
+        "referable_probability": 0.4878709912,
+        "threshold_referable": false,
+        "runtime_referable": false,
+        "confidence": 0.4915966988,
+        "quality_status": "BORDERLINE",
+        "quality_score": 0.7397,
+        "uncertainty": {
+          "score": 0.778907,
+          "predictive_entropy": 0.730852,
+          "probability_margin": 0.149009,
+          "margin_uncertainty": 0.850991,
+          "component_weights": {
+            "entropy": 0.6,
+            "margin": 0.4
+          },
+          "method": "predictive_entropy+probability_margin",
+          "mc_dropout": {
+            "status": "SKIPPED",
+            "reason": "Monte Carlo dropout is disabled by default for real-time inference."
+          },
+          "note": "Uncertainty is an engineering estimate; it is not a calibrated probability of model error."
+        }
+      },
+      {
+        "image_id": "IDRiD_060",
+        "actual_grade": 2,
+        "actual_grade_label": "Moderate",
+        "predicted_grade": 0,
+        "predicted_grade_label": "No DR",
+        "class_probabilities": {
+          "No DR": 0.5518957376,
+          "Mild": 0.1343835145,
+          "Moderate": 0.1625798047,
+          "Severe": 0.1161061376,
+          "Proliferative DR": 0.035034731
+        },
+        "referable_probability": 0.3137206733,
+        "threshold_referable": false,
+        "runtime_referable": false,
+        "confidence": 0.5518957376,
+        "quality_status": "BORDERLINE",
+        "quality_score": 0.7493,
+        "uncertainty": {
+          "score": 0.714197,
+          "predictive_entropy": 0.783206,
+          "probability_margin": 0.389316,
+          "margin_uncertainty": 0.610684,
+          "component_weights": {
+            "entropy": 0.6,
+            "margin": 0.4
+          },
+          "method": "predictive_entropy+probability_margin",
+          "mc_dropout": {
+            "status": "SKIPPED",
+            "reason": "Monte Carlo dropout is disabled by default for real-time inference."
+          },
+          "note": "Uncertainty is an engineering estimate; it is not a calibrated probability of model error."
+        }
+      },
+      {
+        "image_id": "IDRiD_061",
+        "actual_grade": 2,
+        "actual_grade_label": "Moderate",
+        "predicted_grade": 0,
+        "predicted_grade_label": "No DR",
+        "class_probabilities": {
+          "No DR": 0.9781557322,
+          "Mild": 0.0096817883,
+          "Moderate": 0.0066314274,
+          "Severe": 0.0026114902,
+          "Proliferative DR": 0.0029195999
+        },
+        "referable_probability": 0.0121625175,
+        "threshold_referable": false,
+        "runtime_referable": false,
+        "confidence": 0.9781557322,
+        "quality_status": "GRADABLE",
+        "quality_score": 0.7721,
+        "uncertainty": {
+          "score": 0.061946,
+          "predictive_entropy": 0.082227,
+          "probability_margin": 0.968474,
+          "margin_uncertainty": 0.031526,
+          "component_weights": {
+            "entropy": 0.6,
+            "margin": 0.4
+          },
+          "method": "predictive_entropy+probability_margin",
+          "mc_dropout": {
+            "status": "SKIPPED",
+            "reason": "Monte Carlo dropout is disabled by default for real-time inference."
+          },
+          "note": "Uncertainty is an engineering estimate; it is not a calibrated probability of model error."
+        }
+      }
+    ],
+    "grade_3_to_4": [
+      {
+        "image_id": "IDRiD_004",
+        "actual_grade": 3,
+        "actual_grade_label": "Severe",
+        "predicted_grade": 4,
+        "predicted_grade_label": "Proliferative DR",
+        "class_probabilities": {
+          "No DR": 0.0024393811,
+          "Mild": 0.026179364,
+          "Moderate": 0.361148715,
+          "Severe": 0.2426030934,
+          "Proliferative DR": 0.3676294982
+        },
+        "referable_probability": 0.9713813066,
+        "threshold_referable": true,
+        "runtime_referable": true,
+        "confidence": 0.3676294982,
+        "quality_status": "GRADABLE",
+        "quality_score": 0.7796,
+        "uncertainty": {
+          "score": 0.840796,
+          "predictive_entropy": 0.738981,
+          "probability_margin": 0.006481,
+          "margin_uncertainty": 0.993519,
+          "component_weights": {
+            "entropy": 0.6,
+            "margin": 0.4
+          },
+          "method": "predictive_entropy+probability_margin",
+          "mc_dropout": {
+            "status": "SKIPPED",
+            "reason": "Monte Carlo dropout is disabled by default for real-time inference."
+          },
+          "note": "Uncertainty is an engineering estimate; it is not a calibrated probability of model error."
+        }
+      },
+      {
+        "image_id": "IDRiD_026",
+        "actual_grade": 3,
+        "actual_grade_label": "Severe",
+        "predicted_grade": 4,
+        "predicted_grade_label": "Proliferative DR",
+        "class_probabilities": {
+          "No DR": 0.0079152575,
+          "Mild": 0.0513096042,
+          "Moderate": 0.2581768036,
+          "Severe": 0.2902938426,
+          "Proliferative DR": 0.3923044205
+        },
+        "referable_probability": 0.9407750666,
+        "threshold_referable": true,
+        "runtime_referable": true,
+        "confidence": 0.3923044205,
+        "quality_status": "BORDERLINE",
+        "quality_score": 0.6953,
+        "uncertainty": {
+          "score": 0.83132,
+          "predictive_entropy": 0.786874,
+          "probability_margin": 0.102011,
+          "margin_uncertainty": 0.897989,
+          "component_weights": {
+            "entropy": 0.6,
+            "margin": 0.4
+          },
+          "method": "predictive_entropy+probability_margin",
+          "mc_dropout": {
+            "status": "SKIPPED",
+            "reason": "Monte Carlo dropout is disabled by default for real-time inference."
+          },
+          "note": "Uncertainty is an engineering estimate; it is not a calibrated probability of model error."
+        }
+      },
+      {
+        "image_id": "IDRiD_039",
+        "actual_grade": 3,
+        "actual_grade_label": "Severe",
+        "predicted_grade": 4,
+        "predicted_grade_label": "Proliferative DR",
+        "class_probabilities": {
+          "No DR": 0.0250933338,
+          "Mild": 0.0706229508,
+          "Moderate": 0.3045126796,
+          "Severe": 0.1599156857,
+          "Proliferative DR": 0.4398552477
+        },
+        "referable_probability": 0.904283613,
+        "threshold_referable": true,
+        "runtime_referable": true,
+        "confidence": 0.4398552477,
+        "quality_status": "GRADABLE",
+        "quality_score": 0.7696,
+        "uncertainty": {
+          "score": 0.829062,
+          "predictive_entropy": 0.805331,
+          "probability_margin": 0.135343,
+          "margin_uncertainty": 0.864657,
+          "component_weights": {
+            "entropy": 0.6,
+            "margin": 0.4
+          },
+          "method": "predictive_entropy+probability_margin",
+          "mc_dropout": {
+            "status": "SKIPPED",
+            "reason": "Monte Carlo dropout is disabled by default for real-time inference."
+          },
+          "note": "Uncertainty is an engineering estimate; it is not a calibrated probability of model error."
+        }
+      }
+    ],
+    "grade_4_to_3": [
+      {
+        "image_id": "IDRiD_014",
+        "actual_grade": 4,
+        "actual_grade_label": "Proliferative DR",
+        "predicted_grade": 3,
+        "predicted_grade_label": "Severe",
+        "class_probabilities": {
+          "No DR": 0.0005377815,
+          "Mild": 0.0019889823,
+          "Moderate": 0.0113881668,
+          "Severe": 0.671902895,
+          "Proliferative DR": 0.3141822219
+        },
+        "referable_probability": 0.9974732837,
+        "threshold_referable": true,
+        "runtime_referable": true,
+        "confidence": 0.671902895,
+        "quality_status": "BORDERLINE",
+        "quality_score": 0.6672,
+        "uncertainty": {
+          "score": 0.517244,
+          "predictive_entropy": 0.433888,
+          "probability_margin": 0.357721,
+          "margin_uncertainty": 0.642279,
+          "component_weights": {
+            "entropy": 0.6,
+            "margin": 0.4
+          },
+          "method": "predictive_entropy+probability_margin",
+          "mc_dropout": {
+            "status": "SKIPPED",
+            "reason": "Monte Carlo dropout is disabled by default for real-time inference."
+          },
+          "note": "Uncertainty is an engineering estimate; it is not a calibrated probability of model error."
+        }
+      },
+      {
+        "image_id": "IDRiD_022",
+        "actual_grade": 4,
+        "actual_grade_label": "Proliferative DR",
+        "predicted_grade": 3,
+        "predicted_grade_label": "Severe",
+        "class_probabilities": {
+          "No DR": 0.0055799498,
+          "Mild": 0.0024913333,
+          "Moderate": 0.0104816556,
+          "Severe": 0.5759808421,
+          "Proliferative DR": 0.4054662287
+        },
+        "referable_probability": 0.9919287264,
+        "threshold_referable": true,
+        "runtime_referable": true,
+        "confidence": 0.5759808421,
+        "quality_status": "GRADABLE",
+        "quality_score": 0.7768,
+        "uncertainty": {
+          "score": 0.62088,
+          "predictive_entropy": 0.48181,
+          "probability_margin": 0.170515,
+          "margin_uncertainty": 0.829485,
+          "component_weights": {
+            "entropy": 0.6,
+            "margin": 0.4
+          },
+          "method": "predictive_entropy+probability_margin",
+          "mc_dropout": {
+            "status": "SKIPPED",
+            "reason": "Monte Carlo dropout is disabled by default for real-time inference."
+          },
+          "note": "Uncertainty is an engineering estimate; it is not a calibrated probability of model error."
+        }
+      }
+    ],
+    "referable_false_negatives": [
+      {
+        "image_id": "IDRiD_003",
+        "actual_grade": 2,
+        "actual_grade_label": "Moderate",
+        "predicted_grade": 1,
+        "predicted_grade_label": "Mild",
+        "class_probabilities": {
+          "No DR": 0.0743389055,
+          "Mild": 0.5197501779,
+          "Moderate": 0.3380482495,
+          "Severe": 0.0320589207,
+          "Proliferative DR": 0.0358038023
+        },
+        "referable_probability": 0.4059109725,
+        "threshold_referable": false,
+        "runtime_referable": false,
+        "confidence": 0.5197501779,
+        "quality_status": "BORDERLINE",
+        "quality_score": 0.6689,
+        "uncertainty": {
+          "score": 0.748392,
+          "predictive_entropy": 0.701788,
+          "probability_margin": 0.181702,
+          "margin_uncertainty": 0.818298,
+          "component_weights": {
+            "entropy": 0.6,
+            "margin": 0.4
+          },
+          "method": "predictive_entropy+probability_margin",
+          "mc_dropout": {
+            "status": "SKIPPED",
+            "reason": "Monte Carlo dropout is disabled by default for real-time inference."
+          },
+          "note": "Uncertainty is an engineering estimate; it is not a calibrated probability of model error."
+        }
+      },
+      {
+        "image_id": "IDRiD_037",
+        "actual_grade": 2,
+        "actual_grade_label": "Moderate",
+        "predicted_grade": 1,
+        "predicted_grade_label": "Mild",
+        "class_probabilities": {
+          "No DR": 0.328568548,
+          "Mild": 0.4075189829,
+          "Moderate": 0.1744628251,
+          "Severe": 0.0529318079,
+          "Proliferative DR": 0.0365177989
+        },
+        "referable_probability": 0.2639124319,
+        "threshold_referable": false,
+        "runtime_referable": false,
+        "confidence": 0.4075189829,
+        "quality_status": "GRADABLE",
+        "quality_score": 0.7502,
+        "uncertainty": {
+          "score": 0.857744,
+          "predictive_entropy": 0.815541,
+          "probability_margin": 0.07895,
+          "margin_uncertainty": 0.92105,
+          "component_weights": {
+            "entropy": 0.6,
+            "margin": 0.4
+          },
+          "method": "predictive_entropy+probability_margin",
+          "mc_dropout": {
+            "status": "SKIPPED",
+            "reason": "Monte Carlo dropout is disabled by default for real-time inference."
+          },
+          "note": "Uncertainty is an engineering estimate; it is not a calibrated probability of model error."
+        }
+      },
+      {
+        "image_id": "IDRiD_059",
+        "actual_grade": 2,
+        "actual_grade_label": "Moderate",
+        "predicted_grade": 1,
+        "predicted_grade_label": "Mild",
+        "class_probabilities": {
+          "No DR": 0.0205323584,
+          "Mild": 0.4915966988,
+          "Moderate": 0.3425872028,
+          "Severe": 0.0662776679,
+          "Proliferative DR": 0.0790061206
+        },
+        "referable_probability": 0.4878709912,
+        "threshold_referable": false,
+        "runtime_referable": false,
+        "confidence": 0.4915966988,
+        "quality_status": "BORDERLINE",
+        "quality_score": 0.7397,
+        "uncertainty": {
+          "score": 0.778907,
+          "predictive_entropy": 0.730852,
+          "probability_margin": 0.149009,
+          "margin_uncertainty": 0.850991,
+          "component_weights": {
+            "entropy": 0.6,
+            "margin": 0.4
+          },
+          "method": "predictive_entropy+probability_margin",
+          "mc_dropout": {
+            "status": "SKIPPED",
+            "reason": "Monte Carlo dropout is disabled by default for real-time inference."
+          },
+          "note": "Uncertainty is an engineering estimate; it is not a calibrated probability of model error."
+        }
+      },
+      {
+        "image_id": "IDRiD_060",
+        "actual_grade": 2,
+        "actual_grade_label": "Moderate",
+        "predicted_grade": 0,
+        "predicted_grade_label": "No DR",
+        "class_probabilities": {
+          "No DR": 0.5518957376,
+          "Mild": 0.1343835145,
+          "Moderate": 0.1625798047,
+          "Severe": 0.1161061376,
+          "Proliferative DR": 0.035034731
+        },
+        "referable_probability": 0.3137206733,
+        "threshold_referable": false,
+        "runtime_referable": false,
+        "confidence": 0.5518957376,
+        "quality_status": "BORDERLINE",
+        "quality_score": 0.7493,
+        "uncertainty": {
+          "score": 0.714197,
+          "predictive_entropy": 0.783206,
+          "probability_margin": 0.389316,
+          "margin_uncertainty": 0.610684,
+          "component_weights": {
+            "entropy": 0.6,
+            "margin": 0.4
+          },
+          "method": "predictive_entropy+probability_margin",
+          "mc_dropout": {
+            "status": "SKIPPED",
+            "reason": "Monte Carlo dropout is disabled by default for real-time inference."
+          },
+          "note": "Uncertainty is an engineering estimate; it is not a calibrated probability of model error."
+        }
+      },
+      {
+        "image_id": "IDRiD_061",
+        "actual_grade": 2,
+        "actual_grade_label": "Moderate",
+        "predicted_grade": 0,
+        "predicted_grade_label": "No DR",
+        "class_probabilities": {
+          "No DR": 0.9781557322,
+          "Mild": 0.0096817883,
+          "Moderate": 0.0066314274,
+          "Severe": 0.0026114902,
+          "Proliferative DR": 0.0029195999
+        },
+        "referable_probability": 0.0121625175,
+        "threshold_referable": false,
+        "runtime_referable": false,
+        "confidence": 0.9781557322,
+        "quality_status": "GRADABLE",
+        "quality_score": 0.7721,
+        "uncertainty": {
+          "score": 0.061946,
+          "predictive_entropy": 0.082227,
+          "probability_margin": 0.968474,
+          "margin_uncertainty": 0.031526,
+          "component_weights": {
+            "entropy": 0.6,
+            "margin": 0.4
+          },
+          "method": "predictive_entropy+probability_margin",
+          "mc_dropout": {
+            "status": "SKIPPED",
+            "reason": "Monte Carlo dropout is disabled by default for real-time inference."
+          },
+          "note": "Uncertainty is an engineering estimate; it is not a calibrated probability of model error."
+        }
+      }
+    ],
+    "counts": {
+      "grade_0_to_2_3_4": 0,
+      "grade_1_to_2_3_4": 0,
+      "grade_2_3_4_to_0_1": 5,
+      "grade_3_to_4": 3,
+      "grade_4_to_3": 2,
+      "referable_false_negatives": 5,
+      "high_confidence_incorrect_predictions": 3
+    }
+  },
+  "calibration": {
+    "temperature_scaling_fitted": false,
+    "available_train_images": 323,
+    "available_validation_images": 83,
+    "official_test_images_reserved": 103,
+    "separate_calibration_subset_possible_without_official_test": true,
+    "calibration_subset_created": false,
+    "calibration_subset_decision": "NOT_CREATED",
+    "would_materially_weaken_fixed_validation": true,
+    "meaningful_validation_after_new_calibration_split": "Not established without a new predeclared split and model-selection protocol.",
+    "scientific_defensibility": "NOT_DEFENSIBLE_FOR_THIS_FROZEN_MODEL_WITHOUT_A_PREDECLARED_HELD_OUT_CALIBRATION_PROTOCOL",
+    "reason": "Taking calibration images from the 83-image validation set would weaken model selection; taking them from training would require a new training/reselection protocol. The official test set remains reserved.",
+    "raw_softmax_ece_on_validation": 0.1353628890342023,
+    "required_statement": "Raw softmax confidence is not clinically calibrated; calibration could not be reliably fitted with the available non-test data."
+  },
+  "reproducibility": {
+    "status": "PASS",
+    "predictions_identical": true,
+    "probabilities_identical_within_tolerance": true,
+    "probability_tolerance": {
+      "rtol": 1e-06,
+      "atol": 1e-07
+    },
+    "metrics_identical": true,
+    "checkpoint_sha_identical": true,
+    "preprocessing_verified": {
+      "name": "Compose",
+      "transforms": [
+        {
+          "name": "Resize",
+          "size": [
+            224,
+            224
+          ],
+          "interpolation": "InterpolationMode.BILINEAR",
+          "antialias": true
+        },
+        {
+          "name": "ToTensor"
+        },
+        {
+          "name": "Normalize",
+          "mean": [
+            0.485,
+            0.456,
+            0.406
+          ],
+          "std": [
+            0.229,
+            0.224,
+            0.225
+          ]
+        }
+      ],
+      "repr": "Compose(\n    Resize(size=(224, 224), interpolation=bilinear, max_size=None, antialias=True)\n    ToTensor()\n    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])\n)"
+    },
+    "official_test_records_loaded": 0
+  },
+  "integration": {
+    "checkpoint_sha256_verified": true,
+    "model_load": "PASS",
+    "model_eval_mode": true,
+    "quality_gate": {
+      "status": "PASS",
+      "decision": "BORDERLINE",
+      "score": 0.7579
+    },
+    "classification": {
+      "status": "PASS",
+      "predicted_grade": 3,
+      "probabilities": {
+        "No DR": 0.001727,
+        "Mild": 0.018761,
+        "Moderate": 0.344467,
+        "Severe": 0.370419,
+        "Proliferative DR": 0.264627
+      },
+      "referable_probability": 0.979512
+    },
+    "idrid_153": {
+      "status": "PASS",
+      "predicted_grade": 1,
+      "referable_probability": 0.56822,
+      "referable_dr": true
+    },
+    "grad_cam": {
+      "status": "PASS",
+      "target_class": 3,
+      "shape": [
+        2848,
+        4288
+      ]
+    },
+    "retinaguard": {
+      "status": "PASS",
+      "category": "UNRELIABLE",
+      "classification_grade_before": 3,
+      "classification_grade_after": 3,
+      "grade_unchanged": true,
+      "classification_reliability_separate": true
+    },
+    "report_pdf": {
+      "status": "PASS",
+      "byte_count": 1864
+    },
+    "invalid_input_error_handling": {
+      "status": "PASS",
+      "exception": "ClassifierNotConfiguredError"
+    },
+    "lesion_vessel_evidence": {
+      "status": "PASS",
+      "analysis_status": "completed",
+      "modules": {
+        "vessel_segmentation": {
+          "status": "model_inference",
+          "supported": true,
+          "implementation": "R2-V2 RRWNet bv vessel segmentor",
+          "confidence": 0.7775,
+          "count": 60
+        },
+        "optic_disc_localization": {
+          "status": "experimental_heuristic",
+          "supported": true,
+          "implementation": "classical_cv_baseline",
+          "confidence": 0.5545,
+          "count": null
+        },
+        "fovea_localization": {
+          "status": "approximate",
+          "supported": true,
+          "implementation": "optic_disc_relative_heuristic",
+          "confidence": 0.1,
+          "count": null
+        },
+        "cotton_wool_spot_detection": {
+          "status": "model_inference",
+          "supported": true,
+          "implementation": "fundus-lesions-toolkit-unet-seresnext50",
+          "confidence": 0.0004,
+          "count": 0
+        },
+        "microaneurysm_detection": {
+          "status": "model_inference",
+          "supported": true,
+          "implementation": "fundus-lesions-toolkit-unet-seresnext50",
+          "confidence": 0.9333,
+          "count": 47
+        },
+        "hemorrhage_detection": {
+          "status": "model_inference",
+          "supported": true,
+          "implementation": "fundus-lesions-toolkit-unet-seresnext50",
+          "confidence": 0.9737,
+          "count": 27
+        },
+        "exudate_segmentation": {
+          "status": "model_inference",
+          "supported": true,
+          "implementation": "fundus-lesions-toolkit-unet-seresnext50",
+          "confidence": 0.9584,
+          "count": 64
+        },
+        "neovascularization_detection": {
+          "status": "unsupported",
+          "supported": false,
+          "implementation": "experimental_interface_only",
+          "confidence": null,
+          "count": null
+        }
+      },
+      "dataset_support": {
+        "drive": {
+          "vessel_segmentation": {
+            "status": "available",
+            "reason": "DRIVE image and vessel-mask files were found.",
+            "annotation_file_count": 60
+          }
+        },
+        "idrid": {
+          "cotton_wool_spot_detection": {
+            "status": "unsupported",
+            "reason": "No compatible IDRiD annotation was found for cotton_wool_spot_detection; annotations were not fabricated."
+          },
+          "microaneurysm_detection": {
+            "status": "unsupported",
+            "reason": "No compatible IDRiD annotation was found for microaneurysm_detection; annotations were not fabricated."
+          },
+          "hemorrhage_detection": {
+            "status": "unsupported",
+            "reason": "No compatible IDRiD annotation was found for hemorrhage_detection; annotations were not fabricated."
+          },
+          "exudate_segmentation": {
+            "status": "unsupported",
+            "reason": "No compatible IDRiD annotation was found for exudate_segmentation; annotations were not fabricated."
+          },
+          "neovascularization_detection": {
+            "status": "unsupported",
+            "reason": "No compatible IDRiD annotation was found for neovascularization_detection; annotations were not fabricated."
+          }
+        }
+      },
+      "note": "Evidence is supporting output only and does not modify the classifier grade."
+    },
+    "abstention_contract": {
+      "status": "PASS",
+      "note": "Current orchestration stops before classification when the Image Trust Gate returns UNGRADABLE; this was verified from the existing pipeline route/source contract."
+    }
+  },
+  "runtime_paths_updated": [
+    "TorchDRClassificationService._prediction_from_outputs",
+    "direct classifier and screening routes via the shared classifier service",
+    "screening orchestration classification payload",
+    "RetinaGuard inputs via prediction.referable_dr",
+    "report and review payloads via persisted classification.referable_dr",
+    "classification_metrics referable utility"
+  ],
+  "tests_added": [
+    "argmax Mild with referable probability >= 0.5 returns grade 1 and referable true",
+    "argmax Moderate with referable probability < 0.5 returns grade 2 and referable false",
+    "real IDRiD_153 runtime inference rule check"
+  ],
+  "regression_result": {
+    "focused_classifier_tests": "5 passed",
+    "full_pytest": "49 passed",
+    "production_configuration_unchanged": true
+  },
+  "aptos_distinction": {
+    "production_checkpoint_and_version_unchanged": true,
+    "configured_production_model": "APTOS EfficientNet-B0",
+    "rule_note": "The generic runtime adapter had the same argmax-vs-probability inconsistency; the existing metrics utility already used the 0.5 probability rule. No separate APTOS referable rule was configured or changed."
+  },
+  "referable_rule_audit": {
+    "authoritative_definition": "referable_probability = P(2) + P(3) + P(4); referable = referable_probability >= 0.5",
+    "frozen_validation_metric_formula": "sum(P(grade 2), P(grade 3), P(grade 4)) >= 0.5",
+    "runtime_boolean_formula": "referable_probability >= 0.5",
+    "threshold": 0.5,
+    "mapping": [
+      2,
+      3,
+      4
+    ],
+    "validation_rows_with_formula_mismatch": 0,
+    "mismatch_image_ids": [],
+    "mismatch_records": [],
+    "status": "CONSISTENT",
+    "note": "Severity grade remains argmax(P0..P4); referable status is an independent probability-threshold output. RetinaGuard receives the referable status but does not alter severity grade."
+  },
+  "known_limitations": [
+    "Internal validation only; the official 103-image IDRiD test set remains untouched and unevaluated.",
+    "Raw softmax confidence is not clinically calibrated; calibration could not be reliably fitted with the available non-test data.",
+    "Validation has only four Grade 1 images; Grade 1 sensitivity is zero on this split.",
+    "RetinaGuard is an engineering reliability layer and cannot establish clinical correctness.",
+    "The 0.5 referable threshold is an engineering operating rule and is not a clinical validation guarantee.",
+    "IDRiD is not promoted to production and must not replace the APTOS production model."
+  ],
+  "production_status": {
+    "production_promoted": false,
+    "aptos_production_modified": false
+  },
+  "official_test_readiness": {
+    "READY_FOR_OFFICIAL_TEST": true,
+    "blocking_reasons": [],
+    "no_further_tuning_planned": true,
+    "official_103_image_test_set_status": "RESERVED_NOT_EVALUATED",
+    "official_test_images_opened_by_this_audit": 0,
+    "statement": "The official 103-image test set remains untouched."
+  }
+}

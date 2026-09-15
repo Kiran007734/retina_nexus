@@ -1,0 +1,26 @@
+{
+  "blocker": "Full primary evidence pipeline cannot be completed in this CPU-only environment within bounded execution: current production R2-V2 vessel inference is approximately one minute per image on this host before primary lesion and Grad-CAM work; running it for all 1,744 images would require many hours and was not silently substituted or parallelized into an unbounded job. The real smoke run measured 71.623s for its combined evidence stage; this is an engineering observation, not a population runtime measurement.",
+  "classifier_latency_ms": {
+    "count": 1744,
+    "max_ms": 19.259,
+    "mean_ms": 16.202,
+    "median_ms": 16.173,
+    "min_ms": 14.499,
+    "p95_ms": 18.016,
+    "stddev_ms": 1.01
+  },
+  "full_population_optional_latency": "NOT_MEASURED",
+  "smoke_stage_timings_ms": {
+    "classification": 198.66029999684542,
+    "evidence_total": 71623.13809999614,
+    "grad_cam_and_agreement": 705.8046000020113,
+    "image_validation": 13.958399998955429,
+    "lesion_inference_ms": 2686.618,
+    "pdf_generation": 0.14290001126937568,
+    "quality_assessment": 24.18450001277961,
+    "retinaguard": 0.26190001517534256,
+    "structure_analysis_ms": 12.712,
+    "vessel_inference_ms": 67637.217
+  },
+  "status": "PARTIAL"
+}

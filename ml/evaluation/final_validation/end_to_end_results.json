@@ -1,0 +1,2630 @@
+{
+  "completed_count": 2,
+  "failed_count": 0,
+  "generated_at_utc": "2026-09-14T15:09:54.113466+00:00",
+  "messidor_used": false,
+  "official_idrid_test_images_opened": 0,
+  "production_fusion_setting_changed": false,
+  "quality_blocked_count": 9,
+  "referable_fusion_validation_only_opt_in": true,
+  "representative_count": 11,
+  "rows": [
+    {
+      "bytes": 1003991,
+      "case_id": "aptos_png_grade_0_quality_edge",
+      "classification": {
+        "predicted_grade": 0,
+        "predicted_grade_label": "No DR",
+        "primary_referable": false,
+        "primary_referable_probability": 0.011533,
+        "probabilities": {
+          "Mild": 0.014758,
+          "Moderate": 0.004699,
+          "No DR": 0.973709,
+          "Proliferative DR": 0.00283,
+          "Severe": 0.004004
+        },
+        "severity_rule": "argmax(P0..P4)"
+      },
+      "coverage": [
+        "normal",
+        "PNG",
+        "quality_edge"
+      ],
+      "dataset": "APTOS 2019",
+      "errors": {},
+      "evidence": {
+        "anatomical_landmarks": [
+          {
+            "brightness_score": 0.862,
+            "confidence": 0.631,
+            "landmark_type": "optic_disc",
+            "method": "bright-region-localization",
+            "radius": 22.0,
+            "status": "experimental_heuristic",
+            "x": 518.12,
+            "x_normalized": 0.674635,
+            "y": 297.97,
+            "y_normalized": 0.387982
+          },
+          {
+            "confidence": 0.1,
+            "eye_assumption": "right",
+            "landmark_type": "fovea",
+            "method": "optic-disc-relative-anatomical-approximation",
+            "radius": 7.7,
+            "status": "approximate",
+            "x": 566.52,
+            "x_normalized": 0.737656,
+            "y": 297.97,
+            "y_normalized": 0.387982
+          }
+        ],
+        "evidence_map_available": true,
+        "module_count": 8,
+        "modules": {
+          "cotton_wool_spot_detection": {
+            "bounding_region_count": 0,
+            "confidence": 0.0,
+            "count": 0,
+            "implementation": "fundus-lesions-toolkit-unet-seresnext50",
+            "issues": [
+              {
+                "message": "Pretrained research model output is supporting evidence; it is not a clinical diagnosis or validated production claim.",
+                "type": "research_model"
+              }
+            ],
+            "landmark_count": 0,
+            "mask_available": true,
+            "metadata": {
+              "adapter_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "adapter_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "architecture": "U-Net with SE-ResNeXt-50 32x4d encoder",
+              "checkpoint_sha256": "a7a7cb45b92328f7c9a8e581eec3944fd435d37fae8cbf340b1319c5f987c6d2",
+              "class_index": 1,
+              "class_name": "cotton_wool_spot",
+              "clinical_validation_claim": false,
+              "coarse_to_fine": "global fundus resized/cropped to 1024; class masks restored to the evidence working image",
+              "context": {
+                "patch_count": 16,
+                "proposal_count": 16,
+                "working_height": 768,
+                "working_width": 768
+              },
+              "coverage_ratio": 0.0,
+              "device": "cpu",
+              "input_resolution": 1024,
+              "license": "MIT",
+              "max_probability": 0.0,
+              "mean_probability": 0.0,
+              "model_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "model_repository": "ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+              "model_source": "https://huggingface.co/ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+              "model_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "pixel_count": 0,
+              "source_code": "https://github.com/ClementPla/fundus-lesions-toolkit",
+              "threshold": 0.5,
+              "trained_on": [
+                "IDRiD",
+                "DDR",
+                "FGADR",
+                "MESSIDOR",
+                "RETLES"
+              ]
+            },
+            "overlay_available": false,
+            "status": "model_inference",
+            "supported": true
+          },
+          "exudate_segmentation": {
+            "bounding_region_count": 0,
+            "confidence": 0.5,
+            "count": 0,
+            "implementation": "fundus-lesions-toolkit-unet-seresnext50",
+            "issues": [
+              {
+                "message": "Pretrained research model output is supporting evidence; it is not a clinical diagnosis or validated production claim.",
+                "type": "research_model"
+              }
+            ],
+            "landmark_count": 0,
+            "mask_available": true,
+            "metadata": {
+              "adapter_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "adapter_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "architecture": "U-Net with SE-ResNeXt-50 32x4d encoder",
+              "checkpoint_sha256": "a7a7cb45b92328f7c9a8e581eec3944fd435d37fae8cbf340b1319c5f987c6d2",
+              "class_index": 2,
+              "class_name": "exudate",
+              "clinical_validation_claim": false,
+              "coarse_to_fine": "global fundus resized/cropped to 1024; class masks restored to the evidence working image",
+              "context": {
+                "patch_count": 16,
+                "proposal_count": 16,
+                "working_height": 768,
+                "working_width": 768
+              },
+              "coverage_ratio": 1.7e-06,
+              "device": "cpu",
+              "input_resolution": 1024,
+              "license": "MIT",
+              "max_probability": 0.500002,
+              "mean_probability": 2e-06,
+              "model_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "model_repository": "ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+              "model_source": "https://huggingface.co/ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+              "model_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "pixel_count": 1,
+              "source_code": "https://github.com/ClementPla/fundus-lesions-toolkit",
+              "threshold": 0.5,
+              "trained_on": [
+                "IDRiD",
+                "DDR",
+                "FGADR",
+                "MESSIDOR",
+                "RETLES"
+              ]
+            },
+            "overlay_available": false,
+            "status": "model_inference",
+            "supported": true
+          },
+          "fovea_localization": {
+            "bounding_region_count": 0,
+            "confidence": 0.1,
+            "count": null,
+            "implementation": "optic_disc_relative_heuristic",
+            "issues": [
+              {
+                "message": "Approximate anatomical position only; not a validated fovea detector.",
+                "type": "approximation_only"
+              }
+            ],
+            "landmark_count": 1,
+            "mask_available": false,
+            "metadata": {},
+            "overlay_available": false,
+            "status": "approximate",
+            "supported": true
+          },
+          "hemorrhage_detection": {
+            "bounding_region_count": 0,
+            "confidence": 0.0,
+            "count": 0,
+            "implementation": "fundus-lesions-toolkit-unet-seresnext50",
+            "issues": [
+              {
+                "message": "Pretrained research model output is supporting evidence; it is not a clinical diagnosis or validated production claim.",
+                "type": "research_model"
+              }
+            ],
+            "landmark_count": 0,
+            "mask_available": true,
+            "metadata": {
+              "adapter_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "adapter_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "architecture": "U-Net with SE-ResNeXt-50 32x4d encoder",
+              "checkpoint_sha256": "a7a7cb45b92328f7c9a8e581eec3944fd435d37fae8cbf340b1319c5f987c6d2",
+              "class_index": 3,
+              "class_name": "hemorrhage",
+              "clinical_validation_claim": false,
+              "coarse_to_fine": "global fundus resized/cropped to 1024; class masks restored to the evidence working image",
+              "context": {
+                "patch_count": 16,
+                "proposal_count": 16,
+                "working_height": 768,
+                "working_width": 768
+              },
+              "coverage_ratio": 0.0,
+              "device": "cpu",
+              "input_resolution": 1024,
+              "license": "MIT",
+              "max_probability": 7e-06,
+              "mean_probability": 0.0,
+              "model_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "model_repository": "ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+              "model_source": "https://huggingface.co/ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+              "model_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "pixel_count": 0,
+              "source_code": "https://github.com/ClementPla/fundus-lesions-toolkit",
+              "threshold": 0.5,
+              "trained_on": [
+                "IDRiD",
+                "DDR",
+                "FGADR",
+                "MESSIDOR",
+                "RETLES"
+              ]
+            },
+            "overlay_available": false,
+            "status": "model_inference",
+            "supported": true
+          },
+          "microaneurysm_detection": {
+            "bounding_region_count": 0,
+            "confidence": 0.0,
+            "count": 0,
+            "implementation": "fundus-lesions-toolkit-unet-seresnext50",
+            "issues": [
+              {
+                "message": "Pretrained research model output is supporting evidence; it is not a clinical diagnosis or validated production claim.",
+                "type": "research_model"
+              }
+            ],
+            "landmark_count": 0,
+            "mask_available": true,
+            "metadata": {
+              "adapter_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "adapter_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "architecture": "U-Net with SE-ResNeXt-50 32x4d encoder",
+              "checkpoint_sha256": "a7a7cb45b92328f7c9a8e581eec3944fd435d37fae8cbf340b1319c5f987c6d2",
+              "class_index": 4,
+              "class_name": "microaneurysm",
+              "clinical_validation_claim": false,
+              "coarse_to_fine": "global fundus resized/cropped to 1024; class masks restored to the evidence working image",
+              "context": {
+                "patch_count": 16,
+                "proposal_count": 16,
+                "working_height": 768,
+                "working_width": 768
+              },
+              "coverage_ratio": 0.0,
+              "device": "cpu",
+              "input_resolution": 1024,
+              "license": "MIT",
+              "max_probability": 0.0,
+              "mean_probability": 0.0,
+              "model_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "model_repository": "ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+              "model_source": "https://huggingface.co/ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+              "model_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "pixel_count": 0,
+              "source_code": "https://github.com/ClementPla/fundus-lesions-toolkit",
+              "threshold": 0.5,
+              "trained_on": [
+                "IDRiD",
+                "DDR",
+                "FGADR",
+                "MESSIDOR",
+                "RETLES"
+              ]
+            },
+            "overlay_available": false,
+            "status": "model_inference",
+            "supported": true
+          },
+          "neovascularization_detection": {
+            "bounding_region_count": 0,
+            "confidence": null,
+            "count": null,
+            "implementation": "experimental_interface_only",
+            "issues": [
+              {
+                "message": "Advanced experimental module interface is present, but no validated model artifact or compatible annotation is configured.",
+                "type": "unsupported"
+              }
+            ],
+            "landmark_count": 0,
+            "mask_available": false,
+            "metadata": {},
+            "overlay_available": false,
+            "status": "unsupported",
+            "supported": false
+          },
+          "optic_disc_localization": {
+            "bounding_region_count": 0,
+            "confidence": 0.631,
+            "count": null,
+            "implementation": "classical_cv_baseline",
+            "issues": [
+              {
+                "message": "Bright-region localization baseline; not clinically validated.",
+                "type": "experimental_baseline"
+              }
+            ],
+            "landmark_count": 1,
+            "mask_available": true,
+            "metadata": {},
+            "overlay_available": false,
+            "status": "experimental_heuristic",
+            "supported": true
+          },
+          "vessel_segmentation": {
+            "bounding_region_count": 0,
+            "confidence": 0.815,
+            "count": 99,
+            "implementation": "R2-V2 RRWNet bv vessel segmentor",
+            "issues": [
+              {
+                "message": "Real neural-network vessel segmentation output; measurements are engineering estimates and are not clinically validated biomarkers.",
+                "type": "engineering_evidence"
+              }
+            ],
+            "landmark_count": 0,
+            "mask_available": true,
+            "metadata": {
+              "adapter_name": "R2-V2 RRWNet bv vessel segmentor",
+              "adapter_version": "r2-v2-bv-2025",
+              "architecture": "RRWNet (R2-V2 bv variant)",
+              "checkpoint_sha256": "ea219b13b03984b8d454f999343c5bda1a8a7cb8586aeb3639a29814cab2330a",
+              "clinical_validation_claim": false,
+              "connected_components": 99,
+              "context": {
+                "retina_area_ratio": 0.7939,
+                "working_height": 768,
+                "working_width": 768
+              },
+              "coverage_ratio": 0.0728675,
+              "device": "cpu",
+              "input_configuration": {
+                "channels": 6,
+                "preprocessing": "published R2-V2 enhance_image + CLAHE, RGB fundus concatenated with enhanced RGB",
+                "width": 1408
+              },
+              "license": "CC BY 4.0",
+              "max_probability": 0.999174,
+              "mean_probability_inside_mask": 0.815046,
+              "measurement_status": "ENGINEERING_ESTIMATE",
+              "model_name": "R2-V2 RRWNet bv vessel segmentor",
+              "model_repository": "j-morano/R2-V2",
+              "model_source": "https://huggingface.co/j-morano/R2-V2",
+              "model_version": "r2-v2-bv-2025",
+              "output_configuration": {
+                "channels": {
+                  "0": "artery",
+                  "1": "vein",
+                  "2": "blood_vessels"
+                },
+                "probability_activation": "sigmoid",
+                "vessel_channel": 2
+              },
+              "pixel_count": 42979,
+              "source_code": "https://github.com/j-morano/R2-V2",
+              "source_revision": "bb8c6c9346054df749f8bd48a9da41ba974e6a6b",
+              "threshold": 0.5,
+              "training_dataset_provenance": "Unified_Fundus (as stated in the published R2-V2 bv_config.json)"
+            },
+            "overlay_available": true,
+            "status": "model_inference",
+            "supported": true
+          }
+        },
+        "stage_timings_ms": {
+          "lesion_inference_ms": 10622.801,
+          "structure_analysis_ms": 99.193,
+          "vessel_inference_ms": 246406.366
+        },
+        "status": "completed"
+      },
+      "explainability": {
+        "attention_lesion_agreement": {
+          "metrics": {
+            "attention_coverage": 0.125552,
+            "attention_in_lesion": 0.0,
+            "dice": 0.0,
+            "intersection_over_union": 0.0,
+            "lesion_coverage": 2e-06,
+            "lesion_in_attention": 0.0
+          },
+          "note": "Engineering explainability metric only; overlap does not prove clinical causality.",
+          "reason": "Attention and supported lesion regions were compared at the working image resolution.",
+          "score": 0.0,
+          "status": "LOW AGREEMENT"
+        },
+        "grad_cam": {
+          "heatmap_available": true,
+          "normalized_attention_available": true,
+          "overlay_available": true,
+          "target_class": 0
+        },
+        "matches_primary_grade": true,
+        "predicted_class": 0,
+        "predicted_class_label": "No DR",
+        "stability": {
+          "grad_cam_stability": null,
+          "prediction_stability": null,
+          "reason": "Stability perturbations are disabled for real-time mode. Set run_stability=true or enable EXPLAINABILITY_STABILITY_ENABLED.",
+          "status": "SKIPPED",
+          "variants": []
+        }
+      },
+      "fusion": {
+        "clinical_validation_claim": false,
+        "disagreement": false,
+        "error": null,
+        "fused_probability": 0.011533,
+        "fused_referable": false,
+        "fusion_rule": "fused_referable = max(primary_referable_probability, verifier_referable_probability) >= 0.4; severity_grade = argmax(primary P0..P4)",
+        "fusion_threshold": 0.4,
+        "primary_probability": 0.011533,
+        "primary_referable": false,
+        "review_recommended": false,
+        "status": "COMPLETED",
+        "verifier_model_sha256": "f0e19fa86d5a27a05731550d1d6708c01f6f363f45a1fa57849de988f91e775b",
+        "verifier_model_version": "retguard-dr-v1.0.0",
+        "verifier_ood": {
+          "method": "RETGUARD Mahalanobis gate",
+          "score": 33.209939729039924,
+          "status": "IN_DISTRIBUTION",
+          "threshold": 47.37727871333164
+        },
+        "verifier_probability": 0.006870150287762011,
+        "verifier_referable": false,
+        "verifier_threshold": 0.204983
+      },
+      "grade_unchanged_by_supporting_evidence": true,
+      "image_sha256": "440b3ad644a4c0b250809522ab7a20f4755dd1ea63dc3355d346b5621c76567e",
+      "label_grade": 0,
+      "official_idrid_test_images_opened": 0,
+      "path": "ml/datasets/raw/aptos2019/train_images/04efb1a284cc.png",
+      "quality": {
+        "enhancement_applied": false,
+        "enhancement_passes": 0,
+        "final": {
+          "component_scores": {
+            "artifacts": 1.0,
+            "contrast": 0.4669,
+            "exposure": 1.0,
+            "field_of_view": 1.0,
+            "focus": 0.4666,
+            "illumination": 0.9438
+          },
+          "feature_vector": {
+            "artifacts": 1.0,
+            "contrast": 0.4669,
+            "contrast_spread": 0.2706,
+            "exposure": 1.0,
+            "field_of_view": 1.0,
+            "focus": 0.4666,
+            "illumination": 0.9438,
+            "mean_intensity": 0.4447,
+            "retinal_coverage": 0.7917
+          },
+          "input_metadata": {
+            "camera_metadata": {},
+            "channels": 3,
+            "format": "PNG",
+            "height": 1050,
+            "mode": "RGB",
+            "width": 1050
+          },
+          "issues": [],
+          "metrics": {
+            "border_artifact_ratio": 0.0,
+            "high_clip_ratio": 0.0,
+            "intensity_stddev": 23.5891,
+            "laplacian_variance": 36.2912,
+            "low_clip_ratio": 0.0,
+            "mean_intensity": 113.3898,
+            "p1_intensity": 77.0,
+            "p50_intensity": 109.0,
+            "p5_intensity": 84.0,
+            "p95_intensity": 153.0,
+            "p99_intensity": 206.0,
+            "retinal_coverage_ratio": 0.7917,
+            "saturated_artifact_ratio": 0.0
+          },
+          "next_action": "CONTINUE_SCREENING",
+          "quality_decision": "GRADABLE",
+          "quality_score": 0.7783,
+          "recommended_action": "Proceed to clinical AI analysis."
+        },
+        "initial": {
+          "component_scores": {
+            "artifacts": 1.0,
+            "contrast": 0.4669,
+            "exposure": 1.0,
+            "field_of_view": 1.0,
+            "focus": 0.4666,
+            "illumination": 0.9438
+          },
+          "feature_vector": {
+            "artifacts": 1.0,
+            "contrast": 0.4669,
+            "contrast_spread": 0.2706,
+            "exposure": 1.0,
+            "field_of_view": 1.0,
+            "focus": 0.4666,
+            "illumination": 0.9438,
+            "mean_intensity": 0.4447,
+            "retinal_coverage": 0.7917
+          },
+          "input_metadata": {
+            "camera_metadata": {},
+            "channels": 3,
+            "format": "PNG",
+            "height": 1050,
+            "mode": "RGB",
+            "width": 1050
+          },
+          "issues": [],
+          "metrics": {
+            "border_artifact_ratio": 0.0,
+            "high_clip_ratio": 0.0,
+            "intensity_stddev": 23.5891,
+            "laplacian_variance": 36.2912,
+            "low_clip_ratio": 0.0,
+            "mean_intensity": 113.3898,
+            "p1_intensity": 77.0,
+            "p50_intensity": 109.0,
+            "p5_intensity": 84.0,
+            "p95_intensity": 153.0,
+            "p99_intensity": 206.0,
+            "retinal_coverage_ratio": 0.7917,
+            "saturated_artifact_ratio": 0.0
+          },
+          "next_action": "CONTINUE_SCREENING",
+          "quality_decision": "GRADABLE",
+          "quality_score": 0.7783,
+          "recommended_action": "Proceed to clinical AI analysis."
+        },
+        "input_metadata": {
+          "channels": 3,
+          "format": "PNG",
+          "height": 1050,
+          "mode": "RGB",
+          "width": 1050
+        }
+      },
+      "report": {
+        "internal_model_names_exposed": false,
+        "payload_created": true,
+        "pdf_bytes": 1986,
+        "pdf_eof_valid": true,
+        "pdf_signature_valid": true
+      },
+      "retinaguard": {
+        "recommended_action": "Do not rely on automated triage; require specialist or human review.",
+        "referable_fusion": {
+          "clinical_validation_claim": false,
+          "disagreement": false,
+          "error": null,
+          "fused_probability": 0.011533,
+          "fused_referable": false,
+          "fusion_rule": "fused_referable = max(primary_referable_probability, verifier_referable_probability) >= 0.4; severity_grade = argmax(primary P0..P4)",
+          "fusion_threshold": 0.4,
+          "primary_probability": 0.011533,
+          "primary_referable": false,
+          "review_recommended": false,
+          "status": "COMPLETED",
+          "verifier_model_sha256": "f0e19fa86d5a27a05731550d1d6708c01f6f363f45a1fa57849de988f91e775b",
+          "verifier_model_version": "retguard-dr-v1.0.0",
+          "verifier_ood": {
+            "method": "RETGUARD Mahalanobis gate",
+            "score": 33.209939729039924,
+            "status": "IN_DISTRIBUTION",
+            "threshold": 47.37727871333164
+          },
+          "verifier_probability": 0.006870150287762011,
+          "verifier_referable": false,
+          "verifier_threshold": 0.204983
+        },
+        "risk_flags": [
+          {
+            "code": "low_attention_evidence_agreement",
+            "reason": "Classifier attention has low overlap with supported lesion evidence.",
+            "severity": "high"
+          },
+          {
+            "code": "explanation_stability_not_run",
+            "reason": "Explanation stability testing was not run for this real-time request.",
+            "severity": "medium"
+          },
+          {
+            "code": "ood_not_available",
+            "reason": "No authorized reference distribution is configured for OOD monitoring.",
+            "severity": "medium"
+          }
+        ],
+        "trust_category": "UNRELIABLE",
+        "trust_score": 0.551936
+      },
+      "stage_timings_ms": {
+        "classification": 275.19860002212226,
+        "evidence": 260825.20439999644,
+        "grad_cam_and_agreement": 4683.858099975623,
+        "image_validation": 36.71529999701306,
+        "pdf_generation": 3.5466999979689717,
+        "quality_assessment": 92.80280000530183,
+        "retinaguard": 17.141600023023784,
+        "verifier_fusion": 8941.852699965239
+      },
+      "status": "COMPLETED",
+      "total_elapsed_ms": 274897.4558999762
+    },
+    {
+      "bytes": 4587050,
+      "case_id": "aptos_png_grade_1_quality_edge",
+      "coverage": [
+        "mild",
+        "PNG",
+        "low_contrast"
+      ],
+      "dataset": "APTOS 2019",
+      "errors": {},
+      "image_sha256": "6f34bafa981582eb3e8b5155bf8218f644d057cf0a9ded8843d0daa8d82cb180",
+      "label_grade": 1,
+      "official_idrid_test_images_opened": 0,
+      "path": "ml/datasets/raw/aptos2019/train_images/03e25101e8e8.png",
+      "quality": {
+        "enhancement_applied": true,
+        "enhancement_passes": 1,
+        "final": {
+          "component_scores": {
+            "artifacts": 0.9999,
+            "contrast": 0.3362,
+            "exposure": 1.0,
+            "field_of_view": 0.0181,
+            "focus": 1.0,
+            "illumination": 0.9385
+          },
+          "feature_vector": {
+            "artifacts": 0.9999,
+            "contrast": 0.3362,
+            "contrast_spread": 0.2,
+            "exposure": 1.0,
+            "field_of_view": 0.0181,
+            "focus": 1.0,
+            "illumination": 0.9385,
+            "mean_intensity": 0.4392,
+            "retinal_coverage": 0.9996
+          },
+          "input_metadata": {
+            "camera_metadata": {},
+            "channels": 3,
+            "format": "PNG",
+            "height": 1958,
+            "mode": "RGB",
+            "width": 2588
+          },
+          "issues": [
+            {
+              "message": "Retinal structures have limited tonal separation.",
+              "recommendation": "Improve focus and illumination; a controlled enhancement pass may help.",
+              "severity": "moderate",
+              "type": "low_contrast"
+            },
+            {
+              "message": "Too little of the retinal field is visible.",
+              "recommendation": "Re-center the retina and recapture the image.",
+              "severity": "severe",
+              "type": "insufficient_field_of_view"
+            }
+          ],
+          "metrics": {
+            "border_artifact_ratio": 0.0,
+            "high_clip_ratio": 0.0,
+            "intensity_stddev": 16.149,
+            "laplacian_variance": 575.1669,
+            "low_clip_ratio": 0.0,
+            "mean_intensity": 112.0029,
+            "p1_intensity": 59.0,
+            "p50_intensity": 113.0,
+            "p5_intensity": 85.0,
+            "p95_intensity": 136.0,
+            "p99_intensity": 158.0,
+            "retinal_coverage_ratio": 0.9996,
+            "saturated_artifact_ratio": 0.0001
+          },
+          "next_action": "RECAPTURE_IMAGE",
+          "quality_decision": "UNGRADABLE",
+          "quality_score": 0.6948,
+          "recommended_action": "Recapture the image using the guidance below."
+        },
+        "initial": {
+          "component_scores": {
+            "artifacts": 1.0,
+            "contrast": 0.4465,
+            "exposure": 1.0,
+            "field_of_view": 1.0,
+            "focus": 0.4324,
+            "illumination": 0.8108
+          },
+          "feature_vector": {
+            "artifacts": 1.0,
+            "contrast": 0.4465,
+            "contrast_spread": 0.2627,
+            "exposure": 1.0,
+            "field_of_view": 1.0,
+            "focus": 0.4324,
+            "illumination": 0.8108,
+            "mean_intensity": 0.309,
+            "retinal_coverage": 0.928
+          },
+          "input_metadata": {
+            "camera_metadata": {},
+            "channels": 3,
+            "format": "PNG",
+            "height": 1958,
+            "mode": "RGB",
+            "width": 2588
+          },
+          "issues": [
+            {
+              "message": "Retinal structures have limited tonal separation.",
+              "recommendation": "Improve focus and illumination; a controlled enhancement pass may help.",
+              "severity": "moderate",
+              "type": "low_contrast"
+            }
+          ],
+          "metrics": {
+            "border_artifact_ratio": 0.0,
+            "high_clip_ratio": 0.0,
+            "intensity_stddev": 21.9206,
+            "laplacian_variance": 31.6122,
+            "low_clip_ratio": 0.0,
+            "mean_intensity": 78.8012,
+            "p1_intensity": 41.0,
+            "p50_intensity": 78.0,
+            "p5_intensity": 47.0,
+            "p95_intensity": 114.0,
+            "p99_intensity": 144.0,
+            "retinal_coverage_ratio": 0.928,
+            "saturated_artifact_ratio": 0.0
+          },
+          "next_action": "ENHANCE_AND_REASSESS",
+          "quality_decision": "BORDERLINE",
+          "quality_score": 0.7467,
+          "recommended_action": "Apply one controlled enhancement pass, then reassess."
+        },
+        "input_metadata": {
+          "channels": 3,
+          "format": "PNG",
+          "height": 1958,
+          "mode": "RGB",
+          "width": 2588
+        }
+      },
+      "quality_block_reason": "Clinical AI stopped because the final image quality decision was not GRADABLE.",
+      "stage_timings_ms": {
+        "image_validation": 263.13560002017766,
+        "quality_assessment": 1201.804100011941,
+        "quality_enhancement": 39873.5201000236
+      },
+      "status": "QUALITY_BLOCKED",
+      "total_elapsed_ms": 41356.85470001772
+    },
+    {
+      "bytes": 1060800,
+      "case_id": "aptos_png_grade_2_severe_blur",
+      "coverage": [
+        "moderate",
+        "PNG",
+        "poor_quality",
+        "severe_blur"
+      ],
+      "dataset": "APTOS 2019",
+      "errors": {},
+      "image_sha256": "4b830c3f1940a1093e84c68878b64b714bd9b5fc68cadfacb4dc0e605ae43eb3",
+      "label_grade": 2,
+      "official_idrid_test_images_opened": 0,
+      "path": "ml/datasets/raw/aptos2019/train_images/18323d8f2470.png",
+      "quality": {
+        "enhancement_applied": false,
+        "enhancement_passes": 0,
+        "final": {
+          "component_scores": {
+            "artifacts": 0.9977,
+            "contrast": 0.4589,
+            "exposure": 1.0,
+            "field_of_view": 1.0,
+            "focus": 0.0813,
+            "illumination": 0.7771
+          },
+          "feature_vector": {
+            "artifacts": 0.9977,
+            "contrast": 0.4589,
+            "contrast_spread": 0.2667,
+            "exposure": 1.0,
+            "field_of_view": 1.0,
+            "focus": 0.0813,
+            "illumination": 0.7771,
+            "mean_intensity": 0.2747,
+            "retinal_coverage": 0.715
+          },
+          "input_metadata": {
+            "camera_metadata": {},
+            "channels": 3,
+            "format": "PNG",
+            "height": 1226,
+            "mode": "RGB",
+            "width": 1844
+          },
+          "issues": [
+            {
+              "message": "The retinal image has insufficient focus detail.",
+              "recommendation": "Stabilize the camera and refocus before recapturing.",
+              "severity": "severe",
+              "type": "severe_blur"
+            }
+          ],
+          "metrics": {
+            "border_artifact_ratio": 0.0,
+            "high_clip_ratio": 0.0,
+            "intensity_stddev": 23.0613,
+            "laplacian_variance": 7.2498,
+            "low_clip_ratio": 0.0,
+            "mean_intensity": 70.0538,
+            "p1_intensity": 37.0,
+            "p50_intensity": 65.0,
+            "p5_intensity": 44.0,
+            "p95_intensity": 112.0,
+            "p99_intensity": 161.0,
+            "retinal_coverage_ratio": 0.715,
+            "saturated_artifact_ratio": 0.0033
+          },
+          "next_action": "RECAPTURE_IMAGE",
+          "quality_decision": "UNGRADABLE",
+          "quality_score": 0.6555,
+          "recommended_action": "Recapture the image using the guidance below."
+        },
+        "initial": {
+          "component_scores": {
+            "artifacts": 0.9977,
+            "contrast": 0.4589,
+            "exposure": 1.0,
+            "field_of_view": 1.0,
+            "focus": 0.0813,
+            "illumination": 0.7771
+          },
+          "feature_vector": {
+            "artifacts": 0.9977,
+            "contrast": 0.4589,
+            "contrast_spread": 0.2667,
+            "exposure": 1.0,
+            "field_of_view": 1.0,
+            "focus": 0.0813,
+            "illumination": 0.7771,
+            "mean_intensity": 0.2747,
+            "retinal_coverage": 0.715
+          },
+          "input_metadata": {
+            "camera_metadata": {},
+            "channels": 3,
+            "format": "PNG",
+            "height": 1226,
+            "mode": "RGB",
+            "width": 1844
+          },
+          "issues": [
+            {
+              "message": "The retinal image has insufficient focus detail.",
+              "recommendation": "Stabilize the camera and refocus before recapturing.",
+              "severity": "severe",
+              "type": "severe_blur"
+            }
+          ],
+          "metrics": {
+            "border_artifact_ratio": 0.0,
+            "high_clip_ratio": 0.0,
+            "intensity_stddev": 23.0613,
+            "laplacian_variance": 7.2498,
+            "low_clip_ratio": 0.0,
+            "mean_intensity": 70.0538,
+            "p1_intensity": 37.0,
+            "p50_intensity": 65.0,
+            "p5_intensity": 44.0,
+            "p95_intensity": 112.0,
+            "p99_intensity": 161.0,
+            "retinal_coverage_ratio": 0.715,
+            "saturated_artifact_ratio": 0.0033
+          },
+          "next_action": "RECAPTURE_IMAGE",
+          "quality_decision": "UNGRADABLE",
+          "quality_score": 0.6555,
+          "recommended_action": "Recapture the image using the guidance below."
+        },
+        "input_metadata": {
+          "channels": 3,
+          "format": "PNG",
+          "height": 1226,
+          "mode": "RGB",
+          "width": 1844
+        }
+      },
+      "quality_block_reason": "Clinical AI stopped because the final image quality decision was not GRADABLE.",
+      "stage_timings_ms": {
+        "image_validation": 128.8772999541834,
+        "quality_assessment": 475.04619997926056
+      },
+      "status": "QUALITY_BLOCKED",
+      "total_elapsed_ms": 610.1767999934964
+    },
+    {
+      "bytes": 2432177,
+      "case_id": "aptos_png_grade_3_quality_edge",
+      "coverage": [
+        "severe",
+        "PNG",
+        "low_contrast"
+      ],
+      "dataset": "APTOS 2019",
+      "errors": {},
+      "image_sha256": "c6aa3c6387291327f7d4ec1e07e26074646fe6c1ebb9b9a06fc898ba7e193d02",
+      "label_grade": 3,
+      "official_idrid_test_images_opened": 0,
+      "path": "ml/datasets/raw/aptos2019/train_images/05cd0178ccfe.png",
+      "quality": {
+        "enhancement_applied": true,
+        "enhancement_passes": 1,
+        "final": {
+          "component_scores": {
+            "artifacts": 0.9999,
+            "contrast": 0.1892,
+            "exposure": 0.9998,
+            "field_of_view": 0.3369,
+            "focus": 0.7645,
+            "illumination": 0.952
+          },
+          "feature_vector": {
+            "artifacts": 0.9999,
+            "contrast": 0.1892,
+            "contrast_spread": 0.1098,
+            "exposure": 0.9998,
+            "field_of_view": 0.3369,
+            "focus": 0.7645,
+            "illumination": 0.952,
+            "mean_intensity": 0.4531,
+            "retinal_coverage": 0.9933
+          },
+          "input_metadata": {
+            "camera_metadata": {},
+            "channels": 3,
+            "format": "PNG",
+            "height": 1736,
+            "mode": "RGB",
+            "width": 2416
+          },
+          "issues": [
+            {
+              "message": "Retinal structures have limited tonal separation.",
+              "recommendation": "Improve focus and illumination; a controlled enhancement pass may help.",
+              "severity": "moderate",
+              "type": "low_contrast"
+            },
+            {
+              "message": "Too little of the retinal field is visible.",
+              "recommendation": "Re-center the retina and recapture the image.",
+              "severity": "moderate",
+              "type": "insufficient_field_of_view"
+            }
+          ],
+          "metrics": {
+            "border_artifact_ratio": 0.0001,
+            "high_clip_ratio": 0.0,
+            "intensity_stddev": 9.527,
+            "laplacian_variance": 118.7204,
+            "low_clip_ratio": 0.0,
+            "mean_intensity": 115.5297,
+            "p1_intensity": 88.0,
+            "p50_intensity": 117.0,
+            "p5_intensity": 100.0,
+            "p95_intensity": 128.0,
+            "p99_intensity": 140.0,
+            "retinal_coverage_ratio": 0.9933,
+            "saturated_artifact_ratio": 0.0
+          },
+          "next_action": "ENHANCE_AND_REASSESS",
+          "quality_decision": "BORDERLINE",
+          "quality_score": 0.6796,
+          "recommended_action": "Apply one controlled enhancement pass, then reassess."
+        },
+        "initial": {
+          "component_scores": {
+            "artifacts": 0.9955,
+            "contrast": 0.6138,
+            "exposure": 1.0,
+            "field_of_view": 1.0,
+            "focus": 0.207,
+            "illumination": 0.9127
+          },
+          "feature_vector": {
+            "artifacts": 0.9955,
+            "contrast": 0.6138,
+            "contrast_spread": 0.3647,
+            "exposure": 1.0,
+            "field_of_view": 1.0,
+            "focus": 0.207,
+            "illumination": 0.9127,
+            "mean_intensity": 0.413,
+            "retinal_coverage": 0.8338
+          },
+          "input_metadata": {
+            "camera_metadata": {},
+            "channels": 3,
+            "format": "PNG",
+            "height": 1736,
+            "mode": "RGB",
+            "width": 2416
+          },
+          "issues": [
+            {
+              "message": "The retinal image has insufficient focus detail.",
+              "recommendation": "Stabilize the camera and refocus before recapturing.",
+              "severity": "moderate",
+              "type": "low_focus"
+            }
+          ],
+          "metrics": {
+            "border_artifact_ratio": 0.0,
+            "high_clip_ratio": 0.0,
+            "intensity_stddev": 29.5575,
+            "laplacian_variance": 12.4963,
+            "low_clip_ratio": 0.0,
+            "mean_intensity": 105.3037,
+            "p1_intensity": 54.0,
+            "p50_intensity": 105.0,
+            "p5_intensity": 61.0,
+            "p95_intensity": 154.0,
+            "p99_intensity": 186.0,
+            "retinal_coverage_ratio": 0.8338,
+            "saturated_artifact_ratio": 0.0064
+          },
+          "next_action": "ENHANCE_AND_REASSESS",
+          "quality_decision": "BORDERLINE",
+          "quality_score": 0.7303,
+          "recommended_action": "Apply one controlled enhancement pass, then reassess."
+        },
+        "input_metadata": {
+          "channels": 3,
+          "format": "PNG",
+          "height": 1736,
+          "mode": "RGB",
+          "width": 2416
+        }
+      },
+      "quality_block_reason": "Clinical AI stopped because the final image quality decision was not GRADABLE.",
+      "stage_timings_ms": {
+        "image_validation": 213.05619995109737,
+        "quality_assessment": 639.1551000415348,
+        "quality_enhancement": 31504.354600037914
+      },
+      "status": "QUALITY_BLOCKED",
+      "total_elapsed_ms": 32374.440699990373
+    },
+    {
+      "bytes": 5189683,
+      "case_id": "aptos_png_grade_4_severe_blur",
+      "coverage": [
+        "proliferative",
+        "PNG",
+        "poor_quality",
+        "severe_blur"
+      ],
+      "dataset": "APTOS 2019",
+      "errors": {},
+      "image_sha256": "947e74fa3480028c14276cf37cee1bdee83f060865e94037216bd9695430d86b",
+      "label_grade": 4,
+      "official_idrid_test_images_opened": 0,
+      "path": "ml/datasets/raw/aptos2019/train_images/1a7e3356b39c.png",
+      "quality": {
+        "enhancement_applied": false,
+        "enhancement_passes": 0,
+        "final": {
+          "component_scores": {
+            "artifacts": 1.0,
+            "contrast": 0.5482,
+            "exposure": 1.0,
+            "field_of_view": 1.0,
+            "focus": 0.0928,
+            "illumination": 0.7596
+          },
+          "feature_vector": {
+            "artifacts": 1.0,
+            "contrast": 0.5482,
+            "contrast_spread": 0.3294,
+            "exposure": 1.0,
+            "field_of_view": 1.0,
+            "focus": 0.0928,
+            "illumination": 0.7596,
+            "mean_intensity": 0.2568,
+            "retinal_coverage": 0.723
+          },
+          "input_metadata": {
+            "camera_metadata": {},
+            "channels": 3,
+            "format": "PNG",
+            "height": 2848,
+            "mode": "RGB",
+            "width": 4288
+          },
+          "issues": [
+            {
+              "message": "The retinal image has insufficient focus detail.",
+              "recommendation": "Stabilize the camera and refocus before recapturing.",
+              "severity": "severe",
+              "type": "severe_blur"
+            }
+          ],
+          "metrics": {
+            "border_artifact_ratio": 0.0,
+            "high_clip_ratio": 0.0,
+            "intensity_stddev": 25.7986,
+            "laplacian_variance": 7.6271,
+            "low_clip_ratio": 0.0,
+            "mean_intensity": 65.4898,
+            "p1_intensity": 27.0,
+            "p50_intensity": 64.0,
+            "p5_intensity": 31.0,
+            "p95_intensity": 115.0,
+            "p99_intensity": 156.0,
+            "retinal_coverage_ratio": 0.723,
+            "saturated_artifact_ratio": 0.0
+          },
+          "next_action": "RECAPTURE_IMAGE",
+          "quality_decision": "UNGRADABLE",
+          "quality_score": 0.6694,
+          "recommended_action": "Recapture the image using the guidance below."
+        },
+        "initial": {
+          "component_scores": {
+            "artifacts": 1.0,
+            "contrast": 0.5482,
+            "exposure": 1.0,
+            "field_of_view": 1.0,
+            "focus": 0.0928,
+            "illumination": 0.7596
+          },
+          "feature_vector": {
+            "artifacts": 1.0,
+            "contrast": 0.5482,
+            "contrast_spread": 0.3294,
+            "exposure": 1.0,
+            "field_of_view": 1.0,
+            "focus": 0.0928,
+            "illumination": 0.7596,
+            "mean_intensity": 0.2568,
+            "retinal_coverage": 0.723
+          },
+          "input_metadata": {
+            "camera_metadata": {},
+            "channels": 3,
+            "format": "PNG",
+            "height": 2848,
+            "mode": "RGB",
+            "width": 4288
+          },
+          "issues": [
+            {
+              "message": "The retinal image has insufficient focus detail.",
+              "recommendation": "Stabilize the camera and refocus before recapturing.",
+              "severity": "severe",
+              "type": "severe_blur"
+            }
+          ],
+          "metrics": {
+            "border_artifact_ratio": 0.0,
+            "high_clip_ratio": 0.0,
+            "intensity_stddev": 25.7986,
+            "laplacian_variance": 7.6271,
+            "low_clip_ratio": 0.0,
+            "mean_intensity": 65.4898,
+            "p1_intensity": 27.0,
+            "p50_intensity": 64.0,
+            "p5_intensity": 31.0,
+            "p95_intensity": 115.0,
+            "p99_intensity": 156.0,
+            "retinal_coverage_ratio": 0.723,
+            "saturated_artifact_ratio": 0.0
+          },
+          "next_action": "RECAPTURE_IMAGE",
+          "quality_decision": "UNGRADABLE",
+          "quality_score": 0.6694,
+          "recommended_action": "Recapture the image using the guidance below."
+        },
+        "input_metadata": {
+          "channels": 3,
+          "format": "PNG",
+          "height": 2848,
+          "mode": "RGB",
+          "width": 4288
+        }
+      },
+      "quality_block_reason": "Clinical AI stopped because the final image quality decision was not GRADABLE.",
+      "stage_timings_ms": {
+        "image_validation": 259.733899962157,
+        "quality_assessment": 1035.8788999728858
+      },
+      "status": "QUALITY_BLOCKED",
+      "total_elapsed_ms": 1312.2979999752715
+    },
+    {
+      "bytes": 3218676,
+      "case_id": "aptos_png_quality_blocked_severe_blur",
+      "coverage": [
+        "quality_gate",
+        "PNG",
+        "poor_quality",
+        "severe_blur"
+      ],
+      "dataset": "APTOS 2019",
+      "errors": {},
+      "image_sha256": "3f34b577a7102dddea20d2aaed76028bcf724ddb82e923b5699474d3272510f9",
+      "label_grade": 2,
+      "official_idrid_test_images_opened": 0,
+      "path": "ml/datasets/raw/aptos2019/train_images/000c1434d8d7.png",
+      "quality": {
+        "enhancement_applied": false,
+        "enhancement_passes": 0,
+        "final": {
+          "component_scores": {
+            "artifacts": 0.9999,
+            "contrast": 0.231,
+            "exposure": 1.0,
+            "field_of_view": 1.0,
+            "focus": 0.0945,
+            "illumination": 0.77
+          },
+          "feature_vector": {
+            "artifacts": 0.9999,
+            "contrast": 0.231,
+            "contrast_spread": 0.1333,
+            "exposure": 1.0,
+            "field_of_view": 1.0,
+            "focus": 0.0945,
+            "illumination": 0.77,
+            "mean_intensity": 0.2674,
+            "retinal_coverage": 0.7461
+          },
+          "input_metadata": {
+            "camera_metadata": {},
+            "channels": 3,
+            "format": "PNG",
+            "height": 2136,
+            "mode": "RGB",
+            "width": 3216
+          },
+          "issues": [
+            {
+              "message": "The retinal image has insufficient focus detail.",
+              "recommendation": "Stabilize the camera and refocus before recapturing.",
+              "severity": "severe",
+              "type": "severe_blur"
+            },
+            {
+              "message": "Retinal structures have limited tonal separation.",
+              "recommendation": "Improve focus and illumination; a controlled enhancement pass may help.",
+              "severity": "moderate",
+              "type": "low_contrast"
+            }
+          ],
+          "metrics": {
+            "border_artifact_ratio": 0.0,
+            "high_clip_ratio": 0.0,
+            "intensity_stddev": 11.7553,
+            "laplacian_variance": 7.6864,
+            "low_clip_ratio": 0.0,
+            "mean_intensity": 68.1942,
+            "p1_intensity": 50.0,
+            "p50_intensity": 68.0,
+            "p5_intensity": 52.0,
+            "p95_intensity": 86.0,
+            "p99_intensity": 106.0,
+            "retinal_coverage_ratio": 0.7461,
+            "saturated_artifact_ratio": 0.0001
+          },
+          "next_action": "RECAPTURE_IMAGE",
+          "quality_decision": "UNGRADABLE",
+          "quality_score": 0.6238,
+          "recommended_action": "Recapture the image using the guidance below."
+        },
+        "initial": {
+          "component_scores": {
+            "artifacts": 0.9999,
+            "contrast": 0.231,
+            "exposure": 1.0,
+            "field_of_view": 1.0,
+            "focus": 0.0945,
+            "illumination": 0.77
+          },
+          "feature_vector": {
+            "artifacts": 0.9999,
+            "contrast": 0.231,
+            "contrast_spread": 0.1333,
+            "exposure": 1.0,
+            "field_of_view": 1.0,
+            "focus": 0.0945,
+            "illumination": 0.77,
+            "mean_intensity": 0.2674,
+            "retinal_coverage": 0.7461
+          },
+          "input_metadata": {
+            "camera_metadata": {},
+            "channels": 3,
+            "format": "PNG",
+            "height": 2136,
+            "mode": "RGB",
+            "width": 3216
+          },
+          "issues": [
+            {
+              "message": "The retinal image has insufficient focus detail.",
+              "recommendation": "Stabilize the camera and refocus before recapturing.",
+              "severity": "severe",
+              "type": "severe_blur"
+            },
+            {
+              "message": "Retinal structures have limited tonal separation.",
+              "recommendation": "Improve focus and illumination; a controlled enhancement pass may help.",
+              "severity": "moderate",
+              "type": "low_contrast"
+            }
+          ],
+          "metrics": {
+            "border_artifact_ratio": 0.0,
+            "high_clip_ratio": 0.0,
+            "intensity_stddev": 11.7553,
+            "laplacian_variance": 7.6864,
+            "low_clip_ratio": 0.0,
+            "mean_intensity": 68.1942,
+            "p1_intensity": 50.0,
+            "p50_intensity": 68.0,
+            "p5_intensity": 52.0,
+            "p95_intensity": 86.0,
+            "p99_intensity": 106.0,
+            "retinal_coverage_ratio": 0.7461,
+            "saturated_artifact_ratio": 0.0001
+          },
+          "next_action": "RECAPTURE_IMAGE",
+          "quality_decision": "UNGRADABLE",
+          "quality_score": 0.6238,
+          "recommended_action": "Recapture the image using the guidance below."
+        },
+        "input_metadata": {
+          "channels": 3,
+          "format": "PNG",
+          "height": 2136,
+          "mode": "RGB",
+          "width": 3216
+        }
+      },
+      "quality_block_reason": "Clinical AI stopped because the final image quality decision was not GRADABLE.",
+      "stage_timings_ms": {
+        "image_validation": 156.2419999972917,
+        "quality_assessment": 597.964399959892
+      },
+      "status": "QUALITY_BLOCKED",
+      "total_elapsed_ms": 764.4197999616154
+    },
+    {
+      "bytes": 407935,
+      "case_id": "idrid_jpeg_grade_0_gradable",
+      "classification": {
+        "predicted_grade": 1,
+        "predicted_grade_label": "Mild",
+        "primary_referable": false,
+        "primary_referable_probability": 0.050206,
+        "probabilities": {
+          "Mild": 0.850828,
+          "Moderate": 0.040886,
+          "No DR": 0.098966,
+          "Proliferative DR": 0.003038,
+          "Severe": 0.006282
+        },
+        "severity_rule": "argmax(P0..P4)"
+      },
+      "coverage": [
+        "normal",
+        "JPEG",
+        "different_resolution"
+      ],
+      "dataset": "IDRiD",
+      "errors": {},
+      "evidence": {
+        "anatomical_landmarks": [
+          {
+            "brightness_score": 0.7949,
+            "confidence": 0.5975,
+            "landmark_type": "optic_disc",
+            "method": "bright-region-localization",
+            "radius": 24.0,
+            "status": "experimental_heuristic",
+            "x": 521.5,
+            "x_normalized": 0.679036,
+            "y": 302.06,
+            "y_normalized": 0.592275
+          },
+          {
+            "confidence": 0.1,
+            "eye_assumption": "right",
+            "landmark_type": "fovea",
+            "method": "optic-disc-relative-anatomical-approximation",
+            "radius": 8.4,
+            "status": "approximate",
+            "x": 574.3,
+            "x_normalized": 0.747786,
+            "y": 302.06,
+            "y_normalized": 0.592275
+          }
+        ],
+        "evidence_map_available": true,
+        "module_count": 8,
+        "modules": {
+          "cotton_wool_spot_detection": {
+            "bounding_region_count": 0,
+            "confidence": 0.0,
+            "count": 0,
+            "implementation": "fundus-lesions-toolkit-unet-seresnext50",
+            "issues": [
+              {
+                "message": "Pretrained research model output is supporting evidence; it is not a clinical diagnosis or validated production claim.",
+                "type": "research_model"
+              }
+            ],
+            "landmark_count": 0,
+            "mask_available": true,
+            "metadata": {
+              "adapter_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "adapter_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "architecture": "U-Net with SE-ResNeXt-50 32x4d encoder",
+              "checkpoint_sha256": "a7a7cb45b92328f7c9a8e581eec3944fd435d37fae8cbf340b1319c5f987c6d2",
+              "class_index": 1,
+              "class_name": "cotton_wool_spot",
+              "clinical_validation_claim": false,
+              "coarse_to_fine": "global fundus resized/cropped to 1024; class masks restored to the evidence working image",
+              "context": {
+                "patch_count": 16,
+                "proposal_count": 16,
+                "working_height": 510,
+                "working_width": 768
+              },
+              "coverage_ratio": 0.0,
+              "device": "cpu",
+              "input_resolution": 1024,
+              "license": "MIT",
+              "max_probability": 0.0,
+              "mean_probability": 0.0,
+              "model_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "model_repository": "ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+              "model_source": "https://huggingface.co/ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+              "model_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "pixel_count": 0,
+              "source_code": "https://github.com/ClementPla/fundus-lesions-toolkit",
+              "threshold": 0.5,
+              "trained_on": [
+                "IDRiD",
+                "DDR",
+                "FGADR",
+                "MESSIDOR",
+                "RETLES"
+              ]
+            },
+            "overlay_available": false,
+            "status": "model_inference",
+            "supported": true
+          },
+          "exudate_segmentation": {
+            "bounding_region_count": 0,
+            "confidence": 0.0,
+            "count": 0,
+            "implementation": "fundus-lesions-toolkit-unet-seresnext50",
+            "issues": [
+              {
+                "message": "Pretrained research model output is supporting evidence; it is not a clinical diagnosis or validated production claim.",
+                "type": "research_model"
+              }
+            ],
+            "landmark_count": 0,
+            "mask_available": true,
+            "metadata": {
+              "adapter_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "adapter_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "architecture": "U-Net with SE-ResNeXt-50 32x4d encoder",
+              "checkpoint_sha256": "a7a7cb45b92328f7c9a8e581eec3944fd435d37fae8cbf340b1319c5f987c6d2",
+              "class_index": 2,
+              "class_name": "exudate",
+              "clinical_validation_claim": false,
+              "coarse_to_fine": "global fundus resized/cropped to 1024; class masks restored to the evidence working image",
+              "context": {
+                "patch_count": 16,
+                "proposal_count": 16,
+                "working_height": 510,
+                "working_width": 768
+              },
+              "coverage_ratio": 0.0,
+              "device": "cpu",
+              "input_resolution": 1024,
+              "license": "MIT",
+              "max_probability": 0.0,
+              "mean_probability": 0.0,
+              "model_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "model_repository": "ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+              "model_source": "https://huggingface.co/ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+              "model_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "pixel_count": 0,
+              "source_code": "https://github.com/ClementPla/fundus-lesions-toolkit",
+              "threshold": 0.5,
+              "trained_on": [
+                "IDRiD",
+                "DDR",
+                "FGADR",
+                "MESSIDOR",
+                "RETLES"
+              ]
+            },
+            "overlay_available": false,
+            "status": "model_inference",
+            "supported": true
+          },
+          "fovea_localization": {
+            "bounding_region_count": 0,
+            "confidence": 0.1,
+            "count": null,
+            "implementation": "optic_disc_relative_heuristic",
+            "issues": [
+              {
+                "message": "Approximate anatomical position only; not a validated fovea detector.",
+                "type": "approximation_only"
+              }
+            ],
+            "landmark_count": 1,
+            "mask_available": false,
+            "metadata": {},
+            "overlay_available": false,
+            "status": "approximate",
+            "supported": true
+          },
+          "hemorrhage_detection": {
+            "bounding_region_count": 2,
+            "confidence": 0.9522,
+            "count": 2,
+            "implementation": "fundus-lesions-toolkit-unet-seresnext50",
+            "issues": [
+              {
+                "message": "Pretrained research model output is supporting evidence; it is not a clinical diagnosis or validated production claim.",
+                "type": "research_model"
+              }
+            ],
+            "landmark_count": 0,
+            "mask_available": true,
+            "metadata": {
+              "adapter_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "adapter_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "architecture": "U-Net with SE-ResNeXt-50 32x4d encoder",
+              "checkpoint_sha256": "a7a7cb45b92328f7c9a8e581eec3944fd435d37fae8cbf340b1319c5f987c6d2",
+              "class_index": 3,
+              "class_name": "hemorrhage",
+              "clinical_validation_claim": false,
+              "coarse_to_fine": "global fundus resized/cropped to 1024; class masks restored to the evidence working image",
+              "context": {
+                "patch_count": 16,
+                "proposal_count": 16,
+                "working_height": 510,
+                "working_width": 768
+              },
+              "coverage_ratio": 0.00044424,
+              "device": "cpu",
+              "input_resolution": 1024,
+              "license": "MIT",
+              "max_probability": 1.0,
+              "mean_probability": 0.000435,
+              "model_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "model_repository": "ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+              "model_source": "https://huggingface.co/ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+              "model_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "pixel_count": 174,
+              "source_code": "https://github.com/ClementPla/fundus-lesions-toolkit",
+              "threshold": 0.5,
+              "trained_on": [
+                "IDRiD",
+                "DDR",
+                "FGADR",
+                "MESSIDOR",
+                "RETLES"
+              ]
+            },
+            "overlay_available": false,
+            "status": "model_inference",
+            "supported": true
+          },
+          "microaneurysm_detection": {
+            "bounding_region_count": 2,
+            "confidence": 0.8937,
+            "count": 2,
+            "implementation": "fundus-lesions-toolkit-unet-seresnext50",
+            "issues": [
+              {
+                "message": "Pretrained research model output is supporting evidence; it is not a clinical diagnosis or validated production claim.",
+                "type": "research_model"
+              }
+            ],
+            "landmark_count": 0,
+            "mask_available": true,
+            "metadata": {
+              "adapter_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "adapter_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "architecture": "U-Net with SE-ResNeXt-50 32x4d encoder",
+              "checkpoint_sha256": "a7a7cb45b92328f7c9a8e581eec3944fd435d37fae8cbf340b1319c5f987c6d2",
+              "class_index": 4,
+              "class_name": "microaneurysm",
+              "clinical_validation_claim": false,
+              "coarse_to_fine": "global fundus resized/cropped to 1024; class masks restored to the evidence working image",
+              "context": {
+                "patch_count": 16,
+                "proposal_count": 16,
+                "working_height": 510,
+                "working_width": 768
+              },
+              "coverage_ratio": 0.00011234,
+              "device": "cpu",
+              "input_resolution": 1024,
+              "license": "MIT",
+              "max_probability": 1.0,
+              "mean_probability": 0.000106,
+              "model_name": "fundus-lesions-toolkit-unet-seresnext50",
+              "model_repository": "ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+              "model_source": "https://huggingface.co/ClementP/fundus-lesions-segmentation-unet_seresnext50_32x4d",
+              "model_version": "fundus-lesions-unet-seresnext50-all-v1",
+              "pixel_count": 44,
+              "source_code": "https://github.com/ClementPla/fundus-lesions-toolkit",
+              "threshold": 0.5,
+              "trained_on": [
+                "IDRiD",
+                "DDR",
+                "FGADR",
+                "MESSIDOR",
+                "RETLES"
+              ]
+            },
+            "overlay_available": false,
+            "status": "model_inference",
+            "supported": true
+          },
+          "neovascularization_detection": {
+            "bounding_region_count": 0,
+            "confidence": null,
+            "count": null,
+            "implementation": "experimental_interface_only",
+            "issues": [
+              {
+                "message": "Advanced experimental module interface is present, but no validated model artifact or compatible annotation is configured.",
+                "type": "unsupported"
+              }
+            ],
+            "landmark_count": 0,
+            "mask_available": false,
+            "metadata": {},
+            "overlay_available": false,
+            "status": "unsupported",
+            "supported": false
+          },
+          "optic_disc_localization": {
+            "bounding_region_count": 0,
+            "confidence": 0.5975,
+            "count": null,
+            "implementation": "classical_cv_baseline",
+            "issues": [
+              {
+                "message": "Bright-region localization baseline; not clinically validated.",
+                "type": "experimental_baseline"
+              }
+            ],
+            "landmark_count": 1,
+            "mask_available": true,
+            "metadata": {},
+            "overlay_available": false,
+            "status": "experimental_heuristic",
+            "supported": true
+          },
+          "vessel_segmentation": {
+            "bounding_region_count": 0,
+            "confidence": 0.8174,
+            "count": 132,
+            "implementation": "R2-V2 RRWNet bv vessel segmentor",
+            "issues": [
+              {
+                "message": "Real neural-network vessel segmentation output; measurements are engineering estimates and are not clinically validated biomarkers.",
+                "type": "engineering_evidence"
+              }
+            ],
+            "landmark_count": 0,
+            "mask_available": true,
+            "metadata": {
+              "adapter_name": "R2-V2 RRWNet bv vessel segmentor",
+              "adapter_version": "r2-v2-bv-2025",
+              "architecture": "RRWNet (R2-V2 bv variant)",
+              "checkpoint_sha256": "ea219b13b03984b8d454f999343c5bda1a8a7cb8586aeb3639a29814cab2330a",
+              "clinical_validation_claim": false,
+              "connected_components": 132,
+              "context": {
+                "retina_area_ratio": 0.7153,
+                "working_height": 510,
+                "working_width": 768
+              },
+              "coverage_ratio": 0.06010263,
+              "device": "cpu",
+              "input_configuration": {
+                "channels": 6,
+                "preprocessing": "published R2-V2 enhance_image + CLAHE, RGB fundus concatenated with enhanced RGB",
+                "width": 1408
+              },
+              "license": "CC BY 4.0",
+              "max_probability": 0.999609,
+              "mean_probability_inside_mask": 0.817352,
+              "measurement_status": "ENGINEERING_ESTIMATE",
+              "model_name": "R2-V2 RRWNet bv vessel segmentor",
+              "model_repository": "j-morano/R2-V2",
+              "model_source": "https://huggingface.co/j-morano/R2-V2",
+              "model_version": "r2-v2-bv-2025",
+              "output_configuration": {
+                "channels": {
+                  "0": "artery",
+                  "1": "vein",
+                  "2": "blood_vessels"
+                },
+                "probability_activation": "sigmoid",
+                "vessel_channel": 2
+              },
+              "pixel_count": 23541,
+              "source_code": "https://github.com/j-morano/R2-V2",
+              "source_revision": "bb8c6c9346054df749f8bd48a9da41ba974e6a6b",
+              "threshold": 0.5,
+              "training_dataset_provenance": "Unified_Fundus (as stated in the published R2-V2 bv_config.json)"
+            },
+            "overlay_available": true,
+            "status": "model_inference",
+            "supported": true
+          }
+        },
+        "stage_timings_ms": {
+          "lesion_inference_ms": 1928.215,
+          "structure_analysis_ms": 19.825,
+          "vessel_inference_ms": 42579.625
+        },
+        "status": "completed"
+      },
+      "explainability": {
+        "attention_lesion_agreement": {
+          "metrics": {
+            "attention_coverage": 0.110691,
+            "attention_in_lesion": 0.001,
+            "dice": 0.002,
+            "intersection_over_union": 0.001,
+            "lesion_coverage": 0.000556,
+            "lesion_in_attention": 0.2025
+          },
+          "note": "Engineering explainability metric only; overlap does not prove clinical causality.",
+          "reason": "Attention and supported lesion regions were compared at the working image resolution.",
+          "score": 0.0015,
+          "status": "LOW AGREEMENT"
+        },
+        "grad_cam": {
+          "heatmap_available": true,
+          "normalized_attention_available": true,
+          "overlay_available": true,
+          "target_class": 1
+        },
+        "matches_primary_grade": true,
+        "predicted_class": 1,
+        "predicted_class_label": "Mild",
+        "stability": {
+          "grad_cam_stability": null,
+          "prediction_stability": null,
+          "reason": "Stability perturbations are disabled for real-time mode. Set run_stability=true or enable EXPLAINABILITY_STABILITY_ENABLED.",
+          "status": "SKIPPED",
+          "variants": []
+        }
+      },
+      "fusion": {
+        "clinical_validation_claim": false,
+        "disagreement": false,
+        "error": null,
+        "fused_probability": 0.050206,
+        "fused_referable": false,
+        "fusion_rule": "fused_referable = max(primary_referable_probability, verifier_referable_probability) >= 0.4; severity_grade = argmax(primary P0..P4)",
+        "fusion_threshold": 0.4,
+        "primary_probability": 0.050206,
+        "primary_referable": false,
+        "review_recommended": false,
+        "status": "COMPLETED",
+        "verifier_model_sha256": "f0e19fa86d5a27a05731550d1d6708c01f6f363f45a1fa57849de988f91e775b",
+        "verifier_model_version": "retguard-dr-v1.0.0",
+        "verifier_ood": {
+          "method": "RETGUARD Mahalanobis gate",
+          "score": 32.13684513475128,
+          "status": "IN_DISTRIBUTION",
+          "threshold": 47.37727871333164
+        },
+        "verifier_probability": 0.022539588912094063,
+        "verifier_referable": false,
+        "verifier_threshold": 0.204983
+      },
+      "grade_unchanged_by_supporting_evidence": true,
+      "image_sha256": "991a5e34c20e6480a4adc5c0d53f77e3f18770d01863e85e01d5770be27bd4e8",
+      "label_grade": 0,
+      "official_idrid_test_images_opened": 0,
+      "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_138.jpg",
+      "quality": {
+        "enhancement_applied": false,
+        "enhancement_passes": 0,
+        "final": {
+          "component_scores": {
+            "artifacts": 1.0,
+            "contrast": 0.4945,
+            "exposure": 1.0,
+            "field_of_view": 1.0,
+            "focus": 0.4576,
+            "illumination": 0.8369
+          },
+          "feature_vector": {
+            "artifacts": 1.0,
+            "contrast": 0.4945,
+            "contrast_spread": 0.2863,
+            "exposure": 1.0,
+            "field_of_view": 1.0,
+            "focus": 0.4576,
+            "illumination": 0.8369,
+            "mean_intensity": 0.3356,
+            "retinal_coverage": 0.6941
+          },
+          "input_metadata": {
+            "camera_metadata": {},
+            "channels": 3,
+            "format": "JPEG",
+            "height": 2848,
+            "mode": "RGB",
+            "width": 4288
+          },
+          "issues": [],
+          "metrics": {
+            "border_artifact_ratio": 0.0,
+            "high_clip_ratio": 0.0,
+            "intensity_stddev": 25.0276,
+            "laplacian_variance": 34.9959,
+            "low_clip_ratio": 0.0,
+            "mean_intensity": 85.5884,
+            "p1_intensity": 48.0,
+            "p50_intensity": 80.0,
+            "p5_intensity": 55.0,
+            "p95_intensity": 128.0,
+            "p99_intensity": 180.0,
+            "retinal_coverage_ratio": 0.6941,
+            "saturated_artifact_ratio": 0.0
+          },
+          "next_action": "CONTINUE_SCREENING",
+          "quality_decision": "GRADABLE",
+          "quality_score": 0.7641,
+          "recommended_action": "Proceed to clinical AI analysis."
+        },
+        "initial": {
+          "component_scores": {
+            "artifacts": 1.0,
+            "contrast": 0.4945,
+            "exposure": 1.0,
+            "field_of_view": 1.0,
+            "focus": 0.4576,
+            "illumination": 0.8369
+          },
+          "feature_vector": {
+            "artifacts": 1.0,
+            "contrast": 0.4945,
+            "contrast_spread": 0.2863,
+            "exposure": 1.0,
+            "field_of_view": 1.0,
+            "focus": 0.4576,
+            "illumination": 0.8369,
+            "mean_intensity": 0.3356,
+            "retinal_coverage": 0.6941
+          },
+          "input_metadata": {
+            "camera_metadata": {},
+            "channels": 3,
+            "format": "JPEG",
+            "height": 2848,
+            "mode": "RGB",
+            "width": 4288
+          },
+          "issues": [],
+          "metrics": {
+            "border_artifact_ratio": 0.0,
+            "high_clip_ratio": 0.0,
+            "intensity_stddev": 25.0276,
+            "laplacian_variance": 34.9959,
+            "low_clip_ratio": 0.0,
+            "mean_intensity": 85.5884,
+            "p1_intensity": 48.0,
+            "p50_intensity": 80.0,
+            "p5_intensity": 55.0,
+            "p95_intensity": 128.0,
+            "p99_intensity": 180.0,
+            "retinal_coverage_ratio": 0.6941,
+            "saturated_artifact_ratio": 0.0
+          },
+          "next_action": "CONTINUE_SCREENING",
+          "quality_decision": "GRADABLE",
+          "quality_score": 0.7641,
+          "recommended_action": "Proceed to clinical AI analysis."
+        },
+        "input_metadata": {
+          "channels": 3,
+          "format": "JPEG",
+          "height": 2848,
+          "mode": "RGB",
+          "width": 4288
+        }
+      },
+      "report": {
+        "internal_model_names_exposed": false,
+        "payload_created": true,
+        "pdf_bytes": 1985,
+        "pdf_eof_valid": true,
+        "pdf_signature_valid": true
+      },
+      "retinaguard": {
+        "recommended_action": "Do not rely on automated triage; require specialist or human review.",
+        "referable_fusion": {
+          "clinical_validation_claim": false,
+          "disagreement": false,
+          "error": null,
+          "fused_probability": 0.050206,
+          "fused_referable": false,
+          "fusion_rule": "fused_referable = max(primary_referable_probability, verifier_referable_probability) >= 0.4; severity_grade = argmax(primary P0..P4)",
+          "fusion_threshold": 0.4,
+          "primary_probability": 0.050206,
+          "primary_referable": false,
+          "review_recommended": false,
+          "status": "COMPLETED",
+          "verifier_model_sha256": "f0e19fa86d5a27a05731550d1d6708c01f6f363f45a1fa57849de988f91e775b",
+          "verifier_model_version": "retguard-dr-v1.0.0",
+          "verifier_ood": {
+            "method": "RETGUARD Mahalanobis gate",
+            "score": 32.13684513475128,
+            "status": "IN_DISTRIBUTION",
+            "threshold": 47.37727871333164
+          },
+          "verifier_probability": 0.022539588912094063,
+          "verifier_referable": false,
+          "verifier_threshold": 0.204983
+        },
+        "risk_flags": [
+          {
+            "code": "low_attention_evidence_agreement",
+            "reason": "Classifier attention has low overlap with supported lesion evidence.",
+            "severity": "high"
+          },
+          {
+            "code": "explanation_stability_not_run",
+            "reason": "Explanation stability testing was not run for this real-time request.",
+            "severity": "medium"
+          },
+          {
+            "code": "ood_not_available",
+            "reason": "No authorized reference distribution is configured for OOD monitoring.",
+            "severity": "medium"
+          }
+        ],
+        "trust_category": "UNRELIABLE",
+        "trust_score": 0.523908
+      },
+      "stage_timings_ms": {
+        "classification": 143.3009000029415,
+        "evidence": 45883.66649998352,
+        "grad_cam_and_agreement": 15747.512799978722,
+        "image_validation": 161.37139999773353,
+        "pdf_generation": 0.1775999553501606,
+        "quality_assessment": 759.1872999910265,
+        "retinaguard": 0.44139998499304056,
+        "verifier_fusion": 8764.287500001956
+      },
+      "status": "COMPLETED",
+      "total_elapsed_ms": 71461.70810004696
+    },
+    {
+      "bytes": 385284,
+      "case_id": "idrid_jpeg_grade_1_borderline",
+      "coverage": [
+        "mild",
+        "JPEG",
+        "borderline"
+      ],
+      "dataset": "IDRiD",
+      "errors": {},
+      "image_sha256": "7c8af82fac4906b51dbe2d827e050b8b29a18cac21f569d2ac16af1cd65c9baf",
+      "label_grade": 1,
+      "official_idrid_test_images_opened": 0,
+      "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_021.jpg",
+      "quality": {
+        "enhancement_applied": true,
+        "enhancement_passes": 1,
+        "final": {
+          "component_scores": {
+            "artifacts": 0.9914,
+            "contrast": 0.3215,
+            "exposure": 0.9875,
+            "field_of_view": 0.0106,
+            "focus": 1.0,
+            "illumination": 0.9479
+          },
+          "feature_vector": {
+            "artifacts": 0.9914,
+            "contrast": 0.3215,
+            "contrast_spread": 0.1804,
+            "exposure": 0.9875,
+            "field_of_view": 0.0106,
+            "focus": 1.0,
+            "illumination": 0.9479,
+            "mean_intensity": 0.4512,
+            "retinal_coverage": 0.9998
+          },
+          "input_metadata": {
+            "camera_metadata": {},
+            "channels": 3,
+            "format": "PNG",
+            "height": 2848,
+            "mode": "RGB",
+            "width": 4288
+          },
+          "issues": [
+            {
+              "message": "Retinal structures have limited tonal separation.",
+              "recommendation": "Improve focus and illumination; a controlled enhancement pass may help.",
+              "severity": "moderate",
+              "type": "low_contrast"
+            },
+            {
+              "message": "Too little of the retinal field is visible.",
+              "recommendation": "Re-center the retina and recapture the image.",
+              "severity": "severe",
+              "type": "insufficient_field_of_view"
+            }
+          ],
+          "metrics": {
+            "border_artifact_ratio": 0.0053,
+            "high_clip_ratio": 0.0016,
+            "intensity_stddev": 17.1962,
+            "laplacian_variance": 446.4122,
+            "low_clip_ratio": 0.0,
+            "mean_intensity": 115.0562,
+            "p1_intensity": 63.0,
+            "p50_intensity": 115.0,
+            "p5_intensity": 93.0,
+            "p95_intensity": 139.0,
+            "p99_intensity": 185.0,
+            "retinal_coverage_ratio": 0.9998,
+            "saturated_artifact_ratio": 0.0
+          },
+          "next_action": "RECAPTURE_IMAGE",
+          "quality_decision": "UNGRADABLE",
+          "quality_score": 0.6898,
+          "recommended_action": "Recapture the image using the guidance below."
+        },
+        "initial": {
+          "component_scores": {
+            "artifacts": 1.0,
+            "contrast": 0.3551,
+            "exposure": 1.0,
+            "field_of_view": 1.0,
+            "focus": 0.427,
+            "illumination": 0.9598
+          },
+          "feature_vector": {
+            "artifacts": 1.0,
+            "contrast": 0.3551,
+            "contrast_spread": 0.2039,
+            "exposure": 1.0,
+            "field_of_view": 1.0,
+            "focus": 0.427,
+            "illumination": 0.9598,
+            "mean_intensity": 0.461,
+            "retinal_coverage": 0.696
+          },
+          "input_metadata": {
+            "camera_metadata": {},
+            "channels": 3,
+            "format": "JPEG",
+            "height": 2848,
+            "mode": "RGB",
+            "width": 4288
+          },
+          "issues": [
+            {
+              "message": "Retinal structures have limited tonal separation.",
+              "recommendation": "Improve focus and illumination; a controlled enhancement pass may help.",
+              "severity": "moderate",
+              "type": "low_contrast"
+            }
+          ],
+          "metrics": {
+            "border_artifact_ratio": 0.0,
+            "high_clip_ratio": 0.0,
+            "intensity_stddev": 18.2375,
+            "laplacian_variance": 30.9272,
+            "low_clip_ratio": 0.0,
+            "mean_intensity": 117.5429,
+            "p1_intensity": 78.0,
+            "p50_intensity": 118.0,
+            "p5_intensity": 89.0,
+            "p95_intensity": 141.0,
+            "p99_intensity": 184.0,
+            "retinal_coverage_ratio": 0.696,
+            "saturated_artifact_ratio": 0.0
+          },
+          "next_action": "ENHANCE_AND_REASSESS",
+          "quality_decision": "BORDERLINE",
+          "quality_score": 0.754,
+          "recommended_action": "Apply one controlled enhancement pass, then reassess."
+        },
+        "input_metadata": {
+          "channels": 3,
+          "format": "JPEG",
+          "height": 2848,
+          "mode": "RGB",
+          "width": 4288
+        }
+      },
+      "quality_block_reason": "Clinical AI stopped because the final image quality decision was not GRADABLE.",
+      "stage_timings_ms": {
+        "image_validation": 40.55609996430576,
+        "quality_assessment": 592.9099000059068,
+        "quality_enhancement": 15041.717200016137
+      },
+      "status": "QUALITY_BLOCKED",
+      "total_elapsed_ms": 15676.628699991852
+    },
+    {
+      "bytes": 281144,
+      "case_id": "idrid_jpeg_grade_2_borderline",
+      "coverage": [
+        "moderate",
+        "JPEG",
+        "borderline"
+      ],
+      "dataset": "IDRiD",
+      "errors": {},
+      "image_sha256": "34bf332d5e7dce3e220ca2ed6191306bfba44d0a111205550a125c42a4f32156",
+      "label_grade": 2,
+      "official_idrid_test_images_opened": 0,
+      "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_003.jpg",
+      "quality": {
+        "enhancement_applied": true,
+        "enhancement_passes": 1,
+        "final": {
+          "component_scores": {
+            "artifacts": 0.9962,
+            "contrast": 0.2154,
+            "exposure": 0.9921,
+            "field_of_view": 0.0263,
+            "focus": 0.9377,
+            "illumination": 0.9364
+          },
+          "feature_vector": {
+            "artifacts": 0.9962,
+            "contrast": 0.2154,
+            "contrast_spread": 0.1137,
+            "exposure": 0.9921,
+            "field_of_view": 0.0263,
+            "focus": 0.9377,
+            "illumination": 0.9364,
+            "mean_intensity": 0.4386,
+            "retinal_coverage": 0.9995
+          },
+          "input_metadata": {
+            "camera_metadata": {},
+            "channels": 3,
+            "format": "PNG",
+            "height": 2848,
+            "mode": "RGB",
+            "width": 4288
+          },
+          "issues": [
+            {
+              "message": "Retinal structures have limited tonal separation.",
+              "recommendation": "Improve focus and illumination; a controlled enhancement pass may help.",
+              "severity": "moderate",
+              "type": "low_contrast"
+            },
+            {
+              "message": "Too little of the retinal field is visible.",
+              "recommendation": "Re-center the retina and recapture the image.",
+              "severity": "severe",
+              "type": "insufficient_field_of_view"
+            }
+          ],
+          "metrics": {
+            "border_artifact_ratio": 0.0023,
+            "high_clip_ratio": 0.001,
+            "intensity_stddev": 12.6903,
+            "laplacian_variance": 234.8903,
+            "low_clip_ratio": 0.0,
+            "mean_intensity": 111.8441,
+            "p1_intensity": 81.0,
+            "p50_intensity": 112.0,
+            "p5_intensity": 95.0,
+            "p95_intensity": 124.0,
+            "p99_intensity": 152.0,
+            "retinal_coverage_ratio": 0.9995,
+            "saturated_artifact_ratio": 0.0
+          },
+          "next_action": "RECAPTURE_IMAGE",
+          "quality_decision": "UNGRADABLE",
+          "quality_score": 0.6609,
+          "recommended_action": "Recapture the image using the guidance below."
+        },
+        "initial": {
+          "component_scores": {
+            "artifacts": 0.9948,
+            "contrast": 0.3007,
+            "exposure": 1.0,
+            "field_of_view": 1.0,
+            "focus": 0.2147,
+            "illumination": 0.8045
+          },
+          "feature_vector": {
+            "artifacts": 0.9948,
+            "contrast": 0.3007,
+            "contrast_spread": 0.1765,
+            "exposure": 1.0,
+            "field_of_view": 1.0,
+            "focus": 0.2147,
+            "illumination": 0.8045,
+            "mean_intensity": 0.3026,
+            "retinal_coverage": 0.6913
+          },
+          "input_metadata": {
+            "camera_metadata": {},
+            "channels": 3,
+            "format": "JPEG",
+            "height": 2848,
+            "mode": "RGB",
+            "width": 4288
+          },
+          "issues": [
+            {
+              "message": "The retinal image has insufficient focus detail.",
+              "recommendation": "Stabilize the camera and refocus before recapturing.",
+              "severity": "moderate",
+              "type": "low_focus"
+            },
+            {
+              "message": "Retinal structures have limited tonal separation.",
+              "recommendation": "Improve focus and illumination; a controlled enhancement pass may help.",
+              "severity": "moderate",
+              "type": "low_contrast"
+            }
+          ],
+          "metrics": {
+            "border_artifact_ratio": 0.0,
+            "high_clip_ratio": 0.0,
+            "intensity_stddev": 14.8394,
+            "laplacian_variance": 12.9078,
+            "low_clip_ratio": 0.0,
+            "mean_intensity": 77.1646,
+            "p1_intensity": 42.0,
+            "p50_intensity": 78.0,
+            "p5_intensity": 52.0,
+            "p95_intensity": 97.0,
+            "p99_intensity": 121.0,
+            "retinal_coverage_ratio": 0.6913,
+            "saturated_artifact_ratio": 0.0074
+          },
+          "next_action": "ENHANCE_AND_REASSESS",
+          "quality_decision": "BORDERLINE",
+          "quality_score": 0.6689,
+          "recommended_action": "Apply one controlled enhancement pass, then reassess."
+        },
+        "input_metadata": {
+          "channels": 3,
+          "format": "JPEG",
+          "height": 2848,
+          "mode": "RGB",
+          "width": 4288
+        }
+      },
+      "quality_block_reason": "Clinical AI stopped because the final image quality decision was not GRADABLE.",
+      "stage_timings_ms": {
+        "image_validation": 57.58900003274903,
+        "quality_assessment": 648.5841000103392,
+        "quality_enhancement": 14292.155200033449
+      },
+      "status": "QUALITY_BLOCKED",
+      "total_elapsed_ms": 15001.02310004877
+    },
+    {
+      "bytes": 409680,
+      "case_id": "idrid_jpeg_grade_3_borderline",
+      "coverage": [
+        "severe",
+        "JPEG",
+        "borderline"
+      ],
+      "dataset": "IDRiD",
+      "errors": {},
+      "image_sha256": "8cbb3482b62a7b4c8a7353a4f25ecf5df80b6f39714f35deb8575c14af78e06d",
+      "label_grade": 3,
+      "official_idrid_test_images_opened": 0,
+      "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_001.jpg",
+      "quality": {
+        "enhancement_applied": true,
+        "enhancement_passes": 1,
+        "final": {
+          "component_scores": {
+            "artifacts": 0.9871,
+            "contrast": 0.3812,
+            "exposure": 0.9836,
+            "field_of_view": 0.0069,
+            "focus": 1.0,
+            "illumination": 0.9433
+          },
+          "feature_vector": {
+            "artifacts": 0.9871,
+            "contrast": 0.3812,
+            "contrast_spread": 0.2196,
+            "exposure": 0.9836,
+            "field_of_view": 0.0069,
+            "focus": 1.0,
+            "illumination": 0.9433,
+            "mean_intensity": 0.4473,
+            "retinal_coverage": 0.9999
+          },
+          "input_metadata": {
+            "camera_metadata": {},
+            "channels": 3,
+            "format": "PNG",
+            "height": 2848,
+            "mode": "RGB",
+            "width": 4288
+          },
+          "issues": [
+            {
+              "message": "Retinal structures have limited tonal separation.",
+              "recommendation": "Improve focus and illumination; a controlled enhancement pass may help.",
+              "severity": "moderate",
+              "type": "low_contrast"
+            },
+            {
+              "message": "Too little of the retinal field is visible.",
+              "recommendation": "Re-center the retina and recapture the image.",
+              "severity": "severe",
+              "type": "insufficient_field_of_view"
+            }
+          ],
+          "metrics": {
+            "border_artifact_ratio": 0.008,
+            "high_clip_ratio": 0.002,
+            "intensity_stddev": 19.4685,
+            "laplacian_variance": 567.4088,
+            "low_clip_ratio": 0.0,
+            "mean_intensity": 114.0631,
+            "p1_intensity": 58.0,
+            "p50_intensity": 113.0,
+            "p5_intensity": 88.0,
+            "p95_intensity": 144.0,
+            "p99_intensity": 185.0,
+            "retinal_coverage_ratio": 0.9999,
+            "saturated_artifact_ratio": 0.0
+          },
+          "next_action": "RECAPTURE_IMAGE",
+          "quality_decision": "UNGRADABLE",
+          "quality_score": 0.6963,
+          "recommended_action": "Recapture the image using the guidance below."
+        },
+        "initial": {
+          "component_scores": {
+            "artifacts": 0.9997,
+            "contrast": 0.4013,
+            "exposure": 1.0,
+            "field_of_view": 1.0,
+            "focus": 0.4482,
+            "illumination": 0.9044
+          },
+          "feature_vector": {
+            "artifacts": 0.9997,
+            "contrast": 0.4013,
+            "contrast_spread": 0.2392,
+            "exposure": 1.0,
+            "field_of_view": 1.0,
+            "focus": 0.4482,
+            "illumination": 0.9044,
+            "mean_intensity": 0.4045,
+            "retinal_coverage": 0.6963
+          },
+          "input_metadata": {
+            "camera_metadata": {},
+            "channels": 3,
+            "format": "JPEG",
+            "height": 2848,
+            "mode": "RGB",
+            "width": 4288
+          },
+          "issues": [
+            {
+              "message": "Retinal structures have limited tonal separation.",
+              "recommendation": "Improve focus and illumination; a controlled enhancement pass may help.",
+              "severity": "moderate",
+              "type": "low_contrast"
+            }
+          ],
+          "metrics": {
+            "border_artifact_ratio": 0.0,
+            "high_clip_ratio": 0.0,
+            "intensity_stddev": 19.1944,
+            "laplacian_variance": 33.6944,
+            "low_clip_ratio": 0.0,
+            "mean_intensity": 103.1524,
+            "p1_intensity": 68.0,
+            "p50_intensity": 100.0,
+            "p5_intensity": 76.0,
+            "p95_intensity": 137.0,
+            "p99_intensity": 160.0,
+            "retinal_coverage_ratio": 0.6963,
+            "saturated_artifact_ratio": 0.0004
+          },
+          "next_action": "ENHANCE_AND_REASSESS",
+          "quality_decision": "BORDERLINE",
+          "quality_score": 0.7579,
+          "recommended_action": "Apply one controlled enhancement pass, then reassess."
+        },
+        "input_metadata": {
+          "channels": 3,
+          "format": "JPEG",
+          "height": 2848,
+          "mode": "RGB",
+          "width": 4288
+        }
+      },
+      "quality_block_reason": "Clinical AI stopped because the final image quality decision was not GRADABLE.",
+      "stage_timings_ms": {
+        "image_validation": 47.3031000001356,
+        "quality_assessment": 603.2959999865852,
+        "quality_enhancement": 14773.837900022045
+      },
+      "status": "QUALITY_BLOCKED",
+      "total_elapsed_ms": 15426.899699959904
+    },
+    {
+      "bytes": 393218,
+      "case_id": "idrid_jpeg_grade_4_borderline",
+      "coverage": [
+        "proliferative",
+        "JPEG",
+        "borderline"
+      ],
+      "dataset": "IDRiD",
+      "errors": {},
+      "image_sha256": "d09ec72a5fcba65a6594d0cc3a4dc69ab7be19749c2d85ce78bb9dd7a38d86b5",
+      "label_grade": 4,
+      "official_idrid_test_images_opened": 0,
+      "path": "ml/datasets/raw/idrid/B. Disease Grading/B. Disease Grading/1. Original Images/a. Training Set/IDRiD_005.jpg",
+      "quality": {
+        "enhancement_applied": true,
+        "enhancement_passes": 1,
+        "final": {
+          "component_scores": {
+            "artifacts": 0.9902,
+            "contrast": 0.3331,
+            "exposure": 0.9864,
+            "field_of_view": 0.0118,
+            "focus": 1.0,
+            "illumination": 0.9545
+          },
+          "feature_vector": {
+            "artifacts": 0.9902,
+            "contrast": 0.3331,
+            "contrast_spread": 0.1922,
+            "exposure": 0.9864,
+            "field_of_view": 0.0118,
+            "focus": 1.0,
+            "illumination": 0.9545,
+            "mean_intensity": 0.4582,
+            "retinal_coverage": 0.9998
+          },
+          "input_metadata": {
+            "camera_metadata": {},
+            "channels": 3,
+            "format": "PNG",
+            "height": 2848,
+            "mode": "RGB",
+            "width": 4288
+          },
+          "issues": [
+            {
+              "message": "Retinal structures have limited tonal separation.",
+              "recommendation": "Improve focus and illumination; a controlled enhancement pass may help.",
+              "severity": "moderate",
+              "type": "low_contrast"
+            },
+            {
+              "message": "Too little of the retinal field is visible.",
+              "recommendation": "Re-center the retina and recapture the image.",
+              "severity": "severe",
+              "type": "insufficient_field_of_view"
+            }
+          ],
+          "metrics": {
+            "border_artifact_ratio": 0.0061,
+            "high_clip_ratio": 0.0017,
+            "intensity_stddev": 16.9704,
+            "laplacian_variance": 543.1042,
+            "low_clip_ratio": 0.0,
+            "mean_intensity": 116.8301,
+            "p1_intensity": 69.0,
+            "p50_intensity": 118.0,
+            "p5_intensity": 91.0,
+            "p95_intensity": 140.0,
+            "p99_intensity": 185.0,
+            "retinal_coverage_ratio": 0.9998,
+            "saturated_artifact_ratio": 0.0
+          },
+          "next_action": "RECAPTURE_IMAGE",
+          "quality_decision": "UNGRADABLE",
+          "quality_score": 0.6925,
+          "recommended_action": "Recapture the image using the guidance below."
+        },
+        "initial": {
+          "component_scores": {
+            "artifacts": 1.0,
+            "contrast": 0.345,
+            "exposure": 1.0,
+            "field_of_view": 1.0,
+            "focus": 0.474,
+            "illumination": 0.9076
+          },
+          "feature_vector": {
+            "artifacts": 1.0,
+            "contrast": 0.345,
+            "contrast_spread": 0.2,
+            "exposure": 1.0,
+            "field_of_view": 1.0,
+            "focus": 0.474,
+            "illumination": 0.9076,
+            "mean_intensity": 0.4078,
+            "retinal_coverage": 0.6933
+          },
+          "input_metadata": {
+            "camera_metadata": {},
+            "channels": 3,
+            "format": "JPEG",
+            "height": 2848,
+            "mode": "RGB",
+            "width": 4288
+          },
+          "issues": [
+            {
+              "message": "Retinal structures have limited tonal separation.",
+              "recommendation": "Improve focus and illumination; a controlled enhancement pass may help.",
+              "severity": "moderate",
+              "type": "low_contrast"
+            }
+          ],
+          "metrics": {
+            "border_artifact_ratio": 0.0,
+            "high_clip_ratio": 0.0,
+            "intensity_stddev": 17.4225,
+            "laplacian_variance": 37.3858,
+            "low_clip_ratio": 0.0,
+            "mean_intensity": 103.9811,
+            "p1_intensity": 68.0,
+            "p50_intensity": 104.0,
+            "p5_intensity": 78.0,
+            "p95_intensity": 129.0,
+            "p99_intensity": 157.0,
+            "retinal_coverage_ratio": 0.6933,
+            "saturated_artifact_ratio": 0.0
+          },
+          "next_action": "ENHANCE_AND_REASSESS",
+          "quality_decision": "BORDERLINE",
+          "quality_score": 0.7564,
+          "recommended_action": "Apply one controlled enhancement pass, then reassess."
+        },
+        "input_metadata": {
+          "channels": 3,
+          "format": "JPEG",
+          "height": 2848,
+          "mode": "RGB",
+          "width": 4288
+        }
+      },
+      "quality_block_reason": "Clinical AI stopped because the final image quality decision was not GRADABLE.",
+      "stage_timings_ms": {
+        "image_validation": 42.58539999136701,
+        "quality_assessment": 685.0529999937862,
+        "quality_enhancement": 14663.89959998196
+      },
+      "status": "QUALITY_BLOCKED",
+      "total_elapsed_ms": 15393.228900036775
+    }
+  ],
+  "schema_version": "retina-nexus-phase8-end-to-end-v1",
+  "status": "COMPLETE",
+  "successful_processing_percent": 100.0
+}

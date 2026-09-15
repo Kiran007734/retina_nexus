@@ -1,0 +1,1956 @@
+{
+  "checkpoint_sha256": "91d49e43c5ea87fdc4adf36f9687ba7f07eeac546f89f09e1203ab56b083d569",
+  "clinical_validation_claim": false,
+  "development_images_sampled": 20,
+  "generated_at_utc": "2026-09-13T14:54:26.361085+00:00",
+  "mean_normalized_coordinate_displacement": 0.008991490178718208,
+  "model_version": "idrid-localization-shared-heatmap-512x352-20260913-v1",
+  "note": "Engineering perturbation stability only; not clinical robustness validation.",
+  "official_test_images_opened": 0,
+  "p95_normalized_coordinate_displacement": 0.03969476707279693,
+  "production_promoted": false,
+  "rows": [
+    {
+      "base_confidence": {
+        "fovea": 0.00291219400241971,
+        "optic_disc": 0.0074056824669241905
+      },
+      "image_id": "IDRiD_001",
+      "perturbations": [
+        {
+          "confidence": {
+            "fovea": 0.0023259546142071486,
+            "optic_disc": 0.0027858074754476547
+          },
+          "normalized_displacement": {
+            "fovea": 0.012627631425857544,
+            "optic_disc": 0.017624102532863617
+          },
+          "variant": "brightness_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.002738815965130925,
+            "optic_disc": 0.0173103716224432
+          },
+          "normalized_displacement": {
+            "fovea": 0.004081760533154011,
+            "optic_disc": 0.014635969884693623
+          },
+          "variant": "brightness_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0030829443130642176,
+            "optic_disc": 0.0036191504914313555
+          },
+          "normalized_displacement": {
+            "fovea": 0.014705865643918514,
+            "optic_disc": 0.02145654894411564
+          },
+          "variant": "contrast_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.002557958010584116,
+            "optic_disc": 0.0145542798563838
+          },
+          "normalized_displacement": {
+            "fovea": 0.005772578064352274,
+            "optic_disc": 0.015366056002676487
+          },
+          "variant": "contrast_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.002906973008066416,
+            "optic_disc": 0.007397277280688286
+          },
+          "normalized_displacement": {
+            "fovea": 4.406633524922654e-05,
+            "optic_disc": 3.5560264223022386e-05
+          },
+          "variant": "mild_blur"
+        },
+        {
+          "confidence": {
+            "fovea": 0.002896686317399144,
+            "optic_disc": 0.007261727470904589
+          },
+          "normalized_displacement": {
+            "fovea": 9.822101128520444e-05,
+            "optic_disc": 6.55007897876203e-05
+          },
+          "variant": "mild_noise"
+        },
+        {
+          "confidence": {
+            "fovea": 0.003336734138429165,
+            "optic_disc": 0.007143551949411631
+          },
+          "normalized_displacement": {
+            "fovea": 0.0020329796243458986,
+            "optic_disc": 0.0013458436587825418
+          },
+          "variant": "small_rotation"
+        },
+        {
+          "confidence": {
+            "fovea": 0.002909062197431922,
+            "optic_disc": 0.007313314359635115
+          },
+          "normalized_displacement": {
+            "fovea": 0.0005954188527539372,
+            "optic_disc": 0.000545414281077683
+          },
+          "variant": "jpeg_quality_70"
+        }
+      ]
+    },
+    {
+      "base_confidence": {
+        "fovea": 0.001576610142365098,
+        "optic_disc": 0.007556738331913948
+      },
+      "image_id": "IDRiD_002",
+      "perturbations": [
+        {
+          "confidence": {
+            "fovea": 0.0015982321929186583,
+            "optic_disc": 0.0018541612662374973
+          },
+          "normalized_displacement": {
+            "fovea": 0.002690034219995141,
+            "optic_disc": 0.026839744299650192
+          },
+          "variant": "brightness_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.002637768629938364,
+            "optic_disc": 0.020307740196585655
+          },
+          "normalized_displacement": {
+            "fovea": 0.002710120752453804,
+            "optic_disc": 0.026561561971902847
+          },
+          "variant": "brightness_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0022098326589912176,
+            "optic_disc": 0.0032399881165474653
+          },
+          "normalized_displacement": {
+            "fovea": 0.004283947870135307,
+            "optic_disc": 0.025036532431840897
+          },
+          "variant": "contrast_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.002228986704722047,
+            "optic_disc": 0.012241747230291367
+          },
+          "normalized_displacement": {
+            "fovea": 0.008112653158605099,
+            "optic_disc": 0.01926303468644619
+          },
+          "variant": "contrast_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.001573257497511804,
+            "optic_disc": 0.007565678562968969
+          },
+          "normalized_displacement": {
+            "fovea": 6.557433516718447e-05,
+            "optic_disc": 5.871567555004731e-05
+          },
+          "variant": "mild_blur"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0015480073634535074,
+            "optic_disc": 0.0071808393113315105
+          },
+          "normalized_displacement": {
+            "fovea": 0.00044125254498794675,
+            "optic_disc": 0.0007057118345983326
+          },
+          "variant": "mild_noise"
+        },
+        {
+          "confidence": {
+            "fovea": 0.001829058863222599,
+            "optic_disc": 0.0074915653094649315
+          },
+          "normalized_displacement": {
+            "fovea": 0.002115587703883648,
+            "optic_disc": 0.0018987596267834306
+          },
+          "variant": "small_rotation"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0015812553465366364,
+            "optic_disc": 0.00770708778873086
+          },
+          "normalized_displacement": {
+            "fovea": 0.00012805558799300343,
+            "optic_disc": 4.511869337875396e-05
+          },
+          "variant": "jpeg_quality_70"
+        }
+      ]
+    },
+    {
+      "base_confidence": {
+        "fovea": 0.0017340299673378468,
+        "optic_disc": 0.004884031601250172
+      },
+      "image_id": "IDRiD_003",
+      "perturbations": [
+        {
+          "confidence": {
+            "fovea": 0.0015999574679881334,
+            "optic_disc": 0.0023422599770128727
+          },
+          "normalized_displacement": {
+            "fovea": 0.004061876330524683,
+            "optic_disc": 0.007547371089458466
+          },
+          "variant": "brightness_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0018247088883072138,
+            "optic_disc": 0.00705999881029129
+          },
+          "normalized_displacement": {
+            "fovea": 0.00442933477461338,
+            "optic_disc": 0.018335556611418724
+          },
+          "variant": "brightness_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0017600624123588204,
+            "optic_disc": 0.002319475868716836
+          },
+          "normalized_displacement": {
+            "fovea": 0.0013817526632919908,
+            "optic_disc": 0.011824669316411018
+          },
+          "variant": "contrast_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0018994343699887395,
+            "optic_disc": 0.00684763491153717
+          },
+          "normalized_displacement": {
+            "fovea": 0.0037619746290147305,
+            "optic_disc": 0.012803679332137108
+          },
+          "variant": "contrast_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0017321676714345813,
+            "optic_disc": 0.004886371083557606
+          },
+          "normalized_displacement": {
+            "fovea": 2.1333831682568416e-05,
+            "optic_disc": 9.818473699851893e-06
+          },
+          "variant": "mild_blur"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0017348299734294415,
+            "optic_disc": 0.004683860577642918
+          },
+          "normalized_displacement": {
+            "fovea": 0.0002460225368849933,
+            "optic_disc": 0.000989600783213973
+          },
+          "variant": "mild_noise"
+        },
+        {
+          "confidence": {
+            "fovea": 0.001952332560904324,
+            "optic_disc": 0.005064635071903467
+          },
+          "normalized_displacement": {
+            "fovea": 0.0023967348970472813,
+            "optic_disc": 0.001986211631447077
+          },
+          "variant": "small_rotation"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0017189591890200973,
+            "optic_disc": 0.004772618412971497
+          },
+          "normalized_displacement": {
+            "fovea": 0.0010754687245935202,
+            "optic_disc": 0.0014954525977373123
+          },
+          "variant": "jpeg_quality_70"
+        }
+      ]
+    },
+    {
+      "base_confidence": {
+        "fovea": 0.0019367927452549338,
+        "optic_disc": 0.13455523550510406
+      },
+      "image_id": "IDRiD_004",
+      "perturbations": [
+        {
+          "confidence": {
+            "fovea": 0.0019300568383187056,
+            "optic_disc": 0.008298240602016449
+          },
+          "normalized_displacement": {
+            "fovea": 0.00230221264064312,
+            "optic_disc": 0.06746821105480194
+          },
+          "variant": "brightness_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.003264406928792596,
+            "optic_disc": 0.28269144892692566
+          },
+          "normalized_displacement": {
+            "fovea": 0.0027627975214272738,
+            "optic_disc": 0.032995838671922684
+          },
+          "variant": "brightness_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0023496088106185198,
+            "optic_disc": 0.0296558178961277
+          },
+          "normalized_displacement": {
+            "fovea": 0.0060717458836734295,
+            "optic_disc": 0.039203014224767685
+          },
+          "variant": "contrast_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0027743715327233076,
+            "optic_disc": 0.24936072528362274
+          },
+          "normalized_displacement": {
+            "fovea": 0.004872893448919058,
+            "optic_disc": 0.02576635405421257
+          },
+          "variant": "contrast_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0019417275907471776,
+            "optic_disc": 0.13422758877277374
+          },
+          "normalized_displacement": {
+            "fovea": 5.326126847648993e-05,
+            "optic_disc": 5.9341167798265815e-05
+          },
+          "variant": "mild_blur"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0019348541973158717,
+            "optic_disc": 0.12606565654277802
+          },
+          "normalized_displacement": {
+            "fovea": 0.00018824898870661855,
+            "optic_disc": 0.002774087944999337
+          },
+          "variant": "mild_noise"
+        },
+        {
+          "confidence": {
+            "fovea": 0.002027285285294056,
+            "optic_disc": 0.1381966918706894
+          },
+          "normalized_displacement": {
+            "fovea": 0.0009382304269820452,
+            "optic_disc": 0.0037903902120888233
+          },
+          "variant": "small_rotation"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0019176313653588295,
+            "optic_disc": 0.1376679539680481
+          },
+          "normalized_displacement": {
+            "fovea": 0.00011554585216799751,
+            "optic_disc": 0.0005611354135908186
+          },
+          "variant": "jpeg_quality_70"
+        }
+      ]
+    },
+    {
+      "base_confidence": {
+        "fovea": 0.0015543297631666064,
+        "optic_disc": 0.0330677330493927
+      },
+      "image_id": "IDRiD_005",
+      "perturbations": [
+        {
+          "confidence": {
+            "fovea": 0.0013515087775886059,
+            "optic_disc": 0.0019801221787929535
+          },
+          "normalized_displacement": {
+            "fovea": 0.008427166379988194,
+            "optic_disc": 0.054811086505651474
+          },
+          "variant": "brightness_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0017297934973612428,
+            "optic_disc": 0.20389464497566223
+          },
+          "normalized_displacement": {
+            "fovea": 0.008921337313950062,
+            "optic_disc": 0.11998561024665833
+          },
+          "variant": "brightness_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0021613147109746933,
+            "optic_disc": 0.007771409582346678
+          },
+          "normalized_displacement": {
+            "fovea": 0.007943700067698956,
+            "optic_disc": 0.0486760288476944
+          },
+          "variant": "contrast_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0013236848171800375,
+            "optic_disc": 0.08746537566184998
+          },
+          "normalized_displacement": {
+            "fovea": 0.009834869764745235,
+            "optic_disc": 0.05158069357275963
+          },
+          "variant": "contrast_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0015439175767824054,
+            "optic_disc": 0.033221010118722916
+          },
+          "normalized_displacement": {
+            "fovea": 3.125817602267489e-05,
+            "optic_disc": 0.00017986720195040107
+          },
+          "variant": "mild_blur"
+        },
+        {
+          "confidence": {
+            "fovea": 0.001513166818767786,
+            "optic_disc": 0.029398854821920395
+          },
+          "normalized_displacement": {
+            "fovea": 0.0003312834305688739,
+            "optic_disc": 0.004987998399883509
+          },
+          "variant": "mild_noise"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0018207055982202291,
+            "optic_disc": 0.029722098261117935
+          },
+          "normalized_displacement": {
+            "fovea": 0.001829706015996635,
+            "optic_disc": 0.004716209135949612
+          },
+          "variant": "small_rotation"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0015528984367847443,
+            "optic_disc": 0.03393709659576416
+          },
+          "normalized_displacement": {
+            "fovea": 0.0004714773967862129,
+            "optic_disc": 0.0010982326930388808
+          },
+          "variant": "jpeg_quality_70"
+        }
+      ]
+    },
+    {
+      "base_confidence": {
+        "fovea": 0.0017420052317902446,
+        "optic_disc": 0.35960668325424194
+      },
+      "image_id": "IDRiD_006",
+      "perturbations": [
+        {
+          "confidence": {
+            "fovea": 0.0012047449126839638,
+            "optic_disc": 0.12000074237585068
+          },
+          "normalized_displacement": {
+            "fovea": 0.0012773232301697135,
+            "optic_disc": 0.10478302836418152
+          },
+          "variant": "brightness_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.002436187816783786,
+            "optic_disc": 0.5197438597679138
+          },
+          "normalized_displacement": {
+            "fovea": 0.004843633621931076,
+            "optic_disc": 0.007791954092681408
+          },
+          "variant": "brightness_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0016181826358661056,
+            "optic_disc": 0.23737697303295135
+          },
+          "normalized_displacement": {
+            "fovea": 0.0022975457832217216,
+            "optic_disc": 0.03592340275645256
+          },
+          "variant": "contrast_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.001965120667591691,
+            "optic_disc": 0.4576493501663208
+          },
+          "normalized_displacement": {
+            "fovea": 0.0027600128669291735,
+            "optic_disc": 0.006865659262984991
+          },
+          "variant": "contrast_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.001731166965328157,
+            "optic_disc": 0.3592309057712555
+          },
+          "normalized_displacement": {
+            "fovea": 5.629430233966559e-05,
+            "optic_disc": 1.8196869859821163e-05
+          },
+          "variant": "mild_blur"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0016910015838220716,
+            "optic_disc": 0.35441917181015015
+          },
+          "normalized_displacement": {
+            "fovea": 0.0003667076525744051,
+            "optic_disc": 0.0007928216946311295
+          },
+          "variant": "mild_noise"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0017241296591237187,
+            "optic_disc": 0.35814332962036133
+          },
+          "normalized_displacement": {
+            "fovea": 0.001396133447997272,
+            "optic_disc": 0.009235614910721779
+          },
+          "variant": "small_rotation"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0017808773554861546,
+            "optic_disc": 0.36221325397491455
+          },
+          "normalized_displacement": {
+            "fovea": 0.00012635417806450278,
+            "optic_disc": 0.00030078276176936924
+          },
+          "variant": "jpeg_quality_70"
+        }
+      ]
+    },
+    {
+      "base_confidence": {
+        "fovea": 0.0018433546647429466,
+        "optic_disc": 0.25508496165275574
+      },
+      "image_id": "IDRiD_007",
+      "perturbations": [
+        {
+          "confidence": {
+            "fovea": 0.0014241202734410763,
+            "optic_disc": 0.050467245280742645
+          },
+          "normalized_displacement": {
+            "fovea": 0.00452627707272768,
+            "optic_disc": 0.10639113932847977
+          },
+          "variant": "brightness_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0028256247751414776,
+            "optic_disc": 0.39513254165649414
+          },
+          "normalized_displacement": {
+            "fovea": 0.001879950170405209,
+            "optic_disc": 0.019849790260195732
+          },
+          "variant": "brightness_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0018095524283125997,
+            "optic_disc": 0.12994305789470673
+          },
+          "normalized_displacement": {
+            "fovea": 0.0038887998089194298,
+            "optic_disc": 0.05093181133270264
+          },
+          "variant": "contrast_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0022115656174719334,
+            "optic_disc": 0.3442898392677307
+          },
+          "normalized_displacement": {
+            "fovea": 0.0007063836674205959,
+            "optic_disc": 0.0164396520704031
+          },
+          "variant": "contrast_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0018515803385525942,
+            "optic_disc": 0.25380411744117737
+          },
+          "normalized_displacement": {
+            "fovea": 2.539422712288797e-05,
+            "optic_disc": 0.00019481111667118967
+          },
+          "variant": "mild_blur"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0018088065553456545,
+            "optic_disc": 0.24636617302894592
+          },
+          "normalized_displacement": {
+            "fovea": 0.000282442633761093,
+            "optic_disc": 0.0024500226136296988
+          },
+          "variant": "mild_noise"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0019066331442445517,
+            "optic_disc": 0.24454852938652039
+          },
+          "normalized_displacement": {
+            "fovea": 0.002476481022313237,
+            "optic_disc": 0.006826811470091343
+          },
+          "variant": "small_rotation"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0018575633876025677,
+            "optic_disc": 0.249270960688591
+          },
+          "normalized_displacement": {
+            "fovea": 0.00038943850086070597,
+            "optic_disc": 0.00031253043562173843
+          },
+          "variant": "jpeg_quality_70"
+        }
+      ]
+    },
+    {
+      "base_confidence": {
+        "fovea": 0.001418175408616662,
+        "optic_disc": 0.10495761036872864
+      },
+      "image_id": "IDRiD_008",
+      "perturbations": [
+        {
+          "confidence": {
+            "fovea": 0.0010817951988428831,
+            "optic_disc": 0.006130003836005926
+          },
+          "normalized_displacement": {
+            "fovea": 0.0057610501535236835,
+            "optic_disc": 0.10524085909128189
+          },
+          "variant": "brightness_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0013726083561778069,
+            "optic_disc": 0.30852487683296204
+          },
+          "normalized_displacement": {
+            "fovea": 0.0018953195540234447,
+            "optic_disc": 0.08298895508050919
+          },
+          "variant": "brightness_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0013533247401937842,
+            "optic_disc": 0.023176059126853943
+          },
+          "normalized_displacement": {
+            "fovea": 0.0021992556285113096,
+            "optic_disc": 0.07405216991901398
+          },
+          "variant": "contrast_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0015070689842104912,
+            "optic_disc": 0.22082458436489105
+          },
+          "normalized_displacement": {
+            "fovea": 0.002530330093577504,
+            "optic_disc": 0.05727453529834747
+          },
+          "variant": "contrast_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0014135933015495539,
+            "optic_disc": 0.10531588643789291
+          },
+          "normalized_displacement": {
+            "fovea": 3.703338734339923e-05,
+            "optic_disc": 0.00014040953828953207
+          },
+          "variant": "mild_blur"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0014019043883308768,
+            "optic_disc": 0.09862186014652252
+          },
+          "normalized_displacement": {
+            "fovea": 0.0004377483855932951,
+            "optic_disc": 0.005011365283280611
+          },
+          "variant": "mild_noise"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0014661569148302078,
+            "optic_disc": 0.09380241483449936
+          },
+          "normalized_displacement": {
+            "fovea": 0.0014572220388799906,
+            "optic_disc": 0.00836107786744833
+          },
+          "variant": "small_rotation"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0014254727866500616,
+            "optic_disc": 0.1051405519247055
+          },
+          "normalized_displacement": {
+            "fovea": 0.0003825425810646266,
+            "optic_disc": 0.000310465635266155
+          },
+          "variant": "jpeg_quality_70"
+        }
+      ]
+    },
+    {
+      "base_confidence": {
+        "fovea": 0.0016759345307946205,
+        "optic_disc": 0.09721758216619492
+      },
+      "image_id": "IDRiD_009",
+      "perturbations": [
+        {
+          "confidence": {
+            "fovea": 0.0011590771609917283,
+            "optic_disc": 0.003230803646147251
+          },
+          "normalized_displacement": {
+            "fovea": 0.0043901558965444565,
+            "optic_disc": 0.07642824202775955
+          },
+          "variant": "brightness_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0028323186561465263,
+            "optic_disc": 0.28253376483917236
+          },
+          "normalized_displacement": {
+            "fovea": 0.0020620515570044518,
+            "optic_disc": 0.06744787842035294
+          },
+          "variant": "brightness_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0013002462219446898,
+            "optic_disc": 0.010764590464532375
+          },
+          "normalized_displacement": {
+            "fovea": 0.0010150843299925327,
+            "optic_disc": 0.06613771617412567
+          },
+          "variant": "contrast_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0026006149128079414,
+            "optic_disc": 0.20837146043777466
+          },
+          "normalized_displacement": {
+            "fovea": 0.0024329586885869503,
+            "optic_disc": 0.0491161085665226
+          },
+          "variant": "contrast_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0016755531542003155,
+            "optic_disc": 0.0973232164978981
+          },
+          "normalized_displacement": {
+            "fovea": 6.535279226227431e-06,
+            "optic_disc": 3.5793273127637804e-05
+          },
+          "variant": "mild_blur"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0016421874752268195,
+            "optic_disc": 0.08823254704475403
+          },
+          "normalized_displacement": {
+            "fovea": 0.0002694890717975795,
+            "optic_disc": 0.0049361963756382465
+          },
+          "variant": "mild_noise"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0016868631355464458,
+            "optic_disc": 0.08681841939687729
+          },
+          "normalized_displacement": {
+            "fovea": 0.001372098340652883,
+            "optic_disc": 0.0056035942398011684
+          },
+          "variant": "small_rotation"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0016791047528386116,
+            "optic_disc": 0.09634865075349808
+          },
+          "normalized_displacement": {
+            "fovea": 0.0004570548189803958,
+            "optic_disc": 1.1278474630671553e-05
+          },
+          "variant": "jpeg_quality_70"
+        }
+      ]
+    },
+    {
+      "base_confidence": {
+        "fovea": 0.0024601942859590054,
+        "optic_disc": 0.13019239902496338
+      },
+      "image_id": "IDRiD_010",
+      "perturbations": [
+        {
+          "confidence": {
+            "fovea": 0.0016937042819336057,
+            "optic_disc": 0.028946278616786003
+          },
+          "normalized_displacement": {
+            "fovea": 0.008008959703147411,
+            "optic_disc": 0.02040904574096203
+          },
+          "variant": "brightness_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0032638630364090204,
+            "optic_disc": 0.22274786233901978
+          },
+          "normalized_displacement": {
+            "fovea": 0.0034742134157568216,
+            "optic_disc": 0.00990227423608303
+          },
+          "variant": "brightness_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0020646722987294197,
+            "optic_disc": 0.055230703204870224
+          },
+          "normalized_displacement": {
+            "fovea": 0.008672507479786873,
+            "optic_disc": 0.015920022502541542
+          },
+          "variant": "contrast_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0032127578742802143,
+            "optic_disc": 0.19021765887737274
+          },
+          "normalized_displacement": {
+            "fovea": 0.0026717917062342167,
+            "optic_disc": 0.007497000508010387
+          },
+          "variant": "contrast_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.002458984265103936,
+            "optic_disc": 0.1302655041217804
+          },
+          "normalized_displacement": {
+            "fovea": 8.354563033208251e-05,
+            "optic_disc": 1.799604251573328e-05
+          },
+          "variant": "mild_blur"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0024359123781323433,
+            "optic_disc": 0.12553170323371887
+          },
+          "normalized_displacement": {
+            "fovea": 0.0002708542160689831,
+            "optic_disc": 0.000470244005555287
+          },
+          "variant": "mild_noise"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0027754029724746943,
+            "optic_disc": 0.12510359287261963
+          },
+          "normalized_displacement": {
+            "fovea": 0.0005462654517032206,
+            "optic_disc": 0.0023308931849896908
+          },
+          "variant": "small_rotation"
+        },
+        {
+          "confidence": {
+            "fovea": 0.002438956405967474,
+            "optic_disc": 0.13049155473709106
+          },
+          "normalized_displacement": {
+            "fovea": 0.0001238386903423816,
+            "optic_disc": 0.00014445303531829268
+          },
+          "variant": "jpeg_quality_70"
+        }
+      ]
+    },
+    {
+      "base_confidence": {
+        "fovea": 0.0023564009461551905,
+        "optic_disc": 0.012071001343429089
+      },
+      "image_id": "IDRiD_011",
+      "perturbations": [
+        {
+          "confidence": {
+            "fovea": 0.0018783058039844036,
+            "optic_disc": 0.003797137178480625
+          },
+          "normalized_displacement": {
+            "fovea": 0.012176977470517159,
+            "optic_disc": 0.02041693590581417
+          },
+          "variant": "brightness_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.002938301768153906,
+            "optic_disc": 0.018235336989164352
+          },
+          "normalized_displacement": {
+            "fovea": 0.005109323188662529,
+            "optic_disc": 0.01589387096464634
+          },
+          "variant": "brightness_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0020110588520765305,
+            "optic_disc": 0.004225926473736763
+          },
+          "normalized_displacement": {
+            "fovea": 0.009248031303286552,
+            "optic_disc": 0.020682618021965027
+          },
+          "variant": "contrast_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0027844805736094713,
+            "optic_disc": 0.018358688801527023
+          },
+          "normalized_displacement": {
+            "fovea": 0.005392348859459162,
+            "optic_disc": 0.013690842315554619
+          },
+          "variant": "contrast_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0023589711636304855,
+            "optic_disc": 0.01207634899765253
+          },
+          "normalized_displacement": {
+            "fovea": 2.978685915877577e-05,
+            "optic_disc": 3.2925468985922635e-05
+          },
+          "variant": "mild_blur"
+        },
+        {
+          "confidence": {
+            "fovea": 0.002364812418818474,
+            "optic_disc": 0.011777310632169247
+          },
+          "normalized_displacement": {
+            "fovea": 0.0003052645770367235,
+            "optic_disc": 0.0006336852093227208
+          },
+          "variant": "mild_noise"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0023326613008975983,
+            "optic_disc": 0.011977036483585835
+          },
+          "normalized_displacement": {
+            "fovea": 0.004128475673496723,
+            "optic_disc": 0.0039162421599030495
+          },
+          "variant": "small_rotation"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0023632056545466185,
+            "optic_disc": 0.0119532011449337
+          },
+          "normalized_displacement": {
+            "fovea": 0.00023233151296153665,
+            "optic_disc": 0.0003173144068568945
+          },
+          "variant": "jpeg_quality_70"
+        }
+      ]
+    },
+    {
+      "base_confidence": {
+        "fovea": 0.00873940996825695,
+        "optic_disc": 0.6885432004928589
+      },
+      "image_id": "IDRiD_012",
+      "perturbations": [
+        {
+          "confidence": {
+            "fovea": 0.003920390270650387,
+            "optic_disc": 0.6046972870826721
+          },
+          "normalized_displacement": {
+            "fovea": 0.006931961979717016,
+            "optic_disc": 0.0008134074159897864
+          },
+          "variant": "brightness_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.022092800587415695,
+            "optic_disc": 0.7371794581413269
+          },
+          "normalized_displacement": {
+            "fovea": 0.030720068141818047,
+            "optic_disc": 0.0003299054515082389
+          },
+          "variant": "brightness_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.008619009517133236,
+            "optic_disc": 0.6517322063446045
+          },
+          "normalized_displacement": {
+            "fovea": 0.001593833789229393,
+            "optic_disc": 0.00020975826191715896
+          },
+          "variant": "contrast_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.01222481019794941,
+            "optic_disc": 0.7197297215461731
+          },
+          "normalized_displacement": {
+            "fovea": 0.00689625833183527,
+            "optic_disc": 0.0002646320208441466
+          },
+          "variant": "contrast_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.008726578205823898,
+            "optic_disc": 0.6884151697158813
+          },
+          "normalized_displacement": {
+            "fovea": 6.669622962363064e-05,
+            "optic_disc": 3.054443368455395e-05
+          },
+          "variant": "mild_blur"
+        },
+        {
+          "confidence": {
+            "fovea": 0.008451602421700954,
+            "optic_disc": 0.6877227425575256
+          },
+          "normalized_displacement": {
+            "fovea": 0.0004180814721621573,
+            "optic_disc": 8.438717486569658e-05
+          },
+          "variant": "mild_noise"
+        },
+        {
+          "confidence": {
+            "fovea": 0.009442423470318317,
+            "optic_disc": 0.6809385418891907
+          },
+          "normalized_displacement": {
+            "fovea": 0.004333204124122858,
+            "optic_disc": 0.006853914819657803
+          },
+          "variant": "small_rotation"
+        },
+        {
+          "confidence": {
+            "fovea": 0.008705024607479572,
+            "optic_disc": 0.6857976913452148
+          },
+          "normalized_displacement": {
+            "fovea": 0.0005348899285309017,
+            "optic_disc": 9.426546603208408e-05
+          },
+          "variant": "jpeg_quality_70"
+        }
+      ]
+    },
+    {
+      "base_confidence": {
+        "fovea": 0.013254877179861069,
+        "optic_disc": 0.7127877473831177
+      },
+      "image_id": "IDRiD_013",
+      "perturbations": [
+        {
+          "confidence": {
+            "fovea": 0.006020154803991318,
+            "optic_disc": 0.6643552780151367
+          },
+          "normalized_displacement": {
+            "fovea": 0.010627455078065395,
+            "optic_disc": 0.0014011363964527845
+          },
+          "variant": "brightness_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.03474707528948784,
+            "optic_disc": 0.7387229800224304
+          },
+          "normalized_displacement": {
+            "fovea": 0.02617793343961239,
+            "optic_disc": 0.0012636141618713737
+          },
+          "variant": "brightness_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.011581111699342728,
+            "optic_disc": 0.6902211904525757
+          },
+          "normalized_displacement": {
+            "fovea": 0.0027683814987540245,
+            "optic_disc": 0.0013028987450525165
+          },
+          "variant": "contrast_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.02021130919456482,
+            "optic_disc": 0.7348821759223938
+          },
+          "normalized_displacement": {
+            "fovea": 0.01435170415788889,
+            "optic_disc": 0.0009391813073307276
+          },
+          "variant": "contrast_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.013253063894808292,
+            "optic_disc": 0.7127759456634521
+          },
+          "normalized_displacement": {
+            "fovea": 4.730163709609769e-05,
+            "optic_disc": 6.195641162776155e-06
+          },
+          "variant": "mild_blur"
+        },
+        {
+          "confidence": {
+            "fovea": 0.013127867132425308,
+            "optic_disc": 0.7152963280677795
+          },
+          "normalized_displacement": {
+            "fovea": 0.0005777159240096807,
+            "optic_disc": 8.166487532434985e-05
+          },
+          "variant": "mild_noise"
+        },
+        {
+          "confidence": {
+            "fovea": 0.012485926039516926,
+            "optic_disc": 0.7319394946098328
+          },
+          "normalized_displacement": {
+            "fovea": 0.0034990261774510145,
+            "optic_disc": 0.004189022816717625
+          },
+          "variant": "small_rotation"
+        },
+        {
+          "confidence": {
+            "fovea": 0.013725866563618183,
+            "optic_disc": 0.7106672525405884
+          },
+          "normalized_displacement": {
+            "fovea": 0.00021019233099650592,
+            "optic_disc": 7.611801993334666e-05
+          },
+          "variant": "jpeg_quality_70"
+        }
+      ]
+    },
+    {
+      "base_confidence": {
+        "fovea": 0.0022631254978477955,
+        "optic_disc": 0.006010114215314388
+      },
+      "image_id": "IDRiD_014",
+      "perturbations": [
+        {
+          "confidence": {
+            "fovea": 0.0024240759667009115,
+            "optic_disc": 0.002706714905798435
+          },
+          "normalized_displacement": {
+            "fovea": 0.003902897471562028,
+            "optic_disc": 0.011338910087943077
+          },
+          "variant": "brightness_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0025324481539428234,
+            "optic_disc": 0.011211466044187546
+          },
+          "normalized_displacement": {
+            "fovea": 0.0032032111193984747,
+            "optic_disc": 0.012244024313986301
+          },
+          "variant": "brightness_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0024332660250365734,
+            "optic_disc": 0.0025813402608036995
+          },
+          "normalized_displacement": {
+            "fovea": 0.0024570035748183727,
+            "optic_disc": 0.014092153869569302
+          },
+          "variant": "contrast_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0025427688378840685,
+            "optic_disc": 0.011363055557012558
+          },
+          "normalized_displacement": {
+            "fovea": 0.0011722346534952521,
+            "optic_disc": 0.014231891371309757
+          },
+          "variant": "contrast_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.002254836494103074,
+            "optic_disc": 0.006029335781931877
+          },
+          "normalized_displacement": {
+            "fovea": 5.231754403212108e-05,
+            "optic_disc": 9.078480798052624e-05
+          },
+          "variant": "mild_blur"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0022138517815619707,
+            "optic_disc": 0.005870253313332796
+          },
+          "normalized_displacement": {
+            "fovea": 0.0004017512546852231,
+            "optic_disc": 0.0005033371271565557
+          },
+          "variant": "mild_noise"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0023158863186836243,
+            "optic_disc": 0.006377385463565588
+          },
+          "normalized_displacement": {
+            "fovea": 0.0005084799486212432,
+            "optic_disc": 0.0006022737943567336
+          },
+          "variant": "small_rotation"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0022144156973809004,
+            "optic_disc": 0.005833583418279886
+          },
+          "normalized_displacement": {
+            "fovea": 0.00131081766448915,
+            "optic_disc": 0.001288893516175449
+          },
+          "variant": "jpeg_quality_70"
+        }
+      ]
+    },
+    {
+      "base_confidence": {
+        "fovea": 0.0029217354021966457,
+        "optic_disc": 0.012002138420939445
+      },
+      "image_id": "IDRiD_015",
+      "perturbations": [
+        {
+          "confidence": {
+            "fovea": 0.002689070301130414,
+            "optic_disc": 0.004099050536751747
+          },
+          "normalized_displacement": {
+            "fovea": 0.005961429327726364,
+            "optic_disc": 0.03922206908464432
+          },
+          "variant": "brightness_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0032530343160033226,
+            "optic_disc": 0.02561049349606037
+          },
+          "normalized_displacement": {
+            "fovea": 0.004759683273732662,
+            "optic_disc": 0.034026309847831726
+          },
+          "variant": "brightness_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0030200821347534657,
+            "optic_disc": 0.004918435122817755
+          },
+          "normalized_displacement": {
+            "fovea": 0.015688404440879822,
+            "optic_disc": 0.039060328155756
+          },
+          "variant": "contrast_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0032920418307185173,
+            "optic_disc": 0.022910049185156822
+          },
+          "normalized_displacement": {
+            "fovea": 0.010233080945909023,
+            "optic_disc": 0.0323358029127121
+          },
+          "variant": "contrast_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0029187758918851614,
+            "optic_disc": 0.012007812969386578
+          },
+          "normalized_displacement": {
+            "fovea": 6.358987593557686e-05,
+            "optic_disc": 4.872589488513768e-05
+          },
+          "variant": "mild_blur"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0029248620849102736,
+            "optic_disc": 0.011825707741081715
+          },
+          "normalized_displacement": {
+            "fovea": 0.00041509748552925885,
+            "optic_disc": 0.0007914272719062865
+          },
+          "variant": "mild_noise"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0029271331150084734,
+            "optic_disc": 0.01268836110830307
+          },
+          "normalized_displacement": {
+            "fovea": 0.0008032451733015478,
+            "optic_disc": 0.0019150128355249763
+          },
+          "variant": "small_rotation"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0028755278326570988,
+            "optic_disc": 0.01188025251030922
+          },
+          "normalized_displacement": {
+            "fovea": 0.00013911109999753535,
+            "optic_disc": 0.00029358832398429513
+          },
+          "variant": "jpeg_quality_70"
+        }
+      ]
+    },
+    {
+      "base_confidence": {
+        "fovea": 0.002294445876032114,
+        "optic_disc": 0.016545705497264862
+      },
+      "image_id": "IDRiD_016",
+      "perturbations": [
+        {
+          "confidence": {
+            "fovea": 0.0015164271462708712,
+            "optic_disc": 0.005557486321777105
+          },
+          "normalized_displacement": {
+            "fovea": 0.004168922547250986,
+            "optic_disc": 0.03768129274249077
+          },
+          "variant": "brightness_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.003875162685289979,
+            "optic_disc": 0.02062295377254486
+          },
+          "normalized_displacement": {
+            "fovea": 0.0073412577621638775,
+            "optic_disc": 0.0150996008887887
+          },
+          "variant": "brightness_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0017837629420682788,
+            "optic_disc": 0.006137182004749775
+          },
+          "normalized_displacement": {
+            "fovea": 0.0068223909474909306,
+            "optic_disc": 0.03767170384526253
+          },
+          "variant": "contrast_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0029452659655362368,
+            "optic_disc": 0.020172957330942154
+          },
+          "normalized_displacement": {
+            "fovea": 0.003534607822075486,
+            "optic_disc": 0.01186254434287548
+          },
+          "variant": "contrast_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0022952817380428314,
+            "optic_disc": 0.016542954370379448
+          },
+          "normalized_displacement": {
+            "fovea": 4.064331733388826e-05,
+            "optic_disc": 3.884921170538291e-05
+          },
+          "variant": "mild_blur"
+        },
+        {
+          "confidence": {
+            "fovea": 0.002240592846646905,
+            "optic_disc": 0.015891777351498604
+          },
+          "normalized_displacement": {
+            "fovea": 0.000497182656545192,
+            "optic_disc": 0.0021842122077941895
+          },
+          "variant": "mild_noise"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0025365587789565325,
+            "optic_disc": 0.017418893054127693
+          },
+          "normalized_displacement": {
+            "fovea": 0.0025945582892745733,
+            "optic_disc": 0.0022844679187983274
+          },
+          "variant": "small_rotation"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0022615198977291584,
+            "optic_disc": 0.016327835619449615
+          },
+          "normalized_displacement": {
+            "fovea": 0.00026942597469314933,
+            "optic_disc": 0.0009488186333328485
+          },
+          "variant": "jpeg_quality_70"
+        }
+      ]
+    },
+    {
+      "base_confidence": {
+        "fovea": 0.0017703297780826688,
+        "optic_disc": 0.022278044372797012
+      },
+      "image_id": "IDRiD_017",
+      "perturbations": [
+        {
+          "confidence": {
+            "fovea": 0.0026721309404820204,
+            "optic_disc": 0.008333288133144379
+          },
+          "normalized_displacement": {
+            "fovea": 0.008559961803257465,
+            "optic_disc": 0.02407672628760338
+          },
+          "variant": "brightness_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.003116447478532791,
+            "optic_disc": 0.029517751187086105
+          },
+          "normalized_displacement": {
+            "fovea": 0.011889738030731678,
+            "optic_disc": 0.008646557107567787
+          },
+          "variant": "brightness_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0025778377894312143,
+            "optic_disc": 0.009217864833772182
+          },
+          "normalized_displacement": {
+            "fovea": 0.016371797770261765,
+            "optic_disc": 0.02822297066450119
+          },
+          "variant": "contrast_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0022308542393147945,
+            "optic_disc": 0.028364967554807663
+          },
+          "normalized_displacement": {
+            "fovea": 0.006152619142085314,
+            "optic_disc": 0.008114641532301903
+          },
+          "variant": "contrast_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.001770702307112515,
+            "optic_disc": 0.022247543558478355
+          },
+          "normalized_displacement": {
+            "fovea": 4.202032869216055e-05,
+            "optic_disc": 1.4989159353717696e-05
+          },
+          "variant": "mild_blur"
+        },
+        {
+          "confidence": {
+            "fovea": 0.001768160262145102,
+            "optic_disc": 0.021474480628967285
+          },
+          "normalized_displacement": {
+            "fovea": 0.0004572215548250824,
+            "optic_disc": 0.0011570854112505913
+          },
+          "variant": "mild_noise"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0022126936819404364,
+            "optic_disc": 0.023439165204763412
+          },
+          "normalized_displacement": {
+            "fovea": 0.00261126016266644,
+            "optic_disc": 0.0012162983184680343
+          },
+          "variant": "small_rotation"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0017570287454873323,
+            "optic_disc": 0.02192099392414093
+          },
+          "normalized_displacement": {
+            "fovea": 0.0007901465287432075,
+            "optic_disc": 0.0008645883062854409
+          },
+          "variant": "jpeg_quality_70"
+        }
+      ]
+    },
+    {
+      "base_confidence": {
+        "fovea": 0.0018629534170031548,
+        "optic_disc": 0.002717777155339718
+      },
+      "image_id": "IDRiD_018",
+      "perturbations": [
+        {
+          "confidence": {
+            "fovea": 0.0014345943927764893,
+            "optic_disc": 0.0015823703724890947
+          },
+          "normalized_displacement": {
+            "fovea": 0.011816170997917652,
+            "optic_disc": 0.003789809998124838
+          },
+          "variant": "brightness_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0016088224947452545,
+            "optic_disc": 0.004301677457988262
+          },
+          "normalized_displacement": {
+            "fovea": 0.007167847827076912,
+            "optic_disc": 0.011195396073162556
+          },
+          "variant": "brightness_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.001751851406879723,
+            "optic_disc": 0.0015518555883318186
+          },
+          "normalized_displacement": {
+            "fovea": 0.0038361665792763233,
+            "optic_disc": 0.006730543449521065
+          },
+          "variant": "contrast_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0017419192008674145,
+            "optic_disc": 0.003975793719291687
+          },
+          "normalized_displacement": {
+            "fovea": 0.005857836455106735,
+            "optic_disc": 0.010065523907542229
+          },
+          "variant": "contrast_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0018618052126839757,
+            "optic_disc": 0.002719072625041008
+          },
+          "normalized_displacement": {
+            "fovea": 4.067346890224144e-05,
+            "optic_disc": 2.6376004825579002e-05
+          },
+          "variant": "mild_blur"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0018617822788655758,
+            "optic_disc": 0.002600135048851371
+          },
+          "normalized_displacement": {
+            "fovea": 0.00030546047491952777,
+            "optic_disc": 0.0003751872282009572
+          },
+          "variant": "mild_noise"
+        },
+        {
+          "confidence": {
+            "fovea": 0.001899006892926991,
+            "optic_disc": 0.0027560556773096323
+          },
+          "normalized_displacement": {
+            "fovea": 0.0019660727120935917,
+            "optic_disc": 0.0009864928433671594
+          },
+          "variant": "small_rotation"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0018390555633231997,
+            "optic_disc": 0.002662134589627385
+          },
+          "normalized_displacement": {
+            "fovea": 0.0010428314562886953,
+            "optic_disc": 0.0008933083736337721
+          },
+          "variant": "jpeg_quality_70"
+        }
+      ]
+    },
+    {
+      "base_confidence": {
+        "fovea": 0.0017234018305316567,
+        "optic_disc": 0.0014896565116941929
+      },
+      "image_id": "IDRiD_019",
+      "perturbations": [
+        {
+          "confidence": {
+            "fovea": 0.0017713508568704128,
+            "optic_disc": 0.0014217770658433437
+          },
+          "normalized_displacement": {
+            "fovea": 0.008589820004999638,
+            "optic_disc": 0.005770748946815729
+          },
+          "variant": "brightness_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0023064538836479187,
+            "optic_disc": 0.0021012185607105494
+          },
+          "normalized_displacement": {
+            "fovea": 0.011838322505354881,
+            "optic_disc": 0.009378860704600811
+          },
+          "variant": "brightness_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0019282925641164184,
+            "optic_disc": 0.0013693434884771705
+          },
+          "normalized_displacement": {
+            "fovea": 0.008080195635557175,
+            "optic_disc": 0.004188853316009045
+          },
+          "variant": "contrast_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0020951395854353905,
+            "optic_disc": 0.0019279042026028037
+          },
+          "normalized_displacement": {
+            "fovea": 0.0067360857501626015,
+            "optic_disc": 0.005272997543215752
+          },
+          "variant": "contrast_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.001723357941955328,
+            "optic_disc": 0.0014918070519343019
+          },
+          "normalized_displacement": {
+            "fovea": 3.290724998805672e-05,
+            "optic_disc": 2.6237912607030012e-05
+          },
+          "variant": "mild_blur"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0017019807128235698,
+            "optic_disc": 0.0014205850893631577
+          },
+          "normalized_displacement": {
+            "fovea": 0.001018978189677,
+            "optic_disc": 0.001108490047045052
+          },
+          "variant": "mild_noise"
+        },
+        {
+          "confidence": {
+            "fovea": 0.001792461727745831,
+            "optic_disc": 0.0014312899438664317
+          },
+          "normalized_displacement": {
+            "fovea": 0.0010608664015308022,
+            "optic_disc": 0.0024518303107470274
+          },
+          "variant": "small_rotation"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0016690748743712902,
+            "optic_disc": 0.0014345847303047776
+          },
+          "normalized_displacement": {
+            "fovea": 0.0007048631669022143,
+            "optic_disc": 0.0005372253363020718
+          },
+          "variant": "jpeg_quality_70"
+        }
+      ]
+    },
+    {
+      "base_confidence": {
+        "fovea": 0.002716976450756192,
+        "optic_disc": 0.6243578791618347
+      },
+      "image_id": "IDRiD_020",
+      "perturbations": [
+        {
+          "confidence": {
+            "fovea": 0.001910277409479022,
+            "optic_disc": 0.5017646551132202
+          },
+          "normalized_displacement": {
+            "fovea": 0.010000215843319893,
+            "optic_disc": 0.004052645061165094
+          },
+          "variant": "brightness_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.004283140413463116,
+            "optic_disc": 0.7083505392074585
+          },
+          "normalized_displacement": {
+            "fovea": 0.010866797529160976,
+            "optic_disc": 0.001310835825279355
+          },
+          "variant": "brightness_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.002911032410338521,
+            "optic_disc": 0.5635918974876404
+          },
+          "normalized_displacement": {
+            "fovea": 0.02163046784698963,
+            "optic_disc": 0.0017599964048713446
+          },
+          "variant": "contrast_minus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0030207731761038303,
+            "optic_disc": 0.6825427412986755
+          },
+          "normalized_displacement": {
+            "fovea": 0.01351863332092762,
+            "optic_disc": 0.0005227478104643524
+          },
+          "variant": "contrast_plus_10pct"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0027100485749542713,
+            "optic_disc": 0.6242552995681763
+          },
+          "normalized_displacement": {
+            "fovea": 0.00010002535418607295,
+            "optic_disc": 1.4627848031523172e-05
+          },
+          "variant": "mild_blur"
+        },
+        {
+          "confidence": {
+            "fovea": 0.002690352266654372,
+            "optic_disc": 0.6235658526420593
+          },
+          "normalized_displacement": {
+            "fovea": 0.0007409764220938087,
+            "optic_disc": 4.2475421651033685e-05
+          },
+          "variant": "mild_noise"
+        },
+        {
+          "confidence": {
+            "fovea": 0.0028254163917154074,
+            "optic_disc": 0.6266984343528748
+          },
+          "normalized_displacement": {
+            "fovea": 0.0020723375491797924,
+            "optic_disc": 0.006938437931239605
+          },
+          "variant": "small_rotation"
+        },
+        {
+          "confidence": {
+            "fovea": 0.002725705737248063,
+            "optic_disc": 0.6267178058624268
+          },
+          "normalized_displacement": {
+            "fovea": 0.0004322445020079613,
+            "optic_disc": 0.00023079967650119215
+          },
+          "variant": "jpeg_quality_70"
+        }
+      ]
+    }
+  ],
+  "schema_version": "idrid-localization-robustness-1",
+  "variants_per_image": 8
+}

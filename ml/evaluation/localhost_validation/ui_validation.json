@@ -1,0 +1,22 @@
+{
+  "frontend_http_status": 200,
+  "asset_statuses": [
+    {
+      "path": "/@vite/client",
+      "status": 200,
+      "bytes": 182631
+    },
+    {
+      "path": "/src/main.tsx",
+      "status": 200,
+      "bytes": 2473
+    }
+  ],
+  "api_client_contract_verified": {
+    "upload_field": "image",
+    "multipart_boundary_not_manually_set": true,
+    "run_endpoint": "/api/v1/screening/run"
+  },
+  "browser_automation_available": false,
+  "manual_ui_follow_up": "Open http://localhost:5173/screening/new and repeat the gradable upload if interactive browser evidence is required."
+}

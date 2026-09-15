@@ -1,0 +1,23 @@
+{
+  "controls": {
+    "content_type_allowlist": true,
+    "credentials_in_repository": false,
+    "dimension_and_pixel_limits": true,
+    "extension_allowlist": true,
+    "filename_basename_sanitization": true,
+    "internal_paths_hidden_from_readiness_api": true,
+    "opencv_decode_verification": true,
+    "pillow_integrity_verification": true,
+    "request_id_logging": true,
+    "safe_error_messages": true,
+    "storage_path_traversal_boundary": true
+  },
+  "generated_at_utc": "2026-09-14T16:08:17.235321+00:00",
+  "limitations": [
+    "Most prototype patient/image/screening/report read endpoints do not yet require a bearer token; this is not production PHI access control.",
+    "CORS and JWT primitives exist, but route-level authorization/role enforcement needs a later deployment hardening pass."
+  ],
+  "schema_version": "pre-simulink-security-audit-v1",
+  "severity": "MEDIUM",
+  "status": "PARTIAL_BASELINE_PASS"
+}
